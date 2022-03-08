@@ -6,7 +6,8 @@ const releaseMessage = () => {
   return 'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
 }
 
-const isPublishingToArtifactRegistry = () => true
+// const isPublishingToArtifactRegistry = () => true
+const isPublishingToArtifactRegistry = () => false
 
 module.exports = {
   isPublishingToArtifactRegistry,

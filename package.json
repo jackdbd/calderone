@@ -35,7 +35,10 @@
     "release": "multi-semantic-release",
     "release:dry": "multi-semantic-release --dry-run --debug",
     "size": "npm run size --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present"
+    "test": "npm run test --workspaces --if-present",
+    "test:ci": "npm run test:ci --workspaces --if-present",
+    "upload-coverage": "./scripts/upload-coverage",
+    "webserver": "npx http-server --port 8080"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
@@ -54,6 +57,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "fs-extra": "^10.0.1",
+    "http-server": "^14.1.0",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "jest-circus": "^27.5.1",

@@ -40,13 +40,15 @@ if (isPublishingToArtifactRegistry()) {
   config = {
     ...base_config,
     ci: false,
-    plugins: [...base_config.plugins, npm]
+    // plugins: [...base_config.plugins, npm]
+    plugins: [...base_config.plugins]
   }
 } else {
   config = {
     ...base_config,
     ci: true,
-    plugins: [...base_config.plugins, npm, github, git]
+    // plugins: [...base_config.plugins, npm, github, git]
+    plugins: [...base_config.plugins, github, git]
   }
 }
 
