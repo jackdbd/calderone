@@ -8,15 +8,6 @@
 
 const commitlint_config_path = '../../config/commitlint.cjs'
 
-// https://github.com/semantic-release/changelog
-const changelog = [
-  '@semantic-release/changelog',
-  {
-    changelogFile: 'CHANGELOG.md',
-    changelogTitle: '# CHANGELOG'
-  }
-]
-
 // https://github.com/semantic-release/commit-analyzer
 // I prefer to keep the configuration for the commit linter in
 // config/commitlint.cjs, so I can run npm run lint even when I am not releasing
@@ -42,12 +33,15 @@ const release_notes_generator = [
 
 const config = {
   // https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches
-  branches: ['main', 'release'],
+  branches: [
+    { name: 'main' },
+    { name: 'develop', channel: 'alpha', prerelease: true },
+    { name: 'beta', channel: 'beta', prerelease: true }
+  ],
   ci: true,
-  // ci: false,
   // The git plugin must be called AFTER the npm plugin. See here:
   // https://github.com/semantic-release/git#examples
-  plugins: [commit_analyzer, release_notes_generator, changelog]
+  plugins: [commit_analyzer, release_notes_generator]
 }
 
 module.exports = config

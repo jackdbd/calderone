@@ -63,21 +63,21 @@ const main = async () => {
     package_json
   )
 
-  if (argv['dry-run']) {
-    console.log(`did not publish because --dry-run was passed`)
-  } else {
-    const stdout = execSync(`npm publish ./${publish_dir}`).toString().trim()
-    console.log(`📦 package ${publish_path} published to Artifact Registry`)
-    console.log(stdout)
-  }
+  // if (argv['dry-run']) {
+  //   console.log(`did not publish because --dry-run was passed`)
+  // } else {
+  //   const stdout = execSync(`npm publish ./${publish_dir}`).toString().trim()
+  //   console.log(`📦 package ${publish_path} published to Artifact Registry`)
+  //   console.log(stdout)
+  // }
 
-  if (!argv['keep-build-dir']) {
-    await rm(build_path, { recursive: true, force: true })
-  }
+  // if (!argv['keep-build-dir']) {
+  //   await rm(build_path, { recursive: true, force: true })
+  // }
 
-  if (!argv['keep-publish-dir']) {
-    await rm(publish_path, { recursive: true, force: true })
-  }
+  // if (!argv['keep-publish-dir']) {
+  //   await rm(publish_path, { recursive: true, force: true })
+  // }
 }
 
 main()

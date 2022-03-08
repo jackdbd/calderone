@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
+set -euo pipefail
+
+delete_git_tags_and_github_releases () {
+  git fetch
+
+  # https://unix.stackexchange.com/questions/91596/make-xargs-pass-as-first-parameter
+  echo "Delete ALL remote git tags"
+  git tag | xargs -I{} git push origin :refs/tags/{} --no-verify
+
+  echo "Delete ALL local git tags"
+  git tag | xargs git tag -d
+
+  echo "Delete ALL GitHub releases"
+  gh release list | awk '{print $1;}' | xargs -I{} gh release delete {}
+}
+
+# https://stackoverflow.com/questions/1885525/how-do-i-prompt-a-user-for-confirmation-in-bash-script
+read -p "This operation will delete ALL local git tags, ALL remote git tags and ALL GitHub Releases. Are you sure? [yY]" -n 1 -r
+echo  # (optional) move to a new line
+if [[ $REPLY =~ ^[yY]$ ]]
+then
+  delete_git_tags_and_github_releases
+else
+  echo "Abort operation. Nothing deleted."
+fi

@@ -28,6 +28,7 @@
     "build:libs:watch": "tsc --build --watch",
     "build:scripts": "true",
     "clean": "npm run clean --workspaces --if-present",
+    "delete-tags": "./scripts/delete-tags",
     "format": "npm run format --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "nuke": "npm run clean && rm -rf node_modules package-lock.json",
