@@ -1,0 +1,13 @@
+{
+  "extends": "./config/tsconfig.base.json",
+  "files": [],
+  // IMPORTANT: do NOT change the order
+  "references": [
+    {
+      "path": "./packages/schemas/tsconfig.json"
+    },
+    {
+      "path": "./packages/checks/tsconfig.json"
+    }
+  ]
+}

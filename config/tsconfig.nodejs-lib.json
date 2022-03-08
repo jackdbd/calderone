@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    // this monorepo uses Typescript project references to build all of its
+    // libraries, so "composite" must be set to true.
+    // https://www.typescriptlang.org/docs/handbook/project-references.html#composite
+    "composite": true,
+
+    // The libraries of this monorepo target Node.js
+    // You may “mix and match” target and lib settings as desired, but you could
+    // just set target for convenience.
+    // https://www.typescriptlang.org/tsconfig#target
+    // https://node.green/
+    "target": "es2015"
+  }
+}

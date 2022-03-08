@@ -1,0 +1,27 @@
+# dependencies
+**/node_modules/
+
+# environment variables
+**/.envrc
+
+# secrets
+secrets/*
+!secrets/README.md
+
+# test coverage
+**/coverage/
+
+# Typescript compilation output files for libraries and applications
+**/lib/
+**/dist/
+**/tsconfig.tsbuildinfo
+
+# patterns to ignore when searching text with ag
+# https://github.com/ggreer/the_silver_searcher
+.ignore
+
+# configuration for the npm registry on Artifact Registry
+**/.npmrc
+
+# directories I publish to a npm registry (Artifact Registry, npm.js)
+**/to-publish/

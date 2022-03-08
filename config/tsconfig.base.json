@@ -1,0 +1,119 @@
+{
+  "compilerOptions": {
+    // https://www.typescriptlang.org/tsconfig#baseUrl
+    "baseUrl": ".",
+
+    // In most cases I we want to generate .d.ts files.
+    // https://www.typescriptlang.org/tsconfig#declaration
+    "declaration": true,
+
+    // Source maps for .d.ts files are awesome because they allow a "Go to
+    // Definition" to go the original .ts file, not the .d.ts (which is much
+    // less useful). I don't think I need them when developing on this monorepo
+    // since I defined path mappings in the root tsconfig.json, but I think it's
+    // better to generate them anyway.
+    // https://www.typescriptlang.org/tsconfig#declarationMap
+    "declarationMap": true,
+
+    // All new TypeScript projects should use "esModuleInterop": true.
+    // https://esbuild.github.io/content-types/#es-module-interop
+    // https://www.typescriptlang.org/tsconfig#esModuleInterop
+    "esModuleInterop": true,
+
+    // https://www.typescriptlang.org/tsconfig#forceConsistentCasingInFileNames
+    "forceConsistentCasingInFileNames": true,
+
+    // Setting "importHelpers" to true would mean that a consumer of a library
+    // of this monorepo would need to declare tslib as a dependency. Don't do it!
+    // https://www.typescriptlang.org/tsconfig#importHelpers
+    "importHelpers": false,
+
+    // I wonder why this is not the default.
+    // https://www.typescriptlang.org/tsconfig#importsNotUsedAsValues
+    "importsNotUsedAsValues": "error",
+
+    // This is not important for this project, but it speeds up compilation
+    // times, so I want to remember it for larger projects.
+    // https://www.typescriptlang.org/tsconfig#incremental
+    "incremental": true,
+
+    // This project uses esbuild to bundle its applications. esbuild compiles
+    // the files independently, so we must set "isolatedModules": true.
+    // https://esbuild.github.io/content-types/#isolated-modules
+    // https://www.typescriptlang.org/tsconfig#isolatedModules
+    "isolatedModules": true,
+
+    // Leave "lib" empty here, and define it in the tsconfig of each package, so
+    // it's more explicit.
+    // https://www.typescriptlang.org/tsconfig#lib
+    "lib": [],
+
+    // All of the libraries of this monorepo are compiled for ESM only (no CJS).
+    // https://www.typescriptlang.org/tsconfig#module
+    // https://www.typescriptlang.org/docs/handbook/module-resolution.html
+    "module": "es2020",
+
+    // TypeScript 4.5 (released on 16th November, 2021) can use "nodenext" to
+    // support ECMAScript Modules (ESM).
+    // https://devblogs.microsoft.com/typescript/announcing-typescript-4-5-beta/
+    // https://www.typescriptlang.org/tsconfig#moduleResolution
+    // https://www.typescriptlang.org/docs/handbook/module-resolution.html
+    "moduleResolution": "node",
+    // "moduleResolution": "nodenext",
+
+    // https://www.typescriptlang.org/tsconfig#noImplicitAny
+    "noImplicitAny": true,
+
+    // https://www.typescriptlang.org/tsconfig#noUnusedLocals
+    "noUnusedLocals": true,
+
+    // https://www.typescriptlang.org/tsconfig#noUnusedParameters
+    "noUnusedParameters": true,
+
+    // paths are resolved relative to baseUrl
+    // https://www.typescriptlang.org/tsconfig/#paths
+    "paths": {},
+
+    // As far as I understand, preserveConstEnums has no effect for non-const
+    // enums and should not affect the bundle size, but it must be set to true
+    // when isolatedModules is set to true.
+    // https://stackoverflow.com/questions/28818849/how-do-the-different-enum-variants-work-in-typescript
+    // https://www.typescriptlang.org/tsconfig#preserveConstEnums
+    // https://ncjamieson.com/dont-export-const-enums/
+    "preserveConstEnums": true,
+
+    "removeComments": false,
+
+    // it would be safer to set skipLibCheck to false, but it's kind of slow.
+    // Maybe enable it from time to time to type check dependencies.
+    // https://www.typescriptlang.org/tsconfig#skipLibCheck
+    "skipLibCheck": true,
+
+    // In most cases I want to generate source maps.
+    // https://m.signalvnoise.com/paying-tribute-to-the-web-with-view-source/
+    "sourceMap": true,
+
+    // strict mode sets many strict compiler options to true in one go.
+    // https://www.typescriptlang.org/tsconfig#strict
+    "strict": true,
+
+    // https://www.typescriptlang.org/tsconfig#strictNullChecks
+    "strictNullChecks": true,
+
+    // https://www.typescriptlang.org/tsconfig#target
+    "target": "es2020",
+
+    // https://www.typescriptlang.org/tsconfig#typeRoots
+    "typeRoots": ["../node_modules/@types", "../custom-types"]
+  },
+
+  "exclude": [
+    // monorepo root node_modules. Those dependencies that are hoisted by npm
+    // workspaces end up here.
+    "../node_modules",
+    // node_modules of each package. Those dependencies that npm cannot hoist
+    // end up here. This happens because different packages require a different
+    // version of the same dependency.
+    "../packages/*/node_modules"
+  ]
+}

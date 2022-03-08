@@ -1,0 +1,24 @@
+{
+  "editor.formatOnSave": false,
+  "files.exclude": {
+    "**/node_modules/": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.suggestOnTriggerCharacters": false
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  // https://github.com/prettier/prettier-vscode#prettierconfigpath
+  "prettier.configPath": "config/prettier.cjs",
+  "prettier.requireConfig": true
+}
