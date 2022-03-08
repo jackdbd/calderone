@@ -28,6 +28,9 @@
       "path": "./packages/secret-manager-utils/tsconfig.json"
     },
     {
+      "path": "./packages/stripe-utils/tsconfig.json"
+    },
+    {
       "path": "./packages/firestore-utils/tsconfig.json"
     }
   ]

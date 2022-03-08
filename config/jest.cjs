@@ -74,6 +74,7 @@ const projects = [
   project('notifications'),
   project('schemas'),
   project('secret-manager-utils'),
+  project('stripe-utils'),
   project('telegram-text-messages'),
   project('utils')
 ]
