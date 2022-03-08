@@ -63,7 +63,12 @@ const project = (package_name) => {
 }
 
 // https://jestjs.io/docs/configuration#projects-arraystring--projectconfig
-const projects = [project('checks'), project('schemas'), project('utils')]
+const projects = [
+  project('checks'),
+  project('notifications'),
+  project('schemas'),
+  project('utils')
+]
 
 const config = {
   projects,
