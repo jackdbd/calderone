@@ -6,7 +6,7 @@
  * This config file is executed in EACH package root, not in the monorepo root.
  */
 
-const commitlint_config_path = '../../commitlint.cjs'
+const commitlint_config_path = '../../config/commitlint.cjs'
 
 // https://github.com/semantic-release/changelog
 const changelog = [

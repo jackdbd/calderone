@@ -1,6 +1,11 @@
 // https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional
 const config = {
   extends: ['@commitlint/config-conventional'],
+  ignores: [
+    (message) => {
+      return message.includes('initial commit')
+    }
+  ],
   //   https://github.com/conventional-changelog/commitlint/blob/master/docs/reference-rules.md
   rules: {
     // I configured semantic-release git plugin to create a release commit

@@ -3,9 +3,5 @@
 
 echo "PRE PUSH HOOK [destination remote: $1] [location remote: $2]"
 
-# get the total-1 commits (to exclude the first, initial commit)
-n=$(git rev-list --count HEAD)
-from=$(printf HEAD~$(expr $n - 1))
-
-echo "Run commitlint --from ${from} --to HEAD"
-npx commitlint --config ./config/commitlint.cjs --from ${from} --to HEAD --verbose
+echo "commitlint"
+npx commitlint --config ./config/commitlint.cjs --to HEAD --verbose
