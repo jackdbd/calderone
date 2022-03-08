@@ -1,11 +1,11 @@
 {
-  "name": "@jackdbd/schemas",
+  "name": "@jackdbd/utils",
   "version": "0.0.0-semantically-released",
-  "description": "JSON schemas with Ajv (JSON schema validator)",
+  "description": "Miscellaneous utility functions",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
   "keywords": [
-    "schema"
+    "utils"
   ],
   "engines": {
     "node": ">=12.x",
@@ -16,8 +16,11 @@
   "typings": "lib/index.d.ts",
   "exports": {
     ".": "./lib/index.js",
-    "./country-code": "./lib/country-code.js",
-    "./sendgrid-email": "./lib/sendgrid-email.js",
+    "./array": "./lib/array.js",
+    "./dates": "./lib/dates.js",
+    "./logger": "./lib/logger.js",
+    "./path": "./lib/path.js",
+    "./test": "./lib/test.js",
     "./package.json": "./package.json"
   },
   "typesVersions": {
@@ -35,18 +38,17 @@
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
     "prepublish:artifact-registry": "run-s clean build test refresh-npmrc-tokens",
-    "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name schemas",
+    "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name utils",
     "refresh-npmrc-tokens": "npx google-artifactregistry-auth --repo-config ../../.npmrc && cp ../../.npmrc .",
     "pretest": "run-s build",
     "size": "pkg-size ./lib --sort-by=brotli",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects schemas --config ../../config/jest.cjs --rootDir ../../",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects utils --config ../../config/jest.cjs --rootDir ../../",
     "test:ci": "npm run test -- --ci --coverage",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {},
   "peerDependencies": {
-    "ajv": ">=8.10.0",
-    "ajv-formats": ">=2.0.0"
+    "debug": ">=4.0.0"
   },
   "devDependencies": {}
 }
