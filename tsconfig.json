@@ -17,6 +17,9 @@
     },
     {
       "path": "./packages/cloud-scheduler-utils/tsconfig.json"
+    },
+    {
+      "path": "./packages/secret-manager-utils/tsconfig.json"
     }
   ]
 }

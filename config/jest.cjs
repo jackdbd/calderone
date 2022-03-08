@@ -68,6 +68,7 @@ const projects = [
   project('cloud-scheduler-utils'),
   project('notifications'),
   project('schemas'),
+  project('secret-manager-utils'),
   project('utils')
 ]
 

@@ -93,6 +93,9 @@ bindings:
   - serviceAccount:service-1051247446620@serverless-robot-prod.iam.gserviceaccount.com
   role: roles/run.serviceAgent
 - members:
+  - serviceAccount:sa-secret-manager-admin-test@prj-kitchen-sink.iam.gserviceaccount.com
+  role: roles/secretmanager.admin
+- members:
   - serviceAccount:sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
@@ -112,5 +115,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXZeOq_ULw=
+etag: BwXZuQDhkhs=
 version: 1
