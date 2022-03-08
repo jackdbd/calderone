@@ -14,6 +14,9 @@
     },
     {
       "path": "./packages/notifications/tsconfig.json"
+    },
+    {
+      "path": "./packages/cloud-scheduler-utils/tsconfig.json"
     }
   ]
 }

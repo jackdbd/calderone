@@ -1,6 +1,6 @@
 # @jackdbd/utils
 
-Functions to check inputs (i.e. predicates).
+Miscellaneous utility functions.
 
 ## Build
 

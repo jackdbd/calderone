@@ -1,19 +1,19 @@
-# @jackdbd/notifications
+# @jackdbd/cloud-scheduler-utils
 
-Functions used to send notifications to various channels (Telegram, email, etc).
+Utility functions to work with Cloud Sheduler.
 
 ## Build
 
 Build this library:
 
 ```sh
-npm run build -w packages/notifications
+npm run build -w packages/cloud-scheduler-utils
 ```
 
 ## Test
 
 ```sh
-npm run test -w packages/notifications
+npm run test -w packages/cloud-scheduler-utils
 ```
 
 ## Publish
@@ -21,7 +21,7 @@ npm run test -w packages/notifications
 ### Artifact Registry
 
 ```sh
-npm run publish:artifact-registry -w packages/notifications
+npm run publish:artifact-registry -w packages/cloud-scheduler-utils
 ```
 
 Check that the coreect version of this package is now published on Artifact Registry:
@@ -31,5 +31,5 @@ gcloud artifacts versions list \
   --project $GCP_PROJECT_ID \
   --repository $ARTIFACT_REGISTRY_NPM_REPOSITORY_ID \
   --location $ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION \
-  --package @jackdbd/notifications
+  --package @jackdbd/cloud-scheduler-utils
 ```

@@ -1,0 +1,17 @@
+# IAM policies
+
+## Set IAM policy for the GCP project
+
+Retrieve the current IAM policy for the GCP project:
+
+```sh
+gcloud projects get-iam-policy $GCP_PROJECT_ID
+```
+
+Set the IAM policy for the entire GCP project:
+
+```sh
+gcloud projects set-iam-policy $GCP_PROJECT_ID ./iam-policies/prj-kitchen-sink.yaml
+```
+
+*Note*: re-setting the policy is **not** an idempotent operation, because the Policy `etag` changes even if the policy itself didn't change.
