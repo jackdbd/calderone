@@ -19,6 +19,9 @@
       "path": "./packages/notifications/tsconfig.json"
     },
     {
+      "path": "./packages/sqlite-utils/tsconfig.json"
+    },
+    {
       "path": "./packages/cloud-scheduler-utils/tsconfig.json"
     },
     {

@@ -1,0 +1,54 @@
+{
+  "name": "@jackdbd/sqlite-utils",
+  "version": "0.0.0-semantically-released",
+  "description": "Utility functions to work with SQLite",
+  "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
+  "license": "MIT",
+  "keywords": [
+    "sqlite",
+    "utils"
+  ],
+  "engines": {
+    "node": ">=12.x",
+    "npm": ">=7.0.0"
+  },
+  "type": "module",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "exports": {
+    ".": "./lib/index.js",
+    "./constants": "./lib/constants.js",
+    "./db": "./lib/db.js",
+    "./pragmas": "./lib/pragmas.js",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./lib/*.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf coverage lib 'tsconfig.tsbuildinfo'",
+    "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
+    "lint": "eslint --config ../../config/eslint.cjs",
+    "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
+    "precommit": "lint-staged --config ../../config/lint-staged.cjs",
+    "prepublish:artifact-registry": "run-s clean build test refresh-npmrc-tokens",
+    "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name sqlite-utils",
+    "refresh-npmrc-tokens": "npx google-artifactregistry-auth --repo-config ../../.npmrc && cp ../../.npmrc .",
+    "pretest": "run-s build",
+    "size": "pkg-size ./lib --sort-by=brotli",
+    "test": "true",
+    "test:ci": "true",
+    "test:watch": "true"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "better-sqlite3": ">= 7.0.0",
+    "debug": ">= 4.0.0"
+  },
+  "devDependencies": {}
+}
