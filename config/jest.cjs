@@ -1,7 +1,11 @@
 const project = (package_name) => {
+  // Jest uses chalk for colors
+  // https://github.com/chalk/chalk
   let color
   if (package_name.indexOf('checks') === 0) {
     color = 'yellow'
+  } else if (package_name.indexOf('firestore') === 0) {
+    color = 'red'
   } else if (package_name.indexOf('schemas') === 0) {
     color = 'magenta'
   } else if (package_name.indexOf('telegram') === 0) {
@@ -66,6 +70,7 @@ const project = (package_name) => {
 const projects = [
   project('checks'),
   project('cloud-scheduler-utils'),
+  project('firestore-utils'),
   project('notifications'),
   project('schemas'),
   project('secret-manager-utils'),

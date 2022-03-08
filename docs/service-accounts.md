@@ -4,6 +4,32 @@ See [Service Accounts predefined IAM roles](https://cloud.google.com/iam/docs/un
 
 ## Create service accounts
 
+### sa-firestore-user-test
+
+Service account that I use in [firestore-utils](../packages/firestore-utils/README.md) tests.
+
+Create the service account
+
+```sh
+gcloud iam service-accounts create sa-firestore-user-test \
+  --display-name "SA Firestore User test" \
+  --description "SA that I use in firestore-utils tests" \
+  --project $GCP_PROJECT_ID
+```
+
+### sa-firestore-viewer-test
+
+Service account that I use in [firestore-utils](../packages/firestore-utils/README.md) tests.
+
+Create the service account
+
+```sh
+gcloud iam service-accounts create sa-firestore-viewer-test \
+  --display-name "SA Firestore Viewer test" \
+  --description "SA that I use in firestore-utils tests" \
+  --project $GCP_PROJECT_ID
+```
+
 ### sa-secret-manager-admin-test
 
 Service account that I use in [secret-manager-utils](../packages/secret-manager-utils/README.md) tests.

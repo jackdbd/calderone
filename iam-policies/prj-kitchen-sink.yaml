@@ -60,6 +60,12 @@ bindings:
   - serviceAccount:service-1051247446620@containerregistry.iam.gserviceaccount.com
   role: roles/containerregistry.ServiceAgent
 - members:
+  - serviceAccount:sa-firestore-user-test@prj-kitchen-sink.iam.gserviceaccount.com
+  role: roles/datastore.user
+- members:
+  - serviceAccount:sa-firestore-viewer-test@prj-kitchen-sink.iam.gserviceaccount.com
+  role: roles/datastore.viewer
+- members:
   - serviceAccount:service-1051247446620@gcp-sa-firestore.iam.gserviceaccount.com
   role: roles/firestore.serviceAgent
 - members:
@@ -115,5 +121,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXZuQDhkhs=
+etag: BwXZu_oUjBA=
 version: 1

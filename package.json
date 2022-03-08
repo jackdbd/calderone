@@ -43,6 +43,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
+    "@google-cloud/firestore": "^5.0.2",
     "@google-cloud/scheduler": "^2.3.0",
     "@google-cloud/secret-manager": "^3.11.0",
     "@qiwi/multi-semantic-release": "^6.0.2",
