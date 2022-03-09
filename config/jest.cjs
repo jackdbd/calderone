@@ -70,6 +70,7 @@ const project = (package_name) => {
 const projects = [
   project('checks'),
   project('cloud-scheduler-utils'),
+  project('fattureincloud-client'),
   project('firestore-utils'),
   project('notifications'),
   project('schemas'),

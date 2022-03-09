@@ -32,6 +32,9 @@
     },
     {
       "path": "./packages/firestore-utils/tsconfig.json"
+    },
+    {
+      "path": "./packages/fattureincloud-client/tsconfig.json"
     }
   ]
 }
