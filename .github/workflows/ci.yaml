@@ -42,27 +42,6 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
-  package-size-report:
-    name: 🔧 Build all packages [${{ matrix.os }}, Node ${{ matrix.node }}]
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: ['16.x']
-    steps:
-      - name: 🛎️ Checkout repo
-        uses: actions/checkout@v2
-      - name: 🖥️ Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-      - name: 👨‍💻 Install root package dependencies
-        run: npm ci
-      - name: Package size report
-        uses: pkg-size/action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   release:
     name: 📣 Release
     needs: [build-and-test]

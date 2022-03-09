@@ -1,7 +1,13 @@
 const project = (package_name) => {
+  // Jest uses chalk for colors
+  // https://github.com/chalk/chalk
   let color
   if (package_name.indexOf('checks') === 0) {
     color = 'yellow'
+  } else if (package_name.indexOf('firestore') === 0) {
+    color = 'red'
+  } else if (package_name.indexOf('keap') === 0) {
+    color = 'green'
   } else if (package_name.indexOf('schemas') === 0) {
     color = 'magenta'
   } else if (package_name.indexOf('telegram') === 0) {
@@ -63,7 +69,19 @@ const project = (package_name) => {
 }
 
 // https://jestjs.io/docs/configuration#projects-arraystring--projectconfig
-const projects = [project('checks'), project('schemas'), project('utils')]
+const projects = [
+  project('checks'),
+  project('cloud-scheduler-utils'),
+  project('fattureincloud-client'),
+  project('firestore-utils'),
+  project('keap-client'),
+  project('notifications'),
+  project('schemas'),
+  project('secret-manager-utils'),
+  project('stripe-utils'),
+  project('telegram-text-messages'),
+  project('utils')
+]
 
 const config = {
   projects,

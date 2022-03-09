@@ -8,6 +8,36 @@
     },
     {
       "path": "./packages/checks/tsconfig.json"
+    },
+    {
+      "path": "./packages/utils/tsconfig.json"
+    },
+    {
+      "path": "./packages/telegram-text-messages/tsconfig.json"
+    },
+    {
+      "path": "./packages/notifications/tsconfig.json"
+    },
+    {
+      "path": "./packages/sqlite-utils/tsconfig.json"
+    },
+    {
+      "path": "./packages/cloud-scheduler-utils/tsconfig.json"
+    },
+    {
+      "path": "./packages/secret-manager-utils/tsconfig.json"
+    },
+    {
+      "path": "./packages/stripe-utils/tsconfig.json"
+    },
+    {
+      "path": "./packages/firestore-utils/tsconfig.json"
+    },
+    {
+      "path": "./packages/fattureincloud-client/tsconfig.json"
+    },
+    {
+      "path": "./packages/keap-client/tsconfig.json"
     }
   ]
 }

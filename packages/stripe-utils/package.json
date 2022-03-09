@@ -1,0 +1,59 @@
+{
+  "name": "@jackdbd/stripe-utils",
+  "version": "0.0.0-semantically-released",
+  "description": "Utility functions to work with Stripe",
+  "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
+  "license": "MIT",
+  "keywords": [
+    "stripe",
+    "utils"
+  ],
+  "engines": {
+    "node": ">=12.x",
+    "npm": ">=7.0.0"
+  },
+  "type": "module",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "exports": {
+    ".": "./lib/index.js",
+    "./checks": "./lib/checks.js",
+    "./customers": "./lib/customers.js",
+    "./errors": "./lib/errors.js",
+    "./payment_intents": "./lib/payment_intents.js",
+    "./prices": "./lib/prices.js",
+    "./utils": "./lib/utils.js",
+    "./webhooks": "./lib/webhooks.js",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./lib/*.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf coverage lib 'tsconfig.tsbuildinfo'",
+    "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
+    "lint": "eslint --config ../../config/eslint.cjs",
+    "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
+    "precommit": "lint-staged --config ../../config/lint-staged.cjs",
+    "prepublish:artifact-registry": "run-s clean build test refresh-npmrc-tokens",
+    "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name stripe-utils",
+    "refresh-npmrc-tokens": "npx google-artifactregistry-auth --repo-config ../../.npmrc && cp ../../.npmrc .",
+    "pretest": "run-s build",
+    "size": "pkg-size ./lib --sort-by=brotli",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects stripe-utils --config ../../config/jest.cjs --rootDir ../../",
+    "test:ci": "npm run test -- --ci --coverage",
+    "test:watch": "npm run test -- --watch"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@jackdbd/utils": "*",
+    "debug": ">= 4.3.0",
+    "stripe": ">= 8.0.0"
+  },
+  "devDependencies": {}
+}
