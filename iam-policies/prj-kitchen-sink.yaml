@@ -21,6 +21,12 @@ bindings:
   - serviceAccount:service-1051247446620@gcp-sa-cloudbuild.iam.gserviceaccount.com
   role: roles/cloudbuild.serviceAgent
 - members:
+  - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com 
+  role: roles/clouddebugger.agent
+- members:
+  - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
+  role: roles/cloudfunctions.admin
+- members:
   - serviceAccount:sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
@@ -66,6 +72,9 @@ bindings:
   - serviceAccount:sa-firestore-viewer-test@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/datastore.viewer
 - members:
+  - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com 
+  role: roles/errorreporting.writer
+- members:
   - serviceAccount:service-1051247446620@gcp-sa-firestore.iam.gserviceaccount.com
   role: roles/firestore.serviceAgent
 - members:
@@ -73,6 +82,7 @@ bindings:
   - user:giacomo@giacomodebidda.com
   role: roles/iam.serviceAccountTokenCreator
 - members:
+  - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
   - serviceAccount:sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
@@ -102,8 +112,10 @@ bindings:
   - serviceAccount:sa-secret-manager-admin-test@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/secretmanager.admin
 - members:
+  - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
   - serviceAccount:sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
+  - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com 
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/secretmanager.secretAccessor
 - members:
@@ -121,5 +133,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXZu_oUjBA=
+etag: BwXaHIxDTOM=
 version: 1

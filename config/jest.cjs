@@ -43,7 +43,18 @@ const project = (package_name) => {
 
     moduleFileExtensions: ['js', 'mjs'],
 
-    moduleNameMapper: {},
+    // The order in which the mappings are defined matters. Patterns are checked
+    // one by one until one fits. The most specific rule should be listed first.
+    // https://jestjs.io/docs/configuration#modulenamemapper-objectstring-string--arraystring
+    moduleNameMapper: {
+      '@jackdbd/checks/(.*)': '<rootDir>/packages/checks/lib/$1.js',
+      '@jackdbd/notifications/(.*)':
+        '<rootDir>/packages/notifications/lib/$1.js',
+      '@jackdbd/utils/(.*)':
+        '<rootDir>/packages/telegram-text-messages/lib/$1.js',
+      '@jackdbd/utils/(.*)': '<rootDir>/packages/utils/lib/$1.js',
+      '@jackdbd/(.*)': '<rootDir>/packages/$1/lib/index.js'
+    },
 
     testMatch: [`<rootDir>/packages/${package_name}/**/*.test.{js,mjs}`],
 
@@ -74,13 +85,16 @@ const projects = [
   project('cloud-scheduler-utils'),
   project('fattureincloud-client'),
   project('firestore-utils'),
+  project('hapi-healthcheck-plugin'),
+  project('hapi-ip-whitelist-plugin'),
   project('keap-client'),
   project('notifications'),
   project('schemas'),
   project('secret-manager-utils'),
   project('stripe-utils'),
   project('telegram-text-messages'),
-  project('utils')
+  project('utils'),
+  project('webhooks')
 ]
 
 const config = {

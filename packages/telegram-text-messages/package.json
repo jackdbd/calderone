@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/telegram-text-messages",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.7",
   "description": "Factory functions that return HTML-formatted strings to use in Telegram messages",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
@@ -16,6 +16,7 @@
   "typings": "lib/index.d.ts",
   "exports": {
     ".": "./lib/index.js",
+    "./*": "./lib/*.js",
     "./package.json": "./package.json"
   },
   "typesVersions": {
@@ -32,10 +33,8 @@
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
-    "prepublish:artifact-registry": "run-s clean build test refresh-npmrc-tokens",
+    "prepublish:artifact-registry": "run-s clean build test",
     "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name telegram-text-messages",
-    "refresh-npmrc-tokens": "npx google-artifactregistry-auth --repo-config ../../.npmrc && cp ../../.npmrc .",
-    "pretest": "run-s build",
     "size": "pkg-size ./lib --sort-by=brotli",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects telegram-text-messages --config ../../config/jest.cjs --rootDir ../../",
     "test:ci": "npm run test -- --ci --coverage",

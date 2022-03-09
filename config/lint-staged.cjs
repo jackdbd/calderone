@@ -4,7 +4,7 @@ const config = {
   '{src,__tests__}/**/*.{js,cjs,mjs,ts}': [
     'prettier --config ../../config/prettier.cjs --write'
   ],
-  'src/**/*.{js,cjs,mjs,ts}': ['eslint --config ../../config/eslint.cjs --fix']
+  'src/**/*.{js,cjs,mjs,ts}': ['eslint --config ../../config/eslint.cjs']
 }
 
 module.exports = config

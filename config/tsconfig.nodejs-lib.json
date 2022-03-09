@@ -6,11 +6,19 @@
     // https://www.typescriptlang.org/docs/handbook/project-references.html#composite
     "composite": true,
 
-    // The libraries of this monorepo target Node.js
-    // You may “mix and match” target and lib settings as desired, but you could
-    // just set target for convenience.
-    // https://www.typescriptlang.org/tsconfig#target
-    // https://node.green/
-    "target": "es2015"
+    // This tsconfig is for a library, so it's a good idea to generate .d.ts files.
+    // https://www.typescriptlang.org/tsconfig#declaration
+    "declaration": true,
+
+    // Source maps for .d.ts files are awesome because they allow a "Go to
+    // Definition" to go the original .ts file, not the .d.ts (which is much
+    // less useful). I don't think I need them when developing on this monorepo
+    // since I defined path mappings in the root tsconfig.json, but I think it's
+    // better to generate them anyway.
+    // https://www.typescriptlang.org/tsconfig#declarationMap
+    "declarationMap": true,
+
+    // https://www.typescriptlang.org/tsconfig#removeComments
+    "removeComments": false
   }
 }

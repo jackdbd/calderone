@@ -9,6 +9,12 @@ Useful links:
 Assigning a value to a secret is [discouraged from the shell](https://cloud.google.com/secret-manager/docs/creating-and-accessing-secrets#add-secret-version). It's better to create the secret with gcloud but assigning secret versions using the web UI.
 
 ```sh
+gcloud secrets create NETLIFY \
+  --project $GCP_PROJECT_ID \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
+```
+
+```sh
 gcloud secrets create SENDGRID \
   --project $GCP_PROJECT_ID \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret

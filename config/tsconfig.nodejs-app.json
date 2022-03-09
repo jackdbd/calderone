@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    // This tsconfig is for an application, so I don't think I need to generate
+    // .d.ts files.
+    // https://www.typescriptlang.org/tsconfig#declaration
+    "declaration": false,
+    "declarationMap": false,
+
+    // https://www.typescriptlang.org/tsconfig#removeComments
+    "removeComments": true
+  }
+}

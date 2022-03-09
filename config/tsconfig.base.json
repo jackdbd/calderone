@@ -3,18 +3,6 @@
     // https://www.typescriptlang.org/tsconfig#baseUrl
     "baseUrl": ".",
 
-    // In most cases I we want to generate .d.ts files.
-    // https://www.typescriptlang.org/tsconfig#declaration
-    "declaration": true,
-
-    // Source maps for .d.ts files are awesome because they allow a "Go to
-    // Definition" to go the original .ts file, not the .d.ts (which is much
-    // less useful). I don't think I need them when developing on this monorepo
-    // since I defined path mappings in the root tsconfig.json, but I think it's
-    // better to generate them anyway.
-    // https://www.typescriptlang.org/tsconfig#declarationMap
-    "declarationMap": true,
-
     // All new TypeScript projects should use "esModuleInterop": true.
     // https://esbuild.github.io/content-types/#es-module-interop
     // https://www.typescriptlang.org/tsconfig#esModuleInterop
@@ -71,8 +59,27 @@
     "noUnusedParameters": true,
 
     // paths are resolved relative to baseUrl
+    // I am not sure if I really need these path mappings. I do need the path
+    // mapping in my Jest config, but these ones?
     // https://www.typescriptlang.org/tsconfig/#paths
-    "paths": {},
+    "paths": {
+      "@jackdbd/*": [
+        "../packages/*/lib/index.d.ts",
+        "../packages/*/lib/index.js"
+      ],
+      "@jackdbd/checks/*": [
+        "../packages/checks/lib/*.d.ts",
+        "../packages/checks/lib/*.js"
+      ],
+      "@jackdbd/notifications/*": [
+        "../packages/notifications/lib/*.d.ts",
+        "../packages/notifications/lib/*.js"
+      ],
+      "@jackdbd/utils/*": [
+        "../packages/utils/lib/*.d.ts",
+        "../packages/utils/lib/*.js"
+      ]
+    },
 
     // As far as I understand, preserveConstEnums has no effect for non-const
     // enums and should not affect the bundle size, but it must be set to true
@@ -81,8 +88,6 @@
     // https://www.typescriptlang.org/tsconfig#preserveConstEnums
     // https://ncjamieson.com/dont-export-const-enums/
     "preserveConstEnums": true,
-
-    "removeComments": false,
 
     // it would be safer to set skipLibCheck to false, but it's kind of slow.
     // Maybe enable it from time to time to type check dependencies.
@@ -100,7 +105,11 @@
     // https://www.typescriptlang.org/tsconfig#strictNullChecks
     "strictNullChecks": true,
 
+    // The libraries of this monorepo target Node.js
+    // You may “mix and match” target and lib settings as desired, but you could
+    // just set target for convenience.
     // https://www.typescriptlang.org/tsconfig#target
+    // https://node.green/
     "target": "es2020",
 
     // https://www.typescriptlang.org/tsconfig#typeRoots

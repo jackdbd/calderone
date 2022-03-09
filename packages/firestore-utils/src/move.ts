@@ -1,6 +1,6 @@
 import makeDebug from "debug";
 import type { CollectionReference } from "@google-cloud/firestore";
-import { fisherYatesShuffle } from "@jackdbd/utils";
+import { fisherYatesShuffle } from "@jackdbd/utils/array";
 
 const debug = makeDebug("firestore-utils/move");
 

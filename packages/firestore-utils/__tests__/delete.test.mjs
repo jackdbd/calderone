@@ -4,7 +4,6 @@ import {
 } from '../lib/delete.js'
 import {
   firestoreUserClient,
-  firestoreViewerClient,
   FIRESTORE_TEST_COLLECTION
 } from './firestore-client.mjs'
 
@@ -42,9 +41,8 @@ describe('deleteDocsMatchingQuery', () => {
   let ref
 
   beforeAll(async () => {
-    firestore = new Firestore()
-    const collection = FIRESTORE_COLLECTION.TestEvents
-    ref = firestore.collection(collection)
+    firestore = firestoreUserClient()
+    ref = firestore.collection(FIRESTORE_TEST_COLLECTION)
   })
 
   afterAll(async () => {

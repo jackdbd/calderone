@@ -1,0 +1,50 @@
+{
+  "name": "@jackdbd/hapi-healthcheck-plugin",
+  "version": "0.0.1",
+  "description": "Hapi plugin for a healthcheck",
+  "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
+  "license": "MIT",
+  "keywords": [
+    "hapi",
+    "plugin"
+  ],
+  "engines": {
+    "node": ">=12.x",
+    "npm": ">=7.0.0"
+  },
+  "type": "module",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "exports": {
+    ".": "./lib/index.js",
+    "./constants": "./lib/constants.js",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./lib/*.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf coverage lib 'tsconfig.tsbuildinfo'",
+    "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
+    "lint": "eslint --config ../../config/eslint.cjs",
+    "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
+    "precommit": "lint-staged --config ../../config/lint-staged.cjs",
+    "prepublish:artifact-registry": "run-s clean build test",
+    "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name hapi-healthcheck-plugin",
+    "size": "pkg-size ./lib --sort-by=brotli",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects hapi-healthcheck-plugin --config ../../config/jest.cjs --rootDir ../../ --runInBand --forceExit",
+    "test:ci": "npm run test -- --ci --coverage",
+    "test:watch": "npm run test -- --watch"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@hapi/boom": ">=9.0.0",
+    "@hapi/hapi": ">=20.0.0"
+  },
+  "devDependencies": {}
+}

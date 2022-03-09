@@ -20,7 +20,7 @@ describe('retrieveContact', () => {
     ).rejects.toThrow(invalidAccessTokenErrorMessage('contacts'))
   })
 
-  it('returns paginated contacts when the OAuth 2.0 access token is valid', async () => {
+  it.skip('returns paginated contacts when the OAuth 2.0 access token is valid', async () => {
     // TODO: get this token from Secret Manager or GitHub. Refresh it before running this test
     const { access_token } = oAuthTokens()
 
@@ -31,7 +31,7 @@ describe('retrieveContact', () => {
     expect(paginated_contacts).toHaveProperty('previous')
   })
 
-  it('returns only 10 contacts when pagination.limit is set to 10', async () => {
+  it.skip('returns only 10 contacts when pagination.limit is set to 10', async () => {
     const { access_token } = oAuthTokens()
 
     const paginated_contacts = await retrieveContacts({
@@ -56,7 +56,7 @@ describe('retrieveContactById', () => {
     ).rejects.toThrow(invalidAccessTokenErrorMessage(`contact ID ${id}`))
   })
 
-  it('throws the expected error when the given `id` is not associated with a contact', async () => {
+  it.skip('throws the expected error when the given `id` is not associated with a contact', async () => {
     const { access_token } = oAuthTokens()
     const id = 1
 
