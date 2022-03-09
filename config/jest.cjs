@@ -6,6 +6,8 @@ const project = (package_name) => {
     color = 'yellow'
   } else if (package_name.indexOf('firestore') === 0) {
     color = 'red'
+  } else if (package_name.indexOf('keap') === 0) {
+    color = 'green'
   } else if (package_name.indexOf('schemas') === 0) {
     color = 'magenta'
   } else if (package_name.indexOf('telegram') === 0) {
@@ -72,6 +74,7 @@ const projects = [
   project('cloud-scheduler-utils'),
   project('fattureincloud-client'),
   project('firestore-utils'),
+  project('keap-client'),
   project('notifications'),
   project('schemas'),
   project('secret-manager-utils'),

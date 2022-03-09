@@ -35,6 +35,9 @@
     },
     {
       "path": "./packages/fattureincloud-client/tsconfig.json"
+    },
+    {
+      "path": "./packages/keap-client/tsconfig.json"
     }
   ]
 }
