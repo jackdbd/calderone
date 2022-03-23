@@ -1,0 +1,80 @@
+main:
+  steps:
+
+  - assign_variables:
+      assign:
+        # - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+        - service_url: https://wasm-news-service-45eyyotfta-ey.a.run.app
+        - healthcheck_url: ${service_url + "/health"}
+        - github_url: ${service_url + "/github"}
+        - reddit_url: ${service_url + "/reddit"}
+        - stack_overflow_url: ${service_url + "/stack-overflow"}
+        - twitter_url: ${service_url + "/twitter"}
+
+  # https://cloud.google.com/workflows/docs/reference/stdlib/sys/log
+  - log_stuff:
+      call: sys.log
+      args:
+        data: {
+          "healthcheck_url": "${healthcheck_url}",
+          "github_url": "${github_url}",
+          "reddit_url": "${reddit_url}",
+          "stack_overflow_url": "${stack_overflow_url}",
+          "twitter_url": "${twitter_url}"
+        }
+        severity: "WARNING"
+  
+  - healthcheck:
+      call: http.get
+      args:
+        url: ${healthcheck_url}
+        auth:
+          type: OIDC
+      result: healthcheck_result
+
+  - search_github:
+      call: http.post
+      args:
+        url: ${github_url}
+        auth:
+          type: OIDC
+        body:
+          n_days: 7
+      result: github_result
+
+  - search_reddit:
+      call: http.post
+      args:
+        url: ${reddit_url}
+        auth:
+          type: OIDC
+        body: {}
+      result: reddit_result
+
+  - search_stack_overflow:
+      call: http.post
+      args:
+        url: ${stack_overflow_url}
+        auth:
+          type: OIDC
+        body:
+          n_days: 7
+      result: stack_overflow_result
+
+  - search_twitter:
+      call: http.post
+      args:
+        url: ${twitter_url}
+        auth:
+          type: OIDC
+        body: {}
+      result: twitter_result
+  
+  - respond_to_caller:
+      return: {
+        "healthcheck_result": "${healthcheck_result.body}",
+        "github_result": "${github_result.body}",
+        "reddit_result": "${reddit_result.body}",
+        "stack_overflow_result": "${stack_overflow_result.body}",
+        "twitter_result": "${twitter_result.body}"
+      }
