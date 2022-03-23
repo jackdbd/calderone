@@ -1,25 +1,25 @@
-import makeDebug from "debug";
-import { client_id_not_set, client_secret_not_set } from "./error.js";
+import makeDebug from 'debug'
+import { client_id_not_set, client_secret_not_set } from './error.js'
 
-const debug = makeDebug("keap-client/headers");
+const debug = makeDebug('keap-client/headers')
 
 interface HeadersConfig {
-  access_token: string;
+  access_token: string
 }
 
 export const headers = ({ access_token }: HeadersConfig) => {
-  debug(`create HTTP request headers`);
+  debug(`create HTTP request headers`)
   return {
     Authorization: `Bearer ${access_token}`,
-    "Content-Type": "application/json",
-  };
-};
+    'Content-Type': 'application/json'
+  }
+}
 
 interface AuthenticationHeaderConfig {
   // OAuth 2.0 client id
-  client_id: string;
+  client_id: string
   // OAuth 2.0 client secret
-  client_secret: string;
+  client_secret: string
 }
 
 /**
@@ -34,18 +34,16 @@ interface AuthenticationHeaderConfig {
  */
 export const authorizationHeaderValue = ({
   client_id,
-  client_secret,
+  client_secret
 }: AuthenticationHeaderConfig) => {
   if (!client_id) {
-    throw new Error(client_id_not_set);
+    throw new Error(client_id_not_set)
   }
 
   if (!client_secret) {
-    throw new Error(client_secret_not_set);
+    throw new Error(client_secret_not_set)
   }
 
-  const secret = Buffer.from(`${client_id}:${client_secret}`).toString(
-    "base64"
-  );
-  return `Basic ${secret}`;
-};
+  const secret = Buffer.from(`${client_id}:${client_secret}`).toString('base64')
+  return `Basic ${secret}`
+}

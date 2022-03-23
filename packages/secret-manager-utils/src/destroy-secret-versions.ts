@@ -1,13 +1,13 @@
-import makeDebug from "debug";
-import type { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import makeDebug from 'debug'
+import type { SecretManagerServiceClient } from '@google-cloud/secret-manager'
 
-const debug = makeDebug("secret-manager-utils/destroy-secret-versions");
+const debug = makeDebug('secret-manager-utils/destroy-secret-versions')
 
 export interface Config {
-  filter: string;
-  project_id?: string;
-  secret_manager: SecretManagerServiceClient;
-  secret_name: string;
+  filter: string
+  project_id?: string
+  secret_manager: SecretManagerServiceClient
+  secret_name: string
 }
 
 /**
@@ -19,11 +19,11 @@ export const destroySecretVersionsMatchingFilter = async ({
   filter,
   project_id,
   secret_manager,
-  secret_name,
+  secret_name
 }: Config) => {
-  let prj = project_id;
+  let prj = project_id
   if (!prj) {
-    prj = await secret_manager.getProjectId();
+    prj = await secret_manager.getProjectId()
   }
 
   // TODO: autopaginate? (2nd argument)
@@ -31,34 +31,34 @@ export const destroySecretVersionsMatchingFilter = async ({
   const [versions] = await secret_manager.listSecretVersions({
     parent: `projects/${prj}/secrets/${secret_name}`,
     pageSize: 50,
-    filter,
-  });
+    filter
+  })
 
   debug(
     `retrieved ${versions.length} versions of secret ${secret_name} that match the filter "${filter}"`
-  );
+  )
 
-  const to_destroy: string[] = [];
+  const to_destroy: string[] = []
   for (const v of versions) {
     if (v.name) {
-      to_destroy.push(v.name);
+      to_destroy.push(v.name)
     } else {
-      debug(`found secret version with no name, cannot destroy it: %O`, v);
+      debug(`found secret version with no name, cannot destroy it: %O`, v)
     }
   }
 
-  const destroyed: { name?: string; etag?: string }[] = [];
+  const destroyed: { name?: string; etag?: string }[] = []
   for (const name of to_destroy) {
-    const [vers] = await secret_manager.destroySecretVersion({ name });
-    debug(`${vers.name} (etag ${vers.etag}) is now ${vers.state}`);
+    const [vers] = await secret_manager.destroySecretVersion({ name })
+    debug(`${vers.name} (etag ${vers.etag}) is now ${vers.state}`)
     destroyed.push({
       etag: vers.etag || undefined,
-      name: vers.name || undefined,
-    });
+      name: vers.name || undefined
+    })
   }
 
   return {
     message: `destroyed ${destroyed.length} versions of secret ${secret_name}`,
-    destroyed,
-  };
-};
+    destroyed
+  }
+}

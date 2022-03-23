@@ -89,6 +89,26 @@ curl -X POST \
 --location "$TELEGRAM_BOT_URL" \
 --header "Content-Type: application/json" \
 --data-raw "{
+    \"message\": {\"message_id\": 123, \"text\": \"/sendpic\", \"chat\": {\"id\": \"$TELEGRAM_CHAT_ID\"}},
+    \"update_id\": 456
+}"
+```
+
+```sh
+curl -X POST \
+--location "$TELEGRAM_BOT_URL" \
+--header "Content-Type: application/json" \
+--data-raw "{
+    \"message\": {\"message_id\": 123, \"text\": \"/sendgif\", \"chat\": {\"id\": \"$TELEGRAM_CHAT_ID\"}},
+    \"update_id\": 456
+}"
+```
+
+```sh
+curl -X POST \
+--location "$TELEGRAM_BOT_URL" \
+--header "Content-Type: application/json" \
+--data-raw "{
     \"message\": {\"message_id\": 123, \"text\": \"/cocktail\", \"chat\": {\"id\": \"$TELEGRAM_CHAT_ID\"}},
     \"update_id\": 456
 }"

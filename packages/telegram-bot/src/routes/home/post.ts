@@ -4,13 +4,17 @@ import { logNotice } from '@jackdbd/utils/logger'
 import { makeBot } from '../../bot.js'
 
 interface Config {
+  project_id: string
   telegram_token: string
 }
 
-export const homePost = ({ telegram_token }: Config): Hapi.ServerRoute => {
+export const homePost = ({
+  project_id,
+  telegram_token
+}: Config): Hapi.ServerRoute => {
   const config = { method: 'POST', path: '/' }
 
-  const bot = makeBot({ token: telegram_token })
+  const bot = makeBot({ project_id, token: telegram_token })
   logNotice({ message: 'Telegram bot created' })
 
   return {

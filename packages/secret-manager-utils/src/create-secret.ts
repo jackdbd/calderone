@@ -1,14 +1,14 @@
-import makeDebug from "debug";
-import type { SecretManagerServiceClient } from "@google-cloud/secret-manager";
+import makeDebug from 'debug'
+import type { SecretManagerServiceClient } from '@google-cloud/secret-manager'
 
-const debug = makeDebug("secret-manager-utils/create-secret");
+const debug = makeDebug('secret-manager-utils/create-secret')
 
 export interface Config {
-  labels?: { [key: string]: string };
-  project_id?: string;
-  secret_data: string;
-  secret_id: string;
-  secret_manager: SecretManagerServiceClient;
+  labels?: { [key: string]: string }
+  project_id?: string
+  secret_data: string
+  secret_id: string
+  secret_manager: SecretManagerServiceClient
 }
 
 export const createSecretAndFirstVersion = async ({
@@ -16,11 +16,11 @@ export const createSecretAndFirstVersion = async ({
   project_id,
   secret_manager,
   secret_data,
-  secret_id,
+  secret_id
 }: Config) => {
-  let prj = project_id;
+  let prj = project_id
   if (!prj) {
-    prj = await secret_manager.getProjectId();
+    prj = await secret_manager.getProjectId()
   }
 
   const [secret] = await secret_manager.createSecret({
@@ -29,22 +29,22 @@ export const createSecretAndFirstVersion = async ({
     secret: {
       labels,
       replication: {
-        automatic: {},
-      },
-    },
-  });
+        automatic: {}
+      }
+    }
+  })
 
-  const data = Buffer.from(secret_data, "utf8");
-  const parent = secret.name;
-  debug("created secret %O", secret);
+  const data = Buffer.from(secret_data, 'utf8')
+  const parent = secret.name
+  debug('created secret %O', secret)
 
   const [version] = await secret_manager.addSecretVersion({
     parent,
     payload: {
-      data,
-    },
-  });
-  debug("created secret version %O", version);
+      data
+    }
+  })
+  debug('created secret version %O', version)
 
-  return { secret, version };
-};
+  return { secret, version }
+}

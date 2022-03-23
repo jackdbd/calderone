@@ -1,3 +1,0 @@
-{
-  "{src,__tests__}/**/*.{mjs,ts}": ["prettier --config .prettierrc.js --write"]
-}

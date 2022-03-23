@@ -13,6 +13,7 @@ interface Config {
   environment: string
   error_reporting: ErrorReporting
   port: number | string
+  project_id: string
   telegram_token: string
 }
 
@@ -20,6 +21,7 @@ export const app = async ({
   environment,
   error_reporting,
   port,
+  project_id,
   telegram_token
 }: Config) => {
   const request_tags = [...HEALTHCHECK_TAGS.request]
@@ -54,7 +56,7 @@ export const app = async ({
 
   server.route(homeGet())
 
-  server.route(homePost({ telegram_token }))
+  server.route(homePost({ project_id, telegram_token }))
 
   server.route({
     path: '/favicon.ico',

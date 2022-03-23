@@ -1,4 +1,4 @@
-import type { Tokens } from "../tokens/interfaces.js";
+import type { Tokens } from '../tokens/interfaces.js'
 
 /**
  * Persistance storage for the tokens.
@@ -8,6 +8,6 @@ import type { Tokens } from "../tokens/interfaces.js";
  * https://github.com/marketplace/actions/create-github-secret-action
  */
 export interface Store {
-  persist: (tokens: Tokens) => Promise<void>;
-  retrieve: () => Promise<Tokens>;
+  persist: (tokens: Tokens) => Promise<void>
+  retrieve: () => Promise<Tokens>
 }

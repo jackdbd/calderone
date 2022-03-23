@@ -6,10 +6,11 @@ import { callWorkflowsAPI } from './workflows-utils.js'
 const debug = makeDebug('telegram-bot/bot')
 
 interface Config {
+  project_id: string
   token: string
 }
 
-export const makeBot = ({ token }: Config) => {
+export const makeBot = ({ project_id, token }: Config) => {
   const client = new ExecutionsClient()
 
   const bot = new TelegramBot(token, { webHook: true })
@@ -25,7 +26,7 @@ export const makeBot = ({ token }: Config) => {
     const workflow = 'random-cocktail-to-telegram'
     const { success, result } = await callWorkflowsAPI({
       client,
-      project: 'prj-kitchen-sink',
+      project: project_id,
       location: 'europe-west4',
       workflow
     })
