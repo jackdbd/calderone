@@ -4,17 +4,6 @@ See [Service Accounts predefined IAM roles](https://cloud.google.com/iam/docs/un
 
 ## Create service accounts
 
-### sa-webhooks
-
-Create a service account for the [@jackdbd/webhooks](../packages/webhooks/README.md) web application. That application will be deployed as a Cloud Run service, and will have attached this service account.
-
-```sh
-gcloud iam service-accounts create sa-webhooks \
-  --display-name "SA Webhooks" \
-  --description "SA for the @jackdbd/webhooks web application" \
-  --project $GCP_PROJECT_ID
-```
-
 ### sa-firestore-user-test
 
 Service account that I use in [firestore-utils](../packages/firestore-utils/README.md) tests.
@@ -51,6 +40,28 @@ Create the service account
 gcloud iam service-accounts create sa-secret-manager-admin-test \
   --display-name "SA Secret Manager Admin test" \
   --description "SA that I use in secret-manager-utils tests" \
+  --project $GCP_PROJECT_ID
+```
+
+### sa-telegram-bot
+
+Create a service account for the [@jackdbd/telegram-bot](../packages/telegram-bot/README.md) application. That application will be deployed as a Cloud Run service, and will have attached this service account.
+
+```sh
+gcloud iam service-accounts create sa-telegram-bot \
+  --display-name "SA Telegram bot" \
+  --description "SA for the @jackdbd/telegram-bot application" \
+  --project $GCP_PROJECT_ID
+```
+
+### sa-webhooks
+
+Create a service account for the [@jackdbd/webhooks](../packages/webhooks/README.md) application. That application will be deployed as a Cloud Run service, and will have attached this service account.
+
+```sh
+gcloud iam service-accounts create sa-webhooks \
+  --display-name "SA Webhooks" \
+  --description "SA for the @jackdbd/webhooks application" \
   --project $GCP_PROJECT_ID
 ```
 

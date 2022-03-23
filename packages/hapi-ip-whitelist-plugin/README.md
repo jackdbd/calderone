@@ -1,19 +1,19 @@
-# @jackdbd/hapi-healthcheck-plugin
+# @jackdbd/hapi-ip-whitelist-plugin
 
-Hapi plugin for a healthcheck.
+Hapi plugin to allow an IP whitelist.
 
 ## Build
 
 Build this library:
 
 ```sh
-npm run build -w packages/hapi-healthcheck-plugin
+npm run build -w packages/hapi-ip-whitelist-plugin
 ```
 
 ## Test
 
 ```sh
-npm run test -w packages/hapi-healthcheck-plugin
+npm run test -w packages/hapi-ip-whitelist-plugin
 ```
 
 ## Publish
@@ -21,7 +21,7 @@ npm run test -w packages/hapi-healthcheck-plugin
 ### Artifact Registry
 
 ```sh
-npm run publish:artifact-registry -w packages/hapi-healthcheck-plugin
+npm run publish:artifact-registry -w packages/hapi-ip-whitelist-plugin
 ```
 
 Check that the coreect version of this package is now published on Artifact Registry:
@@ -31,5 +31,5 @@ gcloud artifacts versions list \
   --project $GCP_PROJECT_ID \
   --repository $ARTIFACT_REGISTRY_NPM_REPOSITORY_ID \
   --location $ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION \
-  --package @jackdbd/hapi-healthcheck-plugin
+  --package @jackdbd/hapi-ip-whitelist-plugin
 ```

@@ -114,6 +114,7 @@ bindings:
 - members:
   - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
   - serviceAccount:sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
+  - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com 
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com 
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
@@ -133,5 +134,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXaHIxDTOM=
+etag: BwXa5kwnUU0=
 version: 1

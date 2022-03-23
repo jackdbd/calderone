@@ -92,6 +92,7 @@ const projects = [
   project('schemas'),
   project('secret-manager-utils'),
   project('stripe-utils'),
+  project('telegram-bot'),
   project('telegram-text-messages'),
   project('utils'),
   project('webhooks')
