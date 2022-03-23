@@ -1,0 +1,16 @@
+<!doctype html>
+<html  lang="en">
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    {% block  content %}
+    <h1>Authentication successful</h1>
+    <p>access token: {{ access_token }}</p>
+    <p>refresh token: {{ refresh_token }}</p>
+    <p>scope: {{ scope }}</p>
+    <p>OAuth 2.0 tokens stored at {{ tokens_filepath }}. You can now close this web app.</p>
+    <a href="{{ back_to.href }}" rel="noopener noreferrer">{{ back_to.text }}</a>
+    {% endblock %}
+  </body>
+</html>

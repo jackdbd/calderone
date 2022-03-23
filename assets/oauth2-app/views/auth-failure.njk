@@ -1,0 +1,13 @@
+<!doctype html>
+<html  lang="en">
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    {% block  content %}
+    <h1>{{ title }}</h1>
+    <p>authentication failed because of this reason: {{ reason }}</p>
+    <a href="{{ back_to.href }}" rel="noopener noreferrer">{{ back_to.text }}</a>
+    {% endblock %}
+  </body>
+</html>
