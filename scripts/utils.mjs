@@ -102,3 +102,38 @@ export const writePackageJsonForApplication = async ({
   await writeFile(output, json, { encoding: 'utf-8' })
   return package_json
 }
+
+export const writePackageJsonForCloudFunctions = async ({
+  package_root,
+  publish_path
+}) => {
+  const input = path.join(package_root, 'package.json')
+  const output = path.join(publish_path, 'package.json')
+
+  const str = await readFile(input, { encoding: 'utf8' })
+
+  const {
+    devDependencies,
+    exports,
+    keywords,
+    peerDependencies,
+    scripts,
+    typesVersions,
+    version,
+    ...input_package_json
+  } = JSON.parse(str)
+
+  const sha = execSync('git rev-parse --short HEAD').toString().trim()
+
+  const package_json = {
+    ...input_package_json,
+    scripts: {
+      start: 'functions-framework --source main.js --target entryPoint'
+    },
+    version: `sha:${sha}`
+  }
+
+  const json = JSON.stringify(package_json, null, 2)
+  await writeFile(output, json, { encoding: 'utf-8' })
+  return package_json
+}
