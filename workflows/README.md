@@ -12,7 +12,8 @@ From the monorepo root:
 
 ```sh
 gcloud workflows deploy random-cocktail-to-telegram \
-  --location europe-west4 \
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION \
   --description "Get a random cocktail from thecocktaildb.com and send it to Telegram and email" \
   --source workflows/random-cocktail-to-telegram.workflows.yaml \
   --service-account sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com \
@@ -21,7 +22,8 @@ gcloud workflows deploy random-cocktail-to-telegram \
 
 ```sh
 gcloud workflows deploy create-stop-delete-vm \
-  --location europe-west4 \
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION \
   --description "Create, start, stop, delete a VM using the Compute Engine Workflows Connector" \
   --source workflows/create-stop-delete-vm.workflows.yaml \
   --service-account sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com \
@@ -30,7 +32,8 @@ gcloud workflows deploy create-stop-delete-vm \
 
 ```sh
 gcloud workflows deploy wasm-news \
-  --location europe-west4 \
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION \
   --description "Search several APIs for news about WebAssembly topics" \
   --source workflows/wasm-news.workflows.yaml \
   --service-account $SA_WASM_NEWS \
