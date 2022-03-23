@@ -17,7 +17,7 @@ describe('basicTokensClient', () => {
   })
 })
 
-describe('storeTokensClient', () => {
+describe.skip('storeTokensClient', () => {
   it('has the expected properties', () => {
     const { client_id, client_secret } = oAuthClientCredentials()
 

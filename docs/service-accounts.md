@@ -4,6 +4,17 @@ See [Service Accounts predefined IAM roles](https://cloud.google.com/iam/docs/un
 
 ## Create service accounts
 
+### sa-webhooks
+
+Create a service account for the [@jackdbd/webhooks](../packages/webhooks/README.md) web application. That application will be deployed as a Cloud Run service, and will have attached this service account.
+
+```sh
+gcloud iam service-accounts create sa-webhooks \
+  --display-name "SA Webhooks" \
+  --description "SA for the @jackdbd/webhooks web application" \
+  --project $GCP_PROJECT_ID
+```
+
 ### sa-firestore-user-test
 
 Service account that I use in [firestore-utils](../packages/firestore-utils/README.md) tests.
@@ -60,5 +71,6 @@ gcloud iam service-accounts list --project $GCP_PROJECT_ID
 ## Details about a service account
 
 ```sh
-gcloud iam service-accounts describe sa-secret-manager-admin-test@prj-kitchen-sink.iam.gserviceaccount.com
+gcloud iam service-accounts describe sa-secret-manager-admin-test@prj-kitchen-sink.iam.gserviceaccount.com \
+  --project $GCP_PROJECT_ID
 ```

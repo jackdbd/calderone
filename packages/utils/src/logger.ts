@@ -1,124 +1,130 @@
 interface Dictionary {
   [key: string]:
     | string
+    | string[]
     | number
+    | number[]
     | boolean
+    | boolean[]
     | symbol
     | undefined
     | null
-    | Dictionary;
+    | Dictionary
 }
 interface LogData {
-  message: string;
+  message: string
   [key: string]:
     | string
+    | string[]
     | number
+    | number[]
     | boolean
+    | boolean[]
     | symbol
     | undefined
     | null
-    | Dictionary;
+    | Dictionary
 }
 
 // Structured logs
 // https://cloud.google.com/functions/docs/monitoring/logging#writing_structured_logs
 function isStructuredLog(data: LogData | string): data is LogData {
-  return (data as LogData).message !== undefined;
+  return (data as LogData).message !== undefined
 }
 
 // LogSeverity
 // https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry?authuser=1#logseverity
 
 const DEBUG = {
-  severity: "DEBUG",
-};
+  severity: 'DEBUG'
+}
 
 const INFO = {
-  severity: "INFO",
-};
+  severity: 'INFO'
+}
 
 const NOTICE = {
-  severity: "NOTICE",
-};
+  severity: 'NOTICE'
+}
 
 const WARNING = {
-  severity: "WARNING",
-};
+  severity: 'WARNING'
+}
 
 const ERROR = {
-  severity: "ERROR",
-};
+  severity: 'ERROR'
+}
 const CRITICAL = {
-  severity: "CRITICAL",
-};
+  severity: 'CRITICAL'
+}
 
 const ALERT = {
-  severity: "ALERT",
-};
+  severity: 'ALERT'
+}
 const EMERGENCY = {
-  severity: "EMERGENCY",
-};
+  severity: 'EMERGENCY'
+}
 
 export const logDebug = (data: LogData | string) => {
   if (isStructuredLog(data)) {
-    console.log(JSON.stringify(Object.assign({}, DEBUG, data)));
+    console.log(JSON.stringify(Object.assign({}, DEBUG, data)))
   } else {
-    console.debug(data);
+    console.debug(data)
   }
-};
+}
 
 export const logInfo = (data: LogData | string) => {
   if (isStructuredLog(data)) {
-    console.log(JSON.stringify(Object.assign({}, INFO, data)));
+    console.log(JSON.stringify(Object.assign({}, INFO, data)))
   } else {
-    console.info(data);
+    console.info(data)
   }
-};
+}
 
 export const logNotice = (data: LogData | string) => {
   if (isStructuredLog(data)) {
-    console.log(JSON.stringify(Object.assign({}, NOTICE, data)));
+    console.log(JSON.stringify(Object.assign({}, NOTICE, data)))
   } else {
-    console.info(data);
+    console.info(data)
   }
-};
+}
 
 export const logWarning = (data: LogData | string) => {
   if (isStructuredLog(data)) {
-    console.log(JSON.stringify(Object.assign({}, WARNING, data)));
+    console.log(JSON.stringify(Object.assign({}, WARNING, data)))
   } else {
-    console.warn(data);
+    console.warn(data)
   }
-};
+}
 
 export const logError = (data: LogData | string) => {
   if (isStructuredLog(data)) {
-    console.log(JSON.stringify(Object.assign({}, ERROR, data)));
+    console.log(JSON.stringify(Object.assign({}, ERROR, data)))
   } else {
-    console.error(data);
+    console.error(data)
   }
-};
+}
 
 export const logCritical = (data: LogData | string) => {
   if (isStructuredLog(data)) {
-    console.log(JSON.stringify(Object.assign({}, CRITICAL, data)));
+    console.log(JSON.stringify(Object.assign({}, CRITICAL, data)))
   } else {
-    console.error(data);
+    console.error(data)
   }
-};
+}
 
 export const logAlert = (data: LogData | string) => {
   if (isStructuredLog(data)) {
-    console.log(JSON.stringify(Object.assign({}, ALERT, data)));
+    console.log(JSON.stringify(Object.assign({}, ALERT, data)))
   } else {
-    console.error(data);
+    console.error(data)
   }
-};
+}
 
 export const logEmergency = (data: LogData | string) => {
   if (isStructuredLog(data)) {
-    console.log(JSON.stringify(Object.assign({}, EMERGENCY, data)));
+    console.log(JSON.stringify(Object.assign({}, EMERGENCY, data)))
   } else {
-    console.error(data);
+    console.error(data)
   }
-};
+}

@@ -14,13 +14,13 @@ git clone git@github.com:jackdbd/calderone.git
 cd calderone
 ```
 
-Authenticate to GCP in order to download the packages I host on Artifact Registry. The OAuth 2.0 access token is [valid for one hour](https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials#sa-credentials-oauth) (even its lifetime can be extended [up to 12 hours](https://stackoverflow.com/a/69712755/3036129)).
+Refresh the access tokens for all npm registries. This is required because I host some npm packages on a private npm repository on Artifact Registry (the OAuth 2.0 access token required to access GCP Artifact Registry is [valid for one hour](https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials#sa-credentials-oauth), but its lifetime can be extended [up to 12 hours](https://stackoverflow.com/a/69712755/3036129)).
 
 ```sh
-npx google-artifactregistry-auth --repo-config .npmrc
+npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc
 ```
 
-Install all dependencies from npm.js and Artifact Registry (thanks to the `.npmrc`) and setup git hooks with [husky](https://typicode.github.io/husky/):
+Install all dependencies from npm.js and Artifact Registry and setup git hooks with [husky](https://typicode.github.io/husky/):
 
 ```sh
 npm install
@@ -28,20 +28,19 @@ npm install
 
 ## Build
 
-Build all packages (libraries to `lib`, applications and scripts to `dist`):
+Build all libraries (to `lib`) and scripts (to `dist`):
 
 ```sh
-# all at once
-npm run build
-
-# or individually
-npm run build/libs
-npm run build/scripts
-npm run build/apps/prod
+npm run build:libs
+npm run build:scripts
 ```
 
 Build all libraries in watch mode:
 
 ```sh
-npm run build/libs/watch
+npm run build:libs:watch
 ```
+
+## Applications
+
+- [@jackdbd/webhooks](./packages/webhooks/README.md): Application that receives webhook events from several third parties and handles them.

@@ -3,10 +3,10 @@ const config = {
   extends: ['@commitlint/config-conventional'],
   ignores: [
     (message) => {
-      return message.includes('initial commit')
+      return message.includes('initial commit') || message.includes('WIP')
     }
   ],
-  //   https://github.com/conventional-changelog/commitlint/blob/master/docs/reference-rules.md
+  // https://github.com/conventional-changelog/commitlint/blob/master/docs/reference-rules.md
   rules: {
     // I configured semantic-release git plugin to create a release commit
     // message containing release notes in the commit body. This would exceed

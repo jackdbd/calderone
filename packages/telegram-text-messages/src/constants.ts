@@ -3,4 +3,4 @@
  *
  * https://core.telegram.org/bots/api#message
  */
-export const MAX_CHARS = 4096;
+export const MAX_CHARS = 4096

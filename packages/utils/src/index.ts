@@ -12,6 +12,15 @@ export {
 } from "./dates.js";
 
 export {
+  entriesResolvedFromEnv,
+  envVarNotFoundInEnv,
+  gcloudArgs,
+  regexFactory,
+  requiredConfigValueNotSet,
+  stringResolvedFromEnv,
+} from "./deploy.js";
+
+export {
   logAlert,
   logCritical,
   logDebug,
