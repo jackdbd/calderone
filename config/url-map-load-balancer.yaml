@@ -1,0 +1,14 @@
+creationTimestamp: '2022-03-23T03:57:52.810-07:00'
+defaultService: https://www.googleapis.com/compute/beta/projects/prj-kitchen-sink/global/backendServices/backend-calderone-webhooks
+fingerprint: s5MASbQGAEE=
+hostRules:
+- hosts:
+  - webhooks.giacomodebidda.com
+  pathMatcher: path-matcher-1
+id: 5706524076409308096
+kind: compute#urlMap
+name: url-map-giacomodebidda-com
+pathMatchers:
+- defaultService: https://www.googleapis.com/compute/beta/projects/prj-kitchen-sink/global/backendServices/backend-calderone-webhooks
+  name: path-matcher-1
+selfLink: https://www.googleapis.com/compute/beta/projects/prj-kitchen-sink/global/urlMaps/url-map-giacomodebidda-com
