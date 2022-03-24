@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@google-cloud/containeranalysis": "3.3.0",
+    "@google-cloud/monitoring": "2.3.5",
     "@google-cloud/pubsub": "2.19.0",
     "@google-cloud/tasks": "2.5.0",
     "ajv": "8.11.0",
