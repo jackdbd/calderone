@@ -1,0 +1,24 @@
+alertStrategy:
+  autoClose: 604800s
+combiner: OR
+conditions:
+- conditionThreshold:
+    aggregations:
+    - alignmentPeriod: 300s
+      perSeriesAligner: ALIGN_PERCENTILE_99
+    comparison: COMPARISON_GT
+    duration: 0s
+    filter: resource.type = "cloud_run_revision" AND resource.labels.service_name
+      = "calderone-webhooks-production" AND metric.type = "run.googleapis.com/request_latencies"
+    thresholdValue: 300.0
+    trigger:
+      count: 1
+  displayName: Cloud Run Revision - Request Latency
+displayName: latency webhooks.giacomodebidda.com
+enabled: true
+userLabels:
+  customer: personal
+  environment: prod
+notificationChannels:
+- projects/prj-kitchen-sink/notificationChannels/15585467612040454438
+- projects/prj-kitchen-sink/notificationChannels/7500808066570925580

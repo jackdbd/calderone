@@ -29,8 +29,31 @@ curl -X POST \
 
 ## Alerting policies
 
-Retrieve the list of alerting policies of this GCP project
+Retrieve the list of alerting policies of this GCP project.
 
 ```sh
 gcloud alpha monitoring policies list --project $GCP_PROJECT_ID
+```
+
+Create an alerting policy (an uptime check in this case).
+
+```sh
+# from the monorepo root
+gcloud alpha monitoring policies create \
+--project $GCP_PROJECT_ID \
+--policy-from-file ./monitoring/policies/uptime-check-giacomodebidda-com-homepage.yaml \
+--documentation-format="text/markdown" \
+--documentation-from-file="./monitoring/policies/uptime-check.md" \
+--user-labels=customer=personal,environment=prod
+```
+
+Create another alerting policy.
+
+```sh
+# from the monorepo root
+gcloud alpha monitoring policies create \
+--project $GCP_PROJECT_ID \
+--policy-from-file ./monitoring/policies/request-latency-webhooks.yaml \
+--documentation-format="text/markdown" \
+--documentation-from-file="./monitoring/policies/request-latency.md"
 ```

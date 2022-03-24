@@ -1,0 +1,22 @@
+combiner: OR
+conditions:
+- conditionThreshold:
+    aggregations:
+    - alignmentPeriod: 1200s
+      crossSeriesReducer: REDUCE_COUNT_FALSE
+      groupByFields:
+      - resource.label.*
+      perSeriesAligner: ALIGN_NEXT_OLDER
+    comparison: COMPARISON_GT
+    duration: 60s
+    filter: metric.type="monitoring.googleapis.com/uptime_check/check_passed" AND
+      metric.label.check_id="healthcheck-webhooks" AND resource.type="uptime_url"
+    thresholdValue: 1.0
+    trigger:
+      count: 1
+  displayName: Failure of uptime check_id healthcheck-webhooks
+displayName: healthcheck webhooks uptime failure
+enabled: true
+notificationChannels:
+- projects/prj-kitchen-sink/notificationChannels/15585467612040454438
+- projects/prj-kitchen-sink/notificationChannels/7500808066570925580
