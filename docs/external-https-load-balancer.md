@@ -78,84 +78,133 @@ gcloud compute ssl-certificates describe ssl-cert-subdomains-giacomodebidda-com 
 
 Updating the domain status can take a long time, since the [DNS propagation can take up to 72 hours](https://cloud.google.com/load-balancing/docs/ssl-certificates/troubleshooting#domain-status).
 
-## 3 - Create a serverless NEG (Network Endpoint Group) - REVIEW
+## 3 - Create a serverless NEG (Network Endpoint Group) for each Cloud Run service
 
 The load balancer uses a serverless NEG backend to direct requests to a serverless Cloud Run service. This NEG must be in the same GCP region of the Cloud Run service.
 
 There should be a ratio 1:1 of a Cloud Run service with a serverless NEG.
 
-First, check the **name** of the Cloud Run service and in which **region** it is deployed.
+Check the **name** of each Cloud Run service and in which **region** it is deployed.
 
 ```sh
 gcloud run services list --project $GCP_PROJECT_ID
 ```
 
-Then, create the NEG for that service.
+Create a NEG for the `audit-production` service.
 
 ```sh
-gcloud beta compute network-endpoint-groups create neg-calderone-webhooks \
-  --region europe-west3 \
+gcloud beta compute network-endpoint-groups create neg-audit \
+  --region $CLOUD_RUN_REGION \
   --network-endpoint-type serverless  \
-  --cloud-run-service calderone-webhooks-production \
+  --cloud-run-service audit-production \
   --project $GCP_PROJECT_ID
 ```
 
-Check that the NEG was created.
+Create a NEG for the `webhooks-production` service.
+
+```sh
+gcloud beta compute network-endpoint-groups create neg-webhooks \
+  --region $CLOUD_RUN_REGION \
+  --network-endpoint-type serverless  \
+  --cloud-run-service webhooks-production \
+  --project $GCP_PROJECT_ID
+```
+
+Check that the NEGs were created.
 
 ```sh
 gcloud beta compute network-endpoint-groups list --project $GCP_PROJECT_ID
+```
 
-gcloud beta compute network-endpoint-groups describe neg-calderone-webhooks \
+You can also check individual NEGs. For example:
+
+```sh
+gcloud beta compute network-endpoint-groups describe neg-audit \
   --project $GCP_PROJECT_ID \
-  --region europe-west3 \
+  --region $CLOUD_RUN_REGION \
+  --format="get(id,kind,networkEndpointType)"
+
+gcloud beta compute network-endpoint-groups describe neg-webhooks \
+  --project $GCP_PROJECT_ID \
+  --region $CLOUD_RUN_REGION \
   --format="get(id,kind,networkEndpointType)"
 ```
 
 You can also check the Network endpoint groups in the Google Cloud Console, in [Compute Engine > Network endpoint groups](https://console.cloud.google.com/compute/networkendpointgroups/list?project=prj-kitchen-sink).
 
-## 4 - Create and configure a backend service - REVIEW
+## 4 - Create and configure a backend service for each serverless NEG
 
-### Create a backend service
+A backend service can only contain one Serverless NEG per GCP region.
+
+### Create a backend service for each serverless NEG
 
 A backend service defines how Cloud Load Balancing distributes traffic. The configuration of a backend service can have [many parameters](https://cloud.google.com/sdk/gcloud/reference/beta/compute/backend-services/create).
 
+Create a backend service for `neg-audit`
+
 ```sh
-gcloud beta compute backend-services create backend-calderone-webhooks \
+gcloud beta compute backend-services create backend-audit \
   --load-balancing-scheme EXTERNAL_MANAGED \
   --global \
   --project $GCP_PROJECT_ID \
-  --description 'backend service for the HTTPS load balancer'
+  --description 'backend service for neg-audit'
 ```
 
-Check that the backend service was created and that its protocol is HTTP and its port is 80.
+Create a backend service for `neg-webhooks`
 
 ```sh
-gcloud beta compute backend-services list --project $GCP_PROJECT_ID
-
-gcloud beta compute backend-services describe backend-calderone-webhooks \
+gcloud beta compute backend-services create backend-webhooks \
+  --load-balancing-scheme EXTERNAL_MANAGED \
   --global \
-  --project $GCP_PROJECT_ID
+  --project $GCP_PROJECT_ID \
+  --description 'backend service for neg-webhooks'
 ```
 
 See [here](https://cloud.google.com/load-balancing/docs/backend-service) to know more about backend services in a load balancer.
 
-### Add the serverless NEG as a backend to the backend service
+### Add each serverless NEG as a backend to the backend service
 
-Complete the configuration of the backend service by linking the NEG to the service deployed on Cloud Run.
+Complete the configuration of each backend service by linking each NEG to a service deployed on Cloud Run.
+
+Configuration for `backend-audit`
 
 ```sh
-gcloud beta compute backend-services add-backend backend-calderone-webhooks \
+gcloud beta compute backend-services add-backend backend-audit \
   --global \
-  --network-endpoint-group neg-calderone-webhooks \
-  --network-endpoint-group-region europe-west3 \
-  --description 'directs traffic from HTTPS load balancer to Cloud Run service calderone-webhooks' \
+  --network-endpoint-group neg-audit \
+  --network-endpoint-group-region $CLOUD_RUN_REGION \
+  --description 'directs traffic from HTTPS load balancer to Cloud Run service audit-production' \
   --project $GCP_PROJECT_ID
 ```
 
-Check the configuration.
+Configuration for `backend-webhooks`
 
 ```sh
-gcloud beta compute backend-services describe backend-calderone-webhooks \
+gcloud beta compute backend-services add-backend backend-webhooks \
+  --global \
+  --network-endpoint-group neg-webhooks \
+  --network-endpoint-group-region $CLOUD_RUN_REGION \
+  --description 'directs traffic from HTTPS load balancer to Cloud Run service webhooks-production' \
+  --project $GCP_PROJECT_ID
+```
+
+Check that the list of backend services.
+
+```sh
+gcloud beta compute backend-services list \
+  --project $GCP_PROJECT_ID
+```
+
+Check that all backend services have `protocol: HTTP` and `port: 80`.
+
+```sh
+gcloud beta compute backend-services describe backend-audit \
+  --global \
+  --project $GCP_PROJECT_ID
+```
+
+```sh
+gcloud beta compute backend-services describe backend-webhooks \
   --global \
   --project $GCP_PROJECT_ID
 ```
@@ -198,6 +247,8 @@ gcloud beta compute url-maps describe url-map-giacomodebidda-com \
   --project $GCP_PROJECT_ID
 ```
 
+Once it is deployed to Google Cloud, you can also export the URL map:
+
 ```sh
 gcloud beta compute url-maps export url-map-giacomodebidda-com \
   --destination ./config/url-map-exported.yaml \
@@ -236,7 +287,7 @@ gcloud beta compute target-https-proxies describe https-proxy-giacomodebidda-com
 
 You can also check the list of target proxies in the Google Cloud Console, in [Network services > Load balancing > load balancing components view > TARGET PROXIES](https://console.cloud.google.com/net-services/loadbalancing/advanced/targetProxies/list?project=prj-kitchen-sink).
 
-## 7 - Create global forwarding rule - REVIEW
+## 7 - Create global forwarding rule
 
 A global forwarding rule represents the frontend of a Google Cloud external HTTPS load balancer. It forwards traffic hitting the [Google Frontend Service (GFE)](https://cloud.google.com/docs/security/infrastructure/design#google_front_end_service) at the global, static external ip, and on the selected ports, to the HTTPS proxy.
 
