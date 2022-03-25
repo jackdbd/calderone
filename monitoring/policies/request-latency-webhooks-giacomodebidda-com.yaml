@@ -20,6 +20,4 @@ userLabels:
   customer: personal
   environment: prod
 notificationChannels:
-- projects/prj-kitchen-sink/notificationChannels/15585467612040454438
-- projects/prj-kitchen-sink/notificationChannels/7500808066570925580
 - projects/prj-kitchen-sink/notificationChannels/7905007408143107523

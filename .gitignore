@@ -28,3 +28,7 @@ secrets/*
 
 # directory containing protos.json of Google Cloud libraries (copied from node_modules when building with esbuild)
 packages/scripts/protos/
+
+.calva/
+.clj-kondo/
+.lsp/
