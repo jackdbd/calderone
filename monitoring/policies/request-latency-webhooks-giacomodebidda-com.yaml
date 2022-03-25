@@ -1,5 +1,5 @@
 alertStrategy:
-  autoClose: 604800s
+  autoClose: 86400s
 combiner: OR
 conditions:
 - conditionThreshold:
@@ -9,12 +9,12 @@ conditions:
     comparison: COMPARISON_GT
     duration: 0s
     filter: resource.type = "cloud_run_revision" AND resource.labels.service_name
-      = "calderone-webhooks-production" AND metric.type = "run.googleapis.com/request_latencies"
-    thresholdValue: 300.0
+      = "webhooks-production" AND metric.type = "run.googleapis.com/request_latencies"
+    thresholdValue: 750.0
     trigger:
       count: 1
   displayName: Cloud Run Revision - Request Latency
-displayName: latency webhooks.giacomodebidda.com
+displayName: alert if latency over 750ms within 5min webhooks.giacomodebidda.com
 enabled: true
 userLabels:
   customer: personal
@@ -22,3 +22,4 @@ userLabels:
 notificationChannels:
 - projects/prj-kitchen-sink/notificationChannels/15585467612040454438
 - projects/prj-kitchen-sink/notificationChannels/7500808066570925580
+- projects/prj-kitchen-sink/notificationChannels/7905007408143107523
