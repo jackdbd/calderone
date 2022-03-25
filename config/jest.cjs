@@ -81,6 +81,7 @@ const project = (package_name) => {
 
 // https://jestjs.io/docs/configuration#projects-arraystring--projectconfig
 const projects = [
+  project('audit'),
   project('checks'),
   project('cloud-scheduler-utils'),
   project('fattureincloud-client'),

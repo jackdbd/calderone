@@ -23,6 +23,7 @@ bindings:
 - members:
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com 
+  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/clouddebugger.agent
 - members:
   - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
@@ -74,7 +75,8 @@ bindings:
   role: roles/datastore.viewer
 - members:
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
-  - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com 
+  - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com
+  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/errorreporting.writer
 - members:
   - serviceAccount:service-1051247446620@gcp-sa-firestore.iam.gserviceaccount.com
@@ -137,5 +139,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXa5o97--4=
+etag: BwXbBuavxcA=
 version: 1
