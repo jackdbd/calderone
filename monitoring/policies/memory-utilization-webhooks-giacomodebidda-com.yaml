@@ -1,0 +1,25 @@
+alertStrategy:
+  autoClose: 43200s
+combiner: OR
+conditions:
+- conditionThreshold:
+    aggregations:
+    - alignmentPeriod: 300s
+      perSeriesAligner: ALIGN_PERCENTILE_99
+    comparison: COMPARISON_GT
+    duration: 0s
+    filter: resource.type = "cloud_run_revision" AND resource.labels.service_name
+      = "webhooks-production" AND metric.type = "run.googleapis.com/container/memory/utilizations"
+    thresholdValue: 0.75
+    trigger:
+      count: 1
+  displayName: Cloud Run Revision - Container Memory Utilization
+displayName: alert if memory utilization over 75% within 5min webhooks.giacomodebidda.com
+enabled: true
+userLabels:
+  customer: personal
+  environment: prod
+notificationChannels:
+- projects/prj-kitchen-sink/notificationChannels/15585467612040454438
+- projects/prj-kitchen-sink/notificationChannels/7500808066570925580
+- projects/prj-kitchen-sink/notificationChannels/7905007408143107523
