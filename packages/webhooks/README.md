@@ -92,3 +92,10 @@ curl -X POST \
 -H "Content-Type: application/json" \
 --data-binary "@./secrets/netlify-form-submission.json"
 ```
+
+```sh
+curl -X POST \
+-L "$WEBHOOKS_URL/alerts" \
+-H "Content-Type: application/json" \
+-data-binary "@./assets/fakes/incident.json"
+```
