@@ -3,8 +3,10 @@ main:
 
   - assign_variables:
       assign:
-        # - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
-        - service_url: https://wasm-news-service-45eyyotfta-ey.a.run.app
+        - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+        - function_location: "europe-west3"
+        - function_telegram: ${"https://" + function_location + "-" + project_id + ".cloudfunctions.net/" + "calderone-send-telegram-message"}
+        - service_url: https://wasm-news-production-45eyyotfta-ey.a.run.app
         - healthcheck_url: ${service_url + "/health"}
         - github_url: ${service_url + "/github"}
         - reddit_url: ${service_url + "/reddit"}
@@ -24,13 +26,13 @@ main:
         }
         severity: "WARNING"
   
-  - healthcheck:
-      call: http.get
-      args:
-        url: ${healthcheck_url}
-        auth:
-          type: OIDC
-      result: healthcheck_result
+  # - healthcheck:
+  #     call: http.get
+  #     args:
+  #       url: ${healthcheck_url}
+  #       auth:
+  #         type: OIDC
+  #     result: healthcheck_result
 
   - search_github:
       call: http.post
@@ -69,10 +71,29 @@ main:
           type: OIDC
         body: {}
       result: twitter_result
+
+  - prepare_response:
+      assign:
+        - title: ${"📰 wasm-news"}
+        - google_sheets_link: ${"🔗 <a href='https://docs.google.com/spreadsheets/d/1_px1dEv87iuDTTG6f6QfeSdNrGUhIsb941KDQwTOGLc'>spreadsheet on Google Sheets</a>"}
+        - github: ${"<b>GitHub</b>" + "\n" + github_result.body.message}
+        - reddit: ${"<b>Reddit</b>" + "\n" + reddit_result.body.message}
+        - stack_overflow: ${"<b>Stack Overflow</b>" + "\n" + stack_overflow_result.body.message}
+        - twitter: ${"<b>Twitter</b>" + "\n" + twitter_result.body.message}
+        - telegram_text: ${"<b>" + title + "</b>" + "\n\n" + google_sheets_link + "\n\n" + github + "\n\n" + reddit + "\n\n" + stack_overflow + "\n\n" + twitter}
+
+  - send_telegram_message:
+      call: http.post
+      args:
+        url: ${function_telegram}
+        auth:
+          type: OIDC
+        body:
+          text: ${telegram_text}
+      result: message_result
   
   - respond_to_caller:
       return: {
-        "healthcheck_result": "${healthcheck_result.body}",
         "github_result": "${github_result.body}",
         "reddit_result": "${reddit_result.body}",
         "stack_overflow_result": "${stack_overflow_result.body}",

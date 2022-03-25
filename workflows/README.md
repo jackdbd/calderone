@@ -16,7 +16,7 @@ gcloud workflows deploy random-cocktail-to-telegram \
   --location $WORKFLOW_LOCATION \
   --description "Get a random cocktail from thecocktaildb.com and send it to Telegram and email" \
   --source workflows/random-cocktail-to-telegram.workflows.yaml \
-  --service-account sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com \
+  --service-account $SA_WORKFLOWS_RUNNER \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
 
@@ -26,7 +26,7 @@ gcloud workflows deploy create-stop-delete-vm \
   --location $WORKFLOW_LOCATION \
   --description "Create, start, stop, delete a VM using the Compute Engine Workflows Connector" \
   --source workflows/create-stop-delete-vm.workflows.yaml \
-  --service-account sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com \
+  --service-account $SA_WORKFLOWS_RUNNER \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
 
@@ -34,9 +34,9 @@ gcloud workflows deploy create-stop-delete-vm \
 gcloud workflows deploy wasm-news \
   --project $GCP_PROJECT_ID \
   --location $WORKFLOW_LOCATION \
-  --description "Search several APIs for news about WebAssembly topics" \
+  --description "Search several APIs for news about WebAssembly topics and store them in Google Sheets" \
   --source workflows/wasm-news.workflows.yaml \
-  --service-account $SA_WASM_NEWS \
+  --service-account $SA_WORKFLOWS_RUNNER \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
 
@@ -48,20 +48,23 @@ Use `gcloud workflows execute` to execute a workflow without waiting for it to c
 
 ```sh
 gcloud workflows execute random-cocktail-to-telegram \
-  --location europe-west4
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION
 ```
 
 Use `gcloud workflows run` to execute a workflow and wait for it to complete.
 
 ```sh
 gcloud workflows run random-cocktail-to-telegram \
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION \
   --format='value(result)' \
-  --location europe-west4
 ```
 
 ```sh
 gcloud workflows run wasm-news \
-  --location europe-west4
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION
 ```
 
 Notes:
@@ -73,8 +76,9 @@ Notes:
 
 ```sh
 gcloud workflows run quickstart \
-  --location=europe-west4 \
-  --format='value(result)'
+   --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION \
+  --format 'value(result)'
 ```
 
 ### If the workflow requires input data
@@ -99,12 +103,15 @@ First, convert it to a JSON string with `JSON.stringify(data)`, then use the JSO
 
 ```sh
 gcloud workflows run args \
-  --data="{\"firstName\":\"John\",\"lastName\":\"Smith\"}" \
-  --location=europe-west4 \
-  --format='value(result)'
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION \
+  --data "{\"firstName\":\"John\",\"lastName\":\"Smith\"}" \
+  --format 'value(result)'
 ```
 
 ```sh
 gcloud workflows execute create-stop-delete-vm \
-  --data="{\"instanceName\":\"my-vm-instance\"}"
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION \
+  --data "{\"instanceName\":\"my-vm-instance\"}"
 ```
