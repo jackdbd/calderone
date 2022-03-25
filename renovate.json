@@ -1,0 +1,12 @@
+{
+  "extends": ["config:base", "group:all", "schedule:monthly"],
+  "packageRules": [
+    {
+      "updateTypes": ["patch"],
+      "enabled": false
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "labels": ["security"]
+  }
+}

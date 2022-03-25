@@ -10,7 +10,7 @@ This command uses [run-p](https://github.com/mysticatea/npm-run-all/blob/master/
 
 ```sh
 # from the monorepo root
-npm run scripts:dev
+npm run dev:scripts
 ```
 
 Then launch the script in another terminal window. For example:
