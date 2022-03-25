@@ -22,6 +22,7 @@ bindings:
   role: roles/cloudbuild.serviceAgent
 - members:
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
+  - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com 
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/clouddebugger.agent
@@ -75,6 +76,7 @@ bindings:
   role: roles/datastore.viewer
 - members:
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
+  - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/errorreporting.writer
@@ -108,6 +110,7 @@ bindings:
 - members:
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
+  - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/run.invoker
 - members:
   - serviceAccount:service-1051247446620@serverless-robot-prod.iam.gserviceaccount.com
@@ -139,5 +142,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXbBuavxcA=
+etag: BwXbCohd-mI=
 version: 1

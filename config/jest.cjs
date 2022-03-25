@@ -96,6 +96,7 @@ const projects = [
   project('telegram-bot'),
   project('telegram-text-messages'),
   project('utils'),
+  project('wasm-news'),
   project('webhooks')
 ]
 
