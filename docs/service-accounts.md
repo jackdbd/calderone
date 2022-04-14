@@ -4,6 +4,16 @@ See [Service Accounts predefined IAM roles](https://cloud.google.com/iam/docs/un
 
 ## Create service accounts
 
+### sa-dash-earthquakes
+
+Create a service account for the [dash-earthquakes](https://github.com/jackdbd/dash-earthquakes) application. That application will be deployed as a Cloud Run service, and will have attached this service account.
+
+```sh
+gcloud iam service-accounts create sa-dash-earthquakes \
+  --display-name "dash-earthquakes SA" \
+  --project $GCP_PROJECT_ID
+```
+
 ### sa-firestore-user-test
 
 Service account that I use in [firestore-utils](../packages/firestore-utils/README.md) tests.

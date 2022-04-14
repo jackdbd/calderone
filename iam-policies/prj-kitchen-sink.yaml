@@ -16,6 +16,7 @@ bindings:
   role: roles/bigquerydatatransfer.serviceAgent
 - members:
   - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
+  - serviceAccount:sa-dash-earthquakes@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/cloudbuild.builds.builder
 - members:
   - serviceAccount:service-1051247446620@gcp-sa-cloudbuild.iam.gserviceaccount.com
@@ -95,6 +96,7 @@ bindings:
   - user:giacomo@giacomodebidda.com
   role: roles/iam.serviceAccountUser
 - members:
+  - serviceAccount:sa-dash-earthquakes@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/logging.logWriter
@@ -108,6 +110,7 @@ bindings:
   - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
   role: roles/run.developer
 - members:
+  - serviceAccount:sa-dash-earthquakes@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
@@ -130,6 +133,9 @@ bindings:
   - user:giacomo@giacomodebidda.com
   role: roles/storage.admin
 - members:
+  - serviceAccount:sa-dash-earthquakes@prj-kitchen-sink.iam.gserviceaccount.com
+  role: roles/viewer
+- members:
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
@@ -142,5 +148,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXbCohd-mI=
+etag: BwXcoHF0i30=
 version: 1
