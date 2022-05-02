@@ -10,7 +10,7 @@
     "scripts"
   ],
   "engines": {
-    "node": ">=12.x",
+    "node": ">=16",
     "npm": ">=7.0.0"
   },
   "type": "commonjs",
@@ -24,10 +24,10 @@
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
     "prepublish:artifact-registry": "run-s clean build test",
-    "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name checks",
+    "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name scripts",
     "pretest": "run-s build",
     "size": "pkg-size ./lib --sort-by=brotli",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects checks --config ../../config/jest.cjs --rootDir ../../",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects scripts --config ../../config/jest.cjs --rootDir ../../",
     "test:ci": "npm run test -- --ci --coverage",
     "test:watch": "npm run test -- --watch"
   },

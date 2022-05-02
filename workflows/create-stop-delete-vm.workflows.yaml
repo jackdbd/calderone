@@ -17,6 +17,7 @@ main:
       # https://cloud.google.com/compute/docs/machine-types#machine_types
       - machineType: "e2-micro"
   - insert_machine:
+      # https://cloud.google.com/workflows/docs/reference/googleapis/compute/beta/instances/insert
       call: googleapis.compute.v1.instances.insert
       args:
         project: ${project}
@@ -26,12 +27,31 @@ main:
           machineType: ${"zones/" + zone + "/machineTypes/" + machineType}
           disks:
           - initializeParams:
-              # https://cloud.google.com/compute/docs/images/os-details
-              sourceImage: projects/debian-cloud/global/images/debian-10-buster-v20201112
+              sourceImage: ${args.imageId}
             boot: true
             autoDelete: true
           networkInterfaces:
           - network: "global/networks/default"
+          # an alternative would be to define a new step that calls setServiceAccount
+          # https://cloud.google.com/workflows/docs/reference/googleapis/compute/beta/instances/setServiceAccount
+          serviceAccounts:
+          - email: sa-compute-engine@prj-kitchen-sink.iam.gserviceaccount.com
+            # https://cloud.google.com/compute/docs/access/service-accounts#accesscopesiam
+            scopes: [
+              "https://www.googleapis.com/auth/devstorage.read_only"
+            ]
+  # - set_startup_script:
+  #     # https://cloud.google.com/workflows/docs/reference/googleapis/compute/beta/instances/setMetadata
+  #     call: googleapis.compute.beta.instances.setMetadata
+  #     args:
+  #       instance: ${instance}
+  #       project: ${project}
+  #       zone: ${zone}
+  #       body:
+  #         # https://cloud.google.com/compute/docs/shutdownscript#api
+  #         # https://cloud.google.com/compute/docs/instances/startup-scripts/linux#metadata-keys
+  #         items:
+  #         - { key: startup-script-url, value: https://storage.cloud.google.com/bkt-scripts/startup-vm.sh }
   - start_machine:
       call: googleapis.compute.v1.instances.start
       args:

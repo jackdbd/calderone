@@ -90,28 +90,14 @@ main:
   params: [args]
 ```
 
-Let's say that a workflow requires this JSON as input data.
-
-```json
-{
-    "firstName": "John",
-    "lastName": "Smith"
-}
-```
-
-First, convert it to a JSON string with `JSON.stringify(data)`, then use the JSON stringified value.
-
-```sh
-gcloud workflows run args \
-  --project $GCP_PROJECT_ID \
-  --location $WORKFLOW_LOCATION \
-  --data "{\"firstName\":\"John\",\"lastName\":\"Smith\"}" \
-  --format 'value(result)'
-```
+For example:
 
 ```sh
 gcloud workflows execute create-stop-delete-vm \
   --project $GCP_PROJECT_ID \
   --location $WORKFLOW_LOCATION \
-  --data "{\"instanceName\":\"my-vm-instance\"}"
+  --data '{
+    "imageId": "projects/debian-cloud/global/images/debian-11-bullseye-v20220406",
+    "instanceName": "example-debian-instance"
+  }'
 ```

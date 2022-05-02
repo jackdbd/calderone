@@ -1,5 +1,7 @@
 # @jackdbd/telegram-bot
 
+Telegram bot that I use for several things.
+
 ## Development
 
 Build and watch the web application with `tsc` in watch mode, create a HTTPS => HTTP tunnel with [ngrok](https://ngrok.com/) on port 8080 and launch the application with `NODE_ENV = development`:

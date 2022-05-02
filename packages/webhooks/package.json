@@ -10,7 +10,7 @@
     "webpagetest"
   ],
   "engines": {
-    "node": "16"
+    "node": ">=16.0.0"
   },
   "type": "module",
   "module": "main.js",

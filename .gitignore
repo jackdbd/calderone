@@ -22,6 +22,7 @@ secrets/*
 
 # configuration for the npm registry on Artifact Registry
 **/.npmrc
+!.npmrc
 
 # directories I publish to a npm registry (Artifact Registry, npm.js)
 **/to-publish/

@@ -4,6 +4,16 @@ See [Service Accounts predefined IAM roles](https://cloud.google.com/iam/docs/un
 
 ## Create service accounts
 
+### sa-compute-engine
+
+Create a service account to attach to all Compute Engine VMs.
+
+```sh
+gcloud iam service-accounts create sa-compute-engine \
+  --display-name "Compute Engine SA" \
+  --project $GCP_PROJECT_ID
+```
+
 ### sa-dash-earthquakes
 
 Create a service account for the [dash-earthquakes](https://github.com/jackdbd/dash-earthquakes) application. That application will be deployed as a Cloud Run service, and will have attached this service account.

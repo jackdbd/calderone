@@ -133,6 +133,9 @@ bindings:
   - user:giacomo@giacomodebidda.com
   role: roles/storage.admin
 - members:
+  - serviceAccount:sa-compute-engine@prj-kitchen-sink.iam.gserviceaccount.com
+  role: roles/storage.objectViewer
+- members:
   - serviceAccount:sa-dash-earthquakes@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/viewer
 - members:
@@ -148,5 +151,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXcoHF0i30=
+etag: BwXeBIDRuPg=
 version: 1

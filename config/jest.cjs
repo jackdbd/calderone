@@ -91,6 +91,7 @@ const projects = [
   project('keap-client'),
   project('notifications'),
   project('schemas'),
+  project('scripts'),
   project('secret-manager-utils'),
   project('stripe-utils'),
   project('telegram-bot'),

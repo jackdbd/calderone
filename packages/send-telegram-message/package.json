@@ -10,7 +10,7 @@
     "telegram"
   ],
   "engines": {
-    "node": "16",
+    "node": ">=16",
     "npm": ">=7.0.0"
   },
   "type": "commonjs",

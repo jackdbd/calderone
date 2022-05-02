@@ -13,7 +13,7 @@
     "webperf"
   ],
   "engines": {
-    "node": "16"
+    "node": ">=16"
   },
   "type": "module",
   "module": "main.js",
