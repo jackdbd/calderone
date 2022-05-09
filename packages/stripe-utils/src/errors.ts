@@ -1,4 +1,4 @@
-import Stripe from "stripe";
+import Stripe from 'stripe'
 
 /**
  * Convert an error coming from Stripe into an object with a consistent shape.
@@ -8,15 +8,15 @@ import Stripe from "stripe";
  * https://stripe.com/docs/error-codes
  */
 export const errorFromStripe = (err: Stripe.StripeError) => {
-  const prefix = "[stripe] ";
+  const prefix = '[stripe] '
 
   if (err instanceof Stripe.errors.StripeAPIError) {
     return {
       code: err.code,
       message: `${prefix}${err.message}`,
       param: err.param,
-      status_code: err.statusCode || 500,
-    };
+      status_code: err.statusCode || 500
+    }
   }
 
   if (err instanceof Stripe.errors.StripeAuthenticationError) {
@@ -24,8 +24,8 @@ export const errorFromStripe = (err: Stripe.StripeError) => {
       code: err.code,
       message: `${prefix}${err.message}`,
       param: err.param,
-      status_code: err.statusCode || 401,
-    };
+      status_code: err.statusCode || 401
+    }
   }
 
   if (err instanceof Stripe.errors.StripeInvalidGrantError) {
@@ -33,8 +33,8 @@ export const errorFromStripe = (err: Stripe.StripeError) => {
       code: err.code,
       message: `${prefix}${err.message}`,
       param: err.param,
-      status_code: err.statusCode || 403,
-    };
+      status_code: err.statusCode || 403
+    }
   }
 
   if (err instanceof Stripe.errors.StripeInvalidRequestError) {
@@ -42,8 +42,8 @@ export const errorFromStripe = (err: Stripe.StripeError) => {
       code: err.code,
       message: `${prefix}${err.message}`,
       param: err.param,
-      status_code: err.statusCode || 400,
-    };
+      status_code: err.statusCode || 400
+    }
   }
 
   if (err instanceof Stripe.errors.StripePermissionError) {
@@ -51,8 +51,8 @@ export const errorFromStripe = (err: Stripe.StripeError) => {
       code: err.code,
       message: `${prefix}${err.message}`,
       param: err.param,
-      status_code: err.statusCode || 403,
-    };
+      status_code: err.statusCode || 403
+    }
   }
 
   if (err instanceof Stripe.errors.StripeRateLimitError) {
@@ -60,8 +60,8 @@ export const errorFromStripe = (err: Stripe.StripeError) => {
       code: err.code,
       message: `${prefix}${err.message}`,
       param: err.param,
-      status_code: err.statusCode || 429,
-    };
+      status_code: err.statusCode || 429
+    }
   }
 
   if (err instanceof Stripe.errors.StripeSignatureVerificationError) {
@@ -69,14 +69,14 @@ export const errorFromStripe = (err: Stripe.StripeError) => {
       code: err.code,
       message: `${prefix}${err.message}`,
       param: err.param,
-      status_code: err.statusCode || 400,
-    };
+      status_code: err.statusCode || 400
+    }
   }
 
   return {
     code: err.code,
     message: `${prefix}${err.message} (err.type: ${err.type})`,
     param: err.param,
-    status_code: err.statusCode || 500,
-  };
-};
+    status_code: err.statusCode || 500
+  }
+}

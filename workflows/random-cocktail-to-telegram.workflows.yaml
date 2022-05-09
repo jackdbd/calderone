@@ -1,0 +1,88 @@
+main:
+  steps:
+
+  - assign_variables:
+      assign:
+        - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+        - function_location: "europe-west3"
+        - function_telegram: ${"https://" + function_location + "-" + project_id + ".cloudfunctions.net/" + "calderone-send-telegram-message"}
+        # indentation does not seem to work
+        - indent_json: {"prefix": "", indent: "  "}
+        - email_sender: giacomo@giacomodebidda.com
+        - email_recipient: jackdebidda@gmail.com
+        - expected_email_response: ${"email from " + email_sender + " to " + email_recipient + " will be sent with SendGrid"}
+  
+  - get_random_cocktail:
+      call: http.get
+      args:
+        url: https://www.thecocktaildb.com/api/json/v1/1/random.php
+      result: cocktail_result
+  
+  # https://cloud.google.com/workflows/docs/reference/stdlib/json/encode_to_string
+  - prepare_response:
+      assign:
+        - drink: ${cocktail_result.body.drinks[0]}
+        - cocktail_alcoholic: ${drink.strAlcoholic}
+        - drink_category: ${drink.strCategory + " (" + drink.strAlcoholic + ")"}
+        - drink_glass: ${"🍸 " + drink.strGlass}
+        # - cocktail_preparation: ${drink.strInstructionsIT}
+        - telegram_text: ${"<b>" + drink.strDrink + "</b>" + "\n\n" + drink_category + "\n" + drink_glass + "\n\n" + "<b>Preparation</b> <i>" + drink.strInstructions + "</i>" + "\n\n" + drink.strDrinkThumb}
+        # - email_html: ${json.encode_to_string(telegram_text, indent_json)}
+        # - email_text: ${json.encode_to_string(telegram_text, indent_json)}
+  
+  # https://cloud.google.com/workflows/docs/reference/stdlib/sys/log
+  - log_stuff:
+      call: sys.log
+      args:
+        data: {
+          "function_telegram": "${function_telegram}",
+          "drink": "${drink}"
+        }
+        severity: "WARNING"
+
+  # - send_email:
+  #     call: http.post
+  #     args:
+  #       url: ${function_sendgrid}
+  #       auth:
+  #         type: OIDC
+  #       body:
+  #         from: ${email_sender}
+  #         to: ${email_recipient}
+  #         subject: ${"drink " + drink.strDrink + " (" + drink.strAlcoholic + ")"}
+  #         html: ${email_html}
+  #         text: ${email_text}
+  #     result: email_result
+
+  # - verify_email_response:
+  #     call: assert_response
+  #     args:
+  #       expected_response: ${expected_email_response}
+  #       got_response: ${email_result.body.message}
+
+  - send_telegram_message:
+      call: http.post
+      args:
+        url: ${function_telegram}
+        auth:
+          type: OIDC
+        body:
+          text: ${telegram_text}
+      result: message_result
+  
+  - return_value:
+      return: {
+        # "response_from_email_function": "${email_result.body}",
+        "response_from_telegram_function": "${message_result.body}"
+      }
+
+# subworkflow
+# assert_response:
+#   params: [expected_response, got_response]
+#   steps:
+#   - compare:
+#       switch:
+#       - condition: ${expected_response == got_response}
+#         next: end
+#   - fail:
+#       raise: ${"Expected response is [" + expected_response + "]. Got [" + got_response + "] instead."}

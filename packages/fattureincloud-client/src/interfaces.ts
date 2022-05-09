@@ -1,11 +1,11 @@
 export interface Credentials {
-  api_key: string;
-  api_uid: string;
+  api_key: string
+  api_uid: string
 }
 
 export interface APIResponseBodyError {
-  error?: string;
-  error_code?: number;
+  error?: string
+  error_code?: number
 }
 
 // export interface ResponseBody {

@@ -1,23 +1,23 @@
-import makeDebug from "debug";
-import phin from "phin";
-import { isInteger } from "../checks.js";
+import makeDebug from 'debug'
+import phin from 'phin'
+import { isInteger } from '../checks.js'
 import {
   canAutocompleteCustomerIfRequested,
   canSaveCustomerIfRequested,
   canShowMetodoDiPagamento,
-  isArticoliValid,
-} from "./checks.js";
+  isArticoliValid
+} from './checks.js'
 import {
   articoliCannotBeEmpty,
   cannotAutocompleteCustomer,
   cannotSaveCustomer,
   cannotSetPecForPubblicaAmministrazione,
   eitherYearOrDatesMustBeSet,
-  mostraInfoPagamentoNotSetToTrue,
-} from "./error-messages.js";
-import { newErrorFromApiError } from "../error.js";
-import { headers } from "../headers.js";
-import type { Credentials } from "../interfaces.js";
+  mostraInfoPagamentoNotSetToTrue
+} from './error-messages.js'
+import { newErrorFromApiError } from '../error.js'
+import { headers } from '../headers.js'
+import type { Credentials } from '../interfaces.js'
 import type {
   APIResponseBodyCreate,
   APIResponseBodyDelete,
@@ -26,12 +26,12 @@ import type {
   CreateRequestBody,
   DeleteRequestBody,
   ListOptions,
-  RetrieveConfig,
-} from "./interfaces.js";
+  RetrieveConfig
+} from './interfaces.js'
 
-const debug = makeDebug("fattureincloud-client/invoices/api");
+const debug = makeDebug('fattureincloud-client/invoices/api')
 
-const API_ENDPOINT = "https://api.fattureincloud.it/v1/fatture";
+const API_ENDPOINT = 'https://api.fattureincloud.it/v1/fatture'
 
 /**
  * Retrieve a paginated list of invoices.
@@ -45,41 +45,41 @@ export const listInvoices = async (
   { api_key, api_uid }: Credentials,
   options?: ListOptions
 ) => {
-  debug("list options (before validation and defaults) %O", options);
+  debug('list options (before validation and defaults) %O', options)
 
-  const date_begin = options?.date_begin || "";
-  const date_end = options?.date_end || "";
-  const year = options?.year;
-  const page = options?.page || 1;
+  const date_begin = options?.date_begin || ''
+  const date_end = options?.date_end || ''
+  const year = options?.year
+  const page = options?.page || 1
 
   if (page < 1) {
-    throw new Error(`page must be >= 1`);
+    throw new Error(`page must be >= 1`)
   }
 
   if (!isInteger(page)) {
-    throw new Error(`page must be an integer`);
+    throw new Error(`page must be an integer`)
   }
 
-  if (!year && (date_begin === "" || date_end === "")) {
-    throw new Error(eitherYearOrDatesMustBeSet);
+  if (!year && (date_begin === '' || date_end === '')) {
+    throw new Error(eitherYearOrDatesMustBeSet)
   }
 
   if (year) {
     if (year < 1) {
-      throw new Error(`year must be >= 1`);
+      throw new Error(`year must be >= 1`)
     }
 
     if (!isInteger(year)) {
-      throw new Error(`year must be an integer`);
+      throw new Error(`year must be an integer`)
     }
   }
 
-  debug("list options (after validation and defaults) %O", {
+  debug('list options (after validation and defaults) %O', {
     page,
     date_begin,
     date_end,
-    year,
-  });
+    year
+  })
 
   const response = await phin<APIResponseBodyList>({
     data: {
@@ -88,43 +88,43 @@ export const listInvoices = async (
       anno: year,
       data_inizio: date_begin,
       data_fine: date_end,
-      pagina: page,
+      pagina: page
     },
     headers: headers(),
-    method: "POST",
-    parse: "json" as const,
-    url: `${API_ENDPOINT}/lista`,
-  });
+    method: 'POST',
+    parse: 'json' as const,
+    url: `${API_ENDPOINT}/lista`
+  })
 
-  const b = response.body;
+  const b = response.body
 
   if (b.error) {
-    throw newErrorFromApiError({ error: b.error, error_code: b.error_code! });
+    throw newErrorFromApiError({ error: b.error, error_code: b.error_code! })
   }
 
-  const current_page = b.pagina_corrente;
-  const total_pages = b.numero_pagine;
-  const results = b.lista_documenti;
-  const results_per_page = b.risultati_per_pagina;
-  const results_total = b.numero_risultati;
+  const current_page = b.pagina_corrente
+  const total_pages = b.numero_pagine
+  const results = b.lista_documenti
+  const results_per_page = b.risultati_per_pagina
+  const results_total = b.numero_risultati
 
   if (page > total_pages) {
     throw new Error(
       `[400] requested page > total pages (${page} > ${total_pages})`
-    );
+    )
   }
 
   debug(
     `page ${current_page}/${total_pages}: ${results.length} invoices in this page`
-  );
+  )
   return {
     current_page,
     results,
     results_per_page,
     results_total,
-    total_pages,
-  };
-};
+    total_pages
+  }
+}
 
 /**
  * Retrieve a single invoice that matches the search criteria.
@@ -135,32 +135,32 @@ export const retrieveInvoice = async (
   { api_key, api_uid }: Credentials,
   { id }: RetrieveConfig
 ) => {
-  if (id === "") {
-    throw new Error("id is not set");
+  if (id === '') {
+    throw new Error('id is not set')
   }
 
-  debug(`retrieve invoice ${id}`);
+  debug(`retrieve invoice ${id}`)
 
   const response = await phin<APIResponseBodyDetail>({
     data: {
       api_key,
       api_uid,
-      id,
+      id
     },
     headers: headers(),
-    method: "POST",
-    parse: "json" as const,
-    url: `${API_ENDPOINT}/dettagli`,
-  });
+    method: 'POST',
+    parse: 'json' as const,
+    url: `${API_ENDPOINT}/dettagli`
+  })
 
-  const b = response.body;
+  const b = response.body
 
   if (b.error) {
-    throw newErrorFromApiError({ error: b.error, error_code: b.error_code! });
+    throw newErrorFromApiError({ error: b.error, error_code: b.error_code! })
   }
 
-  return b.dettagli_documento;
-};
+  return b.dettagli_documento
+}
 
 /**
  * Create a new invoice.
@@ -185,7 +185,7 @@ export const createInvoice = async (
     is_fattura_elettronica,
     is_pubblica_amministrazione = false,
     is_split_payment = false,
-    lingua = "it",
+    lingua = 'it',
     lista_articoli,
     lista_pagamenti,
     marca_bollo,
@@ -202,14 +202,14 @@ export const createInvoice = async (
     ragione_sociale,
     salva_anagrafica_cliente,
     tel,
-    valuta = "EUR",
+    valuta = 'EUR'
   }: CreateRequestBody
 ) => {
-  debug("create invoice");
+  debug('create invoice')
 
   // input validation ===================================================== //
   if (!isArticoliValid(lista_articoli)) {
-    throw new Error(`[400] ${articoliCannotBeEmpty}`);
+    throw new Error(`[400] ${articoliCannotBeEmpty}`)
   }
 
   if (
@@ -217,31 +217,31 @@ export const createInvoice = async (
       autocompila_anagrafica_cliente,
       codice_fiscale,
       id_cliente,
-      partita_iva,
+      partita_iva
     })
   ) {
-    throw new Error(`[400] ${cannotAutocompleteCustomer}`);
+    throw new Error(`[400] ${cannotAutocompleteCustomer}`)
   }
 
   if (!canSaveCustomerIfRequested({ email, salva_anagrafica_cliente, tel })) {
-    throw new Error(`[400] ${cannotSaveCustomer}`);
+    throw new Error(`[400] ${cannotSaveCustomer}`)
   }
 
   if (
     !canShowMetodoDiPagamento({
       metodo_pagamento,
-      mostra_info_pagamento,
+      mostra_info_pagamento
     })
   ) {
-    throw new Error(`[400] ${mostraInfoPagamentoNotSetToTrue}`);
+    throw new Error(`[400] ${mostraInfoPagamentoNotSetToTrue}`)
   }
 
   if (is_pubblica_amministrazione && pec) {
-    throw new Error(`[400] ${cannotSetPecForPubblicaAmministrazione}`);
+    throw new Error(`[400] ${cannotSetPecForPubblicaAmministrazione}`)
   }
   // ======================================================================== //
 
-  const PA_tipo_cliente = is_pubblica_amministrazione ? "PA" : "B2B";
+  const PA_tipo_cliente = is_pubblica_amministrazione ? 'PA' : 'B2B'
 
   const response = await phin<APIResponseBodyCreate>({
     data: {
@@ -257,7 +257,7 @@ export const createInvoice = async (
       // ddt_id_template,
       extra_anagrafica: {
         mail: email,
-        tel,
+        tel
       },
       // ftacc,
       // ftacc_id_template,
@@ -303,22 +303,22 @@ export const createInvoice = async (
       // rit_altra,
       // rivalsa,
       salva_anagrafica: salva_anagrafica_cliente,
-      valuta,
+      valuta
     },
     headers: headers(),
-    method: "POST",
-    parse: "json" as const,
-    url: `${API_ENDPOINT}/nuovo`,
-  });
+    method: 'POST',
+    parse: 'json' as const,
+    url: `${API_ENDPOINT}/nuovo`
+  })
 
-  const b = response.body;
+  const b = response.body
 
   if (b.error) {
-    throw newErrorFromApiError({ error: b.error, error_code: b.error_code! });
+    throw newErrorFromApiError({ error: b.error, error_code: b.error_code! })
   }
 
-  return { id: b.new_id, token: b.token };
-};
+  return { id: b.new_id, token: b.token }
+}
 
 /**
  * Delete an invoice.
@@ -329,28 +329,28 @@ export const deleteInvoice = async (
   { api_key, api_uid }: Credentials,
   { id }: DeleteRequestBody
 ) => {
-  debug(`delete invoice id ${id}`);
+  debug(`delete invoice id ${id}`)
 
   const response = await phin<APIResponseBodyDelete>({
     data: {
       api_key,
       api_uid,
-      id,
+      id
     },
     headers: headers(),
-    method: "POST",
-    parse: "json" as const,
-    url: `${API_ENDPOINT}/elimina`,
-  });
+    method: 'POST',
+    parse: 'json' as const,
+    url: `${API_ENDPOINT}/elimina`
+  })
 
-  const b = response.body;
+  const b = response.body
 
   if (b.error) {
-    throw newErrorFromApiError({ error: b.error, error_code: b.error_code! });
+    throw newErrorFromApiError({ error: b.error, error_code: b.error_code! })
   }
 
-  return { id };
-};
+  return { id }
+}
 
 /**
  * Autopaginate results.
@@ -359,12 +359,12 @@ export async function* listInvoicesAsyncGenerator(
   credentials: Credentials,
   options?: ListOptions
 ) {
-  const start = options?.page || 1;
-  let stop = start + 1;
+  const start = options?.page || 1
+  let stop = start + 1
 
   for (let page = start; page <= stop; page++) {
-    const value = await listInvoices(credentials, { ...options, page });
-    stop = value.total_pages;
-    yield value;
+    const value = await listInvoices(credentials, { ...options, page })
+    stop = value.total_pages
+    yield value
   }
 }

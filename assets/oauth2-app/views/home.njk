@@ -1,0 +1,12 @@
+<!doctype html>
+<html  lang="en">
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    {% block  content %}
+    <h1>{{ h1 }}</h1>
+    <a href="{{ auth_link.href }}" rel="noopener noreferrer">{{ auth_link.text }}</a>
+    {% endblock %}
+  </body>
+</html>

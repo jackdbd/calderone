@@ -1,0 +1,49 @@
+# remember that this steps are run from the package's `dist` directory
+
+# gcloud deploy for Cloud Functions
+# https://cloud.google.com/sdk/gcloud/reference/functions/deploy
+# M = megabyte, Mi = mebibyte, G = gigabyte, Gi = gibibyte
+# https://cloud.google.com/sdk/gcloud/reference/functions/deploy#--memory
+
+steps:
+  - name: node:${_NODE_VERSION}
+    entrypoint: npm
+    args: ['install']
+  - name: node:${_NODE_VERSION}
+    entrypoint: npm
+    args: ['audit', '--audit-level=moderate']
+  - name: gcr.io/cloud-builders/gcloud:${_GCLOUD_VERSION}
+    entrypoint: /bin/bash
+    args:
+      - -c
+      - |
+        gcloud beta functions deploy ${_FUNCTION_NAME} \
+          --no-allow-unauthenticated \
+          --source ./ \
+          --entry-point entryPoint \
+          --memory 128M \
+          --runtime nodejs16 \
+          --min-instances 0 \
+          --max-instances 1 \
+          --project ${PROJECT_ID} \
+          --region ${_REGION_ID} \
+          --service-account ${_SERVICE_ACCOUNT} \
+          --set-env-vars NODE_DEBUG=${_NODE_DEBUG},NODE_ENV=${_NODE_ENV} \
+          --set-secrets TELEGRAM=TELEGRAM:latest \
+          --timeout 10s \
+          --trigger-http \
+          --update-labels customer=personal,resource=function \
+          --verbosity warning
+
+# user-defined substitutions and default values
+substitutions:
+  _FUNCTION_NAME: calderone-send-telegram-message
+  _GCLOUD_VERSION: latest
+  _NODE_DEBUG: send-telegram-message/*
+  _NODE_ENV: production
+  _NODE_VERSION: 16.14.0
+  _REGION_ID: europe-west3
+  _SERVICE_ACCOUNT: sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
+options:
+    # https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#dynamic_substitutions
+    dynamic_substitutions: true

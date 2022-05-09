@@ -1,0 +1,101 @@
+main:
+  steps:
+
+  - assign_variables:
+      assign:
+        - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+        - function_location: "europe-west3"
+        - function_telegram: ${"https://" + function_location + "-" + project_id + ".cloudfunctions.net/" + "calderone-send-telegram-message"}
+        - service_url: https://wasm-news-production-45eyyotfta-ey.a.run.app
+        - healthcheck_url: ${service_url + "/health"}
+        - github_url: ${service_url + "/github"}
+        - reddit_url: ${service_url + "/reddit"}
+        - stack_overflow_url: ${service_url + "/stack-overflow"}
+        - twitter_url: ${service_url + "/twitter"}
+
+  # https://cloud.google.com/workflows/docs/reference/stdlib/sys/log
+  - log_stuff:
+      call: sys.log
+      args:
+        data: {
+          "healthcheck_url": "${healthcheck_url}",
+          "github_url": "${github_url}",
+          "reddit_url": "${reddit_url}",
+          "stack_overflow_url": "${stack_overflow_url}",
+          "twitter_url": "${twitter_url}"
+        }
+        severity: "WARNING"
+  
+  # - healthcheck:
+  #     call: http.get
+  #     args:
+  #       url: ${healthcheck_url}
+  #       auth:
+  #         type: OIDC
+  #     result: healthcheck_result
+
+  - search_github:
+      call: http.post
+      args:
+        url: ${github_url}
+        auth:
+          type: OIDC
+        body:
+          n_days: 7
+      result: github_result
+
+  - search_reddit:
+      call: http.post
+      args:
+        url: ${reddit_url}
+        auth:
+          type: OIDC
+        body: {}
+      result: reddit_result
+
+  - search_stack_overflow:
+      call: http.post
+      args:
+        url: ${stack_overflow_url}
+        auth:
+          type: OIDC
+        body:
+          n_days: 7
+      result: stack_overflow_result
+
+  - search_twitter:
+      call: http.post
+      args:
+        url: ${twitter_url}
+        auth:
+          type: OIDC
+        body: {}
+      result: twitter_result
+
+  - prepare_response:
+      assign:
+        - title: ${"📰 wasm-news"}
+        - google_sheets_link: ${"🔗 <a href='https://docs.google.com/spreadsheets/d/1_px1dEv87iuDTTG6f6QfeSdNrGUhIsb941KDQwTOGLc'>spreadsheet on Google Sheets</a>"}
+        - github: ${"<b>GitHub</b>" + "\n" + github_result.body.message}
+        - reddit: ${"<b>Reddit</b>" + "\n" + reddit_result.body.message}
+        - stack_overflow: ${"<b>Stack Overflow</b>" + "\n" + stack_overflow_result.body.message}
+        - twitter: ${"<b>Twitter</b>" + "\n" + twitter_result.body.message}
+        - telegram_text: ${"<b>" + title + "</b>" + "\n\n" + google_sheets_link + "\n\n" + github + "\n\n" + reddit + "\n\n" + stack_overflow + "\n\n" + twitter}
+
+  - send_telegram_message:
+      call: http.post
+      args:
+        url: ${function_telegram}
+        auth:
+          type: OIDC
+        body:
+          text: ${telegram_text}
+      result: message_result
+  
+  - respond_to_caller:
+      return: {
+        "github_result": "${github_result.body}",
+        "reddit_result": "${reddit_result.body}",
+        "stack_overflow_result": "${stack_overflow_result.body}",
+        "twitter_result": "${twitter_result.body}"
+      }

@@ -1,0 +1,23 @@
+alertStrategy:
+  autoClose: 86400s
+combiner: OR
+conditions:
+- conditionThreshold:
+    aggregations:
+    - alignmentPeriod: 300s
+      perSeriesAligner: ALIGN_PERCENTILE_99
+    comparison: COMPARISON_GT
+    duration: 0s
+    filter: resource.type = "cloud_run_revision" AND resource.labels.service_name
+      = "webhooks-production" AND metric.type = "run.googleapis.com/request_latencies"
+    thresholdValue: 750.0
+    trigger:
+      count: 1
+  displayName: Cloud Run Revision - Request Latency
+displayName: alert if latency over 750ms within 5min webhooks.giacomodebidda.com
+enabled: true
+userLabels:
+  customer: personal
+  environment: prod
+notificationChannels:
+- projects/prj-kitchen-sink/notificationChannels/7905007408143107523

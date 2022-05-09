@@ -22,6 +22,14 @@ secrets/*
 
 # configuration for the npm registry on Artifact Registry
 **/.npmrc
+!.npmrc
 
 # directories I publish to a npm registry (Artifact Registry, npm.js)
 **/to-publish/
+
+# directory containing protos.json of Google Cloud libraries (copied from node_modules when building with esbuild)
+packages/scripts/protos/
+
+.calva/
+.clj-kondo/
+.lsp/

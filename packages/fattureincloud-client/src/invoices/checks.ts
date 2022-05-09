@@ -1,48 +1,48 @@
-import type { Articolo, DataValidation } from "./interfaces.js";
+import type { Articolo, DataValidation } from './interfaces.js'
 
 export const isArticoliValid = (lista_articoli?: Articolo[]) => {
   if (lista_articoli && lista_articoli.length > 0) {
-    return true;
+    return true
   } else {
-    return false;
+    return false
   }
-};
+}
 
 export const canShowMetodoDiPagamento = ({
   metodo_pagamento,
-  mostra_info_pagamento,
+  mostra_info_pagamento
 }: DataValidation) => {
   if (metodo_pagamento && !mostra_info_pagamento) {
-    return false;
+    return false
   } else {
-    return true;
+    return true
   }
-};
+}
 
 export const canAutocompleteCustomerIfRequested = ({
   id_cliente,
   codice_fiscale,
   autocompila_anagrafica_cliente,
-  partita_iva,
+  partita_iva
 }: DataValidation) => {
   if (
     autocompila_anagrafica_cliente &&
     !(codice_fiscale || id_cliente || partita_iva)
   ) {
-    return false;
+    return false
   } else {
-    return true;
+    return true
   }
-};
+}
 
 export const canSaveCustomerIfRequested = ({
   email,
   salva_anagrafica_cliente,
-  tel,
+  tel
 }: DataValidation) => {
   if (salva_anagrafica_cliente && !(email || tel)) {
-    return false;
+    return false
   } else {
-    return true;
+    return true
   }
-};
+}

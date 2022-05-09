@@ -53,7 +53,7 @@ substitutions:
   _DEBUG: webhooks/*
   _GCLOUD_VERSION: latest
   _IMAGE: "${_REGION_ID}-docker.pkg.dev/${PROJECT_ID}/${_REPO_ID}/${_IMAGE_NAME}:${_IMAGE_TAG}"
-  _IMAGE_NAME: calderone-webhooks
+  _IMAGE_NAME: webhooks
   _IMAGE_TAG: latest
   _NODE_ENV: production
   _NODE_VERSION: 16.14.0
@@ -62,7 +62,7 @@ substitutions:
   _REGION_ID: europe-west3
   _REPO_ID: cloud-run-source-deploy
   _SERVICE_ACCOUNT: sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com
-  _SERVICE_NAME: calderone-webhooks-production
+  _SERVICE_NAME: webhooks-production
 options:
     # https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#dynamic_substitutions
     dynamic_substitutions: true

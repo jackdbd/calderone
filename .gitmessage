@@ -1,0 +1,24 @@
+<type>(<scope>): <summary>
+
+<Describe the motivation behind this change - explain WHY you are making this change. Wrap all lines
+at 100 characters.>
+
+Fixes #<issue number>
+
+# ────────────────────────────────────────── 100 chars ────────────────────────────────────────────┤
+
+# Commit Message Header
+# ---------------------
+#
+# <type>(<scope>): <short summary>
+#   │       │             │
+#   │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
+#   │       │
+#   │       └─⫸ Commit Scope: animations|bazel|benchpress|common|compiler|compiler-cli|core|
+#   │                          elements|forms|http|language-service|localize|platform-browser|
+#   │                          platform-browser-dynamic|platform-server|router|service-worker|
+#   │                          upgrade|zone.js|packaging|changelog|docs-infra|migrations|ngcc|ve
+#   │                          https://github.com/angular/angular/blob/master/CONTRIBUTING.md#scope
+#   │
+#   └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|style|test
+#                     https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type

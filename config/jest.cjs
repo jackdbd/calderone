@@ -81,6 +81,7 @@ const project = (package_name) => {
 
 // https://jestjs.io/docs/configuration#projects-arraystring--projectconfig
 const projects = [
+  project('audit'),
   project('checks'),
   project('cloud-scheduler-utils'),
   project('fattureincloud-client'),
@@ -90,10 +91,13 @@ const projects = [
   project('keap-client'),
   project('notifications'),
   project('schemas'),
+  project('scripts'),
   project('secret-manager-utils'),
   project('stripe-utils'),
+  project('telegram-bot'),
   project('telegram-text-messages'),
   project('utils'),
+  project('wasm-news'),
   project('webhooks')
 ]
 

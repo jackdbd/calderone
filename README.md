@@ -23,7 +23,7 @@ npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npm
 Install all dependencies from npm.js and Artifact Registry and setup git hooks with [husky](https://typicode.github.io/husky/):
 
 ```sh
-npm install
+npm install --include dev
 ```
 
 ## Build
@@ -41,6 +41,45 @@ Build all libraries in watch mode:
 npm run build:libs:watch
 ```
 
+Build all applications:
+
+```sh
+npm run build -w packages/audit
+npm run build -w packages/telegram-bot
+npm run build -w packages/wasm-news
+npm run build -w packages/webhooks
+```
+
+## Test
+
+Run all tests on all packages:
+
+```sh
+npm run test -w packages/audit
+npm run test -w packages/checks
+npm run test -w packages/cloud-scheduler-utils
+npm run test -w packages/fattureincloud-client
+npm run test -w packages/firestore-utils
+npm run test -w packages/hapi-healthcheck-plugin
+npm run test -w packages/hapi-ip-whitelist-plugin
+npm run test -w packages/keap-client
+npm run test -w packages/notifications
+npm run test -w packages/schemas
+npm run test -w packages/scripts
+npm run test -w packages/secret-manager-utils
+npm run test -w packages/send-telegram-message
+npm run test -w packages/sqlite-utils
+npm run test -w packages/stripe-utils
+npm run test -w packages/telegram-bot
+npm run test -w packages/telegram-text-messages
+npm run test -w packages/utils
+npm run test -w packages/wasm-news
+npm run test -w packages/webhooks
+```
+
 ## Applications
 
-- [@jackdbd/webhooks](./packages/webhooks/README.md): Application that receives webhook events from several third parties and handles them.
+- [@jackdbd/audit](./packages/audit/README.md): application that retrieves records from [this Google Sheet](https://docs.google.com/spreadsheets/d/12Z3HBsRuuJp8yXTa9uaK2CzY6so_uIOrRGa8kaq8ZPk/edit#gid=0) and schedules web performance audits with [WebPageTest](https://docs.webpagetest.org/api/reference) using Google Cloud [Workflows](https://console.cloud.google.com/workflows?project=prj-kitchen-sink).
+- [@jackdbd/telegram-bot](./packages/telegram-bot/README.md): Telegram bot that I use for several things.
+- [@jackdbd/wasm-news](./packages/wasm-news/README.md): application that retrieves news about webassembly from several APIs (Reddit, Twitter, etc) and populates [this Google Sheets worksheet](https://docs.google.com/spreadsheets/d/1_px1dEv87iuDTTG6f6QfeSdNrGUhIsb941KDQwTOGLc).
+- [@jackdbd/webhooks](./packages/webhooks/README.md): application that receives webhook events from several third parties and handles them.

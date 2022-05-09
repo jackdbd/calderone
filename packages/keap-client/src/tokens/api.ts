@@ -1,23 +1,23 @@
-import makeDebug from "debug";
-import phin from "phin";
-import { apiError, refresh_token_not_set } from "../error.js";
-import { authorizationHeaderValue } from "../headers.js";
-import type { ResponseBody } from "./interfaces.js";
+import makeDebug from 'debug'
+import phin from 'phin'
+import { apiError, refresh_token_not_set } from '../error.js'
+import { authorizationHeaderValue } from '../headers.js'
+import type { ResponseBody } from './interfaces.js'
 import {
   isResponseBodyWithErrorDescription,
-  isResponseBodyWithFault,
-} from "./type-guards.js";
+  isResponseBodyWithFault
+} from './type-guards.js'
 
-const debug = makeDebug("keap-client/tokens/api");
+const debug = makeDebug('keap-client/tokens/api')
 
-const TOKEN_URL = "https://api.infusionsoft.com/token";
+const TOKEN_URL = 'https://api.infusionsoft.com/token'
 
 interface RefreshConfig {
   // OAuth 2.0 client id
-  client_id: string;
+  client_id: string
   // OAuth 2.0 client secret
-  client_secret: string;
-  refresh_token: string;
+  client_secret: string
+  refresh_token: string
 }
 
 /**
@@ -32,40 +32,40 @@ interface RefreshConfig {
 export const retrieveRefreshedTokens = async ({
   client_id,
   client_secret,
-  refresh_token,
+  refresh_token
 }: RefreshConfig) => {
-  const authorization = authorizationHeaderValue({ client_id, client_secret });
+  const authorization = authorizationHeaderValue({ client_id, client_secret })
 
   if (!refresh_token) {
-    throw new Error(refresh_token_not_set);
+    throw new Error(refresh_token_not_set)
   }
 
   const response = await phin<ResponseBody>({
     headers: {
       Authorization: authorization,
-      "Content-Type": "application/x-www-form-urlencoded",
+      'Content-Type': 'application/x-www-form-urlencoded'
     },
-    method: "POST",
+    method: 'POST',
     // https://ethanent.github.io/phin/global.html
     form: {
-      grant_type: "refresh_token",
+      grant_type: 'refresh_token',
       refresh_token,
-      "Header:Authorization": authorization,
+      'Header:Authorization': authorization
     },
-    parse: "json",
-    url: TOKEN_URL,
-  });
+    parse: 'json',
+    url: TOKEN_URL
+  })
 
   if (isResponseBodyWithFault(response.body)) {
     throw apiError({
       fault: response.body.fault,
-      message: "cannot refresh tokens",
-    });
+      message: 'cannot refresh tokens'
+    })
   } else if (isResponseBodyWithErrorDescription(response.body)) {
     throw apiError({
       error_description: response.body.error_description,
-      message: "cannot refresh tokens",
-    });
+      message: 'cannot refresh tokens'
+    })
   }
 
   const tokens = {
@@ -73,13 +73,13 @@ export const retrieveRefreshedTokens = async ({
     expires_in: response.body.expires_in,
     refresh_token: response.body.refresh_token,
     scope: response.body.scope,
-    token_type: response.body.token_type,
-  };
+    token_type: response.body.token_type
+  }
 
   // expires_at sometimes is a datetime, sometimes is undefined
   debug(
     `tokens refreshed (scope: ${tokens.scope}, expires_in: ${tokens.expires_in})`
-  );
+  )
 
-  return tokens;
-};
+  return tokens
+}

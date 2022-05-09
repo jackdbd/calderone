@@ -1,0 +1,35 @@
+{
+  "name": "@jackdbd/send-telegram-message",
+  "version": "0.0.0",
+  "description": "serverless function to send a message to a Telegram chat",
+  "author": "Giacomo Debidda <giacomo@giacomodebidda.com>",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "function",
+    "telegram"
+  ],
+  "engines": {
+    "node": ">=16",
+    "npm": ">=7.0.0"
+  },
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "build": "node ../../scripts/cloud-functions/build.mjs -p send-telegram-message",
+    "clean": "rimraf coverage dist 'tsconfig.tsbuildinfo'",
+    "predeploy": "run-s clean format build test",
+    "deploy": "gcloud beta builds submit ./dist --config cloudbuild.yaml --project $GCP_PROJECT_ID",
+    "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
+    "lint": "eslint --config ../../config/eslint.cjs",
+    "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
+    "precommit": "lint-staged --config ../../config/lint-staged.cjs",
+    "start:local": "TELEGRAM=$(cat ../../secrets/telegram.json) npx functions-framework --source dist/main.js --target entryPoint --port 8080",
+    "test": "true"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.0.0",
+    "@jackdbd/notifications": "0.0.4"
+  },
+  "devDependencies": {}
+}

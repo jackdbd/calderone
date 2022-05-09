@@ -1,0 +1,10 @@
+creationTimestamp: '2022-02-02T02:23:34.718-08:00'
+description: HTTPS proxy for the HTTPS external load balancer
+kind: compute#targetHttpsProxy
+name: https-proxy-giacomodebidda-com
+quicOverride: NONE
+selfLink: https://www.googleapis.com/compute/beta/projects/prj-kitchen-sink/global/targetHttpsProxies/https-proxy-giacomodebidda-com
+sslCertificates:
+- https://www.googleapis.com/compute/beta/projects/prj-kitchen-sink/global/sslCertificates/ssl-cert-subdomains-giacomodebidda-com
+- https://www.googleapis.com/compute/beta/projects/prj-kitchen-sink/global/sslCertificates/ssl-cert-webhooks-giacomodebidda-com
+urlMap: https://www.googleapis.com/compute/beta/projects/prj-kitchen-sink/global/urlMaps/url-map-giacomodebidda-com
