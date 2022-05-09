@@ -18,12 +18,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: ['14.17', '16.x']
+        node: ['17.9.0']
     steps:
       - name: 🛎️ Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: 🖥️ Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
       - name: 👨‍💻 Install root package dependencies
@@ -48,11 +48,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🛎️ Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: 🖥️ Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '17.9.0'
       - name: 👨‍💻 Install root package dependencies
         run: npm ci
       - name: 🔧 Build all packages
