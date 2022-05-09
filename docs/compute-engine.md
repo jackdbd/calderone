@@ -5,14 +5,6 @@ Useful links:
 - [Debian images configuration](https://cloud.google.com/compute/docs/images/os-details#debian)
 - [Troubleshooting VM startup scripts](https://cloud.google.com/compute/docs/troubleshooting/vm-startup)
 
-## images
-
-List all the available images:
-
-```sh
-gcloud compute images list --project $GCP_PROJECT_ID
-```
-
 ## startup/shutdown scripts for Compute Engine VMs
 
 List all Cloud Storage buckets for this GCP project:
@@ -112,19 +104,114 @@ gcloud compute instances stop example-debian-instance \
   --zone $COMPUTE_ENGINE_ZONE
 ```
 
-Create a machine image (*bake* an image) using the stopped VM as a starting point:
-
-```sh
-gcloud compute images create my-image \
-  --project $GCP_PROJECT_ID \
-  --source-disk example-debian-instance \
-  --source-disk-zone $COMPUTE_ENGINE_ZONE
-```
-
 Delete an instance:
 
 ```sh
 gcloud compute instances delete example-debian-instance \
   --project $GCP_PROJECT_ID \
   --zone $COMPUTE_ENGINE_ZONE
+```
+
+## instance templates
+
+Retrieve the list of instance templates:
+
+```sh
+gcloud compute instance-templates list \
+  --project $GCP_PROJECT_ID
+```
+
+You can also see the [list of instance templates in the Cloud Console](https://console.cloud.google.com/compute/instanceTemplates/list?project=prj-kitchen-sink).
+
+Create an instance template for a VM I use for development purposes:
+
+```sh
+gcloud compute instance-templates create tmpl-debian-11 \
+  --project $GCP_PROJECT_ID \
+  --service-account sa-compute-engine@prj-kitchen-sink.iam.gserviceaccount.com \
+  --machine-type e2-micro \
+  --image-family debian-11 \
+  --image-project debian-cloud \
+  --boot-disk-size 40GB \
+  --boot-disk-type pd-standard \
+  --boot-disk-auto-delete \
+  --metadata-from-file startup-script=scripts/startup-vm.sh,shutdown-script=scripts/shutdown-vm.sh \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=instance-template
+```
+
+Check the [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator#id=c7f84d96-9dbe-480f-84e0-a9104093e55e) to estimate monthly costs.
+
+Delete the instance template:
+
+```sh
+gcloud compute instance-templates delete tmpl-debian-11 \
+  --project $GCP_PROJECT_ID
+```
+
+Create a VM from an instance template:
+
+```sh
+gcloud compute instances create vm-development \
+  --project $GCP_PROJECT_ID \
+  --source-instance-template tmpl-debian-11 \
+  --zone $COMPUTE_ENGINE_ZONE \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=vm
+```
+
+Delete the VM:
+
+```sh
+gcloud compute instances delete vm-development \
+  --project $GCP_PROJECT_ID
+```
+
+## machine images
+
+Retrieve the list of machine images in this GCP project:
+
+```sh
+gcloud compute machine-images list \
+  --project $GCP_PROJECT_ID
+```
+
+You can also see the [list of machine images in the Cloud Console](https://console.cloud.google.com/compute/machineImages?project=prj-kitchen-sink).
+
+Create a machine image (*bake* an image) using a VM as a starting point:
+
+```sh
+gcloud compute machine-images create machine-img-development \
+  --project $GCP_PROJECT_ID \
+  --source-instance vm-development \
+  --source-instance-zone $COMPUTE_ENGINE_ZONE \
+  --description "baked image of a VM I use for various development tasks"
+```
+
+If you need to stop the VM, here is how to do it:
+
+```sh
+gcloud compute instances stop vm-development \
+  --project $GCP_PROJECT_ID \
+  --zone $COMPUTE_ENGINE_ZONE
+```
+
+Create a VM from a machine image:
+
+```sh
+gcloud beta compute instances create vm-development \
+  --project $GCP_PROJECT_ID \
+  --source-machine-image machine-img-development \
+  --zone $COMPUTE_ENGINE_ZONE \
+  --description "VM I use for various development tasks" \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=vm
+```
+
+Add `--no-address` if you do not want the VM to have an external IP address.
+
+Connect to the VM:
+
+```sh
+gcloud compute ssh vm-development \
+  --project $GCP_PROJECT_ID \
+  --zone $COMPUTE_ENGINE_ZONE \
+  --tunnel-through-iap
 ```
