@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/secret-manager-utils",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Utilities for Secret Manager",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
@@ -49,8 +49,10 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@google-cloud/secret-manager": ">= 3.0.0",
-    "debug": ">= 4.0.0"
+    "@google-cloud/secret-manager": ">=3.12.0",
+    "debug": ">=4.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@google-cloud/secret-manager": "3.12.0"
+  }
 }
