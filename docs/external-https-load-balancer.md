@@ -1,18 +1,18 @@
 # external HTTP(S) load balancer (L7)
 
-This GCP project uses an [external HTTP(S) Load Balancer](https://cloud.google.com/load-balancing/docs/https), a proxy-based Layer 7 load balancer that enables you to run and scale your services behind a single external, static IP address (anycast IP address).
+This GCP project uses an [external HTTP(S) Load Balancer](https://cloud.google.com/load-balancing/docs/https), a proxy-based Layer 7 load balancer. This allows the project keep all of its services behind a single external, static IP address (anycast IP address).
 
 ## 1 - Reserve an external, static IP address
 
-Set up a [global static external IP address](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address) that your customers use to reach your load balancer.
+Set up a [global static external IP address](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address), which will be the only IP address reachable from outside of the VPC network.
 
 ```sh
 gcloud compute addresses create ip-https-load-balancer \
+  --project $GCP_PROJECT_ID \
   --network-tier PREMIUM \
   --ip-version IPV4 \
   --global \
-  --description 'global external static IPv4 address for the HTTPS load balancer' \
-  --project $GCP_PROJECT_ID
+  --description 'global external static IPv4 address for the HTTPS load balancer'
 ```
 
 Check that the address was created and its status is `RESERVED` or `IN_USE`.
@@ -21,9 +21,9 @@ Check that the address was created and its status is `RESERVED` or `IN_USE`.
 gcloud compute addresses list --project $GCP_PROJECT_ID
 
 gcloud compute addresses describe ip-https-load-balancer \
+  --project $GCP_PROJECT_ID \
   --global \
-  --format="get(address,ipVersion,name,networkTier,status)" \
-  --project $GCP_PROJECT_ID
+  --format="get(address,ipVersion,name,networkTier,status)"
 ```
 
 You can also check the external IP address in the Google Cloud Console, in [VPC network > External IP addresses](https://console.cloud.google.com/networking/addresses/list?project=prj-kitchen-sink).
@@ -34,27 +34,27 @@ To create an HTTPS load balancer, you must add an SSL certificate resource to th
 
 To create a Google-managed certificate, you must have a domain and the DNS records for that domain in order for the certificate to be provisioned. See [here](https://cloud.google.com/load-balancing/docs/https/setup-global-ext-https-serverless?hl=en#ssl_certificate_resource) for details.
 
-You can either create a SSL certificate for a single subdomain:
+You can either create a SSL certificate for a **single subdomain**:
 
 ```sh
 gcloud compute ssl-certificates create ssl-cert-webhooks-giacomodebidda-com \
+  --project $GCP_PROJECT_ID \
   --description 'Google-managed SSL certificate for webhooks.giacomodebidda.com' \
   --domains webhooks.giacomodebidda.com \
-  --global \
-  --project $GCP_PROJECT_ID
+  --global
 ```
 
-or you can create a SSL certificate for multiple subdomains:
+or you can create a SSL certificate for **multiple subdomains**:
 
 ```sh
 gcloud compute ssl-certificates create ssl-cert-subdomains-giacomodebidda-com \
+  --project $GCP_PROJECT_ID \
   --description 'Google-managed SSL certificate for some subdomains of giacomodebidda.com' \
   --domains analytics.giacomodebidda.com,audit.giacomodebidda.com \
-  --global \
-  --project $GCP_PROJECT_ID
+  --global
 ```
 
-But you cannot create a SSL certificate with a wildcard. For that you would need [Certificate Manager](https://cloud.google.com/certificate-manager/docs?authuser=1).
+Note that you cannot create a SSL certificate with a wildcard. For that you would need [Certificate Manager](https://cloud.google.com/certificate-manager/docs?authuser=1).
 
 Check that the SSL certificate was created and its status is `PROVISIONING`. Provisioning a Google-managed certificate might take up to 60 minutes. See [Troubleshooting SSL certificates](https://cloud.google.com/load-balancing/docs/ssl-certificates/troubleshooting) for details.
 
@@ -78,7 +78,11 @@ gcloud compute ssl-certificates describe ssl-cert-subdomains-giacomodebidda-com 
 
 Updating the domain status can take a long time, since the [DNS propagation can take up to 72 hours](https://cloud.google.com/load-balancing/docs/ssl-certificates/troubleshooting#domain-status).
 
-## 3 - Create a serverless NEG (Network Endpoint Group) for each Cloud Run service
+## 3 - Create NEGs (Network Endpoint Groups)
+
+A network endpoint group (NEG) is a configuration object that specifies a group of backend endpoints or services.
+
+### Create a serverless NEG for each Cloud Run service
 
 The load balancer uses a serverless NEG backend to direct requests to a serverless Cloud Run service. This NEG must be in the same GCP region of the Cloud Run service.
 
@@ -132,9 +136,28 @@ gcloud beta compute network-endpoint-groups describe neg-webhooks \
 
 You can also check the Network endpoint groups in the Google Cloud Console, in [Compute Engine > Network endpoint groups](https://console.cloud.google.com/compute/networkendpointgroups/list?project=prj-kitchen-sink).
 
-## 4 - Create and configure a backend service for each serverless NEG
+### Create a zonal NEG for each Compute Engine VM instance
 
-A backend service can only contain one Serverless NEG per GCP region.
+Create a [zonal NEG](https://cloud.google.com/load-balancing/docs/negs#zonal-neg):
+
+```sh
+gcloud beta compute network-endpoint-groups create neg-vm-development \
+  --project $GCP_PROJECT_ID \
+  --zone $COMPUTE_ENGINE_ZONE \
+  --network-endpoint-type gce-vm-ip-port
+```
+
+Check that the zonal NEG was created:
+
+```sh
+gcloud beta compute network-endpoint-groups describe neg-vm-development \
+  --project $GCP_PROJECT_ID \
+  --zone $COMPUTE_ENGINE_ZONE
+```
+
+## 4 - Create and configure backend services
+
+A [backend service](https://cloud.google.com/load-balancing/docs/backend-service) can only contain one Serverless NEG per GCP region.
 
 ### Create a backend service for each serverless NEG
 
@@ -170,22 +193,22 @@ Configuration for `backend-audit`
 
 ```sh
 gcloud beta compute backend-services add-backend backend-audit \
+  --project $GCP_PROJECT_ID \
   --global \
   --network-endpoint-group neg-audit \
   --network-endpoint-group-region $CLOUD_RUN_REGION \
-  --description 'directs traffic from HTTPS load balancer to Cloud Run service audit-production' \
-  --project $GCP_PROJECT_ID
+  --description 'directs traffic from HTTPS load balancer to Cloud Run service audit-production'
 ```
 
 Configuration for `backend-webhooks`
 
 ```sh
 gcloud beta compute backend-services add-backend backend-webhooks \
+  --project $GCP_PROJECT_ID \
   --global \
   --network-endpoint-group neg-webhooks \
   --network-endpoint-group-region $CLOUD_RUN_REGION \
-  --description 'directs traffic from HTTPS load balancer to Cloud Run service webhooks-production' \
-  --project $GCP_PROJECT_ID
+  --description 'directs traffic from HTTPS load balancer to Cloud Run service webhooks-production'
 ```
 
 Check that the list of backend services.
@@ -195,19 +218,99 @@ gcloud beta compute backend-services list \
   --project $GCP_PROJECT_ID
 ```
 
-Check that all backend services have `protocol: HTTP` and `port: 80`.
+Check that all backend services have `protocol: HTTPS` and `port: 80`.
 
 ```sh
 gcloud beta compute backend-services describe backend-audit \
-  --global \
-  --project $GCP_PROJECT_ID
+  --project $GCP_PROJECT_ID \
+  --global
 ```
 
 ```sh
 gcloud beta compute backend-services describe backend-webhooks \
+  --project $GCP_PROJECT_ID \
+  --global
+```
+
+### create a health check (TODO)
+
+Create a health check:
+
+```sh
+gcloud compute health-checks create http hc-http-8001 \
+  --project $GCP_PROJECT_ID \
   --global \
+  --description "health check for my development VM" \
+  --port 8001 \
+  --check-interval 300s \
+  --timeout 5s \
+  --healthy-threshold 1
+```
+
+Retrieve the [list of health checks](https://console.cloud.google.com/compute/healthChecks?project=prj-kitchen-sink):
+
+```sh
+gcloud compute health-checks list \
+  --project $GCP_PROJECT_ID \
+  --global
+```
+
+```sh
+gcloud compute health-checks describe hc-http-8001 \
+  --project $GCP_PROJECT_ID \
+```
+
+### update the zonal NEG (TODO)
+
+```sh
+gcloud compute network-endpoint-groups update neg-vm-development \
+  --project $GCP_PROJECT_ID \
+  --zone $COMPUTE_ENGINE_ZONE \
+  --add-endpoint "instance=vm-development,ip=$VM_DEVELOPMENT_INTERNAL,port=8001"
+```
+
+### Create a backend service for each zonal NEG (TODO)
+
+Create a backend service for `neg-vm-development`:
+
+```sh
+gcloud beta compute backend-services create backend-vm-development \
+  --project $GCP_PROJECT_ID \
+  --load-balancing-scheme EXTERNAL_MANAGED \
+  --global \
+  --description 'backend service for vm-development' \
+  --protocol HTTPS \
+  --health-checks hc-http-8001 \
+  --global-health-checks
+```
+
+Check that the backend service was created and that it has one health check.
+
+```sh
+gcloud beta compute backend-services list \
   --project $GCP_PROJECT_ID
 ```
+
+```sh
+gcloud beta compute backend-services describe backend-vm-development \
+  --project $GCP_PROJECT_ID \
+  --global
+```
+
+### Add each zonal NEG as a backend to the backend service (TODO)
+
+Configuration for `backend-vm-development`:
+
+```sh
+gcloud beta compute backend-services add-backend backend-vm-development \
+  --project $GCP_PROJECT_ID \
+  --global \
+  --network-endpoint-group neg-vm-development \
+  --network-endpoint-group-zone $COMPUTE_ENGINE_ZONE \
+  --description 'directs traffic from HTTPS load balancer to Compute Engine VM instance vm-development'
+```
+
+### check all backend services
 
 You can also check the backend services in the Google Cloud Console, either in [Network services > Load balancing > load balancers view > BACKENDS](https://console.cloud.google.com/net-services/loadbalancing/list/backends?project=prj-kitchen-sink), or in [Network services > Load balancing > load balancing components view > BACKEND SERVICES](https://console.cloud.google.com/net-services/loadbalancing/advanced/backendServices/list?project=prj-kitchen-sink).
 
@@ -295,14 +398,14 @@ Create a global forwarding rule to route incoming requests to the HTTPS proxy.
 
 ```sh
 gcloud beta compute forwarding-rules create allow-https \
+  --project $GCP_PROJECT_ID \
   --target-https-proxy https-proxy-giacomodebidda-com \
   --load-balancing-scheme EXTERNAL_MANAGED \
   --network-tier PREMIUM \
   --global \
   --address ip-https-load-balancer \
   --ports 443 \
-  --description 'forwards HTTPS traffic to the HTTPS target proxy' \
-  --project $GCP_PROJECT_ID
+  --description 'forwards HTTPS traffic to the HTTPS target proxy'
 ```
 
 Check that the forwarding rule was created.
@@ -311,8 +414,8 @@ Check that the forwarding rule was created.
 gcloud beta compute forwarding-rules list --project $GCP_PROJECT_ID
 
 gcloud beta compute forwarding-rules describe allow-https \
-  --global \
   --project $GCP_PROJECT_ID \
+  --global \
   --format="get(IPAddress,IPProtocol,description,loadBalancingScheme,name,networkTier,portRange,target)"
 ```
 

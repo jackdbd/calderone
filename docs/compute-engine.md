@@ -23,10 +23,12 @@ gsutil mb \
   gs://bkt-scripts
 ```
 
-Copy the VM startup script to the Cloud Storage bucket:
+Copy the scripts to a Cloud Storage bucket:
 
 ```sh
 gsutil cp ./scripts/startup-vm.sh gs://bkt-scripts/startup-vm.sh
+gsutil cp ./scripts/setup-vm.sh gs://bkt-scripts/setup-vm.sh
+gsutil cp ./scripts/shutdown-vm.sh gs://bkt-scripts/shutdown-vm.sh
 ```
 
 List all files in the `bkt-scripts` bucket:
@@ -207,6 +209,8 @@ gcloud beta compute instances create vm-development \
 
 Add `--no-address` if you do not want the VM to have an external IP address.
 
+## connect to the VM
+
 Connect to the VM:
 
 ```sh
@@ -214,4 +218,22 @@ gcloud compute ssh vm-development \
   --project $GCP_PROJECT_ID \
   --zone $COMPUTE_ENGINE_ZONE \
   --tunnel-through-iap
+```
+
+Download the script to setup the VM:
+
+```sh
+gsutil cp gs://bkt-scripts/setup-vm.sh ./scripts/setup-vm.sh
+```
+
+Assign the permissions to execute the script:
+
+```sh
+chmod 777 ./scripts/setup-vm.sh
+```
+
+Execute the script:
+
+```sh
+./scripts/setup-vm.sh
 ```
