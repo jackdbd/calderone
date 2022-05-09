@@ -13,6 +13,7 @@ export const provision = async (env: NodeJS.ProcessEnv) => {
     message: 'created manager to handle safe shutdown of server/s'
   })
 
+  // https://github.com/googleapis/cloud-debug-nodejs/blob/main/src/agent/config.ts
   debugger_agent.start(cfg.debug_agent_config)
   server.log(['lifecycle'], { message: 'Cloud Debugger agent started' })
 

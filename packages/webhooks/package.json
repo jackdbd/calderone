@@ -10,7 +10,7 @@
     "webpagetest"
   ],
   "engines": {
-    "node": ">=16.0.0"
+    "node": "17.9.0"
   },
   "type": "module",
   "module": "main.js",
@@ -38,12 +38,12 @@
   },
   "dependencies": {
     "@google-cloud/debug-agent": "5.2.8",
-    "@google-cloud/error-reporting": "2.0.4",
+    "@google-cloud/error-reporting": "2.0.5",
     "@google-cloud/firestore": "5.0.2",
-    "@google-cloud/secret-manager": "3.11.0",
-    "@hapi/boom": "9.1.4",
-    "@hapi/hapi": "20.2.1",
-    "@hapi/wreck": "17.1.0",
+    "@google-cloud/secret-manager": "3.12.0",
+    "@hapi/boom": "10.0.0",
+    "@hapi/hapi": "20.2.2",
+    "@hapi/wreck": "18.0.0",
     "@jackdbd/checks": "0.0.11",
     "@jackdbd/hapi-healthcheck-plugin": "0.0.1",
     "@jackdbd/hapi-ip-whitelist-plugin": "0.0.1",
@@ -51,7 +51,7 @@
     "@jackdbd/secret-manager-utils": "0.0.7",
     "@jackdbd/telegram-text-messages": "0.0.7",
     "@jackdbd/utils": "0.0.14",
-    "debug": "4.3.3",
+    "debug": "4.3.4",
     "exiting": "6.1.0",
     "google-spreadsheet": "3.2.0",
     "hapi-dev-errors": "4.0.0",
