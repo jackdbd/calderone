@@ -43,6 +43,7 @@ export const gcpClients = async ({
     initialization_method = `Application Default Credentials (ADC)`
 
     debug_agent_config = {
+      allowExpressions: true,
       serviceContext: {
         ...serviceContext,
         enableCanary: true

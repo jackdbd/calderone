@@ -48,7 +48,7 @@
     "@jackdbd/hapi-healthcheck-plugin": "0.0.1",
     "@jackdbd/hapi-ip-whitelist-plugin": "0.0.1",
     "@jackdbd/notifications": "0.0.4",
-    "@jackdbd/secret-manager-utils": "0.0.6",
+    "@jackdbd/secret-manager-utils": "0.0.7",
     "@jackdbd/telegram-text-messages": "0.0.7",
     "@jackdbd/utils": "0.0.14",
     "debug": "4.3.3",

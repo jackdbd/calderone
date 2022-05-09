@@ -1,4 +1,4 @@
-import { arch, pid, release, versions } from 'node:process'
+import { pid, versions } from 'node:process'
 import { readFile } from 'node:fs/promises'
 import makeDebug from 'debug'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
@@ -31,12 +31,12 @@ export const config = async (env: NodeJS.ProcessEnv) => {
 
   const environment = env.NODE_ENV
 
-  debug(`arch: ${arch}`)
+  // debug(`arch: ${arch}`)
   debug(`pid: ${pid}`)
-  debug(`release: %O`, release)
+  // debug(`release: %O`, release)
   debug(`versions: %O`, versions)
-  debug(`env.HOME: ${env.HOME}`)
-  debug(`env.HOSTNAME: ${env.HOSTNAME}`)
+  // debug(`env.HOME: ${env.HOME}`)
+  // debug(`env.HOSTNAME: ${env.HOSTNAME}`)
 
   debug(`gather config for environment: ${environment}`)
 
