@@ -128,6 +128,7 @@ bindings:
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com 
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
+  - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/secretmanager.secretAccessor
 - members:
   - user:giacomo@giacomodebidda.com
@@ -151,5 +152,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXeBIDRuPg=
+etag: BwXerBn8RHU=
 version: 1
