@@ -10,7 +10,7 @@
     "webassembly"
   ],
   "engines": {
-    "node": ">=16"
+    "node": "17.9.0"
   },
   "type": "module",
   "module": "main.js",
@@ -39,12 +39,12 @@
   },
   "dependencies": {
     "@google-cloud/debug-agent": "5.2.8",
-    "@google-cloud/error-reporting": "2.0.4",
-    "@google-cloud/secret-manager": "3.11.0",
+    "@google-cloud/error-reporting": "2.0.5",
+    "@google-cloud/secret-manager": "3.12.0",
     "@google-cloud/workflows": "1.4.0",
-    "@hapi/boom": "9.1.4",
-    "@hapi/hapi": "20.2.1",
-    "@hapi/wreck": "17.1.0",
+    "@hapi/boom": "10.0.0",
+    "@hapi/hapi": "20.2.2",
+    "@hapi/wreck": "18.0.0",
     "@jackdbd/checks": "0.0.11",
     "@jackdbd/hapi-healthcheck-plugin": "0.0.1",
     "@jackdbd/notifications": "0.0.4",
