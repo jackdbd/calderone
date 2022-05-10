@@ -9,7 +9,7 @@
     "telegram"
   ],
   "engines": {
-    "node": ">=16"
+    "node": "17.9.0"
   },
   "type": "module",
   "module": "main.js",
