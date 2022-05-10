@@ -28,8 +28,14 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: 👨‍💻 Install root package dependencies
         run: npm ci
-      - name: 🔧 Build all packages
+      - name: 🔧 Build all libraries
         run: npm run build
+      - name: 🔧 Build audit app
+        run: npm run clean -w packages/audit && npm run build -w packages/audit
+      - name: 🔧 Build telegram-bot app
+        run: npm run clean -w packages/telegram-bot && npm run build -w packages/telegram-bot
+      - name: 🔧 Build webhooks app
+        run: npm run clean -w packages/webhooks && npm run build -w packages/webhooks
       - name: 🛡️ Audit security
         continue-on-error: true
         if: ${{ matrix.os }} == 'ubuntu-latest'
