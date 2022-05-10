@@ -34,7 +34,8 @@
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
     "start:development": "DEBUG=wasm-news/* NODE_ENV=development node ./dist/main.js",
     "start:test": "NODE_ENV=test node --loader ts-node/esm ./src/main.ts",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects wasm-news --config ../../config/jest.cjs --rootDir ../../ --runInBand --detectOpenHandles"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects wasm-news --config ../../config/jest.cjs --rootDir ../../ --runInBand --detectOpenHandles",
+    "test:ci": "npm run test -- --ci --coverage"
   },
   "dependencies": {
     "@google-cloud/debug-agent": "5.2.8",

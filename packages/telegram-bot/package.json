@@ -33,6 +33,7 @@
     "start:development": "NODE_ENV=development node ./dist/main.js",
     "start:test": "NODE_ENV=test node --loader ts-node/esm ./src/main.ts",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects telegram-bot --config ../../config/jest.cjs --rootDir ../../ --runInBand --forceExit",
+    "test:ci": "npm run test -- --ci --coverage",
     "tunnel": "ngrok http 8080"
   },
   "dependencies": {
