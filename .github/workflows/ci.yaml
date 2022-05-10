@@ -34,6 +34,8 @@ jobs:
         run: npm run clean -w packages/audit && npm run build -w packages/audit
       - name: 🔧 Build telegram-bot app
         run: npm run clean -w packages/telegram-bot && npm run build -w packages/telegram-bot
+      - name: 🔧 Build wasm-news app
+        run: npm run clean -w packages/wasm-news && npm run build -w packages/wasm-news
       - name: 🔧 Build webhooks app
         run: npm run clean -w packages/webhooks && npm run build -w packages/webhooks
       - name: 🛡️ Audit security
