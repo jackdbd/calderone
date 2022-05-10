@@ -42,13 +42,35 @@ jobs:
         continue-on-error: true
         if: ${{ matrix.os }} == 'ubuntu-latest'
         run: npm audit --audit-level=moderate
-      - name: 🔍 Test packages
-        run: npm run test:ci
+      - name: 🔍 Test package checks
+        run: npm run test:ci -w packages/checks
+      - name: 🔍 Test package cloud-scheduler-utils
+        env:
+          SA_NOTIFIER: ${{ secrets.SA_NOTIFIER }}
+        run: npm run test:ci -w packages/cloud-scheduler-utils
+      - name: 🔍 Test package firestore-utils
+        env:
+          SA_FIRESTORE_USER_TEST: ${{ secrets.SA_FIRESTORE_USER_TEST }}
+          SA_FIRESTORE_VIEWER_TEST: ${{ secrets.SA_FIRESTORE_VIEWER_TEST }}
+        run: npm run test:ci -w packages/firestore-utils
+      - name: 🔍 Test package hapi-healthcheck-plugin
+        run: npm run test:ci -w packages/hapi-healthcheck-plugin
+      - name: 🔍 Test package hapi-ip-whitelist-plugin
+        run: npm run test:ci -w packages/hapi-ip-whitelist-plugin
+      - name: 🔍 Test package schemas
+        run: npm run test:ci -w packages/schemas
+      - name: 🔍 Test package telegram-text-messages
+        run: npm run test:ci -w packages/telegram-text-messages
+      - name: 🔍 Test package utils
+        run: npm run test:ci -w packages/utils
       - name: ⬆️ Upload all coverage reports to CodeCov
         continue-on-error: true
-        run: codecov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        # https://github.com/marketplace/actions/codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true
+
 
   release:
     name: 📣 Release
