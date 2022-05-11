@@ -7,6 +7,17 @@ main:
         - function_location: "europe-west3"
         - function_telegram: ${"https://" + function_location + "-" + project_id + ".cloudfunctions.net/" + "calderone-send-telegram-message"}
 
+  # retrieve secrets from Secret Manager #######################################
+
+  - retrieve_phantombuster_api_key:
+      call: googleapis.secretmanager.v1.projects.secrets.versions.accessString
+      args:
+        project_id: ${project_id}
+        secret_id: PHANTOMBUSTER_API_KEY
+        version: "1"
+      result: phantombuster_api_key
+  
+
   - retrieve_reddit_secret:
       call: googleapis.secretmanager.v1.projects.secrets.versions.accessString
       args:
@@ -14,11 +25,21 @@ main:
         secret_id: REDDIT_OAUTH_SECRET
         version: "1"
       result: reddit_oauth_secret
+  
+  # variable assignments #######################################################
+
+  - assign_phantombuster_variables:
+      assign:
+        # PhantomBuster requires the agent ID to be a string
+        - agent_id_linkedin_search_jobs: "782867216009454"
+        - agent_id_linkedin_search_people: "8010883244687807"
 
   - assign_output_variables:
       assign:
         - message_title: ${"<b>" + "Lead generation (Hacker News)" + "</b>"}
         - telegram_text_hacker_news: ${message_title + "\n"}
+        - telegram_text_linkedin_jobs: ${"<b>" + "Lead generation (Linkedin - Jobs)" + "</b>" + "\n"}
+        - telegram_text_linkedin_people: ${"<b>" + "Lead generation (Linkedin - People)" + "</b>" + "\n"}
         - telegram_text_reddit_clojure: ${"<b>" + "Lead generation (Reddit - Clojure)" + "</b>" + "\n"}
         - telegram_text_reddit_react: ${"<b>" + "Lead generation (Reddit - React)" + "</b>" + "\n"}
 
@@ -200,6 +221,42 @@ main:
           text: ${telegram_text_reddit_react}
       result: message_result_reddit_react
 
+  # PhantomBuster ##############################################################
+
+  - launch_phantombuster_agent_linkedin_search_jobs:
+      call: launch_phantombuster_agent
+      args:
+        agent_id: "${agent_id_linkedin_search_jobs}"
+        api_key: "${phantombuster_api_key}"
+      result: phantombuster_linkedin_search_jobs_response
+
+  - send_telegram_message_linkedin_jobs:
+      call: http.post
+      args:
+        url: ${function_telegram}
+        auth:
+          type: OIDC
+        body:
+          text: ${telegram_text_linkedin_jobs}
+      result: message_result_linkedin_jobs
+
+  - launch_phantombuster_agent_linkedin_search_people:
+      call: launch_phantombuster_agent
+      args:
+        agent_id: "${agent_id_linkedin_search_people}"
+        api_key: "${phantombuster_api_key}"
+      result: phantombuster_linkedin_search_people_response
+
+  - send_telegram_message_linkedin_people:
+      call: http.post
+      args:
+        url: ${function_telegram}
+        auth:
+          type: OIDC
+        body:
+          text: ${telegram_text_linkedin_people}
+      result: message_result_linkedin_people
+
   # - prepare_return_value:
   #     assign:
   #       - indent: {"indent": "  ", "prefix": ""}
@@ -207,19 +264,20 @@ main:
 
   - return_value:
       return: {
+        "phantombuster_linkedin_search_jobs_response": "${phantombuster_linkedin_search_jobs_response}",
+        "phantombuster_linkedin_search_people_response": "${phantombuster_linkedin_search_people_response}",
         "telegram": {
           "hacker_news_message": "${message_result_hacker_news.body}",
+          "linkedin_jobs": "${message_result_linkedin_jobs.body}",
+          "linkedin_people": "${message_result_linkedin_people.body}",
           "reddit_clojure": "${message_result_reddit_clojure.body}",
           "reddit_react": "${message_result_reddit_react.body}"
         }
       }
 
-################################################################################
-# https://hn.algolia.com/api/v1/search_by_date?query="Ask HN: Freelancer? Seeking freelancer?"&tags=author_whoishiring&numericFilters=points>3,created_at_i>1646874000
-# https://www.kmjn.org/notes/hacker_news_posters.html
-################################################################################
+# Subworkflows #################################################################
 
-# subworkflow
+### Utilities ##################################################################
 get_textual_month:
   params: [month_digits]
   steps:
@@ -254,7 +312,9 @@ get_textual_month:
           - condition: ${month_digits == "12"}
             return: "december"
 
-# subworkflow
+# Hacker News ##################################################################
+# https://hn.algolia.com/api/v1/search_by_date?query="Ask HN: Freelancer? Seeking freelancer?"&tags=author_whoishiring&numericFilters=points>3,created_at_i>1646874000
+# https://www.kmjn.org/notes/hacker_news_posters.html
 hacker_news_algolia_api:
   params: [query, tags, numeric_filters]
   steps:
@@ -314,6 +374,49 @@ hacker_news_algolia_api:
     - return_anchor_tags:
         return: ${anchor_tags}
 
+# PhantomBuster ################################################################
+# Try launching a PhantomBuster agent.
+# Launching an agent can fail with a HTTP 402 (Payment Required) because I might
+# have exceeded the time slots for my PhantomBuster account.
+# https://cloud.google.com/workflows/docs/http-requests#http-errors
+launch_phantombuster_agent:
+  params: [agent_id, api_key]
+  steps:
+    # - log_args:
+    #     call: sys.log
+    #     args:
+    #       data: {"agent_id": "${agent_id}", "api_key": "${api_key}"}
+    #       severity: "WARNING"
+    - try_launching_phantombuster_agent_or_return_error_message:
+        try:
+          call: http.post
+          args:
+            url: https://api.phantombuster.com/api/v2/agents/launch
+            timeout: 300.0
+            headers: {
+              "X-Phantombuster-Key-1": "${api_key}",
+              "Content-Type": "application/json"
+            }
+            body: {
+              id: "${agent_id}"
+            }
+          result: phantombuster_agent_response
+        except:
+          as: err
+          steps:
+            - known_errors:
+                switch:
+                  - condition: ${err.code == 402}
+                    next: no_daily_execution_time_remaining
+            - unhandled_exception:
+                raise: ${err}
+      
+    - no_daily_execution_time_remaining:
+        return: {
+          "message": '${"cannot launch PhantomBuster agent " + agent_id + ". No daily execution time remaining."}'
+        }
+
+# Reddit #######################################################################
 # search job posts in the following subreddits:
 # https://www.reddit.com/r/forhire/
 # https://www.reddit.com/r/freelance/

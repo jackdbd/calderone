@@ -44,7 +44,7 @@ gcloud workflows deploy wasm-news \
 gcloud workflows deploy lead-generation \
   --project $GCP_PROJECT_ID \
   --location $WORKFLOW_LOCATION \
-  --description "Lead generation to find clients" \
+  --description "Lead generation to find clients, jobs, people on Hacker News, LinkedIn, Reddit" \
   --source workflows/lead-generation.workflows.yaml \
   --service-account $SA_WORKFLOWS_RUNNER \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
