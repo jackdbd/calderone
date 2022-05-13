@@ -26,9 +26,9 @@
     "prepublish:artifact-registry": "run-s clean build test",
     "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name scripts",
     "pretest": "run-s build",
-    "size": "pkg-size ./lib --sort-by=brotli",
+    "size": "pkg-size ./dist --sort-by=brotli",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects scripts --config ../../config/jest.cjs --rootDir ../../",
-    "test:ci": "npm run test -- --ci --coverage",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/scripts/coverage",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {

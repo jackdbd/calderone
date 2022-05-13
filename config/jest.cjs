@@ -18,6 +18,7 @@ const project = (package_name) => {
     color = 'white'
   }
 
+  // https://jestjs.io/docs/configuration
   return {
     // I like to make Jest stop running tests after a few failures
     // https://jestjs.io/docs/configuration#bail-number--boolean
@@ -25,10 +26,6 @@ const project = (package_name) => {
 
     // https://jestjs.io/docs/configuration#clearmocks-boolean
     clearMocks: true,
-
-    // collectCoverage: false,
-    // https://jestjs.io/docs/configuration#coveragereporters-arraystring--string-options
-    coverageReporters: ['html', 'json', 'lcov'],
 
     // https://jestjs.io/docs/configuration#displayname-string-object
     displayName: {

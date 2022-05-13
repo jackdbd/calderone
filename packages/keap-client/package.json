@@ -4,13 +4,14 @@
   "description": "Unofficial API client for Keap (aka Infusionsoft)",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
+  "private": true,
   "keywords": [
     "crm",
     "infusionsoft",
     "keap"
   ],
   "engines": {
-    "node": ">=12.x",
+    "node": ">=16.0.0",
     "npm": ">=7.0.0"
   },
   "type": "module",
@@ -59,11 +60,11 @@
     "pretest": "run-s build",
     "size": "pkg-size ./lib --sort-by=brotli",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects keap-client --config ../../config/jest.cjs --rootDir ../../ --runInBand",
-    "test:ci": "npm run test -- --ci --coverage",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/keap-client/coverage",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
-    "@jackdbd/utils": "*",
+    "@jackdbd/utils": "^0.0.14",
     "debug": "^4.3.3",
     "phin": "^3.6.1"
   },

@@ -47,6 +47,8 @@ if (isPublishingToArtifactRegistry()) {
   config = {
     ...base_config,
     ci: true,
+    // The git plugin must be called AFTER the npm plugin. See here:
+    // https://github.com/semantic-release/git#examples
     // plugins: [...base_config.plugins, npm, github, git]
     plugins: [...base_config.plugins, github, git]
   }

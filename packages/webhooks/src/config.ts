@@ -5,6 +5,7 @@ import { GoogleSpreadsheet } from 'google-spreadsheet'
 import {
   isOnCloudRun,
   isDevelopment,
+  isOnGithub,
   isOnLocalContainer,
   isProduction,
   isTest
@@ -62,6 +63,7 @@ export const config = async (env: NodeJS.ProcessEnv) => {
       `isProduction? ${isProduction(env)}`,
       `isTest? ${isTest(env)}`,
       `isOnCloudRun? ${isOnCloudRun(env)}`,
+      `isOnGithub? ${isOnGithub(env)}`,
       `isOnLocalContainer? ${isOnLocalContainer(env)}`,
       `NODE_ENV=${env.NODE_ENV}`,
       `SA_JSON_KEY=${env.SA_JSON_KEY}`

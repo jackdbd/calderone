@@ -1,23 +1,19 @@
+const path = require('node:path')
+
 /**
- * configuration for semantic-release and multi-semantic-release
+ * Configuration for semantic-release and multi-semantic-release.
  *
  * multi-semantic-release requires a semantic release config to be present in
- * EACH package or/and declared in repo root.
- * This config file is executed in EACH package root, not in the monorepo root.
+ * EACH package and/or declared in the repo root.
+ * This config file is executed from EACH PACKAGE root, not from the monorepo root.
+ *
+ * https://github.com/qiwi/multi-semantic-release#configuration
  */
 
-const commitlint_config_path = '../../config/commitlint.cjs'
+// const commitlint_config_path = '../../config/commitlint.cjs'
+const commitlint_config_path = path.resolve('config', 'commitlint.cjs')
+console.log('commitlint config', commitlint_config_path)
 
-// https://github.com/semantic-release/changelog
-const changelog = [
-  '@semantic-release/changelog',
-  {
-    changelogFile: 'CHANGELOG.md',
-    changelogTitle: '# CHANGELOG'
-  }
-]
-
-// https://github.com/semantic-release/commit-analyzer
 // I prefer to keep the configuration for the commit linter in
 // config/commitlint.cjs, so I can run npm run lint even when I am not releasing
 // (I like to lint commits with a pre-push git hook).
@@ -25,6 +21,7 @@ const changelog = [
 // configurations for @semantic-release/commit-analyzer are equivalent:
 // 1. config: './config/commitlint.cjs'
 // 2. preset: 'conventionalcommits'
+// https://github.com/semantic-release/commit-analyzer
 const commit_analyzer = [
   '@semantic-release/commit-analyzer',
   {
@@ -40,14 +37,27 @@ const release_notes_generator = [
   }
 ]
 
+// https://github.com/semantic-release/changelog
+const changelog = [
+  '@semantic-release/changelog',
+  {
+    changelogFile: 'CHANGELOG.md',
+    changelogTitle: '# CHANGELOG'
+  }
+]
+
 const config = {
   // https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches
-  branches: ['main', 'release'],
+  branches: [
+    'main',
+    'next',
+    { name: 'beta', prerelease: true },
+    { name: 'alpha', prerelease: true }
+  ],
   ci: true,
-  // ci: false,
-  // The git plugin must be called AFTER the npm plugin. See here:
-  // https://github.com/semantic-release/git#examples
-  plugins: [commit_analyzer, release_notes_generator, changelog]
+  // each package in this monorepo extends this `plugins` array
+  plugins: [commit_analyzer, release_notes_generator, changelog],
+  tagFormat: 'v${version}'
 }
 
 module.exports = config

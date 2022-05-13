@@ -4,6 +4,7 @@
   "description": "Utility functions to work with Firestore",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
+  "private": true,
   "keywords": [
     "database",
     "gcp",
@@ -11,7 +12,7 @@
     "utils"
   ],
   "engines": {
-    "node": ">=12.x",
+    "node": ">=16.0.0",
     "npm": ">=7.0.0"
   },
   "type": "module",
@@ -43,14 +44,14 @@
     "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name firestore-utils",
     "size": "pkg-size ./lib --sort-by=brotli",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects firestore-utils --config ../../config/jest.cjs --rootDir ../../ --runInBand --forceExit",
-    "test:ci": "npm run test -- --ci --coverage",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/firestore-utils/coverage",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {},
   "peerDependencies": {
-    "@google-cloud/firestore": ">= 5.0.0",
-    "@jackdbd/utils": ">= 0.0.14",
-    "debug": ">= 4.0.0"
+    "@google-cloud/firestore": ">=5.0.0",
+    "@jackdbd/utils": ">=0.0.14",
+    "debug": ">=4.0.0"
   },
   "devDependencies": {}
 }

@@ -4,12 +4,13 @@
   "description": "Utility functions to work with Cloud Sheduler",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
+  "private": true,
   "keywords": [
     "cloud-scheduler",
     "utils"
   ],
   "engines": {
-    "node": ">=12.x",
+    "node": ">=16.0.0",
     "npm": ">=7.0.0"
   },
   "type": "module",
@@ -41,7 +42,7 @@
     "pretest": "run-s build",
     "size": "pkg-size ./lib --sort-by=brotli",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects cloud-scheduler-utils --config ../../config/jest.cjs --rootDir ../../ --forceExit",
-    "test:ci": "npm run test -- --ci --coverage",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/cloud-scheduler-utils/coverage",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {},

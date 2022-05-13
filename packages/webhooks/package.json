@@ -4,6 +4,7 @@
   "description": "Application that receives webhook events from several third parties",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
+  "private": true,
   "keywords": [
     "netlify",
     "webhooks",
@@ -34,7 +35,7 @@
     "start:development": "NODE_ENV=development node ./dist/main.js",
     "start:test": "NODE_ENV=test node --loader ts-node/esm ./src/main.ts",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects webhooks --config ../../config/jest.cjs --rootDir ../../ --runInBand --detectOpenHandles",
-    "test:ci": "npm run test -- --ci --coverage",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/webhooks/coverage",
     "tunnel": "ngrok http 8080"
   },
   "dependencies": {

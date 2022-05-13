@@ -4,6 +4,7 @@
   "description": "Application that receives webhook events from several third parties",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
+  "private": true,
   "keywords": [
     "audit",
     "perfmatters",
@@ -36,7 +37,8 @@
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
     "start:development": "DEBUG=audit/* NODE_ENV=development node ./dist/main.js",
     "start:test": "NODE_ENV=test node --loader ts-node/esm ./src/main.ts",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects audit --config ../../config/jest.cjs --rootDir ../../ --runInBand --detectOpenHandles"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects audit --config ../../config/jest.cjs --rootDir ../../ --runInBand --detectOpenHandles",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/audit/coverage"
   },
   "dependencies": {
     "@google-cloud/debug-agent": "5.2.8",

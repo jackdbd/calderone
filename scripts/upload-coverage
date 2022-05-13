@@ -3,7 +3,7 @@
 # https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
 set -euo pipefail
 
-# Upload all coverage reports to CodeCov #######################################
+# Upload all coverage reports to Codecov #######################################
 # https://docs.codecov.io/docs/about-the-codecov-bash-uploader#arguments
 # This command displays the help and exits
 # bash <(curl -s https://codecov.io/bash) -h
@@ -16,10 +16,14 @@ for package_full_path in "$packages_root"/*
     package_name=$(basename "$package_full_path")
     if [ -d "$package_full_path/coverage" ]
       then
-        file="$package_full_path/coverage/lcov.info"
+        # coverage_dir="$package_full_path/coverage/lcov-report"
+        coverage_file="$package_full_path/coverage/lcov.info"
         flag=$package_name
         name=$package_name
-        bash <(curl -s https://codecov.io/bash) -c -f "$file" -F "$flag" -n "$name" -t "$CODECOV_TOKEN"
+        # echo "upload coverage report of package \"$package_name\" to Codecov. Coverage dir: $coverage_dir"
+        # bash <(curl -s https://codecov.io/bash) -c -s $coverage_dir -F $flag -n $name -t $CODECOV_TOKEN
+        echo "upload coverage report of package \"$package_name\" to Codecov. Coverage file: $coverage_file"
+        bash <(curl -s https://codecov.io/bash) -c -f $coverage_file -F $flag -n $name -t $CODECOV_TOKEN
       else
         echo "No coverage report found for $package_name"
       fi

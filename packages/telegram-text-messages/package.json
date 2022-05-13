@@ -4,11 +4,12 @@
   "description": "Factory functions that return HTML-formatted strings to use in Telegram messages",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
+  "private": true,
   "keywords": [
     "predicate"
   ],
   "engines": {
-    "node": ">=12.x",
+    "node": ">=16.0.0",
     "npm": ">=7.0.0"
   },
   "type": "module",
@@ -37,7 +38,7 @@
     "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name telegram-text-messages",
     "size": "pkg-size ./lib --sort-by=brotli",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects telegram-text-messages --config ../../config/jest.cjs --rootDir ../../",
-    "test:ci": "npm run test -- --ci --coverage",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/telegram-text-messages/coverage",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {},
