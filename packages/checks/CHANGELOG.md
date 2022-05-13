@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## <small>1.0.1 (2022-05-13)</small>
+
+* fix(checks): update semantic-release config ([96eaa6c](https://github.com/jackdbd/calderone/commit/96eaa6c))
+
 ## @jackdbd/checks 1.0.0 (2022-05-13)
 
 * ci: update multi-semanti-release config ([a2f4d69](https://github.com/jackdbd/calderone/commit/a2f4d69))
