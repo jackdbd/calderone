@@ -12,40 +12,40 @@ on:
       - '**.md'
 
 jobs:
-  # build-and-test:
-  #   name: 🔧 Build & 🔍 Test [${{ matrix.os }}, Node ${{ matrix.node }}]
-  #   runs-on: ${{ matrix.os }}
-  #   strategy:
-  #     matrix:
-  #       os: [ubuntu-latest]
-  #       node: ['17.9.0']
-  #   steps:
-  #     # INSTALL / CONFIGURE ####################################################
-  #     - name: 🛎️ Checkout repo
-  #       uses: actions/checkout@v3
-  #     - name: ⚙️ Setup Node.js ${{ matrix.node }}
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: ${{ matrix.node }}
-  #     - name: ⚙️ Install root package dependencies
-  #       run: npm ci
-  #     # BUILD ##################################################################
-  #     - name: 🔧 Build all libraries and scripts
-  #       run: npm run build:libs
-  #     - name: 🔧 Build all scripts
-  #       run: npm run build:scripts
-  #     - name: 🔧 Build application audit
-  #       run: npm run clean -w packages/audit && npm run build -w packages/audit
-  #     - name: 🔧 Build application telegram-bot
-  #       run: npm run clean -w packages/telegram-bot && npm run build -w packages/telegram-bot
-  #     - name: 🔧 Build application wasm-news
-  #       run: npm run clean -w packages/wasm-news && npm run build -w packages/wasm-news
-  #     - name: 🔧 Build application webhooks
-  #       run: npm run clean -w packages/webhooks && npm run build -w packages/webhooks
-  #     - name: 🛡️ Audit security
-  #       continue-on-error: true
-  #       if: ${{ matrix.os }} == 'ubuntu-latest'
-  #       run: npm audit --audit-level=moderate
+  build-and-test:
+    name: 🔧 Build & 🔍 Test [${{ matrix.os }}, Node ${{ matrix.node }}]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: ['17.9.0']
+    steps:
+      # INSTALL / CONFIGURE ####################################################
+      - name: 🛎️ Checkout repo
+        uses: actions/checkout@v3
+      - name: ⚙️ Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - name: ⚙️ Install root package dependencies
+        run: npm ci
+      # BUILD ##################################################################
+      - name: 🔧 Build all libraries and scripts
+        run: npm run build:libs
+      - name: 🔧 Build all scripts
+        run: npm run build:scripts
+      - name: 🔧 Build application audit
+        run: npm run clean -w packages/audit && npm run build -w packages/audit
+      - name: 🔧 Build application telegram-bot
+        run: npm run clean -w packages/telegram-bot && npm run build -w packages/telegram-bot
+      - name: 🔧 Build application wasm-news
+        run: npm run clean -w packages/wasm-news && npm run build -w packages/wasm-news
+      - name: 🔧 Build application webhooks
+        run: npm run clean -w packages/webhooks && npm run build -w packages/webhooks
+      - name: 🛡️ Audit security
+        continue-on-error: true
+        if: ${{ matrix.os }} == 'ubuntu-latest'
+        run: npm audit --audit-level=moderate
   #     # TEST ###################################################################
   #     - name: 🔍 Test library checks
   #       run: npm run test:ci -w packages/checks
