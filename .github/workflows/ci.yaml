@@ -162,11 +162,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
         run: npm run release
-      - name: Remove .npmrc, so semantic-release will publish to the default registry (npmjs.com)
-        run: rm .npmrc
-      - name: 🚀 Release to npmjs with multi-semantic-release
-        env:
-          # The github token must allow to push to this repository.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_NPM_TOKEN }}
-        run: npm run release

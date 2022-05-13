@@ -33,3 +33,15 @@ gcloud artifacts versions list \
   --location $ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION \
   --package @jackdbd/checks
 ```
+
+### npmjs
+
+Download a package previously published to Artifact Registry, and publish to npmjs too:
+
+```sh
+# refresh the token for Artifact Registry
+npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc
+
+# https://stackoverflow.com/a/10856211/3036129
+(export PACKAGE=checks; VERSION=$(cat ./packages/$PACKAGE/package.json | jq '.version'); ./scripts/publish/artifact-registry-to-npm.sh jackdbd $PACKAGE $VERSION)
+```
