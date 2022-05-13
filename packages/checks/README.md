@@ -45,3 +45,9 @@ npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npm
 # https://stackoverflow.com/a/10856211/3036129
 (export PACKAGE=checks; VERSION=$(cat ./packages/$PACKAGE/package.json | jq '.version'); ./scripts/publish/artifact-registry-to-npm.sh jackdbd $PACKAGE $VERSION)
 ```
+
+[Unpublish](https://docs.npmjs.com/policies/unpublish) a version of a package published to npmjs:
+
+```sh
+(export PACKAGE=checks; VERSION=1.0.2; ./scripts/publish/unpublish-from-npm.sh jackdbd $PACKAGE $VERSION)
+```
