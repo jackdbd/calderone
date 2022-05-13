@@ -10,4 +10,7 @@ const github = [
   }
 ]
 
-module.exports = { github }
+// https://github.com/semantic-release/npm
+const npm = ['@semantic-release/npm', { npmPublish: true, pkgRoot: './lib' }]
+
+module.exports = { github, npm }
