@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/fattureincloud-client",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "Unofficial API client for FattureInCloud",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
