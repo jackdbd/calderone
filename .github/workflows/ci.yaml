@@ -110,7 +110,7 @@ jobs:
 
   release:
     name: 📣 Release
-    needs: [build-and-test]
+    # needs: [build-and-test]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
