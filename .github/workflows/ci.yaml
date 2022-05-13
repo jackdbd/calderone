@@ -41,7 +41,8 @@ jobs:
       - name: ⚙️ Refresh access token for Artifact Registry
         run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
       - name: ⚙️ Install root package dependencies
-        run: npm ci
+        run: npm install
+        # run: npm ci
       # BUILD ##################################################################
       - name: 🔧 Build all libraries and scripts
         run: npm run build:libs
