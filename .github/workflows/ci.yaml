@@ -132,12 +132,10 @@ jobs:
       - name: Set up gcloud
         # https://github.com/marketplace/actions/set-up-gcloud-cloud-sdk-environment
         uses: google-github-actions/setup-gcloud@v0.6.0
-      - run: gcloud info
-      - run: gcloud --version
-      # - name: ⚙️ Refresh access token for Artifact Registry
-      #   env:
-      #     GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
-      #   run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
+      # - run: gcloud info
+      # - run: gcloud --version
+      - name: ⚙️ Refresh access token for Artifact Registry
+        run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
       - name: ⚙️ Install dependencies
         run: npm ci
       - name: 🔧 Build all libraries
