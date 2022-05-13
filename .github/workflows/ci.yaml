@@ -11,120 +11,119 @@ on:
     paths-ignore:
       - '**.md'
 
-# jobs:
-#   build-and-test:
-#     name: 🔧 Build & 🔍 Test [${{ matrix.os }}, Node ${{ matrix.node }}]
-#     runs-on: ${{ matrix.os }}
-#     strategy:
-#       matrix:
-#         os: [ubuntu-latest]
-#         node: ['17.9.0']
-#     steps:
-#       # INSTALL / CONFIGURE ####################################################
-#       - name: 🛎️ Checkout repo
-#         uses: actions/checkout@v3
-#       - name: ⚙️ Setup Node.js ${{ matrix.node }}
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: ${{ matrix.node }}
-#       - id: 'auth'
-#         name: Authenticate to Google Cloud
-#         # https://github.com/google-github-actions/auth
-#         uses: google-github-actions/auth@v0.7.0
-#         with:
-#           credentials_json: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
-#       - name: Set up gcloud
-#         # https://github.com/marketplace/actions/set-up-gcloud-cloud-sdk-environment
-#         uses: google-github-actions/setup-gcloud@v0.6.0
-#       # - run: gcloud info
-#       # - run: gcloud --version
-#       - name: ⚙️ Refresh access token for Artifact Registry
-#         run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
-#       - name: ⚙️ Install root package dependencies
-#         run: npm ci
-#       # BUILD ##################################################################
-#       - name: 🔧 Build all libraries and scripts
-#         run: npm run build:libs
-#       - name: 🔧 Build all scripts
-#         run: npm run build:scripts
-#       - name: 🔧 Build application audit
-#         run: npm run clean -w packages/audit && npm run build -w packages/audit
-#       - name: 🔧 Build application telegram-bot
-#         run: npm run clean -w packages/telegram-bot && npm run build -w packages/telegram-bot
-#       - name: 🔧 Build application wasm-news
-#         run: npm run clean -w packages/wasm-news && npm run build -w packages/wasm-news
-#       - name: 🔧 Build application webhooks
-#         run: npm run clean -w packages/webhooks && npm run build -w packages/webhooks
-#       - name: 🛡️ Audit security
-#         continue-on-error: true
-#         if: ${{ matrix.os }} == 'ubuntu-latest'
-#         run: npm audit --audit-level=moderate
-#       # TEST ###################################################################
-#       - name: 🔍 Test library checks
-#         run: npm run test:ci -w packages/checks
-#       - name: 🔍 Test library cloud-scheduler-utils
-#         env:
-#           SA_NOTIFIER: ${{ secrets.SA_NOTIFIER }}
-#         run: npm run test:ci -w packages/cloud-scheduler-utils
-#       - name: 🔍 Test library fattureincloud-client
-#         env:
-#           FATTUREINCLOUD: ${{ secrets.FATTUREINCLOUD }}
-#         run: npm run test:ci -w packages/fattureincloud-client
-#       - name: 🔍 Test library firestore-utils
-#         env:
-#           SA_FIRESTORE_USER_TEST: ${{ secrets.SA_FIRESTORE_USER_TEST }}
-#           SA_FIRESTORE_VIEWER_TEST: ${{ secrets.SA_FIRESTORE_VIEWER_TEST }}
-#         run: npm run test:ci -w packages/firestore-utils
-#       - name: 🔍 Test library hapi-healthcheck-plugin
-#         run: npm run test:ci -w packages/hapi-healthcheck-plugin
-#       - name: 🔍 Test library hapi-ip-whitelist-plugin
-#         run: npm run test:ci -w packages/hapi-ip-whitelist-plugin
-#       - name: 🔍 Test library keap-client
-#         env:
-#           KEAP_OAUTH_CLIENT_CREDENTIALS: ${{ secrets.KEAP_OAUTH_CLIENT_CREDENTIALS }}
-#         run: npm run test:ci -w packages/keap-client
-#       - name: 🔍 Test library notifications
-#         env:
-#           TELEGRAM: ${{ secrets.TELEGRAM }}
-#         run: npm run test:ci -w packages/notifications
-#       - name: 🔍 Test library schemas
-#         run: npm run test:ci -w packages/schemas
-#       - name: 🔍 Test library secret-manager-utils
-#         run: npm run test:ci -w packages/secret-manager-utils
-#         env:
-#           SA_SECRET_MANAGER_ADMIN_TEST: ${{ secrets.SA_SECRET_MANAGER_ADMIN_TEST }}
-#       - name: 🔍 Test library telegram-text-messages
-#         run: npm run test:ci -w packages/telegram-text-messages
-#       - name: 🔍 Test library utils
-#         run: npm run test:ci -w packages/utils
-#       - name: 🔍 Test application audit
-#         env:
-#           SA_JSON_KEY: ${{ secrets.SA_WEBPERF_AUDIT }}
-#         run: npm run test:ci -w packages/audit
-#       - name: 🔍 Test application telegram-bot
-#         env:
-#           SA_JSON_KEY: ${{ secrets.SA_TELEGRAM_BOT }}
-#           TELEGRAM: ${{ secrets.TELEGRAM }}
-#         run: npm run test:ci -w packages/telegram-bot
-#       - name: 🔍 Test application wasm-news
-#         env:
-#           SA_JSON_KEY: ${{ secrets.SA_WASM_NEWS }}
-#         run: npm run test:ci -w packages/wasm-news
-#       - name: 🔍 Test application webhooks
-#         env:
-#           SA_JSON_KEY: ${{ secrets.SA_WEBHOOKS }}
-#         run: npm run test:ci -w packages/webhooks
-#       - name: ⬆️ Upload all coverage reports to Codecov
-#         continue-on-error: true
-#         uses: codecov/codecov-action@v3
-#         with:
-#           token: ${{ secrets.CODECOV_TOKEN }}
-#           verbose: true
-
 jobs:
+  build-and-test:
+    name: 🔧 Build & 🔍 Test [${{ matrix.os }}, Node ${{ matrix.node }}]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: ['17.9.0']
+    steps:
+      # INSTALL / CONFIGURE ####################################################
+      - name: 🛎️ Checkout repo
+        uses: actions/checkout@v3
+      - name: ⚙️ Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - id: 'auth'
+        name: Authenticate to Google Cloud
+        # https://github.com/google-github-actions/auth
+        uses: google-github-actions/auth@v0.7.0
+        with:
+          credentials_json: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
+      - name: Set up gcloud
+        # https://github.com/marketplace/actions/set-up-gcloud-cloud-sdk-environment
+        uses: google-github-actions/setup-gcloud@v0.6.0
+      # - run: gcloud info
+      # - run: gcloud --version
+      - name: ⚙️ Refresh access token for Artifact Registry
+        run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
+      - name: ⚙️ Install root package dependencies
+        run: npm ci
+      # BUILD ##################################################################
+      - name: 🔧 Build all libraries and scripts
+        run: npm run build:libs
+      - name: 🔧 Build all scripts
+        run: npm run build:scripts
+      - name: 🔧 Build application audit
+        run: npm run clean -w packages/audit && npm run build -w packages/audit
+      - name: 🔧 Build application telegram-bot
+        run: npm run clean -w packages/telegram-bot && npm run build -w packages/telegram-bot
+      - name: 🔧 Build application wasm-news
+        run: npm run clean -w packages/wasm-news && npm run build -w packages/wasm-news
+      - name: 🔧 Build application webhooks
+        run: npm run clean -w packages/webhooks && npm run build -w packages/webhooks
+      - name: 🛡️ Audit security
+        continue-on-error: true
+        if: ${{ matrix.os }} == 'ubuntu-latest'
+        run: npm audit --audit-level=moderate
+      # TEST ###################################################################
+      - name: 🔍 Test library checks
+        run: npm run test:ci -w packages/checks
+      - name: 🔍 Test library cloud-scheduler-utils
+        env:
+          SA_NOTIFIER: ${{ secrets.SA_NOTIFIER }}
+        run: npm run test:ci -w packages/cloud-scheduler-utils
+      - name: 🔍 Test library fattureincloud-client
+        env:
+          FATTUREINCLOUD: ${{ secrets.FATTUREINCLOUD }}
+        run: npm run test:ci -w packages/fattureincloud-client
+      - name: 🔍 Test library firestore-utils
+        env:
+          SA_FIRESTORE_USER_TEST: ${{ secrets.SA_FIRESTORE_USER_TEST }}
+          SA_FIRESTORE_VIEWER_TEST: ${{ secrets.SA_FIRESTORE_VIEWER_TEST }}
+        run: npm run test:ci -w packages/firestore-utils
+      - name: 🔍 Test library hapi-healthcheck-plugin
+        run: npm run test:ci -w packages/hapi-healthcheck-plugin
+      - name: 🔍 Test library hapi-ip-whitelist-plugin
+        run: npm run test:ci -w packages/hapi-ip-whitelist-plugin
+      - name: 🔍 Test library keap-client
+        env:
+          KEAP_OAUTH_CLIENT_CREDENTIALS: ${{ secrets.KEAP_OAUTH_CLIENT_CREDENTIALS }}
+        run: npm run test:ci -w packages/keap-client
+      - name: 🔍 Test library notifications
+        env:
+          TELEGRAM: ${{ secrets.TELEGRAM }}
+        run: npm run test:ci -w packages/notifications
+      - name: 🔍 Test library schemas
+        run: npm run test:ci -w packages/schemas
+      - name: 🔍 Test library secret-manager-utils
+        run: npm run test:ci -w packages/secret-manager-utils
+        env:
+          SA_SECRET_MANAGER_ADMIN_TEST: ${{ secrets.SA_SECRET_MANAGER_ADMIN_TEST }}
+      - name: 🔍 Test library telegram-text-messages
+        run: npm run test:ci -w packages/telegram-text-messages
+      - name: 🔍 Test library utils
+        run: npm run test:ci -w packages/utils
+      - name: 🔍 Test application audit
+        env:
+          SA_JSON_KEY: ${{ secrets.SA_WEBPERF_AUDIT }}
+        run: npm run test:ci -w packages/audit
+      - name: 🔍 Test application telegram-bot
+        env:
+          SA_JSON_KEY: ${{ secrets.SA_TELEGRAM_BOT }}
+          TELEGRAM: ${{ secrets.TELEGRAM }}
+        run: npm run test:ci -w packages/telegram-bot
+      - name: 🔍 Test application wasm-news
+        env:
+          SA_JSON_KEY: ${{ secrets.SA_WASM_NEWS }}
+        run: npm run test:ci -w packages/wasm-news
+      - name: 🔍 Test application webhooks
+        env:
+          SA_JSON_KEY: ${{ secrets.SA_WEBHOOKS }}
+        run: npm run test:ci -w packages/webhooks
+      - name: ⬆️ Upload all coverage reports to Codecov
+        continue-on-error: true
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true
+
   release:
     name: 📣 Release
-    # needs: [build-and-test]
+    needs: [build-and-test]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
