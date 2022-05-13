@@ -123,9 +123,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+      - id: 'auth'
+        name: Authenticate to Google Cloud
+        # https://github.com/google-github-actions/auth
+        uses: 'google-github-actions/auth@v0'
+        with:
+          credentials_json: ${{ secrets.SA_NOTIFIER }}
       - name: ⚙️ Refresh access token for Artifact Registry
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SA_SECRET_MANAGER_ADMIN_TEST }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SA_NOTIFIER }}
         run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
       - name: ⚙️ Install root package dependencies
         run: npm ci
