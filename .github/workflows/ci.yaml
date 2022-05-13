@@ -135,6 +135,6 @@ jobs:
         # https://github.com/qiwi/multi-semantic-release#configuration
         env:
           # The token must allow to push to the repository jackdbd/calderone.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_GITHUB_TOKEN }}
         #   NPM_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_NPM_TOKEN }}
         run: npm run release
