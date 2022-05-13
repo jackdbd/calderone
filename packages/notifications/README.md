@@ -24,7 +24,7 @@ npm run test -w packages/notifications
 npm run publish:artifact-registry -w packages/notifications
 ```
 
-Check that the coreect version of this package is now published on Artifact Registry:
+Check that the correct version of this package is now published on Artifact Registry:
 
 ```sh
 gcloud artifacts versions list \

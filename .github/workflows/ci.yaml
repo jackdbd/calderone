@@ -123,6 +123,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+      - name: ⚙️ Refresh access token for Artifact Registry
+        run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
       - name: ⚙️ Install root package dependencies
         run: npm ci
       - name: 🔧 Build all libraries
