@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## <small>1.0.2 (2022-05-13)</small>
+
+* ci: try publishing to Artifact Registry ([3a86457](https://github.com/jackdbd/calderone/commit/3a86457))
+* ci: update semantic-release config ([2c8e6ac](https://github.com/jackdbd/calderone/commit/2c8e6ac))
+* fix(checks): cleanup semantic-release config ([ec2ae77](https://github.com/jackdbd/calderone/commit/ec2ae77))
+* fix(checks): update semantic-release config ([77d243e](https://github.com/jackdbd/calderone/commit/77d243e))
+* fix(utils): cleanup semantic-release config ([01a2cba](https://github.com/jackdbd/calderone/commit/01a2cba))
+
 ## <small>1.0.1 (2022-05-13)</small>
 
 * fix(checks): update semantic-release config ([96eaa6c](https://github.com/jackdbd/calderone/commit/96eaa6c))
