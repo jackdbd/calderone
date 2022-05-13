@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/telegram-text-messages",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "Factory functions that return HTML-formatted strings to use in Telegram messages",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
