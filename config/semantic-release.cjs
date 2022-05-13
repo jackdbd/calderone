@@ -12,7 +12,7 @@ const path = require('node:path')
 
 // const commitlint_config_path = '../../config/commitlint.cjs'
 const commitlint_config_path = path.resolve('config', 'commitlint.cjs')
-console.log('commitlint config', commitlint_config_path)
+// console.log('commitlint config', commitlint_config_path)
 
 // I prefer to keep the configuration for the commit linter in
 // config/commitlint.cjs, so I can run npm run lint even when I am not releasing
