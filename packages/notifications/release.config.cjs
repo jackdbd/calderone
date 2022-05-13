@@ -1,22 +1,21 @@
 const base_config = require('../../config/semantic-release.cjs')
-const { github } = require('../../config/semantic-release-plugins.cjs')
+const { github, npm } = require('../../config/semantic-release-plugins.cjs')
 
+// git commit message made by the semantic-relase bot //////////////////////////
+// This commit message should be different for each package.
+// The rest of the semantic-release configuration should stay the same.
 // https://github.com/semantic-release/git#message
-const RELEASE_COMMIT_MESSAGE =
+const message =
   'chore(notifications): release v.${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
+////////////////////////////////////////////////////////////////////////////////
 
-// The git plugin must be called AFTER the npm plugin. See here:
-// https://github.com/semantic-release/git#examples
 const git = [
   '@semantic-release/git',
   {
     assets: ['CHANGELOG.md', 'package.json'],
-    message: RELEASE_COMMIT_MESSAGE
+    message
   }
 ]
-
-// https://github.com/semantic-release/npm
-const npm = ['@semantic-release/npm', { npmPublish: false, pkgRoot: './lib' }]
 
 const config = {
   ...base_config,

@@ -138,7 +138,7 @@ jobs:
       - name: ⚙️ Refresh access token for Artifact Registry
         run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
       - name: ⚙️ Install dependencies
-        run: npm ci
+        run: npm install
       - name: 🔧 Build all libraries
         run: npm run build:libs
       # - name: 🌳 Debug filesystem with tree
