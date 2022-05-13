@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/keap-client",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "description": "Unofficial API client for Keap (aka Infusionsoft)",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
@@ -64,7 +64,7 @@
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
-    "@jackdbd/utils": "^0.0.14",
+    "@jackdbd/utils": "1.0.0",
     "debug": "^4.3.3",
     "phin": "^3.6.1"
   },
