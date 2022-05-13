@@ -11,6 +11,10 @@ const github = [
 ]
 
 // https://github.com/semantic-release/npm
-const npm = ['@semantic-release/npm', { npmPublish: true, pkgRoot: './lib' }]
+// Do not set npmPublish here. Instead, set "private": true or "private": false
+// in the package.json of each monorepo package.
+// TODO: check how to publish to Artifact Registry using semantic-release (I
+// think I have to use this plugin.
+const npm = ['@semantic-release/npm', { pkgRoot: '.' }]
 
 module.exports = { github, npm }

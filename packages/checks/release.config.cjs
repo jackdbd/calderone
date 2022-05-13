@@ -1,15 +1,19 @@
 const base_config = require('../../config/semantic-release.cjs')
 const { github, npm } = require('../../config/semantic-release-plugins.cjs')
 
+// git commit message made by the semantic-relase bot //////////////////////////
+// This commit message should be different for each package.
+// The rest of the semantic-release configuration should stay the same.
 // https://github.com/semantic-release/git#message
-const RELEASE_COMMIT_MESSAGE =
+const message =
   'chore(checks): release v.${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
+////////////////////////////////////////////////////////////////////////////////
 
 const git = [
   '@semantic-release/git',
   {
     assets: ['CHANGELOG.md', 'package.json'],
-    message: RELEASE_COMMIT_MESSAGE
+    message
   }
 ]
 

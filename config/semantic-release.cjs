@@ -1,4 +1,4 @@
-const path = require('node:path')
+// const path = require('node:path')
 
 /**
  * Configuration for semantic-release and multi-semantic-release.
@@ -10,8 +10,8 @@ const path = require('node:path')
  * https://github.com/qiwi/multi-semantic-release#configuration
  */
 
-// const commitlint_config_path = '../../config/commitlint.cjs'
-const commitlint_config_path = path.resolve('config', 'commitlint.cjs')
+const commitlint_config_path = '../../config/commitlint.cjs'
+// const commitlint_config_path = path.resolve('config', 'commitlint.cjs')
 // console.log('commitlint config', commitlint_config_path)
 
 // I prefer to keep the configuration for the commit linter in
