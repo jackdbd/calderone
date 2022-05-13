@@ -4,7 +4,7 @@
   "description": "Utilities for Secret Manager",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "keywords": [
     "secret-manager",
     "secrets",

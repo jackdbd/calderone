@@ -4,7 +4,7 @@
   "description": "serverless function to send a message to a Telegram chat",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "keywords": [
     "function",
     "telegram"
