@@ -126,14 +126,19 @@ jobs:
       - id: 'auth'
         name: Authenticate to Google Cloud
         # https://github.com/google-github-actions/auth
-        uses: 'google-github-actions/auth@v0'
+        uses: google-github-actions/auth@v0.7.0
         with:
           credentials_json: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
+      - name: Set up gcloud
+        # https://github.com/marketplace/actions/set-up-gcloud-cloud-sdk-environment
+        uses: google-github-actions/setup-gcloud@v0.6.0
+      - run: gcloud info
+      - run: gcloud --version
       # - name: ⚙️ Refresh access token for Artifact Registry
       #   env:
       #     GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
       #   run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
-      - name: ⚙️ Install root package dependencies
+      - name: ⚙️ Install dependencies
         run: npm ci
       - name: 🔧 Build all libraries
         run: npm run build:libs
