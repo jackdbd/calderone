@@ -55,26 +55,7 @@ npm run build -w packages/webhooks
 Run all tests on all packages:
 
 ```sh
-npm run test -w packages/audit
-npm run test -w packages/checks
-npm run test -w packages/cloud-scheduler-utils
-npm run test -w packages/fattureincloud-client
-npm run test -w packages/firestore-utils
-npm run test -w packages/hapi-healthcheck-plugin
-npm run test -w packages/hapi-ip-whitelist-plugin
-npm run test -w packages/keap-client
-npm run test -w packages/notifications
-npm run test -w packages/schemas
-npm run test -w packages/scripts
-npm run test -w packages/secret-manager-utils
-npm run test -w packages/send-telegram-message
-npm run test -w packages/sqlite-utils
-npm run test -w packages/stripe-utils
-npm run test -w packages/telegram-bot
-npm run test -w packages/telegram-text-messages
-npm run test -w packages/utils
-npm run test -w packages/wasm-news
-npm run test -w packages/webhooks
+npm run test
 ```
 
 ## Applications

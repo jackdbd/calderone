@@ -4,12 +4,13 @@
   "description": "Utility functions to work with SQLite",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
+  "private": true,
   "keywords": [
     "sqlite",
     "utils"
   ],
   "engines": {
-    "node": ">=12.x",
+    "node": ">=16.0.0",
     "npm": ">=7.0.0"
   },
   "type": "module",
@@ -46,8 +47,8 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "better-sqlite3": ">= 7.0.0",
-    "debug": ">= 4.0.0"
+    "better-sqlite3": ">=7.0.0",
+    "debug": ">=4.0.0"
   },
   "devDependencies": {}
 }

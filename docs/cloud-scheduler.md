@@ -64,6 +64,20 @@ gcloud scheduler jobs create http weekly-wasm-news \
   --oauth-service-account-email $SA_WASM_NEWS
 ```
 
+```sh
+gcloud scheduler jobs create http weekly-lead-generation \
+  --project $GCP_PROJECT_ID \
+  --location 'europe-west3' \
+  --schedule '15 20 * * 0' \
+  --uri "$WORKFLOW_URL_LEAD_GENERATION" \
+  --http-method POST \
+  --description "run my lead generation workflow" \
+  --time-zone "Europe/Rome" \
+  --attempt-deadline 1m30s \
+  --headers "Content-Type=application/json; charset=utf-8,User-Agent=Google-Cloud-Scheduler" \
+  --oauth-service-account-email $SA_WORKFLOWS_RUNNER
+```
+
 List jobs defined in a given location
 
 ```sh

@@ -4,12 +4,13 @@
   "description": "Hapi plugin to allow an IP whitelist",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
+  "private": false,
   "keywords": [
     "hapi",
     "plugin"
   ],
   "engines": {
-    "node": ">=12.x",
+    "node": ">=16.0.0",
     "npm": ">=7.0.0"
   },
   "type": "module",
@@ -38,7 +39,7 @@
     "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name hapi-ip-whitelist-plugin",
     "size": "pkg-size ./lib --sort-by=brotli",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects hapi-ip-whitelist-plugin --config ../../config/jest.cjs --rootDir ../../ --runInBand --forceExit",
-    "test:ci": "npm run test -- --ci --coverage",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/hapi-ip-whitelist-plugin/coverage",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {

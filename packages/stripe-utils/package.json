@@ -4,12 +4,13 @@
   "description": "Utility functions to work with Stripe",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
+  "private": true,
   "keywords": [
     "stripe",
     "utils"
   ],
   "engines": {
-    "node": ">=12.x",
+    "node": ">=16.0.0",
     "npm": ">=7.0.0"
   },
   "type": "module",
@@ -45,14 +46,14 @@
     "pretest": "run-s build",
     "size": "pkg-size ./lib --sort-by=brotli",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects stripe-utils --config ../../config/jest.cjs --rootDir ../../",
-    "test:ci": "npm run test -- --ci --coverage",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/stripe-utils/coverage",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {},
   "peerDependencies": {
-    "@jackdbd/utils": "*",
-    "debug": ">= 4.3.0",
-    "stripe": ">= 8.0.0"
+    "@jackdbd/utils": ">=0.0.14",
+    "debug": ">=4.3.0",
+    "stripe": ">=8.0.0"
   },
   "devDependencies": {}
 }

@@ -4,11 +4,12 @@
   "description": "Functions to check inputs (i.e. predicates)",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
+  "private": false,
   "keywords": [
     "predicate"
   ],
   "engines": {
-    "node": ">=12.x",
+    "node": ">=16.0.0",
     "npm": ">=7.0.0"
   },
   "type": "module",
@@ -50,7 +51,7 @@
     "pretest": "run-s build",
     "size": "pkg-size ./lib --sort-by=brotli",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects checks --config ../../config/jest.cjs --rootDir ../../",
-    "test:ci": "npm run test -- --ci --coverage",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/checks/coverage",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {},

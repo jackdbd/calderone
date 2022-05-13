@@ -1,4 +1,4 @@
-import debugger_agent from '@google-cloud/debug-agent'
+import debug_agent from '@google-cloud/debug-agent'
 import Exiting from 'exiting'
 import { app } from './app.js'
 import { config } from './config.js'
@@ -13,7 +13,8 @@ export const provision = async (env: NodeJS.ProcessEnv) => {
     message: 'created manager to handle safe shutdown of server/s'
   })
 
-  debugger_agent.start(cfg.debug_agent_config)
+  // https://github.com/googleapis/cloud-debug-nodejs/blob/main/src/agent/config.ts
+  debug_agent.start(cfg.debug_agent_config)
   server.log(['lifecycle'], { message: 'Cloud Debugger agent started' })
 
   await manager.start()

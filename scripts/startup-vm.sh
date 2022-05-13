@@ -3,7 +3,7 @@
 # https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
 set -euo pipefail
 
-babashka_version=0.8.1
+babashka_version=0.8.2
 install_dir="/usr/local/bin"
 
 echo "download Babashka $babashka_version"

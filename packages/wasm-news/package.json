@@ -4,13 +4,14 @@
   "description": "Application that retrieves news about webassembly from several APIs (Reddit, Twitter, etc)",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
+  "private": true,
   "keywords": [
     "news",
     "wasm",
     "webassembly"
   ],
   "engines": {
-    "node": ">=16"
+    "node": "17.9.0"
   },
   "type": "module",
   "module": "main.js",
@@ -34,20 +35,21 @@
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
     "start:development": "DEBUG=wasm-news/* NODE_ENV=development node ./dist/main.js",
     "start:test": "NODE_ENV=test node --loader ts-node/esm ./src/main.ts",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects wasm-news --config ../../config/jest.cjs --rootDir ../../ --runInBand --detectOpenHandles"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects wasm-news --config ../../config/jest.cjs --rootDir ../../ --runInBand --detectOpenHandles",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/wasm-news/coverage"
   },
   "dependencies": {
     "@google-cloud/debug-agent": "5.2.8",
-    "@google-cloud/error-reporting": "2.0.4",
-    "@google-cloud/secret-manager": "3.11.0",
+    "@google-cloud/error-reporting": "2.0.5",
+    "@google-cloud/secret-manager": "3.12.0",
     "@google-cloud/workflows": "1.4.0",
-    "@hapi/boom": "9.1.4",
-    "@hapi/hapi": "20.2.1",
-    "@hapi/wreck": "17.1.0",
+    "@hapi/boom": "10.0.0",
+    "@hapi/hapi": "20.2.2",
+    "@hapi/wreck": "18.0.0",
     "@jackdbd/checks": "0.0.11",
     "@jackdbd/hapi-healthcheck-plugin": "0.0.1",
     "@jackdbd/notifications": "0.0.4",
-    "@jackdbd/secret-manager-utils": "0.0.6",
+    "@jackdbd/secret-manager-utils": "0.0.7",
     "@jackdbd/telegram-text-messages": "0.0.7",
     "@jackdbd/utils": "0.0.14",
     "@octokit/rest": "18.12.0",

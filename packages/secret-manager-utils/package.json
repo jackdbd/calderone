@@ -1,16 +1,17 @@
 {
   "name": "@jackdbd/secret-manager-utils",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Utilities for Secret Manager",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
+  "private": true,
   "keywords": [
     "secret-manager",
     "secrets",
     "utils"
   ],
   "engines": {
-    "node": ">=12.x",
+    "node": ">=16.0.0",
     "npm": ">=7.0.0"
   },
   "type": "module",
@@ -44,13 +45,15 @@
     "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name secret-manager-utils",
     "size": "pkg-size ./lib --sort-by=brotli",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects secret-manager-utils --config ../../config/jest.cjs --rootDir ../../ --runInBand --forceExit",
-    "test:ci": "npm run test -- --ci --coverage",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/secret-manager-utils/coverage",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {},
   "peerDependencies": {
-    "@google-cloud/secret-manager": ">= 3.0.0",
-    "debug": ">= 4.0.0"
+    "@google-cloud/secret-manager": ">=3.12.0",
+    "debug": ">=4.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@google-cloud/secret-manager": "3.12.0"
+  }
 }

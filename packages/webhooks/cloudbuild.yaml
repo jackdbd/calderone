@@ -18,9 +18,6 @@ steps:
   - name: node:${_NODE_VERSION}
     entrypoint: npm
     args: ['audit', '--audit-level=moderate']
-  # - name: node:$_NODE_VERSION
-  #   entrypoint: /bin/bash
-  #   args: ['-c', 'ls -1ah']
   - name: gcr.io/k8s-skaffold/pack:${_PACK_VERSION}
     args: ['build', "${_IMAGE}", '--path', '.', '--builder', 'gcr.io/buildpacks/builder:v1']
   - name: gcr.io/cloud-builders/docker
@@ -56,9 +53,9 @@ substitutions:
   _IMAGE_NAME: webhooks
   _IMAGE_TAG: latest
   _NODE_ENV: production
-  _NODE_VERSION: 16.14.0
+  _NODE_VERSION: 17.9.0
   # https://console.cloud.google.com/gcr/images/k8s-skaffold/global/pack
-  _PACK_VERSION: v0.21.0
+  _PACK_VERSION: v0.21.1
   _REGION_ID: europe-west3
   _REPO_ID: cloud-run-source-deploy
   _SERVICE_ACCOUNT: sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com

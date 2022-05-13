@@ -52,9 +52,9 @@ substitutions:
   _IMAGE_NAME: audit
   _IMAGE_TAG: latest
   _NODE_ENV: production
-  _NODE_VERSION: 16.14.0
+  _NODE_VERSION: 17.9.0
   # https://console.cloud.google.com/gcr/images/k8s-skaffold/global/pack
-  _PACK_VERSION: v0.21.0
+  _PACK_VERSION: v0.21.1
   _REGION_ID: europe-west3
   _REPO_ID: cloud-run-source-deploy
   _SERVICE_ACCOUNT: sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com

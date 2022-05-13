@@ -33,3 +33,6 @@ packages/scripts/protos/
 .calva/
 .clj-kondo/
 .lsp/
+
+# SQLite database used in some Datasette example
+fixtures.db
