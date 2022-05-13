@@ -4,6 +4,14 @@ See [Service Accounts predefined IAM roles](https://cloud.google.com/iam/docs/un
 
 ## Create service accounts
 
+Create a service account that can push to Artifact Registry.
+
+```sh
+gcloud iam service-accounts create sa-artifact-registry-writer \
+  --display-name "artifact-registry-writer SA" \
+  --project $GCP_PROJECT_ID
+```
+
 ### sa-compute-engine
 
 Create a service account to attach to all Compute Engine VMs.

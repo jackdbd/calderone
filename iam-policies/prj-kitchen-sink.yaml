@@ -6,6 +6,9 @@ bindings:
   - user:giacomo@giacomodebidda.com
   role: roles/artifactregistry.repoAdmin
 - members:
+  - serviceAccount:sa-artifact-registry-writer@prj-kitchen-sink.iam.gserviceaccount.com
+  role: roles/artifactregistry.writer
+- members:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/bigquery.dataEditor
 - members:
@@ -85,6 +88,7 @@ bindings:
   - serviceAccount:service-1051247446620@gcp-sa-firestore.iam.gserviceaccount.com
   role: roles/firestore.serviceAgent
 - members:
+  - serviceAccount:sa-artifact-registry-writer@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - user:giacomo@giacomodebidda.com
   role: roles/iam.serviceAccountTokenCreator
@@ -152,5 +156,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXerBn8RHU=
+etag: BwXe6ExT0WI=
 version: 1
