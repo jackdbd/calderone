@@ -35,7 +35,7 @@
     "lint": "npm run lint --workspaces --if-present",
     "nuke": "npm run clean && rm -rf node_modules package-lock.json",
     "prepare": "husky install",
-    "release": "multi-semantic-release --ignore-private --debug",
+    "release": "multi-semantic-release --ignore-private",
     "release:dry": "multi-semantic-release --dry-run --debug",
     "size": "npm run size --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
