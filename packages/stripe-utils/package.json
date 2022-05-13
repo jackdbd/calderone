@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/stripe-utils",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Utility functions to work with Stripe",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
@@ -51,7 +51,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@jackdbd/utils": ">=0.0.14",
+    "@jackdbd/utils": "1.0.0",
     "debug": ">=4.3.0",
     "stripe": ">=8.0.0"
   },
