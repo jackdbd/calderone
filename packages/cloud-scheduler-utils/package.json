@@ -4,7 +4,7 @@
   "description": "Utility functions to work with Cloud Sheduler",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "keywords": [
     "cloud-scheduler",
     "utils"

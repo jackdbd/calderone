@@ -4,7 +4,7 @@
   "description": "Functions used to send notifications to various channels (Telegram, email, etc)",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "keywords": [
     "email",
     "instant-messaging",

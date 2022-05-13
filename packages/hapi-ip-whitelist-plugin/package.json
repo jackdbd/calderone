@@ -4,7 +4,7 @@
   "description": "Hapi plugin to allow an IP whitelist",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "keywords": [
     "hapi",
     "plugin"
