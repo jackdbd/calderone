@@ -124,6 +124,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - name: ⚙️ Refresh access token for Artifact Registry
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SA_SECRET_MANAGER_ADMIN_TEST }}
         run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
       - name: ⚙️ Install root package dependencies
         run: npm ci
