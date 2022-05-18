@@ -1,9 +1,8 @@
 #!/usr/bin/env zx
 
-import { addAbortSignal } from 'stream'
 import 'zx/globals'
 
-// Usage:
+// Usage (from the monorepo root):
 // ./scripts/publish/npm.mjs --package utils --version 1.2.3
 
 const scope = 'jackdbd'
@@ -18,7 +17,7 @@ if (version === undefined) {
   throw new Error('version must be set')
 }
 
-// $`npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc`
+// await $`npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc`
 
 const { stdout: vers } = await $`npm view @${scope}/${pkg}@${version} version`
 

@@ -75,15 +75,25 @@ Run all tests on all packages:
 npm run test
 ```
 
-## Publish to npmjs
+## Publish
 
-Refresh the Artifact Registry access token.
+### publish to Artifact Registry
+
+Publish the latest version of a package to Artifact Registry:
+
+```sh
+./scripts/publish/artifact-registry.mjs --package utils
+```
+
+### publish to npmjs
+
+Refresh the Artifact Registry access token:
 
 ```sh
 npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc
 ```
 
-Publish some packages that I had already published to my private Artifact Registry.
+Publish some packages that I had already published to my private Artifact Registry:
 
 ```sh
 ./scripts/publish/npm.mjs --package checks --version 1.0.2
