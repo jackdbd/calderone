@@ -77,6 +77,11 @@ steps:
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
     args: ['run', 'test:ci', '-w=packages/utils']
+    env:
+      - 'BUILD_ID=$BUILD_ID'
+      - 'LOCATION=$LOCATION'
+      - 'PROJECT_ID=$PROJECT_ID'
+      - 'PROJECT_NUMBER=$PROJECT_NUMBER'
   # RELEASE ####################################################################
   - id: '🚀 Copy dotfiles to each package root'
     name: 'docker.io/library/node:${_NODE_VERSION}'

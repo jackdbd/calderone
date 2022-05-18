@@ -8,7 +8,7 @@ const debug = makeDebug('checks/environment')
  * https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#using_default_substitutions
  */
 export const isOnCloudBuild = (env: NodeJS.ProcessEnv) => {
-  if (env.PROJECT_ID && env.BUILD_ID && env.PROJECT_NUMBER && env.LOCATION) {
+  if (env.BUILD_ID && env.LOCATION && env.PROJECT_ID && env.PROJECT_NUMBER) {
     debug('running on Cloud Build')
     return true
   } else {
