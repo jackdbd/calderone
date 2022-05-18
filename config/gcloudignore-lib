@@ -1,0 +1,4 @@
+# The library will be built on Cloud Build, so we ignore the local lib/ directory
+lib/
+
+tsconfig.tsbuildinfo

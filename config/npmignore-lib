@@ -1,0 +1,6 @@
+.gcloudignore
+__tests__/
+jest.config.cjs
+release.config.cjs
+src/
+tsconfig.*
