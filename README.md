@@ -100,6 +100,14 @@ Publish some packages that I had already published to my private Artifact Regist
 ./scripts/publish/npm.mjs --package utils --version 1.0.1
 ```
 
+## Monorepo management
+
+Create a new package in this monorepo using [these templates](./assets/templates/).
+
+```sh
+./scripts/new-package.mjs --name my-new-package
+```
+
 ## Miscellaneous
 
 Lint all packages with eslint:

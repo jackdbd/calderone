@@ -32,6 +32,11 @@ steps:
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
     args: ['run', 'test:ci', '-w packages/checks']
+  - id: '🔍 Test library cloud-scheduler-utils'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'test:ci', '-w packages/cloud-scheduler-utils']
+    # SA_NOTIFIER: ${{ secrets.SA_NOTIFIER }}
   - id: '🔍 Test library hapi-healthcheck-plugin'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
@@ -45,16 +50,17 @@ steps:
   #   entrypoint: npm
   #   args: ['run', 'test:ci', '-w packages/utils']
   # RELEASE ####################################################################
-  - id: 'Copy dotfiles'
+  - id: 'Copy dotfiles to each package root'
     name: 'docker.io/library/node:${_NODE_VERSION}'
-    args: ['./scripts/copy-dotfiles.mjs', '--package utils']
+    entrypoint: npm
+    args: ['run', 'copy-dotfiles']
   - id: '🚀 Release to Artifact Registry with multi-semantic-release'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
     args: ['run', 'release']
-    # The github token must allow to push to this GitHub repository.
+    # The github token must allow to push to this GitHub repository and must not
+    # have expired.
     secretEnv: ['GITHUB_TOKEN']
-    # GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
 
 availableSecrets:
   secretManager:
