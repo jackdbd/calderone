@@ -1,5 +1,9 @@
 steps:
   # INSTALL / CONFIGURE ########################################################
+  - id: '⚙️ Clean npm cache'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['cache', 'clean', '--force']
   - id: '🔑 Refresh Artifact Registry access token'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     # name: node:${_NODE_VERSION}
@@ -19,23 +23,19 @@ steps:
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
     args: ['run', 'build:libs']
-  # - id: '🔧 Build scripts'
-  #   name: 'docker.io/library/node:${_NODE_VERSION}'
-  #   entrypoint: npm
-  #   args: ['run', 'build:scripts']
-  # - id: '🔧 Build application audit'
-  #   name: 'docker.io/library/node:${_NODE_VERSION}'
-  #   entrypoint: npm
-  #   args: ['run', 'build', '-w packages/audit']
+  - id: '🔧 Build scripts'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'build:scripts']
   # TEST #######################################################################
   - id: '🔍 Test library checks'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
     args: ['run', 'test:ci', '-w packages/checks']
-  - id: '🔍 Test library cloud-scheduler-utils'
-    name: 'docker.io/library/node:${_NODE_VERSION}'
-    entrypoint: npm
-    args: ['run', 'test:ci', '-w packages/cloud-scheduler-utils']
+  # - id: '🔍 Test library cloud-scheduler-utils'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['run', 'test:ci', '-w packages/cloud-scheduler-utils']
     # SA_NOTIFIER: ${{ secrets.SA_NOTIFIER }}
   - id: '🔍 Test library hapi-healthcheck-plugin'
     name: 'docker.io/library/node:${_NODE_VERSION}'
