@@ -77,10 +77,17 @@ npm run test
 
 ## Publish to npmjs
 
-Publish version 1.0.2 of the package `checks`, which was already published to Artifact Registry.
+Refresh the Artifact Registry access token.
+
+```sh
+npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc
+```
+
+Publish some packages that I had already published to my private Artifact Registry.
 
 ```sh
 ./scripts/publish/npm.mjs --package checks --version 1.0.2
+./scripts/publish/npm.mjs --package utils --version 1.0.1
 ```
 
 ## Miscellaneous
