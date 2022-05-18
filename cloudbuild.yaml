@@ -56,18 +56,18 @@ steps:
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
     args: ['run', 'test:ci', '-w=packages/schemas']
-  - id: '🔍 Test library secret-manager-utils'
-    name: 'docker.io/library/node:${_NODE_VERSION}'
-    entrypoint: npm
-    args: ['run', 'test:ci', '-w=packages/secret-manager-utils']
+  # - id: '🔍 Test library secret-manager-utils'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['run', 'test:ci', '-w=packages/secret-manager-utils']
   - id: '🔍 Test library sqlite-utils'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
     args: ['run', 'test:ci', '-w=packages/sqlite-utils']
-  # - id: '🔍 Test library stripe-utils'
-  #   name: 'docker.io/library/node:${_NODE_VERSION}'
-  #   entrypoint: npm
-  #   args: ['run', 'test:ci', '-w=packages/stripe-utils']
+  - id: '🔍 Test library stripe-utils'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'test:ci', '-w=packages/stripe-utils']
   - id: '🔍 Test library telegram-text-messages'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
