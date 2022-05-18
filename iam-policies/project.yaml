@@ -1,7 +1,7 @@
 bindings:
-# - members:
-#   - group:developers@giacomodebidda.com
-#   role: roles/artifactregistry.reader
+- members:
+  - group:developers@giacomodebidda.com
+  role: roles/artifactregistry.reader
 # - members:
 #   - user:giacomo@giacomodebidda.com
 #   - group:developers@giacomodebidda.com
@@ -157,5 +157,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXfRV0LFqw=
+etag: BwXfSTGLY3k=
 version: 1
