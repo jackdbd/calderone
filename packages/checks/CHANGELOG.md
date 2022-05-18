@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## <small>1.0.4 (2022-05-18)</small>
+
+* fix(utils): bump version ([a11bec9](https://github.com/jackdbd/calderone/commit/a11bec9))
+
 ## <small>1.0.3 (2022-05-18)</small>
 
 * chore: add script to publish to npmjs ([0db9734](https://github.com/jackdbd/calderone/commit/0db9734))
