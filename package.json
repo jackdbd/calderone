@@ -5,15 +5,15 @@
   "homepage": "https://github.com/jackdbd/calderone",
   "private": true,
   "type": "module",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/npm/cli.git"
-  },
   "keywords": [
     "cloud",
     "gcp",
     "monorepo"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackdbd/calderone"
+  },
   "workspaces": [
     "packages/*",
     "scripts/*"
@@ -30,6 +30,7 @@
     "build:scripts": "npm run build -w packages/scripts",
     "build:scripts:watch": "npm run build:watch -w packages/scripts",
     "clean": "npm run clean --workspaces --if-present",
+    "cloudbuild": "npm run cloudbuild --workspaces --if-present",
     "dev:scripts": "run-p build:libs:watch build:scripts:watch",
     "format": "npm run format --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
@@ -83,8 +84,8 @@
     "http-server": "^14.1.0",
     "husky": "^7.0.4",
     "ini": "^2.0.0",
-    "jest": "^27.5.1",
-    "jest-circus": "^27.5.1",
+    "jest": "^28.1.0",
+    "jest-circus": "^28.1.0",
     "js-yaml": "^4.1.0",
     "lint-staged": "^12.3.5",
     "npm-run-all": "^4.1.5",
@@ -96,7 +97,7 @@
     "simple-oauth2": "^4.3.0",
     "stripe": "^8.207.0",
     "ts-node": "^10.7.0",
-    "typescript": "^4.6.2",
+    "typescript": "^4.6.4",
     "wait-port": "^0.2.9",
     "yargs": "^17.3.1"
   }
