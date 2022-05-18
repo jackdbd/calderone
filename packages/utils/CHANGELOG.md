@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## <small>1.0.1 (2022-05-18)</small>
+
+* fix(utils): bump version ([a11bec9](https://github.com/jackdbd/calderone/commit/a11bec9))
+* chore: cleanup ([059c83d](https://github.com/jackdbd/calderone/commit/059c83d))
+* ci(checks): add Cloud Build CI ([e79ab88](https://github.com/jackdbd/calderone/commit/e79ab88))
+* ci(utils): add Cloud Build CI ([c7a7feb](https://github.com/jackdbd/calderone/commit/c7a7feb))
+* fix(checks,utils): add .npmignore ([bf7b5d9](https://github.com/jackdbd/calderone/commit/bf7b5d9))
+
 ## @jackdbd/utils 1.0.0 (2022-05-13)
 
 * ci: try publishing to Artifact Registry ([3a86457](https://github.com/jackdbd/calderone/commit/3a86457))
