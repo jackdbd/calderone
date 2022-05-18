@@ -97,6 +97,8 @@ Publish some packages that I had already published to my private Artifact Regist
 
 ```sh
 ./scripts/publish/npm.mjs --package checks --version 1.0.2
+./scripts/publish/npm.mjs --package hapi-healthcheck-plugin --version 1.0.2
+./scripts/publish/npm.mjs --package hapi-ip-whitelist-plugin --version 1.0.2
 ./scripts/publish/npm.mjs --package utils --version 1.0.1
 ```
 

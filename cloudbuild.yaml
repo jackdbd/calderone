@@ -1,9 +1,9 @@
 steps:
   # INSTALL / CONFIGURE ########################################################
-  - id: '⚙️ Clean npm cache'
-    name: 'docker.io/library/node:${_NODE_VERSION}'
-    entrypoint: npm
-    args: ['cache', 'clean', '--force']
+  # - id: '⚙️ Clean npm cache'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['cache', 'clean', '--force']
   - id: '🔑 Refresh Artifact Registry access token'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     # name: node:${_NODE_VERSION}
@@ -31,26 +31,26 @@ steps:
   - id: '🔍 Test library checks'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
-    args: ['run', 'test:ci', '-w packages/checks']
-  # - id: '🔍 Test library cloud-scheduler-utils'
-  #   name: 'docker.io/library/node:${_NODE_VERSION}'
-  #   entrypoint: npm
-  #   args: ['run', 'test:ci', '-w packages/cloud-scheduler-utils']
+    args: ['run', 'test:ci', '-w=packages/checks']
+  - id: '🔍 Test library cloud-scheduler-utils'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'test:ci', '-w=packages/cloud-scheduler-utils']
     # SA_NOTIFIER: ${{ secrets.SA_NOTIFIER }}
   - id: '🔍 Test library hapi-healthcheck-plugin'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
-    args: ['run', 'test:ci', '-w packages/hapi-healthcheck-plugin']
+    args: ['run', 'test:ci', '-w=packages/hapi-healthcheck-plugin']
   - id: '🔍 Test library hapi-ip-whitelist-plugin'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
-    args: ['run', 'test:ci', '-w packages/hapi-ip-whitelist-plugin']
-  # - id: '🔍 Test library utils'
-  #   name: 'docker.io/library/node:${_NODE_VERSION}'
-  #   entrypoint: npm
-  #   args: ['run', 'test:ci', '-w packages/utils']
+    args: ['run', 'test:ci', '-w=packages/hapi-ip-whitelist-plugin']
+  - id: '🔍 Test library utils'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'test:ci', '-w=packages/utils']
   # RELEASE ####################################################################
-  - id: 'Copy dotfiles to each package root'
+  - id: '🚀 Copy dotfiles to each package root'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
     args: ['run', 'copy-dotfiles']
