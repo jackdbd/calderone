@@ -32,11 +32,14 @@ steps:
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
     args: ['run', 'test:ci', '-w=packages/checks']
-  - id: '🔍 Test library cloud-scheduler-utils'
-    name: 'docker.io/library/node:${_NODE_VERSION}'
-    entrypoint: npm
-    args: ['run', 'test:ci', '-w=packages/cloud-scheduler-utils']
-    # SA_NOTIFIER: ${{ secrets.SA_NOTIFIER }}
+  # - id: '🔍 Test library cloud-scheduler-utils'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['run', 'test:ci', '-w=packages/cloud-scheduler-utils']
+  # - id: '🔍 Test library firestore-utils'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['run', 'test:ci', '-w=packages/firestore-utils']
   - id: '🔍 Test library hapi-healthcheck-plugin'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
@@ -45,6 +48,30 @@ steps:
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
     args: ['run', 'test:ci', '-w=packages/hapi-ip-whitelist-plugin']
+  # - id: '🔍 Test library notifications'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['run', 'test:ci', '-w=packages/notifications']
+  - id: '🔍 Test library schemas'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'test:ci', '-w=packages/schemas']
+  - id: '🔍 Test library secret-manager-utils'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'test:ci', '-w=packages/secret-manager-utils']
+  - id: '🔍 Test library sqlite-utils'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'test:ci', '-w=packages/sqlite-utils']
+  # - id: '🔍 Test library stripe-utils'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['run', 'test:ci', '-w=packages/stripe-utils']
+  - id: '🔍 Test library telegram-text-messages'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'test:ci', '-w=packages/telegram-text-messages']
   - id: '🔍 Test library utils'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
@@ -64,13 +91,14 @@ steps:
 
 availableSecrets:
   secretManager:
-  - versionName: projects/${PROJECT_ID}/secrets/GITHUB_TOKEN/versions/${_GITHUB_TOKEN_VERSION}
+  - versionName: projects/${PROJECT_ID}/secrets/GITHUB_TOKEN/versions/latest
     env: 'GITHUB_TOKEN'
+  - versionName: projects/${PROJECT_ID}/secrets/TELEGRAM/versions/latest
+    env: 'TELEGRAM'
 
 # user-defined substitutions and default values
 # https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#using_user-defined_substitutions
 substitutions:
-  _GITHUB_TOKEN_VERSION: 'latest'
   _NODE_VERSION: 17.9.0
 options:
   dynamic_substitutions: true
