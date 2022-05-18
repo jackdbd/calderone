@@ -31,6 +31,7 @@
     "build:scripts:watch": "npm run build:watch -w packages/scripts",
     "clean": "npm run clean --workspaces --if-present",
     "cloudbuild": "gcloud builds submit . --config cloudbuild.yaml --project $GCP_PROJECT_ID --async",
+    "copy-dotfiles": "npm run copy-dotfiles --workspaces --if-present",
     "dev:scripts": "run-p build:libs:watch build:scripts:watch",
     "format": "npm run format --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",

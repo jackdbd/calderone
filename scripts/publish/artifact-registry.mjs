@@ -43,7 +43,6 @@ console.log(
 await $`npm run build -w packages/${pkg}`
 await $`cp ./packages/${pkg}/package.json ${tmp_dir}/package.json`
 await $`cp ./packages/${pkg}/CHANGELOG.md ${tmp_dir}/CHANGELOG.md`
-// await $`cp ./config/npmignore-lib ${tmp_dir}/.npmignore`
 await $`cp ./packages/${pkg}/README.md ${tmp_dir}/README.md`
 await $`cp -r ./packages/${pkg}/lib ${tmp_dir}/lib`
 

@@ -26,25 +26,28 @@ steps:
   # - id: '🔧 Build application audit'
   #   name: 'docker.io/library/node:${_NODE_VERSION}'
   #   entrypoint: npm
-  #   args: ['run', 'build', '--workspace=packages/audit']
+  #   args: ['run', 'build', '-w packages/audit']
   # TEST #######################################################################
   - id: '🔍 Test library checks'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
-    args: ['run', 'test:ci', '--workspace=packages/checks']
+    args: ['run', 'test:ci', '-w packages/checks']
   - id: '🔍 Test library hapi-healthcheck-plugin'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
-    args: ['run', 'test:ci', '--workspace=packages/hapi-healthcheck-plugin']
+    args: ['run', 'test:ci', '-w packages/hapi-healthcheck-plugin']
   - id: '🔍 Test library hapi-ip-whitelist-plugin'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
-    args: ['run', 'test:ci', '--workspace=packages/hapi-ip-whitelist-plugin']
+    args: ['run', 'test:ci', '-w packages/hapi-ip-whitelist-plugin']
   # - id: '🔍 Test library utils'
   #   name: 'docker.io/library/node:${_NODE_VERSION}'
   #   entrypoint: npm
-  #   args: ['run', 'test:ci', '--workspace=packages/utils']
+  #   args: ['run', 'test:ci', '-w packages/utils']
   # RELEASE ####################################################################
+  - id: 'Copy dotfiles'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    args: ['./scripts/copy-dotfiles.mjs', '--package utils']
   - id: '🚀 Release to Artifact Registry with multi-semantic-release'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm

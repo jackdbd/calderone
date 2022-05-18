@@ -42,7 +42,6 @@ await $`npm pack @${scope}/${pkg}@${version} --pack-destination ${tmp_dir}`
 
 await $`cd ${tmp_dir} && tar -xvf "${tmp_dir}/${scope}-${pkg}-${version}.tgz"`
 
-// await $`cp config/npmignore-lib ${tmp_dir}/package/.npmignore`
 await $`cd ${tmp_dir}/package && rm -rf __tests__ src release.config.cjs tsconfig.*`
 
 const npm_access_token = process.env.NPM_TOKEN

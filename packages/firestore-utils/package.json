@@ -40,6 +40,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "clean": "rimraf coverage lib 'tsconfig.tsbuildinfo'",
+    "copy-dotfiles": "../../scripts/copy-dotfiles.mjs",
     "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
