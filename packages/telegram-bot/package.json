@@ -9,6 +9,10 @@
     "bot",
     "telegram"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackdbd/calderone"
+  },
   "engines": {
     "node": "17.9.0"
   },

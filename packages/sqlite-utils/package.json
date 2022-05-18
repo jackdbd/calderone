@@ -9,6 +9,10 @@
     "sqlite",
     "utils"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackdbd/calderone"
+  },
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=7.0.0"

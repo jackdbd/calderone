@@ -8,6 +8,10 @@
   "keywords": [
     "schema"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackdbd/calderone"
+  },
   "engines": {
     "node": ">=16",
     "npm": ">=7.0.0"
