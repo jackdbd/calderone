@@ -1,10 +1,11 @@
 bindings:
-- members:
-  - user:developers@condivision.cloud
-  role: roles/artifactregistry.reader
-- members:
-  - user:giacomo@giacomodebidda.com
-  role: roles/artifactregistry.repoAdmin
+# - members:
+#   - group:developers@giacomodebidda.com
+#   role: roles/artifactregistry.reader
+# - members:
+#   - user:giacomo@giacomodebidda.com
+#   - group:developers@giacomodebidda.com
+#   role: roles/artifactregistry.repoAdmin
 - members:
   - serviceAccount:sa-artifact-registry-writer@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/artifactregistry.writer
@@ -49,7 +50,7 @@ bindings:
   - serviceAccount:service-1051247446620@gcp-sa-cloudscheduler.iam.gserviceaccount.com
   role: roles/cloudscheduler.serviceAgent
 - members:
-  - user:giacomo@giacomodebidda.com
+  - group:developers@giacomodebidda.com
   role: roles/cloudtasks.admin
 - members:
   - serviceAccount:sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
@@ -90,14 +91,14 @@ bindings:
 - members:
   - serviceAccount:sa-artifact-registry-writer@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
-  - user:giacomo@giacomodebidda.com
+  - group:developers@giacomodebidda.com
   role: roles/iam.serviceAccountTokenCreator
 - members:
   - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
   - serviceAccount:sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
-  - user:giacomo@giacomodebidda.com
+  - group:developers@giacomodebidda.com
   role: roles/iam.serviceAccountUser
 - members:
   - serviceAccount:sa-dash-earthquakes@prj-kitchen-sink.iam.gserviceaccount.com
@@ -135,7 +136,7 @@ bindings:
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/secretmanager.secretAccessor
 - members:
-  - user:giacomo@giacomodebidda.com
+  - group:developers@giacomodebidda.com
   role: roles/storage.admin
 - members:
   - serviceAccount:sa-compute-engine@prj-kitchen-sink.iam.gserviceaccount.com
@@ -156,5 +157,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXe6ExT0WI=
+etag: BwXfRV0LFqw=
 version: 1
