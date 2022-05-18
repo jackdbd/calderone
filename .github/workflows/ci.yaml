@@ -48,7 +48,9 @@ jobs:
         if: ${{ matrix.os }} == 'ubuntu-latest'
         run: npm audit --audit-level=moderate
       # BUILD ##################################################################
-      - name: Cloud Build triggers for each library
+      # TODO: configure Cloud Build triggers
+      # https://cloud.google.com/build/docs/automating-builds/build-repos-from-github
+      - name: Cloud Build trigger
         env:
           GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
         run: npm run cloudbuild

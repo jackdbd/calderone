@@ -1,0 +1,24 @@
+# SQLite database used in some Datasette example
+fixtures.db
+
+# dependencies
+node_modules/
+packages/**/node_modules/
+
+# environment variables
+**/.envrc
+
+# secrets
+secrets/*
+!secrets/README.md
+
+# test coverage
+**/coverage/
+
+# Typescript compilation output files for libraries and applications
+**/lib/
+**/dist/
+**/tsconfig.tsbuildinfo
+
+packages/**/lib/
+packages/**/tsconfig.tsbuildinfo

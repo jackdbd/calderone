@@ -8,6 +8,10 @@
   "keywords": [
     "utils"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackdbd/calderone/tree/main/packages/utils"
+  },
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=7.0.0"
@@ -34,21 +38,30 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "build:ci": "tsc -p tsconfig.cloudbuild.json",
     "clean": "rimraf coverage lib 'tsconfig.tsbuildinfo'",
+    "cloudbuild": "gcloud builds submit ../../ --config ../../config/cloudbuild.yaml --project $GCP_PROJECT_ID --async --substitutions=_PACKAGE_NAME=utils",
+    "__precloudbuild": "node ../../scripts/copy-config-files.mjs -p utils && node ../../scripts/create-tsconfig.mjs -p utils",
+    "__cloudbuild": "gcloud builds submit --config ../../config/cloudbuild-lib.yaml --project $GCP_PROJECT_ID --async",
     "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
-    "prepublish:artifact-registry": "run-s clean build test",
-    "publish:artifact-registry": "node ../../scripts/publish/artifact-registry.mjs --package-name utils",
     "size": "pkg-size ./lib --sort-by=brotli",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects utils --config ../../config/jest.cjs --rootDir ../../",
-    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/utils/coverage",
+    "test:ci": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.cjs --coverageDirectory packages/utils/coverage",
     "test:watch": "npm run test -- --watch"
   },
-  "dependencies": {},
-  "peerDependencies": {
-    "debug": ">=4.0.0"
+  "dependencies": {
+    "wait-port": "^0.2.9"
   },
-  "devDependencies": {}
+  "peerDependencies": {
+    "debug": ">=4.3.4"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.7",
+    "@types/node": "^17.0.34",
+    "jest": "^28.1.0",
+    "typescript": "^4.6.4"
+  }
 }

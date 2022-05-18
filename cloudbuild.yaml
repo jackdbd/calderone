@@ -1,0 +1,50 @@
+steps:
+  # INSTALL / CONFIGURE ########################################################
+  - id: '🔑 Refresh Artifact Registry access token'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    # name: node:${_NODE_VERSION}
+    entrypoint: npx
+    args: ['google-artifactregistry-auth', '--repo-config=.npmrc']
+  - id: '⚙️ Install dependencies'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['ci']
+  # AUDIT ######################################################################
+  - id: '🛡️ Audit dependencies'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['audit', '--audit-level=moderate']
+  # BUILD ######################################################################
+  - id: '🔧 Build libraries'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'build:libs']
+  # - id: '🔧 Build scripts'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['run', 'build:scripts']
+  # - id: '🔧 Build application audit'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['run', 'build', '--workspace=packages/audit']
+  # TEST #######################################################################
+  - id: '🔍 Test library checks'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'test:ci', '--workspace=packages/checks']
+  # - id: '🔍 Test library utils'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['run', 'test:ci', '--workspace=packages/utils']
+  # RELEASE ####################################################################
+  - id: Release with multi-semantic-release
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'release']
+
+# user-defined substitutions and default values
+# https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#using_user-defined_substitutions
+substitutions:
+  _NODE_VERSION: 17.9.0
+options:
+  dynamic_substitutions: true
