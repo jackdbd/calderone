@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Miscellaneous utility functions",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
