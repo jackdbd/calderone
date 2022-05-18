@@ -37,8 +37,7 @@ fixtures.db
 
 # These files are copied to each monorepo package just before triggering the CI
 # on Cloud Build
-packages/**/.gcloudignore
-packages/**/.npmignore
-packages/**/.npmrc
-packages/**/jest.config.cjs
-packages/**/tsconfig.cloudbuild.json
+# packages/**/.gcloudignore
+# packages/**/.npmignore
+# packages/**/.npmrc
+# packages/**/jest.config.cjs

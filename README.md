@@ -75,6 +75,14 @@ Run all tests on all packages:
 npm run test
 ```
 
+## Publish to npmjs
+
+Publish version 1.0.2 of the package `checks`, which was already published to Artifact Registry.
+
+```sh
+./scripts/publish/npm.mjs --package checks --version 1.0.2
+```
+
 ## Miscellaneous
 
 Lint all packages with eslint:

@@ -6,13 +6,6 @@ import 'zx/globals'
 // Usage:
 // ./scripts/publish/npm.mjs --package utils --version 1.2.3
 
-// const { napi, node, v8 } = process.versions
-// console.log(
-//   chalk.blue(
-//     `download header files for Node.js ${node} (Node-API ${napi}, V8 ${v8})`
-//   )
-// )
-
 const scope = 'jackdbd'
 
 const pkg = argv.package
@@ -26,8 +19,6 @@ if (version === undefined) {
 }
 
 // $`npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc`
-
-// $`npm search @${scope}/${pkg}`
 
 const { stdout: vers } = await $`npm view @${scope}/${pkg}@${version} version`
 
@@ -52,22 +43,17 @@ await $`npm pack @${scope}/${pkg}@${version} --pack-destination ${tmp_dir}`
 
 await $`cd ${tmp_dir} && tar -xvf "${tmp_dir}/${scope}-${pkg}-${version}.tgz"`
 
-// await $`echo //registry.npmjs.org/:_authToken=${npm_access_token} > ${tmp_dir}/package/.npmrc`
-// $`ls -1a ${tmp_dir}`
-// $`tree -L 3 ${tmp_dir}`
-
-// $`cd package`
-// echo "//registry.npmjs.org/:_authToken=$authToken" > .npmrc
-// echo "remove unnecessary files"
-// rm -rf __tests__ src release.config.cjs tsconfig.json tsconfig.tsbuildinfo
-
-// console.log('🚀 ~ tmp_dir', tmp_dir)
-// await $`cd ${tmp_dir}/package && echo //registry.npmjs.org/:_authToken=${npm_access_token} > .npmrc`
-
+// await $`cp config/npmignore-lib ${tmp_dir}/package/.npmignore`
 await $`cd ${tmp_dir}/package && rm -rf __tests__ src release.config.cjs tsconfig.*`
 
+const npm_access_token = process.env.NPM_TOKEN
+if (npm_access_token === undefined) {
+  throw new Error(`environment variable NPM_TOKEN not set. Abort.`)
+}
+await $`echo //registry.npmjs.org/:_authToken=${npm_access_token} > ${tmp_dir}/package/.npmrc`
+
 console.log(chalk.yellow(`Files you are about to publish to npmjs`))
-await $`tree -L 3 ${tmp_dir}/package`
+await $`tree -a -L 3 ${tmp_dir}/package`
 
 let should_publish_to_npm = await question(
   chalk.yellow(`Confirm publish to npmjs? (y: yes, n: no) `),
@@ -77,11 +63,6 @@ let should_publish_to_npm = await question(
 )
 
 if (should_publish_to_npm === 'y') {
-  const npm_access_token = process.env.NPM_TOKEN
-  if (npm_access_token === undefined) {
-    throw new Error(`environment variable NPM_TOKEN not set. Abort.`)
-  }
-  await $`echo //registry.npmjs.org/:_authToken=${npm_access_token} > ${tmp_dir}/package/.npmrc`
   console.log(chalk.yellow(`Publish @${scope}/${pkg}:${version} to npmjs`))
   // await $`cd ${tmp_dir}/package && npm publish . --access public --dry-run`
   await $`cd ${tmp_dir}/package && npm publish . --access public`

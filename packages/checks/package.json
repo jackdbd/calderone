@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jackdbd/calderone/tree/main/packages/checks"
+    "url": "https://github.com/jackdbd/calderone"
   },
   "engines": {
     "node": ">=16.0.0",
