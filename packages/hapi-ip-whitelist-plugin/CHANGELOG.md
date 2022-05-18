@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## <small>1.0.2 (2022-05-18)</small>
+
+* fix(hapi-ip-whitelist-plugin): add instructions in README ([cf2de0c](https://github.com/jackdbd/calderone/commit/cf2de0c))
+
 ## <small>1.0.1 (2022-05-13)</small>
 
 * fix(hapi-ip-whitelist-plugin): make it public ([fae3a67](https://github.com/jackdbd/calderone/commit/fae3a67))
