@@ -1,10 +1,32 @@
 import {
+  isOnCloudBuild,
   isOnGithub,
   isDevelopment,
   isTest,
   isOnCloudFunctions,
   isOnCloudRun
 } from '../lib/environment.js'
+
+describe('isOnCloudBuild', () => {
+  it('is true when env has BUILD_ID, LOCATION, PROJECT_ID, PROJECT_NUM', () => {
+    const env = {
+      BUILD_ID: 'some-build-id',
+      LOCATION: 'some-location',
+      PROJECT_ID: 'some-project-id',
+      PROJECT_NUMBER: 'some-project-number'
+    }
+    expect(isOnCloudBuild(env)).toBeTruthy()
+  })
+  it('is false when env has no BUILD_ID', () => {
+    const env = {
+      BUILD_ID: undefined,
+      LOCATION: 'some-location',
+      PROJECT_ID: 'some-project-id',
+      PROJECT_NUMBER: 'some-project-number'
+    }
+    expect(isOnCloudBuild(env)).toBeFalsy()
+  })
+})
 
 describe('isOnGithub', () => {
   it('is true when env has GITHUB_SHA', () => {

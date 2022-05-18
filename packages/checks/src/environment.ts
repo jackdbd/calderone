@@ -3,6 +3,20 @@ import makeDebug from 'debug'
 const debug = makeDebug('checks/environment')
 
 /**
+ * Check whether the code is running on Cloud Build or not.
+ *
+ * https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#using_default_substitutions
+ */
+export const isOnCloudBuild = (env: NodeJS.ProcessEnv) => {
+  if (env.PROJECT_ID && env.BUILD_ID && env.PROJECT_NUMBER && env.LOCATION) {
+    debug('running on Cloud Build')
+    return true
+  } else {
+    return false
+  }
+}
+
+/**
  * Check whether the code is running on the GitHub CI or not.
  *
  * https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
