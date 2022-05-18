@@ -52,8 +52,10 @@ if (npm_access_token === undefined) {
 }
 await $`echo //registry.npmjs.org/:_authToken=${npm_access_token} > ${tmp_dir}/package/.npmrc`
 
-console.log(chalk.yellow(`Files you are about to publish to npmjs`))
-await $`tree -a -L 3 ${tmp_dir}/package`
+console.log(
+  chalk.yellow(`You are about to publish @${scope}/${pkg}@${version} to npmjs`)
+)
+await $`tree -L 3 ${tmp_dir}/package`
 
 let should_publish_to_npm = await question(
   chalk.yellow(`Confirm publish to npmjs? (y: yes, n: no) `),
@@ -64,7 +66,6 @@ let should_publish_to_npm = await question(
 
 if (should_publish_to_npm === 'y') {
   console.log(chalk.yellow(`Publish @${scope}/${pkg}:${version} to npmjs`))
-  // await $`cd ${tmp_dir}/package && npm publish . --access public --dry-run`
   await $`cd ${tmp_dir}/package && npm publish . --access public`
   console.log(chalk.green(`Published @${scope}/${pkg}:${version} to npmjs`))
 } else {
