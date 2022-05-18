@@ -36,14 +36,14 @@ gcloud artifacts versions list \
 
 ### npmjs
 
-Download a package previously published to Artifact Registry, and publish to npmjs too:
+Download a package previously published to Artifact Registry, and publish it to [npmjs](https://www.npmjs.com/) too:
 
 ```sh
 # refresh the token for Artifact Registry
 npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc
 
 # https://stackoverflow.com/a/10856211/3036129
-(export PACKAGE=checks; VERSION=$(cat ./packages/$PACKAGE/package.json | jq '.version'); ./scripts/publish/artifact-registry-to-npm.sh jackdbd $PACKAGE $VERSION)
+(export PACKAGE=checks; VERSION=$(cat ./packages/$PACKAGE/package.json | jq '.version' | sed -e 's/"//g'); ./scripts/publish/artifact-registry-to-npm.sh jackdbd $PACKAGE $VERSION)
 ```
 
 [Unpublish](https://docs.npmjs.com/policies/unpublish) a version of a package published to npmjs:
