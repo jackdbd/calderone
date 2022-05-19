@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/utils 1.1.0 (2022-05-19)
+
+* feat(checks): add function isOnCloudBuild ([cbe371a](https://github.com/jackdbd/calderone/commit/cbe371a))
+* chore: cleanup ([716ee18](https://github.com/jackdbd/calderone/commit/716ee18))
+* Merge remote-tracking branch 'origin/main' ([a42ab4a](https://github.com/jackdbd/calderone/commit/a42ab4a))
+* fix(utils): add examples in README ([6221a6f](https://github.com/jackdbd/calderone/commit/6221a6f))
+
 ## <small>1.0.1 (2022-05-18)</small>
 
 * fix(utils): bump version ([a11bec9](https://github.com/jackdbd/calderone/commit/a11bec9))
