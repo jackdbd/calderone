@@ -42,22 +42,22 @@
     "tunnel": "ngrok http 8080"
   },
   "dependencies": {
-    "@google-cloud/debug-agent": "5.2.8",
-    "@google-cloud/error-reporting": "2.0.4",
+    "@google-cloud/debug-agent": "5.2.9",
+    "@google-cloud/error-reporting": "2.0.5",
     "@google-cloud/secret-manager": "3.12.0",
     "@google-cloud/workflows": "1.4.0",
-    "@hapi/boom": "9.1.4",
-    "@hapi/hapi": "20.2.1",
-    "@jackdbd/checks": "0.0.11",
-    "@jackdbd/hapi-healthcheck-plugin": "0.0.1",
+    "@hapi/boom": "10.0.0",
+    "@hapi/hapi": "20.2.2",
+    "@jackdbd/checks": "1.0.3",
+    "@jackdbd/hapi-healthcheck-plugin": "1.0.2",
     "@jackdbd/notifications": "0.0.4",
     "@jackdbd/secret-manager-utils": "0.0.7",
     "@jackdbd/telegram-text-messages": "0.0.7",
-    "@jackdbd/utils": "0.0.14",
-    "debug": "4.3.3",
+    "@jackdbd/utils": "1.0.1",
+    "debug": "4.3.4",
     "exiting": "6.1.0",
     "hapi-dev-errors": "4.0.0",
-    "node-telegram-bot-api": "0.56.0"
+    "node-telegram-bot-api": "0.57.0"
   },
   "devDependencies": {}
 }

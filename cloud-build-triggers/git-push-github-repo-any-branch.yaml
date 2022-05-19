@@ -1,0 +1,10 @@
+autodetect: true
+description: Trigger a build with a git push to my GitHub repo (any branch)
+github:
+  name: calderone
+  owner: jackdbd
+  push:
+    branch: .*
+name: git-push-github-repo-any-branch
+tags:
+ - github-default-push-trigger

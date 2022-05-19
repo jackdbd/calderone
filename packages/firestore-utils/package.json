@@ -53,7 +53,7 @@
   "dependencies": {},
   "peerDependencies": {
     "@google-cloud/firestore": ">=5.0.0",
-    "@jackdbd/utils": "1.0.0",
+    "@jackdbd/utils": ">=1.0.1",
     "debug": ">=4.0.0"
   },
   "devDependencies": {}

@@ -1,13 +1,13 @@
-name: 'Package size report'
+name: 'Release'
 
 on:
-  pull_request:
-    paths-ignore:
-      - '**.md'
+  push:
+    branches:
+      - main
 
 jobs:
-  package-size-report:
-    name: 🔧 Build all packages [${{ matrix.os }}, Node ${{ matrix.node }}]
+  release:
+    name: 📣 Release
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -34,8 +34,13 @@ jobs:
         run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
       - name: ⚙️ Install dependencies
         run: npm ci
-      - name: Package size report
-        # https://github.com/marketplace/actions/pkg-size-action
-        uses: pkg-size/action@v1
+      - name: 🔧 Build all libraries
+        run: npm run build:libs
+      - name: 🚀 Copy dotfiles to each package root
+        run: npm run copy-dotfiles
+      - name: 🚀 Release to Artifact Registry with multi-semantic-release
         env:
+          # The github token must allow to push to this repository.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
+        run: npm run release
