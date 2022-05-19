@@ -1,5 +1,7 @@
 # IAM policies
 
+First of all, check that [gcloud is configured correctly](./gcloud-configuration.md).
+
 ## Set IAM policy for the GCP project
 
 Retrieve the current IAM policy for the GCP project:

@@ -1,5 +1,7 @@
 # Cloud Scheduler
 
+First of all, check that [gcloud is configured correctly](./gcloud-configuration.md).
+
 Useful links:
 
 - [Cloud Scheduler predefined IAM roles](https://cloud.google.com/iam/docs/understanding-roles#cloud-scheduler-roles)
@@ -10,7 +12,7 @@ Useful links:
 List available locations where to create and run jobs
 
 ```sh
-gcloud scheduler locations list --project $GCP_PROJECT_ID
+gcloud scheduler locations list
 ```
 
 ## Jobs
@@ -19,7 +21,6 @@ Create a job that requires an OIDC token
 
 ```sh
 gcloud scheduler jobs create http daily-message \
-  --project $GCP_PROJECT_ID \
   --location "europe-west3" \
   --schedule "55 10 * * *" \
   --uri "$SEND_TELEGRAM_MESSAGE_TRIGGER_URL" \
@@ -38,7 +39,6 @@ Create a job that requires an OAuth token
 
 ```sh
 gcloud scheduler jobs create http daily-cocktail \
-  --project $GCP_PROJECT_ID \
   --location "europe-west3" \
   --schedule "00 21 * * *" \
   --uri "$WORKFLOW_URL_RANDOM_COCKTAIL" \
@@ -52,7 +52,6 @@ gcloud scheduler jobs create http daily-cocktail \
 
 ```sh
 gcloud scheduler jobs create http weekly-wasm-news \
-  --project $GCP_PROJECT_ID \
   --location 'europe-west3' \
   --schedule '15 21 * * 0' \
   --uri "$WORKFLOW_URL_WASM_NEWS" \
@@ -66,7 +65,6 @@ gcloud scheduler jobs create http weekly-wasm-news \
 
 ```sh
 gcloud scheduler jobs create http weekly-lead-generation \
-  --project $GCP_PROJECT_ID \
   --location 'europe-west3' \
   --schedule '15 20 * * 0' \
   --uri "$WORKFLOW_URL_LEAD_GENERATION" \
@@ -82,7 +80,6 @@ List jobs defined in a given location
 
 ```sh
 gcloud scheduler jobs list \
-  --project $GCP_PROJECT_ID \
   --location europe-west3
 ```
 
@@ -90,7 +87,6 @@ Print details about a job
 
 ```sh
 gcloud scheduler jobs describe daily-cocktail \
-  --project $GCP_PROJECT_ID \
   --location europe-west3
 ```
 
@@ -98,7 +94,6 @@ Run a job
 
 ```sh
 gcloud scheduler jobs run daily-cocktail \
-  --project $GCP_PROJECT_ID \
   --location europe-west3
 ```
 
@@ -106,6 +101,5 @@ Delete a job
 
 ```sh
 gcloud scheduler jobs delete daily-cocktail \
-  --project $GCP_PROJECT_ID \
   --location europe-west3
 ```

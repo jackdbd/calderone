@@ -20,20 +20,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - id: 'auth'
-        name: Authenticate to Google Cloud
-        # https://github.com/google-github-actions/auth
+      - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v0
         with:
           credentials_json: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
       - name: Set up gcloud
-        # https://github.com/marketplace/actions/set-up-gcloud-cloud-sdk-environment
         uses: google-github-actions/setup-gcloud@v0
-      - run: gcloud info
       - name: ⚙️ Refresh access token for Artifact Registry
         run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
-      - name: ⚙️ Install dependencies
-        run: npm ci
       - name: Package size report
         # https://github.com/marketplace/actions/pkg-size-action
         uses: pkg-size/action@v1

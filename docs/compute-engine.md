@@ -1,5 +1,7 @@
 # Compute Engine
 
+First of all, check that [gcloud is configured correctly](./gcloud-configuration.md).
+
 Useful links:
 
 - [Debian images configuration](https://cloud.google.com/compute/docs/images/os-details#debian)

@@ -1,5 +1,7 @@
 # Setup for Secret Manager
 
+First of all, check that [gcloud is configured correctly](./gcloud-configuration.md).
+
 Useful links:
 
 - [Secret Manager predefined IAM roles](https://cloud.google.com/secret-manager/docs/access-control)
@@ -10,31 +12,26 @@ Assigning a value to a secret is [discouraged from the shell](https://cloud.goog
 
 ```sh
 gcloud secrets create GITHUB_TOKEN \
-  --project $GCP_PROJECT_ID \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
 ```
 
 ```sh
 gcloud secrets create NETLIFY \
-  --project $GCP_PROJECT_ID \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
 ```
 
 ```sh
 gcloud secrets create SENDGRID \
-  --project $GCP_PROJECT_ID \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
 ```
 
 ```sh
 gcloud secrets create TELEGRAM \
-  --project $GCP_PROJECT_ID \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
 ```
 
 ```sh
 gcloud secrets create TEST_SECRET \
-  --project $GCP_PROJECT_ID \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
 ```
 
@@ -50,7 +47,6 @@ List all `ENABLED` versions of the secret `TEST_SECRET`
 
 ```sh
 gcloud secrets versions list TEST_SECRET \
-  --project $GCP_PROJECT_ID \
   --filter state:ENABLED
 ```
 
@@ -58,6 +54,5 @@ List all `DESTROYED` versions of the secret `TEST_SECRET`
 
 ```sh
 gcloud secrets versions list TEST_SECRET \
-  --project $GCP_PROJECT_ID \
   --filter state:DESTROYED
 ```
