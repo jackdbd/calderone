@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## @jackdbd/checks 1.1.0 (2022-05-19)
+
+* chore: cleanup ([1f293f3](https://github.com/jackdbd/calderone/commit/1f293f3))
+* chore: cleanup ([716ee18](https://github.com/jackdbd/calderone/commit/716ee18))
+* feat(checks): add function isOnCloudBuild ([cbe371a](https://github.com/jackdbd/calderone/commit/cbe371a))
+
 ## <small>1.0.4 (2022-05-18)</small>
 
 * fix(utils): bump version ([a11bec9](https://github.com/jackdbd/calderone/commit/a11bec9))
