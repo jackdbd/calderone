@@ -1,6 +1,6 @@
 # Calderone
 
-![CI workflow](https://github.com/jackdbd/calderone/actions/workflows/ci.yaml/badge.svg) [![codecov](https://codecov.io/gh/jackdbd/calderone/branch/main/graph/badge.svg)](https://codecov.io/gh/jackdbd/calderone) [![CodeFactor](https://www.codefactor.io/repository/github/jackdbd/calderone/badge)](https://www.codefactor.io/repository/github/jackdbd/calderone)
+![Release workflow](https://github.com/jackdbd/calderone/actions/workflows/release.yaml/badge.svg) [![codecov](https://codecov.io/gh/jackdbd/calderone/branch/main/graph/badge.svg)](https://codecov.io/gh/jackdbd/calderone) [![CodeFactor](https://www.codefactor.io/repository/github/jackdbd/calderone/badge)](https://www.codefactor.io/repository/github/jackdbd/calderone)
 
 Monorepo that I use for a bunch of stuff, managed with [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces/) (requires npm 7.x or later).
 
@@ -19,7 +19,7 @@ Refresh the access tokens for all npm registries. This is required because I hos
 The [project-config](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc#per-project-config-file) `.npmrc` is tracked in this repository. The [user-config](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc#per-user-config-file) `.npmrc` is not tracked in git because it contains the access tokens.
 
 ```sh
-npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc
+npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc --verbose
 ```
 
 Install all dependencies from npm.js and Artifact Registry and setup git hooks with [husky](https://typicode.github.io/husky/):
@@ -28,7 +28,7 @@ Install all dependencies from npm.js and Artifact Registry and setup git hooks w
 npm install --include dev
 ```
 
-Note: `--include dev` is just to be sure that dev dependencies gets installed even if you have set the environment variable `NODE_ENV=production` on your machine.
+*Note:* `--include dev` is just to be sure that dev dependencies gets installed even if you have set the environment variable `NODE_ENV=production` on your machine.
 
 ## Build
 
@@ -79,21 +79,25 @@ npm run test
 
 ### publish to Artifact Registry
 
-Publish the latest version of a package to Artifact Registry:
+Each package is published to Artifact Registry automatically when pull requests get merged into the `main` branch, thanks to the [release.yaml](./.github/workflows/release.yaml) GitHub workflow.
+
+If that GitHub workflow should not work, you can also publish using this script:
 
 ```sh
-./scripts/publish/artifact-registry.mjs --package utils
+./scripts/publish/artifact-registry.mjs --package PACKAGE_NAME
 ```
 
 ### publish to npmjs
 
-Refresh the Artifact Registry access token:
+The [@semantic-release/npm](https://github.com/semantic-release/npm) plugin does not support publishing to multiple npm registries for [good reasons](https://github.com/semantic-release/npm/issues/69#issuecomment-391114128), so what I do is downloading a npm package **already published** to Artifact Registry, and republish it to npmjs (without altering of course).
+
+First, refresh the Artifact Registry access token:
 
 ```sh
 npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc
 ```
 
-Publish some packages that I had already published to my private Artifact Registry:
+Then, publish some packages that I had already published to my private Artifact Registry:
 
 ```sh
 ./scripts/publish/npm.mjs --package checks --version 1.0.2
@@ -110,6 +114,8 @@ Create a new package in this monorepo using [these templates](./assets/templates
 ./scripts/new-package.mjs --name my-new-package
 ```
 
+See also the [docs](./docs/README.md) directory.
+
 ## Miscellaneous
 
 Lint all packages with eslint:
@@ -122,13 +128,6 @@ Format all packages with prettier:
 
 ```sh
 npm run format
-```
-
-List Cloud Build triggers:
-
-```sh
-gcloud beta builds triggers list \
---project $GCP_PROJECT_ID
 ```
 
 ## Applications
