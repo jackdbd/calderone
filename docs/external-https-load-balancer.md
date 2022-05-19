@@ -1,5 +1,7 @@
 # external HTTP(S) load balancer (L7)
 
+First of all, check that [gcloud is configured correctly](./gcloud-configuration.md).
+
 This GCP project uses an [external HTTP(S) Load Balancer](https://cloud.google.com/load-balancing/docs/https), a proxy-based Layer 7 load balancer. This allows the project keep all of its services behind a single external, static IP address (anycast IP address).
 
 ## 1 - Reserve an external, static IP address

@@ -1,9 +1,11 @@
 # Artifact Registry
 
+First of all, check that [gcloud is configured correctly](./gcloud-configuration.md).
+
 Enable [Artifact Registry](https://cloud.google.com/artifact-registry):
 
 ```sh
-gcloud services enable artifactregistry.googleapis.com --project $GCP_PROJECT_ID
+gcloud services enable artifactregistry.googleapis.com
 ```
 
 ## npm registry
@@ -14,7 +16,6 @@ Create npm registry to host some Node.js libraries (aka npm packages):
 gcloud artifacts repositories create $ARTIFACT_REGISTRY_NPM_REPOSITORY_ID \
   --repository-format npm \
   --description "Node.js package repository" \
-  --project $GCP_PROJECT_ID \
   --location $ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION \
   --labels=customer=$CUSTOMER,environment=$ENVIRONMENT
 ```
@@ -23,7 +24,6 @@ The following command returns configuration settings to add to your `.npmrc` (np
 
 ```sh
 gcloud artifacts print-settings npm \
-  --project $GCP_PROJECT_ID \
   --location $ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION \
   --repository $ARTIFACT_REGISTRY_NPM_REPOSITORY_ID \
   --scope @jackdbd
@@ -43,7 +43,6 @@ See the list of packages published to Artifact Registry:
 
 ```sh
 gcloud artifacts packages list \
-  --project $GCP_PROJECT_ID \
   --repository $ARTIFACT_REGISTRY_NPM_REPOSITORY_ID \
   --location $ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION
 ```
@@ -56,7 +55,6 @@ The Docker registry will host the container images built with `gcloud run deploy
 gcloud artifacts repositories create $ARTIFACT_REGISTRY_DOCKER_REPOSITORY_ID \
   --repository-format docker \
   --description "Repository for container images" \
-  --project $GCP_PROJECT_ID \
   --location $ARTIFACT_REGISTRY_DOCKER_REPOSITORY_LOCATION \
   --labels=customer=$CUSTOMER,environment=$ENVIRONMENT
 ```
