@@ -46,7 +46,7 @@
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
     "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects hapi-ip-whitelist-plugin --config ../../config/jest.cjs --rootDir ../../",
+    "test": "../../scripts/test.mjs",
     "test:ci": "../../scripts/test.mjs --ci",
     "test:watch": "npm run test -- --watch"
   },

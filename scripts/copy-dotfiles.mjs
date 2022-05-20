@@ -11,16 +11,13 @@ if (process.env.BUILD_ID) {
   console.log(chalk.yellow('looks like you are NOT on Cloud Build'))
 }
 
-const { stdout: s1 } =
-  await $`cat package.json | jq .name | sed s'/@jackdbd\\///' | sed s'/"//g'`
-
-const { stdout: s2 } = await $`basename ${process.env.PWD}`
-
-if (s1 !== s2) {
+const { name } = require(`${process.env.PWD}/package.json`)
+if (name == 'root') {
   throw new Error(
     `you invoked this script from ${process.env.PWD}. This script should be invoked from a package root instead.`
   )
 }
+
 const package_root = process.env.PWD
 const monorepo_root = path.join(package_root, '..', '..')
 const config_root = path.join(monorepo_root, 'config')
