@@ -1,4 +1,4 @@
-interface Dictionary {
+export interface Dictionary {
   [key: string]:
     | string
     | string[]
@@ -11,7 +11,7 @@ interface Dictionary {
     | null
     | Dictionary
 }
-interface LogData {
+export interface LogData {
   message: string
   [key: string]:
     | string

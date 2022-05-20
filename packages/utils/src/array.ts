@@ -1,13 +1,32 @@
-export const range = (start: number, stop: number, step = 1) =>
-  Array<number>(Math.ceil((stop - start) / step))
-    .fill(start)
-    .map((x, y) => x + y * step)
+import makeDebug from 'debug'
+
+const debug = makeDebug('utils/array')
 
 /**
- * Shuffle an input array in place.
- * https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/2450976#2450976
+ * Array of numbers starting from `start` and progressing up to, but not
+ * including, `stop`.
+ *
+ * @param start - The lower boundary of the array (included)
+ * @param stop - The upper boundary of the array (excluded)
+ * @returns An array starting from `start`, incrementing with a `step`, and
+ * going to a maximum of `stop-1`
+ */
+export const range = (start: number, stop: number, step = 1) => {
+  debug('start %d stop %d step %d', start, stop, step)
+  return Array<number>(Math.ceil((stop - start) / step))
+    .fill(start)
+    .map((x, y) => x + y * step)
+}
+
+/**
+ * Shuffles an `array` in place.
+ *
+ * See also:
+ * - [this Stack Overflow answer](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/2450976#2450976)
+ * - {@link https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/2450976#2450976}
  */
 export const fisherYatesShuffle = <T>(array: T[]) => {
+  debug('original %O', array)
   let j = 0
   let temp: T
 
@@ -17,4 +36,5 @@ export const fisherYatesShuffle = <T>(array: T[]) => {
     array[i] = array[j]
     array[j] = temp
   }
+  debug('shuffled %O', array)
 }

@@ -3,13 +3,7 @@
 import 'zx/globals'
 
 // Usage (from a package root):
-// ../../scripts/copy-dotfiles.mjs
-
-if (process.env.BUILD_ID) {
-  console.log(chalk.yellow('looks like you are on Cloud Build'))
-} else {
-  console.log(chalk.yellow('looks like you are NOT on Cloud Build'))
-}
+// ../../scripts/docs.mjs
 
 const { stdout: s1 } =
   await $`cat package.json | jq .name | sed s'/@jackdbd\\///' | sed s'/"//g'`
@@ -21,9 +15,18 @@ if (s1 !== s2) {
     `you invoked this script from ${process.env.PWD}. This script should be invoked from a package root instead.`
   )
 }
+
+// tr -d '\n' is to remove the newline character
+const { stdout: library_name } = await $`echo ${s1} | tr -d '\n'`
+
 const package_root = process.env.PWD
 const monorepo_root = path.join(package_root, '..', '..')
-const config_root = path.join(monorepo_root, 'config')
+const library_entrypoint = path.join(package_root, 'src', 'index.ts')
 
-await $`cp ${config_root}/.gcloudignore ${package_root}/.gcloudignore`
-await $`cp ${config_root}/.npmignore ${package_root}/.npmignore`
+const docs_out = path.join(monorepo_root, 'docs', library_name)
+
+await $`typedoc ${library_entrypoint} \
+--excludeInternal \
+--excludePrivate \
+--out ${docs_out} \
+--theme default`

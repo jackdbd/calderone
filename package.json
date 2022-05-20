@@ -45,7 +45,6 @@
     "upload-coverage": "./scripts/upload-coverage",
     "webserver": "npx http-server --port 8080"
   },
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
@@ -58,6 +57,7 @@
     "@google-cloud/secret-manager": "^3.12.0",
     "@google-cloud/tasks": "^2.6.0",
     "@hapi/vision": "^6.1.0",
+    "@microsoft/api-extractor": "^7.24.1",
     "@pollyjs/adapter-node-http": "^6.0.5",
     "@pollyjs/core": "^6.0.5",
     "@pollyjs/persister-fs": "^6.0.5",
@@ -100,6 +100,7 @@
     "simple-oauth2": "^4.3.0",
     "stripe": "^9.1.0",
     "ts-node": "^10.7.0",
+    "typedoc": "^0.22.15",
     "typescript": "^4.6.4",
     "wait-port": "^0.2.9",
     "yargs": "^17.5.1",

@@ -1,3 +1,8 @@
+/**
+ * Miscellaneous utility functions.
+ *
+ * @packageDocumentation
+ */
 export { range, fisherYatesShuffle } from './array.js'
 
 export {
@@ -19,6 +24,7 @@ export {
   requiredConfigValueNotSet,
   stringResolvedFromEnv
 } from './deploy.js'
+export type { Options as DeployOptions } from './deploy.js'
 
 export {
   logAlert,
@@ -30,7 +36,9 @@ export {
   logNotice,
   logWarning
 } from './logger.js'
+export type { Dictionary, LogData } from './logger.js'
 
 export { monorepoRoot, renameJsFilesToMjs, walk } from './path.js'
 
 export { spawnFunctionsFramework, killFunctionsFramework } from './test.js'
+export type { Options as TestOptions } from './test.js'
