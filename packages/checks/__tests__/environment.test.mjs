@@ -17,6 +17,7 @@ describe('isOnCloudBuild', () => {
     }
     expect(isOnCloudBuild(env)).toBeTruthy()
   })
+
   it('is false when env has no BUILD_ID', () => {
     const env = {
       BUILD_ID: undefined,
@@ -33,6 +34,7 @@ describe('isOnGithub', () => {
     const env = { GITHUB_SHA: 'some-sha' }
     expect(isOnGithub(env)).toBeTruthy()
   })
+
   it('is false when env has no GITHUB_SHA', () => {
     const env = { GITHUB_SHA: undefined }
     expect(isOnGithub(env)).toBeFalsy()
@@ -44,6 +46,7 @@ describe('isTest', () => {
     const env = { NODE_ENV: 'test' }
     expect(isTest(env)).toBeTruthy()
   })
+
   it('is false when env has NODE_ENV = production', () => {
     const env = { NODE_ENV: 'production' }
     expect(isTest(env)).toBeFalsy()
@@ -55,6 +58,7 @@ describe('isDevelopment', () => {
     const env = { NODE_ENV: 'development' }
     expect(isDevelopment(env)).toBeTruthy()
   })
+
   it('is false when env has NODE_ENV = production', () => {
     const env = { NODE_ENV: 'production' }
     expect(isDevelopment(env)).toBeFalsy()
