@@ -34,16 +34,20 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "clean": "rimraf coverage lib 'tsconfig.tsbuildinfo'",
+    "clean": "../../scripts/clean.mjs",
     "copy-dotfiles": "../../scripts/copy-dotfiles.mjs",
+    "docs:help": "typedoc --showConfig",
+    "docs:ae": "api-extractor run --config ./api-extractor.json --local --verbose",
+    "docs:typedoc": "../../scripts/docs-typedoc.mjs",
+    "docs": "run-s docs:ae docs:typedoc --print-label",
     "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
-    "size": "pkg-size ./lib --sort-by=brotli",
+    "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects schemas --config ../../config/jest.cjs --rootDir ../../",
-    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/schemas/coverage",
-    "test:watch": "npm run test -- --watch"
+    "test:ci": "../../scripts/test.mjs --ci",
+    "test:watch": "run-p \"build -- --watch\" \"test -- --watch\""
   },
   "dependencies": {},
   "peerDependencies": {
