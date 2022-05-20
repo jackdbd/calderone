@@ -12,6 +12,7 @@
     "type": "git",
     "url": "https://github.com/jackdbd/calderone"
   },
+  "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/telegram-text-messages#readme",
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=7.0.0"

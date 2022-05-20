@@ -12,6 +12,7 @@
     "type": "git",
     "url": "https://github.com/jackdbd/calderone"
   },
+  "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/schemas#readme",
   "engines": {
     "node": ">=16",
     "npm": ">=7.0.0"

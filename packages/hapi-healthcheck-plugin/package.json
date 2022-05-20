@@ -13,6 +13,7 @@
     "type": "git",
     "url": "https://github.com/jackdbd/calderone"
   },
+  "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/hapi-healthcheck-plugin#readme",
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=7.0.0"
