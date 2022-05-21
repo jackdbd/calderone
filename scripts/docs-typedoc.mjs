@@ -12,11 +12,13 @@ if (name == 'root') {
   )
 }
 
+const { stdout: unscoped_name } =
+  await $`echo ${name} | sed 's/@jackdbd\\///' | tr -d '\n'`
+
 const package_root = process.env.PWD
 const monorepo_root = path.join(package_root, '..', '..')
 const library_entrypoint = path.join(package_root, 'src', 'index.ts')
-
-const docs_out = path.join(monorepo_root, 'docs', name)
+const docs_out = path.join(monorepo_root, 'docs', unscoped_name)
 
 await $`typedoc ${library_entrypoint} \
 --excludeInternal \

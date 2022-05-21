@@ -33,6 +33,7 @@
     "cloudbuild": "gcloud builds submit . --config cloudbuild.yaml --project $GCP_PROJECT_ID --async",
     "copy-dotfiles": "npm run copy-dotfiles --workspaces --if-present",
     "dev:scripts": "run-p build:libs:watch build:scripts:watch",
+    "docs": "npm run docs --workspaces --if-present",
     "format": "npm run format --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "nuke": "npm run clean && rm -rf node_modules package-lock.json",
