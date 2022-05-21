@@ -9,7 +9,7 @@ export const regexFactory = (tag = 'env') => {
 export const envVarNotFoundInEnv = (s: string) =>
   `environment variable ${s} not found in given env`
 
-interface Options {
+export interface Options {
   env?: NodeJS.ProcessEnv
 }
 

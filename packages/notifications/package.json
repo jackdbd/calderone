@@ -14,6 +14,7 @@
     "type": "git",
     "url": "https://github.com/jackdbd/calderone"
   },
+  "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/notifications#readme",
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=7.0.0"
@@ -36,15 +37,19 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "clean": "rimraf coverage lib 'tsconfig.tsbuildinfo'",
+    "clean": "../../scripts/clean.mjs",
     "copy-dotfiles": "../../scripts/copy-dotfiles.mjs",
+    "docs:help": "typedoc --showConfig",
+    "docs:ae": "api-extractor run --config ./api-extractor.json --local --verbose",
+    "docs:typedoc": "../../scripts/docs-typedoc.mjs",
+    "docs": "run-s docs:ae docs:typedoc --print-label",
     "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
-    "size": "pkg-size ./lib --sort-by=brotli",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects notifications --config ../../config/jest.cjs --rootDir ../../",
-    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/notifications/coverage",
+    "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
+    "test": "../../scripts/test.mjs",
+    "test:ci": "../../scripts/test.mjs --ci",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {

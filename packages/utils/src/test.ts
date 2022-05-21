@@ -9,7 +9,7 @@ import waitPort from 'wait-port'
 
 const debug = makeDebug('utils/test')
 
-interface Options {
+export interface Options {
   env?: NodeJS.ProcessEnv
   port?: number
   source?: string
@@ -26,10 +26,11 @@ const DEFAULT = {
 /**
  * Spawn a child process that will launch Functions Framework (basically a HTTP
  * server) on the specified port.
- * https://cloud.google.com/functions/docs/testing/test-background#integration_tests
- * https://github.com/GoogleCloudPlatform/functions-framework-nodejs#configure-the-functions-framework
- * https://github.com/splendourhui/killport
- * https://github.com/splendourhui/killport
+ *
+ * See also:
+ * - [Integration tests (Cloud Functions docs)](https://cloud.google.com/functions/docs/testing/test-background#integration_tests)
+ * - [Configure the Functions Framework](https://github.com/GoogleCloudPlatform/functions-framework-nodejs#configure-the-functions-framework)
+ * - [killport (repository)](https://github.com/splendourhui/killport)
  */
 export const spawnFunctionsFramework = async (options?: Options) => {
   const env = (options && options.env) || DEFAULT.env

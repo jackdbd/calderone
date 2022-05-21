@@ -19,6 +19,15 @@ export const LOCALE_STRING_OPTIONS = {
   second: '2-digit'
 } as any
 
+/**
+ * Add `n` days to an input `date`.
+ *
+ * @param date - The input date
+ * @param n - The number of days
+ * @returns A date `d`
+ *
+ * @public
+ */
 export const addDays = (date: Date, n: number) => {
   debug('addDays %s %d', date, n)
   const d = new Date(date)
@@ -27,6 +36,7 @@ export const addDays = (date: Date, n: number) => {
 }
 
 export const nowAndPastUTC = (n: number) => {
+  debug('nowAndPastUTC %d', n)
   const now = new Date().toISOString()
   const date_utc = new Date(now)
   date_utc.setUTCDate(date_utc.getUTCDate() - n)
@@ -34,6 +44,7 @@ export const nowAndPastUTC = (n: number) => {
 }
 
 export const nowAndFutureUTC = (n: number) => {
+  debug('nowAndFutureUTC %d', n)
   const now = new Date().toISOString()
   const date_utc = new Date(now)
   date_utc.setUTCDate(date_utc.getUTCDate() + n)
@@ -60,6 +71,10 @@ const DATE_TIME_FORMAT_OPTIONS_IT = {
  * seconds since the Unix epoch.
  */
 export const itDateString = (ts: number) => {
+  debug('itDateString %s', ts)
+  if (ts < 0) {
+    throw new Error('UNIX timestamp cannot be negative')
+  }
   return new Date(ts * 1000).toLocaleDateString(
     'it-IT',
     DATE_TIME_FORMAT_OPTIONS_IT
