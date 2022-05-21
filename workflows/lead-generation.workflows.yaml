@@ -1,3 +1,5 @@
+# This workflow gather links from various websites (Hacker News, Linkedin,
+# Reddit, etc) and sends them to a Telegram chat.
 main:
   steps:
   - assign_project_variables:
@@ -9,39 +11,91 @@ main:
 
   # retrieve secrets from Secret Manager #######################################
 
-  - retrieve_phantombuster_api_key:
+  - retrieve_phantombuster_secret:
       call: googleapis.secretmanager.v1.projects.secrets.versions.accessString
       args:
         project_id: ${project_id}
-        secret_id: PHANTOMBUSTER_API_KEY
-        version: "1"
-      result: phantombuster_api_key
-  
+        secret_id: PHANTOMBUSTER
+        version: "latest"
+      result: phantombuster_secret
+
+  # - log_phantombuster_secret:
+  #     call: sys.log
+  #     args:
+  #       data: {
+  #         "Phantombuster API Key": "${json.decode(phantombuster_secret).api_key}",
+  #         "Phantombuster Agent ID Search LinkedIn jobs": "${json.decode(phantombuster_secret).agent_id.linkedin_search_jobs}",
+  #         "Phantombuster Agent ID Search LinkedIn prople": "${json.decode(phantombuster_secret).agent_id.linkedin_search_people}"
+  #       }
+  #       severity: "WARNING"
 
   - retrieve_reddit_secret:
       call: googleapis.secretmanager.v1.projects.secrets.versions.accessString
       args:
         project_id: ${project_id}
-        secret_id: REDDIT_OAUTH_SECRET
+        secret_id: REDDIT
         version: "1"
-      result: reddit_oauth_secret
+      result: reddit_secret
+  
+  - assign_reddit_vars:
+      assign:
+        - reddit_username: "${json.decode(reddit_secret).username}"
+        - reddit_password: "${json.decode(reddit_secret).password}"
+        - reddit_client_id: "${json.decode(reddit_secret).client_id}"
+        - reddit_client_secret: "${json.decode(reddit_secret).client_secret}"
+        - reddit_client_id_and_client_secret: ${reddit_client_id + ":" + reddit_client_secret}
+        - reddit_basic_auth: "${text.encode(reddit_client_id_and_client_secret)}"
+        - reddit_authorization_header: ${"Basic " + base64.encode(reddit_basic_auth)}
+
+  # - log_reddit_vars:
+  #     call: sys.log
+  #     args:
+  #       data: {
+  #         "Reddit OAuth client ID": "${reddit_client_id}",
+  #         "Reddit OAuth client secret": "${reddit_client_secret}",
+  #         "Reddit Authorization header": "${reddit_authorization_header}"
+  #       }
+  #       severity: "WARNING"
+
+  - obtain_reddit_access_token:
+      # https://github.com/reddit-archive/reddit/wiki/OAuth2-Quick-Start-Example#curl-example
+      call: http.post
+      args:
+        url: https://www.reddit.com/api/v1/access_token
+        headers: {
+          "Authorization": "${reddit_authorization_header}",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "User-Agent": "${reddit_username",
+        }
+        body: {
+          "grant_type": "password",
+          "username": "${reddit_username}",
+          "password": "${reddit_password}",
+          "scope": "*"
+        }
+      result: reddit_access_token_response
   
   # variable assignments #######################################################
 
   - assign_phantombuster_variables:
       assign:
+        - phantombuster: "${json.decode(phantombuster_secret)}"
+        - phantombuster_api_key: "${phantombuster.api_key}"
         # PhantomBuster requires the agent ID to be a string
-        - agent_id_linkedin_search_jobs: "782867216009454"
-        - agent_id_linkedin_search_people: "8010883244687807"
+        - phantombuster_agent_id_linkedin_search_jobs: "${phantombuster.agent_id.linkedin_search_jobs}"
+        - phantombuster_agent_id_linkedin_search_people: "${phantombuster.agent_id.linkedin_search_people}"
 
-  - assign_output_variables:
+  - assign_reddit_variables:
       assign:
-        - message_title: ${"<b>" + "Lead generation (Hacker News)" + "</b>"}
-        - telegram_text_hacker_news: ${message_title + "\n"}
-        - telegram_text_linkedin_jobs: ${"<b>" + "Lead generation (Linkedin - Jobs)" + "</b>" + "\n"}
-        - telegram_text_linkedin_people: ${"<b>" + "Lead generation (Linkedin - People)" + "</b>" + "\n"}
-        - telegram_text_reddit_clojure: ${"<b>" + "Lead generation (Reddit - Clojure)" + "</b>" + "\n"}
-        - telegram_text_reddit_react: ${"<b>" + "Lead generation (Reddit - React)" + "</b>" + "\n"}
+        - reddit_access_token: "${reddit_access_token_response.body.access_token}"
+
+  # - log_reddit_access_token:
+  #     call: sys.log
+  #     args:
+  #       data: {
+  #         "Reddit OAuth2 access token": "${reddit_access_token}"
+  #       }
+  #       severity: "WARNING"
 
   - assign_dates_and_timestamps:
       assign:
@@ -68,26 +122,27 @@ main:
       result: month
 
   # Hacker News ################################################################
+  # TODO: create a loop over an array of queries (or query+tags combinations)
+  #
+  # - append_link_freelancers_and_gigs:
+  #     assign:
+  #       - href_gigs: ${"https://hnhiring.com/freelancer/" + month + "-" + year}
+  #       - anchor_tag_gigs: ${"<a href=" + "'" + href_gigs + "'" + ">" + "Freelancers and Gigs" + " (" + month + " " + year + ")" + "</a>"}
+  #       - telegram_text_hacker_news: ${telegram_text_hacker_news + "\n" + anchor_tag_gigs}
 
-  - append_link_freelancers_and_gigs:
-      assign:
-        - href_gigs: ${"https://hnhiring.com/freelancer/" + month + "-" + year}
-        - anchor_tag_gigs: ${"<a href=" + "'" + href_gigs + "'" + ">" + "Freelancers and Gigs" + " (" + month + " " + year + ")" + "</a>"}
-        - telegram_text_hacker_news: ${telegram_text_hacker_news + "\n" + anchor_tag_gigs}
+  # - append_links_technologies_jobs:
+  #     # https://cloud.google.com/workflows/docs/reference/syntax/iteration
+  #     for:
+  #       value: tech
+  #       in: [clojure,node,wasm]
+  #       steps:
+  #         - append_link_technologies_jobs:
+  #             assign:
+  #               - href_tech: ${"https://hnhiring.com/technologies/" + tech}
+  #               - anchor_tag_tech: ${"<a href=" + "'" + href_tech + "'" + ">" + tech + " jobs" + " (" + month + " " + year + ")" + "</a>"}
+  #               - telegram_text_hacker_news: ${telegram_text_hacker_news + "\n" + anchor_tag_tech}
 
-  - append_links_technologies_jobs:
-      # https://cloud.google.com/workflows/docs/reference/syntax/iteration
-      for:
-        value: tech
-        in: [clojure,node,wasm]
-        steps:
-          - append_link_technologies_jobs:
-              assign:
-                - href_tech: ${"https://hnhiring.com/technologies/" + tech}
-                - anchor_tag_tech: ${"<a href=" + "'" + href_tech + "'" + ">" + tech + " jobs" + " (" + month + " " + year + ")" + "</a>"}
-                - telegram_text_hacker_news: ${telegram_text_hacker_news + "\n" + anchor_tag_tech}
-
-  - links_hacker_news_who_is_hiring:
+  - search_hacker_news_for_posts_about_who_is_hiring:
       call: hacker_news_algolia_api
       args:
         query: "Ask HN: Who is hiring?"
@@ -95,16 +150,24 @@ main:
         numeric_filters: ${text.replace_all("points>3,created_at_i>CREATED_AT", "CREATED_AT", ts_start_utc)}
       result: hn_who_is_hiring_anchor_tags
 
-  - loop_hacker_news_who_is_hiring:
-      for:
-        value: link
-        in: ${hn_who_is_hiring_anchor_tags}
-        steps:
-          - append_link_hn_who_is_hiring:
-              assign:
-                - telegram_text_hacker_news: ${telegram_text_hacker_news + "\n" + link}
+  - create_message_of_hacker_news_who_is_hiring:
+      call: create_message_full_of_links
+      args:
+        links: ${hn_who_is_hiring_anchor_tags}
+        text_message: ${"<b>" + "Lead generation (Ask HN Who is hiring?)" + "</b>" + "\n"}
+      result: text_message_hacker_news_who_is_hiring
 
-  - links_hacker_news_seeking_freelancer:
+  - send_telegram_message_hacker_news_who_is_hiring:
+      call: http.post
+      args:
+        url: ${function_telegram}
+        auth:
+          type: OIDC
+        body:
+          text: ${text_message_hacker_news_who_is_hiring}
+      result: message_result_hacker_news_who_is_hiring
+
+  - search_hacker_news_for_posts_about_freelancing:
       call: hacker_news_algolia_api
       args:
         query: "Ask HN: Freelancer? Seeking freelancer?"
@@ -112,149 +175,128 @@ main:
         numeric_filters: ${text.replace_all("points>3,created_at_i>CREATED_AT", "CREATED_AT", ts_start_utc)}
       result: hn_seeking_freelancer_anchor_tags
 
-  - loop_hacker_news_seeking_freelancer:
-      for:
-        value: link
-        in: ${hn_seeking_freelancer_anchor_tags}
-        steps:
-          - append_link_hn_seeking_freelancer:
-              assign:
-                - telegram_text_hacker_news: ${telegram_text_hacker_news + "\n" + link}
-
-  - links_hacker_news_clojure:
-      call: hacker_news_algolia_api
+  - create_message_of_hacker_news_about_freelancing:
+      call: create_message_full_of_links
       args:
-        query: "clojure"
-        tags: "(ask_hn,show_hn)"
-        numeric_filters: ${text.replace_all("points>3,created_at_i>CREATED_AT", "CREATED_AT", ts_start_utc)}
-      result: hn_clojure_anchor_tags
+        links: ${hn_seeking_freelancer_anchor_tags}
+        text_message: ${"<b>" + "Lead generation (Ask HN Freelancer? Seeking freelancer?)" + "</b>" + "\n"}
+      result: text_message_hacker_news_freelancer
 
-  - loop_hacker_news_clojure:
-      for:
-        value: link
-        in: ${hn_clojure_anchor_tags}
-        steps:
-          - append_link_hn_clojure:
-              assign:
-                - telegram_text_hacker_news: ${telegram_text_hacker_news + "\n" + link}
+  - send_telegram_message_hacker_news_about_freelancing:
+      call: http.post
+      args:
+        url: ${function_telegram}
+        auth:
+          type: OIDC
+        body:
+          text: ${text_message_hacker_news_freelancer}
+      result: message_result_hacker_news_freelancer
 
-  - links_hacker_news_authors:
+  - search_hacker_news_for_posts_of_interesting_authors:
       call: hacker_news_algolia_api
       args:
         query: ""
         tags: "(author_borkdude,author_feross,author_fogus,author_jrockway,author_patio11)"
         numeric_filters: ${text.replace_all("points>3,created_at_i>CREATED_AT", "CREATED_AT", ts_start_utc)}
       result: hn_authors_anchor_tags
-  
-  - loop_hacker_news_authors:
-      for:
-        value: link
-        in: ${hn_authors_anchor_tags}
-        steps:
-          - append_link_hn_authors:
-              assign:
-                - telegram_text_hacker_news: ${telegram_text_hacker_news + "\n" + link}
 
-  - send_telegram_message_hacker_news:
+  - create_message_of_hacker_news_authors:
+      call: create_message_full_of_links
+      args:
+        links: ${hn_authors_anchor_tags}
+        text_message: ${"<b>" + "Lead generation (Hacker News authors)" + "</b>" + "\n"}
+      result: text_message_hacker_news_authors
+
+  - send_telegram_message_hacker_news_authors:
       call: http.post
       args:
         url: ${function_telegram}
         auth:
           type: OIDC
         body:
-          text: ${telegram_text_hacker_news}
-      result: message_result_hacker_news
+          text: ${text_message_hacker_news_authors}
+      result: message_result_hacker_news_authors
 
   # Reddit #####################################################################
-
-  - get_reddit_links_clojure:
+  # search job posts in the following subreddits:
+  # https://www.reddit.com/r/forhire/
+  # https://www.reddit.com/r/freelance/
+  # https://www.reddit.com/r/jobbit/
+  # https://www.reddit.com/r/jobopenings/
+  # https://www.reddit.com/r/remotejs/
+  # https://www.reddit.com/r/slavelabour/
+  #
+  
+  - search_reddit_for_clojure_jobs:
       call: search_reddit
       args:
-        q: '(title:"[hiring]" OR flair:Hiring) AND (subreddit:forhire OR subreddit:freelance OR subreddit:jobbit OR subreddit:jobopenings OR subreddit:remotejs) AND (selftext:"remote") AND (selftext:"clojure")'
+        q: '(title:"[hiring]" OR flair:Hiring) AND (subreddit:forhire OR subreddit:freelance OR subreddit:jobbit OR subreddit:jobopenings OR subreddit:remotejs OR subreddit:slavelabour) AND (selftext:"remote") AND (selftext:"clojure")'
         t: "month"
-        oauth_secret: "${reddit_oauth_secret}"
+        access_token: "${reddit_access_token}"
       result: reddit_links_clojure
 
-  - loop_reddit_links_clojure:
-      for:
-        value: link
-        in: ${reddit_links_clojure}
-        steps:
-          - append_reddit_link_clojure:
-              assign:
-                - telegram_text_reddit_clojure: ${telegram_text_reddit_clojure + "\n" + link}
-
-  - get_reddit_links_react:
-      call: search_reddit
+  - create_message_about_clojure_jobs_found_on_reddit:
+      call: create_message_full_of_links
       args:
-        q: '(title:"[hiring]" OR flair:Hiring) AND (subreddit:forhire OR subreddit:freelance OR subreddit:jobbit OR subreddit:jobopenings OR subreddit:remotejs) AND (selftext:"remote") AND (selftext:"react")'
-        t: "week"
-        oauth_secret: "${reddit_oauth_secret}"
-      result: reddit_links_react
-    
-  - loop_reddit_links_react:
-      for:
-        value: link
-        in: ${reddit_links_react}
-        steps:
-          - append_reddit_link_react:
-              assign:
-                - telegram_text_reddit_react: ${telegram_text_reddit_react + "\n" + link}
+        links: ${reddit_links_clojure}
+        text_message: ${"<b>" + "Lead generation (Reddit - Clojure)" + "</b>" + "\n"}
+      result: text_message_reddit_clojure
 
-  - send_telegram_message_reddit_clojure:
+  - send_message_about_clojure_jobs_found_on_reddit:
       call: http.post
       args:
         url: ${function_telegram}
         auth:
           type: OIDC
         body:
-          text: ${telegram_text_reddit_clojure}
+          text: ${text_message_reddit_clojure}
       result: message_result_reddit_clojure
 
-  - send_telegram_message_reddit_react:
+  - search_reddit_for_react_jobs:
+      call: search_reddit
+      args:
+        q: '(title:"[hiring]" OR flair:Hiring) AND (subreddit:forhire OR subreddit:freelance OR subreddit:jobbit OR subreddit:jobopenings OR subreddit:remotejs OR subreddit:slavelabour) AND (selftext:"remote") AND (selftext:"react")'
+        # There are too many React jobs posted on Reddit in a month. I risk to
+        # hit a memory limit in the Reddit API.
+        t: "week"
+        access_token: "${reddit_access_token}"
+      result: reddit_links_react
+
+  - create_message_about_react_jobs_found_on_reddit:
+      call: create_message_full_of_links
+      args:
+        links: ${reddit_links_react}
+        text_message: ${"<b>" + "Lead generation (Reddit - React)" + "</b>" + "\n"}
+      result: text_message_reddit_react
+
+  - send_message_about_react_jobs_found_on_reddit:
       call: http.post
       args:
         url: ${function_telegram}
         auth:
           type: OIDC
         body:
-          text: ${telegram_text_reddit_react}
+          text: ${text_message_reddit_react}
       result: message_result_reddit_react
 
   # PhantomBuster ##############################################################
 
-  - launch_phantombuster_agent_linkedin_search_jobs:
-      call: launch_phantombuster_agent
+  - send_message_about_jobs_found_on_linkedin:
+      call: send_message_phantombuster
       args:
-        agent_id: "${agent_id_linkedin_search_jobs}"
+        agent_id: "${phantombuster_agent_id_linkedin_search_jobs}"
         api_key: "${phantombuster_api_key}"
-      result: phantombuster_linkedin_search_jobs_response
-
-  - send_telegram_message_linkedin_jobs:
-      call: http.post
-      args:
-        url: ${function_telegram}
-        auth:
-          type: OIDC
-        body:
-          text: ${telegram_text_linkedin_jobs}
+        function_telegram: "${function_telegram}"
+        text_message: ${"<b>" + "Lead generation (Linkedin - Jobs)" + "</b>" + "\n"}
       result: message_result_linkedin_jobs
 
-  - launch_phantombuster_agent_linkedin_search_people:
-      call: launch_phantombuster_agent
+  - send_message_about_people_found_on_linkedin:
+      call: send_message_phantombuster
       args:
-        agent_id: "${agent_id_linkedin_search_people}"
+        agent_id: "${phantombuster_agent_id_linkedin_search_people}"
         api_key: "${phantombuster_api_key}"
-      result: phantombuster_linkedin_search_people_response
-
-  - send_telegram_message_linkedin_people:
-      call: http.post
-      args:
-        url: ${function_telegram}
-        auth:
-          type: OIDC
-        body:
-          text: ${telegram_text_linkedin_people}
+        function_telegram: "${function_telegram}"
+        text_message: ${"<b>" + "Lead generation (Linkedin - People)" + "</b>" + "\n"}
       result: message_result_linkedin_people
 
   # - prepare_return_value:
@@ -264,10 +306,12 @@ main:
 
   - return_value:
       return: {
-        "phantombuster_linkedin_search_jobs_response": "${phantombuster_linkedin_search_jobs_response}",
-        "phantombuster_linkedin_search_people_response": "${phantombuster_linkedin_search_people_response}",
+        # "phantombuster_linkedin_search_jobs_response": "${phantombuster_linkedin_search_jobs_response}",
+        # "phantombuster_linkedin_search_people_response": "${phantombuster_linkedin_search_people_response}",
         "telegram": {
-          "hacker_news_message": "${message_result_hacker_news.body}",
+          "hacker_news_freelancing": "${message_result_hacker_news_freelancer.body}",
+          "hacker_news_who_is_hiring": "${message_result_hacker_news_who_is_hiring.body}",
+          "hacker_news_authors": "${message_result_hacker_news_authors.body}",
           "linkedin_jobs": "${message_result_linkedin_jobs.body}",
           "linkedin_people": "${message_result_linkedin_people.body}",
           "reddit_clojure": "${message_result_reddit_clojure.body}",
@@ -278,6 +322,25 @@ main:
 # Subworkflows #################################################################
 
 ### Utilities ##################################################################
+create_message_full_of_links:
+  params: [links, text_message]
+  steps:
+    # - log_args:
+    #     call: sys.log
+    #     args:
+    #       data: {"links": "${links}", "text_message": "${text_message}"}
+    #       severity: "WARNING"
+    - loop_links:
+        for:
+          value: link
+          in: ${links}
+          steps:
+            - append_link_to_text_message:
+                assign:
+                  - text_message: ${text_message + "\n" + link}
+    - return_text_message:
+        return: ${text_message}
+
 get_textual_month:
   params: [month_digits]
   steps:
@@ -416,15 +479,49 @@ launch_phantombuster_agent:
           "message": '${"cannot launch PhantomBuster agent " + agent_id + ". No daily execution time remaining."}'
         }
 
+send_message_phantombuster:
+  params: [agent_id, api_key, function_telegram, text_message]
+  steps:
+    - launch_phantombuster_agent_and_catch_errors:
+        call: launch_phantombuster_agent
+        args:
+          agent_id: "${agent_id}"
+          api_key: "${api_key}"
+        result: phantombuster_response
+
+    - switch_on_phantombuster_response:
+        switch:
+          - condition: ${phantombuster_response.message != null}
+            next: send_error_message
+        next: send_success_message
+
+    - send_error_message:
+        call: http.post
+        args:
+          url: ${function_telegram}
+          auth:
+            type: OIDC
+          body:
+            text: ${text_message + "\n" + phantombuster_response.message}
+        result: message_result
+        next: return_message_result
+
+    - send_success_message:
+        call: http.post
+        args:
+          url: ${function_telegram}
+          auth:
+            type: OIDC
+          body:
+            text: ${text_message + "\n" + phantombuster_response.body}
+        result: message_result
+
+    - return_message_result:
+        return: ${message_result}
+
 # Reddit #######################################################################
-# search job posts in the following subreddits:
-# https://www.reddit.com/r/forhire/
-# https://www.reddit.com/r/freelance/
-# https://www.reddit.com/r/jobbit/
-# https://www.reddit.com/r/jobopenings/
-# https://www.reddit.com/r/remotejs/
 search_reddit:
-  params: [q, t, oauth_secret]
+  params: [q, t, access_token]
   steps:
     - search_in_reddit_forhire:
         call: http.get
@@ -432,7 +529,7 @@ search_reddit:
           url: https://oauth.reddit.com/search
           timeout: 10.0
           headers:
-            Authorization: ${"Bearer " + oauth_secret}
+            Authorization: ${"Bearer " + access_token}
           query: {
             limit: 20,
             q: "${q}",

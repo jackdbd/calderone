@@ -20,6 +20,20 @@ gcloud secrets create NETLIFY \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
 ```
 
+Create a secret and its first version using a JSON file (execute this command from the monorepo root):
+
+```sh
+gcloud secrets create PHANTOMBUSTER \
+  --data-file './secrets/phantombuster.json' \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
+```
+
+```sh
+gcloud secrets create REDDIT \
+  --data-file './secrets/reddit.json' \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
+```
+
 ```sh
 gcloud secrets create SENDGRID \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
