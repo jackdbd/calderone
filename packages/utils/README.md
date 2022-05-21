@@ -8,6 +8,10 @@ Miscellaneous utility functions.
 npm install @jackdbd/utils
 ```
 
+## API
+
+[API docs generated with TypeDoc](https://jackdbd.github.io/calderone/utils/)
+
 ## Examples
 
 ### @jackdbd/utils/array

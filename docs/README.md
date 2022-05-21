@@ -1,14 +1,16 @@
 # docs
 
-In these docs:
-
-- `prj-kitchen-sink` will be referenced as `GCP_PROJECT_ID`
-- `personal` will be referenced as `CUSTOMER`
-- `prod` will be referenced as `ENVIRONMENT`
-
-Documents for Google Cloud Platform:
-
-- [intructions for Artifact Registry](./artifact-registry.md)
-- [intructions for IAM project policy](./iam-project-policy.md)
-- [intructions for Secret Manager](./secret-manager.md)
-- [intructions for Service Accounts](./service-accounts.md)
+- [checks](./checks/index.html)
+- [cloud-scheduler-utils](./cloud-scheduler-utils/)
+- [fattureincloud-client](./fattureincloud-client/)
+- [firestore-utils](./firestore-utils/)
+- [hapi-healthcheck-plugin](./hapi-healthcheck-plugin/)
+- [hapi-ip-whitelist-plugin](./hapi-ip-whitelist-plugin/)
+- [keap-client](./keap-client/)
+- [notifications](./notifications/)
+- [schemas](./schemas/)
+- [secret-manager-utils](./secret-manager-utils/)
+- [sqlite-utils](./sqlite-utils/)
+- [stripe-utils](./stripe-utils/)
+- [telegram-text-messages](./telegram-text-messages/)
+- [utils](./utils/)

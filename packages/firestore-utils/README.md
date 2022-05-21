@@ -2,34 +2,12 @@
 
 Utility functions to work with Firestore.
 
-## Build
-
-Build this library:
+## Installation
 
 ```sh
-npm run build -w packages/firestore-utils
+npm install @jackdbd/firestore-utils
 ```
 
-## Test
+## API
 
-```sh
-npm run test -w packages/firestore-utils
-```
-
-## Publish
-
-### Artifact Registry
-
-```sh
-npm run publish:artifact-registry -w packages/firestore-utils
-```
-
-Check that the correct version of this package is now published on Artifact Registry:
-
-```sh
-gcloud artifacts versions list \
-  --project $GCP_PROJECT_ID \
-  --repository $ARTIFACT_REGISTRY_NPM_REPOSITORY_ID \
-  --location $ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION \
-  --package @jackdbd/firestore-utils
-```
+[API docs generated with TypeDoc](https://jackdbd.github.io/calderone/firestore-utils/)
