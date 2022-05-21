@@ -91,27 +91,18 @@ If that GitHub workflow should not work, you can also publish using this script:
 
 The [@semantic-release/npm](https://github.com/semantic-release/npm) plugin does not support publishing to multiple npm registries for [good reasons](https://github.com/semantic-release/npm/issues/69#issuecomment-391114128), so what I do is downloading a npm package **already published** to Artifact Registry, and republish it to npmjs (without altering of course).
 
-First, refresh the Artifact Registry access token:
+I created a script to re-publish some packages that I had already published to my private Artifact Registry:
 
 ```sh
-npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc
-```
-
-Then, publish some packages that I had already published to my private Artifact Registry:
-
-```sh
-./scripts/publish/npm.mjs --package checks --version 1.0.2
-./scripts/publish/npm.mjs --package hapi-healthcheck-plugin --version 1.0.2
-./scripts/publish/npm.mjs --package hapi-ip-whitelist-plugin --version 1.0.2
-./scripts/publish/npm.mjs --package utils --version 1.0.1
+npm run publish:npm
 ```
 
 ## Monorepo management
 
-Create a new package in this monorepo using [these templates](./assets/templates/).
+Create a new package in this monorepo using [these templates](./assets/templates/README.md).
 
 ```sh
-./scripts/new-package.mjs --name my-new-package
+./scripts/new-package.mjs
 ```
 
 See also the [docs](./docs/README.md) directory.

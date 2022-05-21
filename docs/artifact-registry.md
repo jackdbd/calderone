@@ -47,6 +47,29 @@ gcloud artifacts packages list \
   --location $ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION
 ```
 
+### List published versions of a npm package
+
+See the list of versions of the package @jackdbd/checks published to Artifact Registry:
+
+```sh
+gcloud artifacts versions list \
+  --location $ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION \
+  --package @jackdbd/checks \
+  --repository $ARTIFACT_REGISTRY_NPM_REPOSITORY_ID
+```
+
+See the latest version of the package @jackdbd/checks published to Artifact Registry (see [this answer](https://stackoverflow.com/questions/72130466/how-to-get-latest-version-of-an-image-from-artifact-registry) on Stack Overflow):
+
+```sh
+gcloud artifacts versions list \
+  --location $ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION \
+  --package @jackdbd/checks \
+  --repository $ARTIFACT_REGISTRY_NPM_REPOSITORY_ID \
+  --sort-by="~UPDATE_TIME" \
+  --limit=1 \
+  --format="value(format("{0}",name))"
+```
+
 ## Docker registry
 
 The Docker registry will host the container images built with `gcloud run deploy`

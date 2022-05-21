@@ -4,7 +4,7 @@
   "description": "Utilities for Secret Manager",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "keywords": [
     "secret-manager",
     "secrets",
@@ -51,6 +51,7 @@
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
+    "publish:npm": "../../scripts/publish/npm.mjs",
     "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
     "test": "../../scripts/test.mjs",
     "test:ci": "../../scripts/test.mjs --ci",
