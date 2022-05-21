@@ -1,27 +1,62 @@
 #!/usr/bin/env zx
 
+import path from 'path'
 import 'zx/globals'
 
 // Usage (from the monorepo root):
-// ./scripts/new-package.mjs --name my-new-package
+// ./scripts/new-package.mjs
 
-const name = argv.name
-if (name === undefined) {
-  throw new Error('name must be set')
+const scope = 'jackdbd'
+
+const unscoped_name = await question(
+  chalk.yellow(
+    `Type an unscoped name for your package (i.e. my-package instead of @${scope}/my-package) `
+  )
+)
+
+if (unscoped_name === undefined || unscoped_name === '') {
+  throw new Error('Cannot create package. Package name not specified')
 }
 
+const choices = ['app', 'lib']
+const package_type = await question(
+  chalk.yellow(
+    `Is @${scope}/${unscoped_name} a library or an application? (lib: library, app: application) `
+  ),
+  {
+    choices
+  }
+)
+
 const monorepo_root = process.env.PWD
-const pkg_root = path.join(monorepo_root, 'packages', name)
-const templates = path.join(monorepo_root, 'assets', 'templates')
+const package_root = path.join(monorepo_root, 'packages', unscoped_name)
 
-await $`mkdir -p ${pkg_root}/src`
-await $`cp ${templates}/README.md ${pkg_root}/README.md`
-await $`cp ${templates}/package.json ${pkg_root}/package.json`
-await $`cp ${templates}/tsconfig.json ${pkg_root}/tsconfig.json`
-await $`echo "export {}\nconsole.log('hello')\n" > ${pkg_root}/src/index.ts`
+let source = ''
+if (package_type === 'app') {
+  source = path.join(monorepo_root, 'assets', 'templates', 'application')
+} else if (package_type === 'lib') {
+  source = path.join(monorepo_root, 'assets', 'templates', 'library')
+} else {
+  throw new Error(
+    `Cannot create package. You must choose one of: ${choices.join(', ')}`
+  )
+}
 
-await $`sed -i 's/PACKAGE_NAME/${name}/g' ${pkg_root}/README.md`
-await $`sed -i 's/PACKAGE_NAME/${name}/g' ${pkg_root}/package.json`
+const basenames = await fs.readdir(source)
+const patters = basenames.map((name) => path.join(source, name))
 
-await $`npm run build -w packages/${name}`
-await $`node ${pkg_root}/lib/index.js`
+await $`mkdir ${package_root}`
+await $`cp -r ${patters} ${package_root}`
+
+await $`sed -i 's/PACKAGE_NAME/${unscoped_name}/g' ${package_root}/package.json`
+await $`sed -i 's/PACKAGE_NAME/${unscoped_name}/g' ${package_root}/README.md`
+
+await $`npm run build -w packages/${unscoped_name}`
+
+if (package_type === 'app') {
+  await $`sed -i 's/PACKAGE_NAME/${unscoped_name}/g' ${package_root}/src/main.ts`
+  await $`npm run start:development -w packages/${unscoped_name}`
+} else if (choices === 'lib') {
+  await $`sed -i 's/PACKAGE_NAME/${unscoped_name}/g' ${package_root}/src/index.ts`
+  await $`node ${package_root}/lib/index.js`
+}

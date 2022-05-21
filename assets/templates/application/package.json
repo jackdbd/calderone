@@ -1,0 +1,42 @@
+{
+  "name": "@jackdbd/PACKAGE_NAME",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
+  "license": "",
+  "private": true,
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackdbd/calderone"
+  },
+  "engines": {
+    "node": "17.9.0"
+  },
+  "type": "module",
+  "module": "main.js",
+  "scripts": {
+    "auth-artifact-registry": "node ../../scripts/cloud-run/predeploy.mjs -p PACKAGE_NAME",
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json --watch",
+    "clean": "rimraf coverage dist 'tsconfig.tsbuildinfo'",
+    "dev": "run-p build:watch start:development",
+    "precontainer:build": "run-s clean build auth-artifact-registry",
+    "container:build": "pack build PACKAGE_NAME:latest --path ./dist --builder gcr.io/buildpacks/builder:v1",
+    "container:start:development": "docker run -it -p 8080:8080 --env \"SA_JSON_KEY=$(cat ../../secrets/sa-webperf-PACKAGE_NAME.json)\" --env NODE_ENV=development --env DEBUG=utils/*,PACKAGE_NAME/* PACKAGE_NAME:latest",
+    "container:start:production": "docker run -it -p 8080:8080 --env \"SA_JSON_KEY=$(cat ../../secrets/sa-webperf-PACKAGE_NAME.json)\" --env NODE_ENV=production --env DEBUG=utils/*,PACKAGE_NAME/* PACKAGE_NAME:latest",
+    "container:start:test": "docker run -it -p 8080:8080 --env \"SA_JSON_KEY=$(cat ../../secrets/sa-webperf-PACKAGE_NAME.json)\" --env NODE_ENV=test --env DEBUG=utils/*,PACKAGE_NAME/* PACKAGE_NAME:latest",
+    "predeploy": "run-s clean format lint build auth-artifact-registry",
+    "deploy": "gcloud beta builds submit ./dist --config cloudbuild.yaml --project $GCP_PROJECT_ID --async",
+    "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
+    "lint": "eslint --config ../../config/eslint.cjs",
+    "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
+    "precommit": "lint-staged --config ../../config/lint-staged.cjs",
+    "start:development": "DEBUG=PACKAGE_NAME/* NODE_ENV=development node ./dist/main.js",
+    "start:test": "NODE_ENV=test node --loader ts-node/esm ./src/main.ts",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --selectProjects PACKAGE_NAME --config ../../config/jest.cjs --rootDir ../../ --runInBand --detectOpenHandles",
+    "test:ci": "npm run test -- --ci --coverage --coverageDirectory packages/PACKAGE_NAME/coverage"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
