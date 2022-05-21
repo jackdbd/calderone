@@ -2,34 +2,12 @@
 
 Utilities for Secret Manager.
 
-## Build
-
-Build this library:
+## Installation
 
 ```sh
-npm run build -w packages/secret-manager-utils
+npm install @jackdbd/secret-manager-utils
 ```
 
-## Test
+## API
 
-```sh
-npm run test -w packages/secret-manager-utils
-```
-
-## Publish
-
-### Artifact Registry
-
-```sh
-npm run publish:artifact-registry -w packages/secret-manager-utils
-```
-
-Check that the correct version of this package is now published on Artifact Registry:
-
-```sh
-gcloud artifacts versions list \
-  --project $GCP_PROJECT_ID \
-  --repository $ARTIFACT_REGISTRY_NPM_REPOSITORY_ID \
-  --location $ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION \
-  --package @jackdbd/secret-manager-utils
-```
+[API docs generated with TypeDoc](https://jackdbd.github.io/calderone/secret-manager-utils/)
