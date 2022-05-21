@@ -40,30 +40,12 @@ gcloud workflows deploy wasm-news \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
 
-```sh
-gcloud workflows deploy lead-generation \
-  --project $GCP_PROJECT_ID \
-  --location $WORKFLOW_LOCATION \
-  --description "Lead generation to find clients, jobs, people on Hacker News, LinkedIn, Reddit" \
-  --source workflows/lead-generation.workflows.yaml \
-  --service-account $SA_WORKFLOWS_RUNNER \
-  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
-```
-
-Note: `--location` is required, unless it is specified in a gcloud config file.
-
 ## `execute` vs `run`
 
 Use `gcloud workflows execute` to execute a workflow without waiting for it to complete.
 
 ```sh
 gcloud workflows execute random-cocktail-to-telegram \
-  --project $GCP_PROJECT_ID \
-  --location $WORKFLOW_LOCATION
-```
-
-```sh
-gcloud workflows execute lead-generation \
   --project $GCP_PROJECT_ID \
   --location $WORKFLOW_LOCATION
 ```
@@ -116,4 +98,28 @@ gcloud workflows execute create-stop-delete-vm \
     "imageId": "projects/debian-cloud/global/images/debian-11-bullseye-v20220406",
     "instanceName": "example-debian-instance"
   }'
+```
+
+## My workflows
+
+### Lead generation
+
+Deploy the workflow:
+
+```sh
+gcloud workflows deploy lead-generation \
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION \
+  --description "Lead generation to find clients, jobs, people on Hacker News, LinkedIn, Reddit" \
+  --source workflows/lead-generation.workflows.yaml \
+  --service-account $SA_WORKFLOWS_RUNNER \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
+```
+
+Run the workflow:
+
+```sh
+gcloud workflows run lead-generation \
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION
 ```
