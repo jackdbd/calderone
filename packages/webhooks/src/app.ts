@@ -2,6 +2,9 @@ import type { GoogleSpreadsheet } from 'google-spreadsheet'
 import hapi_dev_errors from 'hapi-dev-errors'
 import type { ErrorReporting } from '@google-cloud/error-reporting'
 import Hapi from '@hapi/hapi'
+import Inert from '@hapi/inert'
+import Vision from '@hapi/vision'
+import HapiSwagger from 'hapi-swagger'
 import { alertsPost } from './routes/alerts/post.js'
 import { webPageTestPingbackGet } from './routes/webpagetest/get.js'
 import { AUTH_STRATEGY } from './routes/webpagetest/utils.js'
@@ -45,6 +48,7 @@ export const app = async ({
   telegram_token,
   webpagetest_tester_ips
 }: Config) => {
+  //
   const request_tags = [
     ...HEALTHCHECK_TAGS.request,
     ...IP_WHITELIST_TAGS.request,
@@ -67,6 +71,20 @@ export const app = async ({
     port
   })
   subscribe({ request_tags, server, server_tags })
+
+  await server.register(Inert)
+  await server.register(Vision)
+
+  await server.register({
+    plugin: HapiSwagger,
+    options: {
+      documentationPath: '/docs',
+      info: {
+        title: `API Documentation for ${service_name}`,
+        version: service_version
+      }
+    }
+  })
 
   await server.register({
     plugin: hapi_dev_errors,

@@ -49,6 +49,7 @@
     "@google-cloud/secret-manager": "3.12.0",
     "@hapi/boom": "10.0.0",
     "@hapi/hapi": "20.2.2",
+    "@hapi/inert": "6.0.5",
     "@hapi/wreck": "18.0.0",
     "@jackdbd/checks": "1.1.0",
     "@jackdbd/hapi-healthcheck-plugin": "1.0.2",
@@ -61,7 +62,8 @@
     "exiting": "6.1.0",
     "google-spreadsheet": "3.3.0",
     "hapi-dev-errors": "4.0.0",
-    "ipaddr.js": "2.0.1"
-  },
-  "devDependencies": {}
+    "hapi-swagger": "14.5.1",
+    "ipaddr.js": "2.0.1",
+    "joi": "17.6.0"
+  }
 }

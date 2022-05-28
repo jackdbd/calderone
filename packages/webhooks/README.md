@@ -47,11 +47,13 @@ npm run container:start:test -w packages/webhooks
 
 ## Deploy to GCP Cloud Run
 
-Deploy to [Cloud Run](https://console.cloud.google.com/run?project=prj-kitchen-sink) using the `cloudbuild.yaml` file:
+This command uploads the source code to Cloud Build, which build the container image and deploys the application as a [Cloud Run service](https://console.cloud.google.com/run?project=prj-kitchen-sin):
 
 ```sh
 npm run deploy -w packages/webhooks
 ```
+
+However, it's better to let a CI/CD pipeline deploy the application, instead of deploying it manually. To this purpose I configured a [Cloud Build trigger](../../cloud-build-triggers/README.md) that runs the steps defined in this package's `cloudbuild.yaml` on every code push, on every branch.
 
 ## Test
 
@@ -99,3 +101,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -data-binary "@./assets/fakes/incident.json"
 ```
+
+## Documentation
+
+API docs available at `$WEBHOOKS_URL/docs`.

@@ -1,4 +1,5 @@
 import Wreck from '@hapi/wreck'
+import type Hapi from '@hapi/hapi'
 import makeDebug from 'debug'
 
 const debug = makeDebug('webhooks/routes/webpagetest/utils')
@@ -39,4 +40,24 @@ export const testerIps = async () => {
 
 export const AUTH_STRATEGY = {
   allow_pingbacks_from_webpagetest_api: 'webpagetest-pingback'
+}
+
+/**
+ * Create a **problem details** object, as defined in RFC 7807.
+ *
+ * See also:
+ * - {@link https://datatracker.ietf.org/doc/html/rfc7807}
+ */
+export const problemDetails = (_request: Hapi.Request, error: any) => {
+  // console.log('🚀 error', error)
+
+  const invalid_params = error.details.flatMap((detail: any) => {
+    return { name: detail.context.label, reason: error.message }
+  })
+
+  return {
+    title: "Your request parameters didn't validate.",
+    type: 'https://example.net/validation-error',
+    invalid_params
+  }
 }
