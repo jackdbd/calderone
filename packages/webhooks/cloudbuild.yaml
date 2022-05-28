@@ -17,7 +17,7 @@ steps:
     args: ['install']
   - name: node:${_NODE_VERSION}
     entrypoint: npm
-    args: ['audit', '--audit-level=moderate']
+    args: ['audit', '--audit-level', 'high']
   - name: gcr.io/k8s-skaffold/pack:${_PACK_VERSION}
     args: ['build', "${_IMAGE}", '--path', '.', '--builder', 'gcr.io/buildpacks/builder:v1']
   - name: gcr.io/cloud-builders/docker
