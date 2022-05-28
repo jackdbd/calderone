@@ -1,0 +1,10 @@
+coverage/*
+node_modules/*
+*dist/*
+*lib/*
+*.d.ts
+*.min.js
+*.d.ts.map
+*.js.map
+*package-lock.json
+*tsbuildinfo
