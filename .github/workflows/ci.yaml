@@ -26,19 +26,33 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - name: 🛂 Authenticate to Google Cloud
-        uses: google-github-actions/auth@v0
-        with:
-          credentials_json: ${{ secrets.SA_GITHUB_WORKFLOWS }}
-      - name: ⚙️ Set up gcloud
-        uses: google-github-actions/setup-gcloud@v0
-      - name: ⚡ Trigger build on Cloud Build
-        run: gcloud info
-        # reminder for YAML single-line and multi-line strings
-        # https://stackoverflow.com/a/3790497/3036129
-        # run: >
-        #   gcloud builds submit
-        #   --config cloudbuild.yaml
-        #   --project ${{ secrets.GCP_PROJECT_ID }}
-        #   --substitutions _NODE_VERSION=${{ matrix.node }}
-        #   --timeout 9m59s
+      # TODO: fix trigger for Cloud Build. DO NOT build/test here.
+      - name: ⚙️ Install dependencies
+        run: npm ci
+      - name: 🔧 Build packages
+        run: npm run build:ts
+      # - name: 🛂 Authenticate to Google Cloud
+      #   uses: google-github-actions/auth@v0
+      #   with:
+      #     credentials_json: ${{ secrets.SA_GITHUB_WORKFLOWS }}
+      # - name: ⚙️ Set up gcloud
+      #   uses: google-github-actions/setup-gcloud@v0
+      # - run: gcloud info
+      # - name: 🔑 Refresh access token for Artifact Registry
+      #   run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
+      # - name: ⬆️ Upload test coverage to Codecov
+      #   # https://github.com/marketplace/actions/codecov
+      #   uses: codecov/codecov-action@v3.1.0
+      #   with:
+      #     fail_ci_if_error: true
+      #     verbose: true
+      # TODO: fix trigger for Cloud Build. DO build on Cloud Build.
+      # - name: ⚡ Trigger build on Cloud Build
+      #   # reminder for YAML single-line and multi-line strings
+      #   # https://stackoverflow.com/a/3790497/3036129
+      #   run: >
+      #     gcloud builds submit
+      #     --config cloudbuild.yaml
+      #     --project ${{ secrets.GCP_PROJECT_ID }}
+      #     --substitutions _NODE_VERSION=${{ matrix.node }}
+      #     --timeout 9m59s
