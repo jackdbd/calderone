@@ -15,7 +15,10 @@ jobs:
         os: [ubuntu-latest]
         # pick at least one Node.js `lts` version and the `current` version (i.e. the latest Node.js version available)
         # https://nodejs.org/en/
-        node: ['16.15.1', 'current']
+        # node: ['16.15.1', 'current']
+        # it seems Cloud Build complains with HTTP 429 if I trigger too many builds
+        # Quota exceeded for quota metric 'Build and Operation Get requests'
+        node: ['16.15.1']
     steps:
       - name: 🛎️ Check out repo
         uses: actions/checkout@v3
@@ -26,7 +29,7 @@ jobs:
       - name: 🛂 Authenticate to Google Cloud
         uses: google-github-actions/auth@v0
         with:
-          credentials_json: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
+          credentials_json: ${{ secrets.SA_GITHUB_WORKFLOWS }}
       - name: ⚙️ Set up gcloud
         uses: google-github-actions/setup-gcloud@v0
       - name: ☁️ Trigger build on Cloud Build

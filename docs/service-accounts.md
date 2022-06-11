@@ -55,6 +55,15 @@ gcloud iam service-accounts create sa-firestore-viewer-test \
   --description "SA that I use in firestore-utils tests"
 ```
 
+### sa-github-workflows
+
+Create a service account to use in GitHub Workflows when submitting a build to Cloud Build.
+
+```sh
+gcloud iam service-accounts create sa-github-workflows \
+  --display-name "GitHub Workflows SA"
+```
+
 ### sa-secret-manager-admin-test
 
 Service account that I use in [secret-manager-utils](../packages/secret-manager-utils/README.md) tests.
