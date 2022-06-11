@@ -5,6 +5,16 @@
 
 Factory functions that return HTML-formatted strings to use in the `text` field of the [sendMessage](https://core.telegram.org/bots/api#sendmessage) method of the Telegram Bot API.
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details><summary>Table of Contents</summary>
+
+- [Installation](#installation)
+- [API](#api)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+</details>
+
 ## Installation
 
 ```sh
