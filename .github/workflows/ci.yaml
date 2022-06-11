@@ -30,7 +30,7 @@ jobs:
       - name: ⚙️ Install dependencies
         run: npm ci
       - name: 🔧 Build packages
-        run: npm run build:ts
+        run: npm run build
       # - name: ⬆️ Upload test coverage to Codecov
       #   # https://github.com/marketplace/actions/codecov
       #   uses: codecov/codecov-action@v3.1.0

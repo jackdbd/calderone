@@ -37,7 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          build-command: 'npm run build:ts'
+          build-command: 'npm run build'
           comment-report: true
           display-size: 'uncompressed,gzip'
           hide-files: '*.{css,js,ts}.map'

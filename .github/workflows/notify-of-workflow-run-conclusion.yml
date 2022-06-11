@@ -2,7 +2,7 @@ name: 'Notify of workflow run conclusion'
 
 on:
   workflow_run:
-    workflows: ['CI', 'release', 'size-report']
+    workflows: ['CI', 'release-to-artifact-registry', 'size-report']
     types: [completed]
 
 jobs:
