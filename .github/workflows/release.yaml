@@ -14,30 +14,29 @@ jobs:
         os: [ubuntu-latest]
         node: ['17.9.0']
     steps:
-      - name: 🛎️ Checkout repo
+      - name: 🛎️ Check out repo
         uses: actions/checkout@v3
-      - name: ⚙️ Setup Node.js ${{ matrix.node }}
+      - name: ⚙️ Set up Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - id: 'auth'
-        name: Authenticate to Google Cloud
+      - name: 🛂 Authenticate to Google Cloud
         # https://github.com/google-github-actions/auth
         uses: google-github-actions/auth@v0
         with:
           credentials_json: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
-      - name: Set up gcloud
+      - name: ⚙️ Set up gcloud
         # https://github.com/marketplace/actions/set-up-gcloud-cloud-sdk-environment
         uses: google-github-actions/setup-gcloud@v0
       - run: gcloud info
-      - name: ⚙️ Refresh access token for Artifact Registry
+      - name: 🔑 Refresh access token for Artifact Registry
         run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
       # - run: npm cache clean --force
-      - name: ⚙️ Install dependencies
+      - name: ⬇️ Install dependencies
         run: npm ci
       - name: 🔧 Build all libraries
         run: npm run build:libs
-      - name: 🚀 Copy dotfiles to each package root
+      - name: 📋 Copy dotfiles to each package root
         run: npm run copy-dotfiles
       - name: 🚀 Release to Artifact Registry with multi-semantic-release
         env:
