@@ -34,7 +34,7 @@ You can keep this `.npmrc` under source control because it is the **per-project*
 You can refresh the tokens using this [google-artifactregistry-auth](https://github.com/GoogleCloudPlatform/artifact-registry-npm-tools#readme) command from the monorepo root:
 
 ```sh
-npx google-artifactregistry-auth --repo-config .npmrc
+npx google-artifactregistry-auth --repo-config ./config/repo-config-npmrc-artifact-registry
 ```
 
 ### List of npm packages published

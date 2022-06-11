@@ -30,7 +30,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v0
       - run: gcloud info
       - name: 🔑 Refresh access token for Artifact Registry
-        run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
+        run: npx google-artifactregistry-auth --repo-config ./config/repo-config-npmrc-artifact-registry --verbose
       - name: 📝 Package size report
         # https://github.com/marketplace/actions/pkg-size-action
         uses: pkg-size/action@v1

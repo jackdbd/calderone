@@ -22,7 +22,10 @@ Refresh the access tokens for all npm registries. This is required because I hos
 The [project-config](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc#per-project-config-file) `.npmrc` is tracked in this repository. The [user-config](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc#per-user-config-file) `.npmrc` is not tracked in git because it contains the access tokens.
 
 ```sh
-npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc --verbose
+npx google-artifactregistry-auth \
+  --repo-config ./config/repo-config-npmrc-artifact-registry \
+  --credential-config ~/.npmrc \
+  --verbose
 ```
 
 Install all dependencies from npm.js and Artifact Registry and setup git hooks with [husky](https://typicode.github.io/husky/):

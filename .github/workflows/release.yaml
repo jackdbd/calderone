@@ -30,7 +30,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v0
       - run: gcloud info
       - name: 🔑 Refresh access token for Artifact Registry
-        run: npx google-artifactregistry-auth --repo-config .npmrc --verbose
+        run: npx google-artifactregistry-auth --repo-config ./config/repo-config-npmrc-artifact-registry --verbose
       # - run: npm cache clean --force
       - name: ⬇️ Install dependencies
         run: npm ci

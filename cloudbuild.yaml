@@ -13,7 +13,7 @@ steps:
   - id: '🔑 Refresh Artifact Registry access token'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npx
-    args: ['google-artifactregistry-auth', '--repo-config=.npmrc']
+    args: ['google-artifactregistry-auth', '--repo-config=./config/repo-config-npmrc-artifact-registry']
 
   - id: '⬇️ Install dependencies'
     name: 'docker.io/library/node:${_NODE_VERSION}'
