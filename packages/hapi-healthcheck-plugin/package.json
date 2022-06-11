@@ -2,7 +2,11 @@
   "name": "@jackdbd/hapi-healthcheck-plugin",
   "version": "1.0.2",
   "description": "Hapi plugin for a healthcheck",
-  "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
+  "author": {
+    "name": "Giacomo Debidda",
+    "email": "giacomo@giacomodebidda.com",
+    "url": "https://giacomodebidda.com/"
+  },
   "license": "MIT",
   "private": false,
   "keywords": [

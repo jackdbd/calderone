@@ -2,7 +2,11 @@
   "name": "@jackdbd/hapi-ip-whitelist-plugin",
   "version": "1.0.2",
   "description": "Hapi plugin to allow an IP whitelist",
-  "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
+  "author": {
+    "name": "Giacomo Debidda",
+    "email": "giacomo@giacomodebidda.com",
+    "url": "https://giacomodebidda.com/"
+  },
   "license": "MIT",
   "private": false,
   "keywords": [

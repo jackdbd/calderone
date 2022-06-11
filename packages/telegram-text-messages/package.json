@@ -2,7 +2,11 @@
   "name": "@jackdbd/telegram-text-messages",
   "version": "1.0.0",
   "description": "Factory functions that return HTML-formatted strings to use in Telegram messages",
-  "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
+  "author": {
+    "name": "Giacomo Debidda",
+    "email": "giacomo@giacomodebidda.com",
+    "url": "https://giacomodebidda.com/"
+  },
   "license": "MIT",
   "private": false,
   "keywords": [
