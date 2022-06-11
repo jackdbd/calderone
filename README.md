@@ -1,6 +1,9 @@
 # Calderone
 
-![Release workflow](https://github.com/jackdbd/calderone/actions/workflows/release.yaml/badge.svg) [![codecov](https://codecov.io/gh/jackdbd/calderone/branch/main/graph/badge.svg)](https://codecov.io/gh/jackdbd/calderone) [![CodeFactor](https://www.codefactor.io/repository/github/jackdbd/calderone/badge)](https://www.codefactor.io/repository/github/jackdbd/calderone)
+![CI workflow](https://github.com/jackdbd/calderone/actions/workflows/ci.yaml/badge.svg)
+![Release workflow](https://github.com/jackdbd/calderone/actions/workflows/release.yaml/badge.svg)
+[![codecov](https://codecov.io/gh/jackdbd/calderone/branch/main/graph/badge.svg?token=P5uJ3doRer)](https://codecov.io/gh/jackdbd/calderone)
+[![CodeFactor](https://www.codefactor.io/repository/github/jackdbd/calderone/badge)](https://www.codefactor.io/repository/github/jackdbd/calderone)
 
 Monorepo that I use for a bunch of stuff, managed with [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces/) (requires npm 7.x or later).
 

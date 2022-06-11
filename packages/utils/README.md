@@ -1,5 +1,8 @@
 # @jackdbd/utils
 
+[![npm version](https://badge.fury.io/js/@jackdbd%2Futils.svg)](https://badge.fury.io/js/@jackdbd%2Futils)
+![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Futils)
+
 Miscellaneous utility functions.
 
 ## Installation
