@@ -69,11 +69,11 @@ steps:
   #   entrypoint: npm
   #   args: ['run', 'test:ci', '-w=packages/notifications']
 
-  - id: '🔍 Test library plausible-client'
-    name: 'docker.io/library/node:${_NODE_VERSION}'
-    entrypoint: npm
-    args: ['run', 'test:ci', '-w=packages/plausible-client']
-    secretEnv: ['PLAUSIBLE']
+  # - id: '🔍 Test library plausible-client'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['run', 'test:ci', '-w=packages/plausible-client']
+  #   secretEnv: ['PLAUSIBLE']
 
   - id: '🔍 Test library schemas'
     name: 'docker.io/library/node:${_NODE_VERSION}'
@@ -113,8 +113,8 @@ steps:
 
 availableSecrets:
   secretManager:
-  - versionName: projects/${PROJECT_ID}/secrets/PLAUSIBLE/versions/latest
-    env: 'PLAUSIBLE'
+  # - versionName: projects/${PROJECT_ID}/secrets/PLAUSIBLE/versions/latest
+  #   env: 'PLAUSIBLE'
   - versionName: projects/${PROJECT_ID}/secrets/TELEGRAM/versions/latest
     env: 'TELEGRAM'
 

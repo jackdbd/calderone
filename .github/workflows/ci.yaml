@@ -32,12 +32,13 @@ jobs:
           credentials_json: ${{ secrets.SA_GITHUB_WORKFLOWS }}
       - name: ⚙️ Set up gcloud
         uses: google-github-actions/setup-gcloud@v0
-      - name: ☁️ Trigger build on Cloud Build
+      - name: ⚡ Trigger build on Cloud Build
+        run: gcloud info
         # reminder for YAML single-line and multi-line strings
         # https://stackoverflow.com/a/3790497/3036129
-        run: >
-          gcloud builds submit
-          --config cloudbuild.yaml
-          --project ${{ secrets.GCP_PROJECT_ID }}
-          --substitutions _NODE_VERSION=${{ matrix.node }}
-          --timeout 4m59s
+        # run: >
+        #   gcloud builds submit
+        #   --config cloudbuild.yaml
+        #   --project ${{ secrets.GCP_PROJECT_ID }}
+        #   --substitutions _NODE_VERSION=${{ matrix.node }}
+        #   --timeout 9m59s

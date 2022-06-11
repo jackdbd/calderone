@@ -1,0 +1,54 @@
+name: 'Notify of workflow run conclusion'
+
+on:
+  workflow_run:
+    workflows: ['CI', 'release', 'size-report']
+    types: [completed]
+
+jobs:
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - name: Dump TELEGRAM to JSON
+        run: echo '${{ toJSON(secrets.TELEGRAM) }}'
+      - name: Dump TELEGRAM from JSON
+        run: echo '${{ fromJSON(secrets.TELEGRAM) }}'
+      - name: 💬 Notify Telegram of workflow run FAILURE
+        # https://github.com/appleboy/telegram-action
+        uses: appleboy/telegram-action@v0.1.1
+        # This is a container action, so it must run on Linux (it would fail if
+        # `runs-on` is either `windows-latest` or `macOS-latest`)
+        # https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action#introduction
+        with:
+          to: ${{ toJSON(secrets.TELEGRAM) }}.chat_id
+          token: ${{ toJSON(secrets.TELEGRAM) }}.token
+          format: html
+          disable_web_page_preview: true
+          # https://core.telegram.org/bots/api#formatting-options
+          message: |
+            <b>⚠️ GitHub workflow ${{ github.event.workflow_run.name }} in ${{ github.event.repository.name }} failed 💔</b>
+
+            Repository: <a href="${{ github.event.repository.html_url }}">${{ github.event.repository.full_name }}</a>
+
+            Run ID: <a href="${{ github.event.workflow_run.html_url }}">${{ github.event.workflow_run.id }}</a>
+
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      # - name: Dump github.event
+      #   run: echo '${{ toJSON(github.event) }}'
+      - name: 💬 Notify Telegram of workflow run SUCCESS
+        uses: appleboy/telegram-action@v0.1.1
+        with:
+          to: ${{ toJSON(secrets.TELEGRAM) }}.chat_id
+          token: ${{ toJSON(secrets.TELEGRAM) }}.token
+          format: html
+          disable_web_page_preview: true
+          message: |
+            <b>✅ GitHub workflow ${{ github.event.workflow_run.name }} in ${{ github.event.repository.name }} ran successfully 💖</b>
+
+            Repository: <a href="${{ github.event.repository.html_url }}">${{ github.event.repository.full_name }}</a>
+
+            Run ID: <a href="${{ github.event.workflow_run.html_url }}">${{ github.event.workflow_run.id }}</a>
