@@ -9,7 +9,7 @@ steps:
     # name: node:${_NODE_VERSION}
     entrypoint: npx
     args: ['google-artifactregistry-auth', '--repo-config=.npmrc']
-  - id: '⚙️ Install dependencies'
+  - id: '⬇️ Install dependencies'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
     args: ['ci']
@@ -17,7 +17,8 @@ steps:
   - id: '🛡️ Audit dependencies'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
-    args: ['audit', '--audit-level=moderate']
+    # https://docs.npmjs.com/cli/v8/commands/npm-audit#audit-level
+    args: ['audit', '--audit-level', 'high']
   # BUILD ######################################################################
   - id: '🔧 Build libraries'
     name: 'docker.io/library/node:${_NODE_VERSION}'
@@ -52,6 +53,10 @@ steps:
   #   name: 'docker.io/library/node:${_NODE_VERSION}'
   #   entrypoint: npm
   #   args: ['run', 'test:ci', '-w=packages/notifications']
+  - id: '🔍 Test library plausible-client'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['run', 'test:ci', '-w=packages/plausible-client']
   - id: '🔍 Test library schemas'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
