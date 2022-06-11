@@ -6,7 +6,9 @@ See [Service Accounts predefined IAM roles](https://cloud.google.com/iam/docs/un
 
 ## Create service accounts
 
-Create a service account that can push to Artifact Registry.
+### sa-artifact-registry-writer
+
+Create a service account that can publish to Artifact Registry.
 
 ```sh
 gcloud iam service-accounts create sa-artifact-registry-writer \
@@ -57,7 +59,7 @@ gcloud iam service-accounts create sa-firestore-viewer-test \
 
 ### sa-github-workflows
 
-Create a service account to use in GitHub Workflows when submitting a build to Cloud Build.
+Create a service account to use in GitHub Workflows. It can read packages hosted on my private npm repository on Artifact Registry, and it can submit builds to Cloud Build.
 
 ```sh
 gcloud iam service-accounts create sa-github-workflows \
