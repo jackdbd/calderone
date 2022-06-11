@@ -65,6 +65,16 @@ export const createPriceWithTaxBehavior = async ({
     ...original_price
   } = price
 
+  let custom_unit_amount = undefined
+  if (price.custom_unit_amount) {
+    custom_unit_amount = {
+      enabled: true,
+      maximum: price.custom_unit_amount.maximum || undefined,
+      minimum: price.custom_unit_amount.minimum || undefined,
+      preset: price.custom_unit_amount.preset || undefined
+    }
+  }
+
   let price_recurring = undefined
   if (price.recurring) {
     const aggregate_usage = price.recurring.aggregate_usage || undefined
@@ -86,6 +96,7 @@ export const createPriceWithTaxBehavior = async ({
 
   const new_price = await stripe.prices.create({
     ...original_price,
+    custom_unit_amount,
     metadata,
     nickname: nickname || `nickname of original price ${price.id}`,
     product: product_id,
