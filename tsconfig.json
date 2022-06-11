@@ -44,6 +44,9 @@
     },
     {
       "path": "./packages/hapi-ip-whitelist-plugin/tsconfig.json"
+    },
+    {
+      "path": "./packages/plausible-client/tsconfig.json"
     }
   ]
 }

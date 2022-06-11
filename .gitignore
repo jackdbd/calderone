@@ -30,6 +30,10 @@ packages/scripts/protos/
 # SQLite database used in some Datasette example
 fixtures.db
 
+# eleventy-fetch cache
+packages/**/.cache
+packages/**/.cache-tests
+
 # These files are copied to each monorepo package just before triggering the CI
 # on Cloud Build
 packages/**/.gcloudignore

@@ -87,6 +87,7 @@ const projects = [
   project('hapi-ip-whitelist-plugin'),
   project('keap-client'),
   project('notifications'),
+  project('plausible-client'),
   project('schemas'),
   project('scripts'),
   project('secret-manager-utils'),

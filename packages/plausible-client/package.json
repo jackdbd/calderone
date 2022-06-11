@@ -1,0 +1,61 @@
+{
+  "name": "@jackdbd/plausible-client",
+  "version": "0.0.0",
+  "description": "",
+  "author": {
+    "name": "Giacomo Debidda",
+    "email": "giacomo@giacomodebidda.com",
+    "url": "https://giacomodebidda.com/"
+  },
+  "license": "MIT",
+  "private": true,
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackdbd/calderone"
+  },
+  "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/plausible-client#readme",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "type": "module",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "exports": {
+    ".": "./lib/index.js",
+    "./stats": "./lib/stats/index.js",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "stats": [
+        "./lib/stats/index.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "../../scripts/clean.mjs",
+    "copy-dotfiles": "../../scripts/copy-dotfiles.mjs",
+    "docs:help": "typedoc --showConfig",
+    "docs:ae": "api-extractor run --config ./api-extractor.json --local --verbose",
+    "docs:typedoc": "../../scripts/docs-typedoc.mjs",
+    "docs": "run-s docs:ae docs:typedoc --print-label",
+    "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
+    "lint": "eslint --config ../../config/eslint.cjs",
+    "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
+    "precommit": "lint-staged --config ../../config/lint-staged.cjs",
+    "publish:npm": "../../scripts/publish/npm.mjs",
+    "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
+    "test": "../../scripts/test.mjs",
+    "test:ci": "../../scripts/test.mjs --ci",
+    "test:watch": "run-p \"build -- --watch\" \"test -- --watch\""
+  },
+  "dependencies": {
+    "@11ty/eleventy-fetch": "^3.0.0",
+    "joi": "^17.6.0"
+  },
+  "peerDependencies": {},
+  "devDependencies": {}
+}
