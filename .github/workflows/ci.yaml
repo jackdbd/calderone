@@ -13,8 +13,10 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: ['17.9.0']
-        # node: ['16.15.0', '17.9.0']
+        # pick at least one Node.js `lts` version and the `current` version (i.e. the latest Node.js version available)
+        # https://nodejs.org/en/
+        # node: ['16.15.1', 'current']
+        node: ['lts', 'current']
     steps:
       - name: 🛎️ Check out repo
         uses: actions/checkout@v3
@@ -29,4 +31,10 @@ jobs:
       - name: ⚙️ Set up gcloud
         uses: google-github-actions/setup-gcloud@v0
       - name: ☁️ Trigger build on Cloud Build
-        run: gcloud builds submit --config cloudbuild.yaml --project ${{ secrets.GCP_PROJECT_ID }}
+        # reminder for YAML single-line and multi-line strings
+        # https://stackoverflow.com/a/3790497/3036129
+        run: >
+          gcloud builds submit
+          --config cloudbuild.yaml
+          --project ${{ secrets.GCP_PROJECT_ID }}
+          --substitutions _NODE_VERSION=${{ matrix.node }}

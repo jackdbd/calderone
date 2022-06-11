@@ -19,8 +19,7 @@
   },
   "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/PACKAGE_NAME#readme",
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=7.0.0"
+    "node": ">=16.15.0"
   },
   "type": "module",
   "module": "lib/index.js",

@@ -14,7 +14,7 @@
     "url": "https://github.com/jackdbd/calderone"
   },
   "engines": {
-    "node": "17.9.0"
+    "node": ">=16.15.0"
   },
   "type": "module",
   "module": "main.js",

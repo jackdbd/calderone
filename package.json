@@ -33,6 +33,8 @@
     "build:ts": "npm run build:ts --workspaces --if-present",
     "clean": "npm run clean --workspaces --if-present",
     "cloudbuild": "gcloud builds submit . --config cloudbuild.yaml --project $GCP_PROJECT_ID --async",
+    "cloudbuild:node@17": "gcloud builds submit . --config cloudbuild.yaml --project $GCP_PROJECT_ID --async --substitutions=_NODE_VERSION=\"17.9.0\"",
+    "cloudbuild:node@latest": "gcloud builds submit . --config cloudbuild.yaml --project $GCP_PROJECT_ID --async --substitutions=_NODE_VERSION=\"latest\"",
     "copy-dotfiles": "npm run copy-dotfiles --workspaces --if-present",
     "dev:scripts": "run-p build:libs:watch build:scripts:watch",
     "docs": "npm run docs --workspaces --if-present",
