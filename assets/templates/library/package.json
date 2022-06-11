@@ -2,13 +2,20 @@
   "name": "@jackdbd/PACKAGE_NAME",
   "version": "0.0.0",
   "description": "",
-  "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
+  "author": {
+    "name": "Giacomo Debidda",
+    "email": "giacomo@giacomodebidda.com",
+    "url": "https://giacomodebidda.com/"
+  },
   "license": "MIT",
   "private": true,
   "keywords": [],
   "repository": {
     "type": "git",
     "url": "https://github.com/jackdbd/calderone"
+  },
+  "bugs": {
+    "url": "https://github.com/jackdbd/calderone/issues?q=is%3Aissue+label%3Abug"
   },
   "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/PACKAGE_NAME#readme",
   "engines": {

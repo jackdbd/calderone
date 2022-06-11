@@ -8,21 +8,27 @@ import 'zx/globals'
 
 const scope = 'jackdbd'
 
+const cg = chalk.green
+const cr = chalk.red
+const cy = chalk.yellow
+
 const unscoped_name = await question(
-  chalk.yellow(
-    `Type an unscoped name for your package (i.e. my-package instead of @${scope}/my-package) `
-  )
+  `${cy('Type the')} ${cy.bold('unscoped')} ${cy(
+    ` name of your new package (i.e. my-package, ${cy.bold('not')} ${cy(
+      `@${scope}/my-package)`
+    )} `
+  )}`
 )
 
 if (unscoped_name === undefined || unscoped_name === '') {
-  throw new Error('Cannot create package. Package name not specified')
+  throw new Error(cr(`Cannot create package. Package name not specified`))
 }
 
 const choices = ['app', 'lib']
 const package_type = await question(
-  chalk.yellow(
-    `Is @${scope}/${unscoped_name} a library or an application? (lib: library, app: application) `
-  ),
+  `${cy(`What kind of package is @${scope}/${unscoped_name}? Type`)} ${cy.bold(
+    'app'
+  )} ${cy('for an application,')} ${cy.bold('lib')} ${cy('for a library')} `,
   {
     choices
   }
@@ -38,7 +44,7 @@ if (package_type === 'app') {
   source = path.join(monorepo_root, 'assets', 'templates', 'library')
 } else {
   throw new Error(
-    `Cannot create package. You must choose one of: ${choices.join(', ')}`
+    cr(`Cannot create package. You must choose one of: ${choices.join(', ')}`)
   )
 }
 
@@ -56,7 +62,21 @@ await $`npm run build -w packages/${unscoped_name}`
 if (package_type === 'app') {
   await $`sed -i 's/PACKAGE_NAME/${unscoped_name}/g' ${package_root}/src/main.ts`
   await $`npm run start:development -w packages/${unscoped_name}`
+
+  console.log(
+    cg(`Application @${scope}/${unscoped_name} created at ${package_root}`)
+  )
 } else if (choices === 'lib') {
   await $`sed -i 's/PACKAGE_NAME/${unscoped_name}/g' ${package_root}/src/index.ts`
   await $`node ${package_root}/lib/index.js`
+
+  console.log(
+    cg(`Library @${scope}/${unscoped_name} created at ${package_root}`)
+  )
+  console.log(`You can build ${unscoped_name} with the following command:`)
+  console.log(`npm run build -w packages/${unscoped_name}`)
+  console.log(
+    `Add ${unscoped_name} to your Jest config, the run the tests with the following command:`
+  )
+  console.log(`npm run test -w packages/${unscoped_name}`)
 }
