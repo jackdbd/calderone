@@ -62,10 +62,11 @@
     "test:ci": "../../scripts/test.mjs --ci",
     "test:watch": "npm run test -- --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@jackdbd/utils": "^1.1.0"
+  },
   "peerDependencies": {
     "@google-cloud/firestore": ">=5.0.0",
-    "@jackdbd/utils": ">=1.1.0",
     "debug": ">=4.0.0"
   },
   "devDependencies": {}
