@@ -42,6 +42,6 @@ jobs:
       - name: 🚀 Release to Artifact Registry with multi-semantic-release
         env:
           # The github token must allow to push to this repository.
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_GITHUB_TOKEN }}
           GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
         run: npm run release
