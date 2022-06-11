@@ -75,51 +75,12 @@ Run all tests on all packages:
 npm run test
 ```
 
-## Publish
-
-### publish to Artifact Registry
-
-Each package is published to Artifact Registry automatically when pull requests get merged into the `main` branch, thanks to the [release.yaml](./.github/workflows/release.yaml) GitHub workflow.
-
-If that GitHub workflow should not work, you can also publish using this script:
-
-```sh
-./scripts/publish/artifact-registry.mjs --package PACKAGE_NAME
-```
-
-### publish to npmjs
-
-The [@semantic-release/npm](https://github.com/semantic-release/npm) plugin does not support publishing to multiple npm registries for [good reasons](https://github.com/semantic-release/npm/issues/69#issuecomment-391114128), so what I do is downloading a npm package **already published** to Artifact Registry, and republish it to npmjs (without altering of course).
-
-I created a script to re-publish some packages that I had already published to my private Artifact Registry:
-
-```sh
-npm run publish:npm
-```
-
 ## Monorepo management
 
-Create a new package in this monorepo using [these templates](./assets/templates/README.md).
+See:
 
-```sh
-./scripts/new-package.mjs
-```
-
-See also the [docs](./docs/README.md) directory.
-
-## Miscellaneous
-
-Lint all packages with eslint:
-
-```sh
-npm run lint
-```
-
-Format all packages with prettier:
-
-```sh
-npm run format
-```
+- [docs](./docs/README.md)
+- [scripts](./scripts/README.md)
 
 ## Applications
 
