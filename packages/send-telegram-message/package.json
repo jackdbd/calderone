@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^3.0.0",
-    "@jackdbd/notifications": "0.0.4"
+    "@jackdbd/notifications": "1.0.0"
   },
   "devDependencies": {}
 }

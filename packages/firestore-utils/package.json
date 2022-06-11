@@ -2,7 +2,11 @@
   "name": "@jackdbd/firestore-utils",
   "version": "1.0.0",
   "description": "Utility functions to work with Firestore",
-  "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
+  "author": {
+    "name": "Giacomo Debidda",
+    "email": "giacomo@giacomodebidda.com",
+    "url": "https://giacomodebidda.com/"
+  },
   "license": "MIT",
   "private": true,
   "keywords": [
@@ -39,13 +43,15 @@
     }
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "run-s 'build:ts' 'build:docs' --print-label",
+    "build:docs": "run-s 'docs:doctoc' 'docs:ae' 'docs:ad' 'docs:typedoc' --print-label",
+    "build:ts": "tsc -p tsconfig.json",
     "clean": "../../scripts/clean.mjs",
     "copy-dotfiles": "../../scripts/copy-dotfiles.mjs",
-    "docs:help": "typedoc --showConfig",
     "docs:ae": "api-extractor run --config ./api-extractor.json --local --verbose",
+    "docs:ad": "api-documenter markdown --input-folder .ae/doc --output-folder docs-ae",
+    "docs:doctoc": "doctoc --github README.md --title '<details><summary>Table of Contents</summary>'",
     "docs:typedoc": "../../scripts/docs-typedoc.mjs",
-    "docs": "run-s docs:ae docs:typedoc --print-label",
     "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
@@ -56,10 +62,11 @@
     "test:ci": "../../scripts/test.mjs --ci",
     "test:watch": "npm run test -- --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@jackdbd/utils": "^1.1.0"
+  },
   "peerDependencies": {
     "@google-cloud/firestore": ">=5.0.0",
-    "@jackdbd/utils": ">=1.0.1",
     "debug": ">=4.0.0"
   },
   "devDependencies": {}

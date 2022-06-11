@@ -39,7 +39,7 @@ export interface Dictionary {
 // Warning: (ae-missing-release-tag) "entriesResolvedFromEnv" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const entriesResolvedFromEnv: (entries: any[], options?: DeployOptions | undefined) => string[];
+export const entriesResolvedFromEnv: (entries: any[], options?: DeployOptions) => string[];
 
 // Warning: (ae-missing-release-tag) "envVarNotFoundInEnv" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -54,7 +54,7 @@ export const fisherYatesShuffle: <T>(array: T[]) => void;
 // Warning: (ae-missing-release-tag) "gcloudArgs" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const gcloudArgs: (config: any, options?: DeployOptions | undefined) => (string | number)[];
+export const gcloudArgs: (config: any, options?: DeployOptions) => (string | number)[];
 
 // Warning: (ae-missing-release-tag) "itDateString" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -178,12 +178,12 @@ export const requiredConfigValueNotSet: (s: string) => string;
 // Warning: (ae-missing-release-tag) "spawnFunctionsFramework" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export const spawnFunctionsFramework: (options?: TestOptions | undefined) => Promise<ChildProcessWithoutNullStreams>;
+export const spawnFunctionsFramework: (options?: TestOptions) => Promise<ChildProcessWithoutNullStreams>;
 
 // Warning: (ae-missing-release-tag) "stringResolvedFromEnv" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const stringResolvedFromEnv: (s: string, options?: DeployOptions | undefined) => string | undefined;
+export const stringResolvedFromEnv: (s: string, options?: DeployOptions) => string | undefined;
 
 // Warning: (ae-missing-release-tag) "Options" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //

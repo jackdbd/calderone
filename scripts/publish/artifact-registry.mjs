@@ -46,7 +46,7 @@ await $`cp ./packages/${pkg}/CHANGELOG.md ${tmp_dir}/CHANGELOG.md`
 await $`cp ./packages/${pkg}/README.md ${tmp_dir}/README.md`
 await $`cp -r ./packages/${pkg}/lib ${tmp_dir}/lib`
 
-await $`npx google-artifactregistry-auth --repo-config .npmrc --credential-config ~/.npmrc`
+await $`npx google-artifactregistry-auth --repo-config ./config/repo-config-npmrc-artifact-registry --credential-config ~/.npmrc`
 await $`cp .npmrc ${tmp_dir}/.npmrc`
 
 console.log(
