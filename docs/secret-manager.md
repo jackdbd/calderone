@@ -29,6 +29,12 @@ gcloud secrets create PHANTOMBUSTER \
 ```
 
 ```sh
+gcloud secrets create PLAUSIBLE \
+  --data-file './secrets/plausible.json' \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
+```
+
+```sh
 gcloud secrets create REDDIT \
   --data-file './secrets/reddit.json' \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret

@@ -3,7 +3,7 @@ import path from 'node:path'
 import { env } from 'node:process'
 import { PREFIX_API_ERROR } from '../lib/errors.js'
 import { topPages } from '../lib/stats/index.js'
-import { isOnGithub } from '../../checks/lib/environment.js'
+import { isOnCloudBuild, isOnGithub } from '../../checks/lib/environment.js'
 import { monorepoRoot } from '../../utils/lib/path.js'
 
 const TEST_CACHE_DIRECTORY = '.cache-tests'
@@ -36,6 +36,11 @@ describe('topPages', () => {
   it('returns some results from the Plausible API', async () => {
     let json
     if (isOnGithub(env)) {
+      // we read a secret from GitHub and expose it as environment variable
+      json = env.PLAUSIBLE
+    }
+    if (isOnCloudBuild(env)) {
+      // we read a secret from Secret Manager and expose it as environment variable
       json = env.PLAUSIBLE
     } else {
       const json_path = path.join(monorepoRoot(), 'secrets', 'plausible.json')
