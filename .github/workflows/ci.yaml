@@ -15,8 +15,7 @@ jobs:
         os: [ubuntu-latest]
         # pick at least one Node.js `lts` version and the `current` version (i.e. the latest Node.js version available)
         # https://nodejs.org/en/
-        # node: ['16.15.1', 'current']
-        node: ['lts', 'current']
+        node: ['16.15.1', 'current']
     steps:
       - name: 🛎️ Check out repo
         uses: actions/checkout@v3
@@ -38,3 +37,4 @@ jobs:
           --config cloudbuild.yaml
           --project ${{ secrets.GCP_PROJECT_ID }}
           --substitutions _NODE_VERSION=${{ matrix.node }}
+          --timeout 4m59s
