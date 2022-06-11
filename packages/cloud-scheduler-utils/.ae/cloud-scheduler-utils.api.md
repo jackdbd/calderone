@@ -29,7 +29,7 @@ export const deleteJob: ({ cloud_scheduler, location_id, name, project_id }: Del
 // Warning: (ae-missing-release-tag) "randomSchedule" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const randomSchedule: (config?: Config_2 | undefined) => string;
+export const randomSchedule: (config?: Config_2) => string;
 
 // (No @packageDocumentation comment for this package)
 

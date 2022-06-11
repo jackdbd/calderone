@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-entriesResolvedFromEnv: (entries: any[], options?: Options | undefined) => string[]
+entriesResolvedFromEnv: (entries: any[], options?: Options) => string[]
 ```

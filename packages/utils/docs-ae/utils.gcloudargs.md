@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-gcloudArgs: (config: any, options?: Options | undefined) => (string | number)[]
+gcloudArgs: (config: any, options?: Options) => (string | number)[]
 ```

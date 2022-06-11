@@ -10,14 +10,14 @@
 // Warning: (ae-missing-release-tag) "send" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export const sendEmailViaSendGrid: ({ from, html, sendgrid_api_key, subject, to }: Config, options?: Options | undefined) => Promise<SuccessResponse>;
+export const sendEmailViaSendGrid: ({ from, html, sendgrid_api_key, subject, to }: Config, options?: Options) => Promise<SuccessResponse>;
 
 // Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "Options" needs to be exported by the entry point index.d.ts
 // Warning: (ae-missing-release-tag) "send" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
-export const sendTelegramMessage: ({ chat_id, text, token }: Config_2, options?: Options_2 | undefined) => Promise<{
+export const sendTelegramMessage: ({ chat_id, text, token }: Config_2, options?: Options_2) => Promise<{
     delivered: boolean;
     message: string;
     delivered_at?: undefined;

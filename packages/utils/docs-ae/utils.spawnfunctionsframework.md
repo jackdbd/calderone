@@ -11,5 +11,5 @@ See also: - \[Integration tests (Cloud Functions docs)\](https://cloud.google.co
 <b>Signature:</b>
 
 ```typescript
-spawnFunctionsFramework: (options?: Options | undefined) => Promise<ChildProcessWithoutNullStreams>
+spawnFunctionsFramework: (options?: Options) => Promise<ChildProcessWithoutNullStreams>
 ```

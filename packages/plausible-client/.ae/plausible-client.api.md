@@ -10,6 +10,6 @@
 // Warning: (ae-missing-release-tag) "topPages" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const topPages: (config: Config, options?: Options | undefined) => Promise<StatsAPIResult[]>;
+export const topPages: (config: Config, options?: Options) => Promise<StatsAPIResult[]>;
 
 ```

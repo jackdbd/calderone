@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-randomSchedule: (config?: Config | undefined) => string
+randomSchedule: (config?: Config) => string
 ```

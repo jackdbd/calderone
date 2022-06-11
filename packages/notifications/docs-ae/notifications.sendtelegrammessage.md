@@ -11,7 +11,7 @@ https://core.telegram.org/bots/api\#sendmessage
 <b>Signature:</b>
 
 ```typescript
-send: ({ chat_id, text, token }: Config, options?: Options | undefined) => Promise<{
+send: ({ chat_id, text, token }: Config, options?: Options) => Promise<{
     delivered: boolean;
     message: string;
     delivered_at?: undefined;

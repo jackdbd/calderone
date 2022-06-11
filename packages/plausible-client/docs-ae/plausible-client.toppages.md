@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-topPages: (config: Config, options?: Options | undefined) => Promise<import("./interfaces").StatsAPIResult[]>
+topPages: (config: Config, options?: Options) => Promise<import("./interfaces").StatsAPIResult[]>
 ```

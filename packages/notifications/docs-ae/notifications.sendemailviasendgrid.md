@@ -11,5 +11,5 @@ https://docs.sendgrid.com/api-reference/mail-send/mail-send\#body
 <b>Signature:</b>
 
 ```typescript
-send: ({ from, html, sendgrid_api_key, subject, to }: Config, options?: Options | undefined) => Promise<SuccessResponse>
+send: ({ from, html, sendgrid_api_key, subject, to }: Config, options?: Options) => Promise<SuccessResponse>
 ```

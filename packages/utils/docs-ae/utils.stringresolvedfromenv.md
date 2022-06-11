@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-stringResolvedFromEnv: (s: string, options?: Options | undefined) => string | undefined
+stringResolvedFromEnv: (s: string, options?: Options) => string | undefined
 ```

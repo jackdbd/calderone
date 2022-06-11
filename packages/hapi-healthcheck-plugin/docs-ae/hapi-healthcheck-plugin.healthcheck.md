@@ -10,7 +10,7 @@
 healthcheck: {
     multiple: boolean;
     name: string;
-    register: (server: Hapi.Server, options?: Options | undefined) => Promise<void>;
+    register: (server: Hapi.Server, options?: Options) => Promise<void>;
     requirements: {
         hapi: string;
     };
