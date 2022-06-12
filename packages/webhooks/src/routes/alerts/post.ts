@@ -2,6 +2,7 @@ import Boom from '@hapi/boom'
 import type Hapi from '@hapi/hapi'
 import { sendTelegramMessage } from '@jackdbd/notifications'
 import { operationListText } from '@jackdbd/telegram-text-messages'
+// import Joi from 'joi'
 
 interface Config {
   service_name: string
@@ -14,6 +15,21 @@ interface Config {
 // example in python
 // https://gist.github.com/tschieggm/7604940
 
+// const payload_schema = Joi.object()
+//   .keys({
+//     incident: Joi.object()
+//       .keys({
+//         summary: Joi.string().required(),
+//         url: Joi.string().required(),
+//         policy_name: Joi.string().required(),
+//         condition_name: Joi.string().required()
+//       })
+//       .required()
+//   })
+//   .required()
+
+// const payload_schema = Joi.object().required()
+
 export const alertsPost = ({
   service_name,
   service_version,
@@ -23,13 +39,22 @@ export const alertsPost = ({
   const config = { method: 'POST', path: '/alerts' }
   return {
     method: config.method,
-    options: { auth: false }, // maybe use basic auth?
+    options: {
+      auth: false, // TODO: use auth? Allow only Google servers to call this route?
+      description: 'webhook target for Cloud Monitoring alerts',
+      notes:
+        'This route catches the webhook events sent by the [Cloud Monitoring API](https://cloud.google.com/monitoring/api/ref_v3/rest)',
+      tags: ['api']
+      // validate: {
+      //   payload: Joi.object({
+      //     incident: Joi.any()
+      //   }),
+      //   query: false
+      // }
+    },
     path: config.path,
     handler: async (request: Hapi.Request, _h: Hapi.ResponseToolkit) => {
       const payload = request.payload as any
-      if (!payload && !payload.incident) {
-        throw Boom.badRequest()
-      }
 
       const incident_summary = payload.incident.summary
       const incident_url = payload.incident.url

@@ -16,10 +16,6 @@ packages/**/lib/
 packages/**/dist/
 packages/**/tsconfig.tsbuildinfo
 
-# patterns to ignore when searching text with ag
-# https://github.com/ggreer/the_silver_searcher
-.ignore
-
 # configuration for the npm registry on Artifact Registry
 packages/**/.npmrc
 

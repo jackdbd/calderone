@@ -16,6 +16,11 @@ import { testerIps } from './routes/webpagetest/utils.js'
 
 const debug = makeDebug('webhooks/config')
 
+/**
+ * Retrieve the configuration for the specified environment.
+ *
+ * The configuration will be a mix of environment variables and secrets.
+ */
 export const config = async (env: NodeJS.ProcessEnv) => {
   if (!env.NODE_ENV) {
     throw new Error('environment variable NODE_ENV not set')
@@ -32,13 +37,10 @@ export const config = async (env: NodeJS.ProcessEnv) => {
   }
 
   const environment = env.NODE_ENV
+  debug(`gather config for environment: ${environment}`)
 
   debug(`pid: ${pid}`)
   debug(`versions: %O`, versions)
-  // debug(`env.HOME: ${env.HOME}`)
-  // debug(`env.HOSTNAME: ${env.HOSTNAME}`)
-
-  debug(`gather config for environment: ${environment}`)
 
   let package_json_path: string
 
@@ -163,6 +165,7 @@ export const config = async (env: NodeJS.ProcessEnv) => {
     service_name,
     service_version,
     sheet_id,
+    sheet_title: doc.title,
     telegram_chat_id,
     telegram_token,
     webpagetest_tester_ips

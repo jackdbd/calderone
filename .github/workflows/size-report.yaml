@@ -38,6 +38,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           build-command: 'npm run build'
-          comment-report: true
+          comment-report: false
           display-size: 'uncompressed,gzip'
+          # hide-files: '{assets,docs}/**'
           hide-files: '*.{css,js,ts}.map'
