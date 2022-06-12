@@ -1,16 +1,17 @@
 declare module '@11ty/eleventy-fetch' {
-  interface FetchOptions {
+  export interface FetchOptions {
     headers?: {
       [string]: string
     }
   }
 
-  interface Options {
+  export interface Options {
     directory?: string
     duration?: string
     fetchOptions?: FetchOptions
     type?: string
     // type?: 'buffer' | 'json' | 'text'
+    verbose?: boolean
   }
 
   async function EleventyFetch<Res>(url: string, options: Options): Promise<Res>

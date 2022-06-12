@@ -6,9 +6,24 @@
 
 Entry point for the documentation of plausible-client.
 
+## Interfaces
+
+|  Interface | Description |
+|  --- | --- |
+|  [AggregateOptions](./plausible-client.aggregateoptions.md) |  |
+|  [AggregateResponse](./plausible-client.aggregateresponse.md) |  |
+|  [BreakdownOptions](./plausible-client.breakdownoptions.md) |  |
+|  [BreakdownResponse](./plausible-client.breakdownresponse.md) |  |
+|  [BreakdownResult](./plausible-client.breakdownresult.md) |  |
+|  [Config](./plausible-client.config.md) |  |
+|  [TimeseriesOptions](./plausible-client.timeseriesoptions.md) |  |
+|  [TimeseriesResponse](./plausible-client.timeseriesresponse.md) |  |
+|  [TimeseriesResult](./plausible-client.timeseriesresult.md) |  |
+
 ## Variables
 
 |  Variable | Description |
 |  --- | --- |
-|  [topPages](./plausible-client.toppages.md) |  |
+|  [makeClient](./plausible-client.makeclient.md) |  |
+|  [makeClientWithCache](./plausible-client.makeclientwithcache.md) |  |
 

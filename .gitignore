@@ -26,9 +26,10 @@ packages/scripts/protos/
 # SQLite database used in some Datasette example
 fixtures.db
 
-# eleventy-fetch cache
+# eleventy-fetch cache (I use different caches for tests and scripts)
 packages/**/.cache
 packages/**/.cache-tests
+.cache-plausible-json-responses
 
 # These files are copied to each monorepo package just before triggering the CI
 # on Cloud Build

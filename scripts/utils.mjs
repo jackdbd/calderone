@@ -2,7 +2,9 @@ import { execSync } from 'node:child_process'
 import fs from 'node:fs'
 import { readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
+import { env } from 'node:process'
 import ini from 'ini'
+import { isOnCloudBuild, isOnGithub } from '@jackdbd/checks/environment'
 
 export const monorepoRoot = () => {
   let current_dir = path.resolve('.')
@@ -136,4 +138,21 @@ export const writePackageJsonForCloudFunctions = async ({
   const json = JSON.stringify(package_json, null, 2)
   await writeFile(output, json, { encoding: 'utf-8' })
   return package_json
+}
+
+export const jsonSecret = (name) => {
+  let json
+  if (isOnGithub(env)) {
+    // we read a secret from GitHub and expose it as environment variable
+    json = env[name.toUpperCase()]
+  }
+  if (isOnCloudBuild(env)) {
+    // we read a secret from Secret Manager and expose it as environment variable
+    json = env[name.toUpperCase()]
+  } else {
+    const json_path = path.join(monorepoRoot(), 'secrets', `${name}.json`)
+    json = fs.readFileSync(json_path).toString()
+  }
+
+  return JSON.parse(json)
 }

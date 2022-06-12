@@ -1,7 +1,7 @@
 {
   "name": "@jackdbd/plausible-client",
   "version": "0.0.0",
-  "description": "",
+  "description": "Unofficial API client for Plausible.io",
   "author": {
     "name": "Giacomo Debidda",
     "email": "giacomo@giacomodebidda.com",
@@ -9,7 +9,9 @@
   },
   "license": "MIT",
   "private": false,
-  "keywords": [],
+  "keywords": [
+    "analytics"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/jackdbd/calderone"
@@ -24,13 +26,21 @@
   "typings": "lib/index.d.ts",
   "exports": {
     ".": "./lib/index.js",
+    "./fetch-clients/eleventy-fetch": "./lib/fetch-clients/eleventy-fetch.js",
     "./stats": "./lib/stats/index.js",
+    "./stats/api": "./lib/stats/api.js",
     "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
+      "fetch-clients/eleventy-fetch": [
+        "./lib/fetch-clients/eleventy-fetch.d.ts"
+      ],
       "stats": [
         "./lib/stats/index.d.ts"
+      ],
+      "stats/*": [
+        "./lib/stats/*.d.ts"
       ]
     }
   },
@@ -52,7 +62,7 @@
     "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
     "test": "../../scripts/test.mjs",
     "test:ci": "../../scripts/test.mjs --ci",
-    "test:watch": "run-p \"build -- --watch\" \"test -- --watch\""
+    "test:watch": "run-p 'build:ts -- --watch' 'test -- --watch'"
   },
   "dependencies": {
     "@11ty/eleventy-fetch": "^3.0.0",

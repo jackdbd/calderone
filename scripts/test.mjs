@@ -43,6 +43,10 @@ if (argv.ci) {
   ]
 }
 
+if (argv.watch) {
+  params.push('--watch')
+}
+
 // the command $`npx jest <PARAMS>` would execute jest in a child process but
 // would not preserve color output. By explicitly inheriting stdio we can
 // preserve the color output (jest will still be executed in a child process).
