@@ -4,7 +4,8 @@
 
 ```ts
 
-import type { Options } from '@11ty/eleventy-fetch';
+import { FetchOptions } from '@11ty/eleventy-fetch';
+import { Options } from '@11ty/eleventy-fetch';
 
 // Warning: (ae-missing-release-tag) "AggregateOptions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
@@ -91,6 +92,8 @@ export interface Config {
     siteId: string;
 }
 
+export { FetchOptions }
+
 // Warning: (ae-missing-release-tag) "makeClient" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
@@ -138,6 +141,8 @@ export const makeClientWithCache: (config: Config, options?: Options) => {
         timeseries: (options?: TimeseriesOptions | undefined) => Promise<TimeseriesResult[]>;
     };
 };
+
+export { Options }
 
 // Warning: (ae-missing-release-tag) "TimeseriesOptions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //

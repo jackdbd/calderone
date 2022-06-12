@@ -16,21 +16,36 @@ jobs:
     steps:
       - name: 🛎️ Check out repo
         uses: actions/checkout@v3
+
       - name: ⚙️ Set up Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+
       - name: 🛂 Authenticate to Google Cloud
         # https://github.com/google-github-actions/auth
         uses: google-github-actions/auth@v0
         with:
           credentials_json: ${{ secrets.SA_GITHUB_WORKFLOWS }}
+
       - name: ⚙️ Set up gcloud
         # https://github.com/marketplace/actions/set-up-gcloud-cloud-sdk-environment
         uses: google-github-actions/setup-gcloud@v0
+
       - run: gcloud info
+
       - name: 🔑 Refresh access token for Artifact Registry
         run: npx google-artifactregistry-auth --repo-config ./config/repo-config-npmrc-artifact-registry --verbose
+
+      - name: ⚡ Trigger Cloud Build to release to npmjs latest version of @jackdbd/utils
+        continue-on-error: true
+        run: >
+          gcloud builds submit ./cloud-build
+          --config cloud-build/publish-to-npmjs.yaml
+          --substitutions _NODE_VERSION=${{ matrix.node }},_NPM_PACKAGE_NAME=utils
+          --timeout 4m59s
+          --async
+
       - name: 📝 Package size report
         # https://github.com/marketplace/actions/pkg-size-action
         uses: pkg-size/action@v1
@@ -38,7 +53,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           build-command: 'npm run build'
-          comment-report: false
-          display-size: 'uncompressed,gzip'
+          comment-report: true
+          display-size: 'uncompressed'
+          # display-size: 'uncompressed,gzip'
           # hide-files: '{assets,docs}/**'
           hide-files: '*.{css,js,ts}.map'

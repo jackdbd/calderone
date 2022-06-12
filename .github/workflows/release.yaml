@@ -16,34 +16,74 @@ jobs:
     steps:
       - name: 🛎️ Check out repo
         uses: actions/checkout@v3
+
       - name: ⚙️ Set up Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+
       - name: 🛂 Authenticate to Google Cloud
         # https://github.com/google-github-actions/auth
         uses: google-github-actions/auth@v0
         with:
           credentials_json: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
+
       - name: ⚙️ Set up gcloud
         # https://github.com/marketplace/actions/set-up-gcloud-cloud-sdk-environment
         uses: google-github-actions/setup-gcloud@v0
+
       - run: gcloud info
+
       - name: 🔑 Refresh access token for Artifact Registry
         run: npx google-artifactregistry-auth --repo-config ./config/repo-config-npmrc-artifact-registry --verbose
+
       # - run: npm cache clean --force
+
       - name: ⬇️ Install dependencies
         run: npm ci
+
       - name: 🛡️ Audit dependencies
         # https://docs.npmjs.com/cli/v8/commands/npm-audit#audit-level
         run: npm audit --audit-level high
+
       - name: 🔧 Build all libraries
         run: npm run build:libs
-      - name: 📋 Copy dotfiles to each package root
-        run: npm run copy-dotfiles
+
+      # - name: 📋 Copy dotfiles to each package root
+      #   run: npm run copy-dotfiles
+      # - name: Dump ARTIFACT REGISTRY
+      #   run: echo 'MY PRIVATE REPO https://${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_location_id }}-npm.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_id }}/'
       - name: 🚀 Release to Artifact Registry with multi-semantic-release
         env:
-          # The github token must allow to push to this repository.
+          # The github token must allow to push to this GitHub repository.
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_GITHUB_TOKEN }}
           GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
+          # https://github.com/semantic-release/npm#npm-configuration
+          NPM_CONFIG_REGISTRY: https://${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_location_id }}-npm.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_id }}/
         run: npm run release
+
+      - name: ⚡ Trigger Cloud Build to release to npmjs latest version of @jackdbd/checks
+        continue-on-error: true
+        # reminder for YAML single-line and multi-line strings
+        # https://stackoverflow.com/a/3790497/3036129
+        # We MUST use --async because GCP will not allow to stream logs to
+        # GitHub, unless we do one of the following (I think, I'm not 100% sure):
+        # - we give the appropriate IAM permissions to the service account used
+        #   by Cloud Build, or...
+        # - we set GCS_ONLY in the Cloud Build config file for this build
+        # https://cloud.google.com/build/docs/securing-builds/store-manage-build-logs
+        run: >
+          gcloud builds submit ./cloud-build
+          --config cloud-build/publish-to-npmjs.yaml
+          --substitutions _NODE_VERSION=${{ matrix.node }},_NPM_PACKAGE_NAME=checks
+          --timeout 4m59s
+          --async
+
+      - name: ⚡ Trigger Cloud Build to release to npmjs latest version of @jackdbd/utils
+        continue-on-error: true
+        run: >
+          gcloud builds submit ./cloud-build
+          --config cloud-build/publish-to-npmjs.yaml
+          --substitutions _NODE_VERSION=${{ matrix.node }},_NPM_PACKAGE_NAME=utils
+          --timeout 4m59s
+          --async

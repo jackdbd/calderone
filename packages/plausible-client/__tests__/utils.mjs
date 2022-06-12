@@ -12,13 +12,15 @@ const TEST_VERBOSE = false
 export const validApiCredentials = async (env) => {
   let json
   if (isOnGithub(env)) {
-    // we read a secret from GitHub and expose it as environment variable
+    // the GitHub workflow called 'CI' exposes a GitHub secret as an environment
+    // variable called PLAUSIBLE
     json = env.PLAUSIBLE
-  }
-  if (isOnCloudBuild(env)) {
-    // we read a secret from Secret Manager and expose it as environment variable
+  } else if (isOnCloudBuild(env)) {
+    // Cloud Build (see cloudbuild.yaml) retrieves a secret from Secret Manager
+    // and exposes it as an environment variable called PLAUSIBLE
     json = env.PLAUSIBLE
   } else {
+    // this JSON file is on my computer and NOT tracked in git
     const json_path = path.join(monorepoRoot(), 'secrets', 'plausible.json')
     json = fs.readFileSync(json_path).toString()
   }
