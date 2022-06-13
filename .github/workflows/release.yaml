@@ -35,7 +35,12 @@ jobs:
       - run: gcloud info
 
       - name: 🔑 Refresh access token for Artifact Registry
-        run: npx google-artifactregistry-auth --repo-config ./config/repo-config-npmrc-artifact-registry --verbose
+        # reminder for YAML single-line and multi-line strings
+        # https://stackoverflow.com/a/3790497/3036129
+        run: >
+          npx google-artifactregistry-auth
+          --repo-config ./config/repo-config-npmrc-artifact-registry
+          --verbose
 
       # - run: npm cache clean --force
 
@@ -61,29 +66,3 @@ jobs:
           # https://github.com/semantic-release/npm#npm-configuration
           NPM_CONFIG_REGISTRY: https://${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_location_id }}-npm.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_id }}/
         run: npm run release
-
-      - name: ⚡ Trigger Cloud Build to release to npmjs latest version of @jackdbd/checks
-        continue-on-error: true
-        # reminder for YAML single-line and multi-line strings
-        # https://stackoverflow.com/a/3790497/3036129
-        # We MUST use --async because GCP will not allow to stream logs to
-        # GitHub, unless we do one of the following (I think, I'm not 100% sure):
-        # - we give the appropriate IAM permissions to the service account used
-        #   by Cloud Build, or...
-        # - we set GCS_ONLY in the Cloud Build config file for this build
-        # https://cloud.google.com/build/docs/securing-builds/store-manage-build-logs
-        run: >
-          gcloud builds submit ./cloud-build
-          --config cloud-build/publish-to-npmjs.yaml
-          --substitutions _NODE_VERSION=${{ matrix.node }},_NPM_PACKAGE_NAME=checks
-          --timeout 4m59s
-          --async
-
-      - name: ⚡ Trigger Cloud Build to release to npmjs latest version of @jackdbd/utils
-        continue-on-error: true
-        run: >
-          gcloud builds submit ./cloud-build
-          --config cloud-build/publish-to-npmjs.yaml
-          --substitutions _NODE_VERSION=${{ matrix.node }},_NPM_PACKAGE_NAME=utils
-          --timeout 4m59s
-          --async

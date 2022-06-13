@@ -4,8 +4,8 @@
 set -euo pipefail
 
 ### Uncomment this section to try out the script on my computer ################
-# CHAT_ID=521866002
-# TOKEN=5052954657:AAFJjqtBSy27Cz0tryh50OeOVe4K93IB524
+# CHAT_ID=
+# TOKEN=
 ################################################################################
 
 curl -X POST \

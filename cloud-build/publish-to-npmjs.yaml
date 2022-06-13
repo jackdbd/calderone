@@ -107,7 +107,7 @@ steps:
     entrypoint: npm
     secretEnv: ['NPMJS_ACCESS_TOKEN']
     args: ['config', 'set', 'authToken=$${NPMJS_ACCESS_TOKEN}', '--location=user']
-  
+
   - id: '⚙️ Set authToken in PROJECT .npmrc'
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
@@ -158,7 +158,7 @@ steps:
   - id: '💬 Notify Telegram'
     name: gcr.io/cloud-builders/curl
     entrypoint: curl
-    args: 
+    args:
       - https://api.telegram.org/bot${_TELEGRAM_TOKEN}/sendMessage
       - --header
       - 'Content-type: application/json'
