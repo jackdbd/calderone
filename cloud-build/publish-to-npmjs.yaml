@@ -142,6 +142,8 @@ steps:
     name: 'docker.io/library/node:${_NODE_VERSION}'
     entrypoint: npm
     dir: '${_DOWNLOAD_DIR}/package'
+    # "access" must be "public" to publish scoped packages to npmjs
+    # https://docs.npmjs.com/creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages
     args: ['publish', '--registry=https://registry.npmjs.org/', '--access=public']
 
   # this never fails, but it doesn't seem a good idea to me

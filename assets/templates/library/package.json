@@ -26,7 +26,9 @@
   },
   "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/PACKAGE_NAME#readme",
   "engines": {
-    "node": ">=16.15.0"
+    // maybe pick the latest release of the Maintenance LTS Node.js as the lower bound
+    // https://endoflife.date/nodejs
+    "node": ">=14.19.3"
   },
   "type": "module",
   "module": "lib/index.js",
@@ -44,11 +46,11 @@
     "build:ts": "tsc -p tsconfig.json",
     "clean": "../../scripts/clean.mjs",
     "copy-dotfiles": "../../scripts/copy-dotfiles.mjs",
-    "docs:ae": "api-extractor run --config ./api-extractor.json --local --verbose",
-    "docs:ad": "api-documenter markdown --input-folder .ae/doc --output-folder docs-ae",
+    "docs:ae": "../../scripts/api-extractor.mjs",
+    "docs:ad": "../../scripts/api-documenter.mjs",
     "docs:doctoc": "doctoc --github README.md --title '<details><summary>Table of Contents</summary>'",
-    "docs:typedoc": "../../scripts/docs-typedoc.mjs",
-    "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
+    "docs:typedoc": "../../scripts/typedoc.mjs",
+    "format": "../../scripts/format.mjs",
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",

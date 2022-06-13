@@ -2,16 +2,12 @@
 
 import 'zx/globals'
 import { spawn } from 'node:child_process'
+import { throwIfInvokedFromMonorepoRoot } from './utils.mjs'
 
 // Usage (from a package root):
 // ../../scripts/test.mjs
 
-const { name } = require(`${process.env.PWD}/package.json`)
-if (name == 'root') {
-  throw new Error(
-    `you invoked this script from ${process.env.PWD}. This script should be invoked from a package root instead.`
-  )
-}
+throwIfInvokedFromMonorepoRoot(process.env.PWD)
 
 const package_root = process.env.PWD
 // tr -d '\n' is to remove the newline character

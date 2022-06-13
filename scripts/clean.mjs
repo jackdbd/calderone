@@ -5,10 +5,17 @@ import 'zx/globals'
 // Usage (from a package root):
 // ../../scripts/clean.mjs
 
-const { name } = require(`${process.env.PWD}/package.json`)
-if (name == 'root') {
+// The script utils.mjs depends on @jackdbd/checks, but since we are cleaning
+// all packages in THIS script, we can't depend on any package. So we can't
+// import utils.mjs. The following code is just the function
+// throwIfInvokedFromMonorepoRoot copy-pasted here.
+const pwd = process.env.PWD
+const { name } = require(`${pwd}/package.json`)
+if (name === 'root') {
   throw new Error(
-    `you invoked this script from ${process.env.PWD}. This script should be invoked from a package root instead.`
+    chalk.red(
+      `you invoked this script from ${pwd}. This script should be invoked from a package root instead.`
+    )
   )
 }
 

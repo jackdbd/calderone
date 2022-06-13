@@ -48,7 +48,7 @@ type SendMessageResponseBody =
 export interface Config {
   /**
    * Unique identifier for the target chat or username of the target Telegram
-   * channel (in the format @channelusername).
+   * channel (in the format \@channelusername).
    */
   chat_id: string
 

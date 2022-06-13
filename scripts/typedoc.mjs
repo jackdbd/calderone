@@ -1,19 +1,17 @@
 #!/usr/bin/env zx
 
 import 'zx/globals'
+import {
+  throwIfInvokedFromMonorepoRoot,
+  unscopedPackageName
+} from './utils.mjs'
 
 // Usage (from a package root):
-// ../../scripts/docs.mjs
+// ../../scripts/typedoc.mjs
 
-const { name } = require(`${process.env.PWD}/package.json`)
-if (name == 'root') {
-  throw new Error(
-    `you invoked this script from ${process.env.PWD}. This script should be invoked from a package root instead.`
-  )
-}
+throwIfInvokedFromMonorepoRoot(process.env.PWD)
 
-const { stdout: unscoped_name } =
-  await $`echo ${name} | sed 's/@jackdbd\\///' | tr -d '\n'`
+const unscoped_name = await unscopedPackageName(process.env.PWD)
 
 const package_root = process.env.PWD
 const monorepo_root = path.join(package_root, '..', '..')
