@@ -28,6 +28,8 @@ jobs:
       - name: 🔧 Build libraries
         run: npm run build:libs
 
+      - run: npm run size
+
       # The technique described here is no longer allowed.
       # https://www.edwardthomson.com/blog/github_actions_15_sharing_data_between_steps.html
       # TODO read this
