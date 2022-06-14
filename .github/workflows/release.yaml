@@ -37,6 +37,7 @@ jobs:
       - name: 🔑 Refresh access token for Artifact Registry
         # reminder for YAML single-line and multi-line strings
         # https://stackoverflow.com/a/3790497/3036129
+        # --credential-config ~/.npmrc \
         run: >
           npx google-artifactregistry-auth
           --repo-config ./config/npm-config-repo

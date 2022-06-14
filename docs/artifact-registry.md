@@ -36,7 +36,8 @@ You can refresh the tokens using this [google-artifactregistry-auth](https://git
 ```sh
 npx google-artifactregistry-auth \
   --repo-config ./config/npm-config-repo \
-  --user-config ~/.npmrc
+  --credential-config ~/.npmrc \
+  --verbose
 ```
 
 The OAuth 2.0 access token obtained is [valid for one hour](https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials#sa-credentials-oauth) (even if its lifetime can be extended [up to 12 hours](https://stackoverflow.com/a/69712755/3036129)).
