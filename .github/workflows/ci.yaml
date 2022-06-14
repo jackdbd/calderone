@@ -86,7 +86,7 @@ jobs:
           fail_ci_if_error: true
           verbose: true
 
-      - name: 🚀 Release --dry with multi-semantic-release
+      - name: 🚀 Release with multi-semantic-release
         env:
           # The github token must allow to push to this GitHub repository.
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_GITHUB_TOKEN }}
@@ -102,4 +102,4 @@ jobs:
           # there).
           # https://github.com/semantic-release/npm#npm-configuration
           NPM_CONFIG_REGISTRY: https://${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_location_id }}-npm.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_id }}/
-        run: npm run release:dry
+        run: npm run release
