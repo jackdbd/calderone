@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/cloud-scheduler-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility functions to work with Cloud Sheduler",
   "author": {
     "name": "Giacomo Debidda",
