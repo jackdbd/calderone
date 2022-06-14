@@ -1,10 +1,13 @@
 #!/usr/bin/env zx
 
-import path from 'path'
+import { path } from 'zx'
 import 'zx/globals'
+import { throwIfNotInvokedFromMonorepoRoot } from './utils.mjs'
 
 // Usage (from the monorepo root):
 // ./scripts/new-package.mjs
+
+throwIfNotInvokedFromMonorepoRoot(process.env.PWD)
 
 const scope = 'jackdbd'
 

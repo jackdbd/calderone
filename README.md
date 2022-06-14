@@ -17,18 +17,7 @@ git clone git@github.com:jackdbd/calderone.git
 cd calderone
 ```
 
-Refresh the access tokens for all npm registries. This is required because I host some npm packages on a private npm repository on Artifact Registry. The OAuth 2.0 access token required to access GCP Artifact Registry is [valid for one hour](https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials#sa-credentials-oauth) (even if its lifetime can be extended [up to 12 hours](https://stackoverflow.com/a/69712755/3036129)).
-
-The [project-config](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc#per-project-config-file) `.npmrc` is tracked in this repository. The [user-config](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc#per-user-config-file) `.npmrc` is not tracked in git because it contains the access tokens.
-
-```sh
-npx google-artifactregistry-auth \
-  --repo-config ./config/repo-config-npmrc-artifact-registry \
-  --credential-config ~/.npmrc \
-  --verbose
-```
-
-Install all dependencies from npm.js and Artifact Registry and setup git hooks with [husky](https://typicode.github.io/husky/):
+Install all dependencies from npm.js and setup git hooks with [husky](https://typicode.github.io/husky/):
 
 ```sh
 npm install --include dev
@@ -39,26 +28,22 @@ npm install --include dev
 ## Build
 
 This monorepo uses [Typescript project references](https://www.typescriptlang.org/docs/handbook/project-references.html) to build all of its libraries.
+Documentation is built bt [TypeDoc](https://typedoc.org/).
+API docs are built by [api-extractor](https://api-extractor.com/) + [api-documenter](https://api-extractor.com/pages/setup/generating_docs/).
 
-Build all libraries (to `lib`):
+Build all libraries and their documentation (code to `<package-root>/lib`, TypeDoc docs to `<monorepo-root>/docs`, api-documenter API docs to `<package-root>/api-docs`):
+
+```sh
+npm run build
+```
+
+Build all libraries, but with no docs:
 
 ```sh
 npm run build:libs
 ```
 
-Build all libraries in watch mode:
-
-```sh
-npm run build:libs:watch
-```
-
-Build all scripts (to `dist`):
-
-```sh
-npm run build:scripts
-```
-
-Build all scripts in watch mode and all libraries in watch mode (useful for developing new scripts in TypeScript):
+Build all development scripts in watch mode and all libraries in watch mode (useful for developing new scripts in TypeScript):
 
 ```sh
 npm dev:scripts

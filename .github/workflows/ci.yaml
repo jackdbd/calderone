@@ -37,11 +37,17 @@ jobs:
       - name: 🔍 Test library @jackdbd/checks
         run: npm run test:ci -w packages/checks
 
+      - name: 🔍 Test library @jackdbd/cloud-scheduler-utils
+        run: npm run test:ci -w packages/cloud-scheduler-utils
+
       - name: 🔍 Test library @jackdbd/hapi-healthcheck-plugin
         run: npm run test:ci -w packages/hapi-healthcheck-plugin
 
       - name: 🔍 Test library @jackdbd/hapi-ip-whitelist-plugin
         run: npm run test:ci -w packages/hapi-ip-whitelist-plugin
+
+      - name: 🔍 Test library @jackdbd/notifications
+        run: npm run test:ci -w packages/notifications
 
       - name: 🔍 Test library @jackdbd/plausible-client
         env:

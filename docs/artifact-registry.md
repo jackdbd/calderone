@@ -37,6 +37,21 @@ You can refresh the tokens using this [google-artifactregistry-auth](https://git
 npx google-artifactregistry-auth --repo-config ./config/repo-config-npmrc-artifact-registry
 ```
 
+The OAuth 2.0 access token obtained is [valid for one hour](https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials#sa-credentials-oauth) (even if its lifetime can be extended [up to 12 hours](https://stackoverflow.com/a/69712755/3036129)).
+
+A couple of things on the [npm config file](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc):
+
+- The [project-config](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc#per-project-config-file) `.npmrc` is tracked in this repository (see the [config directory](./config/README.md)).
+- The [user-config](https://docs.npmjs.com/cli/v8/configuring-npm/npmrc#per-user-config-file) `.npmrc` is not tracked in git because it contains the access tokens (for both Artifact Registry and npmjs).
+
+```sh
+npx google-artifactregistry-auth \
+  --repo-config ./config/repo-config-npmrc-artifact-registry \
+  --credential-config ~/.npmrc \
+  --verbose
+```
+
+
 ### List of npm packages published
 
 See the list of packages published to Artifact Registry:

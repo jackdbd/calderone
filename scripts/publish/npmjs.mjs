@@ -1,7 +1,9 @@
 #!/usr/bin/env zx
 
 import 'zx/globals'
-import { jsonSecret } from '../utils.mjs'
+import { jsonSecret, throwIfNotInvokedFromMonorepoRoot } from '../utils.mjs'
+
+throwIfNotInvokedFromMonorepoRoot(process.env.PWD)
 
 const SCOPE = 'jackdbd'
 const NODE_VERSION = '16.15.1'
