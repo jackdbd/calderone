@@ -37,13 +37,10 @@ jobs:
       - name: 🔑 Refresh access token for Artifact Registry
         # reminder for YAML single-line and multi-line strings
         # https://stackoverflow.com/a/3790497/3036129
-        # --credential-config ~/.npmrc \
         run: >
           npx google-artifactregistry-auth
           --repo-config ./config/npm-config-repo
           --verbose
-
-      # - run: npm cache clean --force
 
       - name: ⬇️ Install dependencies
         run: npm ci
@@ -54,15 +51,6 @@ jobs:
 
       - name: 🔧 Build all libraries
         run: npm run build:libs
-
-      # - name: 👀 Check npm registry
-      #   run: npm config get registry
-
-      # - name: 📋 Copy dotfiles to each package root
-      #   run: npm run copy-dotfiles
-
-      - name: 👀 Dump ARTIFACT REGISTRY
-        run: echo 'MY PRIVATE REPO https://${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_location_id }}-npm.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_id }}/'
 
       - name: 🚀 Release to Artifact Registry with multi-semantic-release
         env:

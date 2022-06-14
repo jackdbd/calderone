@@ -12,6 +12,7 @@ const NPM_PACKAGES_UNSCOPED = [
   'cloud-scheduler-utils',
   'firestore-utils',
   'notifications',
+  'plausible-client',
   'secret-manager-utils',
   'utils',
   'telegram-text-messages'
