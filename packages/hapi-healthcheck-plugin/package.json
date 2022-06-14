@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/hapi-healthcheck-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Hapi plugin for a healthcheck",
   "author": {
     "name": "Giacomo Debidda",
