@@ -45,9 +45,10 @@ jobs:
       - run: npm cache verify
 
       - name: ⬇️ Install dependencies
-        # run: npm ci
+        run: npm ci
+        # run: npm install
         # run: npm install --force
-        run: npm install --legacy-peer-deps
+        # run: npm install --legacy-peer-deps
 
       - name: 🛡️ Audit dependencies
         # https://docs.npmjs.com/cli/v8/commands/npm-audit#audit-level
@@ -72,4 +73,4 @@ jobs:
           # there).
           # https://github.com/semantic-release/npm#npm-configuration
           NPM_CONFIG_REGISTRY: https://${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_location_id }}-npm.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_id }}/
-        run: npx multi-semantic-release --ignore-private --ignore-packages=packages/telegram-bot",
+        run: npx multi-semantic-release --ignore-private --ignore-packages=packages/telegram-bot
