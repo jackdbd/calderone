@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/webhooks",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Application that receives webhook events from several third parties",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",
