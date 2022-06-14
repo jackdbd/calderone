@@ -73,8 +73,6 @@
     "test:watch": "run-p \"build -- --watch\" \"test -- --watch\""
   },
   "dependencies": {},
-  "peerDependencies": {
-    "debug": ">=4.3.4"
-  },
+  "peerDependencies": {},
   "devDependencies": {}
 }

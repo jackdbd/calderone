@@ -1,7 +1,3 @@
-import makeDebug from 'debug'
-
-const debug = makeDebug('checks/environment')
-
 /**
  * Check whether the code is running on Cloud Build or not.
  *
@@ -9,7 +5,6 @@ const debug = makeDebug('checks/environment')
  */
 export const isOnCloudBuild = (env: NodeJS.ProcessEnv) => {
   if (env.BUILD_ID && env.LOCATION && env.PROJECT_ID && env.PROJECT_NUMBER) {
-    debug('running on Cloud Build')
     return true
   } else {
     return false
@@ -23,7 +18,6 @@ export const isOnCloudBuild = (env: NodeJS.ProcessEnv) => {
  */
 export const isOnGithub = (env: NodeJS.ProcessEnv) => {
   if (env.GITHUB_SHA) {
-    debug('running on GitHub')
     return true
   } else {
     return false
@@ -75,7 +69,6 @@ export const isOnLocalContainer = (env: NodeJS.ProcessEnv) => {
  */
 export const isOnCloudFunctions = (env: NodeJS.ProcessEnv) => {
   if (env.FUNCTION_SIGNATURE_TYPE) {
-    debug('running on Cloud Functions')
     return true
   } else {
     return false
@@ -89,7 +82,6 @@ export const isOnCloudFunctions = (env: NodeJS.ProcessEnv) => {
  */
 export const isOnCloudRun = (env: NodeJS.ProcessEnv) => {
   if (env.K_SERVICE) {
-    debug('running on Cloud Run')
     return true
   } else {
     return false
