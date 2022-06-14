@@ -1,15 +1,11 @@
 import { createHttpJob } from '../lib/create-jobs.js'
 import { deleteJob } from '../lib/delete-jobs.js'
-import {
-  cloudSchedulerClient,
-  credentials,
-  projectId
-} from './cloud-scheduler-client.mjs'
+import { cloudSchedulerClient, credentials, projectId } from './utils.mjs'
 
 describe('createHttpJob', () => {
-  const cloud_scheduler = cloudSchedulerClient()
-  const project_id = projectId()
-  const { client_email } = credentials()
+  const cloud_scheduler = cloudSchedulerClient(process.env)
+  const project_id = projectId(process.env)
+  const { client_email } = credentials(process.env)
 
   it('creates a job with the expected name, HTTP target uri, timezone, schedule', async () => {
     // spaces are not possible, apostrophes are not possible (e.g. year's)
