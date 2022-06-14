@@ -42,8 +42,12 @@ jobs:
           --repo-config ./config/npm-config-repo
           --verbose
 
+      - run: npm cache verify
+
       - name: ⬇️ Install dependencies
-        run: npm ci
+        # run: npm ci
+        # run: npm install --force
+        run: npm install --legacy-peer-deps
 
       - name: 🛡️ Audit dependencies
         # https://docs.npmjs.com/cli/v8/commands/npm-audit#audit-level
