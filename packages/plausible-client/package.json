@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/plausible-client",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Unofficial API client for Plausible.io",
   "author": {
     "name": "Giacomo Debidda",
