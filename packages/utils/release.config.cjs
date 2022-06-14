@@ -1,5 +1,4 @@
 const base_config = require('../../config/semantic-release.cjs')
-const { github, npm } = require('../../config/semantic-release-plugins.cjs')
 
 // git commit message made by the semantic-relase bot //////////////////////////
 // This commit message should be different for each package.
@@ -19,11 +18,10 @@ const git = [
 
 const config = {
   ...base_config,
-  ci: true,
-  // The git plugin must be called AFTER the npm plugin. See here:
-  // https://github.com/semantic-release/git#examples
-  // https://semantic-release.gitbook.io/semantic-release/support/faq#why-is-the-package.jsons-version-not-updated-in-my-repository
-  plugins: [...base_config.plugins, npm, github, git]
+  branches: [...base_config.branches],
+  plugins: [...base_config.plugins, git]
 }
+
+// console.log('=== semantic-release (utils) ===', config)
 
 module.exports = config

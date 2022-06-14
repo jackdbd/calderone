@@ -85,7 +85,7 @@ export const basicClient: (credentials: Credentials) => {
 // Warning: (ae-missing-release-tag) "rateLimitedClient" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const rateLimitedClient: (credentials: Credentials, options?: Bottleneck.ConstructorOptions | undefined) => {
+export const rateLimitedClient: (credentials: Credentials, options?: Bottleneck.ConstructorOptions) => {
     customers: {
         [fn_name: string]: ((...args: any) => Promise<any>) | ((...args: any) => AsyncGenerator<any, void, unknown>);
     };

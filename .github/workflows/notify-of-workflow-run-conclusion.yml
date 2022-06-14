@@ -2,7 +2,7 @@ name: 'Notify of workflow run conclusion'
 
 on:
   workflow_run:
-    workflows: ['CI', 'release-to-artifact-registry', 'size-report']
+    workflows: ['CI', 'release-to-artifact-registry']
     types: [completed]
 
 jobs:
@@ -10,12 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
-      # - name: Dump github.event
-      #   run: echo '${{ toJSON(github.event) }}'
-      - name: Dump TELEGRAM to JSON
-        run: echo '${{ toJSON(secrets.TELEGRAM) }}'
-      - name: Dump TELEGRAM from JSON
-        run: echo '${{ fromJSON(secrets.TELEGRAM) }}'
       - name: 💬 Notify Telegram of workflow run FAILURE
         # https://github.com/appleboy/telegram-action
         uses: appleboy/telegram-action@v0.1.1
@@ -30,11 +24,13 @@ jobs:
           disable_web_page_preview: true
           # https://core.telegram.org/bots/api#formatting-options
           message: |
-            <b>⚠️ GitHub workflow ${{ github.event.workflow_run.name }} in ${{ github.event.repository.name }} failed 💔</b>
+            <b>⚠️ GitHub workflow failure 💔</b>
 
             Repository: <a href="${{ github.event.repository.html_url }}">${{ github.event.repository.full_name }}</a>
 
-            Run ID: <a href="${{ github.event.workflow_run.html_url }}">${{ github.event.workflow_run.id }}</a>
+            Workflow: <a href="${{ github.event.workflow_run.html_url }}">${{ github.event.workflow_run.name }}</a>
+
+            Workflow Run ID: <a href="${{ github.event.workflow_run.html_url }}?check_suite_focus=true">${{ github.event.workflow_run.id }}</a>
 
   on-success:
     runs-on: ubuntu-latest
@@ -50,8 +46,10 @@ jobs:
           format: html
           disable_web_page_preview: true
           message: |
-            <b>✅ GitHub workflow ${{ github.event.workflow_run.name }} in ${{ github.event.repository.name }} ran successfully 💖</b>
+            <b>✅ GitHub workflow success 💖</b>
 
             Repository: <a href="${{ github.event.repository.html_url }}">${{ github.event.repository.full_name }}</a>
 
-            Run ID: <a href="${{ github.event.workflow_run.html_url }}">${{ github.event.workflow_run.id }}</a>
+            Workflow: <a href="${{ github.event.workflow_run.html_url }}">${{ github.event.workflow_run.name }}</a>
+
+            Workflow Run ID: <a href="${{ github.event.workflow_run.html_url }}?check_suite_focus=true">${{ github.event.workflow_run.id }}</a>

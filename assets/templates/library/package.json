@@ -9,6 +9,9 @@
   },
   "license": "MIT",
   "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [],
   "repository": {
     "type": "git",
@@ -19,7 +22,7 @@
   },
   "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/PACKAGE_NAME#readme",
   "engines": {
-    "node": ">=16.15.0"
+    "node": ">=14.19.3"
   },
   "type": "module",
   "module": "lib/index.js",
@@ -37,15 +40,14 @@
     "build:ts": "tsc -p tsconfig.json",
     "clean": "../../scripts/clean.mjs",
     "copy-dotfiles": "../../scripts/copy-dotfiles.mjs",
-    "docs:ae": "api-extractor run --config ./api-extractor.json --local --verbose",
-    "docs:ad": "api-documenter markdown --input-folder .ae/doc --output-folder docs-ae",
+    "docs:ae": "../../scripts/api-extractor.mjs",
+    "docs:ad": "../../scripts/api-documenter.mjs",
     "docs:doctoc": "doctoc --github README.md --title '<details><summary>Table of Contents</summary>'",
-    "docs:typedoc": "../../scripts/docs-typedoc.mjs",
-    "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
+    "docs:typedoc": "../../scripts/typedoc.mjs",
+    "format": "../../scripts/format.mjs",
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
-    "publish:npm": "../../scripts/publish/npm.mjs",
     "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
     "test": "../../scripts/test.mjs",
     "test:ci": "../../scripts/test.mjs --ci",

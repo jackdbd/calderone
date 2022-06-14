@@ -1,0 +1,193 @@
+steps:
+  - id: '🔨 Create repo-config .npmrc for Artifact Registry'
+    name: gcr.io/cloud-builders/gcloud
+    entrypoint: /bin/bash
+    args: ['-c', 'printf "@${_NPM_SCOPE}:registry=https://${_ARTIFACT_REGISTRY_REPO_LOCATION_ID}-npm.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO_ID}/\n//${_ARTIFACT_REGISTRY_REPO_LOCATION_ID}-npm.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO_LOCATION_ID}/:always-auth=true" > .npmrc']
+
+  # This must come before switching to Artifact Registry, since the npm package
+  # google-artifactregistry-auth is hosted only on npmjs.
+  - id: '🔑 Refresh access token for Artifact Registry'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npx
+    args: ['google-artifactregistry-auth', '--repo-config=.npmrc', '--credential-config=${_CLOUD_BUILD_BUILDER_HOME}/.npmrc']
+
+  # - id: '[👀 DEBUG] credential-config npmrc'
+  #   name: 'ubuntu'
+  #   args: ['cat', '${_CLOUD_BUILD_BUILDER_HOME}/.npmrc']
+
+  # - id: '[👀 DEBUG] repo-config .npmrc'
+  #   name: 'ubuntu'
+  #   args: ['cat', '.npmrc']
+
+  - id: '⚙️ Set Artifact Registry as the default npm registry'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['config', 'set', 'registry', '${_NPM_REGISTRY}']
+
+  # - id: '[👀 DEBUG] npm config list'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['config', 'list']
+
+  - id: '🔨 Make download directory'
+    name: 'ubuntu'
+    args: ['mkdir', '${_DOWNLOAD_DIR}']
+
+  # - id: '[👀 DEBUG] gcloud info'
+  #   name: gcr.io/cloud-builders/gcloud
+  #   entrypoint: /bin/bash
+  #   args: ['-c', 'gcloud info']
+
+  - id: '📦 Download npm package'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    args: ['pack', '@${_NPM_SCOPE}/${_NPM_PACKAGE_NAME}', '--pack-destination=${_DOWNLOAD_DIR}']
+
+  - id: 'Extract files from npm package'
+    name: gcr.io/cloud-builders/gcloud
+    entrypoint: /bin/bash
+    env:
+      - 'NPM_SCOPE=${_NPM_SCOPE}'
+      - 'NPM_PACKAGE_NAME=${_NPM_PACKAGE_NAME}'
+      - 'DOWNLOAD_DIR=${_DOWNLOAD_DIR}'
+    args: ['extract-npm-package.sh']
+
+  # === Now we change npm registry from Artifact Registry to npmjs === #########
+  # Some of these commands are duplicates, but I'm having a hard time finding
+  # the minimum set of commands that allows me to authenticate and publish to npmjs.
+
+  - id: 'Remove repo-config and credential-config .npmrc files'
+    name: gcr.io/cloud-builders/gcloud
+    entrypoint: /bin/bash
+    args: ['-c', 'rm -rf .npmrc ${_CLOUD_BUILD_BUILDER_HOME}/.npmrc']
+
+  # - id: '✨ Clean npm cache'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['cache', 'clean', '--force']
+
+  # https://cloud.google.com/build/docs/securing-builds/use-secrets#access-utf8-secrets
+
+  - id: '🔨 Create USER .npmrc'
+    name: gcr.io/cloud-builders/gcloud
+    entrypoint: /bin/bash
+    secretEnv: ['NPMJS_ACCESS_TOKEN']
+    args: ['-c', 'printf "//registry.npmjs.org/:_authToken=$${NPMJS_ACCESS_TOKEN}" > ${_CLOUD_BUILD_BUILDER_HOME}/.npmrc']
+
+  - id: '🔨 Create PROJECT .npmrc'
+    name: gcr.io/cloud-builders/gcloud
+    entrypoint: /bin/bash
+    args: ['-c', 'printf "@${_NPM_SCOPE}:registry=https://registry.npmjs.org/\n//registry.npmjs.org/:always-auth=true" > .npmrc']
+
+  # - id: '[👀 DEBUG] USER .npmrc (credential-config)'
+  #   name: 'ubuntu'
+  #   args: ['cat', '${_CLOUD_BUILD_BUILDER_HOME}/.npmrc']
+
+  # - id: '[👀 DEBUG] PROJECT .npmrc (repo-config)'
+  #   name: 'ubuntu'
+  #   args: ['cat', '.npmrc']
+
+  # - id: '⚙️ Set registry=https://registry.npmjs.org/'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['config', 'set', 'registry=https://registry.npmjs.org/']
+
+  # - id: '⚙️ Set always-auth=true'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['config', 'set', 'always-auth=true']
+
+  # - id: '⚙️ Set registry in USER .npmrc'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['config', 'set', 'registry=https://registry.npmjs.org/', '--location=user']
+
+  - id: '⚙️ Set authToken in USER .npmrc'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    secretEnv: ['NPMJS_ACCESS_TOKEN']
+    args: ['config', 'set', 'authToken=$${NPMJS_ACCESS_TOKEN}', '--location=user']
+
+  - id: '⚙️ Set authToken in PROJECT .npmrc'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    secretEnv: ['NPMJS_ACCESS_TOKEN']
+    args: ['config', 'set', 'authToken=$${NPMJS_ACCESS_TOKEN}', '--location=project']
+
+  # - id: '👀 List files to publish to npmjs'
+  #   name: 'ubuntu'
+  #   dir: '${_DOWNLOAD_DIR}/package'
+  #   args: ['ls', '-1a']
+
+  # - id: '[👀 DEBUG] npm config list'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['config', 'list']
+
+  # - id: '[👀 DEBUG] npm config get authToken'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['config', 'get', 'authToken']
+
+  # - id: '[👀 DEBUG] npm whoami'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: npm
+  #   args: ['whoami']
+
+  # Cloud Build manual confirmation here? How to do it?
+  # https://cloud.google.com/build/docs/automating-builds/approve-builds
+
+  # this fails if we already published the latest version of a package
+  - id: '📣 Publish to npmjs'
+    name: 'docker.io/library/node:${_NODE_VERSION}'
+    entrypoint: npm
+    dir: '${_DOWNLOAD_DIR}/package'
+    # "access" must be "public" to publish scoped packages to npmjs
+    # https://docs.npmjs.com/creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages
+    args: ['publish', '--registry=https://registry.npmjs.org/', '--access=public']
+
+  # this never fails, but it doesn't seem a good idea to me
+  # https://davidstanke.medium.com/make-a-cloud-build-step-that-always-succeeds-9d23290a2f4e
+  # - id: '📣 Publish to npmjs'
+  #   name: 'docker.io/library/node:${_NODE_VERSION}'
+  #   entrypoint: bash
+  #   dir: '${_DOWNLOAD_DIR}/package'
+  #   args:
+  #    - '-c'
+  #    - |
+  #    - npm publish --registry=https://registry.npmjs.org/ --access=public || echo "publish failed"
+
+  - id: '💬 Notify Telegram'
+    name: gcr.io/cloud-builders/curl
+    entrypoint: curl
+    args:
+      - https://api.telegram.org/bot${_TELEGRAM_TOKEN}/sendMessage
+      - --header
+      - 'Content-type: application/json'
+      - --data-raw
+      - "{\"chat_id\": \"${_TELEGRAM_CHAT_ID}\", \"text\": \"Published ${_NPM_SCOPE}/${_NPM_PACKAGE_NAME} to npmjs\"}"
+
+availableSecrets:
+  secretManager:
+  - versionName: projects/${PROJECT_ID}/secrets/NPM_ACCESS_TOKEN/versions/latest
+    env: 'NPMJS_ACCESS_TOKEN'
+
+# user-defined substitutions and default values
+# https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#using_user-defined_substitutions
+substitutions:
+  # you can double-chek with `npm config list`
+  _CLOUD_BUILD_BUILDER_HOME: '/builder/home'
+  # use the latest Node.js LTS version as the default one
+  _NODE_VERSION: '16.15.1'
+  _NPM_SCOPE: 'jackdbd'
+  _NPM_PACKAGE_NAME: 'set this in GitHub workflow'
+  _ARTIFACT_REGISTRY_REPO_ID: 'npm-registry'
+  _ARTIFACT_REGISTRY_REPO_LOCATION_ID: 'europe-west3'
+  _NPM_REGISTRY: https://${_ARTIFACT_REGISTRY_REPO_LOCATION_ID}-npm.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_REPO_ID}/
+  _DOWNLOAD_DIR: 'downloaded-from-artifact-registry'
+  # these could be read from Secret Manager and parsed (it's a JSON)
+  _TELEGRAM_CHAT_ID: 'set this in GitHub workflow'
+  _TELEGRAM_TOKEN: 'set this in GitHub workflow'
+
+options:
+  dynamic_substitutions: true

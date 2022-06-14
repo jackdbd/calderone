@@ -1,31 +1,55 @@
 import Joi from 'joi'
+import {
+  fetchClient,
+  filters,
+  metrics,
+  page,
+  period,
+  siteId
+} from '../common/schemas.js'
 
-export const configSchema = Joi.object().keys({
-  // API key of your Plausible.io account. You can find it in your user settings
-  // page.
-  // https://plausible.io/settings
-  apiKey: Joi.string().min(1).max(100).required(),
+export const aggregateConfig = Joi.object()
+  .keys({
+    fetchClient: fetchClient.required(),
+    siteId: siteId.required()
+  })
+  .required()
 
-  // the `siteId` of a Plausible.io site is just the naked domain
-  // https://webmasters.stackexchange.com/questions/16996/maximum-domain-name-length
-  siteId: Joi.string().min(4).max(253).required()
+// https://plausible.io/docs/stats-api#get-apiv1statsaggregate
+export const aggregateOptions = Joi.object().keys({
+  compare: Joi.string().valid('previous_period'),
+  filters,
+  metrics,
+  period
 })
 
-export const optionsSchema = Joi.object().keys({
-  // https://www.11ty.dev/docs/plugins/fetch/#cache-directory
-  cacheDirectory: Joi.string().min(1),
+export const breakdownConfig = Joi.object()
+  .keys({
+    fetchClient: fetchClient.required(),
+    siteId: siteId.required()
+  })
+  .required()
 
-  // https://www.11ty.dev/docs/plugins/fetch/#change-the-cache-duration
-  cacheDuration: Joi.string().min(2),
-
-  // https://www.11ty.dev/docs/plugins/fetch/#verbose-output
-  cacheVerbose: Joi.boolean(),
-
-  // https://plausible.io/docs/stats-api#parameters-3
+// https://plausible.io/docs/stats-api#get-apiv1statsbreakdown
+export const breakdownOptions = Joi.object().keys({
   limit: Joi.number().min(1).max(100),
+  metrics,
+  page,
+  period,
+  property: Joi.string().min(1)
+})
 
-  // https://plausible.io/docs/stats-api#time-periods
-  period: Joi.string()
+export const timeseriesConfig = Joi.object()
+  .keys({
+    fetchClient: fetchClient.required(),
+    siteId: siteId.required()
+  })
+  .required()
 
-  //   visitorsThreshold: Joi.number().min(1)
+// https://plausible.io/docs/stats-api#get-apiv1statstimeseries
+export const timeseriesOptions = Joi.object().keys({
+  filters,
+  interval: Joi.string().valid('date', 'month'),
+  metrics,
+  period
 })

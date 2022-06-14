@@ -35,7 +35,7 @@
     "container:start:test": "docker run -it -p 8080:8080 --env \"SA_JSON_KEY=$(cat ../../secrets/sa-webperf-audit.json)\" --env NODE_ENV=test --env DEBUG=utils/*,audit/* audit:latest",
     "predeploy": "run-s clean format lint build auth-artifact-registry",
     "deploy": "gcloud beta builds submit ./dist --config cloudbuild.yaml --project $GCP_PROJECT_ID --async",
-    "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
+    "format": "../../scripts/format.mjs",
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",

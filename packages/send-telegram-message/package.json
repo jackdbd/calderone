@@ -24,7 +24,7 @@
     "clean": "rimraf coverage dist 'tsconfig.tsbuildinfo'",
     "predeploy": "run-s clean format build test",
     "deploy": "gcloud beta builds submit ./dist --config cloudbuild.yaml --project $GCP_PROJECT_ID",
-    "format": "prettier --config ../../config/prettier.cjs --write {__tests__,src}/**/*.{js,mjs,ts}",
+    "format": "../../scripts/format.mjs",
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",

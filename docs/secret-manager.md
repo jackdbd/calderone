@@ -20,6 +20,11 @@ gcloud secrets create NETLIFY \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
 ```
 
+```sh
+gcloud secrets create NPM_ACCESS_TOKEN \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
+```
+
 Create a secret and its first version using a JSON file (execute this command from the monorepo root):
 
 ```sh

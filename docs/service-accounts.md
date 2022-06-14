@@ -117,3 +117,17 @@ gcloud iam service-accounts list
 ```sh
 gcloud iam service-accounts describe sa-secret-manager-admin-test@prj-kitchen-sink.iam.gserviceaccount.com
 ```
+
+## Grant service account impersonation to a user account
+
+Here is how you can grant a user account the ability to perform service account impersonation on **all** service accounts in a GCP project:
+
+```sh
+gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID} \
+  --member=user:giacomo@giacomodebidda.com \
+  --role=roles/iam.serviceAccountUser
+
+gcloud projects add-iam-policy-binding ${GCP_PROJECT_ID} \
+  --member=user:giacomo@giacomodebidda.com \
+  --role=roles/iam.serviceAccountTokenCreator
+```

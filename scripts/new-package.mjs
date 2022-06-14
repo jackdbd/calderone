@@ -1,10 +1,13 @@
 #!/usr/bin/env zx
 
-import path from 'path'
+import { path } from 'zx'
 import 'zx/globals'
+import { throwIfNotInvokedFromMonorepoRoot } from './utils.mjs'
 
 // Usage (from the monorepo root):
 // ./scripts/new-package.mjs
+
+throwIfNotInvokedFromMonorepoRoot(process.env.PWD)
 
 const scope = 'jackdbd'
 
@@ -57,26 +60,29 @@ await $`cp -r ${patters} ${package_root}`
 await $`sed -i 's/PACKAGE_NAME/${unscoped_name}/g' ${package_root}/package.json`
 await $`sed -i 's/PACKAGE_NAME/${unscoped_name}/g' ${package_root}/README.md`
 
-await $`npm run build -w packages/${unscoped_name}`
-
 if (package_type === 'app') {
   await $`sed -i 's/PACKAGE_NAME/${unscoped_name}/g' ${package_root}/src/main.ts`
-  await $`npm run start:development -w packages/${unscoped_name}`
 
   console.log(
     cg(`Application @${scope}/${unscoped_name} created at ${package_root}`)
   )
-} else if (choices === 'lib') {
+} else if (package_type === 'lib') {
   await $`sed -i 's/PACKAGE_NAME/${unscoped_name}/g' ${package_root}/src/index.ts`
-  await $`node ${package_root}/lib/index.js`
+  await $`sed -i 's/PACKAGE_NAME/${unscoped_name}/g' ${package_root}/release.config.cjs`
 
   console.log(
     cg(`Library @${scope}/${unscoped_name} created at ${package_root}`)
   )
-  console.log(`You can build ${unscoped_name} with the following command:`)
+  console.log(
+    chalk.yellow(`You can build ${unscoped_name} with the following command:`)
+  )
   console.log(`npm run build -w packages/${unscoped_name}`)
   console.log(
-    `Add ${unscoped_name} to your Jest config, the run the tests with the following command:`
+    chalk.yellow(
+      `Add ${unscoped_name} to your Jest config, then run the tests with the following command:`
+    )
   )
   console.log(`npm run test -w packages/${unscoped_name}`)
+} else {
+  throw new Error(`package_type ${package_type} not implemented`)
 }

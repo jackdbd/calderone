@@ -4,12 +4,152 @@
 
 ```ts
 
-// Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "Options" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "StatsAPIResult" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "topPages" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+import { FetchOptions } from '@11ty/eleventy-fetch';
+import { Options } from '@11ty/eleventy-fetch';
+
+// Warning: (ae-missing-release-tag) "AggregateOptions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const topPages: (config: Config, options?: Options) => Promise<StatsAPIResult[]>;
+export interface AggregateOptions {
+    // (undocumented)
+    compare?: string;
+    // (undocumented)
+    filters?: string;
+    // (undocumented)
+    metrics?: string;
+    // (undocumented)
+    period?: string;
+}
+
+// Warning: (ae-missing-release-tag) "AggregateResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface AggregateResponse {
+    // (undocumented)
+    results: {
+        bounce_rate: {
+            value: number;
+        };
+        pageviews: {
+            value: number;
+        };
+        visit_duration: {
+            value: number;
+        };
+        visitors: {
+            value: number;
+        };
+    };
+}
+
+// Warning: (ae-missing-release-tag) "BreakdownOptions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface BreakdownOptions {
+    // (undocumented)
+    filters?: string;
+    // (undocumented)
+    limit?: number;
+    // (undocumented)
+    metrics?: string;
+    // (undocumented)
+    page?: number;
+    // (undocumented)
+    period?: string;
+    // (undocumented)
+    property?: string;
+}
+
+// Warning: (ae-missing-release-tag) "BreakdownResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface BreakdownResponse {
+    // (undocumented)
+    results: BreakdownResult[];
+}
+
+// Warning: (ae-missing-release-tag) "BreakdownResult" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface BreakdownResult {
+    // (undocumented)
+    bounce_rate: number;
+    // (undocumented)
+    page: string;
+    // (undocumented)
+    source: string;
+    // (undocumented)
+    visitors: number;
+}
+
+// Warning: (ae-missing-release-tag) "Credentials" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface Credentials {
+    // (undocumented)
+    apiKey: string;
+    // (undocumented)
+    siteId: string;
+}
+
+export { FetchOptions }
+
+// Warning: (ae-missing-release-tag) "makeClient" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export const makeClient: (credentials: Credentials, options?: Options) => {
+    stats: {
+        aggregate: (options?: AggregateOptions | undefined) => Promise<{
+            bounce_rate: {
+                value: number;
+            };
+            pageviews: {
+                value: number;
+            };
+            visit_duration: {
+                value: number;
+            };
+            visitors: {
+                value: number;
+            };
+        }>;
+        breakdown: (options?: BreakdownOptions | undefined) => Promise<BreakdownResult[]>;
+        timeseries: (options?: TimeseriesOptions | undefined) => Promise<TimeseriesResult[]>;
+    };
+};
+
+export { Options }
+
+// Warning: (ae-missing-release-tag) "TimeseriesOptions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface TimeseriesOptions {
+    // (undocumented)
+    filters?: string;
+    // (undocumented)
+    interval?: string;
+    // (undocumented)
+    metrics?: string;
+    // (undocumented)
+    period?: string;
+}
+
+// Warning: (ae-missing-release-tag) "TimeseriesResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface TimeseriesResponse {
+    // (undocumented)
+    results: TimeseriesResult[];
+}
+
+// Warning: (ae-missing-release-tag) "TimeseriesResult" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface TimeseriesResult {
+    // (undocumented)
+    date: string;
+    // (undocumented)
+    visitors: number;
+}
 
 ```
