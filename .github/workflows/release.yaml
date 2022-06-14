@@ -53,17 +53,16 @@ jobs:
           --verbose
 
       # I don't know why, but these applications cause semantic-release to fail.
-      # They have private: true in thei package.json, and there is no
-      # semantic-release config file for them, yet they break the build.
-      # Probably it depends on the fact that I am downloading npm packages from
-      # my Artifact Registry instead of npmjs?
-      # - name: Remove applications
-      #   run: >
-      #     rm -rf
-      #     packages/audit
-      #     packages/telegram-bot
-      #     packages/wasm-news
-      #     packages/webhooks
+      # They have private: true in their package.json, and there is no
+      # semantic-release config file for them. Yet they break the build.
+      # From the semantic-release error output it seems a peer dependency issue.
+      - name: Remove applications
+        run: >
+          rm -rf
+          packages/audit
+          packages/telegram-bot
+          packages/wasm-news
+          packages/webhooks
 
       - name: 🚀 Release to Artifact Registry with multi-semantic-release
         env:
