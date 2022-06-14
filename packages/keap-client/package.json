@@ -53,6 +53,11 @@
       ]
     }
   },
+  "files": [
+    "CHANGELOG.md",
+    "api-docs",
+    "lib"
+  ],
   "scripts": {
     "build": "run-s 'build:ts' 'build:docs' --print-label",
     "build:docs": "run-s 'docs:doctoc' 'docs:ae' 'docs:ad' 'docs:typedoc' --print-label",
