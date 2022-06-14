@@ -42,15 +42,16 @@ jobs:
           --repo-config ./config/npm-config-repo
           --verbose
 
-      - run: npm cache verify
+      # - run: npm cache verify
 
-      - run: rm package-lock.json
+      # - run: rm package-lock.json
 
-      - run: rm -rf packages/telegram-bot
+      - name: Remove applications
+        run: rm -rf packages/telegram-bot packages/wasm-news
 
       - name: ⬇️ Install dependencies
-        run: npm install --force
-        # run: npm ci
+        run: npm ci
+        # run: npm install --force
         # run: npm install
         # run: npm install --legacy-peer-deps
 
@@ -77,4 +78,5 @@ jobs:
           # there).
           # https://github.com/semantic-release/npm#npm-configuration
           NPM_CONFIG_REGISTRY: https://${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_location_id }}-npm.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_id }}/
-        run: npx multi-semantic-release --ignore-private --ignore-packages=packages/checks/**,packages/telegram-bot/**
+        run: npx multi-semantic-release --ignore-private --debug
+        # run: npx multi-semantic-release --ignore-private --ignore-packages=packages/checks/**,packages/telegram-bot/**
