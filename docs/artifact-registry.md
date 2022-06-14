@@ -34,7 +34,9 @@ You can keep this `.npmrc` under source control because it is the **per-project*
 You can refresh the tokens using this [google-artifactregistry-auth](https://github.com/GoogleCloudPlatform/artifact-registry-npm-tools#readme) command from the monorepo root:
 
 ```sh
-npx google-artifactregistry-auth --repo-config ./config/repo-config-npmrc-artifact-registry
+npx google-artifactregistry-auth \
+  --repo-config ./config/npm-config-repo \
+  --user-config ~/.npmrc
 ```
 
 The OAuth 2.0 access token obtained is [valid for one hour](https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials#sa-credentials-oauth) (even if its lifetime can be extended [up to 12 hours](https://stackoverflow.com/a/69712755/3036129)).
@@ -46,7 +48,7 @@ A couple of things on the [npm config file](https://docs.npmjs.com/cli/v8/config
 
 ```sh
 npx google-artifactregistry-auth \
-  --repo-config ./config/repo-config-npmrc-artifact-registry \
+  --repo-config ./config/npm-config-repo \
   --credential-config ~/.npmrc \
   --verbose
 ```

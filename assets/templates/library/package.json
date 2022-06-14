@@ -8,12 +8,8 @@
     "url": "https://giacomodebidda.com/"
   },
   "license": "MIT",
-  // this is to prevent accidental publication
-  // https://docs.npmjs.com/cli/v8/configuring-npm/package-json#private
   "private": true,
   "publishConfig": {
-    // "access" must be "public" if you want to publish scoped packages to npmjs
-    // https://docs.npmjs.com/creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages
     "access": "public"
   },
   "keywords": [],
@@ -26,8 +22,6 @@
   },
   "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/PACKAGE_NAME#readme",
   "engines": {
-    // maybe pick the latest release of the Maintenance LTS Node.js as the lower bound
-    // https://endoflife.date/nodejs
     "node": ">=14.19.3"
   },
   "type": "module",

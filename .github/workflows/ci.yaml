@@ -71,26 +71,3 @@ jobs:
         with:
           fail_ci_if_error: true
           verbose: true
-
-      # TODO: fix trigger for Cloud Build. DO build on Cloud Build.
-      # - name: 🛂 Authenticate to Google Cloud
-      #   # https://github.com/google-github-actions/auth
-      #   uses: google-github-actions/auth@v0
-      #   with:
-      #     credentials_json: ${{ secrets.SA_GITHUB_WORKFLOWS }}
-      # - name: ⚙️ Set up gcloud
-      #   # https://github.com/marketplace/actions/set-up-gcloud-cloud-sdk-environment
-      #   uses: google-github-actions/setup-gcloud@v0
-      # - name: 🔑 Refresh access token for Artifact Registry
-      #   run: npx google-artifactregistry-auth --repo-config ./config/repo-config-npmrc-artifact-registry --verbose
-      # - run: gcloud info
-      # - name: ⚡ Trigger build on Cloud Build
-      #   # reminder for YAML single-line and multi-line strings
-      #   # https://stackoverflow.com/a/3790497/3036129
-      #   run: >
-      #     gcloud builds submit
-      #     --config cloudbuild.yaml
-      #     --project ${{ secrets.GCP_PROJECT_ID }}
-      #     --async
-      #     --substitutions _NODE_VERSION=${{ matrix.node }}
-      #     --timeout 9m59s
