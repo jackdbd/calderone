@@ -85,3 +85,21 @@ jobs:
         with:
           fail_ci_if_error: true
           verbose: true
+
+      - name: 🚀 Release --dry with multi-semantic-release
+        env:
+          # The github token must allow to push to this GitHub repository.
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_GITHUB_TOKEN }}
+          # The service account must be able to write artifacts to Artifact
+          # Registry (e.g. it has the roles/artifactregistry.writer IAM role)
+          # https://cloud.google.com/artifact-registry/docs/access-control#permissions
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.SA_ARTIFACT_REGISTRY_WRITER }}
+          # The default npm registry is https://registry.npmjs.org
+          # https://docs.npmjs.com/cli/v8/using-npm/registry
+          # The environment variable NPM_CONFIG_REGISTRY takes precedence over
+          # the registry specified in .npmrc, but not the one specified in
+          # `publishConfig.registry` in package.json (that's why I do NOT set it
+          # there).
+          # https://github.com/semantic-release/npm#npm-configuration
+          NPM_CONFIG_REGISTRY: https://${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_location_id }}-npm.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_id }}/
+        run: npm run release:dry
