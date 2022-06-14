@@ -44,10 +44,14 @@ jobs:
 
       - run: npm cache verify
 
+      - run: rm package-lock.json
+
+      # - run: rm -rf packages/telegram-bot
+
       - name: ⬇️ Install dependencies
-        run: npm ci
+        run: npm install --force
+        # run: npm ci
         # run: npm install
-        # run: npm install --force
         # run: npm install --legacy-peer-deps
 
       - name: 🛡️ Audit dependencies
