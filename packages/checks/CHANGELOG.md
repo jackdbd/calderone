@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## <small>1.1.1 (2022-06-14)</small>
+
+* chore: add homepage in each package.json ([3e45595](https://github.com/jackdbd/calderone/commit/3e45595))
+* chore: cleanup scripts ([f8b4410](https://github.com/jackdbd/calderone/commit/f8b4410))
+* chore: improve script that publishes to npmjs ([eeca448](https://github.com/jackdbd/calderone/commit/eeca448))
+* chore: update semantic-release config ([7f85707](https://github.com/jackdbd/calderone/commit/7f85707))
+* chore(checks): remove debug as peerDependency ([20acf7a](https://github.com/jackdbd/calderone/commit/20acf7a))
+* fix(checks): add "files" key in package.json ([2a2e88b](https://github.com/jackdbd/calderone/commit/2a2e88b))
+* docs: add badges in READMEs ([75a2fe6](https://github.com/jackdbd/calderone/commit/75a2fe6))
+* docs: add link to generated docs in each package README ([435d090](https://github.com/jackdbd/calderone/commit/435d090))
+* docs: rebuild all docs ([ed00bd6](https://github.com/jackdbd/calderone/commit/ed00bd6))
+* docs: rebuild docs ([d9d76a5](https://github.com/jackdbd/calderone/commit/d9d76a5))
+* docs: rebuild docs ([599e4f2](https://github.com/jackdbd/calderone/commit/599e4f2))
+* docs: rebuild docs ([f9ccc97](https://github.com/jackdbd/calderone/commit/f9ccc97))
+* docs(checks): configure API Extractor and TypeDoc ([59c1a58](https://github.com/jackdbd/calderone/commit/59c1a58))
+* ci: run CI on GitHub workflow, not Cloud Build ([b63cc91](https://github.com/jackdbd/calderone/commit/b63cc91))
+
 ## @jackdbd/checks 1.1.0 (2022-05-19)
 
 * chore: cleanup ([1f293f3](https://github.com/jackdbd/calderone/commit/1f293f3))
