@@ -54,7 +54,7 @@
     "@jackdbd/secret-manager-utils": "1.0.0",
     "@jackdbd/telegram-text-messages": "1.0.0",
     "@jackdbd/utils": "1.0.1",
-    "debug": "4.3.4",
+    "debug": "^4.3.3",
     "exiting": "6.1.0",
     "hapi-dev-errors": "4.0.0",
     "node-telegram-bot-api": "0.57.0"
