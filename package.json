@@ -36,11 +36,9 @@
     "build:libs:watch": "tsc --build --watch",
     "build:scripts": "npm run build -w packages/scripts",
     "build:scripts:watch": "npm run build:watch -w packages/scripts",
-    "build:ts": "npm run build:ts --workspaces --if-present",
     "clean": "npm run clean --workspaces --if-present",
     "copy-dotfiles": "npm run copy-dotfiles --workspaces --if-present",
     "dev:scripts": "run-p build:libs:watch build:scripts:watch",
-    "docs": "npm run docs --workspaces --if-present",
     "format": "npm run format --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "ncu:dev": "ncu --doctor --dep 'dev' --upgrade",
@@ -53,7 +51,6 @@
     "size": "npm run size --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "test:ci": "npm run test:ci --workspaces --if-present",
-    "upload-coverage": "./scripts/upload-coverage",
     "webserver": "npx http-server --port 8080"
   },
   "devDependencies": {

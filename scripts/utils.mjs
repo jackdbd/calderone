@@ -171,6 +171,17 @@ export const throwIfInvokedFromMonorepoRoot = (pwd) => {
   }
 }
 
+export const throwIfNotInvokedFromMonorepoRoot = (pwd) => {
+  const { name } = require(`${pwd}/package.json`)
+  if (name !== 'root') {
+    throw new Error(
+      chalk.red(
+        `you invoked this script from ${pwd}. This script should be invoked from the monorepo root instead.`
+      )
+    )
+  }
+}
+
 export const unscopedPackageName = async (pwd) => {
   const { name } = require(`${pwd}/package.json`)
   const { stdout: unscoped_name } =
