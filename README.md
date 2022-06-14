@@ -37,7 +37,7 @@ Build all libraries and their documentation (code to `<package-root>/lib`, TypeD
 npm run build
 ```
 
-Build all libraries, but with no docs:
+Build all libraries, but with no docs (much faster, since building docs takes some time):
 
 ```sh
 npm run build:libs
