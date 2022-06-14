@@ -37,7 +37,11 @@ jobs:
       - name: 🔍 Test library @jackdbd/checks
         run: npm run test:ci -w packages/checks
 
+      - run: echo "github SHA is $GITHUB_SHA"
+
       - name: 🔍 Test library @jackdbd/cloud-scheduler-utils
+        env:
+          SA_NOTIFIER: ${{ secrets.SA_NOTIFIER }}
         run: npm run test:ci -w packages/cloud-scheduler-utils
 
       - name: 🔍 Test library @jackdbd/hapi-healthcheck-plugin
@@ -47,6 +51,8 @@ jobs:
         run: npm run test:ci -w packages/hapi-ip-whitelist-plugin
 
       - name: 🔍 Test library @jackdbd/notifications
+        env:
+          TELEGRAM: ${{ secrets.TELEGRAM }}
         run: npm run test:ci -w packages/notifications
 
       - name: 🔍 Test library @jackdbd/plausible-client

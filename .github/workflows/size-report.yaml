@@ -28,8 +28,22 @@ jobs:
       - name: 🔧 Build libraries
         run: npm run build:libs
 
-      - name: 📝 Package size report
-        run: npm run size
+      # The technique described here is no longer allowed.
+      # https://www.edwardthomson.com/blog/github_actions_15_sharing_data_between_steps.html
+      # TODO read this
+      # https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
+      # - name: 📝 size report @jackdbd/checks
+      #   run: |
+      #     export SIZE_CHECKS=$(npm run size -w packages/checks)
+      #     echo "::set-env name=SIZE_CHECKS::$SIZE_CHECKS"
+
+      # - name: Add size report to PR
+      #   https://github.com/marketplace/actions/add-pr-comment
+      #   uses: thollander/actions-comment-pull-request@v1
+      #   with:
+      #     message: ${SIZE_CHECKS}
+      #     reactions: eyes, rocket
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Why is this so slow? It went from a couple of minutes to 8 minutes, then
       # to more than 13 minutes!

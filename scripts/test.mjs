@@ -43,8 +43,17 @@ if (argv.watch) {
   params.push('--watch')
 }
 
-// the command $`npx jest <PARAMS>` would execute jest in a child process but
-// would not preserve color output. By explicitly inheriting stdio we can
-// preserve the color output (jest will still be executed in a child process).
+// The command $`npx jest <PARAMS>` executes jest in a child process but does
+// NOT preserve any color output. By explicitly inheriting stdio we can preserve
+// the color output (jest will still be executed in a child process).
 // https://stackoverflow.com/questions/7725809/preserve-color-when-executing-child-process-spawn
-spawn(jest, params, { stdio: 'inherit' })
+// However, it seems that on the GitHub CI the combination spawn + stdout inherit
+// causes all tests to pass, while the $`npx jest <PARAMS>` works fine.
+// Since on the GitHub CI we don't have color output anyway, we use npx jest
+// there, and use the combination spawn + stdout inherit when launching tests
+// locally.
+if (process.env.GITHUB_SHA) {
+  await $`npx jest ${params}`
+} else {
+  spawn(jest, params, { stdio: 'inherit' })
+}
