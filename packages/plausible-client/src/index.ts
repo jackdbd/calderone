@@ -4,9 +4,9 @@
  * @packageDocumentation
  */
 export type { FetchOptions, Options } from '@11ty/eleventy-fetch'
-export { makeClient, makeClientWithCache } from './clients.js'
+export { makeClient } from './clients.js'
 
-export type { Config } from './common/interfaces.js'
+export type { Credentials } from './common/interfaces.js'
 
 export type {
   AggregateOptions,

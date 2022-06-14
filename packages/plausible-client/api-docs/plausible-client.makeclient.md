@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-makeClient: (config: Config) => {
+makeClient: (credentials: Credentials, options?: Options) => {
     stats: {
         aggregate: (options?: import("./stats/interfaces.js").AggregateOptions | undefined) => Promise<{
             bounce_rate: {

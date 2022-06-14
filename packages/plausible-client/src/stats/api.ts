@@ -1,3 +1,4 @@
+import makeDebug from 'debug'
 import Joi from 'joi'
 import type {
   AggregateOptions,
@@ -18,6 +19,8 @@ import {
 import { INVALID } from '../common/constants.js'
 import type { FetchClient } from '../fetch-clients/interfaces.js'
 
+const debug = makeDebug('plausible/stats/api')
+
 export const PREFIX_API_ERROR = '🌐 Plausible Stats API error:\n'
 export const SUFFIX_API_ERROR =
   '\n📄 Check Stats API reference here: https://plausible.io/docs/stats-api'
@@ -33,8 +36,8 @@ const defaultAggregateOptions: Required<AggregateOptions> = {
   period: '30d'
 }
 
-interface Config<Res> {
-  fetchClient: FetchClient<Res>
+export interface Config<Response> {
+  fetchClient: FetchClient<Response>
   siteId: string
 }
 
@@ -69,6 +72,7 @@ export const aggregate = async (
   const endpoint = 'https://plausible.io/api/v1/stats/aggregate'
   const qs = params.join('&')
   const url = `${endpoint}?${qs}`
+  debug(`aggregate query-string %s`, qs)
 
   try {
     const response = await fetchClient(url)
@@ -121,6 +125,7 @@ export const breakdown = async (
   const endpoint = 'https://plausible.io/api/v1/stats/breakdown'
   const qs = params.join('&')
   const url = `${endpoint}?${qs}`
+  debug(`breakdown query-string %s`, qs)
 
   try {
     const response = await fetchClient(url)
@@ -170,6 +175,7 @@ export const timeseries = async (
   const endpoint = 'https://plausible.io/api/v1/stats/timeseries'
   const qs = params.join('&')
   const url = `${endpoint}?${qs}`
+  debug(`timeseries query-string %s`, qs)
 
   try {
     const response = await fetchClient(url)

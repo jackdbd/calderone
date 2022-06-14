@@ -27,6 +27,7 @@ packages/scripts/protos/
 fixtures.db
 
 # eleventy-fetch cache (I use different caches for tests and scripts)
+.cache
 packages/**/.cache
 packages/**/.cache-tests
 .cache-plausible-json-responses

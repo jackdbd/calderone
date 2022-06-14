@@ -1,4 +1,4 @@
-export { makeClient, makeClientWithCache } from './clients.js'
+export { makeClient } from './clients.js'
 
 export type {
   AggregateOptions,

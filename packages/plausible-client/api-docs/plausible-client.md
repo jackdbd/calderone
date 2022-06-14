@@ -15,7 +15,7 @@ Entry point for the documentation of plausible-client.
 |  [BreakdownOptions](./plausible-client.breakdownoptions.md) |  |
 |  [BreakdownResponse](./plausible-client.breakdownresponse.md) |  |
 |  [BreakdownResult](./plausible-client.breakdownresult.md) |  |
-|  [Config](./plausible-client.config.md) |  |
+|  [Credentials](./plausible-client.credentials.md) |  |
 |  [TimeseriesOptions](./plausible-client.timeseriesoptions.md) |  |
 |  [TimeseriesResponse](./plausible-client.timeseriesresponse.md) |  |
 |  [TimeseriesResult](./plausible-client.timeseriesresult.md) |  |
@@ -25,5 +25,4 @@ Entry point for the documentation of plausible-client.
 |  Variable | Description |
 |  --- | --- |
 |  [makeClient](./plausible-client.makeclient.md) |  |
-|  [makeClientWithCache](./plausible-client.makeclientwithcache.md) |  |
 

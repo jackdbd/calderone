@@ -23,14 +23,7 @@ export const period = Joi.string()
 // https://webmasters.stackexchange.com/questions/16996/maximum-domain-name-length
 export const siteId = Joi.string().min(4).max(253)
 
-export const clientConfig = Joi.object()
-  .keys({
-    apiKey: apiKey.required(),
-    siteId: siteId.required()
-  })
-  .required()
-
-export const clientWithCacheConfig = Joi.object()
+export const credentials = Joi.object()
   .keys({
     apiKey: apiKey.required(),
     siteId: siteId.required()

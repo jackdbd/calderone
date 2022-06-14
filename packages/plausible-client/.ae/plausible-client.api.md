@@ -82,10 +82,10 @@ export interface BreakdownResult {
     visitors: number;
 }
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Credentials" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export interface Config {
+export interface Credentials {
     // (undocumented)
     apiKey: string;
     // (undocumented)
@@ -97,31 +97,7 @@ export { FetchOptions }
 // Warning: (ae-missing-release-tag) "makeClient" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const makeClient: (config: Config) => {
-    stats: {
-        aggregate: (options?: AggregateOptions | undefined) => Promise<{
-            bounce_rate: {
-                value: number;
-            };
-            pageviews: {
-                value: number;
-            };
-            visit_duration: {
-                value: number;
-            };
-            visitors: {
-                value: number;
-            };
-        }>;
-        breakdown: (options?: BreakdownOptions | undefined) => Promise<BreakdownResult[]>;
-        timeseries: (options?: TimeseriesOptions | undefined) => Promise<TimeseriesResult[]>;
-    };
-};
-
-// Warning: (ae-missing-release-tag) "makeClientWithCache" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
-export const makeClientWithCache: (config: Config, options?: Options) => {
+export const makeClient: (credentials: Credentials, options?: Options) => {
     stats: {
         aggregate: (options?: AggregateOptions | undefined) => Promise<{
             bounce_rate: {

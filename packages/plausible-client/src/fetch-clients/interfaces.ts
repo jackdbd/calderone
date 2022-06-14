@@ -1,1 +1,1 @@
-export type FetchClient<Res> = (url: string) => Promise<Res>
+export type FetchClient<Response> = (url: string) => Promise<Response>

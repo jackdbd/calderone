@@ -1,52 +1,48 @@
+import makeDebug from 'debug'
 import Joi from 'joi'
 import type { Options } from '@11ty/eleventy-fetch'
 import { aggregate, breakdown, timeseries } from './api.js'
 import { INVALID } from '../common/constants.js'
-import {
-  makeEleventyFetch,
-  INVALID_ELEVENTY_FETCH_ERROR_PREFIX
-} from '../fetch-clients/eleventy-fetch.js'
-import type { Config } from '../common/interfaces.js'
+import type { Credentials } from '../common/interfaces.js'
+import { credentials as credentialsSchema } from '../common/schemas.js'
+import { makeEleventyFetch } from '../fetch-clients/eleventy-fetch.js'
+import type { FetchClient } from '../fetch-clients/interfaces.js'
 import { eleventyFetchOptions } from '../fetch-clients/schemas.js'
-import { clientConfig, clientWithCacheConfig } from '../common/schemas.js'
+import type {
+  AggregateResponse,
+  BreakdownResponse,
+  TimeseriesResponse
+} from '../stats/interfaces.js'
+
+const debug = makeDebug('plausible/stats/clients')
 
 export const INVALID_CLIENT_CONFIG_ERROR_PREFIX = `${INVALID} client config`
 
-export const makeClient = (config: Config) => {
-  Joi.assert(config, clientConfig, INVALID_CLIENT_CONFIG_ERROR_PREFIX)
-  const { apiKey, siteId } = config
+export const makeClient = (credentials: Credentials, options?: Options) => {
+  debug(`validate schema: credentials`)
+  Joi.assert(credentials, credentialsSchema, INVALID_CLIENT_CONFIG_ERROR_PREFIX)
+  debug(`validate schema: options`)
+  Joi.assert(options, eleventyFetchOptions)
 
-  // TODO: do not use a cache with this client, use something like phin
-  // https://github.com/ethanent/phin
-  const fetchClient = makeEleventyFetch(apiKey)
+  const { apiKey, siteId } = credentials
 
-  // partial application
-  return {
-    aggregate: aggregate.bind(null, { fetchClient, siteId }),
-    breakdown: breakdown.bind(null, { fetchClient, siteId }),
-    timeseries: timeseries.bind(null, { fetchClient, siteId })
-  }
-}
-
-export const INVALID_CLIENT_WITH_CACHE_CONFIG_ERROR_PREFIX = `${INVALID} clientWithCache config`
-
-export const makeClientWithCache = (config: Config, options?: Options) => {
-  Joi.assert(
-    config,
-    clientWithCacheConfig,
-    INVALID_CLIENT_WITH_CACHE_CONFIG_ERROR_PREFIX
-  )
-
-  Joi.assert(options, eleventyFetchOptions, INVALID_ELEVENTY_FETCH_ERROR_PREFIX)
-
-  const { apiKey, siteId } = config
-
+  debug(`create fetch client`)
   const fetchClient = makeEleventyFetch(apiKey, options)
 
+  debug(`create API client`)
   // partial application
   return {
-    aggregate: aggregate.bind(null, { fetchClient, siteId }),
-    breakdown: breakdown.bind(null, { fetchClient, siteId }),
-    timeseries: timeseries.bind(null, { fetchClient, siteId })
+    aggregate: aggregate.bind(null, {
+      fetchClient: fetchClient as FetchClient<AggregateResponse>,
+      siteId
+    }),
+    breakdown: breakdown.bind(null, {
+      fetchClient: fetchClient as FetchClient<BreakdownResponse>,
+      siteId
+    }),
+    timeseries: timeseries.bind(null, {
+      fetchClient: fetchClient as FetchClient<TimeseriesResponse>,
+      siteId
+    })
   }
 }

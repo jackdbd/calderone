@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "@11ty/eleventy-fetch": "^3.0.0",
+    "debug": "^4.3.4",
     "joi": "^17.6.0"
   },
   "peerDependencies": {},
