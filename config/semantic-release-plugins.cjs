@@ -23,7 +23,7 @@ const github = [
 // Do NOT set npmPublish here. Instead, set "private": true or "private": false
 // in the package.json of each monorepo package.
 // See alse the release.yaml GitHub workflow.
-const npm = ['@semantic-release/npm', { pkgRoot: '.', tarballDir: false }]
+const npm = ['@semantic-release/npm', { pkgRoot: '.' }]
 
 const commitlint_config_path = '../../config/commitlint.cjs'
 // const commitlint_config_path = path.resolve('config', 'commitlint.cjs')

@@ -55,8 +55,8 @@ jobs:
       - name: 🔧 Build all libraries
         run: npm run build:libs
 
-      - name: 👀 Check npm registry
-        run: npm config get registry
+      # - name: 👀 Check npm registry
+      #   run: npm config get registry
 
       # - name: 📋 Copy dotfiles to each package root
       #   run: npm run copy-dotfiles
