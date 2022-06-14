@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: ⬇️ Install dependencies
+      - name: ⬇️ Install dependencies from npmjs
         run: npm ci
 
       - name: 🛡️ Audit dependencies
@@ -42,9 +42,9 @@ jobs:
         # https://github.com/marketplace/actions/set-up-gcloud-cloud-sdk-environment
         uses: google-github-actions/setup-gcloud@v0
 
-      - run: gcloud info
+      # - run: gcloud info
 
-      - name: 🔑 Refresh access token for Artifact Registry
+      - name: 🔑 Switch npm registry to my private Artifact Registry and refresh access token
         # reminder for YAML single-line and multi-line strings
         # https://stackoverflow.com/a/3790497/3036129
         run: >
