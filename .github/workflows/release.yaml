@@ -72,4 +72,4 @@ jobs:
           # there).
           # https://github.com/semantic-release/npm#npm-configuration
           NPM_CONFIG_REGISTRY: https://${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_location_id }}-npm.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/${{ fromJSON(secrets.ARTIFACT_REGISTRY).repository_id }}/
-        run: npm run release
+        run: npx multi-semantic-release --ignore-private --ignore-packages=packages/telegram-bot",
