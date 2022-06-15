@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## <small>1.0.1 (2022-06-15)</small>
+
+* fix(plausible-client): add "files" key in package.json ([f7d9add](https://github.com/jackdbd/calderone/commit/f7d9add))
+
 ## @jackdbd/plausible-client 1.0.0 (2022-06-14)
 
 * feat(plausible-client): add API client that uses eleventy-fetch ([720bd49](https://github.com/jackdbd/calderone/commit/720bd49))
