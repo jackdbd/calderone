@@ -23,7 +23,7 @@ Each npm package is published to my private Artifact Registry automatically, whe
 >
 > :heavy_multiplication_x: The `release.yaml` workflow does **not** publish any npm package to npmjs.
 
-Once a package is published to my private Artifact Registry, I publish it to [npmjs](https://www.npmjs.com/settings/jackdbd/packages) using this script:
+Once a package is published to my private Artifact Registry, I publish it to [npmjs](https://www.npmjs.com/settings/jackdbd/packages) using this script. The script triggers a build on Cloud Build for **each** npm package to publish to npmjs:
 
 ```sh
 # run this from the monorepo root

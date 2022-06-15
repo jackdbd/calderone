@@ -11,11 +11,13 @@ const NPM_PACKAGES_UNSCOPED = [
   'checks',
   'cloud-scheduler-utils',
   'firestore-utils',
+  'hapi-healthcheck-plugin',
+  'hapi-ip-whitelist-plugin',
   'notifications',
   'plausible-client',
   'secret-manager-utils',
-  'utils',
-  'telegram-text-messages'
+  'telegram-text-messages',
+  'utils'
 ]
 const NPM_PACKAGES_SCOPED = NPM_PACKAGES_UNSCOPED.map((s) => `@${SCOPE}/${s}`)
 const GCP_PROJECT_ID = process.env.GCP_PROJECT_ID
