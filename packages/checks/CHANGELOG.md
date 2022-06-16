@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## @jackdbd/checks 1.2.0 (2022-06-16)
+
+* docs(checks): update API docs ([30e0e28](https://github.com/jackdbd/calderone/commit/30e0e28))
+* feat(checks): remove function isOnLocalContainer ([1011c6c](https://github.com/jackdbd/calderone/commit/1011c6c))
+* chore(checks,utils): cleanup ([540d5a9](https://github.com/jackdbd/calderone/commit/540d5a9))
+
 ## <small>1.1.1 (2022-06-14)</small>
 
 * chore: add homepage in each package.json ([3e45595](https://github.com/jackdbd/calderone/commit/3e45595))
