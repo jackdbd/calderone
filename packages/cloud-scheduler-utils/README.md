@@ -59,7 +59,7 @@ const schedule = '59 23 31 12 *' // Tip: use https://crontab.guru/
 // const schedule = randomSchedule()
 
 const config = {
-  cloud_scheduler, // Notice you have to pass your Cloud Scheduler client as configuration for the job.
+  cloud_scheduler, // Note that you have to pass your Cloud Scheduler client as configuration for the job.
   description: 'this is a test HTTP job',
   location_id,
   name,
