@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## <small>1.0.2 (2022-06-16)</small>
+
+* fix: set publishConfig access to public in many package.json ([c861108](https://github.com/jackdbd/calderone/commit/c861108))
+* chore(send-telegram-message,telegram-text-messages): cleanup ([2ab2c8e](https://github.com/jackdbd/calderone/commit/2ab2c8e))
+
 ## <small>1.0.1 (2022-06-15)</small>
 
 * fix(telegram-text-messages): add "files" key in package.json ([f411e29](https://github.com/jackdbd/calderone/commit/f411e29))
