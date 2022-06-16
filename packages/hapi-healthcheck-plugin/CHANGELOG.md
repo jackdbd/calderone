@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## <small>1.0.4 (2022-06-16)</small>
+
+* fix(hapi-healthcheck-plugin): remove @hapi/boom from peerDependencies ([c22ca31](https://github.com/jackdbd/calderone/commit/c22ca31))
+
 ## <small>1.0.3 (2022-06-14)</small>
 
 * fix(hapi-healthcheck-plugin): add "files" key in package.json ([a840f71](https://github.com/jackdbd/calderone/commit/a840f71))
