@@ -1,5 +1,5 @@
-export { createHttpJob } from './create-jobs'
+export { createHttpJob } from './create-jobs.js'
 
-export { deleteAllJobs, deleteJob } from './delete-jobs'
+export { deleteAllJobs, deleteJob } from './delete-jobs.js'
 
-export { randomSchedule } from './random-schedule'
+export { randomSchedule } from './random-schedule.js'

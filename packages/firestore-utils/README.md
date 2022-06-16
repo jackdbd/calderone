@@ -21,6 +21,10 @@ Utility functions to work with Firestore.
 npm install @jackdbd/firestore-utils
 ```
 
+> ⚠️ **Warning:**
+> 
+> This library declares [@google-cloud/firestore](https://www.npmjs.com/package/@google-cloud/firestore) and [debug](https://www.npmjs.com/package/debug) as peer dependencies.
+
 ## API
 
 [API docs generated with TypeDoc](https://jackdbd.github.io/calderone/firestore-utils/)

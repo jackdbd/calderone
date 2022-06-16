@@ -19,8 +19,7 @@
   },
   "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/cloud-scheduler-utils#readme",
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=7.0.0"
+    "node": ">=16.0.0"
   },
   "type": "module",
   "module": "lib/index.js",
@@ -49,7 +48,6 @@
     "build:docs": "run-s 'docs:doctoc' 'docs:ae' 'docs:ad' 'docs:typedoc' --print-label",
     "build:ts": "tsc -p tsconfig.json",
     "clean": "../../scripts/clean.mjs",
-    "copy-dotfiles": "../../scripts/copy-dotfiles.mjs",
     "docs:ae": "../../scripts/api-extractor.mjs",
     "docs:ad": "../../scripts/api-documenter.mjs",
     "docs:doctoc": "doctoc --github README.md --title '<details><summary>Table of Contents</summary>'",
@@ -61,11 +59,12 @@
     "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
     "test": "../../scripts/test.mjs",
     "test:ci": "../../scripts/test.mjs --ci",
-    "test:watch": "run-p \"build -- --watch\" \"test -- --watch\""
+    "test:watch": "run-p 'build:ts -- --watch' 'test -- --watch'"
   },
   "dependencies": {},
   "peerDependencies": {
-    "@google-cloud/scheduler": ">=2.0.0"
+    "@google-cloud/scheduler": ">=2.0.0",
+    "debug": ">=4.0.0"
   },
   "devDependencies": {}
 }

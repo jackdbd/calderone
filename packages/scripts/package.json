@@ -15,8 +15,7 @@
   },
   "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/scripts#readme",
   "engines": {
-    "node": ">=16",
-    "npm": ">=7.0.0"
+    "node": ">=16"
   },
   "type": "commonjs",
   "files": [
@@ -27,7 +26,6 @@
     "build": "node build-scripts.mjs",
     "build:watch": "node build-scripts.mjs --watch",
     "clean": "../../scripts/clean.mjs",
-    "copy-dotfiles": "../../scripts/copy-dotfiles.mjs",
     "format": "../../scripts/format.mjs",
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",

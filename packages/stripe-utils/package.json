@@ -2,7 +2,11 @@
   "name": "@jackdbd/stripe-utils",
   "version": "1.0.0",
   "description": "Utility functions to work with Stripe",
-  "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
+  "author": {
+    "name": "Giacomo Debidda",
+    "email": "giacomo@giacomodebidda.com",
+    "url": "https://giacomodebidda.com/"
+  },
   "license": "MIT",
   "private": true,
   "keywords": [
@@ -15,8 +19,7 @@
   },
   "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/stripe-utils#readme",
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=7.0.0"
+    "node": ">=16.0.0"
   },
   "type": "module",
   "module": "lib/index.js",
@@ -49,7 +52,6 @@
     "build:docs": "run-s 'docs:doctoc' 'docs:ae' 'docs:ad' 'docs:typedoc' --print-label",
     "build:ts": "tsc -p tsconfig.json",
     "clean": "../../scripts/clean.mjs",
-    "copy-dotfiles": "../../scripts/copy-dotfiles.mjs",
     "docs:ae": "../../scripts/api-extractor.mjs",
     "docs:ad": "../../scripts/api-documenter.mjs",
     "docs:doctoc": "doctoc --github README.md --title '<details><summary>Table of Contents</summary>'",
@@ -66,7 +68,7 @@
   "dependencies": {},
   "peerDependencies": {
     "@jackdbd/utils": ">=1.0.1",
-    "debug": ">=4.3.4",
+    "debug": ">=4.0.0",
     "stripe": ">=9.1.0"
   },
   "devDependencies": {}

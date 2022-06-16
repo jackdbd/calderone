@@ -19,8 +19,7 @@
   },
   "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/hapi-healthcheck-plugin#readme",
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=7.0.0"
+    "node": ">=16.0.0"
   },
   "type": "module",
   "module": "lib/index.js",
@@ -47,7 +46,6 @@
     "build:docs": "run-s 'docs:doctoc' 'docs:ae' 'docs:ad' 'docs:typedoc' --print-label",
     "build:ts": "tsc -p tsconfig.json",
     "clean": "../../scripts/clean.mjs",
-    "copy-dotfiles": "../../scripts/copy-dotfiles.mjs",
     "docs:ae": "../../scripts/api-extractor.mjs",
     "docs:ad": "../../scripts/api-documenter.mjs",
     "docs:doctoc": "doctoc --github README.md --title '<details><summary>Table of Contents</summary>'",
@@ -63,7 +61,6 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@hapi/boom": ">=9.0.0",
     "@hapi/hapi": ">=20.0.0"
   },
   "devDependencies": {}

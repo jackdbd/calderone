@@ -1,0 +1,45 @@
+name: 'release-to-npmjs'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: 📣 Release npm packages to Artifact Registry
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: ['16.15.1']
+    steps:
+      - name: 🛎️ Check out repo
+        uses: actions/checkout@v3
+
+      - name: ⚙️ Set up Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: ⬇️ Install dependencies from npmjs
+        run: npm ci
+
+      - name: 🛡️ Audit dependencies
+        # https://docs.npmjs.com/cli/v8/commands/npm-audit#audit-level
+        run: npm audit --audit-level high
+
+      - name: 🔧 Build all libraries
+        run: npm run build:libs
+
+      - name: 🚀 Release to npmjs with multi-semantic-release
+        env:
+          # The github token must allow to push to this GitHub repository.
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_NPM_TOKEN }}
+        run: >
+          npx multi-semantic-release
+          --debug
+          --ignore-private
+          --ignore-packages=packages/audit,packages/send-telegram-message,packages/telegram-bot,packages/wasm-news,packages/webhooks"
+

@@ -15,5 +15,6 @@ export const randomSchedule = (config?: Config) => {
   const minute = Math.floor(Math.random() * minute_range + minute_min)
   const hour_range = hour_max - hour_min
   const hour = Math.floor(Math.random() * hour_range + hour_min)
+
   return `${minute} ${hour} * * *`
 }
