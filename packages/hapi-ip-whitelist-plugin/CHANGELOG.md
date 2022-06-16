@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## <small>1.0.4 (2022-06-16)</small>
+
+* fix(hapi-ip-whitelist-plugin): remove @hapi/boom from peerDependencies ([16b4dcd](https://github.com/jackdbd/calderone/commit/16b4dcd))
+
 ## <small>1.0.3 (2022-06-15)</small>
 
 * fix(hapi-ip-whitelist-plugin): add "files" key in package.json ([7a145d6](https://github.com/jackdbd/calderone/commit/7a145d6))
