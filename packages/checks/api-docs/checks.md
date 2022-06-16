@@ -30,7 +30,6 @@
 |  [isOnCloudFunctions](./checks.isoncloudfunctions.md) | Check whether a service is running on Cloud Functions or not.<!-- -->- https://cloud.google.com/functions/docs/configuring/env-var\#newer\_runtimes - https://cloud.google.com/docs/authentication/production\#automatically |
 |  [isOnCloudRun](./checks.isoncloudrun.md) | Check whether a service is running on Cloud Run or not.<!-- -->- https://cloud.google.com/anthos/run/docs/reference/container-contract\#env-vars |
 |  [isOnGithub](./checks.isongithub.md) | Check whether the code is running on the GitHub CI or not.<!-- -->https://docs.github.com/en/actions/learn-github-actions/environment-variables\#default-environment-variables |
-|  [isOnLocalContainer](./checks.isonlocalcontainer.md) | SA\_JSON\_KEY is an environment variable that I use when running a containerized application on my laptop. It's JSON-stringified service account credentials. |
 |  [isSpanishVat](./checks.isspanishvat.md) |  |
 |  [isString](./checks.isstring.md) |  |
 |  [isTest](./checks.istest.md) |  |

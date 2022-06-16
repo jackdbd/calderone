@@ -116,11 +116,6 @@ export const isOnCloudRun: (env: NodeJS.ProcessEnv) => boolean;
 // @public
 export const isOnGithub: (env: NodeJS.ProcessEnv) => boolean;
 
-// Warning: (ae-missing-release-tag) "isOnLocalContainer" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public
-export const isOnLocalContainer: (env: NodeJS.ProcessEnv) => boolean;
-
 // Warning: (ae-missing-release-tag) "isSpanishVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
