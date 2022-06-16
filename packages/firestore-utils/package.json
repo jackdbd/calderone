@@ -8,7 +8,7 @@
     "url": "https://giacomodebidda.com/"
   },
   "license": "MIT",
-  "private": true,
+  "private": false,
   "keywords": [
     "database",
     "gcp",
