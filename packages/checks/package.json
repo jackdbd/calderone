@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/checks",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Functions to check inputs (i.e. predicates)",
   "author": {
     "name": "Giacomo Debidda",

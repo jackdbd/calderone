@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## <small>1.2.1 (2022-06-16)</small>
+
+* fix: set publishConfig access to public in many package.json ([c861108](https://github.com/jackdbd/calderone/commit/c861108))
+
 ## @jackdbd/checks 1.2.0 (2022-06-16)
 
 * docs(checks): update API docs ([30e0e28](https://github.com/jackdbd/calderone/commit/30e0e28))
