@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## <small>1.0.3 (2022-06-16)</small>
+
+* fix: set publishConfig access to public in many package.json ([c861108](https://github.com/jackdbd/calderone/commit/c861108))
+
 ## <small>1.0.2 (2022-06-16)</small>
 
 * fix(notifications): bump version ([edd720e](https://github.com/jackdbd/calderone/commit/edd720e))
