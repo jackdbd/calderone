@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## <small>1.0.2 (2022-06-16)</small>
+
+* fix: set publishConfig access to public in many package.json ([c861108](https://github.com/jackdbd/calderone/commit/c861108))
+
 ## <small>1.0.1 (2022-06-16)</small>
 
 * fix(fattureincloud-client): add "files" key in package.json ([cee0e03](https://github.com/jackdbd/calderone/commit/cee0e03))
