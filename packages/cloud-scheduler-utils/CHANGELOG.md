@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## <small>1.0.2 (2022-06-16)</small>
+
+* fix(cloud-scheduler-utils): bump version ([3867a63](https://github.com/jackdbd/calderone/commit/3867a63))
+* docs(cloud-scheduler-utils): update README ([936f820](https://github.com/jackdbd/calderone/commit/936f820))
+
 ## <small>1.0.1 (2022-06-14)</small>
 
 * test: use different command when tests run on github ([9f0f7ca](https://github.com/jackdbd/calderone/commit/9f0f7ca))
