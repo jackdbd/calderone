@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## <small>1.0.2 (2022-06-16)</small>
+
+* fix(notifications): bump version ([edd720e](https://github.com/jackdbd/calderone/commit/edd720e))
+* chore(notifications): cleanup ([db81192](https://github.com/jackdbd/calderone/commit/db81192))
+
 ## <small>1.0.1 (2022-06-15)</small>
 
 * fix(notifications): add "files" key in package.json ([19b081d](https://github.com/jackdbd/calderone/commit/19b081d))
