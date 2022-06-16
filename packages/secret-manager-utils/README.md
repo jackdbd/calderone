@@ -12,6 +12,7 @@ Utility functions to work with [Secret Manager](https://cloud.google.com/secret-
 - [Installation](#installation)
 - [Why?](#why)
 - [API](#api)
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 </details>
 
