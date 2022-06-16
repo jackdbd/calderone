@@ -1,7 +1,7 @@
-import { debuglog } from 'node:util'
+import makeDebug from 'debug'
 import type { CloudSchedulerClient } from '@google-cloud/scheduler'
 
-const debug = debuglog('cloud-scheduler-utils/delete-jobs')
+const debug = makeDebug('cloud-scheduler-utils/delete-jobs')
 
 interface Config {
   cloud_scheduler: CloudSchedulerClient

@@ -1,8 +1,8 @@
-import { debuglog } from 'node:util'
+import makeDebug from 'debug'
 import type { CloudSchedulerClient } from '@google-cloud/scheduler'
 import type { protos } from '@google-cloud/scheduler'
 
-const debug = debuglog('cloud-scheduler-utils/create-jobs')
+const debug = makeDebug('cloud-scheduler-utils/create-jobs')
 
 interface HttpJobConfig {
   cloud_scheduler: CloudSchedulerClient
