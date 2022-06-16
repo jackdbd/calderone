@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## <small>1.0.5 (2022-06-16)</small>
+
+* fix: set publishConfig access to public in many package.json ([c861108](https://github.com/jackdbd/calderone/commit/c861108))
+
 ## <small>1.0.4 (2022-06-16)</small>
 
 * fix(hapi-ip-whitelist-plugin): remove @hapi/boom from peerDependencies ([16b4dcd](https://github.com/jackdbd/calderone/commit/16b4dcd))
