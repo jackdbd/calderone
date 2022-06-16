@@ -7,4 +7,6 @@ const config = {
   'src/**/*.{js,cjs,mjs,ts}': ['eslint --config ../../config/eslint.cjs']
 }
 
+// console.log('=== lint-staged config ===', config)
+
 module.exports = config

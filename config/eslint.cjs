@@ -17,4 +17,6 @@ const config = {
   }
 }
 
+// console.log('=== ESLint config ===', config)
+
 module.exports = config
