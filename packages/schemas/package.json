@@ -14,8 +14,7 @@
   },
   "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/schemas#readme",
   "engines": {
-    "node": ">=16",
-    "npm": ">=7.0.0"
+    "node": ">=16"
   },
   "type": "module",
   "module": "lib/index.js",
@@ -43,7 +42,6 @@
     "build:docs": "run-s 'docs:doctoc' 'docs:ae' 'docs:ad' 'docs:typedoc' --print-label",
     "build:ts": "tsc -p tsconfig.json",
     "clean": "../../scripts/clean.mjs",
-    "copy-dotfiles": "../../scripts/copy-dotfiles.mjs",
     "docs:ae": "../../scripts/api-extractor.mjs",
     "docs:ad": "../../scripts/api-documenter.mjs",
     "docs:doctoc": "doctoc --github README.md --title '<details><summary>Table of Contents</summary>'",
