@@ -9,6 +9,9 @@
   },
   "license": "MIT",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "database",
     "gcp",
