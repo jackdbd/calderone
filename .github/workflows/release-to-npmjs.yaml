@@ -39,7 +39,6 @@ jobs:
           NPM_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_NPM_TOKEN }}
         run: >
           npx multi-semantic-release
-          --debug
           --ignore-private
           --ignore-packages=packages/audit,packages/send-telegram-message,packages/telegram-bot,packages/wasm-news,packages/webhooks
 
