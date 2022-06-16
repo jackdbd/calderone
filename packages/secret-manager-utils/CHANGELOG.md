@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## <small>1.0.2 (2022-06-16)</small>
+
+* chore: cleanup ([8e5072d](https://github.com/jackdbd/calderone/commit/8e5072d))
+* fix(secret-manager-utils): bump version ([02d7411](https://github.com/jackdbd/calderone/commit/02d7411))
+* docs(secret-manager-utils): update README ([79f5672](https://github.com/jackdbd/calderone/commit/79f5672))
+
 ## <small>1.0.1 (2022-06-15)</small>
 
 * fix(secret-manager-utils): add "files" key in package.json ([7432ed7](https://github.com/jackdbd/calderone/commit/7432ed7))
