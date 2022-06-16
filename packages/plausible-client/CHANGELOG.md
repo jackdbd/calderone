@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## <small>1.0.2 (2022-06-16)</small>
+
+* fix: set publishConfig access to public in many package.json ([c861108](https://github.com/jackdbd/calderone/commit/c861108))
+* chore(plausible-client): cleanup ([50dc632](https://github.com/jackdbd/calderone/commit/50dc632))
+
 ## <small>1.0.1 (2022-06-15)</small>
 
 * fix(plausible-client): add "files" key in package.json ([f7d9add](https://github.com/jackdbd/calderone/commit/f7d9add))
