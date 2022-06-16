@@ -14,7 +14,6 @@ Miscellaneous utility functions.
 - [Examples](#examples)
   - [@jackdbd/utils/array](#jackdbdutilsarray)
   - [@jackdbd/utils/logger](#jackdbdutilslogger)
-
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 </details>
 
