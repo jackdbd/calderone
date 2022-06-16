@@ -49,19 +49,6 @@ export const isTest = (env: NodeJS.ProcessEnv) => {
 }
 
 /**
- * SA_JSON_KEY is an environment variable that I use when running a
- * containerized application on my laptop. It's JSON-stringified service account
- * credentials.
- */
-export const isOnLocalContainer = (env: NodeJS.ProcessEnv) => {
-  if (env.SA_JSON_KEY) {
-    return true
-  } else {
-    return false
-  }
-}
-
-/**
  * Check whether a service is running on Cloud Functions or not.
  *
  * - https://cloud.google.com/functions/docs/configuring/env-var#newer_runtimes

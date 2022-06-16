@@ -2,7 +2,6 @@ export {
   isDevelopment,
   isOnCloudRun,
   isOnCloudFunctions,
-  isOnLocalContainer,
   isOnGithub,
   isTest
 } from './environment.js'
