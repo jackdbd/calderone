@@ -4,9 +4,9 @@
 
 ## deleteAllDocsInCollection variable
 
-Delete all documents in a Firestore collection.
+Deletes all documents in a Firestore collection.
 
-This function could be improved to delete batches of `batchSize`<!-- -->. See link. https://firebase.google.com/docs/firestore/manage-data/delete-data\#node.js\_2
+This function could be improved to delete batches of `batchSize`<!-- -->. See [Delete Collections](https://firebase.google.com/docs/firestore/manage-data/delete-data#node.js_2)<!-- -->.
 
 <b>Signature:</b>
 

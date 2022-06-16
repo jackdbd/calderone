@@ -5,6 +5,7 @@ export { errorFromFirestore } from './error.js'
 export { moveData, shuffleWithFisherYates } from './move.js'
 
 export { docResultsWithId, docResultsWithData } from './retrieve.js'
+
 export type {
   DocResultData,
   DocResultsRefConfig,

@@ -7,14 +7,10 @@
 import type { CollectionReference } from '@google-cloud/firestore';
 import type { Query } from '@google-cloud/firestore';
 
-// Warning: (ae-missing-release-tag) "deleteAllDocsInCollection" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const deleteAllDocsInCollection: (ref: CollectionReference) => Promise<string>;
 
-// Warning: (ae-missing-release-tag) "deleteDocsMatchingQuery" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
+// @public
 export const deleteDocsMatchingQuery: (query: Query) => Promise<string>;
 
 // Warning: (ae-missing-release-tag) "DocResultData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
@@ -57,32 +53,23 @@ export interface DocResultsRefConfig {
     ref: CollectionReference;
 }
 
-// Warning: (ae-missing-release-tag) "docResultsWithData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const docResultsWithData: <D>({ limit, query }: DocResultsQueryConfig) => Promise<DocResultData<D>[]>;
 
-// Warning: (ae-missing-release-tag) "docResultsWithId" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const docResultsWithId: ({ limit, ref }: DocResultsRefConfig) => Promise<DocResultId[]>;
 
-// Warning: (ae-missing-release-tag) "errorFromFirestore" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
+// @alpha
 export const errorFromFirestore: (err: any) => {
     message: string;
     status_code: number;
 };
 
 // Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "moveData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const moveData: <D>({ ref, document_ids }: Config) => Promise<void>;
 
-// Warning: (ae-missing-release-tag) "shuffleWithFisherYates" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const shuffleWithFisherYates: (ref: CollectionReference) => Promise<void>;
 

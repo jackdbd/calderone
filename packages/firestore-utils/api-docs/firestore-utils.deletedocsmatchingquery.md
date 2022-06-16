@@ -4,6 +4,8 @@
 
 ## deleteDocsMatchingQuery variable
 
+Deletes all documents matching a query.
+
 <b>Signature:</b>
 
 ```typescript

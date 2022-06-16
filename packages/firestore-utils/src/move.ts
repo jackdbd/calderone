@@ -14,6 +14,8 @@ interface Config {
  * the Firestore document id `to`. In other words, the Firestore document ids do
  * **not** change; it's the document data which is moved from a Firestore
  * document to another.
+ *
+ * @public
  */
 export const moveData = async <D>({ ref, document_ids }: Config) => {
   const read_promises = document_ids.map(async ({ from, to }) => {
@@ -37,7 +39,10 @@ export const moveData = async <D>({ ref, document_ids }: Config) => {
 }
 
 /**
- * Shuffle documents in a Firestore collection using the Fisher-Yates algorithm.
+ * Shuffle documents in a Firestore collection using the
+ * {@link https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle | Fisher-Yates algorithm}.
+ *
+ * @public
  */
 export const shuffleWithFisherYates = async (ref: CollectionReference) => {
   const doc_ids: string[] = []

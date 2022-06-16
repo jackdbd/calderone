@@ -17,11 +17,10 @@
 
 |  Variable | Description |
 |  --- | --- |
-|  [deleteAllDocsInCollection](./firestore-utils.deletealldocsincollection.md) | Delete all documents in a Firestore collection.<!-- -->This function could be improved to delete batches of <code>batchSize</code>. See link. https://firebase.google.com/docs/firestore/manage-data/delete-data\#node.js\_2 |
-|  [deleteDocsMatchingQuery](./firestore-utils.deletedocsmatchingquery.md) |  |
-|  [docResultsWithData](./firestore-utils.docresultswithdata.md) | Retrieve all Firestore documents that match the given <code>query</code>. Return an array of results where each element contains the Firestore document id <code>doc_id</code> and the document data <code>data</code>.<!-- -->\*Note\*: Firestore does \*\*not\*\* support inequality filters on multiple properties: - https://stackoverflow.com/questions/65391713/firestore-error-cannot-use-multiple-conditional-where-clauses-on-different-prop?rq=1 |
-|  [docResultsWithId](./firestore-utils.docresultswithid.md) | Retrieve all Firestore documents where the \*\*document data\*\* <code>id</code> is not null. Return an array of results where each element contains the Firestore document id <code>doc_id</code> and the document data id <code>id</code>. |
-|  [errorFromFirestore](./firestore-utils.errorfromfirestore.md) |  |
+|  [deleteAllDocsInCollection](./firestore-utils.deletealldocsincollection.md) | Deletes all documents in a Firestore collection.<!-- -->This function could be improved to delete batches of <code>batchSize</code>. See [Delete Collections](https://firebase.google.com/docs/firestore/manage-data/delete-data#node.js_2)<!-- -->. |
+|  [deleteDocsMatchingQuery](./firestore-utils.deletedocsmatchingquery.md) | Deletes all documents matching a query. |
+|  [docResultsWithData](./firestore-utils.docresultswithdata.md) | Retrieves all Firestore documents that match the given <code>query</code>. Return an array of results where each element contains the Firestore document id <code>doc_id</code> and the document data <code>data</code>. |
+|  [docResultsWithId](./firestore-utils.docresultswithid.md) | Retrieves all Firestore documents where the \*\*document data\*\* <code>id</code> is not null. Returns an array of results where each element contains the Firestore document id <code>doc_id</code> and the document data id <code>id</code>. |
 |  [moveData](./firestore-utils.movedata.md) | Move Firestore document \*\*data\*\* from the Firestore document id <code>from</code>, to the Firestore document id <code>to</code>. In other words, the Firestore document ids do \*\*not\*\* change; it's the document data which is moved from a Firestore document to another. |
-|  [shuffleWithFisherYates](./firestore-utils.shufflewithfisheryates.md) | Shuffle documents in a Firestore collection using the Fisher-Yates algorithm. |
+|  [shuffleWithFisherYates](./firestore-utils.shufflewithfisheryates.md) | Shuffle documents in a Firestore collection using the [Fisher-Yates algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)<!-- -->. |
 

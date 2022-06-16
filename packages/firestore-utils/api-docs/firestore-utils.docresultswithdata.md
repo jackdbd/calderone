@@ -4,12 +4,15 @@
 
 ## docResultsWithData variable
 
-Retrieve all Firestore documents that match the given `query`<!-- -->. Return an array of results where each element contains the Firestore document id `doc_id` and the document data `data`<!-- -->.
-
-\*Note\*: Firestore does \*\*not\*\* support inequality filters on multiple properties: - https://stackoverflow.com/questions/65391713/firestore-error-cannot-use-multiple-conditional-where-clauses-on-different-prop?rq=1
+Retrieves all Firestore documents that match the given `query`<!-- -->. Return an array of results where each element contains the Firestore document id `doc_id` and the document data `data`<!-- -->.
 
 <b>Signature:</b>
 
 ```typescript
 docResultsWithData: <D>({ limit, query }: DocResultsQueryConfig) => Promise<DocResultData<D>[]>
 ```
+
+## Remarks
+
+Firestore does not support inequality filters on multiple properties. [Range condition in Firestore can only be applied on a single field](https://stackoverflow.com/questions/65391713/firestore-error-cannot-use-multiple-conditional-where-clauses-on-different-prop?rq=1)<!-- -->.
+

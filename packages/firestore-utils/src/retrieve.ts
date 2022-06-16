@@ -24,9 +24,11 @@ export interface DocResultData<D> {
 }
 
 /**
- * Retrieve all Firestore documents where the **document data** `id` is not null.
- * Return an array of results where each element contains the Firestore document
+ * Retrieves all Firestore documents where the **document data** `id` is not null.
+ * Returns an array of results where each element contains the Firestore document
  * id `doc_id` and the document data id `id`.
+ *
+ * @public
  */
 export const docResultsWithId = async ({ limit, ref }: DocResultsRefConfig) => {
   const query = ref.where('id', '!=', null)
@@ -49,13 +51,15 @@ export const docResultsWithId = async ({ limit, ref }: DocResultsRefConfig) => {
 }
 
 /**
- * Retrieve all Firestore documents that match the given `query`.
+ * Retrieves all Firestore documents that match the given `query`.
  * Return an array of results where each element contains the Firestore document
  * id `doc_id` and the document data `data`.
  *
- * *Note*: Firestore does **not** support inequality filters on multiple
- * properties:
- * - https://stackoverflow.com/questions/65391713/firestore-error-cannot-use-multiple-conditional-where-clauses-on-different-prop?rq=1
+ * @remarks
+ * Firestore does not support inequality filters on multiple properties.
+ * {@link https://stackoverflow.com/questions/65391713/firestore-error-cannot-use-multiple-conditional-where-clauses-on-different-prop?rq=1 | Range condition in Firestore can only be applied on a single field}.
+ *
+ * @public
  */
 export const docResultsWithData = async <D>({
   limit,

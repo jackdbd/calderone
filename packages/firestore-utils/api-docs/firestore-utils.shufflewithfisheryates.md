@@ -4,7 +4,7 @@
 
 ## shuffleWithFisherYates variable
 
-Shuffle documents in a Firestore collection using the Fisher-Yates algorithm.
+Shuffle documents in a Firestore collection using the [Fisher-Yates algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)<!-- -->.
 
 <b>Signature:</b>
 

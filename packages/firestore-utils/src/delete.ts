@@ -4,10 +4,11 @@ import type { CollectionReference, Query } from '@google-cloud/firestore'
 const debug = makeDebug('firestore-utils/delete')
 
 /**
- * Delete all documents in a Firestore collection.
+ * Deletes all documents in a Firestore collection.
  *
- * This function could be improved to delete batches of `batchSize`. See link.
- * https://firebase.google.com/docs/firestore/manage-data/delete-data#node.js_2
+ * This function could be improved to delete batches of `batchSize`. See {@link https://firebase.google.com/docs/firestore/manage-data/delete-data#node.js_2 | Delete Collections}.
+ *
+ * @public
  */
 export const deleteAllDocsInCollection = async (ref: CollectionReference) => {
   const qs = await ref.get()
@@ -30,6 +31,11 @@ export const deleteAllDocsInCollection = async (ref: CollectionReference) => {
   return `deleted ${count} documents in collection ${ref.path}`
 }
 
+/**
+ * Deletes all documents matching a query.
+ *
+ * @public
+ */
 export const deleteDocsMatchingQuery = async (query: Query) => {
   const qs = await query.get()
 

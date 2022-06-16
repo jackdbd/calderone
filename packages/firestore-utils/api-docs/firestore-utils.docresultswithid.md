@@ -4,7 +4,7 @@
 
 ## docResultsWithId variable
 
-Retrieve all Firestore documents where the \*\*document data\*\* `id` is not null. Return an array of results where each element contains the Firestore document id `doc_id` and the document data id `id`<!-- -->.
+Retrieves all Firestore documents where the \*\*document data\*\* `id` is not null. Returns an array of results where each element contains the Firestore document id `doc_id` and the document data id `id`<!-- -->.
 
 <b>Signature:</b>
 
