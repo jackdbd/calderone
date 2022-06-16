@@ -7,7 +7,7 @@ on:
 
 jobs:
   release:
-    name: 📣 Release npm packages to Artifact Registry
+    name: 🚀 Release npm packages to npmjs
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -29,10 +29,10 @@ jobs:
         # https://docs.npmjs.com/cli/v8/commands/npm-audit#audit-level
         run: npm audit --audit-level high
 
-      - name: 🔧 Build all libraries
+      - name: 📦 Build all libraries
         run: npm run build:libs
 
-      - name: 🚀 Release to npmjs with multi-semantic-release
+      - name: 🚀 Release to npmjs
         env:
           # The github token must allow to push to this GitHub repository.
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_BOT_GITHUB_TOKEN }}
@@ -41,5 +41,5 @@ jobs:
           npx multi-semantic-release
           --debug
           --ignore-private
-          --ignore-packages=packages/audit,packages/send-telegram-message,packages/telegram-bot,packages/wasm-news,packages/webhooks"
+          --ignore-packages=packages/audit,packages/send-telegram-message,packages/telegram-bot,packages/wasm-news,packages/webhooks
 
