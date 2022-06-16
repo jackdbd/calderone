@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/secret-manager-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utilities for Secret Manager",
   "author": {
     "name": "Giacomo Debidda",
