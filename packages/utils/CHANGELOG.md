@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## <small>1.1.2 (2022-06-16)</small>
+
+* chore: cleanup ([8e5072d](https://github.com/jackdbd/calderone/commit/8e5072d))
+* fix(utils): bump version ([4256ca0](https://github.com/jackdbd/calderone/commit/4256ca0))
+* chore(checks,utils): cleanup ([540d5a9](https://github.com/jackdbd/calderone/commit/540d5a9))
+
 ## <small>1.1.1 (2022-06-15)</small>
 
 * test: use different command when tests run on github ([9f0f7ca](https://github.com/jackdbd/calderone/commit/9f0f7ca))
