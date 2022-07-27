@@ -12,10 +12,10 @@ export interface Options
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [isHealthy?](./hapi-healthcheck-plugin.options.ishealthy.md) | () =&gt; Promise&lt;boolean&gt; | <i>(Optional)</i> |
-|  [path?](./hapi-healthcheck-plugin.options.path.md) | string | <i>(Optional)</i> |
-|  [response\_message\_when\_healthy?](./hapi-healthcheck-plugin.options.response_message_when_healthy.md) | string | <i>(Optional)</i> |
-|  [response\_message\_when\_unhealthy?](./hapi-healthcheck-plugin.options.response_message_when_unhealthy.md) | string | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [isHealthy?](./hapi-healthcheck-plugin.options.ishealthy.md) |  | () =&gt; Promise&lt;boolean&gt; | <i>(Optional)</i> |
+|  [path?](./hapi-healthcheck-plugin.options.path.md) |  | string | <i>(Optional)</i> |
+|  [response\_message\_when\_healthy?](./hapi-healthcheck-plugin.options.response_message_when_healthy.md) |  | string | <i>(Optional)</i> |
+|  [response\_message\_when\_unhealthy?](./hapi-healthcheck-plugin.options.response_message_when_unhealthy.md) |  | string | <i>(Optional)</i> |
 

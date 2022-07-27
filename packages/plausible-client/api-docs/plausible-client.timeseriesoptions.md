@@ -12,10 +12,10 @@ export interface TimeseriesOptions
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [filters?](./plausible-client.timeseriesoptions.filters.md) | string | <i>(Optional)</i> |
-|  [interval?](./plausible-client.timeseriesoptions.interval.md) | string | <i>(Optional)</i> |
-|  [metrics?](./plausible-client.timeseriesoptions.metrics.md) | string | <i>(Optional)</i> |
-|  [period?](./plausible-client.timeseriesoptions.period.md) | string | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [filters?](./plausible-client.timeseriesoptions.filters.md) |  | string | <i>(Optional)</i> |
+|  [interval?](./plausible-client.timeseriesoptions.interval.md) |  | string | <i>(Optional)</i> |
+|  [metrics?](./plausible-client.timeseriesoptions.metrics.md) |  | string | <i>(Optional)</i> |
+|  [period?](./plausible-client.timeseriesoptions.period.md) |  | string | <i>(Optional)</i> |
 

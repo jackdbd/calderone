@@ -12,8 +12,8 @@ export interface DocResultsRefConfig
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [limit](./firestore-utils.docresultsrefconfig.limit.md) | number |  |
-|  [ref](./firestore-utils.docresultsrefconfig.ref.md) | CollectionReference |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [limit](./firestore-utils.docresultsrefconfig.limit.md) |  | number |  |
+|  [ref](./firestore-utils.docresultsrefconfig.ref.md) |  | CollectionReference |  |
 

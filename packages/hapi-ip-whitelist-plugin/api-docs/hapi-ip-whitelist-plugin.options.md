@@ -12,7 +12,7 @@ export interface Options
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [configurations](./hapi-ip-whitelist-plugin.options.configurations.md) | { strategy\_name: string; whitelist: string\[\]; }\[\] |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [configurations](./hapi-ip-whitelist-plugin.options.configurations.md) |  | { strategy\_name: string; whitelist: string\[\]; }\[\] |  |
 

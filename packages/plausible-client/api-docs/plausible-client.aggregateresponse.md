@@ -12,7 +12,7 @@ export interface AggregateResponse
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [results](./plausible-client.aggregateresponse.results.md) | { bounce\_rate: { value: number; }; pageviews: { value: number; }; visit\_duration: { value: number; }; visitors: { value: number; }; } |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [results](./plausible-client.aggregateresponse.results.md) |  | { bounce\_rate: { value: number; }; pageviews: { value: number; }; visit\_duration: { value: number; }; visitors: { value: number; }; } |  |
 

@@ -12,7 +12,7 @@ export interface TimeseriesResponse
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [results](./plausible-client.timeseriesresponse.results.md) | [TimeseriesResult](./plausible-client.timeseriesresult.md)<!-- -->\[\] |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [results](./plausible-client.timeseriesresponse.results.md) |  | [TimeseriesResult](./plausible-client.timeseriesresult.md)<!-- -->\[\] |  |
 

@@ -12,11 +12,11 @@ export interface Config
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [labels?](./secret-manager-utils.createsecretandfirstversionconfig.labels.md) | { \[key: string\]: string; } | <i>(Optional)</i> |
-|  [project\_id?](./secret-manager-utils.createsecretandfirstversionconfig.project_id.md) | string | <i>(Optional)</i> |
-|  [secret\_data](./secret-manager-utils.createsecretandfirstversionconfig.secret_data.md) | string |  |
-|  [secret\_id](./secret-manager-utils.createsecretandfirstversionconfig.secret_id.md) | string |  |
-|  [secret\_manager](./secret-manager-utils.createsecretandfirstversionconfig.secret_manager.md) | SecretManagerServiceClient |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [labels?](./secret-manager-utils.createsecretandfirstversionconfig.labels.md) |  | { \[key: string\]: string; } | <i>(Optional)</i> |
+|  [project\_id?](./secret-manager-utils.createsecretandfirstversionconfig.project_id.md) |  | string | <i>(Optional)</i> |
+|  [secret\_data](./secret-manager-utils.createsecretandfirstversionconfig.secret_data.md) |  | string |  |
+|  [secret\_id](./secret-manager-utils.createsecretandfirstversionconfig.secret_id.md) |  | string |  |
+|  [secret\_manager](./secret-manager-utils.createsecretandfirstversionconfig.secret_manager.md) |  | SecretManagerServiceClient |  |
 

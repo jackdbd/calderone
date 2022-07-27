@@ -12,12 +12,12 @@ export interface BreakdownOptions
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [filters?](./plausible-client.breakdownoptions.filters.md) | string | <i>(Optional)</i> |
-|  [limit?](./plausible-client.breakdownoptions.limit.md) | number | <i>(Optional)</i> |
-|  [metrics?](./plausible-client.breakdownoptions.metrics.md) | string | <i>(Optional)</i> |
-|  [page?](./plausible-client.breakdownoptions.page.md) | number | <i>(Optional)</i> |
-|  [period?](./plausible-client.breakdownoptions.period.md) | string | <i>(Optional)</i> |
-|  [property?](./plausible-client.breakdownoptions.property.md) | string | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [filters?](./plausible-client.breakdownoptions.filters.md) |  | string | <i>(Optional)</i> |
+|  [limit?](./plausible-client.breakdownoptions.limit.md) |  | number | <i>(Optional)</i> |
+|  [metrics?](./plausible-client.breakdownoptions.metrics.md) |  | string | <i>(Optional)</i> |
+|  [page?](./plausible-client.breakdownoptions.page.md) |  | number | <i>(Optional)</i> |
+|  [period?](./plausible-client.breakdownoptions.period.md) |  | string | <i>(Optional)</i> |
+|  [property?](./plausible-client.breakdownoptions.property.md) |  | string | <i>(Optional)</i> |
 

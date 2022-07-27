@@ -12,7 +12,7 @@ export interface BreakdownResponse
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [results](./plausible-client.breakdownresponse.results.md) | [BreakdownResult](./plausible-client.breakdownresult.md)<!-- -->\[\] |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [results](./plausible-client.breakdownresponse.results.md) |  | [BreakdownResult](./plausible-client.breakdownresult.md)<!-- -->\[\] |  |
 

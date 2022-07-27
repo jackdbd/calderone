@@ -12,8 +12,8 @@ export interface Store<T>
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [persist](./secret-manager-utils.store.persist.md) | (data: T) =&gt; Promise&lt;void&gt; |  |
-|  [retrieve](./secret-manager-utils.store.retrieve.md) | () =&gt; Promise&lt;T&gt; |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [persist](./secret-manager-utils.store.persist.md) |  | (data: T) =&gt; Promise&lt;void&gt; |  |
+|  [retrieve](./secret-manager-utils.store.retrieve.md) |  | () =&gt; Promise&lt;T&gt; |  |
 

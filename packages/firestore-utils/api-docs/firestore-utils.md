@@ -17,7 +17,7 @@
 
 |  Variable | Description |
 |  --- | --- |
-|  [deleteAllDocsInCollection](./firestore-utils.deletealldocsincollection.md) | Deletes all documents in a Firestore collection.<!-- -->This function could be improved to delete batches of <code>batchSize</code>. See [Delete Collections](https://firebase.google.com/docs/firestore/manage-data/delete-data#node.js_2)<!-- -->. |
+|  [deleteAllDocsInCollection](./firestore-utils.deletealldocsincollection.md) | <p>Deletes all documents in a Firestore collection.</p><p>This function could be improved to delete batches of <code>batchSize</code>. See [Delete Collections](https://firebase.google.com/docs/firestore/manage-data/delete-data#node.js_2)<!-- -->.</p> |
 |  [deleteDocsMatchingQuery](./firestore-utils.deletedocsmatchingquery.md) | Deletes all documents matching a query. |
 |  [docResultsWithData](./firestore-utils.docresultswithdata.md) | Retrieves all Firestore documents that match the given <code>query</code>. Return an array of results where each element contains the Firestore document id <code>doc_id</code> and the document data <code>data</code>. |
 |  [docResultsWithId](./firestore-utils.docresultswithid.md) | Retrieves all Firestore documents where the \*\*document data\*\* <code>id</code> is not null. Returns an array of results where each element contains the Firestore document id <code>doc_id</code> and the document data id <code>id</code>. |

@@ -12,13 +12,13 @@ export interface IsoStringConfig
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [day?](./utils.isostringconfig.day.md) | string \| number | <i>(Optional)</i> |
-|  [hour?](./utils.isostringconfig.hour.md) | string \| number | <i>(Optional)</i> |
-|  [minute?](./utils.isostringconfig.minute.md) | string \| number | <i>(Optional)</i> |
-|  [month?](./utils.isostringconfig.month.md) | string \| number | <i>(Optional)</i> |
-|  [ms?](./utils.isostringconfig.ms.md) | string \| number | <i>(Optional)</i> |
-|  [second?](./utils.isostringconfig.second.md) | string \| number | <i>(Optional)</i> |
-|  [year?](./utils.isostringconfig.year.md) | string \| number | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [day?](./utils.isostringconfig.day.md) |  | string \| number | <i>(Optional)</i> |
+|  [hour?](./utils.isostringconfig.hour.md) |  | string \| number | <i>(Optional)</i> |
+|  [minute?](./utils.isostringconfig.minute.md) |  | string \| number | <i>(Optional)</i> |
+|  [month?](./utils.isostringconfig.month.md) |  | string \| number | <i>(Optional)</i> |
+|  [ms?](./utils.isostringconfig.ms.md) |  | string \| number | <i>(Optional)</i> |
+|  [second?](./utils.isostringconfig.second.md) |  | string \| number | <i>(Optional)</i> |
+|  [year?](./utils.isostringconfig.year.md) |  | string \| number | <i>(Optional)</i> |
 

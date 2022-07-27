@@ -12,10 +12,10 @@ export interface BreakdownResult
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [bounce\_rate](./plausible-client.breakdownresult.bounce_rate.md) | number |  |
-|  [page](./plausible-client.breakdownresult.page.md) | string |  |
-|  [source](./plausible-client.breakdownresult.source.md) | string |  |
-|  [visitors](./plausible-client.breakdownresult.visitors.md) | number |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [bounce\_rate](./plausible-client.breakdownresult.bounce_rate.md) |  | number |  |
+|  [page](./plausible-client.breakdownresult.page.md) |  | string |  |
+|  [source](./plausible-client.breakdownresult.source.md) |  | string |  |
+|  [visitors](./plausible-client.breakdownresult.visitors.md) |  | number |  |
 
