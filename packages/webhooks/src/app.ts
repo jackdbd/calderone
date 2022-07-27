@@ -18,10 +18,6 @@ import {
   ip_whitelist,
   TAGS as IP_WHITELIST_TAGS
 } from '@jackdbd/hapi-ip-whitelist-plugin'
-import {
-  netlify_webhooks,
-  TAGS as NETLIFY_WEBHOOKS_TAGS
-} from './netlify-webhooks-plugin/index.js'
 import { subscribe } from './logger.js'
 
 interface Config {
@@ -41,7 +37,6 @@ export const app = async ({
   doc,
   environment,
   error_reporting,
-  netlify_site,
   port,
   service_name,
   service_version,
@@ -54,14 +49,14 @@ export const app = async ({
     ...HEALTHCHECK_TAGS.request,
     ...IP_WHITELIST_TAGS.request,
     ...MONITOR_TAGS.request,
-    ...NETLIFY_WEBHOOKS_TAGS.request
+    'npm',
+    'webhook'
   ]
 
   const server_tags = [
     ...HEALTHCHECK_TAGS.server,
     ...IP_WHITELIST_TAGS.server,
     ...MONITOR_TAGS.server,
-    ...NETLIFY_WEBHOOKS_TAGS.server,
     'lifecycle'
   ]
 
@@ -127,17 +122,6 @@ export const app = async ({
   })
 
   await server.register({ plugin: monitor })
-
-  await server.register({
-    plugin: netlify_webhooks,
-    options: {
-      path: '/netlify',
-      site_name: netlify_site.name,
-      site_url: netlify_site.url,
-      telegram_chat_id,
-      telegram_token
-    }
-  })
 
   server.route({
     path: '/favicon.ico',
