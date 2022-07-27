@@ -78,6 +78,15 @@ gcloud iam service-accounts create sa-secret-manager-admin-test \
   --description "SA that I use in secret-manager-utils tests"
 ```
 
+### sa-storage-uploader
+
+Create a service account to upload objects to Cloud Storage. See [here](https://cloud.google.com/storage/docs/access-control/iam-roles) for the predefined IAM roles.
+
+```sh
+gcloud iam service-accounts create sa-storage-uploader \
+  --display-name "Storage uploader SA"
+```
+
 ### sa-telegram-bot
 
 Create a service account for the [@jackdbd/telegram-bot](../packages/telegram-bot/README.md) application. That application will be deployed as a Cloud Run service, and will have attached this service account.

@@ -145,6 +145,9 @@ bindings:
   - serviceAccount:sa-github-workflows@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/storage.admin
 - members:
+  - serviceAccount:sa-storage-uploader@prj-kitchen-sink.iam.gserviceaccount.com
+  role: roles/storage.objectCreator
+- members:
   - serviceAccount:sa-compute-engine@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/storage.objectViewer
 - members:
@@ -163,5 +166,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXhV3_kR10=
+etag: BwXjFKuy6yM=
 version: 1
