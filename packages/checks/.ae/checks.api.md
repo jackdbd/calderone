@@ -21,6 +21,16 @@ export const isBelgianVat: (s: string) => boolean;
 // @public (undocumented)
 export const isBulgarianVat: (s: string) => boolean;
 
+// Warning: (ae-missing-release-tag) "isCloudRunJob" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const isCloudRunJob: (env: NodeJS.ProcessEnv) => boolean;
+
+// Warning: (ae-missing-release-tag) "isCloudRunService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const isCloudRunService: (env: NodeJS.ProcessEnv) => boolean;
+
 // Warning: (ae-missing-release-tag) "isCyprioticVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)

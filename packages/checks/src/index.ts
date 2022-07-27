@@ -1,4 +1,6 @@
 export {
+  isCloudRunJob,
+  isCloudRunService,
   isDevelopment,
   isOnCloudRun,
   isOnCloudFunctions,

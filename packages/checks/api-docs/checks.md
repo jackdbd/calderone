@@ -11,6 +11,8 @@
 |  [isAustrianVat](./checks.isaustrianvat.md) |  |
 |  [isBelgianVat](./checks.isbelgianvat.md) |  |
 |  [isBulgarianVat](./checks.isbulgarianvat.md) |  |
+|  [isCloudRunJob](./checks.iscloudrunjob.md) | Checks whether the code is being executed as a Cloud Run \*\*job\*\* or not.<!-- -->https://stackoverflow.com/questions/72755708/how-to-retrieve-name-and-revision-of-a-cloud-run-service-from-the-service-itsel |
+|  [isCloudRunService](./checks.iscloudrunservice.md) | Checks whether the code is being executed as a Cloud Run \*\*service\*\* or not.<!-- -->https://cloud.google.com/anthos/run/docs/reference/container-contract\#env-vars |
 |  [isCyprioticVat](./checks.iscyprioticvat.md) |  |
 |  [isCzechVat](./checks.isczechvat.md) |  |
 |  [isDanishVat](./checks.isdanishvat.md) |  |
