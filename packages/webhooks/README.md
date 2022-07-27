@@ -53,7 +53,7 @@ This command uploads the source code to Cloud Build, which build the container i
 npm run deploy -w packages/webhooks
 ```
 
-However, it's better to let a CI/CD pipeline deploy the application, instead of deploying it manually. To this purpose I configured a [Cloud Build trigger](../../cloud-build/triggers/git-push-github-repo-any-branch.yaml) that runs the steps defined in this package's `cloudbuild.yaml` on every code push, on every branch.
+However, it's better to let a CI/CD pipeline deploy the application, instead of deploying it manually. To this purpose I configured a Cloud Build trigger (you can check [the YAML in this monorepo](../../cloud-build/triggers/git-push-github-repo-any-branch.yaml) and [the trigger on Cloud Build](https://console.cloud.google.com/cloud-build/triggers?project=prj-kitchen-sink)) that runs the steps defined in this package's `cloudbuild.yaml` on every code push, on every branch.
 
 ## Test
 

@@ -47,37 +47,37 @@ const main = async () => {
     console.log(package_json)
   }
 
-  const npmrc_credential_config = path.join(env.HOME, '.npmrc')
-  const npmrc_repo_config = path.join(monorepoRoot(), '.npmrc')
-  const npmrc_app = path.join(build_path, '.npmrc')
+  // const npmrc_credential_config = path.join(env.HOME, '.npmrc')
+  // const npmrc_repo_config = path.join(monorepoRoot(), '.npmrc')
+  // const npmrc_app = path.join(build_path, '.npmrc')
 
-  await copyFile(npmrc_repo_config, npmrc_app)
-  console.log(`${npmrc_repo_config} => ${npmrc_app}`)
+  // await copyFile(npmrc_repo_config, npmrc_app)
+  // console.log(`${npmrc_repo_config} => ${npmrc_app}`)
 
-  execSync(
-    `npx google-artifactregistry-auth --repo-config ${npmrc_repo_config} --credential-config ${npmrc_credential_config}`
-  )
-  console.log(`npm auth tokens refreshed in ${npmrc_credential_config}`)
+  // execSync(
+  //   `npx google-artifactregistry-auth --repo-config ${npmrc_repo_config} --credential-config ${npmrc_credential_config}`
+  // )
+  // console.log(`npm auth tokens refreshed in ${npmrc_credential_config}`)
 
-  const location_id = env.ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION
-  const project_id = env.GCP_PROJECT_ID
-  const repo_id = env.ARTIFACT_REGISTRY_NPM_REPOSITORY_ID
+  // const location_id = env.ARTIFACT_REGISTRY_NPM_REPOSITORY_LOCATION
+  // const project_id = env.GCP_PROJECT_ID
+  // const repo_id = env.ARTIFACT_REGISTRY_NPM_REPOSITORY_ID
 
-  const token = await artifactRegistryAuthToken({
-    location_id,
-    project_id,
-    npmrc_credential_config,
-    repo_id
-  })
+  // const token = await artifactRegistryAuthToken({
+  //   location_id,
+  //   project_id,
+  //   npmrc_credential_config,
+  //   repo_id
+  // })
 
-  await writeArtifactRegistryAuthToken({
-    location_id,
-    project_id,
-    npmrc_filepath: npmrc_app,
-    repo_id,
-    token
-  })
-  console.log(`Artifact Registry auth token written to ${npmrc_app}`)
+  // await writeArtifactRegistryAuthToken({
+  //   location_id,
+  //   project_id,
+  //   npmrc_filepath: npmrc_app,
+  //   repo_id,
+  //   token
+  // })
+  // console.log(`Artifact Registry auth token written to ${npmrc_app}`)
 }
 
 main()

@@ -40,6 +40,7 @@ export const npmPost = ({
       // https://github.com/npm/npm-hook-receiver/blob/master/index.js
       // https://github.com/npm/npm-hook-slack/blob/master/index.js
 
+      // log request headers, and/or send them to Telegram
       const signature = request.headers['x-npm-signature']
       console.log(`npm hook signature is ${signature}`, signature)
       request.log(tags, {
