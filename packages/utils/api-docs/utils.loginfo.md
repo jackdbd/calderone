@@ -4,6 +4,7 @@
 
 ## logInfo variable
 
+
 <b>Signature:</b>
 
 ```typescript

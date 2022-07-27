@@ -65,6 +65,9 @@ const EMERGENCY = {
   severity: 'EMERGENCY'
 }
 
+/**
+ * @public
+ */
 export const logDebug = (data: LogData | string) => {
   if (isStructuredLog(data)) {
     console.log(JSON.stringify(Object.assign({}, DEBUG, data)))
@@ -73,6 +76,9 @@ export const logDebug = (data: LogData | string) => {
   }
 }
 
+/**
+ * @public
+ */
 export const logInfo = (data: LogData | string) => {
   if (isStructuredLog(data)) {
     console.log(JSON.stringify(Object.assign({}, INFO, data)))
@@ -81,6 +87,9 @@ export const logInfo = (data: LogData | string) => {
   }
 }
 
+/**
+ * @public
+ */
 export const logNotice = (data: LogData | string) => {
   if (isStructuredLog(data)) {
     console.log(JSON.stringify(Object.assign({}, NOTICE, data)))
@@ -89,6 +98,9 @@ export const logNotice = (data: LogData | string) => {
   }
 }
 
+/**
+ * @public
+ */
 export const logWarning = (data: LogData | string) => {
   if (isStructuredLog(data)) {
     console.log(JSON.stringify(Object.assign({}, WARNING, data)))
@@ -97,6 +109,9 @@ export const logWarning = (data: LogData | string) => {
   }
 }
 
+/**
+ * @public
+ */
 export const logError = (data: LogData | string) => {
   if (isStructuredLog(data)) {
     console.log(JSON.stringify(Object.assign({}, ERROR, data)))
@@ -105,6 +120,9 @@ export const logError = (data: LogData | string) => {
   }
 }
 
+/**
+ * @public
+ */
 export const logCritical = (data: LogData | string) => {
   if (isStructuredLog(data)) {
     console.log(JSON.stringify(Object.assign({}, CRITICAL, data)))
@@ -113,6 +131,9 @@ export const logCritical = (data: LogData | string) => {
   }
 }
 
+/**
+ * @public
+ */
 export const logAlert = (data: LogData | string) => {
   if (isStructuredLog(data)) {
     console.log(JSON.stringify(Object.assign({}, ALERT, data)))
@@ -121,6 +142,9 @@ export const logAlert = (data: LogData | string) => {
   }
 }
 
+/**
+ * @public
+ */
 export const logEmergency = (data: LogData | string) => {
   if (isStructuredLog(data)) {
     console.log(JSON.stringify(Object.assign({}, EMERGENCY, data)))

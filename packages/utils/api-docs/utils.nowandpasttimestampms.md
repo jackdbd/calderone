@@ -4,6 +4,7 @@
 
 ## nowAndPastTimestampMs variable
 
+
 <b>Signature:</b>
 
 ```typescript

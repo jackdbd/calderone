@@ -4,6 +4,7 @@
 
 ## logNotice variable
 
+
 <b>Signature:</b>
 
 ```typescript

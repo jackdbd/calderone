@@ -6,8 +6,6 @@
 
 Shuffles an `array` in place.
 
-See also: - \[this Stack Overflow answer\](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/2450976\#2450976) - [https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/2450976\#2450976](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/2450976#2450976)
-
 <b>Signature:</b>
 
 ```typescript

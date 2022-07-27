@@ -4,6 +4,7 @@
 
 ## logDebug variable
 
+
 <b>Signature:</b>
 
 ```typescript

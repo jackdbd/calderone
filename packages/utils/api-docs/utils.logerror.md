@@ -4,6 +4,7 @@
 
 ## logError variable
 
+
 <b>Signature:</b>
 
 ```typescript
