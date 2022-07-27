@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/stripe-utils",
-  "version": "1.0.1",
+  "version": "1.0.2-canary.1",
   "description": "Utility functions to work with Stripe",
   "author": {
     "name": "Giacomo Debidda",
@@ -70,7 +70,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@jackdbd/utils": ">=1.1.3",
+    "@jackdbd/utils": "1.2.0-canary.1",
     "debug": ">=4.0.0",
     "stripe": ">=9.1.0"
   },
