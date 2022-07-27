@@ -8,5 +8,5 @@
 
 |  Package | Description |
 |  --- | --- |
-|  [@jackdbd/stripe-utils](./stripe-utils.md) |  |
+|  [@jackdbd/stripe-utils](./stripe-utils.md) | Utility functions that might be useful when working with Stripe. |
 

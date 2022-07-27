@@ -4,9 +4,7 @@
 
 ## errorFromStripe variable
 
-Convert an error coming from Stripe into an object with a consistent shape.
-
-https://github.com/stripe/stripe-node/blob/4e82ccafda2017654ac264c070e7ebfa0e662fcd/lib/Error.js https://github.com/stripe/stripe-node/wiki/Error-Handling https://stripe.com/docs/error-codes
+Converts an error coming from Stripe into an object with a consistent shape.
 
 <b>Signature:</b>
 

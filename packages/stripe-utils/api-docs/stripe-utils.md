@@ -4,6 +4,8 @@
 
 ## stripe-utils package
 
+Utility functions that might be useful when working with Stripe.
+
 ## Interfaces
 
 |  Interface | Description |
@@ -14,12 +16,12 @@
 
 |  Variable | Description |
 |  --- | --- |
-|  [createPriceWithTaxBehavior](./stripe-utils.createpricewithtaxbehavior.md) | Create a new <code>Stripe.Price</code> with a defined <code>tax_behavior</code>.<!-- -->In Stripe we can update only <code>nickname</code> and <code>metadata</code> of a <code>Price</code>, so if we need to define <code>tax_behavior</code> we have to create a new <code>Price</code>. https://stripe.com/docs/billing/subscriptions/products-and-prices\#changing-prices |
-|  [customerFromPaymentIntentId](./stripe-utils.customerfrompaymentintentid.md) | Extract the Stripe Customer from a Payment Intent Id. |
+|  [createPriceWithTaxBehavior](./stripe-utils.createpricewithtaxbehavior.md) | <p>Create a new <code>Stripe.Price</code> with a defined <code>tax_behavior</code>.</p><p>In Stripe we can update only <code>nickname</code> and <code>metadata</code> of a <code>Price</code>, so if we need to define <code>tax_behavior</code> we have to create a new <code>Price</code>.</p> |
+|  [customerFromPaymentIntentId](./stripe-utils.customerfrompaymentintentid.md) | Extracts the Stripe Customer from a Payment Intent Id. |
 |  [duplicates](./stripe-utils.duplicates.md) | Emails that appear more than <code>threshold</code> times in the given Stripe account. The search is restricted to the time range starting from <code>ts_start</code> to <code>ts_stop</code> (both excluded, and both expressed in Unix timestamps in seconds). |
-|  [enabledEventsForWebhookEndpoint](./stripe-utils.enabledeventsforwebhookendpoint.md) | List of webhook events that the Stripe account <code>stripe</code> is allowed to send to the webhook endpoint <code>url</code>.<!-- -->\*Note\*: you have to configure the events that Stripe sends to a webhook endpoint when you create/update a webhook endpoint in your Stripe account. |
-|  [errorFromStripe](./stripe-utils.errorfromstripe.md) | Convert an error coming from Stripe into an object with a consistent shape.<!-- -->https://github.com/stripe/stripe-node/blob/4e82ccafda2017654ac264c070e7ebfa0e662fcd/lib/Error.js https://github.com/stripe/stripe-node/wiki/Error-Handling https://stripe.com/docs/error-codes |
-|  [isApiKeyLiveMode](./stripe-utils.isapikeylivemode.md) |  |
-|  [isApiKeyTestMode](./stripe-utils.isapikeytestmode.md) |  |
-|  [stripeAccountMode](./stripe-utils.stripeaccountmode.md) |  |
+|  [enabledEventsForWebhookEndpoint](./stripe-utils.enabledeventsforwebhookendpoint.md) | <p>List of webhook events that the Stripe account <code>stripe</code> is allowed to send to the webhook endpoint <code>url</code>.</p><p>\*Note\*: you have to configure the events that Stripe sends to a webhook endpoint when you create/update a webhook endpoint in your Stripe account.</p> |
+|  [errorFromStripe](./stripe-utils.errorfromstripe.md) | Converts an error coming from Stripe into an object with a consistent shape. |
+|  [isApiKeyLiveMode](./stripe-utils.isapikeylivemode.md) | Checks whether the given string is an API key for a Stripe account in <code>live</code> mode. |
+|  [isApiKeyTestMode](./stripe-utils.isapikeytestmode.md) | Checks whether the given string is an API key for a Stripe account in <code>test</code> mode. |
+|  [stripeAccountMode](./stripe-utils.stripeaccountmode.md) | Given a Stripe API key, infers whether the Stripe client was initialized in <code>live</code> mode or <code>test</code> mode. |
 
