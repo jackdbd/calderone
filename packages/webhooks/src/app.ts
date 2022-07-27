@@ -6,6 +6,7 @@ import Inert from '@hapi/inert'
 import Vision from '@hapi/vision'
 import HapiSwagger from 'hapi-swagger'
 import { alertsPost } from './routes/alerts/post.js'
+import { npmPost } from './routes/npm/post.js'
 import { webPageTestPingbackGet } from './routes/webpagetest/get.js'
 import { AUTH_STRATEGY } from './routes/webpagetest/utils.js'
 import {
@@ -150,6 +151,13 @@ export const app = async ({
     alertsPost({
       service_name,
       service_version,
+      telegram_chat_id,
+      telegram_token
+    })
+  )
+
+  server.route(
+    npmPost({
       telegram_chat_id,
       telegram_token
     })

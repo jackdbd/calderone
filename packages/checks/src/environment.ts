@@ -74,3 +74,30 @@ export const isOnCloudRun = (env: NodeJS.ProcessEnv) => {
     return false
   }
 }
+
+/**
+ * Checks whether the code is being executed as a Cloud Run **service** or not.
+ *
+ * https://cloud.google.com/anthos/run/docs/reference/container-contract#env-vars
+ */
+export const isCloudRunService = (env: NodeJS.ProcessEnv) => {
+  if (env.K_SERVICE) {
+    return true
+  } else {
+    return false
+  }
+}
+
+/**
+ * Checks whether the code is being executed as a Cloud Run **job** or not.
+ *
+ * https://stackoverflow.com/questions/72755708/how-to-retrieve-name-and-revision-of-a-cloud-run-service-from-the-service-itsel
+ */
+export const isCloudRunJob = (env: NodeJS.ProcessEnv) => {
+  if (env.CLOUD_RUN_JOB) {
+    // env.CLOUD_RUN_EXECUTION
+    return true
+  } else {
+    return false
+  }
+}

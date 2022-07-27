@@ -9,7 +9,6 @@ import {
   isOnCloudRun,
   isOnGithub,
   isTest,
-  isOnLocalContainer,
   isProduction
 } from '@jackdbd/checks/environment'
 import { monorepoRoot } from '@jackdbd/utils/path'
@@ -32,7 +31,7 @@ export const gcpClients = async ({
   let error_reporting: ErrorReporting
   const serviceContext = { service: service_name, version: service_version }
 
-  let debug_agent_config: any = {
+  const debug_agent_config: any = {
     allowExpressions: true,
     serviceContext: {
       ...serviceContext,
@@ -84,31 +83,6 @@ export const gcpClients = async ({
     firestore = new Firestore()
 
     secret_manager = new SecretManagerServiceClient()
-  } else if (isOnLocalContainer(env)) {
-    debug(`detected environment: container running on my laptop`)
-    const { client_email, private_key, project_id } = JSON.parse(
-      env.SA_JSON_KEY!
-    )
-
-    const options = {
-      credentials: { client_email, private_key },
-      projectId: project_id
-    }
-
-    initialization_method = `service account JSON key from environment variable SA_JSON_KEY`
-
-    debug_agent_config.credentials = { client_email, private_key }
-    debug_agent_config.projectId = project_id
-
-    error_reporting = new ErrorReporting({
-      ...options,
-      reportMode: 'always',
-      serviceContext
-    })
-
-    firestore = new Firestore(options)
-
-    secret_manager = new SecretManagerServiceClient(options)
   } else if (isDevelopment(env)) {
     debug(`detected environment: Node.js running on my laptop [development]`)
     const filepath = path.join(monorepoRoot(), 'secrets', 'sa-webhooks.json')
@@ -164,7 +138,6 @@ export const gcpClients = async ({
       `isTest? ${isTest(env)}`,
       `isOnCloudRun? ${isOnCloudRun(env)}`,
       `isOnGithub? ${isOnGithub(env)}`,
-      `isOnLocalContainer? ${isOnLocalContainer(env)}`,
       `NODE_ENV=${env.NODE_ENV}`,
       `SA_JSON_KEY=${env.SA_JSON_KEY}`
     ]

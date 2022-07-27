@@ -53,7 +53,7 @@ This command uploads the source code to Cloud Build, which build the container i
 npm run deploy -w packages/webhooks
 ```
 
-However, it's better to let a CI/CD pipeline deploy the application, instead of deploying it manually. To this purpose I configured a [Cloud Build trigger](../../cloud-build-triggers/README.md) that runs the steps defined in this package's `cloudbuild.yaml` on every code push, on every branch.
+However, it's better to let a CI/CD pipeline deploy the application, instead of deploying it manually. To this purpose I configured a Cloud Build trigger (you can check [the YAML in this monorepo](../../cloud-build/triggers/git-push-github-repo-any-branch.yaml) and [the trigger on Cloud Build](https://console.cloud.google.com/cloud-build/triggers?project=prj-kitchen-sink)) that runs the steps defined in this package's `cloudbuild.yaml` on every code push, on every branch.
 
 ## Test
 
@@ -84,6 +84,15 @@ For example, run a WebPageTest and pass `$WEBHOOKS_URL/webpagetest` as the `ping
 
 ```sh
 curl "https://www.webpagetest.org/runtest.php?url=https://www.google.com/&k=${WEBPAGETEST_API_KEY}&pingback=${WEBHOOKS_URL}/webpagetest&f=json" | jq
+```
+
+POST request made by a [npm hook](https://docs.npmjs.com/cli/v8/commands/npm-hook):
+
+```sh
+curl -X POST \
+-L "$WEBHOOKS_URL/npm" \
+-H "Content-Type: application/json" \
+--data-binary "@./secrets/npm-hook-example.json"
 ```
 
 The POST request made by the Netlify API when there is a form submission on my website looks like this one (run this code from the monorepo root):
