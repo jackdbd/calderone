@@ -4,6 +4,7 @@
 
 ## isDanishVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

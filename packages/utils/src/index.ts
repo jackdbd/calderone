@@ -8,13 +8,16 @@ export { range, fisherYatesShuffle } from './array.js'
 export {
   addDays,
   dateFormatOptions,
+  isoString,
   itDateString,
   itDateStringAfterNDays,
   LOCALE_STRING_OPTIONS,
   nowAndFutureUTC,
   nowAndPastTimestampMs,
-  nowAndPastUTC
+  nowAndPastUTC,
+  utcObjectFromDate
 } from './dates.js'
+export type { IsoStringConfig, UTCDateAsObject } from './dates.js'
 
 export {
   entriesResolvedFromEnv,

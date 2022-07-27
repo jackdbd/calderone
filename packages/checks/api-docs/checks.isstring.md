@@ -4,6 +4,7 @@
 
 ## isString variable
 
+
 <b>Signature:</b>
 
 ```typescript

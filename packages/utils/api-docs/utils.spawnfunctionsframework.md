@@ -4,9 +4,7 @@
 
 ## spawnFunctionsFramework variable
 
-Spawn a child process that will launch Functions Framework (basically a HTTP server) on the specified port.
-
-See also: - \[Integration tests (Cloud Functions docs)\](https://cloud.google.com/functions/docs/testing/test-background\#integration\_tests) - \[Configure the Functions Framework\](https://github.com/GoogleCloudPlatform/functions-framework-nodejs\#configure-the-functions-framework) - \[killport (repository)\](https://github.com/splendourhui/killport)
+Spawns a child process that will launch the Functions Framework (basically a HTTP server) on the specified port.
 
 <b>Signature:</b>
 

@@ -22,11 +22,11 @@ export const LOCALE_STRING_OPTIONS = {
 /**
  * Add `n` days to an input `date`.
  *
+ * @public
+ *
  * @param date - The input date
  * @param n - The number of days
  * @returns A date `d`
- *
- * @public
  */
 export const addDays = (date: Date, n: number) => {
   debug('addDays %s %d', date, n)
@@ -35,6 +35,9 @@ export const addDays = (date: Date, n: number) => {
   return d
 }
 
+/**
+ * @public
+ */
 export const nowAndPastUTC = (n: number) => {
   debug('nowAndPastUTC %d', n)
   const now = new Date().toISOString()
@@ -43,6 +46,9 @@ export const nowAndPastUTC = (n: number) => {
   return { past: date_utc.toISOString(), now }
 }
 
+/**
+ * @public
+ */
 export const nowAndFutureUTC = (n: number) => {
   debug('nowAndFutureUTC %d', n)
   const now = new Date().toISOString()
@@ -51,6 +57,9 @@ export const nowAndFutureUTC = (n: number) => {
   return { future: date_utc.toISOString(), now }
 }
 
+/**
+ * @public
+ */
 export const nowAndPastTimestampMs = (n: number) => {
   const now = new Date().toISOString()
   const date_utc = new Date(now)
@@ -67,8 +76,10 @@ const DATE_TIME_FORMAT_OPTIONS_IT = {
 }
 
 /**
- * Return a date string in italian locale. The input `ts` is a timestamp in
+ * Returns a date string in italian locale. The input `ts` is a timestamp in
  * seconds since the Unix epoch.
+ *
+ * @public
  */
 export const itDateString = (ts: number) => {
   debug('itDateString %s', ts)
@@ -81,8 +92,91 @@ export const itDateString = (ts: number) => {
   )
 }
 
+/**
+ * @public
+ */
 export const itDateStringAfterNDays = (date_string: string, n_days: number) => {
   const d = new Date(date_string.split('/').reverse().join('/'))
   d.setDate(d.getDate() + n_days)
   return d.toLocaleDateString('it-IT', DATE_TIME_FORMAT_OPTIONS_IT)
+}
+
+export interface UTCDateAsObject {
+  year: string
+  month: string
+  day: string
+  hour: string
+  minute: string
+  second: string
+  ms: string
+}
+
+/**
+ * Converts a `Date` object into a simple JavaScript object where each field is
+ * a left-padded string.
+ *
+ * @public
+ *
+ * @param date - The input date
+ */
+export const utcObjectFromDate = (date: Date): UTCDateAsObject => {
+  return {
+    year: `${date.getUTCFullYear()}`,
+    month: `${date.getUTCMonth() + 1}`.padStart(2, '0'),
+    day: `${date.getUTCDate()}`.padStart(2, '0'),
+    hour: `${date.getUTCHours()}`.padStart(2, '0'),
+    minute: `${date.getUTCMinutes()}`.padStart(2, '0'),
+    second: `${date.getUTCSeconds()}`.padStart(2, '0'),
+    ms: `${date.getUTCMilliseconds()}`.padStart(2, '0')
+  }
+}
+
+export interface IsoStringConfig {
+  year?: string | number
+  month?: string | number
+  day?: string | number
+  hour?: string | number
+  minute?: string | number
+  second?: string | number
+  ms?: string | number
+}
+
+/**
+ * Given a JS object that represents a UTC date, and an `options` object that
+ * contains `year`, `month`, etc, this function generates a new ISO string for
+ * the new date.
+ *
+ * @public
+ */
+export const isoString = (
+  obj: UTCDateAsObject,
+  options: IsoStringConfig = {}
+) => {
+  const year = options.year ? `${options.year}` : obj.year
+
+  const month =
+    options.month !== undefined
+      ? `${options.month}`.padStart(2, '0')
+      : obj.month
+
+  const day =
+    options.day !== undefined ? `${options.day}`.padStart(2, '0') : obj.day
+
+  const hour =
+    options.hour !== undefined ? `${options.hour}`.padStart(2, '0') : obj.hour
+
+  const minute =
+    options.minute !== undefined
+      ? `${options.minute}`.padStart(2, '0')
+      : obj.minute
+
+  const second =
+    options.second !== undefined
+      ? `${options.second}`.padStart(2, '0')
+      : obj.second
+
+  const ms =
+    options.ms !== undefined ? `${options.ms}`.padStart(3, '0') : obj.ms
+
+  return `${year}-${month}-${day}T${hour}:${minute}:${second}.${ms}Z`
 }

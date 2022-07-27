@@ -4,7 +4,7 @@
 
 ## itDateString variable
 
-Return a date string in italian locale. The input `ts` is a timestamp in seconds since the Unix epoch.
+Returns a date string in italian locale. The input `ts` is a timestamp in seconds since the Unix epoch.
 
 <b>Signature:</b>
 

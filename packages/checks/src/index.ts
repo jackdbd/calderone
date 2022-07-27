@@ -1,3 +1,9 @@
+/**
+ * This package contains various functions to check inputs (i.e. predicates).
+ *
+ * @packageDocumentation
+ */
+
 export {
   isCloudRunJob,
   isCloudRunService,

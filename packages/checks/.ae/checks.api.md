@@ -4,153 +4,91 @@
 
 ```ts
 
-/// <reference types="node" />
-
-// Warning: (ae-missing-release-tag) "isAustrianVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isAustrianVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isBelgianVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isBelgianVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isBulgarianVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isBulgarianVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isCloudRunJob" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const isCloudRunJob: (env: NodeJS.ProcessEnv) => boolean;
 
-// Warning: (ae-missing-release-tag) "isCloudRunService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const isCloudRunService: (env: NodeJS.ProcessEnv) => boolean;
 
-// Warning: (ae-missing-release-tag) "isCyprioticVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isCyprioticVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isCzechVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isCzechVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isDanishVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isDanishVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isDevelopment" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
+// @public
 export const isDevelopment: (env: NodeJS.ProcessEnv) => boolean;
 
-// Warning: (ae-missing-release-tag) "isError" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isError: (value: Error | any) => value is Error;
 
-// Warning: (ae-missing-release-tag) "isEstonianVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isEstonianVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isEuropeanVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const isEuropeanVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isFinnishVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isFinnishVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isFrenchVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isFrenchVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isGermanVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isGermanVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isGreekVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isGreekVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isHungarianVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isHungarianVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isIrishVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isIrishVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isItalianFiscalCode" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const isItalianFiscalCode: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isItalianVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isItalianVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isLuxembourgishVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isLuxembourgishVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isOnCloudFunctions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const isOnCloudFunctions: (env: NodeJS.ProcessEnv) => boolean;
 
-// Warning: (ae-missing-release-tag) "isOnCloudRun" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public
+// @public @deprecated
 export const isOnCloudRun: (env: NodeJS.ProcessEnv) => boolean;
 
-// Warning: (ae-missing-release-tag) "isOnGithub" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const isOnGithub: (env: NodeJS.ProcessEnv) => boolean;
 
-// Warning: (ae-missing-release-tag) "isSpanishVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isSpanishVat: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isString" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isString: (value: string | any) => value is string;
 
-// Warning: (ae-missing-release-tag) "isTest" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
+// @public
 export const isTest: (env: NodeJS.ProcessEnv) => boolean;
 
-// Warning: (ae-missing-release-tag) "isTimeout" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
+// @public
 export const isTimeout: (value: any) => value is NodeJS.Timeout;
 
-// Warning: (ae-missing-release-tag) "isUkVat" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const isUkVat: (s: string) => boolean;
-
-// (No @packageDocumentation comment for this package)
 
 ```

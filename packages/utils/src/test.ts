@@ -24,13 +24,14 @@ const DEFAULT = {
 }
 
 /**
- * Spawn a child process that will launch Functions Framework (basically a HTTP
- * server) on the specified port.
+ * Spawns a child process that will launch the Functions Framework (basically a
+ * HTTP server) on the specified port.
  *
- * See also:
- * - [Integration tests (Cloud Functions docs)](https://cloud.google.com/functions/docs/testing/test-background#integration_tests)
- * - [Configure the Functions Framework](https://github.com/GoogleCloudPlatform/functions-framework-nodejs#configure-the-functions-framework)
- * - [killport (repository)](https://github.com/splendourhui/killport)
+ * @experimental
+ *
+ * @see [Integration tests - Cloud Functions](https://cloud.google.com/functions/docs/testing/test-background#integration_tests)
+ * @see [Configure the Functions Framework](https://github.com/GoogleCloudPlatform/functions-framework-nodejs#configure-the-functions-framework)
+ * @see [killport](https://github.com/splendourhui/killport)
  */
 export const spawnFunctionsFramework = async (options?: Options) => {
   const env = (options && options.env) || DEFAULT.env

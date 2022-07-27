@@ -4,6 +4,7 @@
 
 ## isFrenchVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

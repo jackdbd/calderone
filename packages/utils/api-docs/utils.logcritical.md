@@ -4,6 +4,7 @@
 
 ## logCritical variable
 
+
 <b>Signature:</b>
 
 ```typescript

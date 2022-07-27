@@ -4,6 +4,7 @@
 
 ## isHungarianVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,6 +4,8 @@
 
 ## isTimeout variable
 
+Checks whether the argument passed to this function is a Node.js timeout or not.
+
 <b>Signature:</b>
 
 ```typescript

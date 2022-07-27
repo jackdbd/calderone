@@ -4,6 +4,7 @@
 
 ## isIrishVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

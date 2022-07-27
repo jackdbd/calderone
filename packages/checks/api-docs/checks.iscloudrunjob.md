@@ -6,8 +6,6 @@
 
 Checks whether the code is being executed as a Cloud Run \*\*job\*\* or not.
 
-https://stackoverflow.com/questions/72755708/how-to-retrieve-name-and-revision-of-a-cloud-run-service-from-the-service-itsel
-
 <b>Signature:</b>
 
 ```typescript

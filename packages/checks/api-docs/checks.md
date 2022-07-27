@@ -4,6 +4,8 @@
 
 ## checks package
 
+This package contains various functions to check inputs (i.e. predicates).
+
 ## Variables
 
 |  Variable | Description |
@@ -11,30 +13,30 @@
 |  [isAustrianVat](./checks.isaustrianvat.md) |  |
 |  [isBelgianVat](./checks.isbelgianvat.md) |  |
 |  [isBulgarianVat](./checks.isbulgarianvat.md) |  |
-|  [isCloudRunJob](./checks.iscloudrunjob.md) | Checks whether the code is being executed as a Cloud Run \*\*job\*\* or not.<!-- -->https://stackoverflow.com/questions/72755708/how-to-retrieve-name-and-revision-of-a-cloud-run-service-from-the-service-itsel |
-|  [isCloudRunService](./checks.iscloudrunservice.md) | Checks whether the code is being executed as a Cloud Run \*\*service\*\* or not.<!-- -->https://cloud.google.com/anthos/run/docs/reference/container-contract\#env-vars |
+|  [isCloudRunJob](./checks.iscloudrunjob.md) | Checks whether the code is being executed as a Cloud Run \*\*job\*\* or not. |
+|  [isCloudRunService](./checks.iscloudrunservice.md) | Checks whether the code is being executed as a Cloud Run \*\*service\*\* or not. |
 |  [isCyprioticVat](./checks.iscyprioticvat.md) |  |
 |  [isCzechVat](./checks.isczechvat.md) |  |
 |  [isDanishVat](./checks.isdanishvat.md) |  |
-|  [isDevelopment](./checks.isdevelopment.md) |  |
+|  [isDevelopment](./checks.isdevelopment.md) | Checks whether the environment variable <code>NODE_ENV</code> is set to <code>development</code> or not. |
 |  [isError](./checks.iserror.md) |  |
 |  [isEstonianVat](./checks.isestonianvat.md) |  |
-|  [isEuropeanVat](./checks.iseuropeanvat.md) | Check whether a string is a valid European VAT number.<!-- -->- https://ec.europa.eu/taxation\_customs/vies/ - https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s21.html |
+|  [isEuropeanVat](./checks.iseuropeanvat.md) | Checks whether a string is a valid European VAT number or not. |
 |  [isFinnishVat](./checks.isfinnishvat.md) |  |
 |  [isFrenchVat](./checks.isfrenchvat.md) |  |
 |  [isGermanVat](./checks.isgermanvat.md) |  |
 |  [isGreekVat](./checks.isgreekvat.md) |  |
 |  [isHungarianVat](./checks.ishungarianvat.md) |  |
 |  [isIrishVat](./checks.isirishvat.md) |  |
-|  [isItalianFiscalCode](./checks.isitalianfiscalcode.md) | Check whether a string is a valid Italian Fiscal Code (Codice Fiscale).<!-- -->- http://www.codicefiscaleonline.com/codice\_inverso.php - http://blog.marketto.it/2016/01/regex-validazione-codice-fiscale-con-omocodia/ - https://blog.massimopetrossi.com/sicurezza-informatica/una-regex-per-validare-il-codice-fiscale/ |
+|  [isItalianFiscalCode](./checks.isitalianfiscalcode.md) | Checks whether a string is a valid Italian Fiscal Code (Codice Fiscale). |
 |  [isItalianVat](./checks.isitalianvat.md) |  |
 |  [isLuxembourgishVat](./checks.isluxembourgishvat.md) |  |
-|  [isOnCloudFunctions](./checks.isoncloudfunctions.md) | Check whether a service is running on Cloud Functions or not.<!-- -->- https://cloud.google.com/functions/docs/configuring/env-var\#newer\_runtimes - https://cloud.google.com/docs/authentication/production\#automatically |
-|  [isOnCloudRun](./checks.isoncloudrun.md) | Check whether a service is running on Cloud Run or not.<!-- -->- https://cloud.google.com/anthos/run/docs/reference/container-contract\#env-vars |
-|  [isOnGithub](./checks.isongithub.md) | Check whether the code is running on the GitHub CI or not.<!-- -->https://docs.github.com/en/actions/learn-github-actions/environment-variables\#default-environment-variables |
+|  [isOnCloudFunctions](./checks.isoncloudfunctions.md) | Checks whether a service is running on Cloud Functions or not. |
+|  [isOnCloudRun](./checks.isoncloudrun.md) | Checks whether a service is running on Cloud Run or not. |
+|  [isOnGithub](./checks.isongithub.md) | Checks whether the code is running on the GitHub CI or not. |
 |  [isSpanishVat](./checks.isspanishvat.md) |  |
 |  [isString](./checks.isstring.md) |  |
-|  [isTest](./checks.istest.md) |  |
-|  [isTimeout](./checks.istimeout.md) |  |
+|  [isTest](./checks.istest.md) | Checks whether the environment variable <code>NODE_ENV</code> is set to <code>test</code> or not. |
+|  [isTimeout](./checks.istimeout.md) | Checks whether the argument passed to this function is a Node.js timeout or not. |
 |  [isUkVat](./checks.isukvat.md) |  |
 

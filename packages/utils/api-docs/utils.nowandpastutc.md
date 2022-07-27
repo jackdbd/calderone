@@ -4,6 +4,7 @@
 
 ## nowAndPastUTC variable
 
+
 <b>Signature:</b>
 
 ```typescript

@@ -46,8 +46,6 @@ export const entriesResolvedFromEnv: (entries: any[], options?: DeployOptions) =
 // @public (undocumented)
 export const envVarNotFoundInEnv: (s: string) => string;
 
-// Warning: (ae-missing-release-tag) "fisherYatesShuffle" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const fisherYatesShuffle: <T>(array: T[]) => void;
 
@@ -56,13 +54,32 @@ export const fisherYatesShuffle: <T>(array: T[]) => void;
 // @public (undocumented)
 export const gcloudArgs: (config: any, options?: DeployOptions) => (string | number)[];
 
-// Warning: (ae-missing-release-tag) "itDateString" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// @public
+export const isoString: (obj: UTCDateAsObject, options?: IsoStringConfig) => string;
+
+// Warning: (ae-missing-release-tag) "IsoStringConfig" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
+// @public (undocumented)
+export interface IsoStringConfig {
+    // (undocumented)
+    day?: string | number;
+    // (undocumented)
+    hour?: string | number;
+    // (undocumented)
+    minute?: string | number;
+    // (undocumented)
+    month?: string | number;
+    // (undocumented)
+    ms?: string | number;
+    // (undocumented)
+    second?: string | number;
+    // (undocumented)
+    year?: string | number;
+}
+
 // @public
 export const itDateString: (ts: number) => string;
 
-// Warning: (ae-missing-release-tag) "itDateStringAfterNDays" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const itDateStringAfterNDays: (date_string: string, n_days: number) => string;
 
@@ -76,13 +93,9 @@ export const killFunctionsFramework: (child: ChildProcessWithoutNullStreams) => 
 // @public (undocumented)
 export const LOCALE_STRING_OPTIONS: any;
 
-// Warning: (ae-missing-release-tag) "logAlert" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const logAlert: (data: LogData | string) => void;
 
-// Warning: (ae-missing-release-tag) "logCritical" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const logCritical: (data: LogData | string) => void;
 
@@ -96,67 +109,47 @@ export interface LogData {
     message: string;
 }
 
-// Warning: (ae-missing-release-tag) "logDebug" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const logDebug: (data: LogData | string) => void;
 
-// Warning: (ae-missing-release-tag) "logEmergency" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const logEmergency: (data: LogData | string) => void;
 
-// Warning: (ae-missing-release-tag) "logError" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const logError: (data: LogData | string) => void;
 
-// Warning: (ae-missing-release-tag) "logInfo" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const logInfo: (data: LogData | string) => void;
 
-// Warning: (ae-missing-release-tag) "logNotice" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const logNotice: (data: LogData | string) => void;
 
-// Warning: (ae-missing-release-tag) "logWarning" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const logWarning: (data: LogData | string) => void;
 
-// Warning: (ae-missing-release-tag) "monorepoRoot" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-internal-missing-underscore) The name "monorepoRoot" should be prefixed with an underscore because the declaration is marked as @internal
 //
-// @public (undocumented)
+// @internal (undocumented)
 export const monorepoRoot: () => string;
 
-// Warning: (ae-missing-release-tag) "nowAndFutureUTC" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const nowAndFutureUTC: (n: number) => {
     future: string;
     now: string;
 };
 
-// Warning: (ae-missing-release-tag) "nowAndPastTimestampMs" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const nowAndPastTimestampMs: (n: number) => {
     ts_past: number;
     ts_now: number;
 };
 
-// Warning: (ae-missing-release-tag) "nowAndPastUTC" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export const nowAndPastUTC: (n: number) => {
     past: string;
     now: string;
 };
 
-// Warning: (ae-missing-release-tag) "range" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const range: (start: number, stop: number, step?: number) => number[];
 
@@ -198,6 +191,29 @@ export interface TestOptions {
     // (undocumented)
     target?: string;
 }
+
+// Warning: (ae-missing-release-tag) "UTCDateAsObject" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface UTCDateAsObject {
+    // (undocumented)
+    day: string;
+    // (undocumented)
+    hour: string;
+    // (undocumented)
+    minute: string;
+    // (undocumented)
+    month: string;
+    // (undocumented)
+    ms: string;
+    // (undocumented)
+    second: string;
+    // (undocumented)
+    year: string;
+}
+
+// @public
+export const utcObjectFromDate: (date: Date) => UTCDateAsObject;
 
 // Warning: (ae-missing-release-tag) "walk" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
