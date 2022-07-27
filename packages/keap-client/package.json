@@ -80,7 +80,7 @@
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
-    "@jackdbd/utils": "^1.0.1",
+    "@jackdbd/utils": ">=1.1.3",
     "debug": "^4.3.4",
     "phin": "^3.6.1"
   },
