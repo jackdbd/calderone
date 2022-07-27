@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/checks [1.3.0](https://github.com/jackdbd/calderone/compare/@jackdbd/checks@1.2.1...@jackdbd/checks@1.3.0) (2022-07-27)
+
+
+### Features
+
+* **checks:** add functions isCloudRunJob(), isCloudRunService() ([c94ea6a](https://github.com/jackdbd/calderone/commit/c94ea6a4bcfaffbce61a5849a867d8ba90fc8cd5))
+
 ## @jackdbd/checks [1.3.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/checks@1.2.1...@jackdbd/checks@1.3.0-canary.1) (2022-07-27)
 
 
