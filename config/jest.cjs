@@ -49,8 +49,7 @@ const project = (package_name) => {
         '<rootDir>/packages/notifications/lib/$1.js',
       '@jackdbd/utils/(.*)':
         '<rootDir>/packages/telegram-text-messages/lib/$1.js',
-      '@jackdbd/utils/(.*)': '<rootDir>/packages/utils/lib/$1.js',
-      '@jackdbd/(.*)': '<rootDir>/packages/$1/lib/index.js'
+      '@jackdbd/utils/(.*)': '<rootDir>/packages/utils/lib/$1.js'
     },
 
     testMatch: [`<rootDir>/packages/${package_name}/**/*.test.{js,mjs}`],

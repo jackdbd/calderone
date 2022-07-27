@@ -1,4 +1,4 @@
-// import Boom from '@hapi/boom'
+import Joi from 'joi'
 import type Hapi from '@hapi/hapi'
 import { sendTelegramMessage } from '@jackdbd/notifications'
 
@@ -9,41 +9,49 @@ interface Config {
 
 // https://docs.npmjs.com/cli/v8/commands/npm-hook
 
+const TAGS = ['api', 'handler', 'npm', 'webhook']
+
 export const npmPost = ({
   telegram_chat_id,
   telegram_token
 }: Config): Hapi.ServerRoute => {
-  const config = { method: 'POST', path: '/npm' }
-  const tags = ['handler', 'npm', 'webhook']
   return {
-    method: config.method,
-    options: {
-      auth: false,
-      description: 'webhook target for npm hooks',
-      notes:
-        'This route catches the webhook events sent by npm when a package is published',
-      tags
-      // validate: {
-      //   payload: Joi.object({
-      //     incident: Joi.any()
-      //   }),
-      //   query: false
-      // }
-    },
-    path: config.path,
     handler: async (request: Hapi.Request, _h: Hapi.ResponseToolkit) => {
       const payload = request.payload as any
 
-      const text = JSON.stringify(payload, null, 2)
+      const { event, name, type, version, hookOwner } = payload
+      const username = hookOwner.username
+      const distTags = payload.payload['dist-tags']
+      const { author, description, keywords } = payload.payload
+
+      const obj = {
+        event,
+        name,
+        type,
+        version,
+        username,
+        distTags,
+        description,
+        author,
+        keywords,
+        headers: request.headers
+      }
+
+      request.log(TAGS, {
+        message: `recevied webhook event ${event}`,
+        ...obj
+      })
+
+      const text = JSON.stringify(obj, null, 2)
 
       // https://blog.npmjs.org/post/145260155635/introducing-hooks-get-notifications-of-npm
       // https://github.com/npm/npm-hook-receiver/blob/master/index.js
       // https://github.com/npm/npm-hook-slack/blob/master/index.js
 
-      // log request headers, and/or send them to Telegram
       const signature = request.headers['x-npm-signature']
-      console.log(`npm hook signature is ${signature}`, signature)
-      request.log(tags, {
+      // TODO: check that this header is correct. Otherwise return a HTTP 400.
+
+      request.log(TAGS, {
         message: `npm hook signature is ${signature}`,
         signature
       })
@@ -62,21 +70,21 @@ export const npmPost = ({
         })
 
         if (delivered) {
-          request.log([...tags, 'telegram'], {
+          request.log([...TAGS, 'telegram'], {
             message,
             delivered,
             delivered_at
           })
           successes.push(message)
         } else {
-          request.log([...tags, 'telegram', 'warning'], {
+          request.log([...TAGS, 'telegram', 'warning'], {
             message
           })
           warnings.push(message)
         }
       } catch (err: any) {
         const message = `could not send Telegram message`
-        request.log([...tags, 'telegram', 'error'], {
+        request.log([...TAGS, 'telegram', 'error'], {
           message,
           original_error_message: err.message
         })
@@ -96,6 +104,37 @@ export const npmPost = ({
           warnings
         }
       }
-    }
+    },
+
+    method: 'POST',
+
+    options: {
+      auth: false,
+      description: 'webhook target for npm hooks',
+      notes:
+        'This route catches the webhook events sent by npm when a package is published',
+      tags: TAGS,
+      validate: {
+        options: { allowUnknown: true },
+        payload: Joi.object({
+          event: Joi.string().min(1),
+          name: Joi.string().min(1),
+          hookOwner: Joi.object({
+            username: Joi.string().min(1)
+          }),
+          payload: Joi.object({
+            author: Joi.any(),
+            description: Joi.string().min(1),
+            'dist-tags': Joi.any(),
+            keywords: Joi.array().items(Joi.string().min(1))
+          }),
+          type: Joi.string().min(1),
+          version: Joi.string().min(1)
+        }),
+        query: false
+      }
+    },
+
+    path: '/npm'
   }
 }

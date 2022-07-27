@@ -30,16 +30,13 @@
     "npm": ">=7.0.0"
   },
   "scripts": {
-    "build": "run-s 'build:libs' 'build:scripts' 'build:docs' --print-label",
+    "build": "run-s 'build:libs' 'build:docs' --print-label",
     "build:docs": "run-s 'build:docs:packages' 'build:docs:index' --print-label",
     "build:docs:packages": "npm run build:docs --workspaces --if-present",
     "build:docs:index": "./scripts/docs-index.mjs",
     "build:libs": "tsc --build --verbose",
     "build:libs:watch": "tsc --build --watch",
-    "build:scripts": "npm run build -w packages/scripts",
-    "build:scripts:watch": "npm run build:watch -w packages/scripts",
     "clean": "npm run clean --workspaces --if-present",
-    "demo/tags-logger": "tsm packages/scripts/src/demo/tags-logger.ts",
     "dev:scripts": "run-p build:libs:watch build:scripts:watch",
     "format": "npm run format --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
@@ -54,9 +51,7 @@
     "test:ci": "npm run test:ci --workspaces --if-present",
     "webserver": "npx http-server --port 8080"
   },
-  "dependencies": {
-    "@jackdbd/tags-logger": "*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
@@ -94,6 +89,7 @@
     "ajv": "^8.11.0",
     "ajv-formats": "^2.1.1",
     "better-sqlite3": "^7.6.2",
+    "comment-json": "^4.2.3",
     "debug": "^4.3.4",
     "doctoc": "^2.2.0",
     "esbuild": "^0.14.43",

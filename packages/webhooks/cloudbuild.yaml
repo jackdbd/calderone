@@ -1,65 +1,66 @@
-# remember that this steps are run from the package's `dist` directory
-
-# Cloud Build builders
-# https://console.cloud.google.com/gcr/images/k8s-skaffold
-
-# Cloud Build built-in substitutions
-# https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#using_default_substitutions
-
-# gcloud deploy for Cloud Run
-# https://cloud.google.com/sdk/gcloud/reference/run/deploy
-# M = megabyte, Mi = mebibyte, G = gigabyte, Gi = gibibyte
-# https://cloud.google.com/sdk/gcloud/reference/functions/deploy#--memory
-
 steps:
-  - name: node:${_NODE_VERSION}
-    entrypoint: npm
-    args: ['install']
-  - name: node:${_NODE_VERSION}
-    entrypoint: npm
-    args: ['audit', '--audit-level', 'high']
-  - name: gcr.io/k8s-skaffold/pack:${_PACK_VERSION}
-    args: ['build', "${_IMAGE}", '--path', '.', '--builder', 'gcr.io/buildpacks/builder:v1']
-  - name: gcr.io/cloud-builders/docker
+  - id: '🐋 Build container image'
+    name: gcr.io/cloud-builders/docker
+    args:
+      - 'build'
+      - '.'
+      - '--file=Dockerfile'
+      - '--build-arg=APP_NAME=${_CLOUD_RUN_SERVICE_ID}'
+      - '--tag=${_CONTAINER_IMAGE}'
+
+  - id: '👀 List container images'
+    name: gcr.io/cloud-builders/docker
     args: ['image', 'ls']
-  - name: gcr.io/cloud-builders/docker
-    args: ['push', "${_IMAGE}"]
-  - name: gcr.io/cloud-builders/gcloud:${_GCLOUD_VERSION}
+
+  - id: '🛫 Push container image to Artifact Registry'
+    name: gcr.io/cloud-builders/docker
+    args: ['push', "${_CONTAINER_IMAGE}"]
+
+  - id: '🚀 Deploy application as a Cloud Run service'
+    name: gcr.io/cloud-builders/gcloud:${_GCLOUD_VERSION}
     entrypoint: /bin/bash
     args:
       - -c
       - |
-        gcloud beta run deploy ${_SERVICE_NAME} \
+        gcloud beta run deploy ${_CLOUD_RUN_SERVICE_ID} \
           --allow-unauthenticated \
-          --image ${_IMAGE} \
-          --memory 256M \
+          --image ${_CONTAINER_IMAGE} \
+          --memory ${_MEMORY} \
           --min-instances 0 \
-          --max-instances 1 \
+          --max-instances 2 \
           --platform managed \
           --project ${PROJECT_ID} \
-          --region europe-west3 \
+          --region ${_CLOUD_RUN_REGION} \
           --service-account ${_SERVICE_ACCOUNT} \
-          --set-env-vars DEBUG=${_DEBUG},NODE_ENV=${_NODE_ENV} \
-          --set-secrets TELEGRAM=TELEGRAM:latest \
-          --timeout 10s \
-          --update-labels customer=personal,resource=service \
+          --set-env-vars NODE_ENV=production \
+          --set-secrets APP_CONFIG=${_APP_CONFIG_SECRET_NAME}:${_APP_CONFIG_SECRET_VERSION} \
+          --set-secrets TELEGRAM=${_TELEGRAM_SECRET_NAME}:${_TELEGRAM_SECRET_VERSION} \
+          --timeout ${_CLOUD_RUN_SERVICE_REQUEST_TIMEOUT} \
+          --update-labels customer=${_CUSTOMER},resource=cloud_run_service \
           --verbosity warning
 
 # user-defined substitutions and default values
 substitutions:
-  _DEBUG: webhooks/*
+  _APP_CONFIG_SECRET_NAME: WEBHOOKS_CONFIG_PRODUCTION
+  _APP_CONFIG_SECRET_VERSION: latest
+  _ARTIFACT_REGISTRY_DOCKER_REPOSITORY_ID: cloud-run-source-deploy
+  _ARTIFACT_REGISTRY_DOCKER_REPOSITORY_LOCATION_ID: europe-west3
+  _CLOUD_RUN_SERVICE_ID: ${_CONTAINER_IMAGE_NAME}
+  _CLOUD_RUN_REGION: europe-west3
+  # https://cloud.google.com/run/docs/configuring/request-timeout
+  _CLOUD_RUN_SERVICE_REQUEST_TIMEOUT: 10s
+  _CONTAINER_IMAGE: "${_ARTIFACT_REGISTRY_DOCKER_REPOSITORY_LOCATION_ID}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_DOCKER_REPOSITORY_ID}/${_CONTAINER_IMAGE_NAME}:${_CONTAINER_IMAGE_TAG}"
+  _CONTAINER_IMAGE_NAME: calderone-webhooks
+  _CONTAINER_IMAGE_TAG: latest
+  _CUSTOMER: personal
   _GCLOUD_VERSION: latest
-  _IMAGE: "${_REGION_ID}-docker.pkg.dev/${PROJECT_ID}/${_REPO_ID}/${_IMAGE_NAME}:${_IMAGE_TAG}"
-  _IMAGE_NAME: webhooks
-  _IMAGE_TAG: latest
-  _NODE_ENV: production
-  _NODE_VERSION: 17.9.0
-  # https://console.cloud.google.com/gcr/images/k8s-skaffold/global/pack
-  _PACK_VERSION: v0.21.1
-  _REGION_ID: europe-west3
-  _REPO_ID: cloud-run-source-deploy
+  # M = megabyte, Mi = mebibyte, G = gigabyte, Gi = gibibyte
+  # https://cloud.google.com/run/docs/configuring/memory-limits
+  _MEMORY: 256M
   _SERVICE_ACCOUNT: sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com
-  _SERVICE_NAME: webhooks-production
+  _TELEGRAM_SECRET_NAME: TELEGRAM
+  _TELEGRAM_SECRET_VERSION: latest
+
 options:
     # https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#dynamic_substitutions
     dynamic_substitutions: true
