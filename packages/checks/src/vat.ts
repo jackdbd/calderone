@@ -111,7 +111,14 @@ export const isSpanishVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid UK VAT number or not.
+ *
  * @public
+ *
+ * @remarks what about Brexit?
+ * @see [UK VAT after the transitional period](https://www.icaew.com/brexit/uk-vat-after-the-transition-period)
+ * @see [VAT on goods after Brexit](https://www.kvk.nl/english/brexit/vat-on-goods-after-brexit/)
+ * @see [UK exited EU VAT regime 31 December 2020](https://www.avalara.com/vatlive/en/vat-news/uk-to-leave-eu-vat-regime-31-dec-20200.html)
  */
 export const isUkVat = (s: string) => {
   return s.match(/^(GB)?([0-9]{9}([0-9]{3})?|[A-Z]{2}[0-9]{3})$/) ? true : false

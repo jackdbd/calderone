@@ -4,6 +4,8 @@
 
 ```ts
 
+/// <reference types="node" />
+
 // @public (undocumented)
 export const isAustrianVat: (s: string) => boolean;
 
@@ -88,7 +90,7 @@ export const isTest: (env: NodeJS.ProcessEnv) => boolean;
 // @public
 export const isTimeout: (value: any) => value is NodeJS.Timeout;
 
-// @public (undocumented)
+// @public
 export const isUkVat: (s: string) => boolean;
 
 ```

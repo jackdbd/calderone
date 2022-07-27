@@ -38,5 +38,5 @@ This package contains various functions to check inputs (i.e. predicates).
 |  [isString](./checks.isstring.md) |  |
 |  [isTest](./checks.istest.md) | Checks whether the environment variable <code>NODE_ENV</code> is set to <code>test</code> or not. |
 |  [isTimeout](./checks.istimeout.md) | Checks whether the argument passed to this function is a Node.js timeout or not. |
-|  [isUkVat](./checks.isukvat.md) |  |
+|  [isUkVat](./checks.isukvat.md) | Checks whether a string is a valid UK VAT number or not. |
 

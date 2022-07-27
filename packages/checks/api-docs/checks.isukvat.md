@@ -4,9 +4,15 @@
 
 ## isUkVat variable
 
+Checks whether a string is a valid UK VAT number or not.
 
 <b>Signature:</b>
 
 ```typescript
 isUkVat: (s: string) => boolean
 ```
+
+## Remarks
+
+what about Brexit?
+
