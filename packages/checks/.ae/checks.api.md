@@ -6,13 +6,13 @@
 
 /// <reference types="node" />
 
-// @public (undocumented)
+// @public
 export const isAustrianVat: (s: string) => boolean;
 
-// @public (undocumented)
+// @public
 export const isBelgianVat: (s: string) => boolean;
 
-// @public (undocumented)
+// @public
 export const isBulgarianVat: (s: string) => boolean;
 
 // @public
@@ -21,13 +21,13 @@ export const isCloudRunJob: (env: NodeJS.ProcessEnv) => boolean;
 // @public
 export const isCloudRunService: (env: NodeJS.ProcessEnv) => boolean;
 
-// @public (undocumented)
+// @public
 export const isCyprioticVat: (s: string) => boolean;
 
-// @public (undocumented)
+// @public
 export const isCzechVat: (s: string) => boolean;
 
-// @public (undocumented)
+// @public
 export const isDanishVat: (s: string) => boolean;
 
 // @public
@@ -36,37 +36,37 @@ export const isDevelopment: (env: NodeJS.ProcessEnv) => boolean;
 // @public (undocumented)
 export const isError: (value: Error | any) => value is Error;
 
-// @public (undocumented)
+// @public
 export const isEstonianVat: (s: string) => boolean;
 
 // @public
 export const isEuropeanVat: (s: string) => boolean;
 
-// @public (undocumented)
+// @public
 export const isFinnishVat: (s: string) => boolean;
 
-// @public (undocumented)
+// @public
 export const isFrenchVat: (s: string) => boolean;
 
-// @public (undocumented)
+// @public
 export const isGermanVat: (s: string) => boolean;
 
-// @public (undocumented)
+// @public
 export const isGreekVat: (s: string) => boolean;
 
-// @public (undocumented)
+// @public
 export const isHungarianVat: (s: string) => boolean;
 
-// @public (undocumented)
+// @public
 export const isIrishVat: (s: string) => boolean;
 
 // @public
 export const isItalianFiscalCode: (s: string) => boolean;
 
-// @public (undocumented)
+// @public
 export const isItalianVat: (s: string) => boolean;
 
-// @public (undocumented)
+// @public
 export const isLuxembourgishVat: (s: string) => boolean;
 
 // @public
@@ -78,7 +78,7 @@ export const isOnCloudRun: (env: NodeJS.ProcessEnv) => boolean;
 // @public
 export const isOnGithub: (env: NodeJS.ProcessEnv) => boolean;
 
-// @public (undocumented)
+// @public
 export const isSpanishVat: (s: string) => boolean;
 
 // @public (undocumented)

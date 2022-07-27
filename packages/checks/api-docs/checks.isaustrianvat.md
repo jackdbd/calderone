@@ -4,6 +4,7 @@
 
 ## isAustrianVat variable
 
+Checks whether a string is a valid Austrian VAT number or not.
 
 <b>Signature:</b>
 

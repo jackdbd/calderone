@@ -4,6 +4,7 @@
 
 ## isSpanishVat variable
 
+Checks whether a string is a valid Spanish VAT number or not.
 
 <b>Signature:</b>
 

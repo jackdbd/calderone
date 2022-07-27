@@ -1,4 +1,6 @@
 /**
+ * Checks whether a string is a valid Austrian VAT number or not.
+ *
  * @public
  */
 export const isAustrianVat = (s: string) => {
@@ -6,6 +8,8 @@ export const isAustrianVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Belgian VAT number or not.
+ *
  * @public
  */
 export const isBelgianVat = (s: string) => {
@@ -13,6 +17,7 @@ export const isBelgianVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Bulgarian VAT number or not.
  * @public
  */
 export const isBulgarianVat = (s: string) => {
@@ -20,6 +25,8 @@ export const isBulgarianVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Cypriotic VAT number or not.
+ *
  * @public
  */
 export const isCyprioticVat = (s: string) => {
@@ -27,6 +34,8 @@ export const isCyprioticVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Czech VAT number or not.
+ *
  * @public
  */
 export const isCzechVat = (s: string) => {
@@ -34,6 +43,8 @@ export const isCzechVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Danish VAT number or not.
+ *
  * @public
  */
 export const isDanishVat = (s: string) => {
@@ -41,6 +52,8 @@ export const isDanishVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Estonian VAT number or not.
+ *
  * @public
  */
 export const isEstonianVat = (s: string) => {
@@ -48,6 +61,8 @@ export const isEstonianVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Finnish VAT number or not.
+ *
  * @public
  */
 export const isFinnishVat = (s: string) => {
@@ -55,6 +70,8 @@ export const isFinnishVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid French VAT number or not.
+ *
  * @public
  */
 export const isFrenchVat = (s: string) => {
@@ -62,6 +79,8 @@ export const isFrenchVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid German VAT number or not.
+ *
  * @public
  */
 export const isGermanVat = (s: string) => {
@@ -69,6 +88,8 @@ export const isGermanVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Greek VAT number or not.
+ *
  * @public
  */
 export const isGreekVat = (s: string) => {
@@ -76,6 +97,8 @@ export const isGreekVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Hungarian VAT number or not.
+ *
  * @public
  */
 export const isHungarianVat = (s: string) => {
@@ -83,6 +106,8 @@ export const isHungarianVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Irish VAT number or not.
+ *
  * @public
  */
 export const isIrishVat = (s: string) => {
@@ -90,6 +115,8 @@ export const isIrishVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Italian VAT number or not.
+ *
  * @public
  */
 export const isItalianVat = (s: string) => {
@@ -97,6 +124,8 @@ export const isItalianVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Luxembourgish VAT number or not.
+ *
  * @public
  */
 export const isLuxembourgishVat = (s: string) => {
@@ -104,6 +133,8 @@ export const isLuxembourgishVat = (s: string) => {
 }
 
 /**
+ * Checks whether a string is a valid Spanish VAT number or not.
+ *
  * @public
  */
 export const isSpanishVat = (s: string) => {

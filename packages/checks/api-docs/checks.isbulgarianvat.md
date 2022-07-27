@@ -4,6 +4,7 @@
 
 ## isBulgarianVat variable
 
+Checks whether a string is a valid Bulgarian VAT number or not.
 
 <b>Signature:</b>
 

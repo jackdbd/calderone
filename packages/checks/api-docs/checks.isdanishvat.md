@@ -4,6 +4,7 @@
 
 ## isDanishVat variable
 
+Checks whether a string is a valid Danish VAT number or not.
 
 <b>Signature:</b>
 

@@ -4,6 +4,7 @@
 
 ## isBelgianVat variable
 
+Checks whether a string is a valid Belgian VAT number or not.
 
 <b>Signature:</b>
 

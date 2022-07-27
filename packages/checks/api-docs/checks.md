@@ -10,31 +10,31 @@ This package contains various functions to check inputs (i.e. predicates).
 
 |  Variable | Description |
 |  --- | --- |
-|  [isAustrianVat](./checks.isaustrianvat.md) |  |
-|  [isBelgianVat](./checks.isbelgianvat.md) |  |
-|  [isBulgarianVat](./checks.isbulgarianvat.md) |  |
+|  [isAustrianVat](./checks.isaustrianvat.md) | Checks whether a string is a valid Austrian VAT number or not. |
+|  [isBelgianVat](./checks.isbelgianvat.md) | Checks whether a string is a valid Belgian VAT number or not. |
+|  [isBulgarianVat](./checks.isbulgarianvat.md) | Checks whether a string is a valid Bulgarian VAT number or not. |
 |  [isCloudRunJob](./checks.iscloudrunjob.md) | Checks whether the code is being executed as a Cloud Run \*\*job\*\* or not. |
 |  [isCloudRunService](./checks.iscloudrunservice.md) | Checks whether the code is being executed as a Cloud Run \*\*service\*\* or not. |
-|  [isCyprioticVat](./checks.iscyprioticvat.md) |  |
-|  [isCzechVat](./checks.isczechvat.md) |  |
-|  [isDanishVat](./checks.isdanishvat.md) |  |
+|  [isCyprioticVat](./checks.iscyprioticvat.md) | Checks whether a string is a valid Cypriotic VAT number or not. |
+|  [isCzechVat](./checks.isczechvat.md) | Checks whether a string is a valid Czech VAT number or not. |
+|  [isDanishVat](./checks.isdanishvat.md) | Checks whether a string is a valid Danish VAT number or not. |
 |  [isDevelopment](./checks.isdevelopment.md) | Checks whether the environment variable <code>NODE_ENV</code> is set to <code>development</code> or not. |
 |  [isError](./checks.iserror.md) |  |
-|  [isEstonianVat](./checks.isestonianvat.md) |  |
+|  [isEstonianVat](./checks.isestonianvat.md) | Checks whether a string is a valid Estonian VAT number or not. |
 |  [isEuropeanVat](./checks.iseuropeanvat.md) | Checks whether a string is a valid European VAT number or not. |
-|  [isFinnishVat](./checks.isfinnishvat.md) |  |
-|  [isFrenchVat](./checks.isfrenchvat.md) |  |
-|  [isGermanVat](./checks.isgermanvat.md) |  |
-|  [isGreekVat](./checks.isgreekvat.md) |  |
-|  [isHungarianVat](./checks.ishungarianvat.md) |  |
-|  [isIrishVat](./checks.isirishvat.md) |  |
+|  [isFinnishVat](./checks.isfinnishvat.md) | Checks whether a string is a valid Finnish VAT number or not. |
+|  [isFrenchVat](./checks.isfrenchvat.md) | Checks whether a string is a valid French VAT number or not. |
+|  [isGermanVat](./checks.isgermanvat.md) | Checks whether a string is a valid German VAT number or not. |
+|  [isGreekVat](./checks.isgreekvat.md) | Checks whether a string is a valid Greek VAT number or not. |
+|  [isHungarianVat](./checks.ishungarianvat.md) | Checks whether a string is a valid Hungarian VAT number or not. |
+|  [isIrishVat](./checks.isirishvat.md) | Checks whether a string is a valid Irish VAT number or not. |
 |  [isItalianFiscalCode](./checks.isitalianfiscalcode.md) | Checks whether a string is a valid Italian Fiscal Code (Codice Fiscale). |
-|  [isItalianVat](./checks.isitalianvat.md) |  |
-|  [isLuxembourgishVat](./checks.isluxembourgishvat.md) |  |
+|  [isItalianVat](./checks.isitalianvat.md) | Checks whether a string is a valid Italian VAT number or not. |
+|  [isLuxembourgishVat](./checks.isluxembourgishvat.md) | Checks whether a string is a valid Luxembourgish VAT number or not. |
 |  [isOnCloudFunctions](./checks.isoncloudfunctions.md) | Checks whether a service is running on Cloud Functions or not. |
 |  [isOnCloudRun](./checks.isoncloudrun.md) | Checks whether a service is running on Cloud Run or not. |
 |  [isOnGithub](./checks.isongithub.md) | Checks whether the code is running on the GitHub CI or not. |
-|  [isSpanishVat](./checks.isspanishvat.md) |  |
+|  [isSpanishVat](./checks.isspanishvat.md) | Checks whether a string is a valid Spanish VAT number or not. |
 |  [isString](./checks.isstring.md) |  |
 |  [isTest](./checks.istest.md) | Checks whether the environment variable <code>NODE_ENV</code> is set to <code>test</code> or not. |
 |  [isTimeout](./checks.istimeout.md) | Checks whether the argument passed to this function is a Node.js timeout or not. |
