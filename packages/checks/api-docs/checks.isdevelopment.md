@@ -4,6 +4,8 @@
 
 ## isDevelopment variable
 
+Checks whether the environment variable `NODE_ENV` is set to `development` or not.
+
 <b>Signature:</b>
 
 ```typescript

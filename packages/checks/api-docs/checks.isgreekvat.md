@@ -4,6 +4,7 @@
 
 ## isGreekVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

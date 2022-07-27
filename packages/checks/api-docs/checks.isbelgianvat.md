@@ -4,6 +4,7 @@
 
 ## isBelgianVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,9 +4,7 @@
 
 ## isEuropeanVat variable
 
-Check whether a string is a valid European VAT number.
-
-- https://ec.europa.eu/taxation\_customs/vies/ - https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s21.html
+Checks whether a string is a valid European VAT number or not.
 
 <b>Signature:</b>
 

@@ -4,6 +4,7 @@
 
 ## isLuxembourgishVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

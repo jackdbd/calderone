@@ -4,6 +4,7 @@
 
 ## isEstonianVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,6 +4,7 @@
 
 ## isBulgarianVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,9 +4,12 @@
 
 ## isOnCloudRun variable
 
-Check whether a service is running on Cloud Run or not.
+> Warning: This API is now obsolete.
+> 
+> Use [isCloudRunJob](./checks.iscloudrunjob.md) or [isCloudRunService](./checks.iscloudrunservice.md) instead.
+> 
 
-- https://cloud.google.com/anthos/run/docs/reference/container-contract\#env-vars
+Checks whether a service is running on Cloud Run or not.
 
 <b>Signature:</b>
 

@@ -4,6 +4,7 @@
 
 ## isGermanVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

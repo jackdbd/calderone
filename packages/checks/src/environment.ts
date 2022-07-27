@@ -1,7 +1,9 @@
 /**
- * Check whether the code is running on Cloud Build or not.
+ * Checks whether the code is being executed on Cloud Build or not.
  *
- * https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#using_default_substitutions
+ * @public
+ *
+ * @see [Substituting variable values - Cloud Build](https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values)
  */
 export const isOnCloudBuild = (env: NodeJS.ProcessEnv) => {
   if (env.BUILD_ID && env.LOCATION && env.PROJECT_ID && env.PROJECT_NUMBER) {
@@ -12,9 +14,11 @@ export const isOnCloudBuild = (env: NodeJS.ProcessEnv) => {
 }
 
 /**
- * Check whether the code is running on the GitHub CI or not.
+ * Checks whether the code is running on the GitHub CI or not.
  *
- * https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
+ * @public
+ *
+ * @see [Default environment variables - GitHub Docs](https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables)
  */
 export const isOnGithub = (env: NodeJS.ProcessEnv) => {
   if (env.GITHUB_SHA) {
@@ -24,6 +28,11 @@ export const isOnGithub = (env: NodeJS.ProcessEnv) => {
   }
 }
 
+/**
+ * Checks whether the environment variable `NODE_ENV` is set to `development` or not.
+ *
+ * @public
+ */
 export const isDevelopment = (env: NodeJS.ProcessEnv) => {
   if (env.NODE_ENV === 'development') {
     return true
@@ -32,6 +41,11 @@ export const isDevelopment = (env: NodeJS.ProcessEnv) => {
   }
 }
 
+/**
+ * Checks whether the environment variable `NODE_ENV` is set to `production` or not.
+ *
+ * @public
+ */
 export const isProduction = (env: NodeJS.ProcessEnv) => {
   if (env.NODE_ENV === 'production') {
     return true
@@ -40,6 +54,11 @@ export const isProduction = (env: NodeJS.ProcessEnv) => {
   }
 }
 
+/**
+ * Checks whether the environment variable `NODE_ENV` is set to `test` or not.
+ *
+ * @public
+ */
 export const isTest = (env: NodeJS.ProcessEnv) => {
   if (env.NODE_ENV === 'test') {
     return true
@@ -49,10 +68,11 @@ export const isTest = (env: NodeJS.ProcessEnv) => {
 }
 
 /**
- * Check whether a service is running on Cloud Functions or not.
+ * Checks whether a service is running on Cloud Functions or not.
  *
- * - https://cloud.google.com/functions/docs/configuring/env-var#newer_runtimes
- * - https://cloud.google.com/docs/authentication/production#automatically
+ * @public
+ *
+ * @see [Using Environment Variables - Cloud Functions](https://cloud.google.com/functions/docs/configuring/env-var)
  */
 export const isOnCloudFunctions = (env: NodeJS.ProcessEnv) => {
   if (env.FUNCTION_SIGNATURE_TYPE) {
@@ -63,9 +83,12 @@ export const isOnCloudFunctions = (env: NodeJS.ProcessEnv) => {
 }
 
 /**
- * Check whether a service is running on Cloud Run or not.
+ * Checks whether a service is running on Cloud Run or not.
  *
- * - https://cloud.google.com/anthos/run/docs/reference/container-contract#env-vars
+ * @public
+ * @deprecated Use {@link @jackdbd/checks#isCloudRunJob} or {@link @jackdbd/checks#isCloudRunService} instead.
+ *
+ * @see [Container runtime contract - Anthos](https://cloud.google.com/anthos/run/docs/reference/container-contract)
  */
 export const isOnCloudRun = (env: NodeJS.ProcessEnv) => {
   if (env.K_SERVICE) {
@@ -78,7 +101,9 @@ export const isOnCloudRun = (env: NodeJS.ProcessEnv) => {
 /**
  * Checks whether the code is being executed as a Cloud Run **service** or not.
  *
- * https://cloud.google.com/anthos/run/docs/reference/container-contract#env-vars
+ * @public
+ *
+ * @see [Container runtime contract - Anthos](https://cloud.google.com/anthos/run/docs/reference/container-contract)
  */
 export const isCloudRunService = (env: NodeJS.ProcessEnv) => {
   if (env.K_SERVICE) {
@@ -91,11 +116,12 @@ export const isCloudRunService = (env: NodeJS.ProcessEnv) => {
 /**
  * Checks whether the code is being executed as a Cloud Run **job** or not.
  *
- * https://stackoverflow.com/questions/72755708/how-to-retrieve-name-and-revision-of-a-cloud-run-service-from-the-service-itsel
+ * @public
+ *
+ * @see [How to retrieve name and revision of a Cloud Run service, from the service itself?](https://stackoverflow.com/questions/72755708/how-to-retrieve-name-and-revision-of-a-cloud-run-service-from-the-service-itsel)
  */
 export const isCloudRunJob = (env: NodeJS.ProcessEnv) => {
   if (env.CLOUD_RUN_JOB) {
-    // env.CLOUD_RUN_EXECUTION
     return true
   } else {
     return false

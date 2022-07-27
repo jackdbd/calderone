@@ -4,6 +4,7 @@
 
 ## isError variable
 
+
 <b>Signature:</b>
 
 ```typescript

@@ -6,8 +6,6 @@
 
 Checks whether the code is being executed as a Cloud Run \*\*service\*\* or not.
 
-https://cloud.google.com/anthos/run/docs/reference/container-contract\#env-vars
-
 <b>Signature:</b>
 
 ```typescript

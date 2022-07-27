@@ -4,6 +4,7 @@
 
 ## isAustrianVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,6 +4,7 @@
 
 ## isCzechVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,6 +4,7 @@
 
 ## isUkVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

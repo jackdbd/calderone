@@ -4,6 +4,7 @@
 
 ## isCyprioticVat variable
 
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,6 +4,7 @@
 
 ## isFinnishVat variable
 
+
 <b>Signature:</b>
 
 ```typescript
