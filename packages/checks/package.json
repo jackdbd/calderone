@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/checks",
-  "version": "1.3.0",
+  "version": "1.3.1-canary.1",
   "description": "Functions to check inputs (i.e. predicates)",
   "author": {
     "name": "Giacomo Debidda",
