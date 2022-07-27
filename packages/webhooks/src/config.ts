@@ -6,7 +6,6 @@ import {
   isOnCloudRun,
   isDevelopment,
   isOnGithub,
-  isOnLocalContainer,
   isProduction,
   isTest
 } from '@jackdbd/checks/environment'
@@ -47,11 +46,6 @@ export const config = async (env: NodeJS.ProcessEnv) => {
   if (isOnCloudRun(env)) {
     debug(`detected environment: Cloud Run [${environment}]`)
     package_json_path = 'package.json'
-  } else if (isOnLocalContainer(env)) {
-    debug(
-      `detected environment: container running on my laptop [${environment}]`
-    )
-    package_json_path = 'package.json'
   } else if (isDevelopment(env)) {
     debug(`detected environment: Node.js running on my laptop [${environment}]`)
     // package_json_path = path.join('dist', 'package.json')
@@ -66,7 +60,6 @@ export const config = async (env: NodeJS.ProcessEnv) => {
       `isTest? ${isTest(env)}`,
       `isOnCloudRun? ${isOnCloudRun(env)}`,
       `isOnGithub? ${isOnGithub(env)}`,
-      `isOnLocalContainer? ${isOnLocalContainer(env)}`,
       `NODE_ENV=${env.NODE_ENV}`,
       `SA_JSON_KEY=${env.SA_JSON_KEY}`
     ]
