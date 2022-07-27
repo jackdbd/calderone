@@ -1,13 +1,15 @@
 name: 'release-to-npmjs'
 
 on:
+  pull_request:
   push:
     branches:
       - main
+      - canary
 
 jobs:
-  release:
-    name: 🚀 Release npm packages to npmjs
+  audit-build-release:
+    name: Build & Test all packages on ${{ matrix.os }}, Node ${{ matrix.node }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -22,12 +24,19 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
+      - name: 👀 Check npm version
+        run: npm version
+
       - name: ⬇️ Install dependencies from npmjs
         run: npm ci
 
-      - name: 🛡️ Audit dependencies
+      - name: 🛡️ Audit dependencies (audit-level high)
         # https://docs.npmjs.com/cli/v8/commands/npm-audit#audit-level
         run: npm audit --audit-level high
+
+      - name: 🛡️ Audit dependencies (audit-level moderate)
+        continue-on-error: true
+        run: npm audit --audit-level moderate
 
       - name: 📦 Build all libraries
         run: npm run build:libs
