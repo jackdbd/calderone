@@ -92,6 +92,7 @@ const projects = [
   project('scripts'),
   project('secret-manager-utils'),
   project('stripe-utils'),
+  project('tags-logger'),
   project('telegram-bot'),
   project('telegram-text-messages'),
   project('utils'),

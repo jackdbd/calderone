@@ -74,6 +74,9 @@ jobs:
           SA_SECRET_MANAGER_ADMIN_TEST: ${{ secrets.SA_SECRET_MANAGER_ADMIN_TEST }}
         run: npm run test:ci -w packages/secret-manager-utils
 
+      - name: 🔍 Test library @jackdbd/tags-logger
+        run: npm run test:ci -w packages/tags-logger
+
       - name: 🔍 Test library @jackdbd/telegram-text-messages
         run: npm run test:ci -w packages/telegram-text-messages
 
