@@ -13,6 +13,9 @@
       "path": "./packages/utils/tsconfig.json"
     },
     {
+      "path": "./packages/tags-logger/tsconfig.json"
+    },
+    {
       "path": "./packages/telegram-text-messages/tsconfig.json"
     },
     {
