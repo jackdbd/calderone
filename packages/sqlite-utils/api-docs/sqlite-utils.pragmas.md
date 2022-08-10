@@ -4,6 +4,8 @@
 
 ## PRAGMAS variable
 
+Complete list of \*\*non-deprecated\*\* SQLite PRAGMA statements.
+
 <b>Signature:</b>
 
 ```typescript
