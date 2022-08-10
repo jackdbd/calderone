@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/tags-logger [1.0.0-canary.2](https://github.com/jackdbd/calderone/compare/@jackdbd/tags-logger@1.0.0-canary.1...@jackdbd/tags-logger@1.0.0-canary.2) (2022-08-10)
+
+
+### Features
+
+* **tags-logger:** simplify API and use more apt terminology ([6f4fc7e](https://github.com/jackdbd/calderone/commit/6f4fc7ed1a163d8edb7da0423b97c7113e2aab86))
+
 ## @jackdbd/tags-logger 1.0.0-canary.1 (2022-08-02)
 
 
