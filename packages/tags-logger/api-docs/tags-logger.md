@@ -11,12 +11,12 @@ A logger inspired by how logging is implemented in Hapi.js.
 |  Interface | Description |
 |  --- | --- |
 |  [Options](./tags-logger.options.md) | Options for the logger. |
-|  [Statement](./tags-logger.statement.md) | Shape of each statement passed to the logger. |
+|  [Statement](./tags-logger.statement.md) | Shape of each log statement. |
 
 ## Variables
 
 |  Variable | Description |
 |  --- | --- |
-|  [default\_statement\_schema](./tags-logger.default_statement_schema.md) | Default Joi schema to validate log statement against. |
-|  [makeLogger](./tags-logger.makelogger.md) | <p>Creates a logger with optional schema validation for each log statement, and that will either log strings + optional data, or JSON.</p><p>Each log statement you pass to the <code>log</code> function returned to this logger should have (and \*\*must\*\* have if you validate the log statements) a <code>message</code> and a <code>tags</code> array.</p><p>This logger was inspired by how logging is implemented in Hapi.js.</p> |
+|  [makeLog](./tags-logger.makelog.md) | <p>Factory that returns a <code>log</code> function that will either print structured or unstructured log statements, with optional schema validation for each log statement in both cases.</p><p>Each log statement you pass to the <code>log</code> function returned to this logger should have (and \*\*must\*\* have if you validate the log statements) a <code>message</code> and a <code>tags</code> array.</p><p>Unstructured logging is delegated to the \[debug\](https://github.com/debug-js/debug) library. For example, if you set the environment variable <code>DEBUG</code> to <code>DEBUG=app/*,-app/foo</code>, the log function will print everything matching <code>app/*</code>, except <code>app/foo</code>.</p> |
+|  [statement](./tags-logger.statement.md) | Joi schema to validate each log statement against. |
 

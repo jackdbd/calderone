@@ -16,10 +16,7 @@ export interface Options
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [namespace?](./tags-logger.options.namespace.md) |  | string | <i>(Optional)</i> The namespace for the debug logger. This option has no effect on the JSON logger. |
-|  [should\_log\_warning\_if\_namespace\_not\_in\_DEBUG?](./tags-logger.options.should_log_warning_if_namespace_not_in_debug.md) |  | boolean | <i>(Optional)</i> Whether the debug logger should log a warning when the <code>namespace</code> string is not included in the <code>DEBUG</code> environment variable. This option has no effect on the JSON logger. |
-|  [should\_throw\_if\_namespace\_not\_in\_DEBUG?](./tags-logger.options.should_throw_if_namespace_not_in_debug.md) |  | boolean | <i>(Optional)</i> Whether the debug logger should throw an error when the <code>namespace</code> string is not included in the <code>DEBUG</code> environment variable. This option has no effect on the JSON logger. |
-|  [should\_use\_json\_logger?](./tags-logger.options.should_use_json_logger.md) |  | boolean | <i>(Optional)</i> Whether the JSON logger should be used, instead of the debug logger. |
+|  [namespace?](./tags-logger.options.namespace.md) |  | string | <i>(Optional)</i> The namespace for the debug logger (unstructured logging). This option has no effect when using structured logging. |
+|  [should\_use\_emoji\_for\_severity?](./tags-logger.options.should_use_emoji_for_severity.md) |  | boolean | <i>(Optional)</i> Whether to use an emoji for the severity level (unstructured logging). This option has no effect when using structured logging. |
 |  [should\_validate\_log\_statements?](./tags-logger.options.should_validate_log_statements.md) |  | boolean | <i>(Optional)</i> Whether each log statement should be validated against a Joi schema. |
-|  [statement\_schema?](./tags-logger.options.statement_schema.md) |  | Joi.ObjectSchema&lt;[Statement](./tags-logger.statement.md)<!-- -->&gt; | <i>(Optional)</i> The Joi schema used to validate each log statement. This option has effect only when <code>should_validate_log_statements</code> is set to <code>true</code>. |
 

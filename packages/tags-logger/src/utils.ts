@@ -1,14 +1,14 @@
-import { EMOJI, ERROR_MESSAGE, SEVERITY_TAG_VALUES } from './constants.js'
+import { EMOJI, ErrorMessage, SEVERITY_TAG_VALUES } from './constants.js'
 import type { Statement } from './schemas.js'
 
 /**
  * Extracts the severity tag and all other tags from a log statement, and picks
  * an appropriate emoji.
  *
- * @internal
+ * @remarks
+ * The returned `tags` array will **not** include the severity tag.
  *
- * @remarks This fucntion can be used only if the log statement schema includes
- * a `tags` array with one severity tag for the log level.
+ * @internal
  */
 export const stmtMapper = (stmt: Statement) => {
   let emoji = ''
@@ -22,7 +22,7 @@ export const stmtMapper = (stmt: Statement) => {
   }
 
   if (severity === '') {
-    throw new Error(ERROR_MESSAGE.NO_TAG_MATCHED_KNOWN_SEVERITY_LEVEL)
+    throw new Error(ErrorMessage.NO_TAG_MATCHED_KNOWN_SEVERITY_LEVEL)
   }
 
   const tags = stmt.tags
@@ -30,7 +30,7 @@ export const stmtMapper = (stmt: Statement) => {
     .sort((a, b) => a.localeCompare(b))
 
   if (tags.length === 0) {
-    throw new Error(ERROR_MESSAGE.TAGS_IS_EMPTY_ARRAY)
+    throw new Error(ErrorMessage.TAGS_IS_EMPTY_ARRAY)
   }
 
   return { emoji, severity, tags }

@@ -45,10 +45,9 @@ export const SEVERITY_TAG_LABEL = `severity tag (${SEVERITY_TAG_VALUES.join(
   ', '
 )})`
 
-export const ERROR_MESSAGE = {
-  DEBUG_IS_NOT_SET: `environment variable DEBUG is not set`,
-  LOG_STATEMENT_VALIDATION_ERROR_PREFIX: `Log statement validation error`,
-  NAMESPACE_NOT_INCLUDED_IN_DEBUG: `namespace is not included in the DEBUG environment variable`,
-  NO_TAG_MATCHED_KNOWN_SEVERITY_LEVEL: `no tag matched a known severity level`,
-  TAGS_IS_EMPTY_ARRAY: `tags is an empty array`
+export enum ErrorMessage {
+  INVALID_CONFIGURATION_ERROR_PREFIX = `Invalid configuration`,
+  LOG_STATEMENT_VALIDATION_ERROR_PREFIX = `Log statement validation error`,
+  NO_TAG_MATCHED_KNOWN_SEVERITY_LEVEL = `no tag matched a known severity level`,
+  TAGS_IS_EMPTY_ARRAY = `tags is an empty array`
 }

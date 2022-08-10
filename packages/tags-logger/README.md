@@ -12,6 +12,8 @@ A logger inspired by [how logging is implemented in Hapi.js](https://hapi.dev/tu
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+  - [structured logging](#structured-logging)
+  - [unstructured logging](#unstructured-logging)
 - [Configuration](#configuration)
   - [Environment variables](#environment-variables)
   - [Options](#options)
@@ -22,9 +24,9 @@ A logger inspired by [how logging is implemented in Hapi.js](https://hapi.dev/tu
 
 ## Features
 
-- **automatic switch** bewteen a [debug](https://github.com/debug-js/debug) logger when running in development, and a JSON logger when running on Google Cloud Platform.
 - **tags** to pinpoint the log statements you are actually interested in.
 - **optional validation** of all log statements with [Joi](https://github.com/sideway/joi).
+- **easy switching** bewteen structured/unstructured logging.
 
 ## Installation
 
@@ -34,20 +36,85 @@ npm install @jackdbd/tags-logger
 
 ## Usage
 
+### structured logging
+
+When you write this:
+
 ```ts
-import makeLogger from '@jackdbd/tags-logger'
+import makeLog from '@jackdbd/tags-logger'
 
-const logger = makeLogger()
+const log = makeLog()
 
-logger.log({
+log({
   message: 'something not very important about foo and bar',
   tags: ['debug', 'foo', 'bar']
 })
 
-logger.log({
+log({
   message: 'something of critical importance about baz',
   tags: ['critical', 'baz']
 })
+```
+
+You get this:
+
+```sh
+{
+  "severity": "DEBUG",
+  "message": "something not very important about foo and bar",
+  "tags": ["bar", "foo"],
+  "tag": {"bar": true, "foo": true}
+}
+
+{
+  "severity": "CRITICAL",
+  "message": "something of critical importance about baz",
+  "tags": ["baz"],
+  "tag": {"baz": true}
+}
+```
+
+### unstructured logging
+
+When you write this:
+
+```ts
+import makeLog from '@jackdbd/tags-logger'
+
+const log = makeLog({
+  namespace: 'my-app/my-module'
+})
+
+// same log statements as above
+```
+
+You get this (but with colors):
+
+```sh
+my-app/my-module [🔍 bar,foo] something not very important about foo and bar +0ms
+
+my-app/my-module [🔥 baz] something of critical importance about baz +0ms
+```
+
+Don't like emojis? Then write this:
+
+```ts
+import makeLog from '@jackdbd/tags-logger'
+
+const log = makeLog({
+  namespace: 'my-app/my-module',
+  should_use_emoji_for_severity: false // <--
+})
+
+// same log statements as above
+```
+
+And get this (but with colors):
+
+```sh
+my-app/my-module [debug bar,foo] something not very important about foo and bar +0ms
+
+my-app/my-module [critical baz] something of critical importance about baz +0ms
 ```
 
 ## Configuration
@@ -56,21 +123,15 @@ logger.log({
 
 | Environment variable | Explanation |
 | --- | --- |
-| `DEBUG` | You must set this environment variable if you want to use the [debug](https://github.com/debug-js/debug) logger. Since you might be interested in logging many *namespaces* (see below: `namespace` option), you can set a space or comma-delimited value. *E.g.* `DEBUG=some-namespace,other-namespace`. It has no effect when logging with the JSON logger. |
-| `LOGGER_TAGS` | This environment variable controls which tags to log with the debug logger. If not set, the logger logs **all** tags. If in your app you have the tags `foo`, `bar` and `baz`, and you want to log only `foo` and `bar`, set `LOGGER_TAGS=foo,bar`. It has no effect when logging with the JSON logger. |
+| `DEBUG` | You must set this environment variable if you want to use unstructured logging and see some output. This library delegates unstructured logging to [debug](https://github.com/debug-js/debug).
 
 ### Options
 
 | Option | Default | Explanation |
 | --- | --- | --- |
-| `namespace` | `app` | The namespace for the [debug](https://github.com/debug-js/debug) logger. This option has no effect on the JSON logger. |
-| `should_log_warning_if_namespace_not_in_DEBUG` | `true` | Whether the debug logger should log a warning when the `namespace` string is not included in the `DEBUG` environment variable. This option has no effect on the JSON logger. |
-| `should_throw_if_namespace_not_in_DEBUG` | `false` | Whether the debug logger should throw an error when the `namespace` string is not included in the `DEBUG` environment variable. This option has no effect on the JSON logger. |
-| `should_use_json_logger` | `true` if on Google Cloud, otherwise `false` | Whether the JSON logger should be used, instead of the debug logger. |
+| `namespace` | `undefined` | The namespace for unstructured logging. This option has no effect when using structured logging. |
+| `should_use_emoji_for_severity` | `true` | Whether to use an emoji for the severity level, when using unstructured logging. This option has no effect when using structured logging. |
 | `should_validate_log_statements` | `true` | Whether each log statement should be validated against a [Joi](https://github.com/sideway/joi) schema. |
-| `statement_schema` | See [schemas.ts](./src/schemas.ts) | The Joi schema used to validate each log statement. It has effect only when `should_validate_log_statements` is `true`. |
-
-
 
 ## API
 

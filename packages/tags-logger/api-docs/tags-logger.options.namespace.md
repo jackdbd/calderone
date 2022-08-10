@@ -4,7 +4,7 @@
 
 ## Options.namespace property
 
-The namespace for the debug logger. This option has no effect on the JSON logger.
+The namespace for the debug logger (unstructured logging). This option has no effect when using structured logging.
 
 <b>Signature:</b>
 

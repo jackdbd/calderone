@@ -1,9 +1,4 @@
-import {
-  hasAtLeastOneSeverityTag,
-  isEmptyObject,
-  isNamespaceInEnvVarDEBUG,
-  shouldLog
-} from '../lib/checks.js'
+import { hasAtLeastOneSeverityTag, isEmptyObject } from '../lib/checks.js'
 import { SEVERITY_TAG_VALUES } from '../lib/constants.js'
 
 describe('hasAtLeastOneSeverityTag', () => {
@@ -34,7 +29,7 @@ describe('hasAtLeastOneSeverityTag', () => {
           ? SEVERITY_TAG_VALUES[0]
           : SEVERITY_TAG_VALUES[i + 1]
 
-      // console.log(`${severity_a},${severity_b}`)
+      // console.log(`${a},${b}`)
       expect(hasAtLeastOneSeverityTag(a, b)).toBeTruthy()
     })
   })
@@ -63,95 +58,5 @@ describe('isEmptyObject', () => {
 
   it('is truthy for an object that contains no entries', () => {
     expect(isEmptyObject({})).toBeTruthy()
-  })
-})
-
-describe('isNamespaceInEnvVarDEBUG', () => {
-  const original_DEBUG = process.env.DEBUG
-
-  afterEach(() => {
-    process.env.DEBUG = original_DEBUG
-  })
-
-  it('is falsy when the environment variable `DEBUG` is not set', () => {
-    delete process.env.DEBUG
-
-    expect(isNamespaceInEnvVarDEBUG('foo')).toBeFalsy()
-  })
-
-  it('is truthy when the namespace matches `process.env.DEBUG`', () => {
-    const arr = ['foo', 'bar', 'baz']
-
-    arr.forEach((value) => {
-      process.env.DEBUG = value
-
-      expect(isNamespaceInEnvVarDEBUG(value)).toBeTruthy()
-    })
-  })
-
-  it('is truthy when the namespace is included in `process.env.DEBUG`', () => {
-    const arr = [
-      'foo,other,stuff',
-      'bar,some-other,thing',
-      'baz,yet-another,thing'
-    ]
-
-    arr.forEach((value) => {
-      process.env.DEBUG = value
-      const namespace = value.split(',')[0]
-
-      expect(isNamespaceInEnvVarDEBUG(namespace)).toBeTruthy()
-    })
-  })
-})
-
-describe('shouldLog', () => {
-  const original_DEBUG = process.env.DEBUG
-  const original_LOGGER_TAGS = process.env.LOGGER_TAGS
-
-  afterEach(() => {
-    process.env.DEBUG = original_DEBUG
-    process.env.LOGGER_TAGS = original_LOGGER_TAGS
-  })
-
-  it('is falsy when there is nothing to log', () => {
-    const arr = [undefined, null, '']
-
-    arr.forEach((value) => {
-      expect(shouldLog(value)).toBeFalsy()
-    })
-  })
-
-  it('is falsy when the statement to log has no `tags` field', () => {
-    const statement = { message: 'I have no tags' }
-
-    expect(shouldLog(statement)).toBeFalsy()
-  })
-
-  it('is falsy when the statement to log has an empty `tags` field', () => {
-    const statement = { message: 'I have no tags', tags: [] }
-
-    expect(shouldLog(statement)).toBeFalsy()
-  })
-
-  it('is truthy when `process.env.LOGGER_TAGS` is not set (the default behavior should be logging all tags)', () => {
-    delete process.env.LOGGER_TAGS // not sure if this works every time
-    const statement = { message: 'I have some tags', tags: ['foo', 'bar'] }
-
-    expect(shouldLog(statement)).toBeTruthy()
-  })
-
-  it('is truthy when a tag is included in `process.env.LOGGER_TAGS`', () => {
-    process.env.LOGGER_TAGS = 'foo'
-    const statement = { message: 'I have some tags', tags: ['foo', 'bar'] }
-
-    expect(shouldLog(statement)).toBeTruthy()
-  })
-
-  it('is falsy when a tag is not included in `process.env.LOGGER_TAGS`', () => {
-    process.env.LOGGER_TAGS = 'baz'
-    const statement = { message: 'I have some tags', tags: ['foo', 'bar'] }
-
-    expect(shouldLog(statement)).toBeFalsy()
   })
 })

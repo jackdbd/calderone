@@ -7,19 +7,13 @@
 import Joi from 'joi';
 
 // @public
-export const default_statement_schema: Joi.ObjectSchema<Statement>;
-
-// @public
-export const makeLogger: (options?: Options) => (stmt: any) => void;
+export const makeLog: (options?: any) => (stmt: Statement) => void;
 
 // @public
 export interface Options {
     namespace?: string;
-    should_log_warning_if_namespace_not_in_DEBUG?: boolean;
-    should_throw_if_namespace_not_in_DEBUG?: boolean;
-    should_use_json_logger?: boolean;
+    should_use_emoji_for_severity?: boolean;
     should_validate_log_statements?: boolean;
-    statement_schema?: Joi.ObjectSchema<Statement>;
 }
 
 // @public
@@ -27,5 +21,8 @@ export interface Statement {
     message: string;
     tags: string[];
 }
+
+// @public
+export const statement: Joi.ObjectSchema<Statement>;
 
 ```
