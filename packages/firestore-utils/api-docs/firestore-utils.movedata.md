@@ -4,10 +4,15 @@
 
 ## moveData variable
 
-Move Firestore document \*\*data\*\* from the Firestore document id `from`<!-- -->, to the Firestore document id `to`<!-- -->. In other words, the Firestore document ids do \*\*not\*\* change; it's the document data which is moved from a Firestore document to another.
+Moves Firestore document \*\*data\*\* from the Firestore document id `from`<!-- -->, to the Firestore document id `to`<!-- -->.
 
 <b>Signature:</b>
 
 ```typescript
-moveData: <D>({ ref, document_ids }: Config) => Promise<void>
+moveData: <D>({ ref, document_ids }: MoveDataConfig) => Promise<void>
 ```
+
+## Remarks
+
+The Firestore document ids do \*\*not\*\* change; it's the document data which is moved from a Firestore document to another.
+

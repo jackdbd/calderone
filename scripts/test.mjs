@@ -3,6 +3,7 @@
 import 'zx/globals'
 import { spawn } from 'node:child_process'
 import { throwIfInvokedFromMonorepoRoot } from './utils.mjs'
+import { argv } from 'node:process'
 
 // Usage (from a package root):
 // ../../scripts/test.mjs
@@ -29,7 +30,11 @@ let params = [
   `${package_name}`
 ]
 
-if (argv.ci) {
+if (process.argv.includes('--runInBand')) {
+  params.push('--runInBand')
+}
+
+if (process.argv.includes('--ci')) {
   params = [
     ...params,
     '--ci',
@@ -39,7 +44,7 @@ if (argv.ci) {
   ]
 }
 
-if (argv.watch) {
+if (process.argv.includes('--watch')) {
   params.push('--watch')
 }
 

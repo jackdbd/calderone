@@ -10,6 +10,7 @@ Utility functions to work with [Firestore](https://cloud.google.com/firestore).
 <details><summary>Table of Contents</summary>
 
 - [Installation](#installation)
+- [Usage](#usage)
 - [API](#api)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -23,7 +24,58 @@ npm install @jackdbd/firestore-utils
 
 > ⚠️ **Warning:**
 > 
-> This library declares [@google-cloud/firestore](https://www.npmjs.com/package/@google-cloud/firestore) and [debug](https://www.npmjs.com/package/debug) as peer dependencies.
+> This library declares [@google-cloud/firestore](https://www.npmjs.com/package/@google-cloud/firestore) as peer dependency.
+
+## Usage
+
+You can import the top-level module:
+
+```ts
+import { Firestore } from '@google-cloud/firestore'
+import {
+  bulkCopy,
+  bulkDelete,
+  bulkMove,
+  moveData,
+  shuffleWithFisherYates,
+  docResultsWithData
+} from '@jackdbd/firestore-utils'
+
+const firestore = new Firestore()
+const collection_ref = firestore.collection('some-collection')
+
+const result_copy = await bulkCopy({
+  copied_by: 'someone',
+  dest_collection: 'some-other-collection',
+  query: collection_ref.where('some-field', '>=', 42)
+})
+
+const result_move = await bulkMove({
+  moved_by: 'someone',
+  dest_collection: 'some-other-collection',
+  query: collection_ref.where('some-field', '>=', 42)
+})
+
+await shuffleWithFisherYates(collection_ref)
+
+const result_delete = await bulkDelete({ query: collection_ref })
+```
+
+or a specific ES module:
+
+```ts
+import { bulkCopy } from '@jackdbd/firestore-utils/copy'
+
+import { bulkDelete } from '@jackdbd/firestore-utils/delete'
+
+import {
+  bulkMove,
+  moveData,
+  shuffleWithFisherYates
+} from '@jackdbd/firestore-utils/move'
+
+import { docResultsWithData } from '@jackdbd/firestore-utils/retrieve'
+```
 
 ## API
 

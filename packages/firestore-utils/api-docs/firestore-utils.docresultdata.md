@@ -4,6 +4,7 @@
 
 ## DocResultData interface
 
+
 <b>Signature:</b>
 
 ```typescript
