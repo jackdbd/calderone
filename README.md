@@ -8,6 +8,8 @@
 
 Monorepo that I use for a bunch of stuff, managed with [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces/) (requires npm 7.x or later).
 
+![Calderone logo](./assets/images/calderone-logo.png)
+
 > 📦 **ESM only:**
 > 
 > All libraries of this monorepo are published to npmjs as ECMAScript modules.
