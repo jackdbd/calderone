@@ -3,6 +3,7 @@ import { ErrorMessage } from './constants.js'
 import { makeStructuredLog } from './loggers/structured.js'
 import { makeUnstructuredLog } from './loggers/unstructured.js'
 import { options as options_schema, statement } from './schemas.js'
+import type { Options } from './schemas.js'
 
 /**
  * Factory that returns a `log` function that will either print structured or
@@ -24,7 +25,7 @@ import { options as options_schema, statement } from './schemas.js'
  *
  * @public
  */
-export const makeLog = (options?: any) => {
+export const makeLog = (options?: Options) => {
   const { error, value } = options_schema.validate(options, {
     allowUnknown: false,
     stripUnknown: false
