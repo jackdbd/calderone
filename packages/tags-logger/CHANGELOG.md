@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/tags-logger [1.0.0-canary.4](https://github.com/jackdbd/calderone/compare/@jackdbd/tags-logger@1.0.0-canary.3...@jackdbd/tags-logger@1.0.0-canary.4) (2022-08-12)
+
+
+### Bug Fixes
+
+* **tags-logger:** improve typings in makeLog function ([a27f908](https://github.com/jackdbd/calderone/commit/a27f90860c316243f60519d05622bb8e68b266f6))
+
 ## @jackdbd/tags-logger [1.0.0-canary.3](https://github.com/jackdbd/calderone/compare/@jackdbd/tags-logger@1.0.0-canary.2...@jackdbd/tags-logger@1.0.0-canary.3) (2022-08-12)
 
 
