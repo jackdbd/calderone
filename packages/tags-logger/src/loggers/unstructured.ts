@@ -55,7 +55,7 @@ export const makeUnstructuredLog = ({
     should_use_emoji_for_severity
   })
 
-  return function log(stmt: Statement) {
+  return function log<T extends Statement = Statement>(stmt: T) {
     if (should_validate_statement) {
       logStatement(validatedStatement({ schema, stmt }))
     } else {

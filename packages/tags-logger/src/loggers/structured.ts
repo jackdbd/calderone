@@ -63,7 +63,7 @@ export const makeStructuredLog = ({
   should_validate_statement,
   schema
 }: MakeLogConfig) => {
-  return function log(stmt: Statement) {
+  return function log<T extends Statement = Statement>(stmt: T) {
     if (should_validate_statement) {
       logStatement(validatedStatement({ schema, stmt }))
     } else {
