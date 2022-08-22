@@ -49,8 +49,6 @@ export const AUTH_STRATEGY = {
  * - {@link https://datatracker.ietf.org/doc/html/rfc7807}
  */
 export const problemDetails = (_request: Hapi.Request, error: any) => {
-  // console.log('🚀 error', error)
-
   const invalid_params = error.details.flatMap((detail: any) => {
     return { name: detail.context.label, reason: error.message }
   })

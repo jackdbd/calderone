@@ -1,24 +1,27 @@
 import path from 'node:path'
-// import { env } from 'node:process'
-import makeDebug from 'debug'
 import yargs from 'yargs'
 import { monorepoRoot } from '@jackdbd/utils'
 import { makeSheetsClient } from './google-sheets'
 
-const debug = makeDebug('scripts/prova-sheets')
+interface Argv {
+  range: string
+  'spreadsheet-id': string
+  'service-account': string
+}
 
-const DEFAULT = {
+const DEFAULT: Argv = {
   range: 'twitter!A1:C1',
-  'spreadsheet-id': '1_px1dEv87iuDTTG6f6QfeSdNrGUhIsb941KDQwTOGLc'
+  'spreadsheet-id': '1_px1dEv87iuDTTG6f6QfeSdNrGUhIsb941KDQwTOGLc',
+  'service-account': 'sa-wasm-news.json'
 }
 
 const main = async () => {
-  const argv = yargs(process.argv.slice(2)).default(DEFAULT).argv
+  const argv = yargs(process.argv.slice(2)).default(DEFAULT).argv as Argv
 
   const service_account_filepath = path.join(
     monorepoRoot(),
     'secrets',
-    'sa-sheets-webassembly.json'
+    argv['service-account']
   )
 
   // https://developers.google.com/identity/protocols/oauth2/scopes#sheets
@@ -35,8 +38,8 @@ const main = async () => {
   try {
     const { data } = await getAsync({ spreadsheetId, range })
 
-    debug(
-      `read values %O in range ${data.range} of spreadsheet ${spreadsheetId}`,
+    console.log(
+      `read values in range ${data.range} of spreadsheet ${spreadsheetId}`,
       data.values
     )
   } catch (err: any) {
@@ -55,9 +58,8 @@ const main = async () => {
       resource
     })
 
-    debug(
-      `updated %d cells in range ${data.tableRange} of spreadsheet ${data.spreadsheetId}`,
-      data.updates.updatedCells
+    console.log(
+      `updated ${data.updates.updatedCells} cells in range ${data.tableRange} of spreadsheet ${data.spreadsheetId}`
     )
   } catch (err: any) {
     console.error(err.message)

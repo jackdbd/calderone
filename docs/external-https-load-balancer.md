@@ -106,20 +106,27 @@ gcloud beta compute network-endpoint-groups create neg-audit \
   --project $GCP_PROJECT_ID
 ```
 
-Create a NEG for the `webhooks-production` service.
+Create a NEG for the `calderone-webhooks` service.
 
 ```sh
-gcloud beta compute network-endpoint-groups create neg-webhooks \
+gcloud beta compute network-endpoint-groups create neg-calderone-webhooks \
   --region $CLOUD_RUN_REGION \
   --network-endpoint-type serverless  \
-  --cloud-run-service webhooks-production \
+  --cloud-run-service 'calderone-webhooks' \
   --project $GCP_PROJECT_ID
 ```
 
 Check that the NEGs were created.
 
 ```sh
-gcloud beta compute network-endpoint-groups list --project $GCP_PROJECT_ID
+gcloud beta compute network-endpoint-groups list
+```
+
+You can also delete a NEG:
+
+```sh
+gcloud beta compute network-endpoint-groups delete neg-webhooks \
+  --region $CLOUD_RUN_REGION
 ```
 
 You can also check individual NEGs. For example:

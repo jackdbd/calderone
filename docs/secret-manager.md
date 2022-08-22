@@ -60,10 +60,16 @@ gcloud secrets create TEST_SECRET \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
 ```
 
+```sh
+gcloud secrets create WEBHOOKS_CONFIG_PRODUCTION \
+  --data-file './secrets/webhooks-config-production.json' \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
+```
+
 ## List secrets
 
 ```sh
-gcloud secrets list --project $GCP_PROJECT_ID
+gcloud secrets list
 ```
 
 ## List versions of a secret

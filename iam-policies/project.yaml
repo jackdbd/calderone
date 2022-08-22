@@ -4,10 +4,6 @@ bindings:
   - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
   - serviceAccount:sa-github-workflows@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/artifactregistry.reader
-# - members:
-#   - user:giacomo@giacomodebidda.com
-#   - group:developers@giacomodebidda.com
-#   role: roles/artifactregistry.repoAdmin
 - members:
   - serviceAccount:sa-artifact-registry-writer@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/artifactregistry.writer
@@ -113,8 +109,14 @@ bindings:
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/logging.logWriter
 - members:
+  - serviceAccount:sa-monitoring@prj-kitchen-sink.iam.gserviceaccount.com
+  role: roles/monitoring.viewer
+- members:
   - user:giacomo@giacomodebidda.com
   role: roles/owner
+- members:
+  - serviceAccount:sa-pubsub@prj-kitchen-sink.iam.gserviceaccount.com
+  role: roles/pubsub.editor
 - members:
   - serviceAccount:service-1051247446620@gcp-sa-pubsub.iam.gserviceaccount.com
   role: roles/pubsub.serviceAgent
@@ -169,5 +171,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXmHk4hoYE=
+etag: BwXm0fc67-I=
 version: 1

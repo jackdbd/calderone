@@ -66,6 +66,24 @@ gcloud iam service-accounts create sa-github-workflows \
   --display-name "GitHub Workflows SA"
 ```
 
+### sa-monitoring
+
+Create a service account for [Cloud Monitoring](https://cloud.google.com/monitoring/access-control).
+
+```sh
+gcloud iam service-accounts create sa-monitoring \
+  --display-name "Monitoring SA"
+```
+
+### sa-pubsub
+
+Create a service account for [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/access-control).
+
+```sh
+gcloud iam service-accounts create sa-pubsub \
+  --display-name "Pub/Sub SA"
+```
+
 ### sa-secret-manager-admin-test
 
 Service account that I use in [secret-manager-utils](../packages/secret-manager-utils/README.md) tests.

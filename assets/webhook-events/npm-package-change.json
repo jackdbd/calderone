@@ -1,0 +1,226 @@
+{
+  "event": "package:change",
+  "name": "@jackdbd/stripe-utils",
+  "type": "package",
+  "version": "1.0.0",
+  "hookOwner": { "username": "jackdbd" },
+  "payload": {
+    "_id": "@jackdbd/stripe-utils",
+    "_rev": "2-06d8a75513bc9f435e76164f7ed557df",
+    "name": "@jackdbd/stripe-utils",
+    "dist-tags": { "latest": "1.0.1", "canary": "1.0.2-canary.1" },
+    "versions": {
+      "1.0.1": {
+        "name": "@jackdbd/stripe-utils",
+        "version": "1.0.1",
+        "description": "Utility functions to work with Stripe",
+        "author": {
+          "name": "Giacomo Debidda",
+          "email": "giacomo@giacomodebidda.com",
+          "url": "https://giacomodebidda.com/"
+        },
+        "license": "MIT",
+        "private": false,
+        "publishConfig": { "access": "public" },
+        "keywords": ["stripe", "utils"],
+        "repository": {
+          "type": "git",
+          "url": "git+https://github.com/jackdbd/calderone.git"
+        },
+        "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/stripe-utils#readme",
+        "engines": { "node": ">=16.0.0" },
+        "type": "module",
+        "module": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "exports": {
+          ".": "./lib/index.js",
+          "./checks": "./lib/checks.js",
+          "./customers": "./lib/customers.js",
+          "./errors": "./lib/errors.js",
+          "./payment_intents": "./lib/payment_intents.js",
+          "./prices": "./lib/prices.js",
+          "./utils": "./lib/utils.js",
+          "./webhooks": "./lib/webhooks.js",
+          "./package.json": "./package.json"
+        },
+        "typesVersions": { "*": { "*": ["./lib/*.d.ts"] } },
+        "scripts": {
+          "build": "run-s 'build:ts' 'build:docs' --print-label",
+          "build:docs": "run-s 'docs:doctoc' 'docs:ae' 'docs:ad' 'docs:typedoc' --print-label",
+          "build:ts": "tsc -p tsconfig.json",
+          "clean": "../../scripts/clean.mjs",
+          "docs:ae": "../../scripts/api-extractor.mjs",
+          "docs:ad": "../../scripts/api-documenter.mjs",
+          "docs:doctoc": "doctoc --github README.md --title '<details><summary>Table of Contents</summary>'",
+          "docs:typedoc": "../../scripts/typedoc.mjs",
+          "format": "../../scripts/format.mjs",
+          "lint": "eslint --config ../../config/eslint.cjs",
+          "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
+          "precommit": "lint-staged --config ../../config/lint-staged.cjs",
+          "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
+          "test": "../../scripts/test.mjs",
+          "test:ci": "../../scripts/test.mjs --ci",
+          "test:watch": "npm run test -- --watch"
+        },
+        "dependencies": {},
+        "peerDependencies": {
+          "@jackdbd/utils": "1.1.3",
+          "debug": ">=4.0.0",
+          "stripe": ">=9.1.0"
+        },
+        "devDependencies": {},
+        "gitHead": "3bc98efb2afb5ca9e3f9386914fd7cfb4bd774ec",
+        "bugs": { "url": "https://github.com/jackdbd/calderone/issues" },
+        "_id": "@jackdbd/stripe-utils@1.0.1",
+        "_nodeVersion": "16.15.1",
+        "_npmVersion": "8.12.1",
+        "dist": {
+          "integrity": "sha512-bzwTTjOuwwOqXE/RjWl+I1AsZ+6MyFqGdy9dbrX6mqACXHhmn61tMZyEvnIuXokJ9E3AB2mwF6CEC/0lWfShlQ==",
+          "shasum": "10efc4dbd54bde6a334220e98b3e460ec3d1810d",
+          "tarball": "https://registry.npmjs.org/@jackdbd/stripe-utils/-/stripe-utils-1.0.1.tgz",
+          "fileCount": 51,
+          "unpackedSize": 40159,
+          "signatures": [
+            {
+              "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+              "sig": "MEUCIQDqzeHLQmAZVb3bsjltfPW9i3CPHFbON9OXpbq0wjH+PwIgPOUAGS6cDBZQgcfHTNAi7yvS17tHpktNI4WNJungBxg="
+            }
+          ],
+          "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJiq7e9ACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2VmoMlg/+N23JK0HVFMD91IMwMgFadFOMlQMUTsFy0YXcCbTL6mkb0uis\r\nK0acnqShNBJLaYOn/2a2oFq3l2PUJRXtpwmqJHKFz2VfF/2kPNjKs9zKr7Fa\r\nHJFpKv1/nj7eXC1LUNYPSyrJSYqEF4sbjx360WISy3On8SP4Ejc2qYB7jX9T\r\nx4EvPqvJh+pX714ZLDgCnBwR/0ZM4CM1YVKG0DsZ0S1Tog63xKeUJsDs2bOi\r\n1Ofk99BKC1//cMG5i6ToiTxOW6X7kfbWwMVk7PQurK4rYnxPqKHo5F0ipzEZ\r\nBVZerfTfgKBXvBmFEBuYLM4dKDqTuHN2Bvr70RGY/7AcrDx3PGNj5Ok3QVTZ\r\naO6eQumDTYlggta1eu/1qEZiqaqznDLVUubdtIwidv1ReV4KIwE8CiyZ8SUs\r\nXugbClF9RV4/wCkY4Rb1jJv3jnaQfX0o+YSO7OiTQbhZU6CAwjO8z5XVSj/a\r\nddlzps6pbfTVh7iWPM1BwldqQG4Xt4dmIJqBaHRxelDzBllz/TrT+5uGnUEE\r\nnXblrFW6F5vgfYCWXlWEhnswSnqzUN/7TyRSSf/YocEYNh59FwTtbjk4NXeG\r\nRWaUdGA8QQqDRy4AIp7c29YsXznihyCYJOUPslZWq3PNPGDNHNIF+LraCnTa\r\nA+nVREpzpvWQkJBGyeLPdAjOxZ/hA2s5UsI=\r\n=+f32\r\n-----END PGP SIGNATURE-----\r\n"
+        },
+        "_npmUser": { "name": "jackdbd", "email": "jackdebidda@gmail.com" },
+        "directories": {},
+        "maintainers": [
+          { "name": "jackdbd", "email": "jackdebidda@gmail.com" }
+        ],
+        "_npmOperationalInternal": {
+          "host": "s3://npm-registry-packages",
+          "tmp": "tmp/stripe-utils_1.0.1_1655420861740_0.9170090249612353"
+        },
+        "_hasShrinkwrap": false
+      },
+      "1.0.2-canary.1": {
+        "name": "@jackdbd/stripe-utils",
+        "version": "1.0.2-canary.1",
+        "description": "Utility functions to work with Stripe",
+        "author": {
+          "name": "Giacomo Debidda",
+          "email": "giacomo@giacomodebidda.com",
+          "url": "https://giacomodebidda.com/"
+        },
+        "license": "MIT",
+        "private": false,
+        "publishConfig": { "access": "public" },
+        "keywords": ["stripe", "utils"],
+        "repository": {
+          "type": "git",
+          "url": "git+https://github.com/jackdbd/calderone.git"
+        },
+        "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/stripe-utils#readme",
+        "engines": { "node": ">=16.0.0" },
+        "type": "module",
+        "module": "lib/index.js",
+        "typings": "lib/index.d.ts",
+        "exports": {
+          ".": "./lib/index.js",
+          "./checks": "./lib/checks.js",
+          "./customers": "./lib/customers.js",
+          "./errors": "./lib/errors.js",
+          "./payment_intents": "./lib/payment_intents.js",
+          "./prices": "./lib/prices.js",
+          "./utils": "./lib/utils.js",
+          "./webhooks": "./lib/webhooks.js",
+          "./package.json": "./package.json"
+        },
+        "typesVersions": { "*": { "*": ["./lib/*.d.ts"] } },
+        "scripts": {
+          "build": "run-s 'build:ts' 'build:docs' --print-label",
+          "build:docs": "run-s 'docs:doctoc' 'docs:ae' 'docs:ad' 'docs:typedoc' --print-label",
+          "build:ts": "tsc -p tsconfig.json",
+          "clean": "../../scripts/clean.mjs",
+          "docs:ae": "../../scripts/api-extractor.mjs",
+          "docs:ad": "../../scripts/api-documenter.mjs",
+          "docs:doctoc": "doctoc --github README.md --title '<details><summary>Table of Contents</summary>'",
+          "docs:typedoc": "../../scripts/typedoc.mjs",
+          "format": "../../scripts/format.mjs",
+          "lint": "eslint --config ../../config/eslint.cjs",
+          "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
+          "precommit": "lint-staged --config ../../config/lint-staged.cjs",
+          "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
+          "test": "../../scripts/test.mjs",
+          "test:ci": "../../scripts/test.mjs --ci",
+          "test:watch": "npm run test -- --watch"
+        },
+        "dependencies": {},
+        "peerDependencies": {
+          "@jackdbd/utils": "1.2.0-canary.1",
+          "debug": ">=4.0.0",
+          "stripe": ">=9.1.0"
+        },
+        "devDependencies": {},
+        "readme": "# @jackdbd/stripe-utils\n\nUtility functions to work with Stripe.\n\n<!-- START doctoc generated TOC please keep comment here to allow auto update -->\n<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->\n<details><summary>Table of Contents</summary>\n\n- [Installation](#installation)\n- [API](#api)\n\n<!-- END doctoc generated TOC please keep comment here to allow auto update -->\n</details>\n\n## Installation\n\n```sh\nnpm install @jackdbd/stripe-utils\n```\n\n> ⚠️ **Hic sunt dracones:**\n> \n> ⚡ This library is very early stage. Expect the API to break at any time.\n\n## API\n\n[API docs generated with TypeDoc](https://jackdbd.github.io/calderone/stripe-utils/)\n",
+        "readmeFilename": "README.md",
+        "gitHead": "fe96ef25ea34a7da65244a36e1679fcf73cf91bf",
+        "bugs": { "url": "https://github.com/jackdbd/calderone/issues" },
+        "_id": "@jackdbd/stripe-utils@1.0.2-canary.1",
+        "_nodeVersion": "16.15.1",
+        "_npmVersion": "8.15.0",
+        "dist": {
+          "integrity": "sha512-+vlNBmr7j0jJO5CMWKBfUpaUfbgPoocyq4hAGOjb2OfcHlVRa9Dfpr+VWpr9ZvswVCJ7k5aldzr/G3VAvG86lQ==",
+          "shasum": "ac36ee56f7fec0a92060f71431e7fa04d10e5be3",
+          "tarball": "https://registry.npmjs.org/@jackdbd/stripe-utils/-/stripe-utils-1.0.2-canary.1.tgz",
+          "fileCount": 51,
+          "unpackedSize": 45349,
+          "signatures": [
+            {
+              "keyid": "SHA256:jl3bwswu80PjjokCgh0o2w5c2U4LhQAE57gj9cz1kzA",
+              "sig": "MEYCIQCjHTNsOkLS9J0/3E37q9HrvTEDFs5NfVPhTflbARUmEgIhAJKD+llmIy99/bSdNknt3BX7f7/+34JDRYK//8E5CJs1"
+            }
+          ],
+          "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v4.10.10\r\nComment: https://openpgpjs.org\r\n\r\nwsFzBAEBCAAGBQJi4XJLACEJED1NWxICdlZqFiEECWMYAoorWMhJKdjhPU1b\r\nEgJ2Vmof2Q//RM9C244Mwju3peY6AQBGAp80jBtFkJGJtRl45I83Kdn5L3I8\r\nfAt/gSkdZSJ7nxgnH330Asp7hmDTkfXIJCpUMFTuv+ZJLVOgC1GFMLvk1eN3\r\nEGmnaUeJvVQ7dDH3JdKa9+KF87OlTsTW+eCWncdaXCb3Anv+phP2/DVpF/rI\r\n3uGmoHX6BBfTHvPSgJ2dfnqciRjxpAwAcoQlw0yWUt3ndUlX3QGHhtWZpl/X\r\nSZ3JRd2jJx2HHihdsmLTG4WjK5jDN3jNys4uQoMcpOIAovyWv7U98jNnggMx\r\nd/Z/5yJ7W+UoqiYzkLC6zev7Haz3ns4C33bP0sEJWhsKmNY+sTGHGUPSdokO\r\nWtNxJB7/ZAG3OnqI9Dlp+Ii+xPAfQPslpYGanW6AnZ8wBufPTQwSkFgZjS92\r\nzt9NICAN/sSt1oRW7RpzAMzldgZmrXzCENr1Pz59CDpPLMxUdsivHexxms8B\r\n81atk8uKM/JYN+a8/aJRMietptzkJQ1QdCjQPlco69d73YyKfoSiqif/AD3x\r\n2j3QDBX1RGslEjAFHsJZPnuP33DH/ymtJxhPdO780jUtBBL1ZwYQrhaE7q+9\r\n287PwvDyXfXveSFRSdBV4Pbdg6wW4xNAdVJtKVDhVRnjtoUBRWyqDwTfHtg7\r\nvyj8lpbrk1n+9h14Nk0QCojpwgL7CEu9ES8=\r\n=R0EH\r\n-----END PGP SIGNATURE-----\r\n"
+        },
+        "_npmUser": {
+          "name": "jackdbd",
+          "email": "giacomo@giacomodebidda.com"
+        },
+        "directories": {},
+        "maintainers": [
+          { "name": "jackdbd", "email": "giacomo@giacomodebidda.com" }
+        ],
+        "_npmOperationalInternal": {
+          "host": "s3://npm-registry-packages",
+          "tmp": "tmp/stripe-utils_1.0.2-canary.1_1658942027635_0.9678705514135761"
+        },
+        "_hasShrinkwrap": false
+      }
+    },
+    "time": {
+      "created": "2022-06-16T23:07:41.681Z",
+      "1.0.1": "2022-06-16T23:07:41.930Z",
+      "modified": "2022-07-27T17:13:48.013Z",
+      "1.0.2-canary.1": "2022-07-27T17:13:47.932Z"
+    },
+    "maintainers": [
+      { "name": "jackdbd", "email": "giacomo@giacomodebidda.com" }
+    ],
+    "description": "Utility functions to work with Stripe",
+    "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/stripe-utils#readme",
+    "keywords": ["stripe", "utils"],
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jackdbd/calderone.git"
+    },
+    "author": {
+      "name": "Giacomo Debidda",
+      "email": "giacomo@giacomodebidda.com",
+      "url": "https://giacomodebidda.com/"
+    },
+    "bugs": { "url": "https://github.com/jackdbd/calderone/issues" },
+    "license": "MIT",
+    "readme": "",
+    "readmeFilename": "",
+    "_attachments": {}
+  },
+  "change": {},
+  "time": 1658948398486
+}

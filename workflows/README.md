@@ -1,21 +1,19 @@
 # Google Cloud Workflows
 
-See [Cloud Workflows predefined IAM roles](https://cloud.google.com/iam/docs/understanding-roles#workflows-roles).
+Useful links:
 
-All GCP workflows are named `*.workflows.yaml`. TODO: do I need to have `.workflows` in the file name?
+- [Cloud Workflows predefined IAM roles](https://cloud.google.com/iam/docs/understanding-roles#workflows-roles)
 
 ## Deploy a Workflow to GCP
 
-This command will deploy the specified workflow in the `CLOUDSDK_CORE_PROJECT` GCP project, where `CLOUDSDK_CORE_PROJECT` is an environment variable used by gcloud.
-
-From the monorepo root:
+All of the following commands are meant to be executed from the monorepo root. The environment variable `WORKFLOW_LOCATION` is set to `europe-west4`. The environment variable `SA_WORKFLOWS_RUNNER` is the service account attached to each GCP Workflow.
 
 ```sh
 gcloud workflows deploy random-cocktail-to-telegram \
   --project $GCP_PROJECT_ID \
   --location $WORKFLOW_LOCATION \
   --description "Get a random cocktail from thecocktaildb.com and send it to Telegram and email" \
-  --source workflows/random-cocktail-to-telegram.workflows.yaml \
+  --source workflows/random-cocktail-to-telegram.yaml \
   --service-account $SA_WORKFLOWS_RUNNER \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
@@ -25,19 +23,49 @@ gcloud workflows deploy create-stop-delete-vm \
   --project $GCP_PROJECT_ID \
   --location $WORKFLOW_LOCATION \
   --description "Create, start, stop, delete a VM using the Compute Engine Workflows Connector" \
-  --source workflows/create-stop-delete-vm.workflows.yaml \
+  --source workflows/create-stop-delete-vm.yaml \
   --service-account $SA_WORKFLOWS_RUNNER \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
+
+### Lead generation
+
+```sh
+gcloud workflows deploy lead-generation \
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION \
+  --description "Lead generation to find clients, jobs, people on Hacker News, LinkedIn, Reddit" \
+  --source workflows/lead-generation.yaml \
+  --service-account $SA_WORKFLOWS_RUNNER \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
+```
+
+### Wasm news
 
 ```sh
 gcloud workflows deploy wasm-news \
   --project $GCP_PROJECT_ID \
   --location $WORKFLOW_LOCATION \
   --description "Search several APIs for news about WebAssembly topics and store them in Google Sheets" \
-  --source workflows/wasm-news.workflows.yaml \
+  --source workflows/wasm-news.yaml \
   --service-account $SA_WORKFLOWS_RUNNER \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
+```
+
+## Trigger a workflow on a recurring schedule
+
+Deploy the workflow first, then create a [Cloud Scheduler job](../docs/cloud-scheduler.md).
+
+## List the workflows
+
+```sh
+gcloud workflows list --location $WORKFLOW_LOCATION
+```
+
+## Delete a workflow
+
+```sh
+gcloud workflows delete random-cocktail-to-telegram --location $WORKFLOW_LOCATION
 ```
 
 ## `execute` vs `run`
@@ -46,7 +74,6 @@ Use `gcloud workflows execute` to execute a workflow without waiting for it to c
 
 ```sh
 gcloud workflows execute random-cocktail-to-telegram \
-  --project $GCP_PROJECT_ID \
   --location $WORKFLOW_LOCATION
 ```
 
@@ -54,9 +81,8 @@ Use `gcloud workflows run` to execute a workflow and wait for it to complete.
 
 ```sh
 gcloud workflows run random-cocktail-to-telegram \
-  --project $GCP_PROJECT_ID \
   --location $WORKFLOW_LOCATION \
-  --format='value(result)' \
+  --format='value(result)'
 ```
 
 ```sh
@@ -100,26 +126,8 @@ gcloud workflows execute create-stop-delete-vm \
   }'
 ```
 
-## My workflows
-
-### Lead generation
-
-Deploy the workflow:
+You can find the list of available [Compute Engine images](https://cloud.google.com/compute/docs/images) with this command:
 
 ```sh
-gcloud workflows deploy lead-generation \
-  --project $GCP_PROJECT_ID \
-  --location $WORKFLOW_LOCATION \
-  --description "Lead generation to find clients, jobs, people on Hacker News, LinkedIn, Reddit" \
-  --source workflows/lead-generation.workflows.yaml \
-  --service-account $SA_WORKFLOWS_RUNNER \
-  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
-```
-
-Run the workflow:
-
-```sh
-gcloud workflows run lead-generation \
-  --project $GCP_PROJECT_ID \
-  --location $WORKFLOW_LOCATION
+gcloud compute images list
 ```
