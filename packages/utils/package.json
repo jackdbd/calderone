@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/utils",
-  "version": "1.2.0-canary.1",
+  "version": "1.2.0",
   "description": "Miscellaneous utility functions",
   "author": {
     "name": "Giacomo Debidda",
