@@ -43,12 +43,6 @@
       "path": "./packages/keap-client/tsconfig.json"
     },
     {
-      "path": "./packages/hapi-healthcheck-plugin/tsconfig.json"
-    },
-    {
-      "path": "./packages/hapi-ip-whitelist-plugin/tsconfig.json"
-    },
-    {
       "path": "./packages/plausible-client/tsconfig.json"
     }
   ]

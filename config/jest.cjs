@@ -82,8 +82,6 @@ const projects = [
   project('cloud-scheduler-utils'),
   project('fattureincloud-client'),
   project('firestore-utils'),
-  project('hapi-healthcheck-plugin'),
-  project('hapi-ip-whitelist-plugin'),
   project('keap-client'),
   project('notifications'),
   project('plausible-client'),
