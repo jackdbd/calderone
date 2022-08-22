@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/sqlite-utils [1.1.0](https://github.com/jackdbd/calderone/compare/@jackdbd/sqlite-utils@1.0.1...@jackdbd/sqlite-utils@1.1.0) (2022-08-22)
+
+
+### Features
+
+* **sqlite-utils:** add bulkInsert and improve docs ([b0d397a](https://github.com/jackdbd/calderone/commit/b0d397a0caad730a661139faccfbc01143ffddb8))
+
 ## @jackdbd/sqlite-utils [1.1.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/sqlite-utils@1.0.1...@jackdbd/sqlite-utils@1.1.0-canary.1) (2022-08-10)
 
 
