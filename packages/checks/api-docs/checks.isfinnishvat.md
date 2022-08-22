@@ -4,6 +4,8 @@
 
 ## isFinnishVat variable
 
+Checks whether a string is a valid Finnish VAT number or not.
+
 <b>Signature:</b>
 
 ```typescript

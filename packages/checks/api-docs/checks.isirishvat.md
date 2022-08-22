@@ -4,6 +4,8 @@
 
 ## isIrishVat variable
 
+Checks whether a string is a valid Irish VAT number or not.
+
 <b>Signature:</b>
 
 ```typescript

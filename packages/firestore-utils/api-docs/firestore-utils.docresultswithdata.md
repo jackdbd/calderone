@@ -14,5 +14,5 @@ docResultsWithData: <D>({ limit, query }: DocResultsQueryConfig) => Promise<DocR
 
 ## Remarks
 
-Firestore does not support inequality filters on multiple properties. [Range condition in Firestore can only be applied on a single field](https://stackoverflow.com/questions/65391713/firestore-error-cannot-use-multiple-conditional-where-clauses-on-different-prop?rq=1)<!-- -->.
+Firestore does not support inequality filters on multiple properties.
 

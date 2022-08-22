@@ -1,11 +1,11 @@
-import { initTestServer } from '../dist/main-test.js'
+import { hapiTestServer } from './utils.mjs'
 
 describe('GET /webpagetest', () => {
   let server
   const timeout_ms = 10000
 
   beforeEach(async () => {
-    server = await initTestServer()
+    server = await hapiTestServer()
     await server.start()
   }, timeout_ms)
 
@@ -13,14 +13,12 @@ describe('GET /webpagetest', () => {
     await server.stop()
   })
 
-  it('responds with 200', async () => {
+  it('responds with 400', async () => {
     const res = await server.inject({
       method: 'GET',
       url: '/webpagetest'
     })
-    expect(res.statusCode).toBe(200)
-    expect(res.result.message).toBe(
-      'incoming GET request has no `id` in the query string'
-    )
+    expect(res.statusCode).toBe(400)
+    expect(res.result.title).toBe(`Your request parameters didn't validate.`)
   })
 })

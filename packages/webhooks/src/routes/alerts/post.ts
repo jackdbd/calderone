@@ -2,7 +2,6 @@ import Boom from '@hapi/boom'
 import type Hapi from '@hapi/hapi'
 import { sendTelegramMessage } from '@jackdbd/notifications'
 import { operationListText } from '@jackdbd/telegram-text-messages'
-// import Joi from 'joi'
 
 interface Config {
   service_name: string
@@ -36,25 +35,17 @@ export const alertsPost = ({
   telegram_chat_id,
   telegram_token
 }: Config): Hapi.ServerRoute => {
-  const config = { method: 'POST', path: '/alerts' }
   return {
-    method: config.method,
-    options: {
-      auth: false, // TODO: use auth? Allow only Google servers to call this route?
-      description: 'webhook target for Cloud Monitoring alerts',
-      notes:
-        'This route catches the webhook events sent by the [Cloud Monitoring API](https://cloud.google.com/monitoring/api/ref_v3/rest)',
-      tags: ['api']
-      // validate: {
-      //   payload: Joi.object({
-      //     incident: Joi.any()
-      //   }),
-      //   query: false
-      // }
-    },
-    path: config.path,
+    method: 'POST',
+
     handler: async (request: Hapi.Request, _h: Hapi.ResponseToolkit) => {
       const payload = request.payload as any
+      if (!payload) {
+        throw Boom.badRequest()
+      }
+      if (!payload.incident) {
+        throw Boom.badRequest()
+      }
 
       const incident_summary = payload.incident.summary
       const incident_url = payload.incident.url
@@ -100,6 +91,23 @@ export const alertsPost = ({
       } else {
         throw Boom.internal()
       }
-    }
+    },
+
+    options: {
+      auth: false, // TODO: use auth? Allow only Google servers to call this route?
+      description: 'webhook target for Cloud Monitoring alerts',
+      notes:
+        'This route catches the webhook events sent by the [Cloud Monitoring API](https://cloud.google.com/monitoring/api/ref_v3/rest)',
+      tags: ['api']
+      // validate: {
+      //   options: { allowUnknown: true },
+      //   payload: Joi.object({
+      //     incident: Joi.any()
+      //   }),
+      //   query: false
+      // }
+    },
+
+    path: '/alerts'
   }
 }

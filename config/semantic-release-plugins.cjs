@@ -67,7 +67,7 @@ const commit_analyzer = [
       // In my opinion, updating the documentation of the root package of this
       // monorepo should not trigger a release, but updating the documentation
       // of a library of this monorepo certainly should.
-      { type: 'docs', scope: 'hapi-*', release: 'patch' },
+      { type: 'docs', scope: '*', release: 'patch' },
       // Maybe a refactor should trigger a release. I am not 100% convinced though.
       { type: 'refactor', release: 'patch' }
     ]

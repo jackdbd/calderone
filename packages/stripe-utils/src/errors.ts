@@ -1,11 +1,13 @@
 import Stripe from 'stripe'
 
 /**
- * Convert an error coming from Stripe into an object with a consistent shape.
+ * Converts an error coming from Stripe into an object with a consistent shape.
  *
- * https://github.com/stripe/stripe-node/blob/4e82ccafda2017654ac264c070e7ebfa0e662fcd/lib/Error.js
- * https://github.com/stripe/stripe-node/wiki/Error-Handling
- * https://stripe.com/docs/error-codes
+ * @public
+ *
+ * @see [Error.js - stripe-node](https://github.com/stripe/stripe-node/blob/4e82ccafda2017654ac264c070e7ebfa0e662fcd/lib/Error.js)
+ * @see [Error Handling - stripe-node Wiki](https://github.com/stripe/stripe-node/wiki/Error-Handling)
+ * @see [Error codes - Stripe Docs](https://stripe.com/docs/error-codes)
  */
 export const errorFromStripe = (err: Stripe.StripeError) => {
   const prefix = '[stripe] '

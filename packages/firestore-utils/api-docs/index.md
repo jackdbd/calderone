@@ -8,5 +8,5 @@
 
 |  Package | Description |
 |  --- | --- |
-|  [@jackdbd/firestore-utils](./firestore-utils.md) |  |
+|  [@jackdbd/firestore-utils](./firestore-utils.md) | Utility functions for \[Firestore\](https://cloud.google.com/firestore). |
 

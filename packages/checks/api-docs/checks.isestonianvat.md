@@ -4,6 +4,8 @@
 
 ## isEstonianVat variable
 
+Checks whether a string is a valid Estonian VAT number or not.
+
 <b>Signature:</b>
 
 ```typescript

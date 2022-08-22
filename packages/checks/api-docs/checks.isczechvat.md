@@ -4,6 +4,8 @@
 
 ## isCzechVat variable
 
+Checks whether a string is a valid Czech VAT number or not.
+
 <b>Signature:</b>
 
 ```typescript

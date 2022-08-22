@@ -4,6 +4,8 @@
 
 ## isLuxembourgishVat variable
 
+Checks whether a string is a valid Luxembourgish VAT number or not.
+
 <b>Signature:</b>
 
 ```typescript

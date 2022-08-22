@@ -4,7 +4,8 @@ on:
   pull_request:
   push:
     branches:
-    - 'main'
+    - canary
+    - main
 
 jobs:
   ci-on-cloud-build:
@@ -36,7 +37,7 @@ jobs:
         run: npm audit --audit-level high
 
       - name: 🔧 Build packages
-        run: npm run build
+        run: npm run build:libs
 
       - name: 🔍 Test library @jackdbd/checks
         run: npm run test:ci -w packages/checks
@@ -52,12 +53,6 @@ jobs:
           SA_FIRESTORE_VIEWER_TEST: ${{ secrets.SA_FIRESTORE_VIEWER_TEST }}
         run: npm run test:ci -w packages/firestore-utils
 
-      - name: 🔍 Test library @jackdbd/hapi-healthcheck-plugin
-        run: npm run test:ci -w packages/hapi-healthcheck-plugin
-
-      - name: 🔍 Test library @jackdbd/hapi-ip-whitelist-plugin
-        run: npm run test:ci -w packages/hapi-ip-whitelist-plugin
-
       - name: 🔍 Test library @jackdbd/notifications
         env:
           TELEGRAM: ${{ secrets.TELEGRAM }}
@@ -72,6 +67,12 @@ jobs:
         env:
           SA_SECRET_MANAGER_ADMIN_TEST: ${{ secrets.SA_SECRET_MANAGER_ADMIN_TEST }}
         run: npm run test:ci -w packages/secret-manager-utils
+
+      - name: 🔍 Test library @jackdbd/sqlite-utils
+        run: npm run test:ci -w packages/sqlite-utils
+
+      - name: 🔍 Test library @jackdbd/tags-logger
+        run: npm run test:ci -w packages/tags-logger
 
       - name: 🔍 Test library @jackdbd/telegram-text-messages
         run: npm run test:ci -w packages/telegram-text-messages

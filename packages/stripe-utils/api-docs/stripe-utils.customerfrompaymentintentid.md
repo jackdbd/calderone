@@ -4,7 +4,7 @@
 
 ## customerFromPaymentIntentId variable
 
-Extract the Stripe Customer from a Payment Intent Id.
+Extracts the Stripe Customer from a Payment Intent Id.
 
 <b>Signature:</b>
 

@@ -4,9 +4,7 @@
 
 ## isOnCloudFunctions variable
 
-Check whether a service is running on Cloud Functions or not.
-
-- https://cloud.google.com/functions/docs/configuring/env-var\#newer\_runtimes - https://cloud.google.com/docs/authentication/production\#automatically
+Checks whether a service is running on Cloud Functions or not.
 
 <b>Signature:</b>
 

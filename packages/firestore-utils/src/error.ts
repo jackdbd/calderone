@@ -3,7 +3,9 @@
  *
  * @privateRemarks
  * Learn more about Firestore errors.
- * The only error interface seems to be BulkWriterError
+ * The only error interface seems to be `BulkWriterError`.
+ *
+ * @see [BulkWriter](https://cloud.google.com/nodejs/docs/reference/firestore/latest/firestore/bulkwriter)
  *
  * @alpha
  */

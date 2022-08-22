@@ -12,8 +12,8 @@ export interface Credentials
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [apiKey](./plausible-client.credentials.apikey.md) | string |  |
-|  [siteId](./plausible-client.credentials.siteid.md) | string |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [apiKey](./plausible-client.credentials.apikey.md) |  | string |  |
+|  [siteId](./plausible-client.credentials.siteid.md) |  | string |  |
 

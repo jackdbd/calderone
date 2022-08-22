@@ -4,6 +4,7 @@
 
 ## DocResultData interface
 
+
 <b>Signature:</b>
 
 ```typescript
@@ -12,8 +13,8 @@ export interface DocResultData<D>
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [data](./firestore-utils.docresultdata.data.md) | D |  |
-|  [doc\_id](./firestore-utils.docresultdata.doc_id.md) | string |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [data](./firestore-utils.docresultdata.data.md) |  | D |  |
+|  [doc\_id](./firestore-utils.docresultdata.doc_id.md) |  | string |  |
 

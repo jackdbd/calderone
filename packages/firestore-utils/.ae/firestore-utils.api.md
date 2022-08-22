@@ -8,13 +8,67 @@ import type { CollectionReference } from '@google-cloud/firestore';
 import type { Query } from '@google-cloud/firestore';
 
 // @public
-export const deleteAllDocsInCollection: (ref: CollectionReference) => Promise<string>;
+export const bulkCopy: ({ copied_by, dest_collection, query }: BulkCopyConfig) => Promise<{
+    doc_ids: {
+        copied: string[];
+        skipped: string[];
+    };
+    message: string;
+}>;
+
+// @public (undocumented)
+export interface BulkCopyConfig {
+    // (undocumented)
+    copied_by?: string;
+    // (undocumented)
+    dest_collection: string;
+    // (undocumented)
+    query: Query;
+}
 
 // @public
+export const bulkDelete: ({ query }: BulkDeleteConfig) => Promise<{
+    doc_ids: {
+        deleted: string[];
+        skipped: string[];
+    };
+    message: string;
+}>;
+
+// @public (undocumented)
+export interface BulkDeleteConfig {
+    // (undocumented)
+    query: Query;
+}
+
+// @public
+export const bulkMove: ({ dest_collection, moved_by, query }: BulkMoveConfig) => Promise<{
+    doc_ids: {
+        moved: {
+            src: string;
+            dest: string;
+        }[];
+        skipped: string[];
+    };
+    message: string;
+}>;
+
+// @public (undocumented)
+export interface BulkMoveConfig {
+    // (undocumented)
+    dest_collection: string;
+    // (undocumented)
+    moved_by?: string;
+    // (undocumented)
+    query: Query;
+}
+
+// @public
+export const deleteAllDocsInCollection: (ref: CollectionReference) => Promise<string>;
+
+// @public @deprecated
 export const deleteDocsMatchingQuery: (query: Query) => Promise<string>;
 
-// Warning: (ae-missing-release-tag) "DocResultData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export interface DocResultData<D> {
     // (undocumented)
@@ -23,8 +77,6 @@ export interface DocResultData<D> {
     doc_id: string;
 }
 
-// Warning: (ae-missing-release-tag) "DocResultId" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export interface DocResultId {
     // (undocumented)
@@ -33,8 +85,6 @@ export interface DocResultId {
     id: string;
 }
 
-// Warning: (ae-missing-release-tag) "DocResultsQueryConfig" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export interface DocResultsQueryConfig {
     // (undocumented)
@@ -43,8 +93,6 @@ export interface DocResultsQueryConfig {
     query: Query;
 }
 
-// Warning: (ae-missing-release-tag) "DocResultsRefConfig" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export interface DocResultsRefConfig {
     // (undocumented)
@@ -65,14 +113,21 @@ export const errorFromFirestore: (err: any) => {
     status_code: number;
 };
 
-// Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
-//
 // @public
-export const moveData: <D>({ ref, document_ids }: Config) => Promise<void>;
+export const moveData: <D>({ ref, document_ids }: MoveDataConfig) => Promise<void>;
+
+// @public (undocumented)
+export interface MoveDataConfig {
+    // (undocumented)
+    document_ids: {
+        from: string;
+        to: string;
+    }[];
+    // (undocumented)
+    ref: CollectionReference;
+}
 
 // @public
 export const shuffleWithFisherYates: (ref: CollectionReference) => Promise<void>;
-
-// (No @packageDocumentation comment for this package)
 
 ```

@@ -12,7 +12,7 @@ export interface Options
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [env?](./utils.deployoptions.env.md) | NodeJS.ProcessEnv | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [env?](./utils.deployoptions.env.md) |  | NodeJS.ProcessEnv | <i>(Optional)</i> |
 

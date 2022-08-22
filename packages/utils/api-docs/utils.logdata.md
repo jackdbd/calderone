@@ -12,7 +12,7 @@ export interface LogData
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [message](./utils.logdata.message.md) | string |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [message](./utils.logdata.message.md) |  | string |  |
 

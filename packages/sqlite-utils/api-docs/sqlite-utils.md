@@ -4,15 +4,24 @@
 
 ## sqlite-utils package
 
+A few functions useful when working with \[better-sqlite3\](https://github.com/WiseLibs/better-sqlite3).
+
+## Interfaces
+
+|  Interface | Description |
+|  --- | --- |
+|  [BulkInsertConfig](./sqlite-utils.bulkinsertconfig.md) |  |
+|  [ColumnInfo](./sqlite-utils.columninfo.md) |  |
+|  [ForeignKey](./sqlite-utils.foreignkey.md) |  |
+
 ## Variables
 
 |  Variable | Description |
 |  --- | --- |
-|  [logCompileOptions](./sqlite-utils.logcompileoptions.md) |  |
-|  [logForeignKeys](./sqlite-utils.logforeignkeys.md) |  |
-|  [logFunctions](./sqlite-utils.logfunctions.md) |  |
-|  [logPragmas](./sqlite-utils.logpragmas.md) | TODO: try these pragma statements: https://www.sqlite.org/pragma.html\#pragma\_pragma\_list https://www.sqlite.org/pragma.html\#pragma\_query\_only https://www.sqlite.org/pragma.html\#pragma\_quick\_check https://www.sqlite.org/pragma.html\#pragma\_stats https://www.sqlite.org/pragma.html\#pragma\_optimize |
-|  [logTableInfo](./sqlite-utils.logtableinfo.md) |  |
-|  [PRAGMAS](./sqlite-utils.pragmas.md) |  |
-|  [SQLITE\_OPTIONS](./sqlite-utils.sqlite_options.md) |  |
+|  [bulkInsert](./sqlite-utils.bulkinsert.md) | Creates a SQLite transaction that will run a SQL statement on each record and either commit the results, or rollback to the original state of the database. |
+|  [DEPRECATED\_PRAGMAS](./sqlite-utils.deprecated_pragmas.md) | Complete list of \*\*deprecated\*\* SQLite PRAGMA statements. |
+|  [foreignKeys](./sqlite-utils.foreignkeys.md) | Returns an array of all the foreign key constraints of the requested table. |
+|  [pragmaDict](./sqlite-utils.pragmadict.md) | <p>Returns a dictionary of the available PRAGMA statements in this SQLite database, where each key-value pair is a PRAGMA with its associated value.</p><p>PRAGMA statements not available in the provided SQLite database will not show up in the dictionary.</p> |
+|  [PRAGMAS](./sqlite-utils.pragmas.md) | Complete list of \*\*non-deprecated\*\* SQLite PRAGMA statements. |
+|  [tableInfo](./sqlite-utils.tableinfo.md) | Returns an array where each item is a piece of information about a column of the requested table. |
 

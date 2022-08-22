@@ -1,0 +1,128 @@
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@jackdbd/tags-logger</title><meta name="description" content="Documentation for @jackdbd/tags-logger"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@jackdbd/tags-logger</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>@jackdbd/tags-logger </h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#jackdbdtags-logger" id="jackdbdtags-logger" style="color: inherit; text-decoration: none;">
+  <h1>@jackdbd/tags-logger</h1>
+</a>
+<p><a href="https://badge.fury.io/js/@jackdbd%2Ftags-logger"><img src="https://badge.fury.io/js/@jackdbd%2Ftags-logger.svg" alt="npm version"></a>
+<img src="https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Ftags-logger" alt="Snyk Vulnerabilities for npm package"></p>
+<p>A logger inspired by <a href="https://hapi.dev/tutorials/logging/">how logging is implemented in Hapi.js</a>.</p>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<details><summary>Table of Contents</summary>
+
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a><ul>
+<li><a href="#structured-logging">structured logging</a></li>
+<li><a href="#unstructured-logging">unstructured logging</a></li>
+</ul>
+</li>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#environment-variables">Environment variables</a></li>
+<li><a href="#options">Options</a></li>
+</ul>
+</li>
+<li><a href="#api">API</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+</details>
+
+
+<a href="#features" id="features" style="color: inherit; text-decoration: none;">
+  <h2>Features</h2>
+</a>
+<ul>
+<li><strong>tags</strong> to pinpoint the log statements you are actually interested in.</li>
+<li><strong>optional validation</strong> of all log statements with <a href="https://github.com/sideway/joi">Joi</a>.</li>
+<li><strong>easy switching</strong> bewteen structured/unstructured logging.</li>
+</ul>
+
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h2>Installation</h2>
+</a>
+<pre><code class="language-sh"><span class="hl-0">npm install @jackdbd/tags-logger</span>
+</code></pre>
+
+<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+  <h2>Usage</h2>
+</a>
+
+<a href="#structured-logging" id="structured-logging" style="color: inherit; text-decoration: none;">
+  <h3>structured logging</h3>
+</a>
+<p>When you write this:</p>
+<pre><code class="language-ts"><span class="hl-1">import</span><span class="hl-0"> </span><span class="hl-2">makeLog</span><span class="hl-0"> </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;@jackdbd/tags-logger&#39;</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">log</span><span class="hl-0"> = </span><span class="hl-6">makeLog</span><span class="hl-0">()</span><br/><br/><span class="hl-6">log</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">message:</span><span class="hl-0"> </span><span class="hl-3">&#39;something not very important about foo and bar&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">tags:</span><span class="hl-0"> [</span><span class="hl-3">&#39;debug&#39;</span><span class="hl-0">, </span><span class="hl-3">&#39;foo&#39;</span><span class="hl-0">, </span><span class="hl-3">&#39;bar&#39;</span><span class="hl-0">]</span><br/><span class="hl-0">})</span><br/><br/><span class="hl-6">log</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">message:</span><span class="hl-0"> </span><span class="hl-3">&#39;something of critical importance about baz&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">tags:</span><span class="hl-0"> [</span><span class="hl-3">&#39;critical&#39;</span><span class="hl-0">, </span><span class="hl-3">&#39;baz&#39;</span><span class="hl-0">]</span><br/><span class="hl-0">})</span>
+</code></pre>
+<p>You get this:</p>
+<pre><code class="language-sh"><span class="hl-0">{</span><br/><span class="hl-0">  </span><span class="hl-3">&quot;severity&quot;</span><span class="hl-0">: </span><span class="hl-3">&quot;DEBUG&quot;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">&quot;message&quot;</span><span class="hl-0">: </span><span class="hl-3">&quot;something not very important about foo and bar&quot;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">&quot;tags&quot;</span><span class="hl-0">: [</span><span class="hl-3">&quot;bar&quot;</span><span class="hl-0">, </span><span class="hl-3">&quot;foo&quot;</span><span class="hl-0">],</span><br/><span class="hl-0">  </span><span class="hl-3">&quot;tag&quot;</span><span class="hl-0">: {</span><span class="hl-3">&quot;bar&quot;</span><span class="hl-0">: true, </span><span class="hl-3">&quot;foo&quot;</span><span class="hl-0">: true}</span><br/><span class="hl-0">}</span><br/><br/><span class="hl-0">{</span><br/><span class="hl-0">  </span><span class="hl-3">&quot;severity&quot;</span><span class="hl-0">: </span><span class="hl-3">&quot;CRITICAL&quot;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">&quot;message&quot;</span><span class="hl-0">: </span><span class="hl-3">&quot;something of critical importance about baz&quot;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-3">&quot;tags&quot;</span><span class="hl-0">: [</span><span class="hl-3">&quot;baz&quot;</span><span class="hl-0">],</span><br/><span class="hl-0">  </span><span class="hl-3">&quot;tag&quot;</span><span class="hl-0">: {</span><span class="hl-3">&quot;baz&quot;</span><span class="hl-0">: true}</span><br/><span class="hl-0">}</span>
+</code></pre>
+
+<a href="#unstructured-logging" id="unstructured-logging" style="color: inherit; text-decoration: none;">
+  <h3>unstructured logging</h3>
+</a>
+<p>When you write this:</p>
+<pre><code class="language-ts"><span class="hl-1">import</span><span class="hl-0"> </span><span class="hl-2">makeLog</span><span class="hl-0"> </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;@jackdbd/tags-logger&#39;</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">log</span><span class="hl-0"> = </span><span class="hl-6">makeLog</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">namespace:</span><span class="hl-0"> </span><span class="hl-3">&#39;my-app/my-module&#39;</span><br/><span class="hl-0">})</span><br/><br/><span class="hl-7">// same log statements as above</span>
+</code></pre>
+<p>You get this (but with colors):</p>
+<pre><code class="language-sh"><span class="hl-0">my-app/my-module [🔍 bar,foo] something not very important about foo and bar +0ms</span><br/><br/><span class="hl-0">my-app/my-module [🔥 baz] something of critical importance about baz +0ms</span>
+</code></pre>
+<p>Don&#39;t like emojis? Then write this:</p>
+<pre><code class="language-ts"><span class="hl-1">import</span><span class="hl-0"> </span><span class="hl-2">makeLog</span><span class="hl-0"> </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;@jackdbd/tags-logger&#39;</span><br/><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-5">log</span><span class="hl-0"> = </span><span class="hl-6">makeLog</span><span class="hl-0">({</span><br/><span class="hl-0">  </span><span class="hl-2">namespace:</span><span class="hl-0"> </span><span class="hl-3">&#39;my-app/my-module&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-2">should_use_emoji_for_severity:</span><span class="hl-0"> </span><span class="hl-4">false</span><span class="hl-0"> </span><span class="hl-7">// &lt;--</span><br/><span class="hl-0">})</span><br/><br/><span class="hl-7">// same log statements as above</span>
+</code></pre>
+<p>And get this (but with colors):</p>
+<pre><code class="language-sh"><span class="hl-0">my-app/my-module [debug bar,foo] something not very important about foo and bar +0ms</span><br/><br/><span class="hl-0">my-app/my-module [critical baz] something of critical importance about baz +0ms</span>
+</code></pre>
+
+<a href="#configuration" id="configuration" style="color: inherit; text-decoration: none;">
+  <h2>Configuration</h2>
+</a>
+
+<a href="#environment-variables" id="environment-variables" style="color: inherit; text-decoration: none;">
+  <h3>Environment variables</h3>
+</a>
+<table>
+<thead>
+<tr>
+<th>Environment variable</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>DEBUG</code></td>
+<td>You must set this environment variable if you want to use unstructured logging and see some output. This library delegates unstructured logging to <a href="https://github.com/debug-js/debug">debug</a>.</td>
+</tr>
+</tbody></table>
+
+<a href="#options" id="options" style="color: inherit; text-decoration: none;">
+  <h3>Options</h3>
+</a>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>namespace</code></td>
+<td><code>undefined</code></td>
+<td>The namespace for unstructured logging. This option has no effect when using structured logging.</td>
+</tr>
+<tr>
+<td><code>should_use_emoji_for_severity</code></td>
+<td><code>true</code></td>
+<td>Whether to use an emoji for the severity level, when using unstructured logging. This option has no effect when using structured logging.</td>
+</tr>
+<tr>
+<td><code>should_validate_log_statements</code></td>
+<td><code>true</code></td>
+<td>Whether each log statement should be validated against a <a href="https://github.com/sideway/joi">Joi</a> schema.</td>
+</tr>
+</tbody></table>
+
+<a href="#api" id="api" style="color: inherit; text-decoration: none;">
+  <h2>API</h2>
+</a>
+<p><a href="https://jackdbd.github.io/calderone/tags-logger/">API docs generated with TypeDoc</a></p>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-interface"><a href="interfaces/Options.html" class="tsd-kind-icon">Options</a></li><li class="tsd-kind-interface"><a href="interfaces/Statement.html" class="tsd-kind-icon">Statement</a></li><li class="tsd-kind-variable"><a href="modules.html#statement" class="tsd-kind-icon">statement</a></li><li class="tsd-kind-function"><a href="modules.html#makeLog" class="tsd-kind-icon">make<wbr/>Log</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>

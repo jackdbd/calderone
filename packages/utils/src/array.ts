@@ -6,6 +6,8 @@ const debug = makeDebug('utils/array')
  * Array of numbers starting from `start` and progressing up to, but not
  * including, `stop`.
  *
+ * @public
+ *
  * @param start - The lower boundary of the array (included)
  * @param stop - The upper boundary of the array (excluded)
  * @returns An array starting from `start`, incrementing with a `step`, and
@@ -21,9 +23,9 @@ export const range = (start: number, stop: number, step = 1) => {
 /**
  * Shuffles an `array` in place.
  *
- * See also:
- * - [this Stack Overflow answer](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/2450976#2450976)
- * - {@link https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/2450976#2450976}
+ * @public
+ *
+ * @see [How to randomize (shuffle) a JavaScript array? - Stack Overflow](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/2450976#2450976)
  */
 export const fisherYatesShuffle = <T>(array: T[]) => {
   debug('original %O', array)

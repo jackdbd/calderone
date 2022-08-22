@@ -1,10 +1,12 @@
 import { existsSync, readFileSync, unlinkSync } from 'node:fs'
 import makeDebug from 'debug'
 import BetterSqlite3 from 'better-sqlite3'
-import { SQLITE_OPTIONS } from './constants.js'
-import { logPragmas } from './pragmas.js'
 
 const debug = makeDebug('sqlite-utils/db')
+
+const SQLITE_OPTIONS = {
+  readonly: false
+}
 
 interface DbConfig {
   db_fullpath: string
@@ -20,7 +22,6 @@ export const newDatabase = ({
     unlinkSync(db_fullpath)
   }
 
-  // const db = new makeDatabase(':memory:', SQLITE_OPTIONS)
   const db = new BetterSqlite3(db_fullpath, SQLITE_OPTIONS)
   debug(`created db ${db.name} with options %o`, SQLITE_OPTIONS)
 
@@ -36,7 +37,6 @@ export const newDatabase = ({
 
   db.pragma('journal_mode = WAL')
   db.pragma('foreign_keys = ON')
-  logPragmas(db)
 
   return db
 }

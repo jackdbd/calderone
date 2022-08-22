@@ -1,3 +1,9 @@
+/**
+ * Utility functions that might be useful when working with Stripe.
+ *
+ * @packageDocumentation
+ */
+
 export { isApiKeyLiveMode, isApiKeyTestMode } from './checks.js'
 
 export { duplicates } from './customers.js'

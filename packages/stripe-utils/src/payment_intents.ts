@@ -6,7 +6,9 @@ interface Config {
 }
 
 /**
- * Extract the Stripe Customer from a Payment Intent Id.
+ * Extracts the Stripe Customer from a Payment Intent Id.
+ *
+ * @public
  */
 export const customerFromPaymentIntentId = async ({
   stripe,

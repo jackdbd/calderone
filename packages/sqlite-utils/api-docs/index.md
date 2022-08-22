@@ -8,5 +8,5 @@
 
 |  Package | Description |
 |  --- | --- |
-|  [@jackdbd/sqlite-utils](./sqlite-utils.md) |  |
+|  [@jackdbd/sqlite-utils](./sqlite-utils.md) | A few functions useful when working with \[better-sqlite3\](https://github.com/WiseLibs/better-sqlite3). |
 

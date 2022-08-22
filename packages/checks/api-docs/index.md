@@ -8,5 +8,5 @@
 
 |  Package | Description |
 |  --- | --- |
-|  [@jackdbd/checks](./checks.md) |  |
+|  [@jackdbd/checks](./checks.md) | This package contains various functions to check inputs (i.e. predicates). |
 

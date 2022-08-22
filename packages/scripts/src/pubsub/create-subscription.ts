@@ -1,26 +1,39 @@
-import { env } from 'node:process'
+import fs from 'node:fs'
+import path from 'node:path'
 import { PubSub, Subscription } from '@google-cloud/pubsub'
-import makeDebug from 'debug'
+import { monorepoRoot } from '@jackdbd/utils/path'
 import yargs from 'yargs'
 
-const debug = makeDebug('scripts/pubsub/create-subscription')
+interface Argv {
+  'topic-name': string
+  'dead-letter-topic-name': string
+  'subscription-name': string
+  'service-account': string
+}
 
-const DEFAULT = {
-  'project-id': env.GCP_PROJECT_ID,
+const DEFAULT: Argv = {
   'topic-name': 'some-topic',
   'dead-letter-topic-name': 'some-topic_dead',
-  'subscription-name': 'some-subscription'
+  'subscription-name': 'some-subscription',
+  'service-account': 'sa-pubsub.json'
 }
 
 const main = async () => {
-  const argv = yargs(process.argv.slice(2))
-    .boolean(['delete-queue', 'purge-queue'])
-    .default(DEFAULT).argv
+  const argv = yargs(process.argv.slice(2)).default(DEFAULT).argv as Argv
+
+  const json_key_path = path.join(
+    monorepoRoot(),
+    'secrets',
+    argv['service-account']
+  )
+  const { project_id, client_email, private_key } = JSON.parse(
+    fs.readFileSync(json_key_path).toString()
+  )
 
   const pubsub = new PubSub({
-    projectId: argv['project-id']
+    projectId: project_id,
+    credentials: { client_email, private_key }
   })
-  debug(`Cloud Pub/Sub client created`)
 
   const topic_name = argv['topic-name']
   const topic = pubsub.topic(topic_name)
@@ -41,15 +54,15 @@ const main = async () => {
     const sub_res = await topic.createSubscription(subscription_name, options)
     subscription = sub_res[0]
   } catch (err: any) {
-    console.error(`=== ERROR === ${err.message}`)
+    console.error(`=== ERROR === ${err.message}`, err)
     process.exitCode = 1
     return
   }
 
-  debug(
+  console.log(
     `Created subscription ${subscription_name} with dead letter topic ${dead_letter_topic_name}.`
   )
-  debug(
+  console.log(
     'To process dead letter messages, remember to add a subscription to your dead letter topic.'
   )
 }

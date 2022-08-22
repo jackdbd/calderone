@@ -12,10 +12,10 @@ export interface AggregateOptions
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [compare?](./plausible-client.aggregateoptions.compare.md) | string | <i>(Optional)</i> |
-|  [filters?](./plausible-client.aggregateoptions.filters.md) | string | <i>(Optional)</i> |
-|  [metrics?](./plausible-client.aggregateoptions.metrics.md) | string | <i>(Optional)</i> |
-|  [period?](./plausible-client.aggregateoptions.period.md) | string | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [compare?](./plausible-client.aggregateoptions.compare.md) |  | string | <i>(Optional)</i> |
+|  [filters?](./plausible-client.aggregateoptions.filters.md) |  | string | <i>(Optional)</i> |
+|  [metrics?](./plausible-client.aggregateoptions.metrics.md) |  | string | <i>(Optional)</i> |
+|  [period?](./plausible-client.aggregateoptions.period.md) |  | string | <i>(Optional)</i> |
 

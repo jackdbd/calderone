@@ -12,8 +12,8 @@ export interface TimeseriesResult
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [date](./plausible-client.timeseriesresult.date.md) | string |  |
-|  [visitors](./plausible-client.timeseriesresult.visitors.md) | number |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [date](./plausible-client.timeseriesresult.date.md) |  | string |  |
+|  [visitors](./plausible-client.timeseriesresult.visitors.md) |  | number |  |
 

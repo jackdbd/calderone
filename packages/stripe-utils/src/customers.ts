@@ -1,9 +1,15 @@
 import type Stripe from 'stripe'
 
+/**
+ * @public
+ */
 export interface EmailIds {
   [email: string]: string[]
 }
 
+/**
+ * @public
+ */
 export interface DuplicatesConfig {
   stripe: Stripe
   threshold?: number
@@ -15,6 +21,8 @@ export interface DuplicatesConfig {
  * Emails that appear more than `threshold` times in the given Stripe account.
  * The search is restricted to the time range starting from `ts_start` to
  * `ts_stop` (both excluded, and both expressed in Unix timestamps in seconds).
+ *
+ * @public
  */
 export const duplicates = async ({
   stripe,

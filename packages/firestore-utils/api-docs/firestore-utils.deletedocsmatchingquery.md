@@ -4,6 +4,11 @@
 
 ## deleteDocsMatchingQuery variable
 
+> Warning: This API is now obsolete.
+> 
+> Use [bulkDelete](./firestore-utils.bulkdelete.md) instead.
+> 
+
 Deletes all documents matching a query.
 
 <b>Signature:</b>

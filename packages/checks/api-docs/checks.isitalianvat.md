@@ -4,6 +4,8 @@
 
 ## isItalianVat variable
 
+Checks whether a string is a valid Italian VAT number or not.
+
 <b>Signature:</b>
 
 ```typescript

@@ -6,43 +6,68 @@
 
 import type BetterSqlite3 from 'better-sqlite3';
 
-// Warning: (ae-missing-release-tag) "logCompileOptions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
-export const logCompileOptions: (db: BetterSqlite3.Database) => void;
-
-// Warning: (ae-missing-release-tag) "logForeignKeys" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
-export const logForeignKeys: (db: BetterSqlite3.Database, table_name: string) => void;
-
-// Warning: (ae-missing-release-tag) "logFunctions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
-export const logFunctions: (db: BetterSqlite3.Database) => void;
-
-// Warning: (ae-missing-release-tag) "logPragmas" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
-export const logPragmas: (db: BetterSqlite3.Database) => void;
+export const bulkInsert: <BindParams>({ db, insert_query }: BulkInsertConfig) => BetterSqlite3.Transaction;
 
-// Warning: (ae-missing-release-tag) "logTableInfo" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
-export const logTableInfo: (db: BetterSqlite3.Database, table_name: string) => void;
+export interface BulkInsertConfig {
+    // (undocumented)
+    db: BetterSqlite3.Database;
+    // (undocumented)
+    insert_query: string;
+}
 
-// Warning: (ae-missing-release-tag) "PRAGMAS" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
-export const PRAGMAS: string[];
+export interface ColumnInfo {
+    // (undocumented)
+    cid: number;
+    // (undocumented)
+    dflt_value: any;
+    // (undocumented)
+    name: string;
+    // (undocumented)
+    notnull: 0 | 1;
+    // (undocumented)
+    pk: 0 | 1;
+    // (undocumented)
+    type: string;
+}
 
-// Warning: (ae-missing-release-tag) "SQLITE_OPTIONS" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
+// @public
+export const DEPRECATED_PRAGMAS: string[];
+
 // @public (undocumented)
-export const SQLITE_OPTIONS: {
-    readonly: boolean;
+export interface ForeignKey {
+    // (undocumented)
+    from: string;
+    // (undocumented)
+    id: number;
+    // (undocumented)
+    match: string;
+    // (undocumented)
+    on_delete: string;
+    // (undocumented)
+    on_update: string;
+    // (undocumented)
+    seq: number;
+    // (undocumented)
+    table: string;
+    // (undocumented)
+    to: string;
+}
+
+// @public
+export const foreignKeys: (db: BetterSqlite3.Database, table_name: string) => ForeignKey[];
+
+// @public
+export const pragmaDict: (db: BetterSqlite3.Database) => {
+    [pragma: string]: any;
 };
 
-// (No @packageDocumentation comment for this package)
+// @public
+export const PRAGMAS: string[];
+
+// @public
+export const tableInfo: (db: BetterSqlite3.Database, table_name: string) => ColumnInfo[];
 
 ```

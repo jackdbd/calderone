@@ -7,13 +7,11 @@
 import Stripe from 'stripe';
 
 // Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "createPriceWithTaxBehavior" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const createPriceWithTaxBehavior: ({ behavior, price, stripe, created_at, created_by }: Config_2) => Promise<Stripe.Response<Stripe.Price>>;
 
 // Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "customerFromPaymentIntentId" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const customerFromPaymentIntentId: ({ stripe, pi_id }: Config) => Promise<{
@@ -25,13 +23,10 @@ export const customerFromPaymentIntentId: ({ stripe, pi_id }: Config) => Promise
 }>;
 
 // Warning: (ae-forgotten-export) The symbol "EmailIds" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "duplicates" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const duplicates: ({ stripe, threshold, ts_start, ts_stop }: DuplicatesConfig) => Promise<EmailIds>;
 
-// Warning: (ae-missing-release-tag) "DuplicatesConfig" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public (undocumented)
 export interface DuplicatesConfig {
     // (undocumented)
@@ -50,8 +45,6 @@ export interface DuplicatesConfig {
 // @public
 export const enabledEventsForWebhookEndpoint: ({ stripe, url }: EnabledEventsForWebhookEndpoint) => Promise<string[]>;
 
-// Warning: (ae-missing-release-tag) "errorFromStripe" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
 // @public
 export const errorFromStripe: (err: Stripe.StripeError) => {
     code: string | undefined;
@@ -60,21 +53,13 @@ export const errorFromStripe: (err: Stripe.StripeError) => {
     status_code: number;
 };
 
-// Warning: (ae-missing-release-tag) "isApiKeyLiveMode" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
+// @public
 export const isApiKeyLiveMode: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "isApiKeyTestMode" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
+// @public
 export const isApiKeyTestMode: (s: string) => boolean;
 
-// Warning: (ae-missing-release-tag) "stripeAccountMode" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
-//
-// @public (undocumented)
+// @public
 export const stripeAccountMode: (api_key: string) => "live" | "test";
-
-// (No @packageDocumentation comment for this package)
 
 ```

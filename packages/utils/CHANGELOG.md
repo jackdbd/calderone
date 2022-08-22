@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/utils [1.2.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/utils@1.1.3...@jackdbd/utils@1.2.0-canary.1) (2022-07-27)
+
+
+### Features
+
+* **utils:** add utcObjectFromDate and isoString ([c984cb0](https://github.com/jackdbd/calderone/commit/c984cb0ebaf7515c13341c5535c516fbeff60eec))
+
 ## <small>1.1.3 (2022-06-16)</small>
 
 * fix: set publishConfig access to public in many package.json ([c861108](https://github.com/jackdbd/calderone/commit/c861108))

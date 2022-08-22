@@ -1,5 +1,9 @@
 # monitoring
 
+Useful links:
+
+- [Monitoring predefined IAM roles](https://cloud.google.com/monitoring/access-control#predefined_roles)
+
 ## Notification channels
 
 Create all notification channels on the Google Cloud Console, [here](https://console.cloud.google.com/monitoring/alerting/notifications?project=prj-kitchen-sink).

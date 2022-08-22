@@ -4,9 +4,7 @@
 
 ## isOnGithub variable
 
-Check whether the code is running on the GitHub CI or not.
-
-https://docs.github.com/en/actions/learn-github-actions/environment-variables\#default-environment-variables
+Checks whether the code is running on the GitHub CI or not.
 
 <b>Signature:</b>
 

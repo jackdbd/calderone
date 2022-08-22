@@ -49,8 +49,7 @@ const project = (package_name) => {
         '<rootDir>/packages/notifications/lib/$1.js',
       '@jackdbd/utils/(.*)':
         '<rootDir>/packages/telegram-text-messages/lib/$1.js',
-      '@jackdbd/utils/(.*)': '<rootDir>/packages/utils/lib/$1.js',
-      '@jackdbd/(.*)': '<rootDir>/packages/$1/lib/index.js'
+      '@jackdbd/utils/(.*)': '<rootDir>/packages/utils/lib/$1.js'
     },
 
     testMatch: [`<rootDir>/packages/${package_name}/**/*.test.{js,mjs}`],
@@ -83,15 +82,15 @@ const projects = [
   project('cloud-scheduler-utils'),
   project('fattureincloud-client'),
   project('firestore-utils'),
-  project('hapi-healthcheck-plugin'),
-  project('hapi-ip-whitelist-plugin'),
   project('keap-client'),
   project('notifications'),
   project('plausible-client'),
   project('schemas'),
   project('scripts'),
   project('secret-manager-utils'),
+  project('sqlite-utils'),
   project('stripe-utils'),
+  project('tags-logger'),
   project('telegram-bot'),
   project('telegram-text-messages'),
   project('utils'),

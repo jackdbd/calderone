@@ -22,7 +22,7 @@
 |  [accessSecretVersion](./secret-manager-utils.accesssecretversion.md) |  |
 |  [addSecretVersion](./secret-manager-utils.addsecretversion.md) | Add a new version of an existing secret. |
 |  [createSecretAndFirstVersion](./secret-manager-utils.createsecretandfirstversion.md) |  |
-|  [destroySecretVersionsMatchingFilter](./secret-manager-utils.destroysecretversionsmatchingfilter.md) | Destroy all versions of a secret that match the given string <code>filter</code>.<!-- -->See here: https://cloud.google.com/secret-manager/docs/filtering |
-|  [disableSecretVersionsMatchingFilter](./secret-manager-utils.disablesecretversionsmatchingfilter.md) | Disable all versions of a secret that match the given string <code>filter</code>.<!-- -->See here: https://cloud.google.com/secret-manager/docs/filtering |
+|  [destroySecretVersionsMatchingFilter](./secret-manager-utils.destroysecretversionsmatchingfilter.md) | <p>Destroy all versions of a secret that match the given string <code>filter</code>.</p><p>See here: https://cloud.google.com/secret-manager/docs/filtering</p> |
+|  [disableSecretVersionsMatchingFilter](./secret-manager-utils.disablesecretversionsmatchingfilter.md) | <p>Disable all versions of a secret that match the given string <code>filter</code>.</p><p>See here: https://cloud.google.com/secret-manager/docs/filtering</p> |
 |  [secretManagerStore](./secret-manager-utils.secretmanagerstore.md) | Store that retrieves data from, and persists data to, Secret Manager. |
 

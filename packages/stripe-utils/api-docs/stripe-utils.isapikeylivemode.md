@@ -4,6 +4,8 @@
 
 ## isApiKeyLiveMode variable
 
+Checks whether the given string is an API key for a Stripe account in `live` mode.
+
 <b>Signature:</b>
 
 ```typescript

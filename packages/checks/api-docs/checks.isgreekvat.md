@@ -4,6 +4,8 @@
 
 ## isGreekVat variable
 
+Checks whether a string is a valid Greek VAT number or not.
+
 <b>Signature:</b>
 
 ```typescript

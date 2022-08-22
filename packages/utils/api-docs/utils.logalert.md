@@ -4,6 +4,7 @@
 
 ## logAlert variable
 
+
 <b>Signature:</b>
 
 ```typescript

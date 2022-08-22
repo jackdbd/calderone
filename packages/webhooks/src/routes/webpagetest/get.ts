@@ -5,7 +5,6 @@ import { operationListText } from '@jackdbd/telegram-text-messages'
 import type { GoogleSpreadsheet } from 'google-spreadsheet'
 import Joi from 'joi'
 import { problemDetails } from './utils.js'
-// import { AUTH_STRATEGY } from './utils.js'
 
 interface Config {
   doc: GoogleSpreadsheet
@@ -22,45 +21,12 @@ export const webPageTestPingbackGet = ({
   telegram_chat_id,
   telegram_token
 }: Config): Hapi.ServerRoute => {
-  const config = { method: 'GET', path: '/webpagetest' }
-
   const wpt_results_sheet = doc.sheetsByTitle['wpt_results']
 
   return {
-    method: config.method,
-    options: {
-      auth: false,
-      // auth: AUTH_STRATEGY.allow_pingbacks_from_webpagetest_api
-      description: 'WebPageTest pingback',
-      notes:
-        'This route catches the pingback (kind of a webhook) sent by the [WebPageTest API](https://docs.webpagetest.org/api/)',
-      tags: ['api'],
-      validate: {
-        failAction: (request, h, error) => {
-          if (error) {
-            const status_code = (error as any).output.statusCode as number
-            return h
-              .response(problemDetails(request, error))
-              .code(status_code)
-              .takeover()
-          } else {
-            return h
-              .response({ message: 'Internal Server Error' })
-              .code(500)
-              .takeover()
-          }
-        },
-        payload: false,
-        query: Joi.object({
-          // id: Joi.number().min(1).required()
-          // I think that a WebPageTest ID should be 17 characters. For example,
-          // this is a valid ID: 220528_AiDcVP_4RF
-          id: Joi.string().min(6).max(20).required()
-        })
-      }
-    },
-    path: config.path,
-    handler: async (request: Hapi.Request, _h: Hapi.ResponseToolkit) => {
+    method: 'GET',
+
+    handler: async (request: Hapi.Request, h: Hapi.ResponseToolkit) => {
       // const { remoteAddress } = request.info
 
       request.log(['webpagetest', 'debug'], {
@@ -85,7 +51,6 @@ export const webPageTestPingbackGet = ({
         request.log(['webpagetest', 'debug'], { message })
         successes.push(message)
       } catch (err: any) {
-        console.log('🚀 ~ handler: ~ err', err)
         message = `failed to add row for WebPageTest ID ${test_id}`
         request.log(['webpagetest', 'error'], {
           message,
@@ -123,10 +88,43 @@ export const webPageTestPingbackGet = ({
       }
 
       if (failures.length === 0) {
-        return { message, successes, warnings }
+        return h.response({ message, successes, warnings }).code(200)
       } else {
         throw Boom.internal(message)
       }
-    }
+    },
+
+    options: {
+      auth: false,
+      description: 'WebPageTest pingback',
+      notes:
+        'This route catches the pingback (kind of a webhook) sent by the [WebPageTest API](https://docs.webpagetest.org/api/)',
+      tags: ['api'],
+      validate: {
+        failAction: (request, h, error) => {
+          if (error) {
+            const status_code = (error as any).output.statusCode as number
+            return h
+              .response(problemDetails(request, error))
+              .code(status_code)
+              .takeover()
+          } else {
+            return h
+              .response({ message: 'Internal Server Error' })
+              .code(500)
+              .takeover()
+          }
+        },
+        payload: false,
+        query: Joi.object({
+          // id: Joi.number().min(1).required()
+          // I think that a WebPageTest ID should be 17 characters. For example,
+          // this is a valid ID: 220528_AiDcVP_4RF
+          id: Joi.string().min(6).max(20).required()
+        })
+      }
+    },
+
+    path: '/webpagetest'
   }
 }

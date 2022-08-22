@@ -12,10 +12,10 @@ export interface Config
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [project\_id?](./secret-manager-utils.accesssecretversionconfig.project_id.md) | string | <i>(Optional)</i> |
-|  [secret\_manager](./secret-manager-utils.accesssecretversionconfig.secret_manager.md) | SecretManagerServiceClient |  |
-|  [secret\_name](./secret-manager-utils.accesssecretversionconfig.secret_name.md) | string |  |
-|  [version?](./secret-manager-utils.accesssecretversionconfig.version.md) | string | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [project\_id?](./secret-manager-utils.accesssecretversionconfig.project_id.md) |  | string | <i>(Optional)</i> |
+|  [secret\_manager](./secret-manager-utils.accesssecretversionconfig.secret_manager.md) |  | SecretManagerServiceClient |  |
+|  [secret\_name](./secret-manager-utils.accesssecretversionconfig.secret_name.md) |  | string |  |
+|  [version?](./secret-manager-utils.accesssecretversionconfig.version.md) |  | string | <i>(Optional)</i> |
 

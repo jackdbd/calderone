@@ -4,6 +4,8 @@
 
 ## isHungarianVat variable
 
+Checks whether a string is a valid Hungarian VAT number or not.
+
 <b>Signature:</b>
 
 ```typescript

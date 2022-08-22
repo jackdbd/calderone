@@ -1,8 +1,14 @@
 import type Stripe from 'stripe'
 
+/**
+ * @public
+ */
 export const reasonResourceWasDeleted = (id: string) =>
   `Stripe resource ${id} was deleted.`
 
+/**
+ * @public
+ */
 export interface Config {
   behavior: 'inclusive' | 'exclusive'
   price: Stripe.Price
@@ -16,7 +22,11 @@ export interface Config {
  *
  * In Stripe we can update only `nickname` and `metadata` of a `Price`, so if we
  * need to define `tax_behavior` we have to create a new `Price`.
- * https://stripe.com/docs/billing/subscriptions/products-and-prices#changing-prices
+ *
+ * @public
+ * @experimental
+ *
+ * @see [Products and prices - Stripe Docs](https://stripe.com/docs/products-prices/overview)
  */
 export const createPriceWithTaxBehavior = async ({
   behavior,
@@ -65,7 +75,10 @@ export const createPriceWithTaxBehavior = async ({
     ...original_price
   } = price
 
-  let custom_unit_amount = undefined
+  let custom_unit_amount:
+    | Stripe.PriceCreateParams.CustomUnitAmount
+    | undefined = undefined
+
   if (price.custom_unit_amount) {
     custom_unit_amount = {
       enabled: true,
@@ -86,6 +99,48 @@ export const createPriceWithTaxBehavior = async ({
     }
   }
 
+  let currency_options = undefined
+  if (original_price.currency_options) {
+    currency_options = {} as {
+      [k: string]: Stripe.PriceCreateParams.CurrencyOptions
+    }
+    for (const [k, v] of Object.entries(original_price.currency_options)) {
+      let custom_unit_amount:
+        | Stripe.PriceCreateParams.CurrencyOptions.CustomUnitAmount
+        | undefined = undefined
+
+      if (v.custom_unit_amount) {
+        custom_unit_amount = {
+          enabled: true,
+          maximum: v.custom_unit_amount.maximum || undefined,
+          minimum: v.custom_unit_amount.minimum || undefined,
+          preset: v.custom_unit_amount.preset || undefined
+        }
+      }
+
+      let tiers: Stripe.PriceCreateParams.Tier[] | undefined = undefined
+      if (v.tiers) {
+        tiers = v.tiers.map((tier) => {
+          return {
+            flat_amount: tier.flat_amount || undefined,
+            flat_amount_decimal: tier.flat_amount_decimal || undefined,
+            unit_amount: tier.unit_amount || undefined,
+            unit_amount_decimal: tier.unit_amount_decimal || undefined,
+            up_to: tier.up_to || 'inf'
+          }
+        })
+      }
+
+      currency_options[k] = {
+        custom_unit_amount,
+        tax_behavior: v.tax_behavior || undefined,
+        tiers,
+        unit_amount: v.unit_amount || undefined,
+        unit_amount_decimal: v.unit_amount_decimal || undefined
+      }
+    }
+  }
+
   let metadata = original_price.metadata
   if (created_at) {
     metadata = { ...metadata, created_at }
@@ -94,8 +149,9 @@ export const createPriceWithTaxBehavior = async ({
     metadata = { ...metadata, created_by }
   }
 
-  const new_price = await stripe.prices.create({
+  const params: Stripe.PriceCreateParams = {
     ...original_price,
+    currency_options,
     custom_unit_amount,
     metadata,
     nickname: nickname || `nickname of original price ${price.id}`,
@@ -103,7 +159,8 @@ export const createPriceWithTaxBehavior = async ({
     recurring: price_recurring,
     tax_behavior: behavior,
     unit_amount: price.unit_amount
-  })
+  }
 
+  const new_price = await stripe.prices.create(params)
   return new_price
 }

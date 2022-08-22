@@ -4,9 +4,7 @@
 
 ## isItalianFiscalCode variable
 
-Check whether a string is a valid Italian Fiscal Code (Codice Fiscale).
-
-- http://www.codicefiscaleonline.com/codice\_inverso.php - http://blog.marketto.it/2016/01/regex-validazione-codice-fiscale-con-omocodia/ - https://blog.massimopetrossi.com/sicurezza-informatica/una-regex-per-validare-il-codice-fiscale/
+Checks whether a string is a valid Italian Fiscal Code (Codice Fiscale).
 
 <b>Signature:</b>
 

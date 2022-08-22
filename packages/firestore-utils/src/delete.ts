@@ -8,6 +8,8 @@ const debug = makeDebug('firestore-utils/delete')
  *
  * This function could be improved to delete batches of `batchSize`. See {@link https://firebase.google.com/docs/firestore/manage-data/delete-data#node.js_2 | Delete Collections}.
  *
+ * @remarks Consider using the more flexible {@link @jackdbd/firestore-utils#bulkDelete} instead.
+ *
  * @public
  */
 export const deleteAllDocsInCollection = async (ref: CollectionReference) => {
@@ -34,6 +36,7 @@ export const deleteAllDocsInCollection = async (ref: CollectionReference) => {
 /**
  * Deletes all documents matching a query.
  *
+ * @deprecated Use {@link @jackdbd/firestore-utils#bulkDelete} instead.
  * @public
  */
 export const deleteDocsMatchingQuery = async (query: Query) => {
@@ -51,4 +54,50 @@ export const deleteDocsMatchingQuery = async (query: Query) => {
   const message = `deleted ${count} documents`
   debug(`delete batch committed (query): ${message}`)
   return message
+}
+
+/**
+ * @public
+ */
+export interface BulkDeleteConfig {
+  query: Query
+}
+
+/**
+ * Deletes all Firestore documents matching the provided `query`.
+ *
+ * This is a Firestore transaction. Either all documents are deleted, or none is.
+ *
+ * @public
+ */
+export const bulkDelete = async ({ query }: BulkDeleteConfig) => {
+  debug(`delete Firestore docs matching query`)
+
+  const doc_ids = {
+    deleted: [] as string[],
+    skipped: [] as string[]
+  }
+
+  const batch = query.firestore.batch()
+  const qs = await query.get()
+
+  qs.forEach((doc) => {
+    if (doc.exists) {
+      batch.delete(doc.ref, { exists: true })
+      doc_ids.deleted.push(doc.id)
+    } else {
+      doc_ids.skipped.push(doc.id)
+    }
+  })
+
+  await batch.commit()
+
+  const summary = `bulk delete committed on a batch of ${qs.size} Firestore documents`
+  const details = [
+    `${doc_ids.deleted.length} documents deleted`,
+    `${doc_ids.skipped.length} documents could not be deleted because they didn't exist`
+  ]
+  const message = `${summary}: ${details.join('; ')}`
+
+  return { doc_ids, message }
 }

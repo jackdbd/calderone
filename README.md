@@ -8,6 +8,8 @@
 
 Monorepo that I use for a bunch of stuff, managed with [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces/) (requires npm 7.x or later).
 
+![Calderone logo](./assets/images/calderone-logo.png)
+
 > 📦 **ESM only:**
 > 
 > All libraries of this monorepo are published to npmjs as ECMAScript modules.
@@ -35,7 +37,9 @@ npm install --include dev
 ## Build
 
 This monorepo uses [Typescript project references](https://www.typescriptlang.org/docs/handbook/project-references.html) to build all of its libraries.
-Documentation is built bt [TypeDoc](https://typedoc.org/).
+
+Documentation is built by [TypeDoc](https://typedoc.org/).
+
 API docs are built by [api-extractor](https://api-extractor.com/) + [api-documenter](https://api-extractor.com/pages/setup/generating_docs/).
 
 Build all libraries and their documentation (code to `<package-root>/lib`, TypeDoc docs to `<monorepo-root>/docs`, api-documenter API docs to `<package-root>/api-docs`):
@@ -71,6 +75,58 @@ Run all tests on all packages:
 
 ```sh
 npm run test
+```
+
+## Documentation
+
+The documentation for all libraries in this monorepo is built by [TypeDoc](https://typedoc.org/).
+
+API docs are built by [api-extractor](https://api-extractor.com/) + [api-documenter](https://api-extractor.com/pages/setup/generating_docs/).
+
+Whenever there are changes to a library, rebuild its documentation to see if the public API was changed.
+
+For example, let's say that we made some changes to the [checks](./packages/checks/README.md) package.
+
+First, rebuild the library and its documentation:
+
+```sh
+npm run build -w packages/checks
+```
+
+> :warning: **Warning:**
+>
+> If you changed the public API of the library (e.g. the doctring of the `isEuropeanVat()` function no longer declares the function as `@public`, but now declares it as `@internal`) API Extractor will print a warning and the build script will fail. Follow the instructions API Extractor gives you and re-run the build script, which this time should pass.
+
+Second, spin up a dev server and double-check the documentation generated for the library:
+
+```sh
+npx http-server --port 8080 -o docs/checks
+```
+
+*Note*: if the documentation was generated but you don't see it in the browser, open DevTools and click on `Empty Cache and Hard Reload`.
+
+Third, commit the changes, either with a single commit:
+
+```sh
+git add packages/checks
+git add docs/checks
+git commit -m 'feat(checks): add function foo()'
+```
+
+or with 2 commits:
+
+```sh
+# source code
+git add packages/checks/src
+git commit -m 'feat(checks): add function foo()'
+```
+
+```sh
+# docs
+git add packages/checks/.ae
+git add packages/checks/api-docs
+git add docs/checks
+git commit -m 'docs(checks): rebuild docs'
 ```
 
 ## Monorepo management

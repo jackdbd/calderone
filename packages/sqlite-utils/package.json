@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/sqlite-utils",
-  "version": "1.0.1",
+  "version": "1.1.0-canary.1",
   "description": "Utility functions to work with SQLite",
   "author": {
     "name": "Giacomo Debidda",
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/sqlite-utils#readme",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=14.9.3"
   },
   "type": "module",
   "module": "lib/index.js",
@@ -60,14 +60,17 @@
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
     "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
-    "test": "true",
-    "test:ci": "true",
-    "test:watch": "true"
+    "test": "../../scripts/test.mjs --runInBand",
+    "test:ci": "../../scripts/test.mjs --runInBand --ci",
+    "test:watch": "npm run test -- --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "debug": "^4.3.4"
+  },
   "peerDependencies": {
-    "better-sqlite3": ">=7.0.0",
-    "debug": ">=4.0.0"
+    "better-sqlite3": ">=7.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "better-sqlite3": "^7.6.2"
+  }
 }

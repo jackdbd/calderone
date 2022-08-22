@@ -1,11 +1,11 @@
-import { initTestServer } from '../dist/main-test.js'
+import { hapiTestServer } from './utils.mjs'
 
 describe('GET /health', () => {
   let server
   const timeout_ms = 10000
 
   beforeEach(async () => {
-    server = await initTestServer()
+    server = await hapiTestServer()
     await server.start()
   }, timeout_ms)
 

@@ -6,7 +6,7 @@
 
 Create a new `Stripe.Price` with a defined `tax_behavior`<!-- -->.
 
-In Stripe we can update only `nickname` and `metadata` of a `Price`<!-- -->, so if we need to define `tax_behavior` we have to create a new `Price`<!-- -->. https://stripe.com/docs/billing/subscriptions/products-and-prices\#changing-prices
+In Stripe we can update only `nickname` and `metadata` of a `Price`<!-- -->, so if we need to define `tax_behavior` we have to create a new `Price`<!-- -->.
 
 <b>Signature:</b>
 

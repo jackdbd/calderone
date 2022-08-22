@@ -4,6 +4,8 @@
 
 ## isGermanVat variable
 
+Checks whether a string is a valid German VAT number or not.
+
 <b>Signature:</b>
 
 ```typescript

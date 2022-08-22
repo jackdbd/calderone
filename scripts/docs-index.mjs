@@ -4,7 +4,7 @@ import { fs, path } from 'zx'
 import 'zx/globals'
 import { throwIfNotInvokedFromMonorepoRoot } from './utils.mjs'
 
-// Usage (from a package root):
+// Usage (from the monorepo root):
 // ../../scripts/docs-index.mjs
 
 throwIfNotInvokedFromMonorepoRoot(process.env.PWD)

@@ -8,6 +8,9 @@ interface EnabledEventsForWebhookEndpoint {
   url: string
 }
 
+/**
+ * @public
+ */
 export const notWebhookEnpointForStripeAccount = (url: string) =>
   `The URL you passed (${url}) is not a Stripe webhook endpoint for this Stripe account. Maybe you passed a Stripe client in TEST mode and a URL which is a webhook endpoint for Stripe in LIVE mode, or vice versa?`
 

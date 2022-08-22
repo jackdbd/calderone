@@ -13,3 +13,8 @@ This function could be improved to delete batches of `batchSize`<!-- -->. See [D
 ```typescript
 deleteAllDocsInCollection: (ref: CollectionReference) => Promise<string>
 ```
+
+## Remarks
+
+Consider using the more flexible [bulkDelete](./firestore-utils.bulkdelete.md) instead.
+

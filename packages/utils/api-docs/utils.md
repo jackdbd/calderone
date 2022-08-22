@@ -18,8 +18,10 @@ Miscellaneous utility functions.
 |  --- | --- |
 |  [DeployOptions](./utils.deployoptions.md) |  |
 |  [Dictionary](./utils.dictionary.md) |  |
+|  [IsoStringConfig](./utils.isostringconfig.md) |  |
 |  [LogData](./utils.logdata.md) |  |
 |  [TestOptions](./utils.testoptions.md) |  |
+|  [UTCDateAsObject](./utils.utcdateasobject.md) |  |
 
 ## Variables
 
@@ -29,9 +31,10 @@ Miscellaneous utility functions.
 |  [dateFormatOptions](./utils.dateformatoptions.md) |  |
 |  [entriesResolvedFromEnv](./utils.entriesresolvedfromenv.md) |  |
 |  [envVarNotFoundInEnv](./utils.envvarnotfoundinenv.md) |  |
-|  [fisherYatesShuffle](./utils.fisheryatesshuffle.md) | Shuffles an <code>array</code> in place.<!-- -->See also: - \[this Stack Overflow answer\](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/2450976\#2450976) - [https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/2450976\#2450976](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array/2450976#2450976) |
+|  [fisherYatesShuffle](./utils.fisheryatesshuffle.md) | Shuffles an <code>array</code> in place. |
 |  [gcloudArgs](./utils.gcloudargs.md) |  |
-|  [itDateString](./utils.itdatestring.md) | Return a date string in italian locale. The input <code>ts</code> is a timestamp in seconds since the Unix epoch. |
+|  [isoString](./utils.isostring.md) | Given a JS object that represents a UTC date, and an <code>options</code> object that contains <code>year</code>, <code>month</code>, etc, this function generates a new ISO string for the new date. |
+|  [itDateString](./utils.itdatestring.md) | Returns a date string in italian locale. The input <code>ts</code> is a timestamp in seconds since the Unix epoch. |
 |  [itDateStringAfterNDays](./utils.itdatestringafterndays.md) |  |
 |  [killFunctionsFramework](./utils.killfunctionsframework.md) |  |
 |  [LOCALE\_STRING\_OPTIONS](./utils.locale_string_options.md) |  |
@@ -43,7 +46,6 @@ Miscellaneous utility functions.
 |  [logInfo](./utils.loginfo.md) |  |
 |  [logNotice](./utils.lognotice.md) |  |
 |  [logWarning](./utils.logwarning.md) |  |
-|  [monorepoRoot](./utils.monoreporoot.md) |  |
 |  [nowAndFutureUTC](./utils.nowandfutureutc.md) |  |
 |  [nowAndPastTimestampMs](./utils.nowandpasttimestampms.md) |  |
 |  [nowAndPastUTC](./utils.nowandpastutc.md) |  |
@@ -51,6 +53,7 @@ Miscellaneous utility functions.
 |  [regexFactory](./utils.regexfactory.md) |  |
 |  [renameJsFilesToMjs](./utils.renamejsfilestomjs.md) |  |
 |  [requiredConfigValueNotSet](./utils.requiredconfigvaluenotset.md) |  |
-|  [spawnFunctionsFramework](./utils.spawnfunctionsframework.md) | Spawn a child process that will launch Functions Framework (basically a HTTP server) on the specified port.<!-- -->See also: - \[Integration tests (Cloud Functions docs)\](https://cloud.google.com/functions/docs/testing/test-background\#integration\_tests) - \[Configure the Functions Framework\](https://github.com/GoogleCloudPlatform/functions-framework-nodejs\#configure-the-functions-framework) - \[killport (repository)\](https://github.com/splendourhui/killport) |
+|  [spawnFunctionsFramework](./utils.spawnfunctionsframework.md) | Spawns a child process that will launch the Functions Framework (basically a HTTP server) on the specified port. |
 |  [stringResolvedFromEnv](./utils.stringresolvedfromenv.md) |  |
+|  [utcObjectFromDate](./utils.utcobjectfromdate.md) | Converts a <code>Date</code> object into a simple JavaScript object where each field is a left-padded string. |
 

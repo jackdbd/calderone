@@ -4,6 +4,8 @@
 
 ## isApiKeyTestMode variable
 
+Checks whether the given string is an API key for a Stripe account in `test` mode.
+
 <b>Signature:</b>
 
 ```typescript

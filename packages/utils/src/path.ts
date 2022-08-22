@@ -9,6 +9,9 @@ import makeDebug from 'debug'
 
 const debug = makeDebug('utils/path')
 
+/**
+ * @internal
+ */
 export const monorepoRoot = () => {
   let current_dir = path.resolve('.')
   while (!existsSync(path.join(current_dir, '.git'))) {

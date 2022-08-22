@@ -4,6 +4,8 @@
 
 ## isCyprioticVat variable
 
+Checks whether a string is a valid Cypriotic VAT number or not.
+
 <b>Signature:</b>
 
 ```typescript

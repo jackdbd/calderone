@@ -4,6 +4,7 @@
 
 ## DuplicatesConfig interface
 
+
 <b>Signature:</b>
 
 ```typescript
@@ -12,10 +13,10 @@ export interface DuplicatesConfig
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [stripe](./stripe-utils.duplicatesconfig.stripe.md) | Stripe |  |
-|  [threshold?](./stripe-utils.duplicatesconfig.threshold.md) | number | <i>(Optional)</i> |
-|  [ts\_start](./stripe-utils.duplicatesconfig.ts_start.md) | number |  |
-|  [ts\_stop](./stripe-utils.duplicatesconfig.ts_stop.md) | number |  |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [stripe](./stripe-utils.duplicatesconfig.stripe.md) |  | Stripe |  |
+|  [threshold?](./stripe-utils.duplicatesconfig.threshold.md) |  | number | <i>(Optional)</i> |
+|  [ts\_start](./stripe-utils.duplicatesconfig.ts_start.md) |  | number |  |
+|  [ts\_stop](./stripe-utils.duplicatesconfig.ts_stop.md) |  | number |  |
 

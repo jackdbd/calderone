@@ -2,26 +2,46 @@
 
 Scripts useful in development.
 
-## Development
+## Run the scripts with tsm
 
-When developing new scripts or modifying existing ones it's useful to compile all libraries and scripts in watch mode with esbuild.
-
-This command uses [run-p](https://github.com/mysticatea/npm-run-all/blob/master/docs/run-p.md) to compile all libraries and scripts in [esbuild watch mode](https://esbuild.github.io/api/#watch):
+No need to build the scripts. Just run them with [tsm](https://github.com/lukeed/tsm).
 
 ```sh
-# from the monorepo root
-npm run dev:scripts
+npx tsm packages/scripts/src/cloud-billing/list-billing-accounts.ts
 ```
 
-Then launch the script in another terminal window. For example:
+```sh
+npx tsm packages/scripts/src/cloud-monitoring/list-metric-descriptors.ts
+
+npx tsm packages/scripts/src/cloud-monitoring/list-monitored-resources.ts
+
+npx tsm packages/scripts/src/cloud-monitoring/list-uptime-checks.ts
+
+npx tsm packages/scripts/src/cloud-monitoring/time-series.ts
+```
 
 ```sh
-# from the monorepo root
-node packages/scripts/dist/cloud-scheduler/example.js
+npx tsm packages/scripts/src/cloud-scheduler/schedule-job.ts
+```
 
-node packages/scripts/dist/cloud-tasks/example.js
+```sh
+npx tsm packages/scripts/src/cloud-tasks/list-tasks-in-queue.ts
+```
 
-node packages/scripts/dist/misc/container-scan.js
+```sh
+npx tsm packages/scripts/src/demo/tags-logger.ts
+```
 
-node packages/scripts/dist/pubsub/create-subscription.js
+```sh
+npx tsm packages/scripts/src/misc/example-sheets.ts
+```
+
+```sh
+npx tsm packages/scripts/src/pubsub/create-topic.ts --add-dead-letter-topic
+npx tsm packages/scripts/src/pubsub/create-subscription.ts
+npx tsm packages/scripts/src/pubsub/publish-message.ts
+```
+
+```sh
+npx tsm packages/scripts/src/secret-manager/destroy-all-versions-of-secret.ts
 ```

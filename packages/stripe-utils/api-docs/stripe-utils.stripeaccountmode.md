@@ -4,6 +4,8 @@
 
 ## stripeAccountMode variable
 
+Given a Stripe API key, infers whether the Stripe client was initialized in `live` mode or `test` mode.
+
 <b>Signature:</b>
 
 ```typescript

@@ -8,6 +8,6 @@
 
 |  Variable | Description |
 |  --- | --- |
-|  [sendEmailViaSendGrid](./notifications.sendemailviasendgrid.md) | Send an email to one or more recipients, using the SendGrid API.<!-- -->https://docs.sendgrid.com/api-reference/mail-send/mail-send\#body |
-|  [sendTelegramMessage](./notifications.sendtelegrammessage.md) | Send a text message to a Telegram chat, using the Telegram API.<!-- -->https://core.telegram.org/bots/api\#sendmessage |
+|  [sendEmailViaSendGrid](./notifications.sendemailviasendgrid.md) | <p>Send an email to one or more recipients, using the SendGrid API.</p><p>https://docs.sendgrid.com/api-reference/mail-send/mail-send\#body</p> |
+|  [sendTelegramMessage](./notifications.sendtelegrammessage.md) | <p>Send a text message to a Telegram chat, using the Telegram API.</p><p>https://core.telegram.org/bots/api\#sendmessage</p> |
 
