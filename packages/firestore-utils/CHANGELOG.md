@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/firestore-utils [1.2.0](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.1.0...@jackdbd/firestore-utils@1.2.0) (2022-08-22)
+
+
+### Features
+
+* **firestore-utils:** add bulk copy/delete/move and improve docs ([3b72f16](https://github.com/jackdbd/calderone/commit/3b72f16f2a30ce9541bdca80a306d5aae725c18e))
+
 ## @jackdbd/firestore-utils [1.2.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.1.0...@jackdbd/firestore-utils@1.2.0-canary.1) (2022-08-10)
 
 
