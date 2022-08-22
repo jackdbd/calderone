@@ -69,7 +69,7 @@
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
-    "@jackdbd/utils": "1.2.0-canary.1",
+    "@jackdbd/utils": "^1.2.0",
     "debug": "^4.3.4"
   },
   "peerDependencies": {

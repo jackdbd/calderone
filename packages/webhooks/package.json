@@ -58,7 +58,7 @@
     "@jackdbd/notifications": "1.0.0",
     "@jackdbd/secret-manager-utils": "1.0.0",
     "@jackdbd/telegram-text-messages": "1.0.0",
-    "@jackdbd/utils": "1.2.0-canary.1",
+    "@jackdbd/utils": "^1.2.0",
     "debug": "4.3.4",
     "exiting": "6.1.0",
     "google-spreadsheet": "3.3.0",
