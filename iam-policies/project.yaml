@@ -85,6 +85,7 @@ bindings:
   - serviceAccount:sa-firestore-viewer-test@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/datastore.viewer
 - members:
+  - serviceAccount:sa-matsuri-demo-app@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com
@@ -107,6 +108,7 @@ bindings:
   role: roles/iam.serviceAccountUser
 - members:
   - serviceAccount:sa-dash-earthquakes@prj-kitchen-sink.iam.gserviceaccount.com
+  - serviceAccount:sa-matsuri-demo-app@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/logging.logWriter
@@ -133,6 +135,7 @@ bindings:
   role: roles/secretmanager.admin
 - members:
   - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
+  - serviceAccount:sa-matsuri-demo-app@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com 
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
@@ -166,5 +169,5 @@ bindings:
   - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXjFKuy6yM=
+etag: BwXmHk4hoYE=
 version: 1
