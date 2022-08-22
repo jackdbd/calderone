@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## @jackdbd/checks [1.3.1](https://github.com/jackdbd/calderone/compare/@jackdbd/checks@1.3.0...@jackdbd/checks@1.3.1) (2022-08-22)
+
 ## @jackdbd/checks [1.3.1-canary.2](https://github.com/jackdbd/calderone/compare/@jackdbd/checks@1.3.1-canary.1...@jackdbd/checks@1.3.1-canary.2) (2022-07-27)
 
 ## @jackdbd/checks [1.3.1-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/checks@1.3.0...@jackdbd/checks@1.3.1-canary.1) (2022-07-27)
