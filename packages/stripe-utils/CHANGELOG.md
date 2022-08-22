@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/stripe-utils [1.0.2](https://github.com/jackdbd/calderone/compare/@jackdbd/stripe-utils@1.0.1...@jackdbd/stripe-utils@1.0.2) (2022-08-22)
+
+
+### Bug Fixes
+
+* **stripe-utils:** update TS typings ([59b57c3](https://github.com/jackdbd/calderone/commit/59b57c33d29af511fa8df040f95f6b3a3dc1b59f))
+
 ## @jackdbd/stripe-utils [1.0.2-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/stripe-utils@1.0.1...@jackdbd/stripe-utils@1.0.2-canary.1) (2022-07-27)
 
 
