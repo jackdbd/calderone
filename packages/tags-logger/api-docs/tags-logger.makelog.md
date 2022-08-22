@@ -13,5 +13,5 @@ Unstructured logging is delegated to the \[debug\](https://github.com/debug-js/d
 <b>Signature:</b>
 
 ```typescript
-makeLog: (options?: any) => (stmt: import("./schemas.js").Statement) => void
+makeLog: (options?: Options) => <T extends import("./schemas.js").Statement = import("./schemas.js").Statement>(stmt: T) => void
 ```

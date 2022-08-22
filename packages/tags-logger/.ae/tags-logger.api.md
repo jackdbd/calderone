@@ -7,7 +7,7 @@
 import Joi from 'joi';
 
 // @public
-export const makeLog: (options?: any) => (stmt: Statement) => void;
+export const makeLog: (options?: Options) => <T extends Statement = Statement>(stmt: T) => void;
 
 // @public
 export interface Options {
