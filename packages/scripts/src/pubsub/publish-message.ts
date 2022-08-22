@@ -1,23 +1,37 @@
-import { env } from 'node:process'
+import fs from 'node:fs'
+import path from 'node:path'
 import { PubSub, Subscription } from '@google-cloud/pubsub'
-import makeDebug from 'debug'
+import { monorepoRoot } from '@jackdbd/utils/path'
 import yargs from 'yargs'
 
-const debug = makeDebug('scripts/pubsub/publish-message')
+interface Argv {
+  'topic-name': string
+  'subscription-name': string
+  'service-account': string
+}
 
-const DEFAULT = {
-  'project-id': env.GCP_PROJECT_ID,
+const DEFAULT: Argv = {
   'topic-name': 'some-topic',
-  'subscription-name': 'some-subscription'
+  'subscription-name': 'some-subscription',
+  'service-account': 'sa-pubsub.json'
 }
 
 const main = async () => {
-  const argv = yargs(process.argv.slice(2)).default(DEFAULT).argv
+  const argv = yargs(process.argv.slice(2)).default(DEFAULT).argv as Argv
+
+  const json_key_path = path.join(
+    monorepoRoot(),
+    'secrets',
+    argv['service-account']
+  )
+  const { project_id, client_email, private_key } = JSON.parse(
+    fs.readFileSync(json_key_path).toString()
+  )
 
   const pubsub = new PubSub({
-    projectId: argv['project-id']
+    projectId: project_id,
+    credentials: { client_email, private_key }
   })
-  debug(`Cloud Pub/Sub client created`)
 
   const topic_name = argv['topic-name']
   const topic = pubsub.topic(topic_name)
@@ -29,7 +43,7 @@ const main = async () => {
   try {
     subscription = topic.subscription(subscription_name)
   } catch (err: any) {
-    console.error(`=== ERROR === ${err.message}`)
+    console.error(`=== ERROR === ${err.message}`, err)
     process.exitCode = 1
     return
   }
@@ -48,12 +62,21 @@ const main = async () => {
   const id_1 = await topic.publishMessage({
     data: Buffer.from('Test message 1!')
   })
-  debug(`message published with id ${id_1}`)
+  console.log(`message published with id ${id_1}`)
 
   const id_2 = await topic.publishMessage({
     data: Buffer.from('Test message 2!')
   })
-  debug(`message published with id ${id_2}`)
+  console.log(`message published with id ${id_2}`)
+
+  const ms = 10000
+  console.log(`subscription ${subscription.name} will be closed in ${ms} ms`)
+
+  const timeout_id = setTimeout(async () => {
+    await subscription.close()
+    console.log(`closed subscription ${subscription.name}`)
+    clearTimeout(timeout_id)
+  }, ms)
 }
 
 main()

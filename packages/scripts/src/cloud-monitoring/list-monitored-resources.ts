@@ -1,9 +1,15 @@
-import { env } from 'node:process'
+import fs from 'node:fs'
+import path from 'node:path'
 import yargs from 'yargs'
 import { MetricServiceClient } from '@google-cloud/monitoring'
+import { monorepoRoot } from '@jackdbd/utils/path'
 
-const DEFAULT = {
-  'project-id': env.GCP_PROJECT_ID
+interface Argv {
+  'service-account': string
+}
+
+const DEFAULT: Argv = {
+  'service-account': 'sa-monitoring.json'
 }
 
 interface Config {
@@ -34,14 +40,18 @@ const monitoredResourceDescriptors = async ({
 }
 
 const main = async () => {
-  const argv = yargs(process.argv.slice(2)).default(DEFAULT).argv
+  const argv = yargs(process.argv.slice(2)).default(DEFAULT).argv as Argv
 
-  const project_id = argv['project-id']
-  if (!project_id) {
-    throw new Error(`--project-id not set`)
-  }
+  const service_account = argv['service-account']
 
-  const client = new MetricServiceClient({ projectId: project_id })
+  const json_key_path = path.join(monorepoRoot(), 'secrets', service_account)
+  const obj = JSON.parse(fs.readFileSync(json_key_path).toString())
+  const { project_id, client_email, private_key } = obj
+
+  const client = new MetricServiceClient({
+    projectId: project_id,
+    credentials: { client_email, private_key }
+  })
 
   await monitoredResourceDescriptors({
     client,
