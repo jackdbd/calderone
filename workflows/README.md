@@ -40,6 +40,18 @@ gcloud workflows deploy lead-generation \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
 
+### webperf-audit
+
+```sh
+gcloud workflows deploy webperf-audit \
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION \
+  --description "Web performance audit with WebPageTest and the Google Sheets connector" \
+  --source workflows/webperf-audit.yaml \
+  --service-account $SA_WORKFLOWS_RUNNER \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
+```
+
 ### Wasm news
 
 ```sh
@@ -83,6 +95,11 @@ Use `gcloud workflows run` to execute a workflow and wait for it to complete.
 gcloud workflows run random-cocktail-to-telegram \
   --location $WORKFLOW_LOCATION \
   --format='value(result)'
+```
+
+```sh
+gcloud workflows run webperf-audit \
+  --location $WORKFLOW_LOCATION
 ```
 
 ```sh
