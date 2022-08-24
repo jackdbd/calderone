@@ -54,7 +54,7 @@ npm run container:run:production -w packages/webhooks
 
 ## Deploy to GCP Cloud Run
 
-This command uploads the source code to Cloud Build, which build the container image and deploys the application as a [Cloud Run service](https://console.cloud.google.com/run?project=prj-kitchen-sin):
+This command uploads the source code to Cloud Build, which builds the container image and deploys the application as a [Cloud Run service](https://console.cloud.google.com/run?project=prj-kitchen-sin):
 
 ```sh
 npm run deploy -w packages/webhooks

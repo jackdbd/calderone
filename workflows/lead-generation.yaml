@@ -6,8 +6,7 @@ main:
       assign:
         # https://cloud.google.com/workflows/docs/reference/stdlib/sys/get_env
         - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
-        - function_location: "europe-west3"
-        - function_telegram: ${"https://" + function_location + "-" + project_id + ".cloudfunctions.net/" + "calderone-send-telegram-message"}
+        - function_telegram: https://send-telegram-message-45eyyotfta-ey.a.run.app
 
   # retrieve secrets from Secret Manager #######################################
 

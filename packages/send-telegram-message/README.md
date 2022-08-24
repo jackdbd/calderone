@@ -2,7 +2,15 @@
 
 Application that sends a message to a Telegram chat.
 
+## Development
+
+```sh
+npm run start:development -w packages/send-telegram-message
+```
+
 ## Deploy to GCP Cloud Functions
+
+This command uploads the source code to Cloud Build, which builds the container image and deploys the application to [Cloud Functions (2nd generation)](https://cloud.google.com/functions/docs/concepts/version-comparison):
 
 ```sh
 npm run deploy -w packages/send-telegram-message
@@ -10,16 +18,21 @@ npm run deploy -w packages/send-telegram-message
 
 ## Test
 
-### Test the function locally
-
-Build and run the function
+Run integration tests with [SuperTest](https://github.com/visionmedia/supertest) and Jest:
 
 ```sh
-npm run build -w packages/send-telegram-message
-npm run start:local -w packages/send-telegram-message
+npm run test -w packages/send-telegram-message
 ```
 
-And in another terminal (or in Postman) call it
+### Test the function locally
+
+Start the function in one terminal:
+
+```sh
+npm run start:development -w packages/send-telegram-message
+```
+
+And call it with curl, Postman, etc:
 
 ```sh
 curl -X POST \
@@ -38,10 +51,10 @@ Here is how you can make an authenticated request using the **user account** you
 
 ```sh
 curl -X POST \
---location "$SEND_TELEGRAM_MESSAGE_URL" \
---header "Authorization: Bearer $(gcloud auth print-identity-token)" \
---header "Content-Type: application/json" \
+-L "$SEND_TELEGRAM_MESSAGE_URL" \
+-H "Authorization: Bearer $(gcloud auth print-identity-token)" \
+-H "Content-Type: application/json" \
 --data-raw "{
-    \"text\": \"This is a message sent by curl\"
+    \"text\": \"This is a message sent by <b>curl</b>\"
 }"
 ```

@@ -1,21 +1,26 @@
-import { env } from 'node:process'
+import functions from '@google-cloud/functions-framework'
 import { send } from '@jackdbd/notifications/telegram'
 
-if (!env.NODE_ENV) {
-  throw new Error('NODE_ENV not set')
-}
+functions.http('send-telegram-message', async (req, res) => {
+  if (!process.env.NODE_ENV) {
+    throw new Error('environment variable NODE_ENV not set')
+  }
 
-export const entryPoint = async (req, res) => {
+  if (!process.env.TELEGRAM) {
+    throw new Error('environment variable TELEGRAM not set')
+  }
+
   if (!req.body.text) {
     res.status(400).send({ message: '`text` not set' })
     return
   }
 
   // TELEGRAM is a secret stored in Secret Manager. It's a JSON, so we parse it.
-  if (!env.TELEGRAM) {
-    res.status(500).send({ message: 'environment variable TELEGRAM not set' })
-  }
-  const { chat_id, token } = JSON.parse(env.TELEGRAM)
+  const { chat_id, token } = JSON.parse(process.env.TELEGRAM)
+
+  // const host = req.headers['host']
+  // const ua = req.headers['user-agent']
+  // console.log({ host, 'user-agent': ua })
 
   const config = {
     chat_id,
@@ -25,6 +30,7 @@ export const entryPoint = async (req, res) => {
 
   const options = {
     disable_notification: true,
+    disable_web_page_preview: false,
     parse_mode: 'HTML'
   }
 
@@ -36,4 +42,4 @@ export const entryPoint = async (req, res) => {
     res.status(500).send({ message: err.message })
     return
   }
-}
+})

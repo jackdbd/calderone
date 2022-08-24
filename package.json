@@ -51,7 +51,6 @@
     "test:ci": "npm run test:ci --workspaces --if-present",
     "webserver": "npx http-server --port 8080"
   },
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
@@ -113,6 +112,7 @@
     "semantic-release": "^19.0.3",
     "simple-oauth2": "^4.3.0",
     "stripe": "^9.8.0",
+    "supertest": "^6.2.4",
     "ts-node": "^10.8.1",
     "tsm": "^2.2.2",
     "typedoc": "^0.22.17",
