@@ -1,4 +1,6 @@
-# This workflow demonstrates how to use the Sheets connector.
+# This workflow retrieves data from a spreadsheet using the Sheets connector.
+# The data in the spreadsheet contains the URLs to audit and the WebPageTest
+# configuration to use for the web performance audit.
 # https://cloud.google.com/workflows/docs/reference/googleapis/sheets/Overview
 
 main:
@@ -9,12 +11,18 @@ main:
       assign:
         - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
         - sheet_id: 12Z3HBsRuuJp8yXTa9uaK2CzY6so_uIOrRGa8kaq8ZPk
+        - sheet_url: '${"https://docs.google.com/spreadsheets/d/" + sheet_id + "/"}'
         - sheet_range_audit_urls: "queue!A2:B7"
         - sheet_range_wpt_config: "wpt_config!A2:E5"
         - max_urls_allowed: 5
         # a tip for when the user receives a bad request error message
         - tip_bad_request: '${"Double check Spreadsheet " + sheet_id + " range " + sheet_range_audit_urls}'
+        # I saw this in an example, but it seems it is not required
         # - drive_scope: https://www.googleapis.com/auth/drive
+
+  - assign_args_or_defaults:
+      assign:
+        - is_audit_private: ${default(map.get(args, "is_audit_private"), 1)}
 
   # retrieve secrets from Secret Manager #######################################
 
@@ -26,13 +34,13 @@ main:
         version: "latest"
       result: wpt_api_key
 
-  # - log_wpt_api_key:
-  #     call: sys.log
-  #     args:
-  #       data: {
-  #         "WebPageTest API Key": "${wpt_api_key}"
-  #       }
-  #       severity: "WARNING"
+  - log_wpt_api_key:
+      call: sys.log
+      args:
+        data: {
+          "WebPageTest API Key": "${wpt_api_key}"
+        }
+        severity: "WARNING"
 
   - batch_get_spreadsheet_ranges:
       # https://cloud.google.com/workflows/docs/reference/googleapis/sheets/v4/spreadsheets.values/batchGet
@@ -129,6 +137,7 @@ main:
                       args:
                         wpt_api_key: "${wpt_api_key}"
                         url: "${url}"
+                        is_audit_private: "${is_audit_private}"
                         label: "${labels[i]}"
                         location: "${location}"
                         record_chrome_performance_trace: "${record_chrome_performance_trace}"
@@ -144,6 +153,7 @@ main:
   - respond_to_caller:
       return: {
         "message": '${len(audit_responses) + " performance audits were requested from Spreadsheet " + sheet_id}',
+        "sheet_url": "${sheet_url}",
         "audit_responses": "${audit_responses}"
         # "cleared_range": "${cleared_range}"
       }
@@ -154,6 +164,7 @@ run_audit:
   params:
     - wpt_api_key
     - url
+    - is_audit_private
     - label
     - location
     - record_chrome_performance_trace
@@ -169,6 +180,7 @@ run_audit:
             "url": "${url}",
             "label": "${label}",
             "location": "${location}",
+            "is_audit_private": "${is_audit_private}",
             "record_chrome_performance_trace": "${record_chrome_performance_trace}",
             "record_devtools_timeline": "${record_devtools_timeline}",
             "record_filmstrip": "${record_filmstrip}",
@@ -188,7 +200,7 @@ run_audit:
             label: ${label}
             location: ${location}
             # pingback: ${pingback}
-            # private: ${private}
+            private: ${is_audit_private}
             profiler: ${record_chrome_performance_trace}
             runs: ${runs}
             timeline: ${record_devtools_timeline}

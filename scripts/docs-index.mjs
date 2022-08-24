@@ -10,8 +10,8 @@ import { throwIfNotInvokedFromMonorepoRoot } from './utils.mjs'
 throwIfNotInvokedFromMonorepoRoot(process.env.PWD)
 
 const PACKAGES_EXCLUDED_FROM_INDEX = [
-  'audit',
   'scripts',
+  'send-telegram-message',
   'telegram-bot',
   'wasm-news',
   'webhooks'

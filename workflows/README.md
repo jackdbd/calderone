@@ -40,7 +40,7 @@ gcloud workflows deploy lead-generation \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
 
-### webperf-audit
+### Web performance audit
 
 ```sh
 gcloud workflows deploy webperf-audit \
@@ -100,6 +100,14 @@ gcloud workflows run random-cocktail-to-telegram \
 ```sh
 gcloud workflows run webperf-audit \
   --location $WORKFLOW_LOCATION
+```
+
+```sh
+gcloud workflows run webperf-audit \
+  --location $WORKFLOW_LOCATION \
+  --data '{
+    "is_audit_private": 0
+  }'
 ```
 
 ```sh
