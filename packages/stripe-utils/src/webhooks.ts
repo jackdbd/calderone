@@ -3,7 +3,7 @@ import type Stripe from 'stripe'
 
 const debug = makeDebug('stripe-utils/webhooks')
 
-interface EnabledEventsForWebhookEndpoint {
+export interface EnabledEventsForWebhookEndpoint {
   stripe: Stripe
   url: string
 }
