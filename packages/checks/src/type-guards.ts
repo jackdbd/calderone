@@ -1,20 +1,21 @@
 /**
  * @public
  */
-export const isError = (value: Error | any): value is Error => {
+export const isError = (x: Error | any): x is Error => {
   // when does err.stack is not defined?
   return (
-    (value as Error).name !== undefined &&
-    (value as Error).message !== undefined
-    // (value as Error).stack !== undefined
+    (x as Error).name !== undefined && (x as Error).message !== undefined
+    // (x as Error).stack !== undefined
   )
 }
 
 /**
+ * Checks whether the argument passed to this function is a string or not.
+ *
  * @public
  */
-export const isString = (value: string | any): value is string => {
-  return (value as string).length !== undefined
+export const isString = (x: any): x is string => {
+  return typeof x === 'string' || x instanceof String
 }
 
 /**
@@ -24,10 +25,10 @@ export const isString = (value: string | any): value is string => {
  *
  * @see [Timers in Node.js and beyond - Node.js Docs](https://nodejs.org/en/docs/guides/timers-in-node/)
  */
-export const isTimeout = (value: any): value is NodeJS.Timeout => {
+export const isTimeout = (x: any): x is NodeJS.Timeout => {
   return (
-    (value as NodeJS.Timeout).refresh !== undefined &&
-    (value as NodeJS.Timeout).ref !== undefined &&
-    (value as NodeJS.Timeout).unref !== undefined
+    (x as NodeJS.Timeout).refresh !== undefined &&
+    (x as NodeJS.Timeout).ref !== undefined &&
+    (x as NodeJS.Timeout).unref !== undefined
   )
 }
