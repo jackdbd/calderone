@@ -31,6 +31,7 @@
   "typings": "lib/index.d.ts",
   "exports": {
     ".": "./lib/index.js",
+    "./client": "./lib/client.js",
     "./copy": "./lib/copy.js",
     "./delete": "./lib/delete.js",
     "./error": "./lib/error.js",

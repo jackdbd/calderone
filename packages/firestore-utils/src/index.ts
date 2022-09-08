@@ -6,6 +6,9 @@
  * @see [Cloud Firestore: Node.js Client - GitHub](https://github.com/googleapis/nodejs-firestore)
  */
 
+export { firestore } from './client.js'
+export type { Options as ClientOptions } from './client.js'
+
 export { bulkCopy } from './copy.js'
 export type { BulkCopyConfig } from './copy.js'
 
