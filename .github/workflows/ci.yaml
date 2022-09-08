@@ -75,6 +75,8 @@ jobs:
         run: npm run test:ci -w packages/secret-manager-utils
 
       - name: 🔍 Test library @jackdbd/send-telegram-message
+        env:
+          TELEGRAM: ${{ secrets.TELEGRAM }}
         run: npm run test:ci -w packages/send-telegram-message
 
       - name: 🔍 Test library @jackdbd/sqlite-utils
