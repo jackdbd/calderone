@@ -1,5 +1,24 @@
 # CHANGELOG
 
+## @jackdbd/checks [2.0.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/checks@1.3.1...@jackdbd/checks@2.0.0-canary.1) (2022-09-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* **checks:** after Brexit, a UK VAT number is no longer a European VAT
+number, so when isEuropeanVat() is called with a UK VAT number, now it returns
+false.
+
+### Features
+
+* **checks:** add isBoolean(), isNumber() ([1a7738c](https://github.com/jackdbd/calderone/commit/1a7738ca341a97364a6757e8912ca0a96651e189))
+* **checks:** remove isUkVat() from isEuropeanVat() ([19bea2c](https://github.com/jackdbd/calderone/commit/19bea2c0befcab3d63952c343c0ee5b8a32ae658))
+
+
+### Bug Fixes
+
+* **checks:** fix function isString() ([c8ef31d](https://github.com/jackdbd/calderone/commit/c8ef31d389f35e77eab46bd5cb5b8efafaf484be))
+
 ## @jackdbd/checks [1.3.1](https://github.com/jackdbd/calderone/compare/@jackdbd/checks@1.3.0...@jackdbd/checks@1.3.1) (2022-08-22)
 
 ## @jackdbd/checks [1.3.1-canary.2](https://github.com/jackdbd/calderone/compare/@jackdbd/checks@1.3.1-canary.1...@jackdbd/checks@1.3.1-canary.2) (2022-07-27)
