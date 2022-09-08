@@ -1,4 +1,11 @@
 /**
+ * Checks whether the argument passed to this function is a boolean or not.
+ *
+ * @public
+ */
+export const isBoolean = (x: any) => 'boolean' === typeof x
+
+/**
  * @public
  */
 export const isError = (x: Error | any): x is Error => {
@@ -7,6 +14,15 @@ export const isError = (x: Error | any): x is Error => {
     (x as Error).name !== undefined && (x as Error).message !== undefined
     // (x as Error).stack !== undefined
   )
+}
+
+/**
+ * Checks whether the argument passed to this function is a number or not.
+ *
+ * @public
+ */
+export const isNumber = (x: any): x is number => {
+  return typeof x === 'number' && isFinite(x)
 }
 
 /**

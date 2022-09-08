@@ -16,7 +16,13 @@ export {
 
 export { isItalianFiscalCode } from './italian-fiscal-code.js'
 
-export { isError, isString, isTimeout } from './type-guards.js'
+export {
+  isBoolean,
+  isError,
+  isNumber,
+  isString,
+  isTimeout
+} from './type-guards.js'
 
 export {
   isAustrianVat,
