@@ -1,3 +1,4 @@
+import { Emoji } from '../lib/constants.js'
 import { errorText } from '../lib/error.js'
 
 describe('errorText', () => {
@@ -6,10 +7,10 @@ describe('errorText', () => {
   const error_title = 'ops: I crashed'
   const error_message = 'detailed explanation why I crashed'
 
-  it('wraps error_title in a <b> tag and adds a red cross emoji', () => {
+  it('wraps error_title in a <b> tag and adds an emoji', () => {
     const text = errorText({ app_name, error_message, error_title })
 
-    expect(text).toContain(`<b>❌ ${error_title}</b>`)
+    expect(text).toContain(`<b>${Emoji.Error} ${error_title}</b>`)
   })
 
   it('wraps error_message in a <pre> tag', () => {

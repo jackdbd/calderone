@@ -31,7 +31,8 @@
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
     "start:development": "NODE_ENV=development TELEGRAM=$(cat ../../secrets/telegram.json) functions-framework --source index.js --target send-telegram-message --port 8080",
-    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.cjs --rootDir ./"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.cjs --rootDir ./",
+    "test:ci": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.cjs --rootDir ./ --runInBand --ci"
   },
   "dependencies": {
     "@google-cloud/functions-framework": "^3.1.2",

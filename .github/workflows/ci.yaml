@@ -47,6 +47,9 @@ jobs:
           SA_NOTIFIER: ${{ secrets.SA_NOTIFIER }}
         run: npm run test:ci -w packages/cloud-scheduler-utils
 
+      - name: 🔍 Test library @jackdbd/cloud-tasks-utils
+        run: npm run test:ci -w packages/cloud-tasks-utils
+
       - name: 🔍 Test library @jackdbd/firestore-utils
         env:
           SA_FIRESTORE_USER_TEST: ${{ secrets.SA_FIRESTORE_USER_TEST }}
@@ -63,16 +66,28 @@ jobs:
           PLAUSIBLE: ${{ secrets.PLAUSIBLE }}
         run: npm run test:ci -w packages/plausible-client
 
+      - name: 🔍 Test library @jackdbd/schemas
+        run: npm run test:ci -w packages/schemas
+
       - name: 🔍 Test library @jackdbd/secret-manager-utils
         env:
           SA_SECRET_MANAGER_ADMIN_TEST: ${{ secrets.SA_SECRET_MANAGER_ADMIN_TEST }}
         run: npm run test:ci -w packages/secret-manager-utils
 
+      - name: 🔍 Test library @jackdbd/send-telegram-message
+        run: npm run test:ci -w packages/send-telegram-message
+
       - name: 🔍 Test library @jackdbd/sqlite-utils
         run: npm run test:ci -w packages/sqlite-utils
+      
+      - name: 🔍 Test library @jackdbd/stripe-utils
+        run: npm run test:ci -w packages/stripe-utils
 
       - name: 🔍 Test library @jackdbd/tags-logger
         run: npm run test:ci -w packages/tags-logger
+
+      # - name: 🔍 Test library @jackdbd/telegram-bot
+      #   run: npm run test:ci -w packages/telegram-bot
 
       - name: 🔍 Test library @jackdbd/telegram-text-messages
         run: npm run test:ci -w packages/telegram-text-messages
