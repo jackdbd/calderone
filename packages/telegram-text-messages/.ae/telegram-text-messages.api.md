@@ -4,17 +4,17 @@
 
 ```ts
 
-// Warning: (ae-missing-release-tag) "anchor" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "anchor" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const anchor: (link: Link) => string;
 
-// Warning: (ae-missing-release-tag) "errorText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "errorText" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const errorText: (config: ErrorTextConfig) => string;
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ErrorTextConfig {
@@ -30,12 +30,12 @@ export interface ErrorTextConfig {
     links?: Link[];
 }
 
-// Warning: (ae-missing-release-tag) "gcpCloudRunJobErrorText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "gcpCloudRunJobErrorText" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const gcpCloudRunJobErrorText: (config: GcpCloudRunJobErrorTextConfig, options?: GcpCloudRunJobErrorTextOptions) => string;
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface GcpCloudRunJobErrorTextConfig {
@@ -47,7 +47,7 @@ export interface GcpCloudRunJobErrorTextConfig {
     title?: string;
 }
 
-// Warning: (ae-missing-release-tag) "Options" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Options" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface GcpCloudRunJobErrorTextOptions {
@@ -57,12 +57,12 @@ export interface GcpCloudRunJobErrorTextOptions {
     should_include_stack_trace?: boolean;
 }
 
-// Warning: (ae-missing-release-tag) "gcpCloudRunJobText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "gcpCloudRunJobText" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const gcpCloudRunJobText: (config: GcpCloudRunJobTextConfig, options?: GcpCloudRunJobTextOptions) => string;
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface GcpCloudRunJobTextConfig {
@@ -76,7 +76,7 @@ export interface GcpCloudRunJobTextConfig {
     title: string;
 }
 
-// Warning: (ae-missing-release-tag) "Options" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Options" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface GcpCloudRunJobTextOptions {
@@ -84,12 +84,12 @@ export interface GcpCloudRunJobTextOptions {
     should_include_task_section?: boolean;
 }
 
-// Warning: (ae-missing-release-tag) "genericText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "genericText" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const genericText: (config: GenericTextConfig, options?: GenericTextOptions) => string;
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface GenericTextConfig {
@@ -105,7 +105,7 @@ export interface GenericTextConfig {
     title: string;
 }
 
-// Warning: (ae-missing-release-tag) "Options" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Options" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface GenericTextOptions {
@@ -117,7 +117,7 @@ export interface GenericTextOptions {
     is_title_bold?: boolean;
 }
 
-// Warning: (ae-missing-release-tag) "Link" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Link" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export interface Link {
@@ -127,12 +127,12 @@ export interface Link {
     text: string;
 }
 
-// Warning: (ae-missing-release-tag) "operationListText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "operationListText" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const operationListText: (config: OperationListTextConfig) => string;
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface OperationListTextConfig {
@@ -148,12 +148,12 @@ export interface OperationListTextConfig {
     operations: OperationTextConfig[];
 }
 
-// Warning: (ae-missing-release-tag) "operationText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "operationText" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const operationText: ({ title, successes, failures, warnings }: OperationTextConfig) => string;
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface OperationTextConfig {
@@ -167,7 +167,7 @@ export interface OperationTextConfig {
     warnings: string[];
 }
 
-// Warning: (ae-missing-release-tag) "Section" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Section" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface Section {
@@ -179,7 +179,7 @@ export interface Section {
     title: string;
 }
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface WarningConfig {
@@ -195,7 +195,7 @@ export interface WarningConfig {
     warning_title: string;
 }
 
-// Warning: (ae-missing-release-tag) "warningText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "warningText" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const warningText: (config: WarningConfig) => string;
