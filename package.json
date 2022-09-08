@@ -94,8 +94,6 @@
     "@types/simple-oauth2": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.31.0",
-    "ajv": "^8.11.0",
-    "ajv-formats": "^2.1.1",
     "better-sqlite3": "^7.6.2",
     "comment-json": "^4.2.3",
     "debug": "^4.3.4",

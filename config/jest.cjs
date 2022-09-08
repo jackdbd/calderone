@@ -79,6 +79,7 @@ const project = (package_name) => {
 const projects = [
   project('checks'),
   project('cloud-scheduler-utils'),
+  project('cloud-tasks-utils'),
   project('fattureincloud-client'),
   project('firestore-utils'),
   project('keap-client'),
