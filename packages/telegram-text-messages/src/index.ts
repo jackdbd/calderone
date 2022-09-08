@@ -19,10 +19,14 @@ export type {
   Options as GenericTextOptions
 } from './generic-text.js'
 
+export type { Link, Section } from './interfaces.js'
+
 export { operationText } from './operation.js'
 export type { Config as OperationTextConfig } from './operation.js'
 
 export { operationListText } from './operation-list.js'
 export type { Config as OperationListTextConfig } from './operation-list.js'
+
+export { anchor } from './utils.js'
 
 export { warningText } from './warning.js'
