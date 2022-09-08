@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/secret-manager-utils",
-  "version": "1.0.3",
+  "version": "1.1.0-canary.1",
   "description": "Utilities for Secret Manager",
   "author": {
     "name": "Giacomo Debidda",
