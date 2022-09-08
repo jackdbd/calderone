@@ -92,7 +92,8 @@ export interface Options {
 const DEFAULT_OPTIONS: Options = {
   namespace: undefined,
   should_use_emoji_for_severity: true,
-  should_validate_log_statements: true
+  should_validate_log_statements:
+    process.env.NODE_ENV === 'production' ? false : true
 }
 
 export const options = Joi.object<Options>()
