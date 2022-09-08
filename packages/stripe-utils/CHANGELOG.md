@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## @jackdbd/stripe-utils [1.1.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/stripe-utils@1.0.2...@jackdbd/stripe-utils@1.1.0-canary.1) (2022-09-08)
+
+
+### Features
+
+* **stripe-utils:** add customersWithDuplicateEmails() ([028c685](https://github.com/jackdbd/calderone/commit/028c68526221974e395825700e2e2f1eca978be7))
+
+
+### Bug Fixes
+
+* **stripe-utils:** forgot to export some TS interfaces and rebuild docs ([93db125](https://github.com/jackdbd/calderone/commit/93db1259cfcb827036f941bbb13c60031c901dd1))
+
 ## @jackdbd/stripe-utils [1.0.2](https://github.com/jackdbd/calderone/compare/@jackdbd/stripe-utils@1.0.1...@jackdbd/stripe-utils@1.0.2) (2022-08-22)
 
 
