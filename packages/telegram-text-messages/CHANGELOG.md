@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## @jackdbd/telegram-text-messages [1.1.0-canary.2](https://github.com/jackdbd/calderone/compare/@jackdbd/telegram-text-messages@1.1.0-canary.1...@jackdbd/telegram-text-messages@1.1.0-canary.2) (2022-09-08)
+
 ## @jackdbd/telegram-text-messages [1.1.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/telegram-text-messages@1.0.2...@jackdbd/telegram-text-messages@1.1.0-canary.1) (2022-09-08)
 
 
