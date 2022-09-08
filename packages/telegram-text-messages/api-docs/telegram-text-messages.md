@@ -15,13 +15,17 @@
 |  [GcpCloudRunJobTextOptions](./telegram-text-messages.gcpcloudrunjobtextoptions.md) |  |
 |  [GenericTextConfig](./telegram-text-messages.generictextconfig.md) |  |
 |  [GenericTextOptions](./telegram-text-messages.generictextoptions.md) |  |
+|  [Link](./telegram-text-messages.link.md) | A hyperlink in a text message. |
 |  [OperationListTextConfig](./telegram-text-messages.operationlisttextconfig.md) |  |
 |  [OperationTextConfig](./telegram-text-messages.operationtextconfig.md) |  |
+|  [Section](./telegram-text-messages.section.md) |  |
+|  [WarningConfig](./telegram-text-messages.warningconfig.md) |  |
 
 ## Variables
 
 |  Variable | Description |
 |  --- | --- |
+|  [anchor](./telegram-text-messages.anchor.md) | Converts a link into an anchor tag. |
 |  [errorText](./telegram-text-messages.errortext.md) |  |
 |  [gcpCloudRunJobErrorText](./telegram-text-messages.gcpcloudrunjoberrortext.md) | Convenience function for a text message that represents an error occurred in a Cloud Run Jobs environment. |
 |  [gcpCloudRunJobText](./telegram-text-messages.gcpcloudrunjobtext.md) | Convenience function for text messages generated from a Cloud Run Job environment. |

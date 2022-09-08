@@ -30,3 +30,4 @@ export type { Config as OperationListTextConfig } from './operation-list.js'
 export { anchor } from './utils.js'
 
 export { warningText } from './warning.js'
+export type { Config as WarningConfig } from './warning.js'

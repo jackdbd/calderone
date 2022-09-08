@@ -15,8 +15,8 @@ export interface Config
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
 |  [description](./telegram-text-messages.generictextconfig.description.md) |  | string |  |
-|  [links?](./telegram-text-messages.generictextconfig.links.md) |  | Link\[\] | <i>(Optional)</i> |
-|  [sections?](./telegram-text-messages.generictextconfig.sections.md) |  | Section\[\] | <i>(Optional)</i> |
+|  [links?](./telegram-text-messages.generictextconfig.links.md) |  | [Link](./telegram-text-messages.link.md)<!-- -->\[\] | <i>(Optional)</i> |
+|  [sections?](./telegram-text-messages.generictextconfig.sections.md) |  | [Section](./telegram-text-messages.section.md)<!-- -->\[\] | <i>(Optional)</i> |
 |  [subtitle?](./telegram-text-messages.generictextconfig.subtitle.md) |  | string | <i>(Optional)</i> |
 |  [title](./telegram-text-messages.generictextconfig.title.md) |  | string |  |
 

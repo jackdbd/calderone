@@ -17,6 +17,6 @@ export interface Config
 |  [cloud\_run\_job\_region\_id](./telegram-text-messages.gcpcloudrunjobtextconfig.cloud_run_job_region_id.md) |  | string | GCP region where the Cloud Run Job is being executed. Is this available from the environment? |
 |  [description](./telegram-text-messages.gcpcloudrunjobtextconfig.description.md) |  | string |  |
 |  [gcp\_project\_id](./telegram-text-messages.gcpcloudrunjobtextconfig.gcp_project_id.md) |  | string | GCP project ID. Is this available from the environment? |
-|  [sections?](./telegram-text-messages.gcpcloudrunjobtextconfig.sections.md) |  | Section\[\] | <i>(Optional)</i> |
+|  [sections?](./telegram-text-messages.gcpcloudrunjobtextconfig.sections.md) |  | [Section](./telegram-text-messages.section.md)<!-- -->\[\] | <i>(Optional)</i> |
 |  [title](./telegram-text-messages.gcpcloudrunjobtextconfig.title.md) |  | string |  |
 

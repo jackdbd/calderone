@@ -17,6 +17,6 @@ export interface Config
 |  [app\_name](./telegram-text-messages.operationlisttextconfig.app_name.md) |  | string |  |
 |  [app\_version](./telegram-text-messages.operationlisttextconfig.app_version.md) |  | string |  |
 |  [description](./telegram-text-messages.operationlisttextconfig.description.md) |  | string |  |
-|  [links?](./telegram-text-messages.operationlisttextconfig.links.md) |  | Link\[\] | <i>(Optional)</i> |
+|  [links?](./telegram-text-messages.operationlisttextconfig.links.md) |  | [Link](./telegram-text-messages.link.md)<!-- -->\[\] | <i>(Optional)</i> |
 |  [operations](./telegram-text-messages.operationlisttextconfig.operations.md) |  | OperationConfig\[\] |  |
 

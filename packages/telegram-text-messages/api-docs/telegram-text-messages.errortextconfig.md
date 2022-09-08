@@ -18,5 +18,5 @@ export interface Config
 |  [app\_version?](./telegram-text-messages.errortextconfig.app_version.md) |  | string | <i>(Optional)</i> |
 |  [error\_message](./telegram-text-messages.errortextconfig.error_message.md) |  | string |  |
 |  [error\_title](./telegram-text-messages.errortextconfig.error_title.md) |  | string |  |
-|  [links?](./telegram-text-messages.errortextconfig.links.md) |  | Link\[\] | <i>(Optional)</i> |
+|  [links?](./telegram-text-messages.errortextconfig.links.md) |  | [Link](./telegram-text-messages.link.md)<!-- -->\[\] | <i>(Optional)</i> |
 
