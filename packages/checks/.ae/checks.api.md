@@ -13,6 +13,9 @@ export const isAustrianVat: (s: string) => boolean;
 export const isBelgianVat: (s: string) => boolean;
 
 // @public
+export const isBoolean: (x: any) => boolean;
+
+// @public
 export const isBulgarianVat: (s: string) => boolean;
 
 // @public
@@ -68,6 +71,9 @@ export const isItalianVat: (s: string) => boolean;
 
 // @public
 export const isLuxembourgishVat: (s: string) => boolean;
+
+// @public
+export const isNumber: (x: any) => x is number;
 
 // @public
 export const isOnCloudFunctions: (env: NodeJS.ProcessEnv) => boolean;
