@@ -43,6 +43,7 @@
     "ncu:dev": "ncu --doctor --dep 'dev' --upgrade",
     "new-package": "./scripts/new-package.mjs",
     "nuke": "npm run clean && rm -rf node_modules package-lock.json",
+    "precommit": "npm run precommit --workspaces --if-present",
     "prepare": "husky install",
     "publish:npmjs": "gcloud builds submit ./cloud-build --async --config cloud-build/publish-to-npmjs.yaml",
     "release:dry": "multi-semantic-release --dry-run --debug --ignore-private --ignore-packages=packages/send-telegram-message,packages/telegram-bot,packages/wasm-news,packages/webhooks",

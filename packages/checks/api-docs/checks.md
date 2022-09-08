@@ -35,7 +35,7 @@ This package contains various functions to check inputs (i.e. predicates).
 |  [isOnCloudRun](./checks.isoncloudrun.md) | Checks whether a service is running on Cloud Run or not. |
 |  [isOnGithub](./checks.isongithub.md) | Checks whether the code is running on the GitHub CI or not. |
 |  [isSpanishVat](./checks.isspanishvat.md) | Checks whether a string is a valid Spanish VAT number or not. |
-|  [isString](./checks.isstring.md) |  |
+|  [isString](./checks.isstring.md) | Checks whether the argument passed to this function is a string or not. |
 |  [isTest](./checks.istest.md) | Checks whether the environment variable <code>NODE_ENV</code> is set to <code>test</code> or not. |
 |  [isTimeout](./checks.istimeout.md) | Checks whether the argument passed to this function is a Node.js timeout or not. |
 |  [isUkVat](./checks.isukvat.md) | Checks whether a string is a valid UK VAT number or not. |

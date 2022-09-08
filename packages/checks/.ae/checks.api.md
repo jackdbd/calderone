@@ -34,7 +34,7 @@ export const isDanishVat: (s: string) => boolean;
 export const isDevelopment: (env: NodeJS.ProcessEnv) => boolean;
 
 // @public (undocumented)
-export const isError: (value: Error | any) => value is Error;
+export const isError: (x: Error | any) => x is Error;
 
 // @public
 export const isEstonianVat: (s: string) => boolean;
@@ -81,14 +81,14 @@ export const isOnGithub: (env: NodeJS.ProcessEnv) => boolean;
 // @public
 export const isSpanishVat: (s: string) => boolean;
 
-// @public (undocumented)
-export const isString: (value: string | any) => value is string;
+// @public
+export const isString: (x: any) => x is string;
 
 // @public
 export const isTest: (env: NodeJS.ProcessEnv) => boolean;
 
 // @public
-export const isTimeout: (value: any) => value is NodeJS.Timeout;
+export const isTimeout: (x: any) => x is NodeJS.Timeout;
 
 // @public
 export const isUkVat: (s: string) => boolean;

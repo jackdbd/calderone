@@ -8,5 +8,5 @@
 <b>Signature:</b>
 
 ```typescript
-isError: (value: Error | any) => value is Error
+isError: (x: Error | any) => x is Error
 ```

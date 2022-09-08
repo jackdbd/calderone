@@ -4,11 +4,28 @@
 
 ## telegram-text-messages package
 
+## Interfaces
+
+|  Interface | Description |
+|  --- | --- |
+|  [ErrorTextConfig](./telegram-text-messages.errortextconfig.md) |  |
+|  [GcpCloudRunJobErrorTextConfig](./telegram-text-messages.gcpcloudrunjoberrortextconfig.md) |  |
+|  [GcpCloudRunJobErrorTextOptions](./telegram-text-messages.gcpcloudrunjoberrortextoptions.md) |  |
+|  [GcpCloudRunJobTextConfig](./telegram-text-messages.gcpcloudrunjobtextconfig.md) |  |
+|  [GcpCloudRunJobTextOptions](./telegram-text-messages.gcpcloudrunjobtextoptions.md) |  |
+|  [GenericTextConfig](./telegram-text-messages.generictextconfig.md) |  |
+|  [GenericTextOptions](./telegram-text-messages.generictextoptions.md) |  |
+|  [OperationListTextConfig](./telegram-text-messages.operationlisttextconfig.md) |  |
+|  [OperationTextConfig](./telegram-text-messages.operationtextconfig.md) |  |
+
 ## Variables
 
 |  Variable | Description |
 |  --- | --- |
 |  [errorText](./telegram-text-messages.errortext.md) |  |
+|  [gcpCloudRunJobErrorText](./telegram-text-messages.gcpcloudrunjoberrortext.md) | Convenience function for a text message that represents an error occurred in a Cloud Run Jobs environment. |
+|  [gcpCloudRunJobText](./telegram-text-messages.gcpcloudrunjobtext.md) | Convenience function for text messages generated from a Cloud Run Job environment. |
+|  [genericText](./telegram-text-messages.generictext.md) | Generic text message. |
 |  [operationListText](./telegram-text-messages.operationlisttext.md) |  |
 |  [operationText](./telegram-text-messages.operationtext.md) |  |
 |  [warningText](./telegram-text-messages.warningtext.md) |  |

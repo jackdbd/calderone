@@ -4,29 +4,163 @@
 
 ```ts
 
-// Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
 // Warning: (ae-missing-release-tag) "errorText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const errorText: ({ app_name, app_version, error_message, error_title, links }: Config) => string;
+export const errorText: (config: ErrorTextConfig) => string;
 
-// Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
+// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ErrorTextConfig {
+    // (undocumented)
+    app_name: string;
+    // (undocumented)
+    app_version?: string;
+    // (undocumented)
+    error_message: string;
+    // (undocumented)
+    error_title: string;
+    // Warning: (ae-forgotten-export) The symbol "Link" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
+    links?: Link[];
+}
+
+// Warning: (ae-missing-release-tag) "gcpCloudRunJobErrorText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const gcpCloudRunJobErrorText: (config: GcpCloudRunJobErrorTextConfig, options?: GcpCloudRunJobErrorTextOptions) => string;
+
+// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface GcpCloudRunJobErrorTextConfig {
+    cloud_run_job_region_id: string;
+    // (undocumented)
+    error: Error;
+    gcp_project_id: string;
+    // (undocumented)
+    title?: string;
+}
+
+// Warning: (ae-missing-release-tag) "Options" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface GcpCloudRunJobErrorTextOptions {
+    // (undocumented)
+    emoji?: string;
+    // (undocumented)
+    should_include_stack_trace?: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "gcpCloudRunJobText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const gcpCloudRunJobText: (config: GcpCloudRunJobTextConfig, options?: GcpCloudRunJobTextOptions) => string;
+
+// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface GcpCloudRunJobTextConfig {
+    cloud_run_job_region_id: string;
+    // (undocumented)
+    description: string;
+    gcp_project_id: string;
+    // Warning: (ae-forgotten-export) The symbol "Section" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
+    sections?: Section[];
+    // (undocumented)
+    title: string;
+}
+
+// Warning: (ae-missing-release-tag) "Options" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface GcpCloudRunJobTextOptions {
+    // (undocumented)
+    should_include_task_section?: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "genericText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const genericText: (config: GenericTextConfig, options?: GenericTextOptions) => string;
+
+// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface GenericTextConfig {
+    // (undocumented)
+    description: string;
+    // (undocumented)
+    links?: Link[];
+    // (undocumented)
+    sections?: Section[];
+    // (undocumented)
+    subtitle?: string;
+    // (undocumented)
+    title: string;
+}
+
+// Warning: (ae-missing-release-tag) "Options" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface GenericTextOptions {
+    // (undocumented)
+    is_section_title_bold?: boolean;
+    // (undocumented)
+    is_subtitle_italic?: boolean;
+    // (undocumented)
+    is_title_bold?: boolean;
+}
+
 // Warning: (ae-missing-release-tag) "operationListText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const operationListText: ({ app_name, app_version, description, operations, links }: Config_3) => string;
+export const operationListText: (config: OperationListTextConfig) => string;
 
-// Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
+// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface OperationListTextConfig {
+    // (undocumented)
+    app_name: string;
+    // (undocumented)
+    app_version: string;
+    // (undocumented)
+    description: string;
+    // (undocumented)
+    links?: Link[];
+    // (undocumented)
+    operations: OperationTextConfig[];
+}
+
 // Warning: (ae-missing-release-tag) "operationText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const operationText: ({ title, successes, failures, warnings }: Config_2) => string;
+export const operationText: ({ title, successes, failures, warnings }: OperationTextConfig) => string;
+
+// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface OperationTextConfig {
+    // (undocumented)
+    failures: string[];
+    // (undocumented)
+    successes: string[];
+    // (undocumented)
+    title: string;
+    // (undocumented)
+    warnings: string[];
+}
 
 // Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
 // Warning: (ae-missing-release-tag) "warningText" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const warningText: ({ app_name, app_version, links, warning_message, warning_title }: Config_4) => string;
+export const warningText: (config: Config) => string;
 
 // (No @packageDocumentation comment for this package)
 

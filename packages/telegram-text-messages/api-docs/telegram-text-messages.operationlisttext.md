@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-operationListText: ({ app_name, app_version, description, operations, links }: Config) => string
+operationListText: (config: Config) => string
 ```

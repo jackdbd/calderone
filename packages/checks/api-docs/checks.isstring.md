@@ -4,9 +4,10 @@
 
 ## isString variable
 
+Checks whether the argument passed to this function is a string or not.
 
 <b>Signature:</b>
 
 ```typescript
-isString: (value: string | any) => value is string
+isString: (x: any) => x is string
 ```

@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-errorText: ({ app_name, app_version, error_message, error_title, links }: Config) => string
+errorText: (config: Config) => string
 ```
