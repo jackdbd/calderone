@@ -29,6 +29,7 @@
   "typings": "lib/index.d.ts",
   "exports": {
     ".": "./lib/index.js",
+    "./client": "./lib/client.js",
     "./create-jobs": "./lib/create-jobs.js",
     "./delete-jobs": "./lib/delete-jobs.js",
     "./random-schedule": "./lib/random-schedule.js",
