@@ -6,8 +6,14 @@
 
 export { isApiKeyLiveMode, isApiKeyTestMode } from './checks.js'
 
-export { duplicates } from './customers.js'
-export type { DuplicatesConfig } from './customers.js'
+export { StripeApiMode, StripeTaxCode } from './constants.js'
+
+export { customersWithDuplicateEmails, duplicates } from './customers.js'
+export type {
+  ConfigCustomersWithDuplicateEmails,
+  CustomersByEmail,
+  DuplicatesConfig
+} from './customers.js'
 
 export { errorFromStripe } from './errors.js'
 

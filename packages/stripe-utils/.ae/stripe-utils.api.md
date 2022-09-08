@@ -62,4 +62,14 @@ export const isApiKeyTestMode: (s: string) => boolean;
 // @public
 export const stripeAccountMode: (api_key: string) => "live" | "test";
 
+// Warning: (ae-missing-release-tag) "StripeMode" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export enum StripeMode {
+    // (undocumented)
+    Live = "LIVE",
+    // (undocumented)
+    Test = "TEST"
+}
+
 ```

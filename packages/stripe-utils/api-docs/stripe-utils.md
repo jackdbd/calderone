@@ -6,6 +6,12 @@
 
 Utility functions that might be useful when working with Stripe.
 
+## Enumerations
+
+|  Enumeration | Description |
+|  --- | --- |
+|  [StripeMode](./stripe-utils.stripemode.md) | Stripe API mode. |
+
 ## Interfaces
 
 |  Interface | Description |
