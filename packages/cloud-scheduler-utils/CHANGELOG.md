@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/cloud-scheduler-utils [1.1.0](https://github.com/jackdbd/calderone/compare/@jackdbd/cloud-scheduler-utils@1.0.3...@jackdbd/cloud-scheduler-utils@1.1.0) (2022-09-09)
+
+
+### Features
+
+* **cloud-scheduler-utils:** add function to initialize client from environment ([a33b93e](https://github.com/jackdbd/calderone/commit/a33b93eeeaaffc0508458dedbfba2a64cebe1b81))
+
 ## @jackdbd/cloud-scheduler-utils [1.1.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/cloud-scheduler-utils@1.0.3...@jackdbd/cloud-scheduler-utils@1.1.0-canary.1) (2022-09-08)
 
 
