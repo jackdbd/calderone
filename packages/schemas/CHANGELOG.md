@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/schemas [1.1.1](https://github.com/jackdbd/calderone/compare/@jackdbd/schemas@1.1.0...@jackdbd/schemas@1.1.1) (2022-09-09)
+
+
+### Bug Fixes
+
+* **schemas:** forgot publishConfig in package.json ([01b336d](https://github.com/jackdbd/calderone/commit/01b336d3d68c3b26108991d04c83e0030cc1d2f5))
+
 ## @jackdbd/schemas [1.1.0](https://github.com/jackdbd/calderone/compare/@jackdbd/schemas@1.0.0...@jackdbd/schemas@1.1.0) (2022-09-09)
 
 
