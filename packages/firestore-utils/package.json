@@ -70,11 +70,13 @@
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
-    "@jackdbd/utils": "1.2.0",
+    "@jackdbd/utils": "^1.2.0",
     "debug": "^4.3.4"
   },
   "peerDependencies": {
     "@google-cloud/firestore": ">=5.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@google-cloud/firestore": "^5.0.2"
+  }
 }
