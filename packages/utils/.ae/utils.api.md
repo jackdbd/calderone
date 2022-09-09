@@ -11,7 +11,7 @@ import { ChildProcessWithoutNullStreams } from 'node:child_process';
 // @public
 export const addDays: (date: Date, n: number) => Date;
 
-// Warning: (ae-missing-release-tag) "dateFormatOptions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "dateFormatOptions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const dateFormatOptions: {
@@ -20,7 +20,7 @@ export const dateFormatOptions: {
     year: string;
 };
 
-// Warning: (ae-missing-release-tag) "Options" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Options" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface DeployOptions {
@@ -28,7 +28,7 @@ export interface DeployOptions {
     env?: NodeJS.ProcessEnv;
 }
 
-// Warning: (ae-missing-release-tag) "Dictionary" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Dictionary" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface Dictionary {
@@ -36,12 +36,12 @@ export interface Dictionary {
     [key: string]: string | string[] | number | number[] | boolean | boolean[] | symbol | undefined | null | Dictionary;
 }
 
-// Warning: (ae-missing-release-tag) "entriesResolvedFromEnv" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "entriesResolvedFromEnv" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const entriesResolvedFromEnv: (entries: any[], options?: DeployOptions) => string[];
 
-// Warning: (ae-missing-release-tag) "envVarNotFoundInEnv" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "envVarNotFoundInEnv" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const envVarNotFoundInEnv: (s: string) => string;
@@ -49,7 +49,7 @@ export const envVarNotFoundInEnv: (s: string) => string;
 // @public
 export const fisherYatesShuffle: <T>(array: T[]) => void;
 
-// Warning: (ae-missing-release-tag) "gcloudArgs" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "gcloudArgs" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const gcloudArgs: (config: any, options?: DeployOptions) => (string | number)[];
@@ -57,7 +57,7 @@ export const gcloudArgs: (config: any, options?: DeployOptions) => (string | num
 // @public
 export const isoString: (obj: UTCDateAsObject, options?: IsoStringConfig) => string;
 
-// Warning: (ae-missing-release-tag) "IsoStringConfig" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "IsoStringConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface IsoStringConfig {
@@ -83,12 +83,12 @@ export const itDateString: (ts: number) => string;
 // @public (undocumented)
 export const itDateStringAfterNDays: (date_string: string, n_days: number) => string;
 
-// Warning: (ae-missing-release-tag) "killFunctionsFramework" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "killFunctionsFramework" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const killFunctionsFramework: (child: ChildProcessWithoutNullStreams) => void;
 
-// Warning: (ae-missing-release-tag) "LOCALE_STRING_OPTIONS" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LOCALE_STRING_OPTIONS" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const LOCALE_STRING_OPTIONS: any;
@@ -99,7 +99,7 @@ export const logAlert: (data: LogData | string) => void;
 // @public (undocumented)
 export const logCritical: (data: LogData | string) => void;
 
-// Warning: (ae-missing-release-tag) "LogData" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "LogData" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface LogData {
@@ -127,6 +127,11 @@ export const logNotice: (data: LogData | string) => void;
 // @public (undocumented)
 export const logWarning: (data: LogData | string) => void;
 
+// Warning: (ae-missing-release-tag) "makeWaitMs" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const makeWaitMs: (ms: number) => () => Promise<string>;
+
 // Warning: (ae-internal-missing-underscore) The name "monorepoRoot" should be prefixed with an underscore because the declaration is marked as @internal
 //
 // @internal (undocumented)
@@ -153,32 +158,32 @@ export const nowAndPastUTC: (n: number) => {
 // @public
 export const range: (start: number, stop: number, step?: number) => number[];
 
-// Warning: (ae-missing-release-tag) "regexFactory" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "regexFactory" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const regexFactory: (tag?: string) => RegExp;
 
-// Warning: (ae-missing-release-tag) "renameJsFilesToMjs" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "renameJsFilesToMjs" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const renameJsFilesToMjs: (dir: string) => Promise<void>;
 
-// Warning: (ae-missing-release-tag) "requiredConfigValueNotSet" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "requiredConfigValueNotSet" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const requiredConfigValueNotSet: (s: string) => string;
 
-// Warning: (ae-missing-release-tag) "spawnFunctionsFramework" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "spawnFunctionsFramework" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const spawnFunctionsFramework: (options?: TestOptions) => Promise<ChildProcessWithoutNullStreams>;
 
-// Warning: (ae-missing-release-tag) "stringResolvedFromEnv" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "stringResolvedFromEnv" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const stringResolvedFromEnv: (s: string, options?: DeployOptions) => string | undefined;
 
-// Warning: (ae-missing-release-tag) "Options" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Options" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface TestOptions {
@@ -192,7 +197,7 @@ export interface TestOptions {
     target?: string;
 }
 
-// Warning: (ae-missing-release-tag) "UTCDateAsObject" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "UTCDateAsObject" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface UTCDateAsObject {
@@ -215,7 +220,12 @@ export interface UTCDateAsObject {
 // @public
 export const utcObjectFromDate: (date: Date) => UTCDateAsObject;
 
-// Warning: (ae-missing-release-tag) "walk" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "wait1000Ms" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const wait1000Ms: () => Promise<string>;
+
+// Warning: (ae-missing-release-tag) "walk" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export function walk(dir: string): AsyncGenerator<string>;

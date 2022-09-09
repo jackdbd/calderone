@@ -34,6 +34,7 @@
     "./logger": "./lib/logger.js",
     "./path": "./lib/path.js",
     "./test": "./lib/test.js",
+    "./wait": "./lib/wait.js",
     "./package.json": "./package.json"
   },
   "typesVersions": {
