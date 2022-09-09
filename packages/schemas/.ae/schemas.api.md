@@ -6,132 +6,132 @@
 
 import Joi from 'joi';
 
-// Warning: (ae-missing-release-tag) "job_id" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "job_id" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const cloud_run_job_id: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "region_id" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "region_id" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const cloud_run_job_region_id: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "task_index" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "task_index" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const cloud_run_job_task_index: Joi.NumberSchema;
 
-// Warning: (ae-missing-release-tag) "client" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "client" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const cloud_tasks_client: Joi.AnySchema<any>;
 
-// Warning: (ae-missing-release-tag) "queue_id" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "queue_id" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const cloud_tasks_queue_id: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "queue_location_id" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "queue_location_id" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const cloud_tasks_queue_location_id: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "country_code" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "country_code" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const country_code: Joi.AlternativesSchema;
 
-// Warning: (ae-missing-release-tag) "country_code_2_chars" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "country_code_2_chars" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const country_code_2_chars: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "country_code_3_chars" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "country_code_3_chars" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const country_code_3_chars: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "client" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "client" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const error_reporting_client: Joi.AnySchema<any>;
 
-// Warning: (ae-missing-release-tag) "client" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "client" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const firestore_client: Joi.AnySchema<any>;
 
-// Warning: (ae-missing-release-tag) "collection" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "collection" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const firestore_collection: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "doc_id" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "doc_id" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const firestore_doc_id: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "doc_result" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "doc_result" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const firestore_doc_result: Joi.ObjectSchema<any>;
 
-// Warning: (ae-missing-release-tag) "ref" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ref" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const firestore_ref: Joi.AnySchema<any>;
 
-// Warning: (ae-missing-release-tag) "node_env_allowed_value" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "node_env_allowed_value" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const node_env_allowed_value: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "node_env_allowed_values" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "node_env_allowed_values" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const node_env_allowed_values: Joi.ArraySchema;
 
-// Warning: (ae-missing-release-tag) "key" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "key" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const process_env_key: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "client" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "client" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const secret_manager_client: Joi.AnySchema<any>;
 
-// Warning: (ae-missing-release-tag) "secret_name" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "secret_name" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const secret_manager_secret_name: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "secret_version" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "secret_version" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const secret_manager_secret_version: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "chat_id" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "chat_id" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const telegram_chat_id: Joi.AlternativesSchema;
 
-// Warning: (ae-missing-release-tag) "credentials" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "credentials" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const telegram_credentials: Joi.ObjectSchema<TelegramCredentials>;
 
-// Warning: (ae-missing-release-tag) "text" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "text" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const telegram_text: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "token" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "token" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const telegram_token: Joi.StringSchema;
 
-// Warning: (ae-missing-release-tag) "Credentials" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Credentials" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface TelegramCredentials {
