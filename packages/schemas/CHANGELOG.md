@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/schemas [1.1.2](https://github.com/jackdbd/calderone/compare/@jackdbd/schemas@1.1.1...@jackdbd/schemas@1.1.2) (2022-09-09)
+
+
+### Bug Fixes
+
+* **schemas:** export all modules ([eaaab8d](https://github.com/jackdbd/calderone/commit/eaaab8dc9169dbd7fa8056cf0204f309b9e5a905))
+
 ## @jackdbd/schemas [1.1.1](https://github.com/jackdbd/calderone/compare/@jackdbd/schemas@1.1.0...@jackdbd/schemas@1.1.1) (2022-09-09)
 
 
