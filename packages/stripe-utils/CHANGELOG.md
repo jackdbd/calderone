@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## @jackdbd/stripe-utils [1.1.0-canary.2](https://github.com/jackdbd/calderone/compare/@jackdbd/stripe-utils@1.1.0-canary.1...@jackdbd/stripe-utils@1.1.0-canary.2) (2022-09-09)
+
+
+### Features
+
+* **stripe-utils:** remove debug and @jackdbd/utils from peerDependencies ([622d7ed](https://github.com/jackdbd/calderone/commit/622d7ed4ec5844fdb7cbf4e5c5cdb346c64929fd))
+
+
+### Bug Fixes
+
+* **stripe-utils:** fix typings for Stripe errors ([bcbb0d3](https://github.com/jackdbd/calderone/commit/bcbb0d3156c27c7b0f98745523f3f6e4c36d02ef))
+
 ## @jackdbd/stripe-utils [1.1.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/stripe-utils@1.0.2...@jackdbd/stripe-utils@1.1.0-canary.1) (2022-09-08)
 
 
