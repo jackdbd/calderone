@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/cloud-tasks-utils",
-  "version": "1.0.0-canary.2",
+  "version": "1.0.0",
   "description": "",
   "author": {
     "name": "Giacomo Debidda",
