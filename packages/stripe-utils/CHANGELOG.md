@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## @jackdbd/stripe-utils [1.1.0](https://github.com/jackdbd/calderone/compare/@jackdbd/stripe-utils@1.0.2...@jackdbd/stripe-utils@1.1.0) (2022-09-09)
+
+
+### Features
+
+* **stripe-utils:** add customersWithDuplicateEmails() ([028c685](https://github.com/jackdbd/calderone/commit/028c68526221974e395825700e2e2f1eca978be7))
+* **stripe-utils:** remove debug and @jackdbd/utils from peerDependencies ([622d7ed](https://github.com/jackdbd/calderone/commit/622d7ed4ec5844fdb7cbf4e5c5cdb346c64929fd))
+
+
+### Bug Fixes
+
+* **stripe-utils:** fix typings for Stripe errors ([bcbb0d3](https://github.com/jackdbd/calderone/commit/bcbb0d3156c27c7b0f98745523f3f6e4c36d02ef))
+* **stripe-utils:** forgot to export some TS interfaces and rebuild docs ([93db125](https://github.com/jackdbd/calderone/commit/93db1259cfcb827036f941bbb13c60031c901dd1))
+
 ## @jackdbd/stripe-utils [1.1.0-canary.2](https://github.com/jackdbd/calderone/compare/@jackdbd/stripe-utils@1.1.0-canary.1...@jackdbd/stripe-utils@1.1.0-canary.2) (2022-09-09)
 
 

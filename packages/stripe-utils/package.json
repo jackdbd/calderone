@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/stripe-utils",
-  "version": "1.1.0-canary.2",
+  "version": "1.1.0",
   "description": "Utility functions to work with Stripe",
   "author": {
     "name": "Giacomo Debidda",
