@@ -70,9 +70,9 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@jackdbd/utils": "1.2.0",
-    "debug": ">=4.0.0",
     "stripe": ">=9.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "stripe": "^10.8.0"
+  }
 }
