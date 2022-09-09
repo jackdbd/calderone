@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/secret-manager-utils [1.1.0](https://github.com/jackdbd/calderone/compare/@jackdbd/secret-manager-utils@1.0.3...@jackdbd/secret-manager-utils@1.1.0) (2022-09-09)
+
+
+### Features
+
+* **secret-manager-utils:** add function to initialize client from environment ([8eabb58](https://github.com/jackdbd/calderone/commit/8eabb58de2579ffc780cd714e434a17345f94ef2))
+
 ## @jackdbd/secret-manager-utils [1.1.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/secret-manager-utils@1.0.3...@jackdbd/secret-manager-utils@1.1.0-canary.1) (2022-09-08)
 
 
