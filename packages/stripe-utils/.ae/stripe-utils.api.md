@@ -6,7 +6,7 @@
 
 import Stripe from 'stripe';
 
-// Warning: (ae-missing-release-tag) "ConfigCustomersWithDuplicateEmails" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "ConfigCustomersWithDuplicateEmails" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ConfigCustomersWithDuplicateEmails {
@@ -42,7 +42,7 @@ export const customerFromPaymentIntentId: ({ stripe, pi_id }: CustomerFromPaymen
     error?: undefined;
 }>;
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface CustomerFromPaymentIntentIdConfig {
@@ -52,7 +52,7 @@ export interface CustomerFromPaymentIntentIdConfig {
     stripe: Stripe;
 }
 
-// Warning: (ae-missing-release-tag) "CustomersByEmail" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CustomersByEmail" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface CustomersByEmail {
@@ -63,7 +63,7 @@ export interface CustomersByEmail {
     }[];
 }
 
-// Warning: (ae-missing-release-tag) "customersWithDuplicateEmails" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "customersWithDuplicateEmails" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const customersWithDuplicateEmails: ({ stripe, ts_ms_begin, ts_ms_end }: ConfigCustomersWithDuplicateEmails) => Promise<{
@@ -93,7 +93,7 @@ export interface EmailIds {
     [email: string]: string[];
 }
 
-// Warning: (ae-missing-release-tag) "EnabledEventsForWebhookEndpoint" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "EnabledEventsForWebhookEndpoint" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface EnabledEventsForWebhookEndpoint {
@@ -103,13 +103,13 @@ export interface EnabledEventsForWebhookEndpoint {
     url: string;
 }
 
-// Warning: (ae-missing-release-tag) "enabledEventsForWebhookEndpoint" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "enabledEventsForWebhookEndpoint" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const enabledEventsForWebhookEndpoint: ({ stripe, url }: EnabledEventsForWebhookEndpoint) => Promise<string[]>;
 
 // @public
-export const errorFromStripe: (err: Stripe.StripeError) => {
+export const errorFromStripe: (err: Stripe.errors.StripeError) => {
     code: string | undefined;
     message: string;
     param: string | undefined;
@@ -125,7 +125,7 @@ export const isApiKeyTestMode: (s: string) => boolean;
 // @public
 export const stripeAccountMode: (api_key: string) => "live" | "test";
 
-// Warning: (ae-missing-release-tag) "StripeApiMode" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StripeApiMode" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export enum StripeApiMode {
@@ -135,7 +135,7 @@ export enum StripeApiMode {
     Test = "TEST"
 }
 
-// Warning: (ae-missing-release-tag) "StripeTaxCode" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "StripeTaxCode" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export enum StripeTaxCode {
