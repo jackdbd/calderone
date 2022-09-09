@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/fattureincloud-client",
-  "version": "1.0.2",
+  "version": "1.0.3-canary.1",
   "description": "Unofficial API client for FattureInCloud",
   "author": {
     "name": "Giacomo Debidda",
