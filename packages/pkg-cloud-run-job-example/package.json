@@ -1,0 +1,49 @@
+{
+  "name": "@jackdbd/pkg-cloud-run-job-example",
+  "version": "0.0.0",
+  "description": "example that shows how to create a Node.js executable with pkg and to deploy it to Cloud Run Jobs",
+  "author": {
+    "name": "Giacomo Debidda",
+    "email": "giacomo@giacomodebidda.com",
+    "url": "https://giacomodebidda.com/"
+  },
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "job"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackdbd/calderone"
+  },
+  "engines": {
+    "node": ">=16.15.0"
+  },
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "precontainer:build": "run-s clean",
+    "container:build": "docker build ./ --file Dockerfile --build-arg APP_NAME=pkg-cloud-run-job-example --tag calderone-pkg-cloud-run-job-example:latest",
+    "container:inspect": "dive calderone-pkg-cloud-run-job-example:latest",
+    "container:start:development": "docker run -it --rm -p 8080:8080 --env DEBUG=app/* --env NODE_ENV=development calderone-pkg-cloud-run-job-example:latest",
+    "container:start:production": "docker run -it --rm -p 8080:8080 --env NODE_ENV=production calderone-pkg-cloud-run-job-example:latest",
+    "predeploy": "run-s clean format lint test",
+    "deploy": "gcloud beta builds submit ./ --config cloudbuild.yaml --async",
+    "exe:build": "npm run clean && pkg -t node16-linux-x64 src/index.js && mkdir dist && mv index dist/executable",
+    "exe:start:development": "DEBUG=app/* NODE_ENV=development ./dist/executable",
+    "exe:start:production": "NODE_ENV=production ./dist/executable",
+    "format": "../../scripts/format.mjs",
+    "lint": "eslint --config ../../config/eslint.cjs",
+    "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
+    "__precommit": "lint-staged --config ../../config/lint-staged.cjs",
+    "start:development": "DEBUG=app/*, NODE_ENV=development node src/index.js",
+    "test": "npx jest --config jest.config.cjs --rootDir ./",
+    "test:ci": "npx jest --config jest.config.cjs --rootDir ./ --runInBand --ci"
+  },
+  "dependencies": {
+    "debug": "^4.3.3",
+    "phin": "^3.6.1"
+  },
+  "devDependencies": {}
+}
