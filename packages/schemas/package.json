@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/schemas",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "JSON schemas with Ajv (JSON schema validator)",
   "author": "Giacomo Debidda <giacomo@giacomodebidda.com> (https://giacomodebidda.com/)",
   "license": "MIT",

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## @jackdbd/schemas [1.1.0](https://github.com/jackdbd/calderone/compare/@jackdbd/schemas@1.0.0...@jackdbd/schemas@1.1.0) (2022-09-09)
+
+
+### Features
+
+* **schemas:** add several joi schemas ([161d5a0](https://github.com/jackdbd/calderone/commit/161d5a0f2b8b14acb9b964e731b8db99c61ff527))
+
+
+### Bug Fixes
+
+* **hapi-healthcheck-plugin,hapi-ip-whitelist-plugin:** add a bunch of .npmignore ([fac9a88](https://github.com/jackdbd/calderone/commit/fac9a88c50fc0264ab6a2e523e884ac2d323a049))
+* **schemas:** add "files" key in package.json ([8a4fd6c](https://github.com/jackdbd/calderone/commit/8a4fd6c12465323b13f30b2dcf35300f3ae6c6a9))
+* **schemas:** set private: false in package.json, rebuild docs ([c5fb16e](https://github.com/jackdbd/calderone/commit/c5fb16ebcd61758e98949238daa286c6a6103204))
+
 ## @jackdbd/schemas 1.0.0 (2022-05-13)
 
 * ci: try publishing to Artifact Registry ([3a86457](https://github.com/jackdbd/calderone/commit/3a86457))
