@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/tags-logger [1.1.0](https://github.com/jackdbd/calderone/compare/@jackdbd/tags-logger@1.0.0...@jackdbd/tags-logger@1.1.0) (2022-09-09)
+
+
+### Features
+
+* **tags-logger:** set default option to validate log statements to false when in production ([a32fa1f](https://github.com/jackdbd/calderone/commit/a32fa1f04784fa34dc1783e27016b8cfa676b63c))
+
 ## @jackdbd/tags-logger [1.1.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/tags-logger@1.0.0...@jackdbd/tags-logger@1.1.0-canary.1) (2022-09-08)
 
 
