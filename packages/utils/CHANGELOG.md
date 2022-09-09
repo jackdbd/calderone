@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/utils [1.3.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/utils@1.2.0...@jackdbd/utils@1.3.0-canary.1) (2022-09-09)
+
+
+### Features
+
+* **utils:** add makeWaitMs() ([203c28e](https://github.com/jackdbd/calderone/commit/203c28eb86b89dfca0f532391737271336761bd8))
+
 ## @jackdbd/utils [1.2.0](https://github.com/jackdbd/calderone/compare/@jackdbd/utils@1.1.3...@jackdbd/utils@1.2.0) (2022-08-22)
 
 
