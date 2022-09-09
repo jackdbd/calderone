@@ -1,49 +1,54 @@
-# remember that this steps are run from the package's `dist` directory
-
-# gcloud deploy for Cloud Functions
-# https://cloud.google.com/sdk/gcloud/reference/functions/deploy
-# M = megabyte, Mi = mebibyte, G = gigabyte, Gi = gibibyte
-# https://cloud.google.com/sdk/gcloud/reference/functions/deploy#--memory
-
 steps:
-  - name: node:${_NODE_VERSION}
+  - id: '⚙️ Install Node.js dependencies'
+    name: node:${_NODE_VERSION}
     entrypoint: npm
     args: ['install']
-  - name: node:${_NODE_VERSION}
-    entrypoint: npm
-    args: ['audit', '--audit-level=moderate']
-  - name: gcr.io/cloud-builders/gcloud:${_GCLOUD_VERSION}
+
+  - id: '🚀 Deploy to Cloud Functions (2nd generation)'
+    name: gcr.io/cloud-builders/gcloud:${_GCLOUD_VERSION}
     entrypoint: /bin/bash
+    # https://cloud.google.com/sdk/gcloud/reference/functions/deploy
+    # https://codelabs.developers.google.com/codelabs/cloud-starting-cloudfunctions-v2
     args:
       - -c
       - |
-        gcloud beta functions deploy ${_FUNCTION_NAME} \
+        gcloud functions deploy ${_FUNCTION_NAME} \
+          --gen2 \
+          --runtime nodejs16 \
           --no-allow-unauthenticated \
           --source ./ \
-          --entry-point entryPoint \
-          --memory 128M \
-          --runtime nodejs16 \
+          --entry-point ${_FUNCTION_ENTRY_POINT} \
+          --memory ${_MEMORY} \
           --min-instances 0 \
           --max-instances 1 \
           --project ${PROJECT_ID} \
-          --region ${_REGION_ID} \
+          --region ${_CLOUD_FUNCTIONS_REGION} \
           --service-account ${_SERVICE_ACCOUNT} \
-          --set-env-vars NODE_DEBUG=${_NODE_DEBUG},NODE_ENV=${_NODE_ENV} \
-          --set-secrets TELEGRAM=TELEGRAM:latest \
-          --timeout 10s \
+          --set-env-vars NODE_ENV=production \
+          --set-secrets TELEGRAM=${_TELEGRAM_SECRET_NAME}:${_TELEGRAM_SECRET_VERSION} \
+          --timeout ${_REQUEST_TIMEOUT} \
           --trigger-http \
-          --update-labels customer=personal,resource=function \
+          --update-labels customer=${_CUSTOMER},resource=function \
           --verbosity warning
 
 # user-defined substitutions and default values
 substitutions:
-  _FUNCTION_NAME: calderone-send-telegram-message
+  _CLOUD_FUNCTIONS_REGION: europe-west3
+  _CUSTOMER: personal
+  # Function entry point and function name could be different, but I think it
+  # would be confusing, so I use the same string.
+  _FUNCTION_ENTRY_POINT: send-telegram-message
+  _FUNCTION_NAME: send-telegram-message
   _GCLOUD_VERSION: latest
-  _NODE_DEBUG: send-telegram-message/*
-  _NODE_ENV: production
-  _NODE_VERSION: 16.14.0
-  _REGION_ID: europe-west3
+  # M = megabyte, Mi = mebibyte, G = gigabyte, Gi = gibibyte
+  # https://cloud.google.com/functions/docs/configuring/memory
+  _MEMORY: 128Mi
+  _NODE_VERSION: 16.15.1
+  _REQUEST_TIMEOUT: 10s
   _SERVICE_ACCOUNT: sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
+  _TELEGRAM_SECRET_NAME: TELEGRAM
+  _TELEGRAM_SECRET_VERSION: latest
+
 options:
     # https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#dynamic_substitutions
     dynamic_substitutions: true

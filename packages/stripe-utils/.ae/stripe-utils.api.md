@@ -6,15 +6,35 @@
 
 import Stripe from 'stripe';
 
-// Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
+// Warning: (ae-missing-release-tag) "ConfigCustomersWithDuplicateEmails" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// @public
-export const createPriceWithTaxBehavior: ({ behavior, price, stripe, created_at, created_by }: Config_2) => Promise<Stripe.Response<Stripe.Price>>;
+// @public (undocumented)
+export interface ConfigCustomersWithDuplicateEmails {
+    // (undocumented)
+    stripe: Stripe;
+    ts_ms_begin: number;
+    ts_ms_end: number;
+}
 
-// Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
-//
 // @public
-export const customerFromPaymentIntentId: ({ stripe, pi_id }: Config) => Promise<{
+export const createPriceWithTaxBehavior: ({ behavior, price, stripe, created_at, created_by }: CreatePriceWithTaxBehaviorConfig) => Promise<Stripe.Response<Stripe.Price>>;
+
+// @public (undocumented)
+export interface CreatePriceWithTaxBehaviorConfig {
+    // (undocumented)
+    behavior: 'inclusive' | 'exclusive';
+    // (undocumented)
+    created_at?: string;
+    // (undocumented)
+    created_by?: string;
+    // (undocumented)
+    price: Stripe.Price;
+    // (undocumented)
+    stripe: Stripe;
+}
+
+// @public
+export const customerFromPaymentIntentId: ({ stripe, pi_id }: CustomerFromPaymentIntentIdConfig) => Promise<{
     error: Error;
     value?: undefined;
 } | {
@@ -22,8 +42,36 @@ export const customerFromPaymentIntentId: ({ stripe, pi_id }: Config) => Promise
     error?: undefined;
 }>;
 
-// Warning: (ae-forgotten-export) The symbol "EmailIds" needs to be exported by the entry point index.d.ts
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
+// @public (undocumented)
+export interface CustomerFromPaymentIntentIdConfig {
+    // (undocumented)
+    pi_id: string;
+    // (undocumented)
+    stripe: Stripe;
+}
+
+// Warning: (ae-missing-release-tag) "CustomersByEmail" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CustomersByEmail {
+    // (undocumented)
+    [email: string]: {
+        id: string;
+        name?: string;
+    }[];
+}
+
+// Warning: (ae-missing-release-tag) "customersWithDuplicateEmails" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const customersWithDuplicateEmails: ({ stripe, ts_ms_begin, ts_ms_end }: ConfigCustomersWithDuplicateEmails) => Promise<{
+    customers_by_email: {};
+    query: string;
+    n_total: number;
+}>;
+
 // @public
 export const duplicates: ({ stripe, threshold, ts_start, ts_stop }: DuplicatesConfig) => Promise<EmailIds>;
 
@@ -39,14 +87,29 @@ export interface DuplicatesConfig {
     ts_stop: number;
 }
 
-// Warning: (ae-forgotten-export) The symbol "EnabledEventsForWebhookEndpoint" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "enabledEventsForWebhookEndpoint" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// @public (undocumented)
+export interface EmailIds {
+    // (undocumented)
+    [email: string]: string[];
+}
+
+// Warning: (ae-missing-release-tag) "EnabledEventsForWebhookEndpoint" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface EnabledEventsForWebhookEndpoint {
+    // (undocumented)
+    stripe: Stripe;
+    // (undocumented)
+    url: string;
+}
+
+// Warning: (ae-missing-release-tag) "enabledEventsForWebhookEndpoint" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const enabledEventsForWebhookEndpoint: ({ stripe, url }: EnabledEventsForWebhookEndpoint) => Promise<string[]>;
 
 // @public
-export const errorFromStripe: (err: Stripe.StripeError) => {
+export const errorFromStripe: (err: Stripe.errors.StripeError) => {
     code: string | undefined;
     message: string;
     param: string | undefined;
@@ -61,5 +124,35 @@ export const isApiKeyTestMode: (s: string) => boolean;
 
 // @public
 export const stripeAccountMode: (api_key: string) => "live" | "test";
+
+// Warning: (ae-missing-release-tag) "StripeApiMode" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export enum StripeApiMode {
+    // (undocumented)
+    Live = "LIVE",
+    // (undocumented)
+    Test = "TEST"
+}
+
+// Warning: (ae-missing-release-tag) "StripeTaxCode" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export enum StripeTaxCode {
+    // (undocumented)
+    AudioBooks = "txcd_10301000",
+    // (undocumented)
+    Books = "txcd_35010000",
+    // (undocumented)
+    DigitalBooksDownloadedNonSubscriptionWithPermanentRights = "txcd_10302000",
+    // (undocumented)
+    ElectronicallySuppliedServices = "txcd_10000000",
+    // (undocumented)
+    Nontaxable = "txcd_00000000",
+    // (undocumented)
+    Services = "txcd_20030000",
+    // (undocumented)
+    TangibleGoods = "txcd_99999999"
+}
 
 ```

@@ -14,5 +14,5 @@ isUkVat: (s: string) => boolean
 
 ## Remarks
 
-what about Brexit?
+after Brexit, a UK VAT number is no longer a Europer VAT number.
 

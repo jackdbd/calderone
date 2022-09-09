@@ -146,7 +146,7 @@ export const isSpanishVat = (s: string) => {
  *
  * @public
  *
- * @remarks what about Brexit?
+ * @remarks after Brexit, a UK VAT number is no longer a Europer VAT number.
  * @see [UK VAT after the transitional period](https://www.icaew.com/brexit/uk-vat-after-the-transition-period)
  * @see [VAT on goods after Brexit](https://www.kvk.nl/english/brexit/vat-on-goods-after-brexit/)
  * @see [UK exited EU VAT regime 31 December 2020](https://www.avalara.com/vatlive/en/vat-news/uk-to-leave-eu-vat-regime-31-dec-20200.html)
@@ -180,8 +180,7 @@ export const isEuropeanVat = (s: string) => {
     isIrishVat(s) ||
     isItalianVat(s) ||
     isLuxembourgishVat(s) ||
-    isSpanishVat(s) ||
-    isUkVat(s)
+    isSpanishVat(s)
 
   return b
 }

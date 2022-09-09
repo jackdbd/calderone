@@ -45,3 +45,5 @@ export { monorepoRoot, renameJsFilesToMjs, walk } from './path.js'
 
 export { spawnFunctionsFramework, killFunctionsFramework } from './test.js'
 export type { Options as TestOptions } from './test.js'
+
+export { makeWaitMs, wait1000Ms } from './wait.js'

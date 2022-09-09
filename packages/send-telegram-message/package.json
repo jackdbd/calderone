@@ -2,11 +2,16 @@
   "name": "@jackdbd/send-telegram-message",
   "version": "0.0.0",
   "description": "serverless function to send a message to a Telegram chat",
-  "author": "Giacomo Debidda <giacomo@giacomodebidda.com>",
+  "author": {
+    "name": "Giacomo Debidda",
+    "email": "giacomo@giacomodebidda.com",
+    "url": "https://giacomodebidda.com/"
+  },
   "license": "MIT",
   "private": true,
   "keywords": [
     "function",
+    "notification",
     "telegram"
   ],
   "repository": {
@@ -14,25 +19,23 @@
     "url": "https://github.com/jackdbd/calderone"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=16.15.0"
   },
-  "type": "commonjs",
-  "main": "main.js",
+  "type": "module",
+  "module": "index.js",
   "scripts": {
-    "build": "node ../../scripts/cloud-functions/build.mjs -p send-telegram-message",
-    "clean": "rimraf coverage dist 'tsconfig.tsbuildinfo'",
-    "predeploy": "run-s clean format build test",
-    "deploy": "gcloud beta builds submit ./dist --config cloudbuild.yaml --project $GCP_PROJECT_ID",
+    "predeploy": "run-s format lint test",
+    "deploy": "gcloud beta builds submit ./ --config cloudbuild.yaml --async",
     "format": "../../scripts/format.mjs",
     "lint": "eslint --config ../../config/eslint.cjs",
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
-    "start:local": "TELEGRAM=$(cat ../../secrets/telegram.json) npx functions-framework --source dist/main.js --target entryPoint --port 8080",
-    "test": "true"
+    "start:development": "NODE_ENV=development TELEGRAM=$(cat ../../secrets/telegram.json) functions-framework --source index.js --target send-telegram-message --port 8080",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.cjs --rootDir ./",
+    "test:ci": "NODE_OPTIONS=--experimental-vm-modules npx jest --config jest.config.cjs --rootDir ./ --runInBand --ci"
   },
   "dependencies": {
-    "@google-cloud/functions-framework": "^3.0.0",
-    "@jackdbd/notifications": "1.0.0"
-  },
-  "devDependencies": {}
+    "@google-cloud/functions-framework": "^3.1.2",
+    "@jackdbd/notifications": "^1.0.3"
+  }
 }

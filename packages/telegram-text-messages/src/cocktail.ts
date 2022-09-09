@@ -1,4 +1,5 @@
-import { MAX_CHARS } from './constants.js'
+import { Emoji } from './constants.js'
+import { genericText } from './generic-text.js'
 
 export interface Config {
   category: string
@@ -9,6 +10,9 @@ export interface Config {
   thumbnail: string
 }
 
+/**
+ * @see [TheCocktailDB API](https://www.thecocktaildb.com/api.php)
+ */
 export const cocktailText = ({
   category,
   glass,
@@ -17,29 +21,31 @@ export const cocktailText = ({
   preparation,
   thumbnail
 }: Config) => {
-  let s = `<b>${name}</b>`
-
-  s = `${s}\n<i>category: ${category}</i>`
+  const arr = [`category: ${category}`]
 
   const g = glass.toLowerCase()
-  // https://emojipedia.org/tumbler-glass/
-  // https://emojipedia.org/wine-glass/
-  // https://emojipedia.org/cocktail-glass/
   if (g.includes('collins') || g.includes('old-fashioned')) {
-    s = `${s}\n🥃 ${glass}`
+    arr.push(`${Emoji.TumblerGlass} ${glass}`)
   } else if (g.includes('cocktail')) {
-    s = `${s}\n🍸 ${glass}`
+    arr.push(`${Emoji.CocktailGlass} ${glass}`)
   } else {
-    s = `${s}\n🍷 ${glass}`
+    arr.push(`${Emoji.WineGlass} ${glass}`)
   }
 
   if (is_alcoholic) {
-    s = `${s}\n<b>alcoholic</b>`
+    arr.push(`alcoholic`)
   } else {
-    s = `${s}\n<b>non alcoholic</b>`
+    arr.push(`non alcoholic`)
   }
 
-  s = `${s}\n\n${preparation}\n\n${thumbnail}`
+  const description = `${preparation}\n\n${thumbnail}`
 
-  return s.slice(0, MAX_CHARS)
+  return genericText({
+    title: name,
+    subtitle: arr.join('\n'),
+    description,
+    links: [
+      { text: `TheCocktailDB`, href: `https://www.thecocktaildb.com/api.php` }
+    ]
+  })
 }

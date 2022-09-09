@@ -1,0 +1,44 @@
+[
+  {
+    "first_name": "Mario",
+    "last_name": "Rossi",
+    "city": "Viareggio",
+    "codice_fiscale": "ABCDEF84D11G628W",
+    "country": "IT",
+    "email": "mario@rossi.com",
+    "postal_code": 55049,
+    "province": "LU",
+    "street_line_1": "Via XYZ, 123",
+    "street_line_2": "Interno 5/A"
+  },
+  {
+    "first_name": "Luigi",
+    "last_name": "Verdi",
+    "city": "Milano",
+    "codice_fiscale": "ABCDEF84D11G628W",
+    "codice_sdi": "1234567",
+    "country": "IT",
+    "email": "luigi@verdi.com",
+    "partita_iva": "02600430462",
+    "postal_code": 20123,
+    "ragione_sociale": "Verdi S.R.L.",
+    "province": "MI",
+    "street_line_1": "Via XYZ, 123",
+    "street_line_2": "Interno 5/A"
+  },
+  {
+    "first_name": "Luca",
+    "last_name": "Neri",
+    "email": "luca@neri.com"
+  },
+  {
+    "first_name": "Marco",
+    "last_name": "Bianchi",
+    "email": "marco@bianchi.com"
+  },
+  {
+    "first_name": "Alessio",
+    "last_name": "Gialli",
+    "email": "alessio@gialli.com"
+  }
+]

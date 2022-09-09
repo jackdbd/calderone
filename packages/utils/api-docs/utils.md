@@ -46,6 +46,7 @@ Miscellaneous utility functions.
 |  [logInfo](./utils.loginfo.md) |  |
 |  [logNotice](./utils.lognotice.md) |  |
 |  [logWarning](./utils.logwarning.md) |  |
+|  [makeWaitMs](./utils.makewaitms.md) | Factory function that creates a promise-returning function that waits <code>ms</code> milliseconds and do nothing (useful for example for delaying an HTTP request to an API). |
 |  [nowAndFutureUTC](./utils.nowandfutureutc.md) |  |
 |  [nowAndPastTimestampMs](./utils.nowandpasttimestampms.md) |  |
 |  [nowAndPastUTC](./utils.nowandpastutc.md) |  |
@@ -56,4 +57,5 @@ Miscellaneous utility functions.
 |  [spawnFunctionsFramework](./utils.spawnfunctionsframework.md) | Spawns a child process that will launch the Functions Framework (basically a HTTP server) on the specified port. |
 |  [stringResolvedFromEnv](./utils.stringresolvedfromenv.md) |  |
 |  [utcObjectFromDate](./utils.utcobjectfromdate.md) | Converts a <code>Date</code> object into a simple JavaScript object where each field is a left-padded string. |
+|  [wait1000Ms](./utils.wait1000ms.md) | Waits 1 second and does nothing. |
 

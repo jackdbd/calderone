@@ -57,8 +57,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "ajv": ">=8.10.0",
-    "ajv-formats": ">=2.0.0"
+    "joi": ">=17.6.0 <18"
   },
   "devDependencies": {}
 }

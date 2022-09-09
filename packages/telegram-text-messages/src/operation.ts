@@ -1,4 +1,6 @@
-import { MAX_CHARS } from './constants.js'
+import { Emoji } from './constants.js'
+import { genericText } from './generic-text.js'
+import type { Section } from './interfaces.js'
 
 export interface Config {
   title: string
@@ -13,19 +15,32 @@ export const operationText = ({
   failures,
   warnings
 }: Config) => {
-  let s = `<b>${title}</b>`
+  const sections = [] as Section[]
 
   if (successes.length > 0) {
-    s = `${s}\n${successes.map((s) => `✅ ${s}`).join('\n')}`
+    sections.push({
+      title: `${successes.length} Successes`,
+      body: successes.map((s) => `${Emoji.Success} ${s}`).join('\n')
+    })
   }
 
   if (failures.length > 0) {
-    s = `${s}\n${failures.map((s) => `❌ ${s}`).join('\n')}`
+    sections.push({
+      title: `${failures.length} Failures`,
+      body: failures.map((s) => `${Emoji.Failure} ${s}`).join('\n')
+    })
   }
 
   if (warnings.length > 0) {
-    s = `${s}\n${warnings.map((s) => `⚠️ ${s}`).join('\n')}`
+    sections.push({
+      title: `${warnings.length} Warnings`,
+      body: warnings.map((s) => `${Emoji.Warning} ${s}`).join('\n')
+    })
   }
 
-  return s.slice(0, MAX_CHARS)
+  return genericText({
+    title,
+    description: '',
+    sections
+  })
 }

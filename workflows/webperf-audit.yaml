@@ -1,0 +1,228 @@
+# This workflow retrieves data from a spreadsheet using the Sheets connector.
+# The data in the spreadsheet contains the URLs to audit and the WebPageTest
+# configuration to use for the web performance audit.
+# https://cloud.google.com/workflows/docs/reference/googleapis/sheets/Overview
+
+main:
+  params: [args]
+  steps:
+
+  - assign_variables:
+      assign:
+        - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+        - sheet_id: 12Z3HBsRuuJp8yXTa9uaK2CzY6so_uIOrRGa8kaq8ZPk
+        - sheet_url: '${"https://docs.google.com/spreadsheets/d/" + sheet_id + "/"}'
+        - sheet_range_audit_urls: "queue!A2:B7"
+        - sheet_range_wpt_config: "wpt_config!A2:E5"
+        - max_urls_allowed: 5
+        # a tip for when the user receives a bad request error message
+        - tip_bad_request: '${"Double check Spreadsheet " + sheet_id + " range " + sheet_range_audit_urls}'
+        # I saw this in an example, but it seems it is not required
+        # - drive_scope: https://www.googleapis.com/auth/drive
+
+  - assign_args_or_defaults:
+      assign:
+        - is_audit_private: ${default(map.get(args, "is_audit_private"), 1)}
+
+  # retrieve secrets from Secret Manager #######################################
+
+  - retrieve_wpt_api_key:
+      call: googleapis.secretmanager.v1.projects.secrets.versions.accessString
+      args:
+        project_id: ${project_id}
+        secret_id: WEB_PAGE_TEST_API_KEY
+        version: "latest"
+      result: wpt_api_key
+
+  - log_wpt_api_key:
+      call: sys.log
+      args:
+        data: {
+          "WebPageTest API Key": "${wpt_api_key}"
+        }
+        severity: "WARNING"
+
+  - batch_get_spreadsheet_ranges:
+      # https://cloud.google.com/workflows/docs/reference/googleapis/sheets/v4/spreadsheets.values/batchGet
+      call: googleapis.sheets.v4.spreadsheets.values.batchGet
+      args:
+        spreadsheetId: ${sheet_id}
+        ranges:
+          - ${sheet_range_audit_urls}
+          - ${sheet_range_wpt_config}
+        majorDimension: COLUMNS
+      result: batch_get_values_response
+
+  - switch_on_batch_get_values_response:
+        switch:
+          # https://cloud.google.com/workflows/docs/reference/stdlib/map/get
+          # - condition: ${map.get(batch_get_values_response.valueRanges[0], ["values"]) == null}
+          - condition: ${not("values" in batch_get_values_response.valueRanges[0])}
+            raise:
+              code: 400
+              message: '${"No URLs to audit. " + tip_bad_request}'
+          - condition: ${len(batch_get_values_response.valueRanges[0].values) != 2}
+            raise:
+              code: 400
+              message: '${"The selected spreadsheet range did not return the expected number of columns (2). " + tip_bad_request}'
+          - condition: ${len(batch_get_values_response.valueRanges[0].values[0]) > max_urls_allowed}
+            raise:
+              code: 400
+              message: '${"Too many URLs to audit. Max is " + max_urls_allowed + ". " + tip_bad_request}'
+          - condition: ${len(batch_get_values_response.valueRanges[0].values[0]) != len(batch_get_values_response.valueRanges[0].values[1])}
+            next: log_urls_labels_mismatch
+        next: assign_urls_to_audit_and_wpt_config
+
+  - log_urls_labels_mismatch:
+      call: sys.log
+      args:
+        data: {
+          "message": '${"the length of URLs and labels do not match in range " + sheet_range_audit_urls}',
+          "urls_length": "${len(batch_get_values_response.valueRanges[0].values[0])}",
+          "labels_length": "${len(batch_get_values_response.valueRanges[0].values[1])}"
+        }
+        severity: "WARNING"
+
+  # - batch_clear_spreadsheet_ranges:
+  #     # https://cloud.google.com/workflows/docs/reference/googleapis/sheets/v4/spreadsheets.values/batchClear
+  #     call: googleapis.sheets.v4.spreadsheets.values.batchClear
+  #     args:
+  #       spreadsheetId: ${sheet_id}
+  #       body:
+  #         ranges:
+  #           - ${sheet_range_audit_urls}
+  #     result: batch_clear_values_response
+
+  - assign_urls_to_audit_and_wpt_config:
+      assign:
+        - urls: ${batch_get_values_response.valueRanges[0].values[0]}
+        - labels: ${batch_get_values_response.valueRanges[0].values[1]}
+        - locations: ${batch_get_values_response.valueRanges[1].values[0]}
+        - audit_responses: [] # will be re-assigned for each iteration of the inner loop
+        # - cleared_range: "${batch_clear_values_response.clearedRanges[0]}"
+
+  # - log_stuff:
+  #     call: sys.log
+  #     args:
+  #       data: {
+  #         "Spredsheet ID": "${batch_get_values_response.spreadsheetId}",
+  #         "valueRanges": "${batch_get_values_response.valueRanges}"
+  #       }
+  #       severity: "WARNING"
+
+  - outer_loop:
+      # https://cloud.google.com/workflows/docs/reference/syntax/iteration
+      # I think I could also use parallel execution here.
+      # https://cloud.google.com/workflows/docs/execute-parallel-steps
+      for:
+        value: url
+        index: i
+        in: ${urls}
+        steps:
+          - inner_loop:
+              for:
+                value: location
+                index: j
+                in: ${locations}
+                steps:
+                  - prepare_wpt_request_body:
+                      assign:
+                        - columns: ${batch_get_values_response.valueRanges[1].values}
+                        - record_chrome_performance_trace: ${columns[1][j]}
+                        - record_devtools_timeline: ${columns[2][j]}
+                        - record_filmstrip: ${columns[3][j]}
+                        - runs: ${columns[4][j]}
+                  - run_web_performance_audit:
+                      call: run_audit
+                      args:
+                        wpt_api_key: "${wpt_api_key}"
+                        url: "${url}"
+                        is_audit_private: "${is_audit_private}"
+                        label: "${labels[i]}"
+                        location: "${location}"
+                        record_chrome_performance_trace: "${record_chrome_performance_trace}"
+                        record_devtools_timeline: "${record_devtools_timeline}"
+                        record_filmstrip: "${record_filmstrip}"
+                        runs: "${runs}"
+                      result: audit_response
+                  - loop_assign:
+                      assign:
+                        # https://cloud.google.com/workflows/docs/reference/stdlib/list/concat
+                        - audit_responses: ${list.concat(audit_responses, audit_response)}
+
+  - respond_to_caller:
+      return: {
+        "message": '${len(audit_responses) + " performance audits were requested from Spreadsheet " + sheet_id}',
+        "sheet_url": "${sheet_url}",
+        "audit_responses": "${audit_responses}"
+        # "cleared_range": "${cleared_range}"
+      }
+
+# Subworkflows #################################################################
+# https://cloud.google.com/workflows/docs/reference/syntax/subworkflows
+run_audit:
+  params:
+    - wpt_api_key
+    - url
+    - is_audit_private
+    - label
+    - location
+    - record_chrome_performance_trace
+    - record_devtools_timeline
+    - record_filmstrip
+    - runs
+
+  steps:
+    - log_params:
+        call: sys.log
+        args:
+          data: {
+            "url": "${url}",
+            "label": "${label}",
+            "location": "${location}",
+            "is_audit_private": "${is_audit_private}",
+            "record_chrome_performance_trace": "${record_chrome_performance_trace}",
+            "record_devtools_timeline": "${record_devtools_timeline}",
+            "record_filmstrip": "${record_filmstrip}",
+            "runs": "${runs}"
+          }
+          severity: "DEBUG"
+
+    - run_wpt_test:
+        # https://docs.webpagetest.org/api/reference/
+        # https://docs.webpagetest.org/api/reference/#running-a-test
+        call: http.get
+        args:
+          url: https://www.webpagetest.org/runtest.php
+          query:
+            f: json
+            k: ${wpt_api_key}
+            label: ${label}
+            location: ${location}
+            # pingback: ${pingback}
+            private: ${is_audit_private}
+            profiler: ${record_chrome_performance_trace}
+            runs: ${runs}
+            timeline: ${record_devtools_timeline}
+            url: ${url}
+            video: ${record_filmstrip}
+        result: response
+    
+    - switch_on_response_body:
+        switch:
+          - condition: ${response.body.statusCode != 200}
+            next: return_failure
+        next: return_success
+    
+    - return_failure:
+        return: {
+          "errored": true,
+          "message": "${response.body.statusText}",
+          "status_code": "${response.body.statusCode}"
+        }
+
+    - return_success:
+        return: {
+          "message": "${response.body.statusText}",
+          "status_code": "${response.body.statusCode}"
+        }

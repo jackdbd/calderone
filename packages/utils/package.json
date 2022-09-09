@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/utils",
-  "version": "1.2.0",
+  "version": "1.3.0-canary.1",
   "description": "Miscellaneous utility functions",
   "author": {
     "name": "Giacomo Debidda",
@@ -34,6 +34,7 @@
     "./logger": "./lib/logger.js",
     "./path": "./lib/path.js",
     "./test": "./lib/test.js",
+    "./wait": "./lib/wait.js",
     "./package.json": "./package.json"
   },
   "typesVersions": {

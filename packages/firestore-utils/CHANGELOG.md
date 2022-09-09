@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/firestore-utils [1.3.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.2.0...@jackdbd/firestore-utils@1.3.0-canary.1) (2022-09-08)
+
+
+### Features
+
+* **firestore:** add function to initialize client from environment ([c73b1fd](https://github.com/jackdbd/calderone/commit/c73b1fd2ce2e59399afa4e8dba844f688c07cdb1))
+
 ## @jackdbd/firestore-utils [1.2.0](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.1.0...@jackdbd/firestore-utils@1.2.0) (2022-08-22)
 
 

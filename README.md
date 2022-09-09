@@ -63,7 +63,7 @@ npm dev:scripts
 Build all applications:
 
 ```sh
-npm run build -w packages/audit
+npm run build -w packages/send-telegram-message
 npm run build -w packages/telegram-bot
 npm run build -w packages/wasm-news
 npm run build -w packages/webhooks
@@ -138,7 +138,7 @@ See:
 
 ## Applications
 
-- [@jackdbd/audit](./packages/audit/README.md): application that retrieves records from [this Google Sheet](https://docs.google.com/spreadsheets/d/12Z3HBsRuuJp8yXTa9uaK2CzY6so_uIOrRGa8kaq8ZPk/edit#gid=0) and schedules web performance audits with [WebPageTest](https://docs.webpagetest.org/api/reference) using Google Cloud [Workflows](https://console.cloud.google.com/workflows?project=prj-kitchen-sink).
+- [@jackdbd/send-telegram-message](./packages/send-telegram-message/README.md): application that sends a message to a Telegram chat.
 - [@jackdbd/telegram-bot](./packages/telegram-bot/README.md): Telegram bot that I use for several things.
 - [@jackdbd/wasm-news](./packages/wasm-news/README.md): application that retrieves news about webassembly from several APIs (Reddit, Twitter, etc) and populates [this Google Sheets worksheet](https://docs.google.com/spreadsheets/d/1_px1dEv87iuDTTG6f6QfeSdNrGUhIsb941KDQwTOGLc).
 - [@jackdbd/webhooks](./packages/webhooks/README.md): application that receives webhook events from several third parties and handles them.

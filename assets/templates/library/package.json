@@ -55,7 +55,7 @@
     "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
     "test": "../../scripts/test.mjs",
     "test:ci": "../../scripts/test.mjs --ci",
-    "test:watch": "run-p \"build:ts -- --watch\" \"test -- --watch\""
+    "test:watch": "npm run test -- --watch"
   },
   "dependencies": {},
   "peerDependencies": {},

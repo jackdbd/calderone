@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-warningText: ({ app_name, app_version, links, warning_message, warning_title }: Config) => string
+warningText: (config: Config) => string
 ```

@@ -1,9 +1,6 @@
-import makeDebug from 'debug'
 import type Stripe from 'stripe'
 
-const debug = makeDebug('stripe-utils/webhooks')
-
-interface EnabledEventsForWebhookEndpoint {
+export interface EnabledEventsForWebhookEndpoint {
   stripe: Stripe
   url: string
 }
@@ -26,9 +23,6 @@ export const enabledEventsForWebhookEndpoint = async ({
   url
 }: EnabledEventsForWebhookEndpoint) => {
   const we_all = await stripe.webhookEndpoints.list()
-  debug(
-    `${we_all.data.length} webhook endpoints configured for this Stripe account`
-  )
   const we_matching_url = we_all.data.filter((d) => d.url === url)
   if (we_matching_url.length === 0) {
     throw new Error(notWebhookEnpointForStripeAccount(url))

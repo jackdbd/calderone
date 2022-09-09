@@ -32,6 +32,7 @@ export const statusCodeFromErrorCode = (error_code: number) => {
       // Forbidden
       return 403
     case 2002:
+    case 2007:
       // Too Many Requests
       return 429
     default:

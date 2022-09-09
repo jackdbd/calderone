@@ -9,5 +9,5 @@ Checks whether the argument passed to this function is a Node.js timeout or not.
 <b>Signature:</b>
 
 ```typescript
-isTimeout: (value: any) => value is NodeJS.Timeout
+isTimeout: (x: any) => x is NodeJS.Timeout
 ```

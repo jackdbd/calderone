@@ -1,31 +1,69 @@
-import Ajv from 'ajv'
-import { SchemaId } from '../lib/constants.js'
-import { country_code } from '../lib/country-code.js'
+import {
+  country_code,
+  country_code_2_chars,
+  country_code_3_chars
+} from '../lib/country-code.js'
 
 describe('country_code', () => {
-  // do NOT use allErrors in production
-  // https://ajv.js.org/security.html#security-risks-of-trusted-schemas
-  const ajv = new Ajv({
-    allErrors: true,
-    schemas: [country_code]
-  })
-
-  const validate = ajv.getSchema(SchemaId.CountryCode)
-
-  it('is valid for: `DE`, `ES`, `IT`, `UK', () => {
-    const COUNTRIES = ['DE', 'ES', 'IT', 'UK']
+  it('is valid for: `DE`, `ES`, `IT`, `GB', () => {
+    const COUNTRIES = ['DE', 'ES', 'IT', 'GB']
     COUNTRIES.forEach((code) => {
-      const valid = validate(code)
+      const { error, value } = country_code.validate(code)
 
-      expect(valid).toBeTruthy()
-      expect(validate.errors).toBeNull()
+      expect(error).not.toBeDefined()
+      expect(value).toBe(code)
     })
   })
 
-  it('is not valid for `ITA`', () => {
-    const valid = validate('ITA')
+  it('is valid for `DEU`, `ESP`, `ITA`, `GBR`', () => {
+    const COUNTRIES = ['DEU', 'ESP', 'ITA', 'GBR']
+    COUNTRIES.forEach((code) => {
+      const { error, value } = country_code.validate(code)
 
-    expect(valid).toBeFalsy()
-    expect(validate.errors.length).toBeGreaterThan(0)
+      expect(error).not.toBeDefined()
+      expect(value).toBe(code)
+    })
+  })
+})
+
+describe('country_code_2_chars', () => {
+  it('is valid for: `DE`, `ES`, `IT`, `GB', () => {
+    const COUNTRIES = ['DE', 'ES', 'IT', 'GB']
+    COUNTRIES.forEach((code) => {
+      const { error, value } = country_code_2_chars.validate(code)
+
+      expect(error).not.toBeDefined()
+      expect(value).toBe(code)
+    })
+  })
+
+  it('is NOT valid for `DEU`, `ESP`, `ITA`, `GBR`', () => {
+    const COUNTRIES = ['DEU', 'ESP', 'ITA', 'GBR']
+    COUNTRIES.forEach((code) => {
+      const { error } = country_code_2_chars.validate(code)
+
+      expect(error).toBeDefined()
+    })
+  })
+})
+
+describe('country_code_3_chars', () => {
+  it('is NOT valid for: `DE`, `ES`, `IT`, `GB', () => {
+    const COUNTRIES = ['DE', 'ES', 'IT', 'GB']
+    COUNTRIES.forEach((code) => {
+      const { error } = country_code_3_chars.validate(code)
+
+      expect(error).toBeDefined()
+    })
+  })
+
+  it('is valid for `DEU`, `ESP`, `ITA`, `GBR`', () => {
+    const COUNTRIES = ['DEU', 'ESP', 'ITA', 'GBR']
+    COUNTRIES.forEach((code) => {
+      const { error, value } = country_code_3_chars.validate(code)
+
+      expect(error).not.toBeDefined()
+      expect(value).toBe(code)
+    })
   })
 })

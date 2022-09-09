@@ -5,11 +5,11 @@ import Stripe from 'stripe'
  *
  * @public
  *
- * @see [Error.js - stripe-node](https://github.com/stripe/stripe-node/blob/4e82ccafda2017654ac264c070e7ebfa0e662fcd/lib/Error.js)
+ * @see [Error.js - stripe-node](https://github.com/stripe/stripe-node/blob/master/lib/Error.js)
  * @see [Error Handling - stripe-node Wiki](https://github.com/stripe/stripe-node/wiki/Error-Handling)
  * @see [Error codes - Stripe Docs](https://stripe.com/docs/error-codes)
  */
-export const errorFromStripe = (err: Stripe.StripeError) => {
+export const errorFromStripe = (err: Stripe.errors.StripeError) => {
   const prefix = '[stripe] '
 
   if (err instanceof Stripe.errors.StripeAPIError) {

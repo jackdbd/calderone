@@ -12,6 +12,7 @@ This package contains various functions to check inputs (i.e. predicates).
 |  --- | --- |
 |  [isAustrianVat](./checks.isaustrianvat.md) | Checks whether a string is a valid Austrian VAT number or not. |
 |  [isBelgianVat](./checks.isbelgianvat.md) | Checks whether a string is a valid Belgian VAT number or not. |
+|  [isBoolean](./checks.isboolean.md) | Checks whether the argument passed to this function is a boolean or not. |
 |  [isBulgarianVat](./checks.isbulgarianvat.md) | Checks whether a string is a valid Bulgarian VAT number or not. |
 |  [isCloudRunJob](./checks.iscloudrunjob.md) | Checks whether the code is being executed as a Cloud Run \*\*job\*\* or not. |
 |  [isCloudRunService](./checks.iscloudrunservice.md) | Checks whether the code is being executed as a Cloud Run \*\*service\*\* or not. |
@@ -31,11 +32,12 @@ This package contains various functions to check inputs (i.e. predicates).
 |  [isItalianFiscalCode](./checks.isitalianfiscalcode.md) | Checks whether a string is a valid Italian Fiscal Code (Codice Fiscale). |
 |  [isItalianVat](./checks.isitalianvat.md) | Checks whether a string is a valid Italian VAT number or not. |
 |  [isLuxembourgishVat](./checks.isluxembourgishvat.md) | Checks whether a string is a valid Luxembourgish VAT number or not. |
+|  [isNumber](./checks.isnumber.md) | Checks whether the argument passed to this function is a number or not. |
 |  [isOnCloudFunctions](./checks.isoncloudfunctions.md) | Checks whether a service is running on Cloud Functions or not. |
 |  [isOnCloudRun](./checks.isoncloudrun.md) | Checks whether a service is running on Cloud Run or not. |
 |  [isOnGithub](./checks.isongithub.md) | Checks whether the code is running on the GitHub CI or not. |
 |  [isSpanishVat](./checks.isspanishvat.md) | Checks whether a string is a valid Spanish VAT number or not. |
-|  [isString](./checks.isstring.md) |  |
+|  [isString](./checks.isstring.md) | Checks whether the argument passed to this function is a string or not. |
 |  [isTest](./checks.istest.md) | Checks whether the environment variable <code>NODE_ENV</code> is set to <code>test</code> or not. |
 |  [isTimeout](./checks.istimeout.md) | Checks whether the argument passed to this function is a Node.js timeout or not. |
 |  [isUkVat](./checks.isukvat.md) | Checks whether a string is a valid UK VAT number or not. |

@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## @jackdbd/telegram-text-messages [1.1.0-canary.2](https://github.com/jackdbd/calderone/compare/@jackdbd/telegram-text-messages@1.1.0-canary.1...@jackdbd/telegram-text-messages@1.1.0-canary.2) (2022-09-08)
+
+## @jackdbd/telegram-text-messages [1.1.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/telegram-text-messages@1.0.2...@jackdbd/telegram-text-messages@1.1.0-canary.1) (2022-09-08)
+
+
+### Features
+
+* **telegram-text-messages:** add texts for Cloud Run Jobs and refactor ([ff526a7](https://github.com/jackdbd/calderone/commit/ff526a7f6b64b06bc046f993cbd8b4ee79b40fbd))
+
+
+### Bug Fixes
+
+* **telegram-text-messages:** forgot to export some TS interfaces ([11dbc36](https://github.com/jackdbd/calderone/commit/11dbc36a317085c43c65ef863e1ea1a3a8a89068))
+
 ## <small>1.0.2 (2022-06-16)</small>
 
 * fix: set publishConfig access to public in many package.json ([c861108](https://github.com/jackdbd/calderone/commit/c861108))

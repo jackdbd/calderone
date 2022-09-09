@@ -6,11 +6,24 @@
 
 Utility functions that might be useful when working with Stripe.
 
+## Enumerations
+
+|  Enumeration | Description |
+|  --- | --- |
+|  [StripeApiMode](./stripe-utils.stripeapimode.md) | Stripe API mode. |
+|  [StripeTaxCode](./stripe-utils.stripetaxcode.md) | Stripe tax codes. |
+
 ## Interfaces
 
 |  Interface | Description |
 |  --- | --- |
+|  [ConfigCustomersWithDuplicateEmails](./stripe-utils.configcustomerswithduplicateemails.md) |  |
+|  [CreatePriceWithTaxBehaviorConfig](./stripe-utils.createpricewithtaxbehaviorconfig.md) |  |
+|  [CustomerFromPaymentIntentIdConfig](./stripe-utils.customerfrompaymentintentidconfig.md) |  |
+|  [CustomersByEmail](./stripe-utils.customersbyemail.md) |  |
 |  [DuplicatesConfig](./stripe-utils.duplicatesconfig.md) |  |
+|  [EmailIds](./stripe-utils.emailids.md) |  |
+|  [EnabledEventsForWebhookEndpoint](./stripe-utils.enabledeventsforwebhookendpoint.md) |  |
 
 ## Variables
 
@@ -18,6 +31,7 @@ Utility functions that might be useful when working with Stripe.
 |  --- | --- |
 |  [createPriceWithTaxBehavior](./stripe-utils.createpricewithtaxbehavior.md) | <p>Create a new <code>Stripe.Price</code> with a defined <code>tax_behavior</code>.</p><p>In Stripe we can update only <code>nickname</code> and <code>metadata</code> of a <code>Price</code>, so if we need to define <code>tax_behavior</code> we have to create a new <code>Price</code>.</p> |
 |  [customerFromPaymentIntentId](./stripe-utils.customerfrompaymentintentid.md) | Extracts the Stripe Customer from a Payment Intent Id. |
+|  [customersWithDuplicateEmails](./stripe-utils.customerswithduplicateemails.md) | <p>Finds all customers whose email appear more than once in the Stripe account.</p><p>The search is restricted to the time interval <code>[ts_md_begin, ts_md_end]</code>.</p> |
 |  [duplicates](./stripe-utils.duplicates.md) | Emails that appear more than <code>threshold</code> times in the given Stripe account. The search is restricted to the time range starting from <code>ts_start</code> to <code>ts_stop</code> (both excluded, and both expressed in Unix timestamps in seconds). |
 |  [enabledEventsForWebhookEndpoint](./stripe-utils.enabledeventsforwebhookendpoint.md) | <p>List of webhook events that the Stripe account <code>stripe</code> is allowed to send to the webhook endpoint <code>url</code>.</p><p>\*Note\*: you have to configure the events that Stripe sends to a webhook endpoint when you create/update a webhook endpoint in your Stripe account.</p> |
 |  [errorFromStripe](./stripe-utils.errorfromstripe.md) | Converts an error coming from Stripe into an object with a consistent shape. |

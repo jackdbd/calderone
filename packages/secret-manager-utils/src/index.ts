@@ -4,6 +4,9 @@ export type { Config as AddSecretVersionConfig } from './add-secret-version.js'
 export { accessSecretVersion } from './access-secret-version.js'
 export type { Config as AccessSecretVersionConfig } from './access-secret-version.js'
 
+export { secretManager } from './client.js'
+export type { Options as ClientOptions } from './client.js'
+
 export { createSecretAndFirstVersion } from './create-secret.js'
 export type { Config as CreateSecretAndFirstVersionConfig } from './create-secret.js'
 

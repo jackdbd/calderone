@@ -1,6 +1,6 @@
 import type Stripe from 'stripe'
 
-interface Config {
+export interface Config {
   pi_id: string
   stripe: Stripe
 }

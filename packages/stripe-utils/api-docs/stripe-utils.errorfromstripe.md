@@ -9,7 +9,7 @@ Converts an error coming from Stripe into an object with a consistent shape.
 <b>Signature:</b>
 
 ```typescript
-errorFromStripe: (err: Stripe.StripeError) => {
+errorFromStripe: (err: Stripe.errors.StripeError) => {
     code: string | undefined;
     message: string;
     param: string | undefined;

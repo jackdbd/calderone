@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/fattureincloud-client [1.0.3-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/fattureincloud-client@1.0.2...@jackdbd/fattureincloud-client@1.0.3-canary.1) (2022-09-09)
+
+
+### Bug Fixes
+
+* **fattureincloud-client:** improve error message when creating/updating too many invoices ([a9591b6](https://github.com/jackdbd/calderone/commit/a9591b6474c6c42b09a365609b8b9f17d90fe033))
+
 ## <small>1.0.2 (2022-06-16)</small>
 
 * fix: set publishConfig access to public in many package.json ([c861108](https://github.com/jackdbd/calderone/commit/c861108))

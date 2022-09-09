@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-country_code: JSONSchemaType<string>
+country_code: Joi.AlternativesSchema
 ```

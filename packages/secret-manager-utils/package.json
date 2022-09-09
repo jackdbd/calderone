@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/secret-manager-utils",
-  "version": "1.0.3",
+  "version": "1.1.0-canary.1",
   "description": "Utilities for Secret Manager",
   "author": {
     "name": "Giacomo Debidda",
@@ -32,6 +32,7 @@
     ".": "./lib/index.js",
     "./access-secret-version": "./lib/access-secret-version.js",
     "./add-secret-version": "./lib/add-secret-version.js",
+    "./client": "./lib/client.js",
     "./create-secret": "./lib/create-secret.js",
     "./destroy-secret-versions": "./lib/destroy-secret-versions.js",
     "./disable-secret-versions": "./lib/disable-secret-versions.js",

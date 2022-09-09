@@ -8,12 +8,6 @@ bindings:
   - serviceAccount:sa-artifact-registry-writer@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/artifactregistry.writer
 - members:
-  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
-  role: roles/bigquery.dataEditor
-- members:
-  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
-  role: roles/bigquery.jobUser
-- members:
   - serviceAccount:service-1051247446620@gcp-sa-bigquerydatatransfer.iam.gserviceaccount.com
   role: roles/bigquerydatatransfer.serviceAgent
 - members:
@@ -30,14 +24,12 @@ bindings:
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com 
-  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/clouddebugger.agent
 - members:
   - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
   role: roles/cloudfunctions.developer
 - members:
   - serviceAccount:sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
-  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/cloudfunctions.invoker
 - members:
@@ -85,20 +77,17 @@ bindings:
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com
-  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/errorreporting.writer
 - members:
   - serviceAccount:service-1051247446620@gcp-sa-firestore.iam.gserviceaccount.com
   role: roles/firestore.serviceAgent
 - members:
   - serviceAccount:sa-artifact-registry-writer@prj-kitchen-sink.iam.gserviceaccount.com
-  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - group:developers@giacomodebidda.com
   role: roles/iam.serviceAccountTokenCreator
 - members:
   - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
   - serviceAccount:sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
-  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   - group:developers@giacomodebidda.com
   role: roles/iam.serviceAccountUser
@@ -126,7 +115,6 @@ bindings:
 - members:
   - serviceAccount:sa-dash-earthquakes@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
-  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/run.invoker
 - members:
@@ -142,7 +130,6 @@ bindings:
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com 
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com 
-  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/secretmanager.secretAccessor
 - members:
@@ -161,15 +148,13 @@ bindings:
 - members:
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
-  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.invoker
 - members:
   - serviceAccount:service-1051247446620@gcp-sa-workflows.iam.gserviceaccount.com
   role: roles/workflows.serviceAgent
 - members:
-  - serviceAccount:sa-webperf-audit@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXm0fc67-I=
+etag: BwXm9qe8mgc=
 version: 1

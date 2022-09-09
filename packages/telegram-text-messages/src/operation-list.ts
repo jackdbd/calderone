@@ -1,6 +1,6 @@
-import { MAX_CHARS } from './constants.js'
-import type { Link } from './interfaces.js'
-import { operationText } from './operation.js'
+import { Emoji } from './constants.js'
+import { genericText } from './generic-text.js'
+import type { Link, Section } from './interfaces.js'
 import type { Config as OperationConfig } from './operation.js'
 
 export interface Config {
@@ -11,26 +11,44 @@ export interface Config {
   links?: Link[]
 }
 
-export const operationListText = ({
-  app_name,
-  app_version,
-  description,
-  operations,
-  links
-}: Config) => {
-  const s0 = `<b>${app_name}</b>`
-  const s1 = `<i>vers. ${app_version}</i>`
-  const s2 = `${description}`
+export const operationListText = (config: Config) => {
+  const { app_name, app_version, description, operations, links } = config
 
-  const s3 = operations.map((op) => operationText(op)).join('\n\n')
+  const sections = operations.map((op) => {
+    const subsections = [] as Section[]
 
-  let s4 = ''
-  if (links) {
-    const anchor_tags = links.map(
-      (link) => `<a href="${link.href}">${link.text}</a>`
-    )
-    s4 = anchor_tags.join('\n')
-  }
+    if (op.successes.length > 0) {
+      subsections.push({
+        title: `${op.successes.length} Successes`,
+        body: op.successes.map((s) => `${Emoji.Success} ${s}`).join('\n')
+      })
+    }
 
-  return `${s0}\n${s1}\n\n${s2}\n\n${s3}\n\n${s4}`.slice(0, MAX_CHARS)
+    if (op.failures.length > 0) {
+      subsections.push({
+        title: `${op.failures.length} Failures`,
+        body: op.failures.map((s) => `${Emoji.Failure} ${s}`).join('\n')
+      })
+    }
+
+    if (op.warnings.length > 0) {
+      subsections.push({
+        title: `${op.warnings.length} Warnings`,
+        body: op.warnings.map((s) => `${Emoji.Warning} ${s}`).join('\n')
+      })
+    }
+
+    return {
+      title: op.title,
+      body: subsections.map((sub) => `${sub.title}\n${sub.body}`).join('\n\n')
+    }
+  })
+
+  return genericText({
+    title: app_name,
+    subtitle: app_version,
+    description,
+    sections,
+    links
+  })
 }
