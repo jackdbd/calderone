@@ -24,8 +24,7 @@
   "typings": "lib/index.d.ts",
   "exports": {
     ".": "./lib/index.js",
-    "./country-code": "./lib/country-code.js",
-    "./sendgrid-email": "./lib/sendgrid-email.js",
+    "./*": "./lib/*.js",
     "./package.json": "./package.json"
   },
   "typesVersions": {
