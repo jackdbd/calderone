@@ -34,11 +34,14 @@ const trySendingTelegramMessage = async ({
   text
 }: SendConfig) => {
   try {
-    const { message, delivered } = await sendTelegramMessage({
-      chat_id,
-      token,
-      text
-    })
+    const { message, delivered } = await sendTelegramMessage(
+      {
+        chat_id,
+        token,
+        text
+      },
+      { disable_web_page_preview: true }
+    )
     return { value: { delivered, message } }
   } catch (err: any) {
     return { error: err as Error }
