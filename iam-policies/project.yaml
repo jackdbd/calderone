@@ -26,7 +26,7 @@ bindings:
 - members:
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
-  - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com 
+  - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/clouddebugger.agent
 - members:
   - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
@@ -146,9 +146,9 @@ bindings:
   - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
   - serviceAccount:sa-matsuri-demo-app@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
-  - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com 
+  - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-wasm-news@prj-kitchen-sink.iam.gserviceaccount.com
-  - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com 
+  - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/secretmanager.secretAccessor
 - members:

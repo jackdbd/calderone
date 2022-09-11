@@ -40,6 +40,18 @@ gcloud workflows deploy lead-generation \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
 
+### Serverless data pipeline
+
+```sh
+gcloud workflows deploy serverless-data-pipeline \
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION \
+  --description "Serverless data pipeline (variation of the codelab 'Building a Serverless Data Pipeline: IoT to Analytics')" \
+  --source workflows/serverless-data-pipeline.yaml \
+  --service-account $SA_WORKFLOWS_RUNNER \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
+```
+
 ### Web performance audit
 
 ```sh
@@ -155,4 +167,21 @@ You can find the list of available [Compute Engine images](https://cloud.google.
 
 ```sh
 gcloud compute images list
+```
+
+### Publish message to PubSub topic
+
+```sh
+gcloud pubsub topics publish weather-data \
+  --message '{
+    "sensorId": "sensor-xyz",
+    "zipcode": 55049,
+    "temperature": 98.5,
+    "timecollected": "2022-08-15 15:29:35",
+    "latitude": 43.8657,
+    "longitude": 10.2513,
+    "humidity": 1.23,
+    "dewpoint": 4.56,
+    "pressure": 7.89
+  }'
 ```
