@@ -1,0 +1,49 @@
+[
+  {
+    "name": "sensorId",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "timecollected",
+    "description": "UTC date string of when the sensor reading was collected",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "zipcode",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "latitude",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "longitude",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "temperature",
+    "description": "temperature in Farhenheit",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "humidity",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "dewpoint",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "pressure",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+  }
+]
