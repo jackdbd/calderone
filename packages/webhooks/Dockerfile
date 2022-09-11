@@ -10,9 +10,9 @@ LABEL maintainer="giacomo@giacomodebidda.com"
 ARG APP_NAME
 RUN if [ -z "${APP_NAME}" ] ; then echo "The APP_NAME argument is missing!" ; exit 1; fi
 
-RUN apt-get update && apt-get install --quiet --assume-yes sudo \
-  lsb-release \
-  tree
+# RUN apt-get update && apt-get install --quiet --assume-yes sudo \
+#   lsb-release \
+#   tree
 
 ENV APP_DIR=/usr/src/app
 ENV TYPE_ROOTS="${APP_DIR}/node_modules/@types,${APP_DIR}/custom-types"
@@ -55,9 +55,9 @@ FROM node:18.7-bullseye-slim
 # defined. That's why we have to repeat it here in this stage.
 ARG APP_NAME
 
-RUN apt-get update && apt-get install --quiet --assume-yes sudo \
-  lsb-release \
-  tree
+# RUN apt-get update && apt-get install --quiet --assume-yes sudo \
+#   lsb-release \
+#   tree
 
 ENV APP_GROUP=webhooks-group \
     APP_USER=webhooks-user \
@@ -84,11 +84,11 @@ RUN chown -R ${APP_USER} ./
 USER ${APP_USER}
 
 # check source code and installed dependencies
-RUN tree -a -L 3 .
+# RUN tree -a -L 3 .
 # check permissions
-RUN ls -1la
+# RUN ls -1la
 
 # I like to keep this line for troubleshooting
-RUN echo "App ${APP_NAME} will be run by user $(whoami) on $(lsb_release -i -s) $(lsb_release -r -s) and will listen on port ${APP_PORT}"
+# RUN echo "App ${APP_NAME} will be run by user $(whoami) on $(lsb_release -i -s) $(lsb_release -r -s) and will listen on port ${APP_PORT}"
 
 ENTRYPOINT ["node", "dist/main.js"]

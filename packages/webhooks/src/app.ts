@@ -13,25 +13,30 @@ import Vision from '@hapi/vision'
 import HapiSwagger from 'hapi-swagger'
 import { alertsPost } from './routes/alerts/post.js'
 import { npmPost } from './routes/npm/post.js'
+import { stripeGet } from './routes/stripe/get.js'
+import { stripePost } from './routes/stripe/post.js'
 import { webPageTestPingbackGet } from './routes/webpagetest/get.js'
 import { healthcheck } from '@jackdbd/hapi-healthcheck-plugin'
 import {
   errorReporting,
   // firestore as firestoreClient,
   googleSheets,
-  secretManager
+  secretManager,
+  stripe as stripeClient
 } from './clients/index.js'
 import { APP_NAME } from './constants.js'
 import {
   environment as environment_schema,
   app_config as app_config_schema,
   google_sheets_config as google_sheets_config_schema,
+  stripe_webhooks_config as stripe_webhooks_config_schema,
   telegram_credentials as telegram_credentials_schema
 } from './schemas.js'
 import {
   throwIfNotOnNodeJs,
   jsonFromEnvVarOrSecret,
-  jsonFromSecret
+  jsonFromSecret,
+  stringFromEnvVarOrSecret
 } from './utils.js'
 
 export const app = async () => {
@@ -68,12 +73,12 @@ export const app = async () => {
     google_sheets_secret_version,
     service_account_webperf_audit_secret_name,
     service_account_webperf_audit_secret_version,
-    // stripe_api_key_environment_variable,
-    // stripe_api_key_secret_name,
-    // stripe_api_key_secret_version,
-    // stripe_webhooks_environment_variable,
-    // stripe_webhooks_secret_name,
-    // stripe_webhooks_secret_version,
+    stripe_api_key_environment_variable,
+    stripe_api_key_secret_name,
+    stripe_api_key_secret_version,
+    stripe_webhooks_environment_variable,
+    stripe_webhooks_secret_name,
+    stripe_webhooks_secret_version,
     telegram_environment_variable,
     telegram_secret_name,
     telegram_secret_version
@@ -256,6 +261,53 @@ export const app = async () => {
     npmPost({
       telegram_chat_id,
       telegram_token
+    })
+  )
+
+  const { value: stripe_api_key, message: stripe_api_key_message } =
+    await stringFromEnvVarOrSecret({
+      description: 'Stripe API key',
+      environment_variable: stripe_api_key_environment_variable,
+      gcp_project_id,
+      secret_manager,
+      secret_name: stripe_api_key_secret_name,
+      secret_version: stripe_api_key_secret_version
+    })
+
+  server.log(['debug', 'configuration', 'stripe', 'api-key'], {
+    message: stripe_api_key_message
+  })
+
+  const { value: stripe_webhooks, message: stripe_webhooks_message } =
+    await jsonFromEnvVarOrSecret({
+      description: 'Stripe webhooks',
+      environment_variable: stripe_webhooks_environment_variable,
+      gcp_project_id,
+      schema: stripe_webhooks_config_schema,
+      secret_manager,
+      secret_name: stripe_webhooks_secret_name,
+      secret_version: stripe_webhooks_secret_version
+    })
+  const {
+    endpoint: stripe_webhook_endpoint,
+    signing_secret: stripe_webhook_signing_secret
+  } = stripe_webhooks
+
+  server.log(['debug', 'configuration', 'stripe', 'webhook'], {
+    message: stripe_webhooks_message
+  })
+
+  const stripe = stripeClient({ api_key: stripe_api_key })
+
+  server.route(stripeGet({ stripe, webhook_endpoint: stripe_webhook_endpoint }))
+
+  server.route(
+    stripePost({
+      stripe,
+      telegram_chat_id,
+      telegram_token,
+      webhook_endpoint: stripe_webhook_endpoint,
+      webhook_secret: stripe_webhook_signing_secret
     })
   )
 
