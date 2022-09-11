@@ -51,6 +51,17 @@ gcloud secrets create SENDGRID \
 ```
 
 ```sh
+gcloud secrets create STRIPE_API_KEY_TEST \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
+```
+
+```sh
+gcloud secrets create STRIPE_WEBHOOKS_TEST \
+  --data-file './secrets/stripe-webhooks-test.json' \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
+```
+
+```sh
 gcloud secrets create TELEGRAM \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
 ```

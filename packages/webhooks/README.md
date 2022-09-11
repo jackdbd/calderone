@@ -4,53 +4,35 @@ Application that receives webhook events from several third parties: [Cloud Moni
 
 ## Development
 
-Build and watch the web application with `tsc` in watch mode:
-
-```sh
-npm run build:watch -w packages/webhooks
-```
-
-In another terminal, create a HTTPS => HTTP tunnel with [ngrok](https://ngrok.com/) on port 8080 and launch the application with `NODE_ENV = development`:
+Start the **non-containerized** application and forward Stripe webhook events to localhost:8080:
 
 ```sh
 npm run dev -w packages/webhooks
 ```
 
-Then visit http://localhost:4040/status to know the public URL ngrok assigned you, and assign it the `WEBHOOKS_URL` environment variable in the `.envrc`.
-
-You can also visit to http://localhost:4040/inspect/http to inspect/replay past requests that were tunneled by ngrok.
-
-## Build
-
-### non-containerized application
-
-Build the web application:
+Or do the same thing, but with the containerized application:
 
 ```sh
-npm run build -w packages/webhooks
+npm run container:dev -w packages/webhooks
 ```
 
-Start the application in a `development` / `test` environment:
-
-```sh
-npm run start:development -w packages/webhooks
-npm run start:test -w packages/webhooks
-```
-
-### containerized application
-
-Build the container image:
+Note that you'll have to build the container image first:
 
 ```sh
 npm run container:build -w packages/webhooks
 ```
 
-Start the containerized application in a `development` / `production` environment:
+### Older instructions, with ngrok
+
+In another terminal, create a HTTPS => HTTP tunnel with [ngrok](https://ngrok.com/) on port 8080:
 
 ```sh
-npm run container:run:development -w packages/webhooks
-npm run container:run:production -w packages/webhooks
+npx ngrok http 8080
 ```
+
+Then visit http://localhost:4040/status to know the public URL ngrok assigned you, and assign it the `WEBHOOKS_URL` environment variable in the `.envrc`.
+
+You can also visit to http://localhost:4040/inspect/http to inspect/replay past requests that were tunneled by ngrok.
 
 ## Deploy to GCP Cloud Run
 
@@ -111,6 +93,12 @@ curl -X POST \
 ```
 
 List the webhooks registered with npm.js with `npm hook ls`.
+
+POST request made by a [Stripe webhook](https://stripe.com/docs/webhooks):
+
+```sh
+stripe trigger --api-key $STRIPE_API_KEY_TEST customer.created
+```
 
 POST request made by Cloud Monitoring when an [uptime check](https://cloud.google.com/monitoring/uptime-checks) fails:
 

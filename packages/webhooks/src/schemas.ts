@@ -1,5 +1,9 @@
 import Joi from 'joi'
-import type { AppConfig, TelegramCredentials } from './interfaces.js'
+import type {
+  AppConfig,
+  StripeWebhooksConfig,
+  TelegramCredentials
+} from './interfaces.js'
 
 export const app_business_name = Joi.string().min(1)
 
@@ -27,17 +31,26 @@ export const app_config = Joi.object<AppConfig>().keys({
   service_account_webperf_audit_secret_version:
     secret_manager_secret_version.required(),
 
-  // stripe_api_key_environment_variable: environment_variable_name.required(),
-  // stripe_api_key_secret_name: secret_manager_secret_name.required(),
-  // stripe_api_key_secret_version: secret_manager_secret_version.required(),
+  stripe_api_key_environment_variable: environment_variable_name.required(),
+  stripe_api_key_secret_name: secret_manager_secret_name.required(),
+  stripe_api_key_secret_version: secret_manager_secret_version.required(),
 
-  // stripe_webhooks_environment_variable: environment_variable_name.required(),
-  // stripe_webhooks_secret_name: secret_manager_secret_name.required(),
-  // stripe_webhooks_secret_version: secret_manager_secret_version.required(),
+  stripe_webhooks_environment_variable: environment_variable_name.required(),
+  stripe_webhooks_secret_name: secret_manager_secret_name.required(),
+  stripe_webhooks_secret_version: secret_manager_secret_version.required(),
 
   telegram_environment_variable: environment_variable_name.required(),
   telegram_secret_name: secret_manager_secret_name.required(),
   telegram_secret_version: secret_manager_secret_version.required()
+})
+
+const stripe_webhooks_endpoint = Joi.string().min(1)
+
+const stripe_webhooks_signing_secret = Joi.string().min(1)
+
+export const stripe_webhooks_config = Joi.object<StripeWebhooksConfig>().keys({
+  endpoint: stripe_webhooks_endpoint.required(),
+  signing_secret: stripe_webhooks_signing_secret.required()
 })
 
 interface NameToWorksheetTabIdMapping {
