@@ -1,0 +1,73 @@
+steps:
+  - id: '🐋 Build container image'
+    name: gcr.io/cloud-builders/docker
+    args:
+      - 'build'
+      - '.'
+      - '--file=Dockerfile'
+      - '--build-arg=APP_NAME=${_CLOUD_RUN_JOB_ID}'
+      - '--tag=${_CONTAINER_IMAGE}'
+
+  - id: '🛫 Push container image to Artifact Registry'
+    name: gcr.io/cloud-builders/docker
+    args: ['push', "${_CONTAINER_IMAGE}"]
+
+  # - id: '🚀 Create Cloud Run job'
+  #   name: gcr.io/cloud-builders/gcloud:${_GCLOUD_VERSION}
+  #   entrypoint: /bin/bash
+  #   args:
+  #     - -c
+  #     - |
+  #       gcloud beta run jobs create ${_CLOUD_RUN_JOB_ID} \
+  #         --image ${_CONTAINER_IMAGE} \
+  #         --labels customer=${_CUSTOMER},resource=cloud_run_job \
+  #         --max-retries ${_MAX_RETRIES_PER_FAILED_TASK} \
+  #         --memory ${_MEMORY} \
+  #         --region ${_CLOUD_RUN_JOB_REGION_ID} \
+  #         --service-account ${_SERVICE_ACCOUNT} \
+  #         --set-env-vars NODE_ENV=${_NODE_ENV} \
+  #         --tasks=1 \
+  #         --task-timeout=${_TASK_TIMEOUT} \
+  #         --verbosity warning
+
+  - id: '🚀 Update Cloud Run job'
+    name: gcr.io/cloud-builders/gcloud:${_GCLOUD_VERSION}
+    entrypoint: /bin/bash
+    args:
+      - -c
+      - |
+        gcloud beta run jobs update ${_CLOUD_RUN_JOB_ID} \
+          --image ${_CONTAINER_IMAGE} \
+          --max-retries ${_MAX_RETRIES_PER_FAILED_TASK} \
+          --memory ${_MEMORY} \
+          --region ${_CLOUD_RUN_JOB_REGION_ID} \
+          --service-account ${_SERVICE_ACCOUNT} \
+          --set-env-vars NODE_ENV=${_NODE_ENV} \
+          --tasks=1 \
+          --task-timeout=${_TASK_TIMEOUT} \
+          --update-labels customer=${_CUSTOMER},resource=cloud_run_job \
+          --verbosity warning
+
+# user-defined substitutions and default values
+substitutions:
+  _ARTIFACT_REGISTRY_DOCKER_REPOSITORY_ID: cloud-run-source-deploy
+  _ARTIFACT_REGISTRY_DOCKER_REPOSITORY_LOCATION_ID: europe-west3
+  _CLOUD_RUN_JOB_ID: ${_CONTAINER_IMAGE_NAME}
+  _CLOUD_RUN_JOB_REGION_ID: europe-west3
+  _CONTAINER_IMAGE: "${_ARTIFACT_REGISTRY_DOCKER_REPOSITORY_LOCATION_ID}-docker.pkg.dev/${PROJECT_ID}/${_ARTIFACT_REGISTRY_DOCKER_REPOSITORY_ID}/${_CONTAINER_IMAGE_NAME}:${_CONTAINER_IMAGE_TAG}"
+  _CONTAINER_IMAGE_NAME: pkg-cloud-run-job-example
+  _CONTAINER_IMAGE_TAG: latest
+  _CUSTOMER: personal
+  _GCLOUD_VERSION: latest
+  _MAX_RETRIES_PER_FAILED_TASK: '1'
+  # Cloud Run jobs must have at least 512MiB of memory.
+  # M = megabyte, Mi = mebibyte, G = gigabyte, Gi = gibibyte
+  # https://cloud.google.com/run/docs/configuring/memory-limits
+  _MEMORY: 512Mi
+  _NODE_ENV: production
+  _SERVICE_ACCOUNT: sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
+  _TASK_TIMEOUT: 10s
+
+options:
+    # https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#dynamic_substitutions
+    dynamic_substitutions: true

@@ -33,7 +33,7 @@
 
   /**
    * Configures how the doc model file (*.api.json) will be generated.
-
+   *
    * I think the generated JSON file SHOULD NOT be tracked by Git.
    * https://api-extractor.com/pages/configs/api-extractor_json/#doc-model-section
    */

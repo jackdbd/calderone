@@ -33,6 +33,15 @@ gcloud iam service-accounts create sa-dash-earthquakes \
   --display-name "dash-earthquakes SA"
 ```
 
+### sa-dataflow-worker
+
+Create a service account to run [Dataflow](https://cloud.google.com/dataflow/docs) jobs:
+
+```sh
+gcloud iam service-accounts create sa-dataflow-worker \
+  --display-name "SA Dataflow worker"
+```
+
 ### sa-firestore-user-test
 
 Service account that I use in [firestore-utils](../packages/firestore-utils/README.md) tests.

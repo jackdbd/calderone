@@ -15,38 +15,22 @@ RUN if [ -z "${APP_NAME}" ] ; then echo "The APP_NAME argument is missing!" ; ex
 #   tree
 
 ENV APP_DIR=/usr/src/app
-ENV TYPE_ROOTS="${APP_DIR}/node_modules/@types,${APP_DIR}/custom-types"
 
 WORKDIR ${APP_DIR}
 
 COPY package*.json ./
-COPY tsconfig-container.json ./
-# COPY custom-types ./custom-types
 
-RUN npm install --location=global typescript
-
-RUN npm install --save-dev \
-  @types/debug \
-  @types/google-spreadsheet \
-  @types/hapi__hapi \
-  @types/hapi__inert \
-  @types/hapi__vision \
-  @types/node
+RUN npm install --location=global pkg
 
 RUN npm install
 
 COPY src ./src
 
-# this is for troubleshooting TypeScript configuration
-# RUN echo "Compiling using TypeScript $(tsc --version): typeRoots is ${TYPE_ROOTS}"
-# RUN tsc --project tsconfig-container.json --typeRoots ${TYPE_ROOTS} --showConfig
+RUN pkg -t node16-linux-x64 src/index.js && \
+  mkdir dist && \
+  mv index dist/executable
 
-# this is the actual TypeScript compilation
-RUN tsc --project tsconfig-container.json --typeRoots ${TYPE_ROOTS}
-
-# check source code (TS), compiled code (JS), don't show dependencies and types
-# https://zaiste.net/posts/tree-ignore-directories-patterns/
-# RUN tree -I 'custom-types|node_modules' -a -L 3 ${APP_DIR}
+# RUN tree -I 'node_modules' -a -L 3 ${APP_DIR}
 
 # === STAGE 2 ================================================================ #
 FROM node:18.7-bullseye-slim
@@ -59,9 +43,8 @@ ARG APP_NAME
 #   lsb-release \
 #   tree
 
-ENV APP_GROUP=webhooks-group \
-    APP_USER=webhooks-user \
-    APP_PORT=8080 \
+ENV APP_GROUP=dk-group \
+    APP_USER=dk-user \
     BUILDER_APP_DIR=/usr/src/app
 
 # add a non-privileged user
@@ -71,12 +54,7 @@ RUN groupadd --system ${APP_GROUP} && \
 
 WORKDIR /home/${APP_USER}/${APP_NAME}
 
-# open a non-privileged port for the app to listen to
-EXPOSE ${APP_PORT}
-
-COPY --from=builder ${BUILDER_APP_DIR}/package.json ./
-COPY --from=builder ${BUILDER_APP_DIR}/node_modules ./node_modules
-COPY --from=builder ${BUILDER_APP_DIR}/dist ./dist
+COPY --from=builder ${BUILDER_APP_DIR}/dist/executable ./executable
 
 RUN chown -R ${APP_USER} ./
 
@@ -89,6 +67,6 @@ USER ${APP_USER}
 # RUN ls -1la
 
 # I like to keep this line for troubleshooting
-# RUN echo "App ${APP_NAME} will be run by user $(whoami) on $(lsb_release -i -s) $(lsb_release -r -s) and will listen on port ${APP_PORT}"
+# RUN echo "App ${APP_NAME} will be run by user $(whoami) on $(lsb_release -i -s) $(lsb_release -r -s)"
 
-ENTRYPOINT ["node", "dist/main.js"]
+ENTRYPOINT ["./executable"]
