@@ -8,6 +8,9 @@ bindings:
   - serviceAccount:sa-artifact-registry-writer@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/artifactregistry.writer
 - members:
+  - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
+  role: roles/bigquery.dataEditor
+- members:
   - serviceAccount:service-1051247446620@gcp-sa-bigquerydatatransfer.iam.gserviceaccount.com
   role: roles/bigquerydatatransfer.serviceAgent
 - members:
@@ -67,11 +70,23 @@ bindings:
   - serviceAccount:service-1051247446620@containerregistry.iam.gserviceaccount.com
   role: roles/containerregistry.ServiceAgent
 - members:
+  - serviceAccount:service-1051247446620@dataflow-service-producer-prod.iam.gserviceaccount.com
+  role: roles/dataflow.serviceAgent
+- members:
+  - serviceAccount:sa-dataflow-worker@prj-kitchen-sink.iam.gserviceaccount.com
+  role: roles/dataflow.worker
+- members:
+  - serviceAccount:service-1051247446620@gcp-sa-datapipelines.iam.gserviceaccount.com
+  role: roles/datapipelines.serviceAgent
+- members:
   - serviceAccount:sa-firestore-user-test@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/datastore.user
 - members:
   - serviceAccount:sa-firestore-viewer-test@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/datastore.viewer
+- members:
+  - serviceAccount:1051247446620@cloudservices.gserviceaccount.com
+  role: roles/editor
 - members:
   - serviceAccount:sa-matsuri-demo-app@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
@@ -79,17 +94,21 @@ bindings:
   - serviceAccount:sa-webhooks@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/errorreporting.writer
 - members:
+  - serviceAccount:service-1051247446620@gcp-sa-eventarc.iam.gserviceaccount.com
+  role: roles/eventarc.serviceAgent
+- members:
   - serviceAccount:service-1051247446620@gcp-sa-firestore.iam.gserviceaccount.com
   role: roles/firestore.serviceAgent
 - members:
-  - serviceAccount:sa-artifact-registry-writer@prj-kitchen-sink.iam.gserviceaccount.com
   - group:developers@giacomodebidda.com
+  - serviceAccount:sa-artifact-registry-writer@prj-kitchen-sink.iam.gserviceaccount.com
+  - serviceAccount:service-1051247446620@gcp-sa-pubsub.iam.gserviceaccount.com
   role: roles/iam.serviceAccountTokenCreator
 - members:
+  - group:developers@giacomodebidda.com
   - serviceAccount:1051247446620@cloudbuild.gserviceaccount.com
   - serviceAccount:sa-notifier@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
-  - group:developers@giacomodebidda.com
   role: roles/iam.serviceAccountUser
 - members:
   - serviceAccount:sa-dash-earthquakes@prj-kitchen-sink.iam.gserviceaccount.com
@@ -138,7 +157,7 @@ bindings:
   role: roles/storage.admin
 - members:
   - serviceAccount:sa-storage-uploader@prj-kitchen-sink.iam.gserviceaccount.com
-  role: roles/storage.objectCreator
+  role: roles/storage.objectAdmin
 - members:
   - serviceAccount:sa-compute-engine@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/storage.objectViewer
@@ -156,5 +175,5 @@ bindings:
 - members:
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXm9qe8mgc=
+etag: BwXoe2STVgM=
 version: 1
