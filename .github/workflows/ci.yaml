@@ -99,7 +99,9 @@ jobs:
 
       - name: ⬆️ Upload test coverage to Codecov
         # https://github.com/marketplace/actions/codecov
-        uses: codecov/codecov-action@v3.1.0
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
           fail_ci_if_error: true
           verbose: true
