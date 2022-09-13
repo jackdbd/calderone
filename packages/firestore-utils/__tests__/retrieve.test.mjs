@@ -6,6 +6,8 @@ import {
   FIRESTORE_TEST_COLLECTION
 } from './firestore-client.mjs'
 
+const TIMEOUT_MS = 10000
+
 describe('docResultsWithId', () => {
   let firestore_user
   let ref
@@ -34,21 +36,25 @@ describe('docResultsWithId', () => {
     await deleteAllDocsInCollection(ref)
   })
 
-  it('returns all documents with a non-null `id`', async () => {
-    const limit = 3
+  it(
+    'returns all documents with a non-null `id`',
+    async () => {
+      const limit = 3
 
-    await ref.doc().create({ id: 123 })
-    await ref.doc().create({ id: null })
-    await ref.doc().create({ id: 456 })
+      await ref.doc().create({ id: 123 })
+      await ref.doc().create({ id: null })
+      await ref.doc().create({ id: 456 })
 
-    const results = await docResultsWithId({ ref: read_only_ref, limit })
+      const results = await docResultsWithId({ ref: read_only_ref, limit })
 
-    expect(results).toHaveLength(2)
-    results.forEach((res) => {
-      expect(res).toHaveProperty('id')
-      expect(res.id).not.toBeNull()
-    })
-  })
+      expect(results).toHaveLength(2)
+      results.forEach((res) => {
+        expect(res).toHaveProperty('id')
+        expect(res.id).not.toBeNull()
+      })
+    },
+    TIMEOUT_MS
+  )
 })
 
 describe('docResultsWithData', () => {
