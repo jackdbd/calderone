@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/firestore-utils [1.4.0-canary.2](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.4.0-canary.1...@jackdbd/firestore-utils@1.4.0-canary.2) (2022-09-13)
+
+
+### Bug Fixes
+
+* **firestore-utils:** increase timeout in a test ([c1eac1b](https://github.com/jackdbd/calderone/commit/c1eac1bd076d71ec96659351c4fdaae1d945f2cd))
+
 ## @jackdbd/firestore-utils [1.4.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.3.0...@jackdbd/firestore-utils@1.4.0-canary.1) (2022-09-13)
 
 
