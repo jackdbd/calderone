@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/firestore-utils [1.4.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.3.0...@jackdbd/firestore-utils@1.4.0-canary.1) (2022-09-13)
+
+
+### Features
+
+* **firestore:** init client on Cloud Functions and Cloud Run service ([168a475](https://github.com/jackdbd/calderone/commit/168a475d4294e1111653c64a6bf6e42473ba5753))
+
 ## @jackdbd/firestore-utils [1.3.0](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.2.0...@jackdbd/firestore-utils@1.3.0) (2022-09-09)
 
 
