@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/secret-manager-utils [1.2.0](https://github.com/jackdbd/calderone/compare/@jackdbd/secret-manager-utils@1.1.0...@jackdbd/secret-manager-utils@1.2.0) (2022-09-14)
+
+
+### Features
+
+* **secret-manager-utils:** init client on Cloud Functions and Cloud Run service ([95973fb](https://github.com/jackdbd/calderone/commit/95973fb7bd7c78ccdd1b77a0f62068f99af037d2))
+
 ## @jackdbd/secret-manager-utils [1.2.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/secret-manager-utils@1.1.0...@jackdbd/secret-manager-utils@1.2.0-canary.1) (2022-09-13)
 
 
