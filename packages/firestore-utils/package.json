@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/firestore-utils",
-  "version": "1.3.0",
+  "version": "1.4.0-canary.3",
   "description": "Utility functions to work with Firestore",
   "author": {
     "name": "Giacomo Debidda",
@@ -65,8 +65,8 @@
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
     "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
-    "test": "../../scripts/test.mjs --runInBand",
-    "test:ci": "../../scripts/test.mjs --runInBand --ci",
+    "test": "../../scripts/test.mjs --runInBand --detectOpenHandles",
+    "test:ci": "../../scripts/test.mjs --ci --runInBand --detectOpenHandles",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
@@ -77,6 +77,6 @@
     "@google-cloud/firestore": ">=5.0.0"
   },
   "devDependencies": {
-    "@google-cloud/firestore": "^5.0.2"
+    "@google-cloud/firestore": "^6.0.0"
   }
 }

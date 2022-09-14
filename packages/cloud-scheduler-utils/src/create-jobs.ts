@@ -4,7 +4,7 @@ import type { protos } from '@google-cloud/scheduler'
 
 const debug = makeDebug('cloud-scheduler-utils/create-jobs')
 
-interface HttpJobConfig {
+export interface CreateHttpJobConfig {
   cloud_scheduler: CloudSchedulerClient
   description: string
   location_id: string
@@ -28,7 +28,7 @@ export const createHttpJob = async ({
   service_account_email,
   timezone,
   url_to_call
-}: HttpJobConfig) => {
+}: CreateHttpJobConfig) => {
   const job_name = `projects/${project_id}/locations/${location_id}/jobs/${name}`
   debug(`create job ${job_name}`)
 

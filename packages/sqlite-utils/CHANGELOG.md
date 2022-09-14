@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/sqlite-utils [1.1.1-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/sqlite-utils@1.1.0...@jackdbd/sqlite-utils@1.1.1-canary.1) (2022-09-14)
+
+
+### Bug Fixes
+
+* **sqlite-utils:** improve typings ([2aecd4b](https://github.com/jackdbd/calderone/commit/2aecd4bfce756ee5588d772fc00a4b122b4195a2))
+
 ## @jackdbd/sqlite-utils [1.1.0](https://github.com/jackdbd/calderone/compare/@jackdbd/sqlite-utils@1.0.1...@jackdbd/sqlite-utils@1.1.0) (2022-08-22)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/sqlite-utils",
-  "version": "1.1.0",
+  "version": "1.1.1-canary.1",
   "description": "Utility functions to work with SQLite",
   "author": {
     "name": "Giacomo Debidda",

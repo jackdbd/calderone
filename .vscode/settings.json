@@ -1,6 +1,13 @@
 {
   "editor.formatOnSave": false,
-  "files.associations": { "*.json": "jsonc" },
+  // The extension pflannery.vscode-versionlens works only if the file type
+  // associated to package.json is json, not jsonc.
+  // For tsconfig files we can use jsonc without issues.
+  // https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens
+  "files.associations": {
+    "*.json": "json",
+    "tsconfig*.json": "jsonc"
+  },
   "files.exclude": {
     "**/node_modules/": true
   },

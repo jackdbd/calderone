@@ -1,4 +1,4 @@
-interface Config {
+export interface Config {
   minute_min?: number
   minute_max?: number
   hour_min?: number

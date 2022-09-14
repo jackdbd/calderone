@@ -30,6 +30,10 @@ let params = [
   `${package_name}`
 ]
 
+if (process.argv.includes('--detectOpenHandles')) {
+  params.push('--detectOpenHandles')
+}
+
 if (process.argv.includes('--runInBand')) {
   params.push('--runInBand')
 }

@@ -37,12 +37,24 @@ export const secretManager = (options: Options = DEFAULT_OPTIONS) => {
     details.push(`process.env.CLOUD_RUN_JOB not set`)
   }
 
+  if (process.env.FUNCTION_SIGNATURE_TYPE) {
+    return new SecretManagerServiceClient()
+  } else {
+    details.push(`process.env.FUNCTION_SIGNATURE_TYPE not set`)
+  }
+
   if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
     return new SecretManagerServiceClient({
       keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS
     })
   } else {
     details.push(`process.env.GOOGLE_APPLICATION_CREDENTIALS not set`)
+  }
+
+  if (process.env.K_SERVICE) {
+    return new SecretManagerServiceClient()
+  } else {
+    details.push(`process.env.K_SERVICE not set`)
   }
 
   const env_key =

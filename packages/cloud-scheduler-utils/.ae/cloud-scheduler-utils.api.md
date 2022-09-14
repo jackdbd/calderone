@@ -7,29 +7,93 @@
 import type { CloudSchedulerClient } from '@google-cloud/scheduler';
 import type { protos } from '@google-cloud/scheduler';
 
-// Warning: (ae-forgotten-export) The symbol "HttpJobConfig" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "createHttpJob" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "createHttpJob" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const createHttpJob: ({ cloud_scheduler, description, location_id, name, project_id, req_body, schedule, service_account_email, timezone, url_to_call }: HttpJobConfig) => Promise<protos.google.cloud.scheduler.v1.IJob>;
+export const createHttpJob: ({ cloud_scheduler, description, location_id, name, project_id, req_body, schedule, service_account_email, timezone, url_to_call }: CreateHttpJobConfig) => Promise<protos.google.cloud.scheduler.v1.IJob>;
 
-// Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "deleteAllJobs" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "CreateHttpJobConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const deleteAllJobs: ({ cloud_scheduler, location_id, project_id }: Config) => Promise<void>;
+export interface CreateHttpJobConfig {
+    // (undocumented)
+    cloud_scheduler: CloudSchedulerClient;
+    // (undocumented)
+    description: string;
+    // (undocumented)
+    location_id: string;
+    // (undocumented)
+    name: string;
+    // (undocumented)
+    project_id: string;
+    // (undocumented)
+    req_body?: {
+        [key: string]: any;
+    };
+    // (undocumented)
+    schedule: string;
+    // (undocumented)
+    service_account_email?: string;
+    // (undocumented)
+    timezone: 'Europe/Rome';
+    // (undocumented)
+    url_to_call: string;
+}
 
-// Warning: (ae-forgotten-export) The symbol "DeleteJobConfig" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "deleteJob" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "deleteAllJobs" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export const deleteAllJobs: ({ cloud_scheduler, location_id, project_id }: DeleteAllJobsConfig) => Promise<void>;
+
+// Warning: (ae-missing-release-tag) "DeleteAllJobsConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface DeleteAllJobsConfig {
+    // (undocumented)
+    cloud_scheduler: CloudSchedulerClient;
+    // (undocumented)
+    location_id: string;
+    // (undocumented)
+    project_id?: string;
+}
+
+// Warning: (ae-missing-release-tag) "deleteJob" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const deleteJob: ({ cloud_scheduler, location_id, name, project_id }: DeleteJobConfig) => Promise<void>;
 
-// Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "randomSchedule" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "DeleteJobConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const randomSchedule: (config?: Config_2) => string;
+export interface DeleteJobConfig {
+    // (undocumented)
+    cloud_scheduler: CloudSchedulerClient;
+    // (undocumented)
+    location_id: string;
+    // (undocumented)
+    name: string;
+    // (undocumented)
+    project_id?: string;
+}
+
+// Warning: (ae-missing-release-tag) "randomSchedule" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export const randomSchedule: (config?: RandomScheduleConfig) => string;
+
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface RandomScheduleConfig {
+    // (undocumented)
+    hour_max?: number;
+    // (undocumented)
+    hour_min?: number;
+    // (undocumented)
+    minute_max?: number;
+    // (undocumented)
+    minute_min?: number;
+}
 
 // (No @packageDocumentation comment for this package)
 

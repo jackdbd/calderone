@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/cloud-scheduler-utils",
-  "version": "1.1.0",
+  "version": "1.2.0-canary.2",
   "description": "Utility functions to work with Cloud Sheduler",
   "author": {
     "name": "Giacomo Debidda",
@@ -61,8 +61,8 @@
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
     "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
-    "test": "../../scripts/test.mjs",
-    "test:ci": "../../scripts/test.mjs --ci",
+    "test": "../../scripts/test.mjs --runInBand --detectOpenHandles",
+    "test:ci": "../../scripts/test.mjs --ci --runInBand --detectOpenHandles",
     "test:watch": "run-p 'build:ts -- --watch' 'test -- --watch'"
   },
   "dependencies": {},

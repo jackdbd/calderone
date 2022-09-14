@@ -13,6 +13,7 @@ Utility functions for \[Firestore\](https://cloud.google.com/firestore).
 |  [BulkCopyConfig](./firestore-utils.bulkcopyconfig.md) |  |
 |  [BulkDeleteConfig](./firestore-utils.bulkdeleteconfig.md) |  |
 |  [BulkMoveConfig](./firestore-utils.bulkmoveconfig.md) |  |
+|  [ClientOptions](./firestore-utils.clientoptions.md) |  |
 |  [DocResultData](./firestore-utils.docresultdata.md) |  |
 |  [DocResultId](./firestore-utils.docresultid.md) |  |
 |  [DocResultsQueryConfig](./firestore-utils.docresultsqueryconfig.md) |  |
@@ -30,6 +31,7 @@ Utility functions for \[Firestore\](https://cloud.google.com/firestore).
 |  [deleteDocsMatchingQuery](./firestore-utils.deletedocsmatchingquery.md) | Deletes all documents matching a query. |
 |  [docResultsWithData](./firestore-utils.docresultswithdata.md) | Retrieves all Firestore documents that match the given <code>query</code>. Return an array of results where each element contains the Firestore document id <code>doc_id</code> and the document data <code>data</code>. |
 |  [docResultsWithId](./firestore-utils.docresultswithid.md) | <p>Retrieves all Firestore documents where the \*\*document data\*\* <code>id</code> is not null.</p><p>Returns an array of results where each element contains the Firestore document id <code>doc_id</code> and the document data id <code>id</code>.</p> |
+|  [firestore](./firestore-utils.firestore.md) | Initializes the Firestore client from the environment. |
 |  [moveData](./firestore-utils.movedata.md) | Moves Firestore document \*\*data\*\* from the Firestore document id <code>from</code>, to the Firestore document id <code>to</code>. |
 |  [shuffleWithFisherYates](./firestore-utils.shufflewithfisheryates.md) | Shuffles documents in a Firestore collection using the Fisher-Yates algorithm. |
 

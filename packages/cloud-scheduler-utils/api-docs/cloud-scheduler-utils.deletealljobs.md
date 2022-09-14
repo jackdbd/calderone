@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-deleteAllJobs: ({ cloud_scheduler, location_id, project_id }: Config) => Promise<void>
+deleteAllJobs: ({ cloud_scheduler, location_id, project_id }: DeleteAllJobsConfig) => Promise<void>
 ```
