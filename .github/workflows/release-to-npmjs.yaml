@@ -1,7 +1,6 @@
-name: 'release-to-npmjs'
+name: 'Release to npmjs.com'
 
 on:
-  pull_request:
   push:
     branches:
       - canary
@@ -14,7 +13,10 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: ['16.15.1']
+        # Use the Active LTS for this workflow
+        # https://nodejs.org/en/
+        # https://nodejs.org/en/about/releases/
+        node: ['16.17.0']
     steps:
       - name: 🛎️ Check out repo
         uses: actions/checkout@v3
@@ -24,10 +26,10 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: 👀 Check npm version
-        run: npm version
+      # - name: 👀 Check npm version
+      #   run: npm version
 
-      - name: ⬇️ Install dependencies from npmjs
+      - name: ⬇️ Install dependencies
         run: npm install
         # run: npm install --legacy-peer-deps
 
