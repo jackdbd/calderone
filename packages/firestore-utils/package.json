@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/firestore-utils",
-  "version": "1.4.0-canary.2",
+  "version": "1.4.0-canary.3",
   "description": "Utility functions to work with Firestore",
   "author": {
     "name": "Giacomo Debidda",
