@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/cloud-scheduler-utils [1.2.0-canary.2](https://github.com/jackdbd/calderone/compare/@jackdbd/cloud-scheduler-utils@1.2.0-canary.1...@jackdbd/cloud-scheduler-utils@1.2.0-canary.2) (2022-09-14)
+
+
+### Bug Fixes
+
+* **cloud-scheduler-utils:** add docs for some interfaces, improve tests ([4e6aad4](https://github.com/jackdbd/calderone/commit/4e6aad4dd07e0ff1ae6a3bf86fe8ad4a048bc0f8))
+
 ## @jackdbd/cloud-scheduler-utils [1.2.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/cloud-scheduler-utils@1.1.0...@jackdbd/cloud-scheduler-utils@1.2.0-canary.1) (2022-09-13)
 
 
