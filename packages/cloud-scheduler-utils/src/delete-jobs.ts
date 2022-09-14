@@ -3,7 +3,7 @@ import type { CloudSchedulerClient } from '@google-cloud/scheduler'
 
 const debug = makeDebug('cloud-scheduler-utils/delete-jobs')
 
-interface Config {
+export interface DeleteAllJobsConfig {
   cloud_scheduler: CloudSchedulerClient
   location_id: string
   project_id?: string
@@ -13,7 +13,7 @@ export const deleteAllJobs = async ({
   cloud_scheduler,
   location_id,
   project_id
-}: Config) => {
+}: DeleteAllJobsConfig) => {
   let prj_id = project_id
   if (!prj_id) {
     prj_id = await cloud_scheduler.getProjectId()
@@ -31,7 +31,7 @@ export const deleteAllJobs = async ({
   debug(`deleted ${jobs.length} jobs`)
 }
 
-interface DeleteJobConfig {
+export interface DeleteJobConfig {
   cloud_scheduler: CloudSchedulerClient
   location_id: string
   name: string

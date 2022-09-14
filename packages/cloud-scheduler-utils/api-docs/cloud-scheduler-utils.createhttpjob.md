@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-createHttpJob: ({ cloud_scheduler, description, location_id, name, project_id, req_body, schedule, service_account_email, timezone, url_to_call }: HttpJobConfig) => Promise<protos.google.cloud.scheduler.v1.IJob>
+createHttpJob: ({ cloud_scheduler, description, location_id, name, project_id, req_body, schedule, service_account_email, timezone, url_to_call }: CreateHttpJobConfig) => Promise<protos.google.cloud.scheduler.v1.IJob>
 ```
