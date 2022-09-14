@@ -21,7 +21,10 @@ export interface MoveDataConfig {
  *
  * @public
  */
-export const moveData = async <D>({ ref, document_ids }: MoveDataConfig) => {
+export const moveData = async <D extends { [x: string]: any }>({
+  ref,
+  document_ids
+}: MoveDataConfig) => {
   const read_promises = document_ids.map(async ({ from, to }) => {
     const doc_ref_from = ref.firestore.collection(ref.path).doc(from)
     const doc_from = await doc_ref_from.get()
