@@ -8,18 +8,21 @@ on:
     - main
 
 jobs:
-  ci-on-cloud-build:
-    name: CI on ${{ matrix.os }}, Node.js ${{ matrix.node }}
+  build-audit-test:
+    name: Build & Test all packages on ${{ matrix.os }}, Node ${{ matrix.node }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
-        # pick at least one Node.js `lts` version and the `current` version (i.e. the latest Node.js version available)
+        # Try testing all packages with:
+        # 1. Maintenance LTS
+        # 2. Active LTS
+        # 3. Current (i.e. the latest Node.js version available)
         # https://nodejs.org/en/
-        # node: ['16.15.1', 'current']
+        # https://nodejs.org/en/about/releases/
         # it seems Cloud Build complains with HTTP 429 if I trigger too many builds
         # Quota exceeded for quota metric 'Build and Operation Get requests'
-        node: ['16.15.1']
+        node: ['16.17.0', 'current']
     steps:
       - name: 🛎️ Check out repo
         uses: actions/checkout@v3
@@ -32,69 +35,70 @@ jobs:
       - name: ⚙️ Install dependencies
         run: npm ci
 
-      - name: 🛡️ Audit dependencies
+      - name: 🛡️ Audit dependencies (audit-level high)
         # https://docs.npmjs.com/cli/v8/commands/npm-audit#audit-level
         run: npm audit --audit-level high
 
-      - name: 🔧 Build packages
+      - name: 🛡️ Audit dependencies (audit-level moderate)
+        continue-on-error: true
+        run: npm audit --audit-level moderate
+
+      - name: 📦 Build all libraries
         run: npm run build:libs
 
-      - name: 🔍 Test library @jackdbd/checks
+      - name: 🔍 Test @jackdbd/checks
         run: npm run test:ci -w packages/checks
 
-      - name: 🔍 Test library @jackdbd/cloud-scheduler-utils
+      - name: 🔍 Test @jackdbd/cloud-scheduler-utils
         env:
           SA_NOTIFIER: ${{ secrets.SA_NOTIFIER }}
         run: npm run test:ci -w packages/cloud-scheduler-utils
 
-      - name: 🔍 Test library @jackdbd/cloud-tasks-utils
+      - name: 🔍 Test @jackdbd/cloud-tasks-utils
         run: npm run test:ci -w packages/cloud-tasks-utils
 
-      - name: 🔍 Test library @jackdbd/firestore-utils
+      - name: 🔍 Test @jackdbd/firestore-utils
         env:
           SA_FIRESTORE_USER_TEST: ${{ secrets.SA_FIRESTORE_USER_TEST }}
           SA_FIRESTORE_VIEWER_TEST: ${{ secrets.SA_FIRESTORE_VIEWER_TEST }}
         run: npm run test:ci -w packages/firestore-utils
 
-      - name: 🔍 Test library @jackdbd/notifications
+      - name: 🔍 Test @jackdbd/notifications
         env:
           TELEGRAM: ${{ secrets.TELEGRAM }}
         run: npm run test:ci -w packages/notifications
 
-      - name: 🔍 Test library @jackdbd/plausible-client
+      - name: 🔍 Test @jackdbd/plausible-client
         env:
           PLAUSIBLE: ${{ secrets.PLAUSIBLE }}
         run: npm run test:ci -w packages/plausible-client
 
-      - name: 🔍 Test library @jackdbd/schemas
+      - name: 🔍 Test @jackdbd/schemas
         run: npm run test:ci -w packages/schemas
 
-      - name: 🔍 Test library @jackdbd/secret-manager-utils
+      - name: 🔍 Test @jackdbd/secret-manager-utils
         env:
           SA_SECRET_MANAGER_ADMIN_TEST: ${{ secrets.SA_SECRET_MANAGER_ADMIN_TEST }}
         run: npm run test:ci -w packages/secret-manager-utils
 
-      - name: 🔍 Test library @jackdbd/send-telegram-message
+      - name: 🔍 Test @jackdbd/send-telegram-message
         env:
           TELEGRAM: ${{ secrets.TELEGRAM }}
         run: npm run test:ci -w packages/send-telegram-message
 
-      - name: 🔍 Test library @jackdbd/sqlite-utils
+      - name: 🔍 Test @jackdbd/sqlite-utils
         run: npm run test:ci -w packages/sqlite-utils
       
-      - name: 🔍 Test library @jackdbd/stripe-utils
+      - name: 🔍 Test @jackdbd/stripe-utils
         run: npm run test:ci -w packages/stripe-utils
 
-      - name: 🔍 Test library @jackdbd/tags-logger
+      - name: 🔍 Test @jackdbd/tags-logger
         run: npm run test:ci -w packages/tags-logger
 
-      # - name: 🔍 Test library @jackdbd/telegram-bot
-      #   run: npm run test:ci -w packages/telegram-bot
-
-      - name: 🔍 Test library @jackdbd/telegram-text-messages
+      - name: 🔍 Test @jackdbd/telegram-text-messages
         run: npm run test:ci -w packages/telegram-text-messages
 
-      - name: 🔍 Test library @jackdbd/utils
+      - name: 🔍 Test @jackdbd/utils
         run: npm run test:ci -w packages/utils
 
       - name: ⬆️ Upload test coverage to Codecov

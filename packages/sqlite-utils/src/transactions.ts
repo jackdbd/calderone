@@ -20,7 +20,7 @@ export interface BulkInsertConfig {
  *
  * @public
  */
-export const bulkInsert = <BindParams>({
+export const bulkInsert = <BindParams extends any[]>({
   db,
   insert_query
 }: BulkInsertConfig) => {
