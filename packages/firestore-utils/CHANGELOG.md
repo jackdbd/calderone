@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## @jackdbd/firestore-utils [1.4.0](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.3.0...@jackdbd/firestore-utils@1.4.0) (2022-09-14)
+
+
+### Features
+
+* **firestore:** init client on Cloud Functions and Cloud Run service ([168a475](https://github.com/jackdbd/calderone/commit/168a475d4294e1111653c64a6bf6e42473ba5753))
+
+
+### Bug Fixes
+
+* **firestore-utils:** improve typings ([5cb762a](https://github.com/jackdbd/calderone/commit/5cb762ad0aa3353f557c423fd61ad0b85a550fab))
+* **firestore-utils:** increase timeout in a test ([c1eac1b](https://github.com/jackdbd/calderone/commit/c1eac1bd076d71ec96659351c4fdaae1d945f2cd))
+
 ## @jackdbd/firestore-utils [1.4.0-canary.3](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.4.0-canary.2...@jackdbd/firestore-utils@1.4.0-canary.3) (2022-09-14)
 
 
