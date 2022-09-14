@@ -9,7 +9,9 @@ Moves Firestore document \*\*data\*\* from the Firestore document id `from`<!-- 
 <b>Signature:</b>
 
 ```typescript
-moveData: <D>({ ref, document_ids }: MoveDataConfig) => Promise<void>
+moveData: <D extends {
+    [x: string]: any;
+}>({ ref, document_ids }: MoveDataConfig) => Promise<void>
 ```
 
 ## Remarks

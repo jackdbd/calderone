@@ -5,6 +5,7 @@
 ```ts
 
 import type { CollectionReference } from '@google-cloud/firestore';
+import { Firestore } from '@google-cloud/firestore';
 import type { Query } from '@google-cloud/firestore';
 
 // @public
@@ -63,6 +64,14 @@ export interface BulkMoveConfig {
     query: Query;
 }
 
+// Warning: (ae-missing-release-tag) "Options" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ClientOptions {
+    // (undocumented)
+    env_key_json_string?: string;
+}
+
 // @public
 export const deleteAllDocsInCollection: (ref: CollectionReference) => Promise<string>;
 
@@ -113,8 +122,15 @@ export const errorFromFirestore: (err: any) => {
     status_code: number;
 };
 
+// Warning: (ae-missing-release-tag) "firestore" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
 // @public
-export const moveData: <D>({ ref, document_ids }: MoveDataConfig) => Promise<void>;
+export const firestore: (options?: ClientOptions) => Firestore;
+
+// @public
+export const moveData: <D extends {
+    [x: string]: any;
+}>({ ref, document_ids }: MoveDataConfig) => Promise<void>;
 
 // @public (undocumented)
 export interface MoveDataConfig {

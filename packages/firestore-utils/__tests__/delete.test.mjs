@@ -1,12 +1,9 @@
-import {
-  bulkDelete,
-  deleteAllDocsInCollection,
-  deleteDocsMatchingQuery
-} from '../lib/delete.js'
+import { afterAll, describe, expect, it } from '@jest/globals'
 import {
   firestoreUserClient,
   FIRESTORE_TEST_COLLECTION
 } from './firestore-client.mjs'
+import { bulkDelete, deleteAllDocsInCollection } from '../lib/delete.js'
 
 describe('bulkDelete', () => {
   const firestore = firestoreUserClient()
@@ -55,39 +52,5 @@ describe('bulkDelete', () => {
     expect(qs_after_delete.size).toBe(1)
 
     await deleteAllDocsInCollection(coll_ref)
-  })
-})
-
-describe('deleteDocsMatchingQuery', () => {
-  let firestore
-  let ref
-
-  beforeAll(async () => {
-    firestore = firestoreUserClient()
-    ref = firestore.collection(FIRESTORE_TEST_COLLECTION)
-  })
-
-  afterAll(async () => {
-    await firestore.terminate()
-  })
-
-  beforeEach(async () => {
-    await deleteAllDocsInCollection(ref)
-  })
-
-  afterEach(async () => {
-    await deleteAllDocsInCollection(ref)
-  })
-
-  it('deletes all documents matching `query`', async () => {
-    await ref.doc().create({ some_number: 1 })
-    await ref.doc().create({ some_number: 2 })
-    await ref.doc().create({ some_number: 3 })
-    await ref.doc().create({ some_number: 4 })
-    const query = ref.where('some_number', '>=', 2)
-
-    const message = await deleteDocsMatchingQuery(query)
-
-    expect(message).toBe('deleted 3 documents')
   })
 })

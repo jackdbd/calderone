@@ -65,8 +65,8 @@
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
     "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
-    "test": "../../scripts/test.mjs --runInBand",
-    "test:ci": "../../scripts/test.mjs --runInBand --ci",
+    "test": "../../scripts/test.mjs --runInBand --detectOpenHandles",
+    "test:ci": "../../scripts/test.mjs --ci --runInBand --detectOpenHandles",
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
