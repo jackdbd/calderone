@@ -1,13 +1,13 @@
 import { Emoji } from './constants.js'
-import { gcpCloudRunJobText } from './gcp-cloud-run-job-text.js'
+import { gcpCloudRunServiceText } from './gcp-cloud-run-service-text.js'
 import type { Section } from './interfaces.js'
 
 export interface Config {
   /**
-   * GCP region where the Cloud Run Job is being executed.
+   * GCP region where the Cloud Run service is being executed.
    * Is this available from the environment?
    */
-  cloud_run_job_region_id: string
+  cloud_run_service_region_id: string
 
   error: Error
 
@@ -15,7 +15,7 @@ export interface Config {
    * GCP project ID.
    * Is this available from the environment?
    */
-  gcp_project_id: string // is this available in the Cloud Run Jobs environment?
+  gcp_project_id: string // is this available in the Cloud Run service environment?
 
   title?: string
 }
@@ -32,13 +32,13 @@ export const DEFAULT_OPTIONS: Required<Options> = {
 
 /**
  * Convenience function for a text message that represents an error occurred in
- * a Cloud Run Jobs environment.
+ * a Cloud Run service environment.
  */
-export const gcpCloudRunJobErrorText = (
+export const gcpCloudRunServiceErrorText = (
   config: Config,
   options: Options = DEFAULT_OPTIONS
 ) => {
-  const { cloud_run_job_region_id, error, gcp_project_id } = config
+  const { cloud_run_service_region_id, error, gcp_project_id } = config
 
   const emoji =
     options.emoji !== undefined ? options.emoji : DEFAULT_OPTIONS.emoji
@@ -63,8 +63,8 @@ export const gcpCloudRunJobErrorText = (
     })
   }
 
-  const text = gcpCloudRunJobText({
-    cloud_run_job_region_id,
+  const text = gcpCloudRunServiceText({
+    cloud_run_service_region_id,
     description: `<pre>${error.message}</pre>`,
     gcp_project_id,
     sections,
