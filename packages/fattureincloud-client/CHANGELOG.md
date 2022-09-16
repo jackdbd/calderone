@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/fattureincloud-client [1.1.0](https://github.com/jackdbd/calderone/compare/@jackdbd/fattureincloud-client@1.0.3...@jackdbd/fattureincloud-client@1.1.0) (2022-09-16)
+
+
+### Features
+
+* **fattureincloud-client:** add missing option in listInvoices, improve typings ([6b200be](https://github.com/jackdbd/calderone/commit/6b200be8f61ffd6e2876929e122c3647595a51d8))
+
 ## @jackdbd/fattureincloud-client [1.0.3](https://github.com/jackdbd/calderone/compare/@jackdbd/fattureincloud-client@1.0.2...@jackdbd/fattureincloud-client@1.0.3) (2022-09-09)
 
 
