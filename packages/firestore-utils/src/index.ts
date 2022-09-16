@@ -24,6 +24,9 @@ export { errorFromFirestore } from './error.js'
 export { bulkMove, moveData, shuffleWithFisherYates } from './move.js'
 export type { BulkMoveConfig, MoveDataConfig } from './move.js'
 
+export { queries } from './query.js'
+export type { QueriesConfig } from './query.js'
+
 export { docResultsWithId, docResultsWithData } from './retrieve.js'
 
 export type {
