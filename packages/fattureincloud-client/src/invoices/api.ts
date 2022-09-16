@@ -26,7 +26,8 @@ import type {
   CreateRequestBody,
   DeleteRequestBody,
   ListOptions,
-  RetrieveConfig
+  RetrieveConfig,
+  RiassuntoFattura
 } from './interfaces.js'
 
 const debug = makeDebug('fattureincloud-client/invoices/api')
@@ -34,23 +35,36 @@ const debug = makeDebug('fattureincloud-client/invoices/api')
 const API_ENDPOINT = 'https://api.fattureincloud.it/v1/fatture'
 
 /**
- * Retrieve a paginated list of invoices.
+ * @public
+ */
+export interface ListResponseBody {
+  current_page: number
+  results: RiassuntoFattura[]
+  results_per_page: number
+  results_total: number
+  total_pages: number
+}
+
+/**
+ * Retrieves a paginated list of invoices.
  *
  * Each page can contain a maximum of 250 results. The FattureInCloud API does
  * not allow to configure how many results to return for each page.
  *
- * https://api.fattureincloud.it/v1/documentation/dist/#!/Documenti_emessi/DocLista
+ * @see [DocLista - FattureinCloud.it](https://api.fattureincloud.it/v1/documentation/dist/#!/Documenti_emessi/DocLista)
+ * @public
  */
 export const listInvoices = async (
   { api_key, api_uid }: Credentials,
   options?: ListOptions
-) => {
+): Promise<ListResponseBody> => {
   debug('list options (before validation and defaults) %O', options)
 
   const date_begin = options?.date_begin || ''
   const date_end = options?.date_end || ''
   const year = options?.year
   const page = options?.page || 1
+  const substring_ragione_sociale = options?.substring_ragione_sociale || ''
 
   if (page < 1) {
     throw new Error(`page must be >= 1`)
@@ -78,6 +92,7 @@ export const listInvoices = async (
     page,
     date_begin,
     date_end,
+    substring_ragione_sociale,
     year
   })
 
@@ -86,6 +101,7 @@ export const listInvoices = async (
       api_key,
       api_uid,
       anno: year,
+      cliente: substring_ragione_sociale,
       data_inizio: date_begin,
       data_fine: date_end,
       pagina: page
@@ -127,9 +143,10 @@ export const listInvoices = async (
 }
 
 /**
- * Retrieve a single invoice that matches the search criteria.
+ * Retrieves a single invoice that matches the search criteria.
  *
- * https://api.fattureincloud.it/v1/documentation/dist/#!/Documenti_emessi/DocDettagli
+ * @see [DocDettagli - FattureinCloud.it](https://api.fattureincloud.it/v1/documentation/dist/#!/Documenti_emessi/DocDettagli)
+ * @public
  */
 export const retrieveInvoice = async (
   { api_key, api_uid }: Credentials,
@@ -163,9 +180,10 @@ export const retrieveInvoice = async (
 }
 
 /**
- * Create a new invoice.
+ * Creates a new invoice.
  *
- * https://api.fattureincloud.it/v1/documentation/dist/#!/Documenti_emessi/DocNuovo
+ * @see [DocNuovo - FattureinCloud.it](https://api.fattureincloud.it/v1/documentation/dist/#!/Documenti_emessi/DocNuovo)
+ * @public
  */
 export const createInvoice = async (
   { api_key, api_uid }: Credentials,
@@ -321,9 +339,10 @@ export const createInvoice = async (
 }
 
 /**
- * Delete an invoice.
+ * Deletes an invoice.
  *
- * https://api.fattureincloud.it/v1/documentation/dist/#!/Documenti_emessi/DocElimina
+ * @see [DocElimina - FattureinCloud.it](https://api.fattureincloud.it/v1/documentation/dist/#!/Documenti_emessi/DocElimina)
+ * @public
  */
 export const deleteInvoice = async (
   { api_key, api_uid }: Credentials,
@@ -354,6 +373,8 @@ export const deleteInvoice = async (
 
 /**
  * Autopaginate results.
+ *
+ * @public
  */
 export async function* listInvoicesAsyncGenerator(
   credentials: Credentials,

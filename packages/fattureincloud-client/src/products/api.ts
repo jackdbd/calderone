@@ -11,6 +11,7 @@ import type {
   CreateRequestBody,
   DeleteRequestBody,
   ListOptions,
+  Product,
   RetrieveConfig
 } from './interfaces.js'
 
@@ -18,15 +19,23 @@ const debug = makeDebug('fattureincloud-client/products/api')
 
 const API_ENDPOINT = 'https://api.fattureincloud.it/v1/prodotti'
 
+export interface ListResponseBody {
+  current_page: number
+  results: Product[]
+  total_pages: number
+}
+
 /**
- * Retrieve a paginated list of products.
+ * Retrieves a paginated list of products.
  *
  * https://api.fattureincloud.it/v1/documentation/dist/#!/Prodotti/ProdottiLista
+ *
+ * @public
  */
 export const list = async (
   { api_key, api_uid }: Credentials,
   options?: ListOptions
-) => {
+): Promise<ListResponseBody> => {
   debug('list options (before validation and defaults) %O', options)
 
   const categoria = options?.categoria || ''
@@ -88,9 +97,11 @@ export const list = async (
 }
 
 /**
- * Retrieve a single product that matches the search criteria.
+ * Retrieves a single product that matches the search criteria.
  *
  * https://api.fattureincloud.it/v1/documentation/dist/#!/Prodotti/ProdottiLista
+ *
+ * @public
  */
 export const retrieve = async (
   { api_key, api_uid }: Credentials,
@@ -145,9 +156,11 @@ export const retrieve = async (
 }
 
 /**
- * Create a new product.
+ * Creates a new product.
  *
  * https://api.fattureincloud.it/v1/documentation/dist/#!/Prodotti/ProdottoNuovoSingolo
+ *
+ * @public
  */
 export const create = async (
   { api_key, api_uid }: Credentials,
@@ -175,9 +188,11 @@ export const create = async (
 }
 
 /**
- * Delete a product.
+ * Deletes a product.
  *
  * https://api.fattureincloud.it/v1/documentation/dist/#!/Prodotti/ProdottiElimina
+ *
+ * @public
  */
 export const deleteProduct = async (
   { api_key, api_uid }: Credentials,
@@ -208,6 +223,8 @@ export const deleteProduct = async (
 
 /**
  * Autopaginate results.
+ *
+ * @public
  */
 export async function* listAsyncGenerator(
   credentials: Credentials,

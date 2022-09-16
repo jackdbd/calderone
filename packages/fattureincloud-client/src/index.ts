@@ -1,50 +1,66 @@
-import makeDebug from 'debug'
-import type Bottleneck from 'bottleneck'
-import type { Credentials } from './interfaces.js'
+/**
+ * Entry point for the documentation of fattureincloud-client.
+ *
+ * @packageDocumentation
+ */
 
-import {
-  basicClient as customersBasicClient,
-  rateLimitedClient as customersRateLimitedClient
-} from './customers/clients.js'
+export { basicClient, rateLimitedClient } from './clients.js'
+export type { Client } from './clients.js'
 
-import {
-  basicClient as infoBasicClient,
-  rateLimitedClient as infoRateLimitedClient
-} from './info/clients.js'
+export type { Credentials } from './interfaces.js'
 
-import {
-  basicClient as invoicesBasicClient,
-  rateLimitedClient as invoicesRateLimitedClient
-} from './invoices/clients.js'
+export type { Client as CustomersClient } from './customers/clients.js'
+export type { ListResponseBody as CustomerListResponseBody } from './customers/api.js'
+export type {
+  Customer,
+  ListOptions as CustomerListOptions,
+  RetrieveConfig as CustomerRetrieveConfig,
+  CreateRequestBody as CustomerCreateRequestBody,
+  UpdateRequestBody as CustomerUpdateRequestBody,
+  DeleteRequestBody as CustomerDeleteRequestBody,
+  APIResponseBodyList as CustomerAPIResponseBodyList,
+  APIResponseBodyCreate as CustomerAPIResponseBodyCreate,
+  APIResponseBodyUpdate as CustomerAPIResponseBodyUpdate,
+  APIResponseBodyDelete as CustomerAPIResponseBodyDelete
+} from './customers/interfaces.js'
 
-import {
-  basicClient as productsBasicClient,
-  rateLimitedClient as productsRateLimitedClient
-} from './products/clients.js'
+export type { Client as InfoClient } from './info/clients.js'
+export type { AccountResponseBody as InfoAccountResponseBody } from './info/api.js'
+export type {
+  AccountOptions as InfoAccountOptions,
+  Conto as InfoAccount,
+  Iva as InfoVat,
+  Valuta as InfoCurrency
+} from './info/interfaces.js'
 
-const debug = makeDebug('fattureincloud-client/index')
+export type { Client as InvoicesClient } from './invoices/clients.js'
+export type { ListResponseBody as InvoiceListResponseBody } from './invoices/api.js'
+export type {
+  Articolo as InvoiceArticle,
+  Pagamento as InvoicePayment,
+  RiassuntoFattura as InvoiceSummary,
+  DettaglioFattura as InvoiceDetail,
+  CreateRequestBody as InvoiceCreateRequestBody,
+  ListOptions as InvoiceListOptions,
+  RetrieveConfig as InvoiceRetrieveConfig,
+  DeleteRequestBody as InvoiceDeleteRequestBody,
+  DataValidation as InvoiceDataValidation,
+  APIResponseBodyCreate as InvoiceAPIResponseBodyCreate,
+  APIResponseBodyDelete as InvoiceAPIResponseBodyDelete,
+  APIResponseBodyDetail as InvoiceAPIResponseBodyDetail,
+  APIResponseBodyList as InvoiceAPIResponseBodyList
+} from './invoices/interfaces.js'
 
-export const basicClient = (credentials: Credentials) => {
-  debug('make FattureInCloud basic API client')
-
-  return {
-    customers: customersBasicClient(credentials),
-    info: infoBasicClient(credentials),
-    invoices: invoicesBasicClient(credentials),
-    products: productsBasicClient(credentials)
-  }
-}
-
-export const rateLimitedClient = (
-  credentials: Credentials,
-  options?: Bottleneck.ConstructorOptions
-) => {
-  debug('make FattureInCloud rate-limited API client')
-
-  return {
-    customers: customersRateLimitedClient(credentials, options),
-    info: infoRateLimitedClient(credentials, options),
-    invoices: invoicesRateLimitedClient(credentials, options),
-    products: productsRateLimitedClient(credentials, options)
-  }
-}
+export type { Client as ProductsClient } from './products/clients.js'
+export type { ListResponseBody as ProductListResponseBody } from './products/api.js'
+export type {
+  Product,
+  ListOptions as ProductListOptions,
+  RetrieveConfig as ProductRetrieveConfig,
+  CreateRequestBody as ProductCreateRequestBody,
+  DeleteRequestBody as ProductDeleteRequestBody,
+  APIResponseBodyCreate as ProductAPIResponseBodyCreate,
+  APIResponseBodyList as ProductAPIResponseBodyList,
+  APIResponseBodyUpdate as ProductAPIResponseBodyUpdate,
+  APIResponseBodyDelete as ProductAPIResponseBodyDelete
+} from './products/interfaces.js'

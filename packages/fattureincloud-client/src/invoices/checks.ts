@@ -1,5 +1,7 @@
 import type { Articolo, DataValidation } from './interfaces.js'
 
+// TODO: use Joi instead of these functions.
+
 export const isArticoliValid = (lista_articoli?: Articolo[]) => {
   if (lista_articoli && lista_articoli.length > 0) {
     return true

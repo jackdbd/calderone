@@ -31,13 +31,16 @@
     ".": "./lib/index.js",
     "./customers": "./lib/customers/clients.js",
     "./customers/api": "./lib/customers/api.js",
+    "./error": "./lib/error.js",
     "./info": "./lib/info/clients.js",
     "./info/api": "./lib/info/api.js",
+    "./interfaces": "./lib/interfaces.js",
     "./invoices": "./lib/invoices/clients.js",
     "./invoices/api": "./lib/invoices/api.js",
     "./products": "./lib/products/clients.js",
     "./products/api": "./lib/products/api.js",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./rate-limit": "./lib/rate-limit.js"
   },
   "typesVersions": {
     "*": {
@@ -47,11 +50,17 @@
       "customers/*": [
         "./lib/customers/*.d.ts"
       ],
+      "error": [
+        "./lib/error.d.ts"
+      ],
       "info": [
         "./lib/info/clients.d.ts"
       ],
       "info/*": [
         "./lib/info/*.d.ts"
+      ],
+      "interfaces": [
+        "./lib/interfaces.d.ts"
       ],
       "invoices": [
         "./lib/invoices/clients.d.ts"
@@ -64,6 +73,9 @@
       ],
       "products/*": [
         "./lib/products/*.d.ts"
+      ],
+      "rate-limit": [
+        "./lib/rate-limit.d.ts"
       ]
     }
   },

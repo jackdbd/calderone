@@ -4,16 +4,32 @@ import { newErrorFromApiError } from '../error.js'
 import { headers } from '../headers.js'
 import type { Credentials } from '../interfaces.js'
 import type {
+  AccountOptions,
   APIResponseBodyAccountInfo,
-  AccountOptions
+  Conto,
+  Iva,
+  Valuta
 } from './interfaces.js'
 
 const debug = makeDebug('fattureincloud-client/info/api')
 
 const API_ENDPOINT = 'https://api.fattureincloud.it/v1/info'
 
+export interface AccountResponseBody {
+  success: true
+  giorni_rimanenti_licenza?: number
+  ragione_sociale?: string
+  piano_licenza?: string
+  lista_conti?: Conto[]
+  lista_iva?: Iva[]
+  lista_valute?: Valuta[]
+}
+
 /**
- * https://api.fattureincloud.it/v1/documentation/dist/#!/Info/InfoLista
+ * Returns info about a FattureinCloud account.
+ *
+ * @see [Informazioni e liste di diversa natura - FattureinCloud.it](https://api.fattureincloud.it/v1/documentation/dist/#!/Info/InfoLista)
+ * @public
  */
 export const account = async (
   { api_key, api_uid }: Credentials,
@@ -41,7 +57,7 @@ export const account = async (
     throw newErrorFromApiError({ error: b.error, error_code: b.error_code! })
   }
 
-  const response_body: any = { success: true } // TODO better type
+  const response_body: AccountResponseBody = { success: true } // TODO better type
 
   if (campi.includes('durata_licenza')) {
     response_body.giorni_rimanenti_licenza = b.durata_licenza

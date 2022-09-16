@@ -1,3 +1,6 @@
+/**
+ * Credentials of a FattureinCloud account.
+ */
 export interface Credentials {
   api_key: string
   api_uid: string
@@ -8,10 +11,12 @@ export interface APIResponseBodyError {
   error_code?: number
 }
 
-// export interface ResponseBody {
-//   /**
-//    * Appropriate status code for the HTTP request. This is necessary because the
-//    * FattureInCloud API always returns 200.
-//    */
-//   status_code: number
-// }
+export type PromiseReturningFn<T = any> = (...args: any) => Promise<T>
+
+export type AsyncGenReturningFn = (
+  ...args: any
+) => AsyncGenerator<any, void, unknown>
+
+export interface BasicClient {
+  [fn_name: string]: PromiseReturningFn | AsyncGenReturningFn
+}

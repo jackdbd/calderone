@@ -1,14 +1,8 @@
 import makeDebug from 'debug'
 import Bottleneck from 'bottleneck'
+import type { BasicClient, PromiseReturningFn } from './interfaces.js'
 
 const debug = makeDebug('fattureincloud-client/rate-limit')
-
-type PromiseReturningFn = (...args: any) => Promise<any>
-type AsyncGenReturningFn = (...args: any) => AsyncGenerator<any, void, unknown>
-
-type Client = {
-  [fn_name: string]: PromiseReturningFn | AsyncGenReturningFn
-}
 
 interface Value {
   default: number
@@ -24,12 +18,13 @@ const providedOrDefault = (v: Value) => {
 }
 
 /**
- * Wrap all methods of a FattureInCloud API client in a rate limit and return a
+ * Wraps all methods of a FattureInCloud API client in a rate limit and return a
  * new client that has a rate-limited version of all of its methods.
  *
- * The FattureInCloud API allows only 30 requests per minute.
+ * @remarks The FattureInCloud API allows only 30 requests per minute.
+ * @internal
  */
-export const rateLimitedClient = (
+export const rateLimitedClient = <Client extends BasicClient>(
   client: Client,
   options?: Bottleneck.ConstructorOptions
 ) => {
@@ -52,7 +47,8 @@ export const rateLimitedClient = (
   const limiter = new Bottleneck(limiter_options)
   debug('limiter options %O', limiter_options)
 
-  const rate_limited_client: Client = {}
+  const rate_limited_client: BasicClient = {}
+
   Object.entries(client).forEach((entry) => {
     const [fn_name, fn] = entry
     // a function that returns an async generator COULD be wrapped with
@@ -75,5 +71,6 @@ export const rateLimitedClient = (
       rate_limited_client[fn_name] = rate_limited_fn
     }
   })
-  return rate_limited_client
+
+  return rate_limited_client as Client
 }

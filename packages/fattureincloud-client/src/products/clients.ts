@@ -9,44 +9,65 @@ import {
   listAsyncGenerator as listProductsAsyncGenerator,
   retrieve as retrieveProduct
 } from './api.js'
+import type { ListResponseBody } from './api.js'
 import type {
+  Product,
   CreateRequestBody,
-  DeleteRequestBody,
   ListOptions,
+  DeleteRequestBody,
   RetrieveConfig
 } from './interfaces.js'
+import type { BasicClient } from '../interfaces.js'
 
 const debug = makeDebug('fattureincloud-client/products/client')
 
-export const basicClient = (credentials: Credentials) => {
+/**
+ * @public
+ */
+export interface Client extends BasicClient {
+  create: (config: CreateRequestBody) => Promise<{ id: string }>
+
+  delete: (config: DeleteRequestBody) => Promise<{ id: string }>
+
+  list: (options?: ListOptions) => Promise<ListResponseBody>
+
+  listAsyncGenerator: (
+    options?: ListOptions
+  ) => AsyncGenerator<ListResponseBody>
+
+  retrieve: (config: RetrieveConfig) => Promise<Product>
+}
+
+/**
+ * A basic client for FattureinCloud products.
+ *
+ * @public
+ */
+export const basicClient = (credentials: Credentials): Client => {
   debug('make FattureInCloud products API client')
 
   return {
-    create: (config: CreateRequestBody) => {
-      return createProduct(credentials, config)
-    },
+    create: (config) => createProduct(credentials, config),
 
-    delete: (config: DeleteRequestBody) => {
-      return deleteProduct(credentials, config)
-    },
+    delete: (config) => deleteProduct(credentials, config),
 
-    list: (options?: ListOptions) => {
-      return listProducts(credentials, options)
-    },
+    list: (options) => listProducts(credentials, options),
 
-    listAsyncGenerator: (options?: ListOptions) => {
-      return listProductsAsyncGenerator(credentials, options)
-    },
+    listAsyncGenerator: (options) =>
+      listProductsAsyncGenerator(credentials, options),
 
-    retrieve: (config: RetrieveConfig) => {
-      return retrieveProduct(credentials, config)
-    }
+    retrieve: (config) => retrieveProduct(credentials, config)
   }
 }
 
+/**
+ * A rate-limited client for FattureinCloud products.
+ *
+ * @public
+ */
 export const rateLimitedClient = (
   credentials: Credentials,
   options?: Bottleneck.ConstructorOptions
-) => {
+): Client => {
   return withRateLimit(basicClient(credentials), options)
 }

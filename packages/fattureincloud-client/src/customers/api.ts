@@ -10,6 +10,7 @@ import type {
   APIResponseBodyList,
   APIResponseBodyUpdate,
   CreateRequestBody,
+  Customer,
   DeleteRequestBody,
   ListOptions,
   RetrieveConfig,
@@ -21,17 +22,27 @@ const debug = makeDebug('fattureincloud-client/customers/api')
 const API_ENDPOINT = 'https://api.fattureincloud.it/v1/clienti'
 
 /**
- * Retrieve a paginated list of customers.
+ * @public
+ */
+export interface ListResponseBody {
+  current_page: number
+  results: Customer[]
+  total_pages: number
+}
+
+/**
+ * Retrieves a paginated list of customers.
  *
  * Each page can contain a maximum of 500 results. The FattureInCloud API does
  * not allow to configure how many results to return for each page.
  *
- * https://api.fattureincloud.it/v1/documentation/dist/#!/Anagrafica/AnagraficaLista
+ * @see [AnagraficaLista - FattureinCloud.it](https://api.fattureincloud.it/v1/documentation/dist/#!/Anagrafica/AnagraficaLista)
+ * @public
  */
 export const list = async (
   { api_key, api_uid }: Credentials,
   options?: ListOptions
-) => {
+): Promise<ListResponseBody> => {
   debug('list options (before validation and defaults) %O', options)
 
   const cf = options?.codice_fiscale || ''
@@ -94,9 +105,10 @@ export const list = async (
 }
 
 /**
- * Retrieve a single customer that matches the search criteria.
+ * Retrieves a single customer that matches the search criteria.
  *
- * https://api.fattureincloud.it/v1/documentation/dist/#!/Anagrafica/AnagraficaLista
+ * @see [AnagraficaLista - FattureinCloud.it](https://api.fattureincloud.it/v1/documentation/dist/#!/Anagrafica/AnagraficaLista)
+ * @public
  */
 export const retrieve = async (
   { api_key, api_uid }: Credentials,
@@ -150,9 +162,10 @@ export const retrieve = async (
 }
 
 /**
- * Create a new customer.
+ * Creates a new customer.
  *
- * https://api.fattureincloud.it/v1/documentation/dist/#!/Anagrafica/AnagraficaNuovoSingolo
+ * @see [AnagraficaNuovoSingolo - FattureinCloud.it](https://api.fattureincloud.it/v1/documentation/dist/#!/Anagrafica/AnagraficaNuovoSingolo)
+ * @public
  */
 export const create = async (
   { api_key, api_uid }: Credentials,
@@ -221,9 +234,10 @@ export const create = async (
 }
 
 /**
- * Update an existing customer.
+ * Updates an existing customer.
  *
- * https://api.fattureincloud.it/v1/documentation/dist/#!/Anagrafica/AnagraficaModifica
+ * @see [AnagraficaNuovoSingolo - FattureinCloud.it](https://api.fattureincloud.it/v1/documentation/dist/#!/Anagrafica/AnagraficaModifica)
+ * @public
  */
 export const update = async (
   { api_key, api_uid }: Credentials,
@@ -394,9 +408,10 @@ export const update = async (
 }
 
 /**
- * Delete a customer.
+ * Deletes a customer.
  *
- * https://api.fattureincloud.it/v1/documentation/dist/#!/Anagrafica/AnagraficaElimina
+ * @see [AnagraficaElimina - FattureinCloud.it](https://api.fattureincloud.it/v1/documentation/dist/#!/Anagrafica/AnagraficaElimina)
+ * @public
  */
 export const deleteCustomer = async (
   { api_key, api_uid }: Credentials,
@@ -427,6 +442,8 @@ export const deleteCustomer = async (
 
 /**
  * Autopaginate results.
+ *
+ * @public
  */
 export async function* listAsyncGenerator(
   credentials: Credentials,
