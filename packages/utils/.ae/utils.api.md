@@ -156,6 +156,21 @@ export const nowAndPastUTC: (n: number) => {
 };
 
 // @public
+export const partitions: <T = any>({ arr, size, include_remainder }: PartitionsConfig<T>) => T[][];
+
+// Warning: (ae-missing-release-tag) "PartitionsConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface PartitionsConfig<T> {
+    // (undocumented)
+    arr: T[];
+    // (undocumented)
+    include_remainder?: boolean;
+    // (undocumented)
+    size: number;
+}
+
+// @public
 export const range: (start: number, stop: number, step?: number) => number[];
 
 // Warning: (ae-missing-release-tag) "regexFactory" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)

@@ -47,6 +47,7 @@
     "prepare": "husky install",
     "publish:npmjs": "gcloud builds submit ./cloud-build --async --config cloud-build/publish-to-npmjs.yaml",
     "release:dry": "multi-semantic-release --dry-run --debug --ignore-private --ignore-packages=packages/send-telegram-message,packages/telegram-bot,packages/wasm-news,packages/webhooks",
+    "serve:docs": "npx http-server --port 8080 -c-1 -o docs",
     "size": "npm run size --workspaces --if-present",
     "stripe/check-customers": "tsm packages/scripts/src/stripe/check-customers.ts",
     "stripe/check-payment-intents": "tsm packages/scripts/src/stripe/check-payment-intents.ts",
@@ -57,8 +58,7 @@
     "stripe/report-duplicate-customers": "tsm packages/scripts/src/stripe/report-duplicate-customers.ts",
     "stripe/report-events": "tsm packages/scripts/src/stripe/report-events.ts",
     "test": "npm run test --workspaces --if-present",
-    "test:ci": "npm run test:ci --workspaces --if-present",
-    "webserver": "npx http-server --port 8080"
+    "test:ci": "npm run test:ci --workspaces --if-present"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
