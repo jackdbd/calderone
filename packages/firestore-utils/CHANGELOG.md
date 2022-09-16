@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/firestore-utils [1.5.0](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.4.1...@jackdbd/firestore-utils@1.5.0) (2022-09-16)
+
+
+### Features
+
+* **firestore-utils:** add fuction to address some Firestore query limitations ([e6006d4](https://github.com/jackdbd/calderone/commit/e6006d4a4e075df9cf61395d5071e6cf851ab236))
+
 ## @jackdbd/firestore-utils [1.4.1](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.4.0...@jackdbd/firestore-utils@1.4.1) (2022-09-16)
 
 

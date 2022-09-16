@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/firestore-utils",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Utility functions to work with Firestore",
   "author": {
     "name": "Giacomo Debidda",
