@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/telegram-text-messages [1.2.0](https://github.com/jackdbd/calderone/compare/@jackdbd/telegram-text-messages@1.1.0...@jackdbd/telegram-text-messages@1.2.0) (2022-09-16)
+
+
+### Features
+
+* **telegram-text-messages:** add texts for GCP Cloud Run services ([97eae0a](https://github.com/jackdbd/calderone/commit/97eae0afd1ff33490ec2662c08b1fb1ebfc1a370))
+
 ## @jackdbd/telegram-text-messages [1.2.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/telegram-text-messages@1.1.0...@jackdbd/telegram-text-messages@1.2.0-canary.1) (2022-09-15)
 
 
