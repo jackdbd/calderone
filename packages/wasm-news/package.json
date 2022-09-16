@@ -54,7 +54,7 @@
     "@jackdbd/hapi-healthcheck-plugin": "1.0.2",
     "@jackdbd/notifications": "1.0.0",
     "@jackdbd/secret-manager-utils": "1.0.0",
-    "@jackdbd/telegram-text-messages": "1.0.0",
+    "@jackdbd/telegram-text-messages": "^1.1.0",
     "@jackdbd/utils": "^1.1.3",
     "@octokit/rest": "18.12.0",
     "debug": "4.3.4",
