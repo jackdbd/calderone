@@ -4,21 +4,10 @@
 
 ## rateLimitedClient variable
 
+A rate-limited client for all endpoints of the FattureinCloud API.
+
 <b>Signature:</b>
 
 ```typescript
-rateLimitedClient: (credentials: Credentials, options?: Bottleneck.ConstructorOptions) => {
-    customers: {
-        [fn_name: string]: ((...args: any) => Promise<any>) | ((...args: any) => AsyncGenerator<any, void, unknown>);
-    };
-    info: {
-        [fn_name: string]: ((...args: any) => Promise<any>) | ((...args: any) => AsyncGenerator<any, void, unknown>);
-    };
-    invoices: {
-        [fn_name: string]: ((...args: any) => Promise<any>) | ((...args: any) => AsyncGenerator<any, void, unknown>);
-    };
-    products: {
-        [fn_name: string]: ((...args: any) => Promise<any>) | ((...args: any) => AsyncGenerator<any, void, unknown>);
-    };
-}
+rateLimitedClient: (credentials: Credentials, options?: Bottleneck.ConstructorOptions) => Client
 ```

@@ -4,10 +4,63 @@
 
 ## fattureincloud-client package
 
+Entry point for the documentation of fattureincloud-client.
+
+## Interfaces
+
+|  Interface | Description |
+|  --- | --- |
+|  [Client](./fattureincloud-client.client.md) |  |
+|  [Credentials](./fattureincloud-client.credentials.md) | Credentials of a FattureinCloud account. |
+|  [Customer](./fattureincloud-client.customer.md) |  |
+|  [CustomerAPIResponseBodyCreate](./fattureincloud-client.customerapiresponsebodycreate.md) |  |
+|  [CustomerAPIResponseBodyDelete](./fattureincloud-client.customerapiresponsebodydelete.md) |  |
+|  [CustomerAPIResponseBodyList](./fattureincloud-client.customerapiresponsebodylist.md) |  |
+|  [CustomerAPIResponseBodyUpdate](./fattureincloud-client.customerapiresponsebodyupdate.md) |  |
+|  [CustomerCreateRequestBody](./fattureincloud-client.customercreaterequestbody.md) |  |
+|  [CustomerDeleteRequestBody](./fattureincloud-client.customerdeleterequestbody.md) |  |
+|  [CustomerListOptions](./fattureincloud-client.customerlistoptions.md) |  |
+|  [CustomerListResponseBody](./fattureincloud-client.customerlistresponsebody.md) |  |
+|  [CustomerRetrieveConfig](./fattureincloud-client.customerretrieveconfig.md) |  |
+|  [CustomersClient](./fattureincloud-client.customersclient.md) |  |
+|  [CustomerUpdateRequestBody](./fattureincloud-client.customerupdaterequestbody.md) |  |
+|  [InfoAccount](./fattureincloud-client.infoaccount.md) |  |
+|  [InfoAccountOptions](./fattureincloud-client.infoaccountoptions.md) |  |
+|  [InfoAccountResponseBody](./fattureincloud-client.infoaccountresponsebody.md) |  |
+|  [InfoClient](./fattureincloud-client.infoclient.md) |  |
+|  [InfoCurrency](./fattureincloud-client.infocurrency.md) |  |
+|  [InfoVat](./fattureincloud-client.infovat.md) |  |
+|  [InvoiceAPIResponseBodyCreate](./fattureincloud-client.invoiceapiresponsebodycreate.md) |  |
+|  [InvoiceAPIResponseBodyDelete](./fattureincloud-client.invoiceapiresponsebodydelete.md) |  |
+|  [InvoiceAPIResponseBodyDetail](./fattureincloud-client.invoiceapiresponsebodydetail.md) |  |
+|  [InvoiceAPIResponseBodyList](./fattureincloud-client.invoiceapiresponsebodylist.md) |  |
+|  [InvoiceArticle](./fattureincloud-client.invoicearticle.md) |  |
+|  [InvoiceCreateRequestBody](./fattureincloud-client.invoicecreaterequestbody.md) |  |
+|  [InvoiceDataValidation](./fattureincloud-client.invoicedatavalidation.md) |  |
+|  [InvoiceDeleteRequestBody](./fattureincloud-client.invoicedeleterequestbody.md) |  |
+|  [InvoiceDetail](./fattureincloud-client.invoicedetail.md) |  |
+|  [InvoiceListOptions](./fattureincloud-client.invoicelistoptions.md) |  |
+|  [InvoiceListResponseBody](./fattureincloud-client.invoicelistresponsebody.md) |  |
+|  [InvoicePayment](./fattureincloud-client.invoicepayment.md) |  |
+|  [InvoiceRetrieveConfig](./fattureincloud-client.invoiceretrieveconfig.md) |  |
+|  [InvoicesClient](./fattureincloud-client.invoicesclient.md) |  |
+|  [InvoiceSummary](./fattureincloud-client.invoicesummary.md) |  |
+|  [Product](./fattureincloud-client.product.md) |  |
+|  [ProductAPIResponseBodyCreate](./fattureincloud-client.productapiresponsebodycreate.md) |  |
+|  [ProductAPIResponseBodyDelete](./fattureincloud-client.productapiresponsebodydelete.md) |  |
+|  [ProductAPIResponseBodyList](./fattureincloud-client.productapiresponsebodylist.md) |  |
+|  [ProductAPIResponseBodyUpdate](./fattureincloud-client.productapiresponsebodyupdate.md) |  |
+|  [ProductCreateRequestBody](./fattureincloud-client.productcreaterequestbody.md) |  |
+|  [ProductDeleteRequestBody](./fattureincloud-client.productdeleterequestbody.md) |  |
+|  [ProductListOptions](./fattureincloud-client.productlistoptions.md) |  |
+|  [ProductListResponseBody](./fattureincloud-client.productlistresponsebody.md) |  |
+|  [ProductRetrieveConfig](./fattureincloud-client.productretrieveconfig.md) |  |
+|  [ProductsClient](./fattureincloud-client.productsclient.md) |  |
+
 ## Variables
 
 |  Variable | Description |
 |  --- | --- |
-|  [basicClient](./fattureincloud-client.basicclient.md) |  |
-|  [rateLimitedClient](./fattureincloud-client.ratelimitedclient.md) |  |
+|  [basicClient](./fattureincloud-client.basicclient.md) | A basic client for all endpoints of the FattureinCloud API. |
+|  [rateLimitedClient](./fattureincloud-client.ratelimitedclient.md) | A rate-limited client for all endpoints of the FattureinCloud API. |
 

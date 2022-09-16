@@ -6,121 +6,902 @@
 
 import type Bottleneck from 'bottleneck';
 
-// Warning: (ae-forgotten-export) The symbol "Credentials" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "basicClient" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// @public
+export const basicClient: (credentials: Credentials) => Client;
+
+// Warning: (ae-missing-release-tag) "Client" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const basicClient: (credentials: Credentials) => {
-    customers: {
-        create: (config: CreateRequestBody) => Promise<{
-            id: string;
-        }>;
-        delete: (config: DeleteRequestBody) => Promise<{
-            id: string;
-        }>;
-        list: (options?: ListOptions | undefined) => Promise<{
-            results: Customer[];
-            current_page: number;
-            total_pages: number;
-        }>;
-        listAsyncGenerator: (options?: ListOptions | undefined) => AsyncGenerator<{
-            results: Customer[];
-            current_page: number;
-            total_pages: number;
-        }, void, unknown>;
-        retrieve: (config: RetrieveConfig) => Promise<Customer>;
-        update: (config: UpdateRequestBody) => Promise<{
-            id: string;
-            campi: string[];
-        }>;
-    };
-    info: {
-        account: (options?: AccountOptions | undefined) => Promise<any>;
-    };
-    invoices: {
-        create: (config: CreateRequestBody_2) => Promise<{
-            id: string;
-            token: string;
-        }>;
-        delete: (config: DeleteRequestBody_2) => Promise<{
-            id: string;
-        }>;
-        list: (options?: ListOptions_2 | undefined) => Promise<{
-            current_page: number;
-            results: RiassuntoFattura[];
-            results_per_page: number;
-            results_total: number;
-            total_pages: number;
-        }>;
-        listAsyncGenerator: (options?: ListOptions_2 | undefined) => AsyncGenerator<{
-            current_page: number;
-            results: RiassuntoFattura[];
-            results_per_page: number;
-            results_total: number;
-            total_pages: number;
-        }, void, unknown>;
-        retrieve: (config: RetrieveConfig_2) => Promise<DettaglioFattura>;
-    };
-    products: {
-        create: (config: CreateRequestBody_3) => Promise<{
-            id: string;
-        }>;
-        delete: (config: DeleteRequestBody_3) => Promise<{
-            id: string;
-        }>;
-        list: (options?: ListOptions_3 | undefined) => Promise<{
-            results: Product[];
-            current_page: number;
-            total_pages: number;
-        }>;
-        listAsyncGenerator: (options?: ListOptions_3 | undefined) => AsyncGenerator<{
-            results: Product[];
-            current_page: number;
-            total_pages: number;
-        }, void, unknown>;
-        retrieve: (config: RetrieveConfig_3) => Promise<Product>;
-    };
-};
+export interface Client {
+    // (undocumented)
+    customers: CustomersClient;
+    // (undocumented)
+    info: InfoClient;
+    // (undocumented)
+    invoices: InvoicesClient;
+    // (undocumented)
+    products: ProductsClient;
+}
 
-// Warning: (ae-missing-release-tag) "rateLimitedClient" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Credentials" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export interface Credentials {
+    // (undocumented)
+    api_key: string;
+    // (undocumented)
+    api_uid: string;
+}
+
+// Warning: (ae-missing-release-tag) "Customer" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const rateLimitedClient: (credentials: Credentials, options?: Bottleneck.ConstructorOptions) => {
-    customers: {
-        [fn_name: string]: ((...args: any) => Promise<any>) | ((...args: any) => AsyncGenerator<any, void, unknown>);
-    };
-    info: {
-        [fn_name: string]: ((...args: any) => Promise<any>) | ((...args: any) => AsyncGenerator<any, void, unknown>);
-    };
-    invoices: {
-        [fn_name: string]: ((...args: any) => Promise<any>) | ((...args: any) => AsyncGenerator<any, void, unknown>);
-    };
-    products: {
-        [fn_name: string]: ((...args: any) => Promise<any>) | ((...args: any) => AsyncGenerator<any, void, unknown>);
-    };
-};
+export interface Customer {
+    // (undocumented)
+    cf: string;
+    // (undocumented)
+    desc_iva_default: string;
+    // (undocumented)
+    extra: string;
+    // (undocumented)
+    fax: string;
+    // (undocumented)
+    id: string;
+    // (undocumented)
+    indirizzo_cap: string;
+    // (undocumented)
+    indirizzo_citta: string;
+    // (undocumented)
+    indirizzo_extra: string;
+    // (undocumented)
+    indirizzo_provincia: string;
+    // (undocumented)
+    indirizzo_via: string;
+    // (undocumented)
+    mail: string;
+    // (undocumented)
+    nome: string;
+    // (undocumented)
+    PA: boolean;
+    // (undocumented)
+    PA_codice: string;
+    // (undocumented)
+    paese: string;
+    // (undocumented)
+    pagamento_fine_mese: boolean;
+    // (undocumented)
+    pec: string;
+    // (undocumented)
+    piva: string;
+    // (undocumented)
+    referente: string;
+    // (undocumented)
+    tel: string;
+    // (undocumented)
+    termini_pagamento: string;
+    // (undocumented)
+    val_iva_default: string;
+}
 
-// Warnings were encountered during analysis:
+// Warning: (ae-forgotten-export) The symbol "APIResponseBodyError" needs to be exported by the entry point index.d.ts
+// Warning: (ae-missing-release-tag) "APIResponseBodyCreate" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "CreateRequestBody" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "Customer" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "AccountOptions" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "CreateRequestBody" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "DeleteRequestBody" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "ListOptions" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "RiassuntoFattura" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "RetrieveConfig" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "DettaglioFattura" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "CreateRequestBody" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "DeleteRequestBody" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "ListOptions" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "Product" needs to be exported by the entry point index.d.ts
-// src/index.ts:27:53 - (ae-forgotten-export) The symbol "RetrieveConfig" needs to be exported by the entry point index.d.ts
-// src/index.ts:32:2 - (ae-forgotten-export) The symbol "DeleteRequestBody" needs to be exported by the entry point index.d.ts
-// src/index.ts:35:2 - (ae-forgotten-export) The symbol "ListOptions" needs to be exported by the entry point index.d.ts
-// src/index.ts:45:2 - (ae-forgotten-export) The symbol "RetrieveConfig" needs to be exported by the entry point index.d.ts
-// src/index.ts:46:2 - (ae-forgotten-export) The symbol "UpdateRequestBody" needs to be exported by the entry point index.d.ts
+// @public (undocumented)
+export interface CustomerAPIResponseBodyCreate extends APIResponseBodyError {
+    // (undocumented)
+    id: string;
+    // (undocumented)
+    success: boolean;
+}
 
-// (No @packageDocumentation comment for this package)
+// Warning: (ae-missing-release-tag) "APIResponseBodyDelete" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CustomerAPIResponseBodyDelete extends APIResponseBodyError {
+    // (undocumented)
+    success: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "APIResponseBodyList" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CustomerAPIResponseBodyList extends APIResponseBodyError {
+    // (undocumented)
+    lista_clienti: Customer[];
+    // (undocumented)
+    numero_pagine: number;
+    // (undocumented)
+    pagina_corrente: number;
+    // (undocumented)
+    success: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "APIResponseBodyUpdate" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CustomerAPIResponseBodyUpdate extends APIResponseBodyError {
+    // (undocumented)
+    success: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "CreateRequestBody" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CustomerCreateRequestBody {
+    // (undocumented)
+    codice_fiscale?: string;
+    // (undocumented)
+    codice_sdi?: string;
+    // (undocumented)
+    descrizione_iva_default?: string;
+    // (undocumented)
+    email?: string;
+    // (undocumented)
+    fax?: string;
+    // (undocumented)
+    indirizzo_cap?: string;
+    // (undocumented)
+    indirizzo_citta?: string;
+    // (undocumented)
+    indirizzo_extra?: string;
+    // (undocumented)
+    indirizzo_provincia?: string;
+    // (undocumented)
+    indirizzo_via?: string;
+    // (undocumented)
+    is_pagamento_fine_mese?: boolean;
+    // (undocumented)
+    is_pubblica_amministrazione?: boolean;
+    // (undocumented)
+    note_extra?: string;
+    // (undocumented)
+    paese?: string;
+    // (undocumented)
+    paese_iso?: string;
+    // (undocumented)
+    partita_iva?: string;
+    // (undocumented)
+    ragione_sociale?: string;
+    // (undocumented)
+    referente?: string;
+    // (undocumented)
+    tel?: string;
+    // (undocumented)
+    termini_pagamento?: number;
+    // (undocumented)
+    valore_iva_default?: string;
+}
+
+// Warning: (ae-missing-release-tag) "DeleteRequestBody" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CustomerDeleteRequestBody {
+    // (undocumented)
+    id: string;
+}
+
+// Warning: (ae-missing-release-tag) "ListOptions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CustomerListOptions {
+    // (undocumented)
+    codice_fiscale?: string;
+    // (undocumented)
+    name?: string;
+    // (undocumented)
+    page?: number;
+    // (undocumented)
+    partita_iva?: string;
+}
+
+// @public (undocumented)
+export interface CustomerListResponseBody {
+    // (undocumented)
+    current_page: number;
+    // (undocumented)
+    results: Customer[];
+    // (undocumented)
+    total_pages: number;
+}
+
+// Warning: (ae-missing-release-tag) "RetrieveConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CustomerRetrieveConfig {
+    // (undocumented)
+    codice_fiscale?: string;
+    // (undocumented)
+    id?: string;
+    // (undocumented)
+    partita_iva?: string;
+}
+
+// Warning: (ae-forgotten-export) The symbol "BasicClient" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export interface CustomersClient extends BasicClient {
+    // (undocumented)
+    create: (config: CustomerCreateRequestBody) => Promise<{
+        id: string;
+    }>;
+    // (undocumented)
+    delete: (config: CustomerDeleteRequestBody) => Promise<{
+        id: string;
+    }>;
+    // (undocumented)
+    list: (options?: CustomerListOptions) => Promise<CustomerListResponseBody>;
+    // (undocumented)
+    listAsyncGenerator: (options?: CustomerListOptions) => AsyncGenerator<CustomerListResponseBody>;
+    // (undocumented)
+    retrieve: (config: CustomerRetrieveConfig) => Promise<Customer>;
+    // (undocumented)
+    update: (config: CustomerUpdateRequestBody) => Promise<{
+        id: string;
+        campi: string[];
+    }>;
+}
+
+// Warning: (ae-missing-release-tag) "UpdateRequestBody" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface CustomerUpdateRequestBody extends CustomerCreateRequestBody {
+    // (undocumented)
+    id: string;
+}
+
+// Warning: (ae-missing-release-tag) "Conto" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InfoAccount {
+    // (undocumented)
+    id: number;
+    // (undocumented)
+    nome_conto: string;
+}
+
+// Warning: (ae-missing-release-tag) "AccountOptions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InfoAccountOptions {
+    // (undocumented)
+    fields?: string[];
+}
+
+// Warning: (ae-missing-release-tag) "AccountResponseBody" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InfoAccountResponseBody {
+    // (undocumented)
+    giorni_rimanenti_licenza?: number;
+    // (undocumented)
+    lista_conti?: InfoAccount[];
+    // (undocumented)
+    lista_iva?: InfoVat[];
+    // (undocumented)
+    lista_valute?: InfoCurrency[];
+    // (undocumented)
+    piano_licenza?: string;
+    // (undocumented)
+    ragione_sociale?: string;
+    // (undocumented)
+    success: true;
+}
+
+// @public (undocumented)
+export interface InfoClient extends BasicClient {
+    // (undocumented)
+    account: (options?: InfoAccountOptions) => Promise<InfoAccountResponseBody>;
+}
+
+// Warning: (ae-missing-release-tag) "Valuta" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InfoCurrency {
+    // (undocumented)
+    cambio: string;
+    // (undocumented)
+    codice: string;
+    // (undocumented)
+    simbolo: string;
+}
+
+// Warning: (ae-missing-release-tag) "Iva" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InfoVat {
+    // (undocumented)
+    cod_iva: string;
+    // (undocumented)
+    descrizione_iva: string;
+    // (undocumented)
+    id: number;
+    // (undocumented)
+    valore_iva: string;
+}
+
+// Warning: (ae-missing-release-tag) "APIResponseBodyCreate" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoiceAPIResponseBodyCreate extends APIResponseBodyError {
+    // (undocumented)
+    new_id: string;
+    // (undocumented)
+    success: boolean;
+    // (undocumented)
+    token: string;
+}
+
+// Warning: (ae-missing-release-tag) "APIResponseBodyDelete" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoiceAPIResponseBodyDelete extends APIResponseBodyError {
+    // (undocumented)
+    success: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "APIResponseBodyDetail" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoiceAPIResponseBodyDetail extends Partial<APIResponseBodyError> {
+    // (undocumented)
+    dettagli_documento: InvoiceDetail;
+    // (undocumented)
+    success: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "APIResponseBodyList" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoiceAPIResponseBodyList extends APIResponseBodyError {
+    // (undocumented)
+    lista_documenti: InvoiceSummary[];
+    // (undocumented)
+    numero_pagine: number;
+    // (undocumented)
+    numero_risultati: number;
+    // (undocumented)
+    pagina_corrente: number;
+    // (undocumented)
+    risultati_per_pagina: number;
+    // (undocumented)
+    success: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "Articolo" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoiceArticle {
+    // (undocumented)
+    applica_ra_contributi?: boolean;
+    // (undocumented)
+    categoria?: string;
+    // (undocumented)
+    cod_iva: string;
+    // (undocumented)
+    codice?: string;
+    // (undocumented)
+    desc_iva?: string;
+    // (undocumented)
+    descrizione?: string;
+    // (undocumented)
+    id?: string;
+    // (undocumented)
+    in_ddt?: boolean;
+    // (undocumented)
+    nome: string;
+    // (undocumented)
+    ordine?: string;
+    // (undocumented)
+    prezzo_lordo?: number;
+    // (undocumented)
+    prezzo_netto?: number;
+    // (undocumented)
+    quantita?: number;
+    // (undocumented)
+    sconto?: number;
+    // (undocumented)
+    sconto_rosso?: boolean;
+    // (undocumented)
+    tassabile?: boolean;
+    // (undocumented)
+    um?: string;
+    // (undocumented)
+    valore_iva?: string;
+}
+
+// Warning: (ae-missing-release-tag) "CreateRequestBody" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoiceCreateRequestBody {
+    // (undocumented)
+    autocompila_anagrafica_cliente?: boolean;
+    // (undocumented)
+    codice_fiscale?: string;
+    // (undocumented)
+    codice_sdi?: string;
+    // (undocumented)
+    data_emissione?: string;
+    // (undocumented)
+    email?: string;
+    // (undocumented)
+    id_cliente?: string;
+    // (undocumented)
+    id_fornitore?: string;
+    // (undocumented)
+    indirizzo_cap?: string;
+    // (undocumented)
+    indirizzo_citta?: string;
+    // (undocumented)
+    indirizzo_extra?: string;
+    // (undocumented)
+    indirizzo_provincia?: string;
+    // (undocumented)
+    indirizzo_via?: string;
+    // (undocumented)
+    is_fattura_elettronica?: boolean;
+    // (undocumented)
+    is_pubblica_amministrazione?: boolean;
+    // (undocumented)
+    is_split_payment?: boolean;
+    // (undocumented)
+    lingua?: string;
+    // (undocumented)
+    lista_articoli: InvoiceArticle[];
+    // (undocumented)
+    lista_pagamenti?: InvoicePayment[];
+    // (undocumented)
+    marca_bollo?: number;
+    // (undocumented)
+    metodo_pagamento?: string;
+    // (undocumented)
+    mostra_bottone_paypal?: boolean;
+    // (undocumented)
+    mostra_info_pagamento?: boolean;
+    // (undocumented)
+    nota_html?: string;
+    numero?: string;
+    // (undocumented)
+    paese?: string;
+    // (undocumented)
+    paese_iso?: string;
+    // (undocumented)
+    partita_iva?: string;
+    // (undocumented)
+    pec?: string;
+    // (undocumented)
+    prezzi_ivati?: boolean;
+    // (undocumented)
+    ragione_sociale: string;
+    // (undocumented)
+    salva_anagrafica_cliente?: boolean;
+    // (undocumented)
+    tel?: string;
+    // (undocumented)
+    valuta?: string;
+}
+
+// Warning: (ae-missing-release-tag) "DataValidation" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoiceDataValidation {
+    // (undocumented)
+    autocompila_anagrafica_cliente?: boolean;
+    // (undocumented)
+    codice_fiscale?: string;
+    // (undocumented)
+    email?: string;
+    // (undocumented)
+    id_cliente?: string;
+    // (undocumented)
+    metodo_pagamento?: string;
+    // (undocumented)
+    mostra_info_pagamento?: boolean;
+    // (undocumented)
+    partita_iva?: string;
+    // (undocumented)
+    salva_anagrafica_cliente?: boolean;
+    // (undocumented)
+    tel?: string;
+}
+
+// Warning: (ae-missing-release-tag) "DeleteRequestBody" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoiceDeleteRequestBody {
+    // (undocumented)
+    id: string;
+}
+
+// Warning: (ae-missing-release-tag) "DettaglioFattura" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoiceDetail extends InvoiceSummary {
+    // (undocumented)
+    anno_competenza: string;
+    // (undocumented)
+    bloccato: boolean;
+    // (undocumented)
+    cassa: number;
+    // (undocumented)
+    centro_ricavo: string;
+    // (undocumented)
+    cf: string;
+    // (undocumented)
+    ddt: boolean;
+    // (undocumented)
+    id_template: string;
+    // (undocumented)
+    imponibile_ritenuta: number;
+    // (undocumented)
+    importo_cassa: string;
+    // (undocumented)
+    importo_iva: string;
+    // (undocumented)
+    importo_rit_acconto: string;
+    // (undocumented)
+    importo_rit_altra: string;
+    // (undocumented)
+    importo_rivalsa: string;
+    // (undocumented)
+    indirizzo_cap: string;
+    // (undocumented)
+    indirizzo_citta: string;
+    // (undocumented)
+    indirizzo_extra: string;
+    // (undocumented)
+    indirizzo_provincia: string;
+    // (undocumented)
+    indirizzo_via: string;
+    // (undocumented)
+    lingua: string;
+    // (undocumented)
+    lista_articoli: InvoiceArticle[];
+    // (undocumented)
+    lista_pagamenti: InvoicePayment[];
+    // (undocumented)
+    marca_bollo: string;
+    // (undocumented)
+    mostra_bottone_bonifico: boolean;
+    // (undocumented)
+    mostra_bottone_notifica: boolean;
+    // (undocumented)
+    mostra_bottone_paypal: boolean;
+    // (undocumented)
+    mostra_bottone_ts_pay: boolean;
+    // (undocumented)
+    mostra_info_pagamento: boolean;
+    // (undocumented)
+    nascondi_scadenza: boolean;
+    // (undocumented)
+    note: string;
+    // (undocumented)
+    oggetto_fattura: string;
+    // (undocumented)
+    oggetto_interno: string;
+    // (undocumented)
+    oggetto_visibile: string;
+    // (undocumented)
+    PA_beneficiario: string;
+    // (undocumented)
+    PA_codice: string;
+    // (undocumented)
+    PA_data: string;
+    // (undocumented)
+    PA_esigibilita: string;
+    // (undocumented)
+    PA_iban: string;
+    // (undocumented)
+    PA_istituto_credito: string;
+    // (undocumented)
+    PA_modalita_pagamento: string;
+    // (undocumented)
+    PA_numero: string;
+    // (undocumented)
+    PA_pec: string;
+    // (undocumented)
+    PA_tipo: string;
+    // (undocumented)
+    PA_ts: boolean;
+    // (undocumented)
+    paese: string;
+    // (undocumented)
+    piva: string;
+    // (undocumented)
+    prezzi_ivati: boolean;
+    // (undocumented)
+    rit_acconto: number;
+    // (undocumented)
+    rit_altra: number;
+    // (undocumented)
+    rivalsa: number;
+}
+
+// Warning: (ae-missing-release-tag) "ListOptions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoiceListOptions {
+    // (undocumented)
+    date_begin?: string;
+    // (undocumented)
+    date_end?: string;
+    // (undocumented)
+    page?: number;
+    // (undocumented)
+    substring_ragione_sociale?: string;
+    // (undocumented)
+    year?: number;
+}
+
+// @public (undocumented)
+export interface InvoiceListResponseBody {
+    // (undocumented)
+    current_page: number;
+    // (undocumented)
+    results: InvoiceSummary[];
+    // (undocumented)
+    results_per_page: number;
+    // (undocumented)
+    results_total: number;
+    // (undocumented)
+    total_pages: number;
+}
+
+// Warning: (ae-missing-release-tag) "Pagamento" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoicePayment {
+    // (undocumented)
+    data_saldo?: string;
+    // (undocumented)
+    data_scadenza: string;
+    // (undocumented)
+    importo: number;
+    // (undocumented)
+    metodo: string;
+}
+
+// Warning: (ae-missing-release-tag) "RetrieveConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoiceRetrieveConfig {
+    // (undocumented)
+    id?: string;
+}
+
+// @public (undocumented)
+export interface InvoicesClient extends BasicClient {
+    // (undocumented)
+    create: (config: InvoiceCreateRequestBody) => Promise<{
+        id: string;
+        token: string;
+    }>;
+    // (undocumented)
+    delete: (config: InvoiceDeleteRequestBody) => Promise<{
+        id: string;
+    }>;
+    // (undocumented)
+    list: (options?: InvoiceListOptions) => Promise<InvoiceListResponseBody>;
+    // (undocumented)
+    listAsyncGenerator: (options?: InvoiceListOptions) => AsyncGenerator<InvoiceListResponseBody>;
+    // (undocumented)
+    retrieve: (config: InvoiceRetrieveConfig) => Promise<InvoiceDetail>;
+}
+
+// Warning: (ae-missing-release-tag) "RiassuntoFattura" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface InvoiceSummary {
+    // (undocumented)
+    data: string;
+    // (undocumented)
+    ddt: boolean;
+    // (undocumented)
+    ftacc: boolean;
+    // (undocumented)
+    id: string;
+    // (undocumented)
+    id_cliente: string | null;
+    // (undocumented)
+    importo_netto: string;
+    // (undocumented)
+    importo_totale: string;
+    // (undocumented)
+    link_doc: string;
+    // (undocumented)
+    nome: string;
+    // (undocumented)
+    numero: string;
+    // (undocumented)
+    PA: boolean;
+    // (undocumented)
+    PA_tipo_cliente: 'B2B' | 'PA';
+    // (undocumented)
+    prossima_scadenza: string;
+    // (undocumented)
+    tipo: string;
+    // (undocumented)
+    token: string;
+    // (undocumented)
+    valuta: string;
+    // (undocumented)
+    valuta_cambio: string;
+}
+
+// Warning: (ae-missing-release-tag) "Product" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface Product {
+    // (undocumented)
+    categoria: string;
+    // (undocumented)
+    cod: string;
+    // (undocumented)
+    costo: string;
+    // (undocumented)
+    desc: string;
+    // (undocumented)
+    desc_iva: string;
+    // (undocumented)
+    giacenza_iniziale?: number;
+    // (undocumented)
+    id: string;
+    // (undocumented)
+    magazzino: boolean;
+    // (undocumented)
+    nome: string;
+    // (undocumented)
+    note: string;
+    // (undocumented)
+    prezzo_ivato: boolean;
+    // (undocumented)
+    prezzo_lordo?: string;
+    // (undocumented)
+    prezzo_netto: string;
+    // (undocumented)
+    um: string;
+    // (undocumented)
+    valore_iva: string;
+}
+
+// Warning: (ae-missing-release-tag) "APIResponseBodyCreate" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ProductAPIResponseBodyCreate extends APIResponseBodyError {
+    // (undocumented)
+    id: string;
+    // (undocumented)
+    success: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "APIResponseBodyDelete" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ProductAPIResponseBodyDelete extends APIResponseBodyError {
+    // (undocumented)
+    success: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "APIResponseBodyList" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ProductAPIResponseBodyList extends APIResponseBodyError {
+    // (undocumented)
+    lista_prodotti: Product[];
+    // (undocumented)
+    numero_pagine: number;
+    // (undocumented)
+    pagina_corrente: number;
+    // (undocumented)
+    success: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "APIResponseBodyUpdate" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ProductAPIResponseBodyUpdate extends APIResponseBodyError {
+    // (undocumented)
+    success: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "CreateRequestBody" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ProductCreateRequestBody {
+    // (undocumented)
+    categoria?: string;
+    // (undocumented)
+    cod?: string;
+    // (undocumented)
+    cod_iva?: string;
+    // (undocumented)
+    desc?: string;
+    // (undocumented)
+    desc_iva?: string;
+    // (undocumented)
+    giacenza_iniziale?: number;
+    // (undocumented)
+    magazzino?: boolean;
+    // (undocumented)
+    nome: string;
+    // (undocumented)
+    note?: string;
+    // (undocumented)
+    prezzo_ivato?: boolean;
+    // (undocumented)
+    prezzo_lordo?: number;
+    // (undocumented)
+    prezzo_netto?: number;
+    // (undocumented)
+    um?: string;
+}
+
+// Warning: (ae-missing-release-tag) "DeleteRequestBody" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ProductDeleteRequestBody {
+    // (undocumented)
+    id: string;
+}
+
+// Warning: (ae-missing-release-tag) "ListOptions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ProductListOptions {
+    // (undocumented)
+    categoria?: string;
+    // (undocumented)
+    cod?: string;
+    // (undocumented)
+    nome?: string;
+    // (undocumented)
+    page?: number;
+}
+
+// Warning: (ae-missing-release-tag) "ListResponseBody" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ProductListResponseBody {
+    // (undocumented)
+    current_page: number;
+    // (undocumented)
+    results: Product[];
+    // (undocumented)
+    total_pages: number;
+}
+
+// Warning: (ae-missing-release-tag) "RetrieveConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ProductRetrieveConfig {
+    // (undocumented)
+    categoria?: string;
+    // (undocumented)
+    cod?: string;
+    // (undocumented)
+    id?: string;
+    // (undocumented)
+    nome?: string;
+}
+
+// @public (undocumented)
+export interface ProductsClient extends BasicClient {
+    // (undocumented)
+    create: (config: ProductCreateRequestBody) => Promise<{
+        id: string;
+    }>;
+    // (undocumented)
+    delete: (config: ProductDeleteRequestBody) => Promise<{
+        id: string;
+    }>;
+    // (undocumented)
+    list: (options?: ProductListOptions) => Promise<ProductListResponseBody>;
+    // (undocumented)
+    listAsyncGenerator: (options?: ProductListOptions) => AsyncGenerator<ProductListResponseBody>;
+    // (undocumented)
+    retrieve: (config: ProductRetrieveConfig) => Promise<Product>;
+}
+
+// @public
+export const rateLimitedClient: (credentials: Credentials, options?: Bottleneck.ConstructorOptions) => Client;
 
 ```

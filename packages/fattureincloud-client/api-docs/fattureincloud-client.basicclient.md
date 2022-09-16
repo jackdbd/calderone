@@ -4,78 +4,15 @@
 
 ## basicClient variable
 
+A basic client for all endpoints of the FattureinCloud API.
+
 <b>Signature:</b>
 
 ```typescript
-basicClient: (credentials: Credentials) => {
-    customers: {
-        create: (config: import("./customers/interfaces.js").CreateRequestBody) => Promise<{
-            id: string;
-        }>;
-        delete: (config: import("./customers/interfaces.js").DeleteRequestBody) => Promise<{
-            id: string;
-        }>;
-        list: (options?: import("./customers/interfaces.js").ListOptions | undefined) => Promise<{
-            results: import("./customers/interfaces.js").Customer[];
-            current_page: number;
-            total_pages: number;
-        }>;
-        listAsyncGenerator: (options?: import("./customers/interfaces.js").ListOptions | undefined) => AsyncGenerator<{
-            results: import("./customers/interfaces.js").Customer[];
-            current_page: number;
-            total_pages: number;
-        }, void, unknown>;
-        retrieve: (config: import("./customers/interfaces.js").RetrieveConfig) => Promise<import("./customers/interfaces.js").Customer>;
-        update: (config: import("./customers/interfaces.js").UpdateRequestBody) => Promise<{
-            id: string;
-            campi: string[];
-        }>;
-    };
-    info: {
-        account: (options?: import("./info/interfaces.js").AccountOptions | undefined) => Promise<any>;
-    };
-    invoices: {
-        create: (config: import("./invoices/interfaces.js").CreateRequestBody) => Promise<{
-            id: string;
-            token: string;
-        }>;
-        delete: (config: import("./invoices/interfaces.js").DeleteRequestBody) => Promise<{
-            id: string;
-        }>;
-        list: (options?: import("./invoices/interfaces.js").ListOptions | undefined) => Promise<{
-            current_page: number;
-            results: import("./invoices/interfaces.js").RiassuntoFattura[];
-            results_per_page: number;
-            results_total: number;
-            total_pages: number;
-        }>;
-        listAsyncGenerator: (options?: import("./invoices/interfaces.js").ListOptions | undefined) => AsyncGenerator<{
-            current_page: number;
-            results: import("./invoices/interfaces.js").RiassuntoFattura[];
-            results_per_page: number;
-            results_total: number;
-            total_pages: number;
-        }, void, unknown>;
-        retrieve: (config: import("./invoices/interfaces.js").RetrieveConfig) => Promise<import("./invoices/interfaces.js").DettaglioFattura>;
-    };
-    products: {
-        create: (config: import("./products/interfaces.js").CreateRequestBody) => Promise<{
-            id: string;
-        }>;
-        delete: (config: import("./products/interfaces.js").DeleteRequestBody) => Promise<{
-            id: string;
-        }>;
-        list: (options?: import("./products/interfaces.js").ListOptions | undefined) => Promise<{
-            results: import("./products/interfaces.js").Product[];
-            current_page: number;
-            total_pages: number;
-        }>;
-        listAsyncGenerator: (options?: import("./products/interfaces.js").ListOptions | undefined) => AsyncGenerator<{
-            results: import("./products/interfaces.js").Product[];
-            current_page: number;
-            total_pages: number;
-        }, void, unknown>;
-        retrieve: (config: import("./products/interfaces.js").RetrieveConfig) => Promise<import("./products/interfaces.js").Product>;
-    };
-}
+basicClient: (credentials: Credentials) => Client
 ```
+
+## Remarks
+
+This client is not rate-limiting. If you are calling the FattureinCloud API more than once, you might want to use the rateLimitedClient instead.
+

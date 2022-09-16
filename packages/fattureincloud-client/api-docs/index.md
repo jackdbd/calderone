@@ -8,5 +8,5 @@
 
 |  Package | Description |
 |  --- | --- |
-|  [@jackdbd/fattureincloud-client](./fattureincloud-client.md) |  |
+|  [@jackdbd/fattureincloud-client](./fattureincloud-client.md) | Entry point for the documentation of fattureincloud-client. |
 
