@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/utils [1.4.0](https://github.com/jackdbd/calderone/compare/@jackdbd/utils@1.3.0...@jackdbd/utils@1.4.0) (2022-09-16)
+
+
+### Features
+
+* **utils:** add partitions function, rebuild docs ([2248143](https://github.com/jackdbd/calderone/commit/22481438e52d3ec0f2aa2f0e0c3308fe09b197ae))
+
 ## @jackdbd/utils [1.4.0-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/utils@1.3.0...@jackdbd/utils@1.4.0-canary.1) (2022-09-16)
 
 
