@@ -1,3 +1,4 @@
+import { Emoji } from './constants.js'
 import { gcpCloudRunJobText } from './gcp-cloud-run-job-text.js'
 import type { Section } from './interfaces.js'
 
@@ -25,7 +26,7 @@ export interface Options {
 }
 
 export const DEFAULT_OPTIONS: Required<Options> = {
-  emoji: '🚨', // ❌
+  emoji: Emoji.Error,
   should_include_stack_trace: true
 }
 

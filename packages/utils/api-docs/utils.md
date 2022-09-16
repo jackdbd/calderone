@@ -20,6 +20,7 @@ Miscellaneous utility functions.
 |  [Dictionary](./utils.dictionary.md) |  |
 |  [IsoStringConfig](./utils.isostringconfig.md) |  |
 |  [LogData](./utils.logdata.md) |  |
+|  [PartitionsConfig](./utils.partitionsconfig.md) |  |
 |  [TestOptions](./utils.testoptions.md) |  |
 |  [UTCDateAsObject](./utils.utcdateasobject.md) |  |
 
@@ -50,6 +51,7 @@ Miscellaneous utility functions.
 |  [nowAndFutureUTC](./utils.nowandfutureutc.md) |  |
 |  [nowAndPastTimestampMs](./utils.nowandpasttimestampms.md) |  |
 |  [nowAndPastUTC](./utils.nowandpastutc.md) |  |
+|  [partitions](./utils.partitions.md) | Partitions an array into chunks of equal size. If the last chunk is smaller than the other ones, it is returned only when <code>include_remainder</code> is true. |
 |  [range](./utils.range.md) | Array of numbers starting from <code>start</code> and progressing up to, but not including, <code>stop</code>. |
 |  [regexFactory](./utils.regexfactory.md) |  |
 |  [renameJsFilesToMjs](./utils.renamejsfilestomjs.md) |  |

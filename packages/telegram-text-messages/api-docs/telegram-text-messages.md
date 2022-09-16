@@ -13,6 +13,9 @@
 |  [GcpCloudRunJobErrorTextOptions](./telegram-text-messages.gcpcloudrunjoberrortextoptions.md) |  |
 |  [GcpCloudRunJobTextConfig](./telegram-text-messages.gcpcloudrunjobtextconfig.md) |  |
 |  [GcpCloudRunJobTextOptions](./telegram-text-messages.gcpcloudrunjobtextoptions.md) |  |
+|  [GcpCloudRunServiceErrorTextConfig](./telegram-text-messages.gcpcloudrunserviceerrortextconfig.md) |  |
+|  [GcpCloudRunServiceErrorTextOptions](./telegram-text-messages.gcpcloudrunserviceerrortextoptions.md) |  |
+|  [GcpCloudRunServiceTextConfig](./telegram-text-messages.gcpcloudrunservicetextconfig.md) |  |
 |  [GenericTextConfig](./telegram-text-messages.generictextconfig.md) |  |
 |  [GenericTextOptions](./telegram-text-messages.generictextoptions.md) |  |
 |  [Link](./telegram-text-messages.link.md) | A hyperlink in a text message. |
@@ -29,6 +32,8 @@
 |  [errorText](./telegram-text-messages.errortext.md) |  |
 |  [gcpCloudRunJobErrorText](./telegram-text-messages.gcpcloudrunjoberrortext.md) | Convenience function for a text message that represents an error occurred in a Cloud Run Jobs environment. |
 |  [gcpCloudRunJobText](./telegram-text-messages.gcpcloudrunjobtext.md) | Convenience function for text messages generated from a Cloud Run Job environment. |
+|  [gcpCloudRunServiceErrorText](./telegram-text-messages.gcpcloudrunserviceerrortext.md) | Convenience function for a text message that represents an error occurred in a Cloud Run service environment. |
+|  [gcpCloudRunServiceText](./telegram-text-messages.gcpcloudrunservicetext.md) | Convenience function for text messages generated from a Cloud Run service environment. |
 |  [genericText](./telegram-text-messages.generictext.md) | Generic text message. |
 |  [operationListText](./telegram-text-messages.operationlisttext.md) |  |
 |  [operationText](./telegram-text-messages.operationtext.md) |  |

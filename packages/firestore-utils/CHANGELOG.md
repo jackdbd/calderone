@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## @jackdbd/firestore-utils [1.4.1-canary.1](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.4.0...@jackdbd/firestore-utils@1.4.1-canary.1) (2022-09-16)
+
+
+
+### Dependencies
+
+* **@jackdbd/utils:** upgraded to 1.4.0-canary.1
+
 ## @jackdbd/firestore-utils [1.4.0](https://github.com/jackdbd/calderone/compare/@jackdbd/firestore-utils@1.3.0...@jackdbd/firestore-utils@1.4.0) (2022-09-14)
 
 

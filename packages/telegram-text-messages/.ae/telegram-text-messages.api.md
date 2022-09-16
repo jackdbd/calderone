@@ -84,6 +84,52 @@ export interface GcpCloudRunJobTextOptions {
     should_include_task_section?: boolean;
 }
 
+// Warning: (ae-missing-release-tag) "gcpCloudRunServiceErrorText" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const gcpCloudRunServiceErrorText: (config: GcpCloudRunServiceErrorTextConfig, options?: GcpCloudRunServiceErrorTextOptions) => string;
+
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface GcpCloudRunServiceErrorTextConfig {
+    cloud_run_service_region_id: string;
+    // (undocumented)
+    error: Error;
+    gcp_project_id: string;
+    // (undocumented)
+    title?: string;
+}
+
+// Warning: (ae-missing-release-tag) "Options" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface GcpCloudRunServiceErrorTextOptions {
+    // (undocumented)
+    emoji?: string;
+    // (undocumented)
+    should_include_stack_trace?: boolean;
+}
+
+// Warning: (ae-missing-release-tag) "gcpCloudRunServiceText" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const gcpCloudRunServiceText: (config: GcpCloudRunServiceTextConfig) => string;
+
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface GcpCloudRunServiceTextConfig {
+    cloud_run_service_region_id: string;
+    // (undocumented)
+    description: string;
+    gcp_project_id: string;
+    // (undocumented)
+    sections?: Section[];
+    // (undocumented)
+    title: string;
+}
+
 // Warning: (ae-missing-release-tag) "genericText" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public

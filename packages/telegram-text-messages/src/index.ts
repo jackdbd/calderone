@@ -13,6 +13,15 @@ export type {
   Options as GcpCloudRunJobTextOptions
 } from './gcp-cloud-run-job-text.js'
 
+export { gcpCloudRunServiceErrorText } from './gcp-cloud-run-service-error-text.js'
+export type {
+  Config as GcpCloudRunServiceErrorTextConfig,
+  Options as GcpCloudRunServiceErrorTextOptions
+} from './gcp-cloud-run-service-error-text.js'
+
+export { gcpCloudRunServiceText } from './gcp-cloud-run-service-text.js'
+export type { Config as GcpCloudRunServiceTextConfig } from './gcp-cloud-run-service-text.js'
+
 export { genericText } from './generic-text.js'
 export type {
   Config as GenericTextConfig,

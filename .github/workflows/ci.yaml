@@ -12,6 +12,8 @@ jobs:
     name: Build & Test all packages on ${{ matrix.os }}, Node ${{ matrix.node }}
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: true
+      max-parallel: 1
       matrix:
         os: [ubuntu-latest]
         # Try testing all packages with:

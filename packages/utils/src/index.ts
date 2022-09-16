@@ -3,7 +3,8 @@
  *
  * @packageDocumentation
  */
-export { range, fisherYatesShuffle } from './array.js'
+export { range, fisherYatesShuffle, partitions } from './array.js'
+export type { PartitionsConfig } from './array.js'
 
 export {
   addDays,
