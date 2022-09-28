@@ -27,12 +27,18 @@ export const DIRECTIVES = {
     'res.cloudinary.com'
   ],
 
+  // https://makandracards.com/makandra/503862-using-inline-event-handlers-with-a-strict-content-security-policy-csp
+  'script-src-attr': ['self', 'unsafe-hashes', 'sha256'],
+
   'script-src-elem': [
     'self',
     'https://plausible.io/js/plausible.js',
     'https://static.cloudflareinsights.com/beacon.min.js',
     'https://unpkg.com/htm/preact/standalone.module.js'
   ],
+
+  // https://content-security-policy.com/examples/allow-inline-style/
+  'style-src-attr': ['self', 'unsafe-hashes', 'sha256'],
 
   'style-src-elem': ['self', 'sha256'],
 

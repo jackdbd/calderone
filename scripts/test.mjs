@@ -3,7 +3,6 @@
 import 'zx/globals'
 import { spawn } from 'node:child_process'
 import { throwIfInvokedFromMonorepoRoot } from './utils.mjs'
-import { argv } from 'node:process'
 
 // Usage (from a package root):
 // ../../scripts/test.mjs

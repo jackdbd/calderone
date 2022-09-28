@@ -1,6 +1,11 @@
 import { globby } from 'globby'
 import makeDebug from 'debug'
-import { scriptTagsContents, styleTagsContents } from './html-parser.js'
+import {
+  scriptTagsContents,
+  styleTagsContents,
+  inlineEventHandlerContents,
+  inlineStyleContents
+} from './html-parsers.js'
 import { contentHash, hashAlgorithmFromCspSourceValues } from './utils.js'
 
 const debug = makeDebug('csp/hash')
@@ -99,19 +104,17 @@ export const uniqueHashes = async ({
   )
 
   const promises = paths.map(async (filepath) => {
-    // contents in a single page
     const contents: string[] = await parser(filepath)
-    // content hashes in a single page
     return contents.map((content) => contentHash({ algorithm, content }))
   })
 
   // unflattened, with duplicates
   const hashes = await Promise.all(promises)
-  // flattened, without duplicates
-  const hashesUnique = [...new Set(...hashes)]
+  // flattened, without duplicates and empty hashes
+  const hashesUnique = [...new Set(...hashes.filter((hash) => hash.length > 0))]
 
   debug(
-    ` ${hashesUnique.length} ${
+    `${hashesUnique.length} ${
       hashesUnique.length === 1 ? `hash` : `unique hashes`
     } computed from inlined content (across all pages).`
   )
@@ -122,10 +125,32 @@ export const uniqueHashes = async ({
 /**
  * @internal
  */
+export const hashesScriptSrcAttr = async ({ algorithm, patterns }: Config) => {
+  return await uniqueHashes({
+    algorithm,
+    parser: inlineEventHandlerContents,
+    patterns
+  })
+}
+
+/**
+ * @internal
+ */
 export const hashesScriptSrcElem = async ({ algorithm, patterns }: Config) => {
   return await uniqueHashes({
     algorithm,
     parser: scriptTagsContents,
+    patterns
+  })
+}
+
+/**
+ * @internal
+ */
+export const hashesStyleSrcAttr = async ({ algorithm, patterns }: Config) => {
+  return await uniqueHashes({
+    algorithm,
+    parser: inlineStyleContents,
     patterns
   })
 }

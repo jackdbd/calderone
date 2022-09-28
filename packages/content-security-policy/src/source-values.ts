@@ -2,7 +2,9 @@ import makeDebug from 'debug'
 import {
   hashAlgorithmMap,
   noHashSpecifiedMessage,
+  hashesScriptSrcAttr,
   hashesScriptSrcElem,
+  hashesStyleSrcAttr,
   hashesStyleSrcElem
 } from './hash.js'
 import type { Algorithm, DirectiveKey } from './hash.js'
@@ -54,7 +56,8 @@ const hashAlgorithm = ({ directive, directives }: AlgorithmConfig) => {
  */
 export const cspSourceValuesScriptAttr = async ({
   directive,
-  directives
+  directives,
+  patterns
 }: Config) => {
   const algorithm = hashAlgorithm({ directive, directives })
 
@@ -63,9 +66,19 @@ export const cspSourceValuesScriptAttr = async ({
     return directives[directive]
   }
 
-  throw new Error(
-    `NOT IMPLEMENTED: content hash generation for the ${directive} CSP directive is currently not implemented. Use 'unsafe-hashes' instead.`
+  debug(
+    `CSP directive ${directive}: parse HTML and compute ${algorithm} hashes`
   )
+
+  const hashes = await hashesScriptSrcAttr({ algorithm, patterns })
+
+  debug(`CSP directive ${directive}: allow hashes %O`, hashes)
+
+  return cspSourceValues({
+    algorithm,
+    hashes,
+    values: directives[directive]
+  })
 }
 
 /**
@@ -79,13 +92,13 @@ export const cspSourceValuesScriptElem = async ({
   const algorithm = hashAlgorithm({ directive, directives })
 
   if (!algorithm) {
-    debug(
-      `CSP directive ${directive}: no has algorithm specified. No hash will be generated. Return original CSP source values.`
-    )
+    debug(noHashSpecifiedMessage(directive))
     return directives[directive]
   }
 
-  debug(noHashSpecifiedMessage(directive))
+  debug(
+    `CSP directive ${directive}: parse HTML and compute ${algorithm} hashes`
+  )
 
   const hashes = await hashesScriptSrcElem({
     algorithm,
@@ -106,7 +119,8 @@ export const cspSourceValuesScriptElem = async ({
  */
 export const cspSourceValuesStyleAttr = async ({
   directive,
-  directives
+  directives,
+  patterns
 }: Config) => {
   const algorithm = hashAlgorithm({ directive, directives })
 
@@ -115,9 +129,19 @@ export const cspSourceValuesStyleAttr = async ({
     return directives[directive]
   }
 
-  throw new Error(
-    `NOT IMPLEMENTED: content hash generation for the ${directive} CSP directive is currently not implemented. Use 'unsafe-inline' instead.`
+  debug(
+    `CSP directive ${directive}: parse HTML and compute ${algorithm} hashes`
   )
+
+  const hashes = await hashesStyleSrcAttr({ algorithm, patterns })
+
+  debug(`CSP directive ${directive}: allow hashes %O`, hashes)
+
+  return cspSourceValues({
+    algorithm,
+    hashes,
+    values: directives[directive]
+  })
 }
 
 /**

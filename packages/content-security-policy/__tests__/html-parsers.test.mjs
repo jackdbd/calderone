@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { scriptTagsContents, styleTagsContents } from '../lib/html-parser.js'
+import { scriptTagsContents, styleTagsContents } from '../lib/html-parsers.js'
 
 const HTML_DIR = path.resolve('..', '..', 'assets', 'html-pages')
 //   const HTML_DIR = path.join('assets', 'html-pages')
