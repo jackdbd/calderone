@@ -72,10 +72,6 @@ export const csp_source_values = Joi.array()
   .unique()
   .unique(hashAlgorithmComparator)
 
-const glob_pattern = Joi.string().min(1)
-
-const glob_patterns = Joi.array().items(glob_pattern).min(1)
-
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/report-to
 const groupname = Joi.string().min(1)
 
@@ -105,16 +101,6 @@ const sandbox_value = Joi.string().valid(
 
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types
 const trusted_types_value = Joi.string().min(1)
-
-export const defaultOptions = {
-  allowDeprecatedDirectives: false,
-  directives: {},
-  globPatterns: ['/', '/*/'],
-  globPatternsDetach: [],
-  excludePatterns: [],
-  includePatterns: ['/**/**.html'],
-  reportOnly: false
-}
 
 export const directives = Joi.object({
   'base-uri': csp_source_values,
@@ -147,23 +133,4 @@ export const directives = Joi.object({
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests
   'upgrade-insecure-requests': Joi.boolean(),
   'worker-src': csp_source_values
-})
-
-export const pluginOptions = Joi.object().keys({
-  allowDeprecatedDirectives: Joi.boolean().default(
-    defaultOptions.allowDeprecatedDirectives
-  ),
-
-  directives: directives.default(defaultOptions.directives),
-
-  excludePatterns: glob_patterns.default(defaultOptions.excludePatterns),
-
-  globPatterns: glob_patterns.default(defaultOptions.globPatterns),
-
-  // https://developers.cloudflare.com/pages/platform/headers/#detach-a-header
-  globPatternsDetach: glob_patterns.default(defaultOptions.globPatternsDetach),
-
-  includePatterns: glob_patterns.default(defaultOptions.includePatterns),
-
-  reportOnly: Joi.boolean().default(defaultOptions.reportOnly)
 })
