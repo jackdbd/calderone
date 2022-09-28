@@ -1,0 +1,67 @@
+{
+  "name": "@jackdbd/content-security-policy",
+  "version": "0.0.0",
+  "description": "",
+  "author": {
+    "name": "Giacomo Debidda",
+    "email": "giacomo@giacomodebidda.com",
+    "url": "https://giacomodebidda.com/"
+  },
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackdbd/calderone"
+  },
+  "bugs": {
+    "url": "https://github.com/jackdbd/calderone/issues?q=is%3Aissue+label%3Abug"
+  },
+  "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/content-security-policy#readme",
+  "engines": {
+    "node": ">=14.19.3"
+  },
+  "type": "module",
+  "module": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {}
+  },
+  "files": [
+    "CHANGELOG.md",
+    "api-docs",
+    "lib"
+  ],
+  "scripts": {
+    "build": "run-s 'build:ts' 'build:docs' --print-label",
+    "build:docs": "run-s 'docs:doctoc' 'docs:ae' 'docs:ad' 'docs:typedoc' --print-label",
+    "build:ts": "tsc -p tsconfig.json",
+    "clean": "../../scripts/clean.mjs",
+    "docs:ae": "../../scripts/api-extractor.mjs",
+    "docs:ad": "../../scripts/api-documenter.mjs",
+    "docs:doctoc": "doctoc --github README.md --title '<details><summary>Table of Contents</summary>'",
+    "docs:typedoc": "../../scripts/typedoc.mjs",
+    "format": "../../scripts/format.mjs",
+    "lint": "eslint --config ../../config/eslint.cjs",
+    "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
+    "precommit": "lint-staged --config ../../config/lint-staged.cjs",
+    "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
+    "test": "../../scripts/test.mjs",
+    "test:ci": "../../scripts/test.mjs --ci",
+    "test:watch": "npm run test -- --watch"
+  },
+  "dependencies": {
+    "debug": "^4.3.4",
+    "himalaya": "^1.1.0",
+    "joi": "^17.6.1"
+  },
+  "peerDependencies": {},
+  "devDependencies": {}
+}
