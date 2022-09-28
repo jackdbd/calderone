@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/content-security-policy [1.0.0-canary.3](https://github.com/jackdbd/calderone/compare/@jackdbd/content-security-policy@1.0.0-canary.2...@jackdbd/content-security-policy@1.0.0-canary.3) (2022-09-28)
+
+
+### Bug Fixes
+
+* **content-security-policy:** cleanup ([ca16767](https://github.com/jackdbd/calderone/commit/ca167677885855f0612175efcf2ee6edf7372d1e))
+
 ## @jackdbd/content-security-policy [1.0.0-canary.2](https://github.com/jackdbd/calderone/compare/@jackdbd/content-security-policy@1.0.0-canary.1...@jackdbd/content-security-policy@1.0.0-canary.2) (2022-09-28)
 
 
