@@ -1,6 +1,6 @@
 {
   "name": "@jackdbd/content-security-policy",
-  "version": "0.0.0",
+  "version": "1.0.0-canary.1",
   "description": "",
   "author": {
     "name": "Giacomo Debidda",
