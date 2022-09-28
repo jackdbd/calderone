@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## @jackdbd/content-security-policy [1.0.0-canary.4](https://github.com/jackdbd/calderone/compare/@jackdbd/content-security-policy@1.0.0-canary.3...@jackdbd/content-security-policy@1.0.0-canary.4) (2022-09-28)
+
+
+### Features
+
+* **content-security-policy:** autogenerate hashes for inline script/style ([b1a40f6](https://github.com/jackdbd/calderone/commit/b1a40f630250d5d3d18bc2171d0875c357fe33e2))
+
 ## @jackdbd/content-security-policy [1.0.0-canary.3](https://github.com/jackdbd/calderone/compare/@jackdbd/content-security-policy@1.0.0-canary.2...@jackdbd/content-security-policy@1.0.0-canary.3) (2022-09-28)
 
 
