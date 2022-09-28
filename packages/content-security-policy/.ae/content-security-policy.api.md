@@ -59,4 +59,21 @@ export const starter_policy: {
     'style-src': string[];
 };
 
+// @public (undocumented)
+export const validationErrorOrWarnings: ({ allowDeprecatedDirectives, error }: ValidationErrorOrWarningsConfig) => {
+    warnings: string[];
+    error?: undefined;
+} | {
+    error: Error;
+    warnings: string[];
+};
+
+// @public (undocumented)
+export interface ValidationErrorOrWarningsConfig {
+    // (undocumented)
+    allowDeprecatedDirectives: boolean;
+    // (undocumented)
+    error: any;
+}
+
 ```

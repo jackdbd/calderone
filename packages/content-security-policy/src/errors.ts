@@ -2,15 +2,15 @@ import { deprecatedDirectives } from './directives.js'
 import type { DeprecatedDirectiveKey } from './directives.js'
 
 /**
- * @internal
+ * @public
  */
-interface Config {
+export interface Config {
   allowDeprecatedDirectives: boolean
   error: any
 }
 
 /**
- * @internal
+ * @public
  */
 export const validationErrorOrWarnings = ({
   allowDeprecatedDirectives,

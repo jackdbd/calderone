@@ -29,10 +29,17 @@
   "typings": "lib/index.d.ts",
   "exports": {
     ".": "./lib/index.js",
+    "./errors": "./lib/errors.js",
+    "./policies": "./lib/policies.js",
+    "./schemas": "./lib/schemas.js",
     "./package.json": "./package.json"
   },
   "typesVersions": {
-    "*": {}
+    "*": {
+      "*": [
+        "./lib/*.d.ts"
+      ]
+    }
   },
   "files": [
     "CHANGELOG.md",
