@@ -41,6 +41,7 @@
     "@google-cloud/monitoring": "^3.0.1",
     "@google-cloud/pubsub": "^3.1.1",
     "@google-cloud/tasks": "^3.0.2",
+    "@jackdbd/content-security-policy": "*",
     "@jackdbd/tags-logger": "^1.1.0",
     "debug": "4.3.4",
     "esbuild": "0.15.7",
