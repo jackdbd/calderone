@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## @jackdbd/content-security-policy [1.0.0-canary.5](https://github.com/jackdbd/calderone/compare/@jackdbd/content-security-policy@1.0.0-canary.4...@jackdbd/content-security-policy@1.0.0-canary.5) (2022-10-04)
+
 ## @jackdbd/content-security-policy [1.0.0-canary.4](https://github.com/jackdbd/calderone/compare/@jackdbd/content-security-policy@1.0.0-canary.3...@jackdbd/content-security-policy@1.0.0-canary.4) (2022-09-28)
 
 
