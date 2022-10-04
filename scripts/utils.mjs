@@ -144,13 +144,6 @@ export const jsonSecret = (name, env = process.env) => {
   // https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V15.md#v8-86---35415
   const env_var_name = name.replaceAll('-', '_').toUpperCase()
 
-  console.log(
-    '🚀 === jsonSecret === name',
-    name,
-    'process.env.GITHUB_SHA',
-    process.env.GITHUB_SHA,
-    isOnGithub(env)
-  )
   let json
   if (isOnGithub(env)) {
     // we read a secret from GitHub and expose it as environment variable
