@@ -1,54 +1,99 @@
 import path from 'node:path'
 import PrettyError from 'pretty-error'
-import { cspJSON } from '@jackdbd/content-security-policy'
+import yargs from 'yargs'
+import {
+  cspDirectives,
+  cspHeader,
+  cspJSON
+} from '@jackdbd/content-security-policy'
+import {
+  starter_policy,
+  recommended_policy
+} from '@jackdbd/content-security-policy/policies'
 import { monorepoRoot } from '@jackdbd/utils/path'
 
 const pe = new PrettyError()
 
+interface Argv {
+  format: string
+  policy: string
+}
+
+const DEFAULT: Argv = {
+  format: 'json',
+  policy: 'recommeded'
+}
+
 const main = async () => {
-  const directives = {
-    'base-uri': ['self'],
+  const argv = yargs(process.argv.slice(2))
+    .choices('format', ['directives', 'header', 'json'])
+    .describe('policy', 'which CSP to use')
+    .choices('policy', ['starter', 'recommeded', 'custom'])
+    .default(DEFAULT).argv as Argv
 
-    'connect-src': [
-      'self',
-      'cloudflareinsights.com',
-      'plausible.io',
-      'res.cloudinary.com'
-    ],
+  let directives = {}
+  switch (argv.policy) {
+    case 'custom': {
+      directives = {
+        'base-uri': ['self'],
 
-    'default-src': ['none'],
+        'connect-src': [
+          'self',
+          'cloudflareinsights.com',
+          'plausible.io',
+          'res.cloudinary.com'
+        ],
 
-    'font-src': ['self'],
+        'default-src': ['none'],
 
-    'frame-src': [
-      'https://www.youtube.com/embed/',
-      'https://www.youtube-nocookie.com/',
-      'https://player.vimeo.com/video/'
-    ],
+        'font-src': ['self'],
 
-    'img-src': [
-      'self',
-      'github.com',
-      'raw.githubusercontent.com',
-      'res.cloudinary.com'
-    ],
+        'frame-src': [
+          'https://www.youtube.com/embed/',
+          'https://www.youtube-nocookie.com/',
+          'https://player.vimeo.com/video/'
+        ],
 
-    // https://makandracards.com/makandra/503862-using-inline-event-handlers-with-a-strict-content-security-policy-csp
-    'script-src-attr': ['self', 'unsafe-hashes', 'sha256'],
+        'img-src': [
+          'self',
+          'github.com',
+          'raw.githubusercontent.com',
+          'res.cloudinary.com'
+        ],
 
-    'script-src-elem': [
-      'self',
-      'https://plausible.io/js/plausible.js',
-      'https://static.cloudflareinsights.com/beacon.min.js',
-      'https://unpkg.com/htm/preact/standalone.module.js'
-    ],
+        // https://makandracards.com/makandra/503862-using-inline-event-handlers-with-a-strict-content-security-policy-csp
+        'script-src-attr': ['self', 'unsafe-hashes', 'sha256'],
 
-    // https://content-security-policy.com/examples/allow-inline-style/
-    'style-src-attr': ['self', 'unsafe-hashes', 'sha256'],
+        'script-src-elem': [
+          'self',
+          'https://plausible.io/js/plausible.js',
+          'https://static.cloudflareinsights.com/beacon.min.js',
+          'https://unpkg.com/htm/preact/standalone.module.js'
+        ],
 
-    'style-src-elem': ['self', 'sha256'],
+        // https://content-security-policy.com/examples/allow-inline-style/
+        'style-src-attr': ['self', 'unsafe-hashes', 'sha256'],
 
-    'worker-src': ['self']
+        'style-src-elem': ['self', 'sha256'],
+
+        'worker-src': ['self']
+      }
+      break
+    }
+
+    case 'recommended': {
+      directives = recommended_policy
+      break
+    }
+
+    case 'starter': {
+      directives = starter_policy
+      break
+    }
+
+    default: {
+      directives = recommended_policy
+    }
   }
 
   //   const patterns = ['assets/html-pages/**/*.html']
@@ -56,12 +101,32 @@ const main = async () => {
     path.join(monorepoRoot(), 'assets', 'html-pages', '**/*.html')
   ]
 
-  try {
-    const obj = await cspJSON({ directives, patterns })
-    console.log(`\nHere is the Content-Security-Policy\n`)
-    console.log(obj)
-  } catch (err: any) {
-    console.log(pe.render(err))
+  if (argv.format === 'json') {
+    try {
+      const obj = await cspJSON({ directives, patterns })
+      console.log(`\nHere is the Content-Security-Policy (JSON)\n`)
+      console.log(obj)
+    } catch (err: any) {
+      console.log(pe.render(err))
+    }
+  } else if (argv.format === 'directives') {
+    try {
+      const strings = await cspDirectives({ directives, patterns })
+      console.log(`\nHere is the Content-Security-Policy (directives)\n`)
+      console.log(strings)
+    } catch (err: any) {
+      console.log(pe.render(err))
+    }
+  } else if (argv.format === 'header') {
+    try {
+      const header = await cspHeader({ directives, patterns })
+      console.log(`\nHere is the Content-Security-Policy (header)\n`)
+      console.log(header)
+    } catch (err: any) {
+      console.log(pe.render(err))
+    }
+  } else {
+    throw new Error(`forma ${argv.format} not implemented`)
   }
 }
 
