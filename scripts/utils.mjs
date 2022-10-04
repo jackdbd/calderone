@@ -148,8 +148,7 @@ export const jsonSecret = (name, env = process.env) => {
   if (isOnGithub(env)) {
     // we read a secret from GitHub and expose it as environment variable
     json = env[env_var_name]
-  }
-  if (isOnCloudBuild(env)) {
+  } else if (isOnCloudBuild(env)) {
     // we read a secret from Secret Manager and expose it as environment variable
     json = env[env_var_name]
   } else {

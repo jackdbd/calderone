@@ -1,7 +1,7 @@
 {
-  "name": "@jackdbd/secret-manager-utils",
-  "version": "1.2.0",
-  "description": "Utilities for Secret Manager",
+  "name": "@jackdbd/content-security-policy",
+  "version": "1.0.0-canary.5",
+  "description": "",
   "author": {
     "name": "Giacomo Debidda",
     "email": "giacomo@giacomodebidda.com",
@@ -12,31 +12,26 @@
   "publishConfig": {
     "access": "public"
   },
-  "keywords": [
-    "secret-manager",
-    "secrets",
-    "utils"
-  ],
+  "keywords": [],
   "repository": {
     "type": "git",
     "url": "https://github.com/jackdbd/calderone"
   },
-  "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/secret-manager-utils#readme",
+  "bugs": {
+    "url": "https://github.com/jackdbd/calderone/issues?q=is%3Aissue+label%3Abug"
+  },
+  "homepage": "https://github.com/jackdbd/calderone/tree/main/packages/content-security-policy#readme",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=14.19.3"
   },
   "type": "module",
   "module": "lib/index.js",
   "typings": "lib/index.d.ts",
   "exports": {
     ".": "./lib/index.js",
-    "./access-secret-version": "./lib/access-secret-version.js",
-    "./add-secret-version": "./lib/add-secret-version.js",
-    "./client": "./lib/client.js",
-    "./create-secret": "./lib/create-secret.js",
-    "./destroy-secret-versions": "./lib/destroy-secret-versions.js",
-    "./disable-secret-versions": "./lib/disable-secret-versions.js",
-    "./store": "./lib/store.js",
+    "./errors": "./lib/errors.js",
+    "./policies": "./lib/policies.js",
+    "./schemas": "./lib/schemas.js",
     "./package.json": "./package.json"
   },
   "typesVersions": {
@@ -65,19 +60,15 @@
     "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
     "precommit": "lint-staged --config ../../config/lint-staged.cjs",
     "size": "pkg-size ./lib --sort-by=brotli --ignore-files {*.d.ts,*.map}",
-    "pretest": "../../scripts/create-test-secret.mjs",
-    "test": "../../scripts/test.mjs --runInBand --detectOpenHandles",
-    "posttest": "../../scripts/delete-test-secret.mjs",
-    "pretest:ci": "../../scripts/create-test-secret.mjs",
-    "test:ci": "../../scripts/test.mjs --runInBand --detectOpenHandles --ci",
-    "posttest:ci": "../../scripts/delete-test-secret.mjs"
+    "test": "../../scripts/test.mjs",
+    "test:ci": "../../scripts/test.mjs --ci",
+    "test:watch": "npm run test -- --watch"
   },
-  "dependencies": {},
-  "peerDependencies": {
-    "@google-cloud/secret-manager": ">=3.12.0",
-    "debug": ">=4.0.0"
+  "dependencies": {
+    "debug": "^4.3.4",
+    "himalaya": "^1.1.0",
+    "joi": "^17.6.1"
   },
-  "devDependencies": {
-    "@google-cloud/secret-manager": "3.12.0"
-  }
+  "peerDependencies": {},
+  "devDependencies": {}
 }
