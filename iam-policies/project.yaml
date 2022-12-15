@@ -100,10 +100,18 @@ bindings:
   - serviceAccount:service-1051247446620@gcp-sa-eventarc.iam.gserviceaccount.com
   role: roles/eventarc.serviceAgent
 - members:
+  - serviceAccount:firebase-service-account@firebase-sa-management.iam.gserviceaccount.com
+  - serviceAccount:service-1051247446620@gcp-sa-firebase.iam.gserviceaccount.com
+  role: roles/firebase.managementServiceAgent
+- members:
+  - serviceAccount:firebase-adminsdk-gzpeu@prj-kitchen-sink.iam.gserviceaccount.com
+  role: roles/firebase.sdkAdminServiceAgent
+- members:
   - serviceAccount:service-1051247446620@gcp-sa-firestore.iam.gserviceaccount.com
   role: roles/firestore.serviceAgent
 - members:
   - group:developers@giacomodebidda.com
+  - serviceAccount:firebase-adminsdk-gzpeu@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-artifact-registry-writer@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:service-1051247446620@gcp-sa-pubsub.iam.gserviceaccount.com
   role: roles/iam.serviceAccountTokenCreator
@@ -178,5 +186,5 @@ bindings:
 - members:
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXqOzcciqc=
+etag: BwXv44JLmNY=
 version: 1
