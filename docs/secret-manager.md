@@ -67,6 +67,12 @@ gcloud secrets create TELEGRAM \
 ```
 
 ```sh
+gcloud secrets create TELEGRAM_BOT \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret \
+  --data-file './secrets/telegram-bot.json'
+```
+
+```sh
 gcloud secrets create TEST_SECRET \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
 ```
@@ -75,6 +81,13 @@ gcloud secrets create TEST_SECRET \
 gcloud secrets create WEBHOOKS_CONFIG_PRODUCTION \
   --data-file './secrets/webhooks-config-production.json' \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
+```
+
+## Create a new version of a secret (i.e "update" a secret)
+
+```sh
+gcloud secrets versions add TELEGRAM_BOT \
+  --data-file './secrets/telegram-bot.json'
 ```
 
 ## List secrets

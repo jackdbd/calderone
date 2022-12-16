@@ -1,0 +1,33 @@
+main:
+  steps:
+
+  - get_random_cocktail:
+      call: http.get
+      args:
+        url: https://www.thecocktaildb.com/api/json/v1/1/random.php
+      result: cocktail_result
+  
+  # https://cloud.google.com/workflows/docs/reference/stdlib/json/encode_to_string
+  - prepare_response:
+      assign:
+        - drink: ${cocktail_result.body.drinks[0]}
+        - cocktail_alcoholic: ${drink.strAlcoholic}
+        - drink_category: ${drink.strCategory + " (" + drink.strAlcoholic + ")"}
+        - drink_glass: ${"🍸 " + drink.strGlass}
+        # - cocktail_preparation: ${drink.strInstructionsIT}
+        - telegram_text: ${"<b>" + drink.strDrink + "</b>" + "\n\n" + drink_category + "\n" + drink_glass + "\n\n" + "<b>Preparation</b> <i>" + drink.strInstructions + "</i>" + "\n\n" + drink.strDrinkThumb}
+  
+  # https://cloud.google.com/workflows/docs/reference/stdlib/sys/log
+  # - log_stuff:
+  #     call: sys.log
+  #     args:
+  #       data: {
+  #         "function_telegram": "${function_telegram}",
+  #         "drink": "${drink}"
+  #       }
+  #       severity: "WARNING"
+
+  - return_value:
+      return: {
+        "text": "${telegram_text}"
+      }

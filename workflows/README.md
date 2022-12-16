@@ -9,11 +9,11 @@ Useful links:
 All of the following commands are meant to be executed from the monorepo root. The environment variable `WORKFLOW_LOCATION` is set to `europe-west4`. The environment variable `SA_WORKFLOWS_RUNNER` is the service account attached to each GCP Workflow.
 
 ```sh
-gcloud workflows deploy random-cocktail-to-telegram \
+gcloud workflows deploy random-cocktail \
   --project $GCP_PROJECT_ID \
   --location $WORKFLOW_LOCATION \
-  --description "Get a random cocktail from thecocktaildb.com and send it to Telegram and email" \
-  --source workflows/random-cocktail-to-telegram.yaml \
+  --description "Get a random cocktail from thecocktaildb.com" \
+  --source workflows/random-cocktail.yaml \
   --service-account $SA_WORKFLOWS_RUNNER \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
@@ -89,7 +89,7 @@ gcloud workflows list --location $WORKFLOW_LOCATION
 ## Delete a workflow
 
 ```sh
-gcloud workflows delete random-cocktail-to-telegram --location $WORKFLOW_LOCATION
+gcloud workflows delete random-cocktail --location $WORKFLOW_LOCATION
 ```
 
 ## `execute` vs `run`
@@ -97,14 +97,13 @@ gcloud workflows delete random-cocktail-to-telegram --location $WORKFLOW_LOCATIO
 Use `gcloud workflows execute` to execute a workflow without waiting for it to complete.
 
 ```sh
-gcloud workflows execute random-cocktail-to-telegram \
-  --location $WORKFLOW_LOCATION
+gcloud workflows execute random-cocktail --location $WORKFLOW_LOCATION
 ```
 
 Use `gcloud workflows run` to execute a workflow and wait for it to complete.
 
 ```sh
-gcloud workflows run random-cocktail-to-telegram \
+gcloud workflows run random-cocktail \
   --location $WORKFLOW_LOCATION \
   --format='value(result)'
 ```

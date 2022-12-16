@@ -1,0 +1,13 @@
+{
+  "update_id": 123,
+  "message": {
+    "message_id": 456,
+    "text": "/cocktail",
+    "entities": [{ "type": "bot_command", "offset": 0, "length": 9 }],
+    "date": 1671140951,
+    "chat": {
+      "id": 521866002,
+      "type": "private"
+    }
+  }
+}
