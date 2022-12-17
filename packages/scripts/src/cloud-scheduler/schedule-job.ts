@@ -65,7 +65,7 @@ const main = async () => {
     httpMethod: 'POST' as 'POST',
     oauthToken: { serviceAccountEmail: client_email },
     // oidcToken,
-    uri: 'https://workflowexecutions.googleapis.com/v1/projects/prj-kitchen-sink/locations/europe-west4/workflows/random-cocktail-to-telegram/executions'
+    uri: 'https://workflowexecutions.googleapis.com/v1/projects/prj-kitchen-sink/locations/europe-west4/workflows/random-cocktail/executions'
   }
 
   const http_job = {

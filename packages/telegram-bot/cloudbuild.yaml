@@ -1,68 +1,59 @@
-# remember that this steps are run from the package's `dist` directory
-
-# Cloud Build builders
-# https://console.cloud.google.com/gcr/images/k8s-skaffold
-
-# Cloud Build built-in substitutions
-# https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#using_default_substitutions
-
-# gcloud deploy for Cloud Run
-# https://cloud.google.com/sdk/gcloud/reference/run/deploy
-# M = megabyte, Mi = mebibyte, G = gigabyte, Gi = gibibyte
-# https://cloud.google.com/sdk/gcloud/reference/functions/deploy#--memory
-
 steps:
-  - name: node:${_NODE_VERSION}
+  - id: '⚙️ Install Node.js dependencies'
+    name: node:${_NODE_VERSION}
     entrypoint: npm
     args: ['install']
-  - name: node:${_NODE_VERSION}
-    entrypoint: npm
-    args: ['audit', '--audit-level=moderate']
-  # - name: node:$_NODE_VERSION
+
+  # - id: '👀 Check filesystem'
+  #   name: gcr.io/cloud-builders/gcloud:latest
   #   entrypoint: /bin/bash
-  #   args: ['-c', 'ls -1ah']
-  - name: gcr.io/k8s-skaffold/pack:${_PACK_VERSION}
-    args: ['build', "${_IMAGE}", '--path', '.', '--builder', 'gcr.io/buildpacks/builder:v1']
-  - name: gcr.io/cloud-builders/docker
-    args: ['image', 'ls']
-  - name: gcr.io/cloud-builders/docker
-    args: ['push', "${_IMAGE}"]
-  - name: gcr.io/cloud-builders/gcloud:${_GCLOUD_VERSION}
+  #   args:
+  #     - -c
+  #     - ls -1ah
+
+  - id: '🚀 Deploy to Cloud Functions (2nd generation)'
+    name: gcr.io/cloud-builders/gcloud:latest
     entrypoint: /bin/bash
     args:
       - -c
       - |
-        gcloud beta run deploy ${_SERVICE_NAME} \
+        gcloud beta functions deploy ${_FUNCTION_NAME} \
+          --gen2 \
+          --runtime nodejs18 \
+          --source ./ \
           --allow-unauthenticated \
-          --image ${_IMAGE} \
-          --memory 256M \
+          --entry-point ${_FUNCTION_ENTRY_POINT} \
+          --memory ${_MEMORY} \
           --min-instances 0 \
-          --max-instances 1 \
-          --platform managed \
+          --max-instances 3 \
           --project ${PROJECT_ID} \
-          --region europe-west3 \
+          --region ${_CLOUD_FUNCTIONS_REGION} \
           --service-account ${_SERVICE_ACCOUNT} \
-          --set-env-vars DEBUG=${_DEBUG},NODE_ENV=${_NODE_ENV} \
-          --set-secrets TELEGRAM=TELEGRAM:latest \
-          --timeout 10s \
-          --update-labels customer=personal,resource=service \
-          --verbosity warning
+          --set-env-vars ${_DEBUG} \
+          --set-env-vars NODE_ENV=production \
+          --set-secrets TELEGRAM_BOT=${_TELEGRAM_BOT_SECRET_NAME}:latest \
+          --timeout ${_REQUEST_TIMEOUT} \
+          --trigger-http \
+          --update-labels customer=${_CUSTOMER},resource=function \
+          --verbosity info
 
 # user-defined substitutions and default values
 substitutions:
-  _DEBUG: telegram-bot/*
-  _GCLOUD_VERSION: latest
-  _IMAGE: "${_REGION_ID}-docker.pkg.dev/${PROJECT_ID}/${_REPO_ID}/${_IMAGE_NAME}:${_IMAGE_TAG}"
-  _IMAGE_NAME: telegram-bot
-  _IMAGE_TAG: latest
-  _NODE_ENV: production
-  _NODE_VERSION: 16.14.0
-  # https://console.cloud.google.com/gcr/images/k8s-skaffold/global/pack
-  _PACK_VERSION: v0.21.0
-  _REGION_ID: europe-west3
-  _REPO_ID: cloud-run-source-deploy
+  _CLOUD_FUNCTIONS_REGION: europe-west3
+  _CUSTOMER: personal
+  # log a few namespaces to understand how Telegraf works.
+  # Since there is a comma in the string, I define ## as the custom delimiter
+  _DEBUG: "^##^DEBUG=telegraf:main,telegraf:webhook"
+  _FUNCTION_ENTRY_POINT: telegramBot
+  _FUNCTION_NAME: telegram-bot
+  # M = megabyte, Mi = mebibyte, G = gigabyte, Gi = gibibyte
+  # https://cloud.google.com/functions/docs/configuring/memory
+  _MEMORY: 128Mi
+  _NODE_VERSION: 18.12.1
+  _REQUEST_TIMEOUT: 30s
   _SERVICE_ACCOUNT: sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
-  _SERVICE_NAME: telegram-bot-production
+  _TELEGRAM_BOT_SECRET_NAME: TELEGRAM_BOT
+
 options:
-    # https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#dynamic_substitutions
-    dynamic_substitutions: true
+  # https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#dynamic_substitutions
+  dynamic_substitutions: true

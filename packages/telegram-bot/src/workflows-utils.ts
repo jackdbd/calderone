@@ -1,4 +1,11 @@
 import type { ExecutionsClient } from '@google-cloud/workflows'
+import { makeLog } from '@jackdbd/tags-logger'
+import { APP_ID } from './constants.js'
+
+const log = makeLog({
+  // https://cloud.google.com/functions/docs/configuring/env-var#newer_runtimes
+  namespace: process.env.K_SERVICE ? undefined : `${APP_ID}:workflows-utils`
+})
 
 interface CallWorkflowConfig {
   client: ExecutionsClient
@@ -21,13 +28,23 @@ export const callWorkflowsAPI = async ({
     const createExecutionRes = await client.createExecution({
       parent: client.workflowPath(project, location, workflow)
     })
+
     const executionName = createExecutionRes[0].name
-    console.log(`Created execution: ${executionName}`)
+
+    log({
+      message: `created execution ${executionName} of workflow ${workflow} in ${location}`,
+      tags: ['info', 'workflows', workflow, executionName]
+    })
 
     // Wait for execution to finish, then print results.
     let executionFinished = false
     let backoffDelay = 1000 // Start wait with delay of 1,000 ms
-    console.log('Poll every second for result...')
+
+    log({
+      message: `poll every 1s for result of execution ${executionName} of workflow ${workflow}...`,
+      tags: ['debug', 'workflows', workflow, executionName]
+    })
+
     while (!executionFinished) {
       const [execution] = await client.getExecution({
         name: executionName
@@ -36,27 +53,37 @@ export const callWorkflowsAPI = async ({
 
       // If we haven't seen the result yet, wait a second.
       if (!executionFinished) {
-        console.log('- Waiting for results...')
+        log({
+          message: `waiting for results of execution ${executionName} of workflow ${workflow}...`,
+          tags: ['debug', 'workflows', workflow, executionName]
+        })
+
         await new Promise((resolve) => {
           setTimeout(resolve, backoffDelay)
         })
+
         backoffDelay *= 2 // Double the delay to provide exponential backoff.
       } else {
-        console.log(`Execution finished with state: ${execution.state}`)
-        console.log(execution.result)
+        log({
+          message: `execution ${executionName} of workflow ${workflow} finished with state: ${execution.state}`,
+          tags: ['info', 'workflows', workflow, executionName],
+          execution_result: execution.result
+        })
         return {
-          success: true,
-          result: execution.result
+          value: execution.result
         }
       }
     }
     return {
-      success: false
+      error: new Error(`execution ${executionName} timed out`)
     }
   } catch (err: any) {
-    console.error(`Error executing workflow: ${err}`)
+    log({
+      message: `Error executing workflow: ${err.message}`,
+      tags: ['error', 'workflows', workflow]
+    })
     return {
-      success: false
+      error: err as Error
     }
   }
 }
