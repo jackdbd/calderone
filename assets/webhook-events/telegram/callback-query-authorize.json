@@ -1,0 +1,15 @@
+{
+  "update_id": 987,
+  "callback_query": {
+    "id": 654,
+    "data": "902506da-eb95-4adf-b8d6-3c7b7c71b55b__authorize",
+    "from": {},
+    "message": {
+      "message_id": 123,
+      "chat": {
+        "id": 521866002,
+        "type": "private"
+      }
+    }
+  }
+}

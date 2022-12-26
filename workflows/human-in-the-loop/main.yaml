@@ -1,0 +1,385 @@
+main:
+  steps:
+  - assign_date_and_time:
+      assign:
+        - unix_timestamp_utc: ${sys.now()}
+        - formatted_timestamp: ${time.format(sys.now(), "UTC")}
+        - tmp_time_splits: ${text.split(formatted_timestamp, "T")}
+        - date_splits: ${text.split(tmp_time_splits[0], "-")}
+        - time_splits: ${text.split(tmp_time_splits[1], ".")}
+        - year: "${date_splits[0]}"
+        - month: "${date_splits[1]}"
+        - day: "${date_splits[2]}"
+        - date_string: ${year + "_" + month + "_" + day}
+        - time_string: ${text.replace_all(time_splits[0], ":", "_")}
+
+  # - log_date_and_time:
+  #     call: sys.log
+  #     args:
+  #       data:
+  #         unix_timestamp_utc: "${unix_timestamp_utc}"
+  #         formatted_timestamp: "${formatted_timestamp}"
+  #         date_splits: "${date_splits}"
+  #         message: "date and time"
+  #         time_splits: "${time_splits}"
+  #         date_string: "${date_string}"
+  #         time_string: "${time_string}"
+  #       severity: "INFO"
+
+  - assign_project_variables:
+      assign:
+        # https://cloud.google.com/workflows/docs/reference/stdlib/sys/get_env
+        - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+        - workflow_id: ${sys.get_env("GOOGLE_CLOUD_WORKFLOW_ID")}
+        - revision_id: ${sys.get_env("GOOGLE_CLOUD_WORKFLOW_REVISION_ID")}
+        - execution_id: ${sys.get_env("GOOGLE_CLOUD_WORKFLOW_EXECUTION_ID")}
+        - location: ${sys.get_env("GOOGLE_CLOUD_LOCATION")}
+        - timeout_auth_callback: 15
+        - firestore_collection_id: "workflows_callbacks"
+        - firestore_collection_parent: ${"projects/" + project_id + "/databases/(default)/documents"}
+        - firestore_collection_path: ${"projects/" + project_id + "/databases/(default)/documents/" + firestore_collection_id}
+        - auth_function_url: https://human-in-the-loop-authorizer-45eyyotfta-ey.a.run.app
+        - execution_url: >
+            ${
+            "https://console.cloud.google.com/workflows/workflow/" +
+            location + "/" + workflow_id + "/execution/" + execution_id +
+            "?project=" + project_id
+            }
+
+  - telegram_chat_id_and_bot_token:
+      call: retrieve_telegram_chat_id_and_bot_token
+      result: telegram
+
+  - authorization_request_and_telegram_text:
+      call: authorization_request
+      args:
+        auth_function_url: "${auth_function_url}"
+        execution_url: "${execution_url}"
+        timeout: "${timeout_auth_callback}"
+      result: auth_request
+
+  - store_callback_endpoint_in_firestore:
+      call: googleapis.firestore.v1.projects.databases.documents.patch
+      args:
+        name: ${firestore_collection_path + "/" + execution_id}
+        updateMask:
+          fieldPaths: ['approved', 'method', 'unix_timestamp_utc', 'url']
+        body:
+          fields:
+            # supported types
+            # https://cloud.google.com/workflows/docs/reference/googleapis/firestore/v1beta1/Overview#Value
+            approved:
+              booleanValue: false
+            method:
+              stringValue: ${auth_request.callback_endpoint_method}
+            unix_timestamp_utc:
+              doubleValue: ${unix_timestamp_utc}
+            url:
+              stringValue: ${auth_request.callback_endpoint.url}
+      result: doc_patch_result
+
+  - assign_callback_data:
+      # callback_data in an InlineKeyboardButton can be 1-64 bytes
+      # https://core.telegram.org/bots/api#inlinekeyboardbutton
+      assign:
+        # The `name` field in the Firestore document result patch is the full
+        # path to the Firestore document. Something like this:
+        # projects/prj-kitchen-sink/databases/(default)/documents/workflows_callbacks/e7f6f868-eaf7-4992-b7c5-913963339b95"
+        # Since callback_data in Telegram can be only 1-64 bytes, we cannot
+        # store the full path to the Firestore document.
+        - separator: ${firestore_collection_path + "/"}
+        - firestore_doc_id: ${text.split(doc_patch_result.name, separator)[1]}
+        - callback_data_authorize: ${firestore_doc_id + "__authorize"}
+        - callback_data_abort: ${firestore_doc_id + "__abort"}
+
+  - log_auth_request:
+      call: sys.log
+      args:
+        data:
+          auth_request: "${auth_request}"
+          firestore_doc_id: "${firestore_doc_id}"
+          firestore_doc_patch_result: "${doc_patch_result}"
+          # firestore_doc_list_result: "${doc_list_result}"
+          message: >
+            ${"callback URL to authorize workflow " + workflow_id + " and callback_data for Telegram Bot API (to authorize/abort)"}
+          callback_data_authorize: "${callback_data_authorize}"
+          callback_data_abort: "${callback_data_abort}"
+        severity: "INFO"
+
+  - send_authorization_request_to_telegram_chat:
+      call: http.post
+      args:
+        # https://core.telegram.org/bots/api#sendmessage
+        url: ${"https://api.telegram.org/bot" + telegram.token + "/sendMessage"}
+        body:
+          chat_id: "${telegram.chat_id}"
+          text: "${auth_request.telegram_text}"
+          # text: "${authorization_request_text}"
+          parse_mode: HTML
+          # web page preview MUST be DISABLED, otherwise the callback URL will
+          # be called IMMEDIATELY and events.await_callback will NOT wait
+          disable_web_page_preview: true
+          disable_notification: false
+          reply_markup:
+            inline_keyboard:
+              - [
+                  # { "text": "✅ Authorize (URL)", "url": "${auth_request.authorize_url}" },
+                  { "text": "✅ Authorize", "callback_data": "${callback_data_authorize}" }
+                  { "text": "❌ Abort", "callback_data": "${callback_data_abort}" }
+                ]
+      result: send_message_res
+
+  - assign_telegram_message_id:
+      assign:
+        - telegram_message_id: "${send_message_res.body.result.message_id}"
+        - telegram_username: ${default(map.get(send_message_res.body.result.chat, "username"), "unknown username")}
+        - telegram_message_text: "TODO: timed out, authorized, aborted"
+  
+  # we store the telegram message_id in the Firestore document so the Telegram
+  # bot can edit the original Telegram message
+  - update_firestore_doc_with_telegram_message_id:
+      call: googleapis.firestore.v1.projects.databases.documents.patch
+      args:
+        name: ${firestore_collection_path + "/" + execution_id}
+        updateMask:
+          fieldPaths: ['telegram_message_id']
+        body:
+          fields:
+            telegram_message_id:
+              integerValue: ${telegram_message_id}
+
+  # - log_telegram_response_auth_request:
+  #     call: sys.log
+  #     args:
+  #       data:
+  #         # headers: "${send_message_res.headers}"
+  #         telegram_message_id: "${telegram_message_id}"
+  #         telegram_username: "${telegram_username}"
+  #       severity: "WARNING"
+
+  - wait_for_human_authorization:
+      try:
+        # https://cloud.google.com/workflows/docs/reference/stdlib/events/await_callback
+        call: events.await_callback
+        args:
+          callback: "${auth_request.callback_endpoint}"
+          timeout: ${timeout_auth_callback}
+        result: callback_request
+      except:
+        as: err
+        steps:
+          - log_error:
+              call: sys.log
+              args:
+                data:
+                  error: ${err}
+                severity: "ERROR"
+
+          - switch_on_error:
+              # https://cloud.google.com/workflows/docs/reference/syntax/error-types
+              switch:
+                - condition: ${("TimeoutError" in err.tags)}
+                  next: remove_reply_markup_from_original_telegram_message
+                # it's optional, since it's the default condition. But I like it
+                # because makes the code easier to read.
+                - condition: true
+                  next: return_timeout_error
+          
+          - remove_reply_markup_from_original_telegram_message:
+              call: edit_telegram_message
+              args:
+                token: "${telegram.token}"
+                chat_id: "${telegram.chat_id}"
+                message_id: "${telegram_message_id}"
+                text: ${auth_request.telegram_text}
+
+          - send_timeout_text_to_telegram_chat:
+              call: http.post
+              args:
+                url: ${"https://api.telegram.org/bot" + telegram.token + "/sendMessage"}
+                body:
+                  chat_id: ${telegram.chat_id}
+                  text: >
+                    ${
+                    "⌛ <b>Timeout for authorizing request expired</b>" +
+                    "\n\n" +
+                    "Execution <code>" + execution_id + "</code>" + " " +
+                    "neither authorized nor aborted within " + timeout_auth_callback + " seconds." +
+                    "<pre><code>" + err.message + "</code></pre>"
+                    }
+                  parse_mode: HTML
+                  disable_notification: false
+                  disable_web_page_preview: true
+
+          - return_timeout_error:
+              return:
+                error:
+                  message: ${err.message}
+                value: null
+  
+  # - log_callback_request:
+  #     call: sys.log
+  #     args:
+  #       data:
+  #         callback_request: ${callback_request}
+  #         message: ${"callback request from workflow execution " + execution_id}
+  #       severity: "WARNING"
+  
+  - assigned_request_approved:
+      assign:
+        - request_body: ${json.decode(callback_request.http_request.body)}
+        - approved: ${request_body.approved}
+
+  - switch_on_request_approved:
+      switch:
+        - condition: ${approved}
+          next: assign_telegram_text_request_approved
+      next: assign_telegram_text_request_aborted
+
+  - assign_telegram_text_request_approved:
+      assign:
+        - confirmation_text: >
+            ${
+            "✅ <b>Execution approved</b>" +
+            "\n\n" +
+            "Execution <code>" + execution_id + "</code>" + " " +
+            "authorized by <b>" + telegram_username + "</b>."
+            }
+      next: remove_reply_markup_from_original_telegram_message_2
+  
+  - assign_telegram_text_request_aborted:
+      assign:
+        - confirmation_text: >
+            ${
+            "❌ <b>Execution aborted</b>" +
+            "\n\n" +
+            "Execution <code>" + execution_id + "</code>" + " " +
+            "was aborted by <b>" + telegram_username + "</b>."
+            }
+
+  - remove_reply_markup_from_original_telegram_message_2:
+      call: edit_telegram_message
+      args:
+        token: "${telegram.token}"
+        chat_id: "${telegram.chat_id}"
+        message_id: "${telegram_message_id}"
+        text: ${auth_request.telegram_text}
+
+  - send_confirmation_text_to_telegram_chat:
+      call: http.post
+      args:
+        # https://core.telegram.org/bots/api#sendmessage
+        url: ${"https://api.telegram.org/bot" + telegram.token + "/sendMessage"}
+        body:
+          chat_id: ${telegram.chat_id}
+          text: ${confirmation_text}
+          parse_mode: HTML
+          disable_notification: false
+          disable_web_page_preview: true
+
+  - return_value:
+      return:
+        error: null
+        value:
+          callback_request:
+            url: "${callback_request.http_request.url}"
+            method: "${callback_request.http_request.method}"
+            body: "${request_body}"
+            received_time: "${callback_request.received_time}"
+
+# Subworkflows #################################################################
+retrieve_telegram_chat_id_and_bot_token:
+  params: []
+  steps:
+    - retrieve_secret_from_secret_manager:
+        call: googleapis.secretmanager.v1.projects.secrets.versions.accessString
+        args:
+          project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+          secret_id: TELEGRAM
+          version: latest
+        result: json_secret
+
+    - return_chat_id_and_bot_token:
+        return:
+          chat_id: "${json.decode(json_secret).chat_id}"
+          token: "${json.decode(json_secret).token}"
+
+authorization_request:
+  params: [auth_function_url, execution_url, timeout]
+  steps:
+    - assign_variables:
+        assign:
+          - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+          - workflow_id: ${sys.get_env("GOOGLE_CLOUD_WORKFLOW_ID")}
+          - location: ${sys.get_env("GOOGLE_CLOUD_LOCATION")}
+          - revision_id: ${sys.get_env("GOOGLE_CLOUD_WORKFLOW_REVISION_ID")}
+          - execution_id: ${sys.get_env("GOOGLE_CLOUD_WORKFLOW_EXECUTION_ID")}
+          # The HTTP request must be a GET when the Telegram user chat
+          # authorizes the workflow using the inline_keyboard button `url`.
+          # It can be either a GET (with a query string) or a POST (with a
+          # JSON-stringified body) when the Telegram user chat authorizes the
+          # workflow using the inline_keyboard button `callback_data`.
+          - http_callback_method: "POST"
+
+    - create_callback_endpoint:
+        # https://cloud.google.com/workflows/docs/reference/stdlib/events/create_callback_endpoint
+        call: events.create_callback_endpoint
+        args:
+          http_callback_method: "${http_callback_method}"
+        result: callback_endpoint
+
+    - assign_telegram_text:
+        assign:
+          - authorize_url: >
+              ${
+              auth_function_url +
+              "?callback_url=" + callback_endpoint.url +
+              "&workflow_id=" + workflow_id +
+              "&location=" + location +
+              "&execution_id=" + execution_id
+              }
+          - telegram_text: >
+              ${
+              "⏸️ <b>Workflow " + workflow_id + " paused</b>" +
+              "\n\n" +
+              "Execution paused. Authorize or abort within " + timeout + " seconds." +
+              "\n\n" +
+              "<a href='" + execution_url + "'>Workflow execution details</a>"
+              }
+
+    - return_callback_endpoints_and_text:
+        return:
+          authorize_url: "${authorize_url}"
+          callback_endpoint: "${callback_endpoint}"
+          callback_endpoint_method: "${http_callback_method}"
+          telegram_text: "${telegram_text}"
+
+edit_telegram_message:
+  params: [token, chat_id, message_id, text]
+  steps:
+    - call_telegram_bot_api_editMessageText:
+        call: http.post
+        args:
+          # https://core.telegram.org/bots/api#editmessagetext
+          url: ${"https://api.telegram.org/bot" + token + "/editMessageText"}
+          body:
+            chat_id: "${chat_id}"
+            message_id: "${message_id}"
+            text: "${text}"
+            parse_mode: HTML
+        result: edit_message_text_response
+
+send_telegram_message:
+  params: [token, chat_id, message_id, text]
+  steps:
+    - call_telegram_bot_api_editMessageText:
+        call: http.post
+        args:
+          # https://core.telegram.org/bots/api#editmessagetext
+          url: ${"https://api.telegram.org/bot" + token + "/editMessageText"}
+          body:
+            chat_id: "${chat_id}"
+            message_id: "${message_id}"
+            text: "${text}"
+            parse_mode: HTML
+        result: edit_message_text_response

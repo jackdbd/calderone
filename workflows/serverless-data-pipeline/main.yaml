@@ -53,7 +53,6 @@ main:
       result: tabledata_insertAll_result
   
   - respond_to_caller:
-      return: {
+      return:
         "tabledata_insertAll_result": "${tabledata_insertAll_result}"
         # "tabledata_list_result": "${tabledata_list_result}"
-      }

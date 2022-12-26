@@ -2,8 +2,8 @@
   "update_id": 123,
   "message": {
     "message_id": 456,
-    "text": "/oldschool",
-    "entities": [{ "type": "bot_command", "offset": 0, "length": 10 }],
+    "text": "/firestore_bulk_delete",
+    "entities": [{ "type": "bot_command", "offset": 0, "length": 22 }],
     "date": 1671140951,
     "chat": {
       "id": 521866002,

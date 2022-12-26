@@ -1,0 +1,242 @@
+main:
+  steps:
+
+  - assign_dates_and_timestamps:
+      assign:
+        # https://cloud.google.com/workflows/docs/reference/stdlib/sys/now
+        - ts_now_utc: ${sys.now()}
+        - seconds_in_30_days: 2592000
+        - ts_start_utc_string: "${string(ts_now_utc - seconds_in_30_days)}"
+        # - seconds_in_90_days: 7776000
+        # - ts_start_utc_string: "${string(ts_now_utc - seconds_in_90_days)}"
+        # - ts_start_utc_string: "${string(ts_now_utc)}"
+        # https://cloud.google.com/workflows/docs/reference/stdlib/text/split
+        - splits: ${text.split(ts_start_utc_string, ".")}
+        - ts_start_utc: "${splits[0]}"
+        # https://cloud.google.com/workflows/docs/reference/stdlib/time/format
+        - formatted_timestamp: ${time.format(sys.now(), "UTC")}
+        - date_splits: ${text.split(formatted_timestamp, "-")}
+        - year: "${date_splits[0]}"
+
+  - assign_variables:
+      assign:
+        # https://cloud.google.com/workflows/docs/reference/stdlib/sys/get_env
+        - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+        # authors that post interesting stuff
+        - hn_tags_authors: "(author_borkdude,author_feross,author_fogus,author_jrockway,author_patio11)"
+        - hn_numeric_filters: >
+            ${text.replace_all("points>3,created_at_i>CREATED_AT", "CREATED_AT", ts_start_utc)}
+
+  - telegram_chat_id_and_bot_token:
+      call: retrieve_telegram_chat_id_and_bot_token
+      result: telegram
+
+  ### Who is Hiring?
+  - search_hacker_news_for_posts_about_who_is_hiring:
+      call: hacker_news_algolia_api
+      args:
+        query: "Ask HN: Who is hiring?"
+        tags: "author_whoishiring,(ask_hn,show_hn)"
+        numeric_filters: ${hn_numeric_filters}
+      result: hn_anchor_tags_who_is_hiring
+  
+  - telegram_text_about_who_is_hiring:
+      call: telegram_text
+      args:
+        links: ${hn_anchor_tags_who_is_hiring}
+        tags: "author_whoishiring,(ask_hn,show_hn)"
+        title: ${"💬 <b>" + "Links from Ask HN Who is hiring?" + "</b>"}
+      result: telegram_text_hn_who_is_hiring
+
+  - send_hn_who_is_hiring_to_telegram_chat:
+      call: http.post
+      args:
+        url: ${"https://api.telegram.org/bot" + telegram.token + "/sendMessage"}
+        body:
+          chat_id: "${telegram.chat_id}"
+          text: ${telegram_text_hn_who_is_hiring}
+          parse_mode: HTML
+          disable_web_page_preview: true
+          disable_notification: true
+      # result: send_hn_who_is_hiring_res
+
+  ### authors
+  - search_hacker_news_for_posts_of_interesting_authors:
+      call: hacker_news_algolia_api
+      args:
+        query: ""
+        tags: ${hn_tags_authors}
+        numeric_filters: ${hn_numeric_filters}
+      result: hn_anchor_tags_authors
+
+  - telegram_text_about_articles_by_hacker_news_authors:
+      call: telegram_text
+      args:
+        links: ${hn_anchor_tags_authors}
+        tags: ${hn_tags_authors}
+        title: ${"💬 <b>" + "Links from Hacker News authors" + "</b>"}
+      result: telegram_text_hn_authors
+
+  - send_hn_authors_to_telegram_chat:
+      call: http.post
+      args:
+        url: ${"https://api.telegram.org/bot" + telegram.token + "/sendMessage"}
+        body:
+          chat_id: "${telegram.chat_id}"
+          text: ${telegram_text_hn_authors}
+          parse_mode: HTML
+          disable_web_page_preview: true
+          disable_notification: true
+      # result: send_hn_authors_res
+
+  ### Freelancing
+  - search_hacker_news_for_posts_about_freelancing:
+      call: hacker_news_algolia_api
+      args:
+        query: "Ask HN: Freelancer? Seeking freelancer?"
+        tags: "author_whoishiring"
+        numeric_filters: ${hn_numeric_filters}
+      result: hn_anchor_tags_freelancing
+
+  - telegram_text_about_freelancing_on_hacker_news:
+      call: telegram_text
+      args:
+        links: ${hn_anchor_tags_freelancing}
+        tags: "author_whoishiring"
+        title: ${"💬 <b>" + "Links about freelancing on Hacker News" + "</b>"}
+      result: telegram_text_hn_freelancing
+
+  - send_hn_freelancing_to_telegram_chat:
+      call: http.post
+      args:
+        url: ${"https://api.telegram.org/bot" + telegram.token + "/sendMessage"}
+        body:
+          chat_id: "${telegram.chat_id}"
+          text: ${telegram_text_hn_freelancing}
+          parse_mode: HTML
+          disable_web_page_preview: true
+          disable_notification: true
+      # result: send_hn_freelancing_res
+
+# Subworkflows #################################################################
+telegram_text:
+  params: [links, tags, title]
+  steps:
+    - log_args:
+        call: sys.log
+        args:
+          data:
+            links: "${links}"
+            message: "arguments passed to subworkflow 'telegram_text'"
+            tags: "${tags}"
+            title: "${title}"
+          severity: "INFO"
+
+    - assign_text:
+        assign:
+        - text: >
+            ${
+            title +
+            "\n\n" +
+            "Tags used with the <a href='https://hn.algolia.com/api'>HN Search API</a>:" +
+            "\n" +
+            "<i>" + tags + "</i>"
+            }
+
+    - append_links_to_text:
+        for:
+          value: link
+          index: idx
+          in: ${links}
+          steps:
+            - reassign_text:
+                assign:
+                  - text: ${text + "\n\n" + idx + " " + link}
+
+    - return_text:
+        return: ${text}
+
+# https://hn.algolia.com/api/v1/search_by_date?query="Ask HN: Freelancer? Seeking freelancer?"&tags=author_whoishiring&numericFilters=points>3,created_at_i>1646874000
+# https://www.kmjn.org/notes/hacker_news_posters.html
+hacker_news_algolia_api:
+  params: [query, tags, numeric_filters]
+  steps:
+    - assign_variables:
+        assign:
+        - anchor_tags: []
+
+    - search_hacker_news_api:
+        call: http.get
+        args:
+          url: https://hn.algolia.com/api/v1/search_by_date
+          timeout: 30.0
+          query: {
+            query: "${query}",
+            # Tags are ANDed by default, can be ORed if between parenthesis.
+            # The author whose username is "whoishiring" is a HackerNews bot that
+            # posts once a month. "Ask HN: Who is hiring? (<month> <year>)"
+            tags: "${tags}",
+            numericFilters: "${numeric_filters}"
+          }
+        result: hn_api_response
+
+    - loop_api_results:
+        for:
+          value: hit
+          index: idx
+          in: ${hn_api_response.body.hits}
+          steps:
+            - assign_defaults:
+                assign:
+                  - title: "missing title"
+
+            - assign_title:
+                switch:
+                  - condition: ${hit.title != null}
+                    assign:
+                      - title: ${hit.title}
+                  - condition: ${hit.story_title != null}
+                    assign:
+                      - title: ${hit.story_title}
+
+            - assign_datum:
+                assign:
+                  - href: ${"https://news.ycombinator.com/item?id=" + hit.objectID}
+                  - anchor_tag: ${"<a href=" + "'" + href + "'" + ">" + title + "</a>" + " (by " + hit.author + ")"}
+                  - datum:
+                      anchor_tag: "${anchor_tag}"
+                      author: "${hit.author}"
+                      href: "${href}"
+                      message: ${"search hit " + idx + " from the HN Search API"}
+                      num_comments: "${hit.num_comments}"
+                      title: "${title}"
+
+            # - log_datum:
+            #     call: sys.log
+            #     args:
+            #       data: ${datum}
+            #       severity: "INFO"
+
+            - concat_anchor_tags:
+                assign:
+                # https://cloud.google.com/workflows/docs/reference/stdlib/list/concat
+                - anchor_tags: ${list.concat(anchor_tags, anchor_tag)}
+
+    - return_anchor_tags:
+        return: ${anchor_tags}
+
+retrieve_telegram_chat_id_and_bot_token:
+  params: []
+  steps:
+    - retrieve_secret_from_secret_manager:
+        call: googleapis.secretmanager.v1.projects.secrets.versions.accessString
+        args:
+          project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+          secret_id: TELEGRAM
+          version: latest
+        result: json_secret
+
+    - return_chat_id_and_bot_token:
+        return:
+          chat_id: "${json.decode(json_secret).chat_id}"
+          token: "${json.decode(json_secret).token}"

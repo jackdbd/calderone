@@ -86,6 +86,11 @@ gcloud secrets create WEBHOOKS_CONFIG_PRODUCTION \
 ## Create a new version of a secret (i.e "update" a secret)
 
 ```sh
+gcloud secrets versions add PHANTOMBUSTER \
+  --data-file './secrets/phantombuster.json'
+```
+
+```sh
 gcloud secrets versions add TELEGRAM_BOT \
   --data-file './secrets/telegram-bot.json'
 ```

@@ -31,8 +31,22 @@ gcloud scheduler jobs create http daily-message \
   --headers "Content-Type=application/json; charset=utf-8,User-Agent=Google-Cloud-Scheduler" \
   --oidc-service-account-email $SA_NOTIFIER \
   --message-body '{
-  "text": "Hello from the Cloud Scheduler job daily-message"
-}'
+    "text": "Hello from the Cloud Scheduler job daily-message"
+  }'
+```
+
+```sh
+gcloud scheduler jobs create http weekly-linkedin-search \
+  --location "europe-west3" \
+  --schedule "30 19 * * 2" \
+  --uri "$WORKFLOW_URL_LINKEDIN_SEARCH" \
+  --http-method POST \
+  --description "Perform a LinkedIn search using PhantomBuster" \
+  --time-zone "Europe/Rome" \
+  --attempt-deadline 4m30s \
+  --headers "Content-Type=application/json; charset=utf-8,User-Agent=Google-Cloud-Scheduler" \
+  --oauth-service-account-email "$SA_WORKFLOWS_RUNNER" \
+  --message-body '{}'
 ```
 
 Create a job that requires an OAuth token
@@ -47,7 +61,7 @@ gcloud scheduler jobs create http daily-cocktail \
   --time-zone "Europe/Rome" \
   --attempt-deadline 30s \
   --headers "Content-Type=application/json; charset=utf-8,User-Agent=Google-Cloud-Scheduler" \
-  --oauth-service-account-email $SA_WORKFLOWS_RUNNER
+  --oauth-service-account-email "$SA_WORKFLOWS_RUNNER"
 ```
 
 ```sh

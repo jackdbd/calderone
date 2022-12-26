@@ -1,0 +1,169 @@
+main:
+  steps:
+
+  # - get_random_cocktail_from_thecocktaildb:
+  #     call: http.get
+  #     args:
+  #       url: https://www.thecocktaildb.com/api/json/v1/1/random.php
+  #     result: cocktail_result
+
+  - get_random_cocktail_from_thecocktaildb:
+      try:
+        call: http.get
+        args:
+          url: https://www.thecocktaildb.com/api/json/v1/1/random.php
+        result: cocktail_result
+      retry: ${http.default_retry}
+      except:
+        as: err
+        steps:
+          - failure_at_get_random_cocktail_from_thecocktaildb:
+              return:
+                error:
+                  step: "get_random_cocktail_from_thecocktaildb"
+                  code: ${err.code}
+                  message: ${err.message}
+                  tags: ${err.tags}
+                  # headers: ${err.headers}
+                success: null
+  
+  # - log_response:
+  #     call: sys.log
+  #     args:
+  #       data:
+  #         message: "Retrieved random cocktail from TheCocktailDB.com"
+  #         body: "${cocktail_result.body}"
+  #         headers: "${cocktail_result.headers}"
+  #       severity: "INFO"
+
+  - assign_telegram_text:
+      assign:
+        - drink: ${cocktail_result.body.drinks[0]}
+        - cocktail_alcoholic: ${drink.strAlcoholic}
+        - drink_category: ${drink.strCategory + " (" + drink.strAlcoholic + ")"}
+        - drink_glass: ${"🍸 " + drink.strGlass}
+        # - cocktail_preparation: ${drink.strInstructionsIT}
+        - telegram_text: >
+            ${
+            "<b>" + drink.strDrink + "</b>" + " " +
+            "\n\n" +
+            drink_category +
+            "\n" +
+            drink_glass +
+            "\n\n" +
+            "<b>Preparation</b> <i>" + drink.strInstructions + "</i>"
+            }
+
+  - telegram_chat_id_and_bot_token:
+      call: retrieve_telegram_chat_id_and_bot_token
+      result: telegram
+
+  # - asend_chat_action:
+  #     call: http.post
+  #     args:
+  #       # https://core.telegram.org/bots/api#sendchataction
+  #       url: ${"https://api.telegram.org/bot" + telegram.token + "/sendChatAction"}
+  #       body:
+  #         chat_id: "${telegram.chat_id}"
+  #         action: "upload_photox"
+  #     # chat actions return body.result=true on success
+  #     result: send_chat_action_res
+
+  # we use a chat action to notify the Telegram chat we are fetching a photo
+  # from TheCocktailDB and uploading it to the Telegram servers.
+  - send_chat_action:
+      try:
+        call: http.post
+        args:
+          # https://core.telegram.org/bots/api#sendchataction
+          url: ${"https://api.telegram.org/bot" + telegram.token + "/sendChatAction"}
+          body:
+            chat_id: "${telegram.chat_id}"
+            action: "upload_photo"
+        # chat actions return body.result=true on success
+        result: send_chat_action_res
+      retry: ${http.default_retry}
+      except:
+        as: err
+        steps:
+          - failure_at_send_chat_action:
+              return:
+                error:
+                  step: "send_chat_action"
+                  code: ${err.code}
+                  description: ${err.body.description}
+                  message: ${err.message}
+                  tags: ${err.tags}
+                  # headers: ${err.headers}
+                success: null
+
+  - send_cocktail_photo_to_telegram_chat:
+      try:
+        call: http.post
+        args:
+          # https://core.telegram.org/bots/api#sendphoto
+          url: ${"https://api.telegram.org/bot" + telegram.token + "/sendPhoto"}
+          body:
+            chat_id: ${telegram.chat_id}
+            photo: ${drink.strDrinkThumb}
+            caption: >
+              ${
+              "🍸 <b>Random cocktail: " + drink.strDrink + "</b>" +
+              "\n\n" +
+              drink_category +
+              "\n" +
+              drink.strGlass + 
+              "\n\n" +
+              "<b>Preparation</b> <i>" + drink.strInstructions + "</i>" +
+              "\n\n" +
+              "<a href='https://www.thecocktaildb.com/drink/" + drink.idDrink + "'>Chek out " + drink.strDrink + " on TheCocktailDB</a>"
+              }
+            parse_mode: HTML
+            disable_notification: true
+        result: send_photo_res
+      retry: ${http.default_retry}
+      except:
+        as: err
+        steps:
+          - failure_at_send_cocktail_photo_to_telegram_chat:
+              return:
+                error:
+                  step: "send_cocktail_photo_to_telegram_chat"
+                  code: ${err.code}
+                  description: ${err.body.description}
+                  message: ${err.message}
+                  tags: ${err.tags}
+                  # headers: ${err.headers}
+                success: null
+
+  - success:
+      return:
+        error: null
+        value:
+          cocktail_id: "${drink.idDrink}"
+          cocktail_name: "${drink.strDrink}"
+          # telegram_chat_action_success: "${send_chat_action_res.body.result}"
+          telegram_caption: "${send_photo_res.body.result.caption}"
+          # telegram_photo: "${send_photo_res.body.result.photo}"
+          telegram_photo_message_id: "${send_photo_res.body.result.message_id}"
+          telegram_photo_username: ${default(map.get(send_photo_res.body.result.chat, "username"), "unknown Telegram username")}
+          # telegram_text: "${send_message_res.body.result.text}"
+          # telegram_text_message_id: "${send_message_res.body.result.message_id}"
+          # telegram_text_username: ${default(map.get(send_message_res.body.result.chat, "username"), "unknown Telegram username")}
+
+# Subworkflows #################################################################
+retrieve_telegram_chat_id_and_bot_token:
+  params: []
+  steps:
+    - retrieve_secret_from_secret_manager:
+        call: googleapis.secretmanager.v1.projects.secrets.versions.accessString
+        args:
+          project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+          secret_id: TELEGRAM
+          version: latest
+        result: json_secret
+
+    - return_chat_id_and_bot_token:
+        return:
+          chat_id: "${json.decode(json_secret).chat_id}"
+          token: "${json.decode(json_secret).token}"
