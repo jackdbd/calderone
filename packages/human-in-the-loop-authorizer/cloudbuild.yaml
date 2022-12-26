@@ -1,0 +1,53 @@
+steps:
+  - id: '⚙️ Install Node.js dependencies'
+    name: node:${_NODE_VERSION}
+    entrypoint: npm
+    args: ['install']
+
+  - id: '🚀 Deploy to Cloud Functions (2nd generation)'
+    name: gcr.io/cloud-builders/gcloud:latest
+    entrypoint: /bin/bash
+    # https://cloud.google.com/sdk/gcloud/reference/functions/deploy
+    # https://codelabs.developers.google.com/codelabs/cloud-starting-cloudfunctions-v2
+    args:
+      - -c
+      - |
+        gcloud functions deploy ${_FUNCTION_NAME} \
+          --gen2 \
+          --runtime nodejs18 \
+          --allow-unauthenticated \
+          --source ./ \
+          --entry-point ${_FUNCTION_ENTRY_POINT} \
+          --memory ${_MEMORY} \
+          --min-instances 0 \
+          --max-instances 1 \
+          --project ${PROJECT_ID} \
+          --region ${_CLOUD_FUNCTIONS_REGION} \
+          --service-account ${_SERVICE_ACCOUNT} \
+          --set-env-vars NODE_ENV=production \
+          --set-secrets TELEGRAM=${_TELEGRAM_SECRET_NAME}:${_TELEGRAM_SECRET_VERSION} \
+          --timeout ${_REQUEST_TIMEOUT} \
+          --trigger-http \
+          --update-labels customer=${_CUSTOMER},resource=function \
+          --verbosity warning
+
+# user-defined substitutions and default values
+substitutions:
+  _CLOUD_FUNCTIONS_REGION: europe-west3
+  _CUSTOMER: personal
+  # Function entry point and function name could be different, but I think it
+  # would be confusing, so I use the same string.
+  _FUNCTION_ENTRY_POINT: authorizeCallbackUrl
+  _FUNCTION_NAME: human-in-the-loop-authorizer
+  # M = megabyte, Mi = mebibyte, G = gigabyte, Gi = gibibyte
+  # https://cloud.google.com/functions/docs/configuring/memory
+  _MEMORY: 128Mi
+  _NODE_VERSION: 18.12.1
+  _REQUEST_TIMEOUT: 30s
+  _SERVICE_ACCOUNT: sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
+  _TELEGRAM_SECRET_NAME: TELEGRAM
+  _TELEGRAM_SECRET_VERSION: latest
+
+options:
+    # https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#dynamic_substitutions
+    dynamic_substitutions: true
