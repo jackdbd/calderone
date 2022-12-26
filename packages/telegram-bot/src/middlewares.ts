@@ -29,12 +29,28 @@ interface CtxWithFoo extends Context<Update> {
 }
 
 export const addFooToCtx = async (ctx: CtxWithFoo, next: Next) => {
-  log({
-    message: `add foo to ctx middleware`,
-    tags: ['debug', 'middleware']
-  })
-
   ctx.foo = { answer: 42, bar: 'baz' }
+  await next()
+}
+
+export const logCtxUpdate = async (ctx: Context<Update>, next: Next) => {
+  let message_text: string | undefined = undefined
+  if (ctx.message && (ctx.message as any).text) {
+    message_text = (ctx.message as any).text
+  }
+
+  log({
+    message: `${ctx.botInfo.username} got update id ${ctx.update.update_id}: ${ctx.updateType}`,
+    tags: ['debug', 'middleware', 'update'],
+    callbackQuery: ctx.callbackQuery,
+    chat: ctx.chat,
+    chatMember: ctx.chatMember,
+    from: ctx.from,
+    me: ctx.me,
+    message_text: message_text,
+    myChatMember: ctx.myChatMember,
+    state: ctx.state
+  })
 
   await next()
 }

@@ -22,6 +22,10 @@ main:
       assign:
         # https://cloud.google.com/workflows/docs/reference/stdlib/sys/get_env
         - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+        - workflow_id: ${sys.get_env("GOOGLE_CLOUD_WORKFLOW_ID")}
+        - location: ${sys.get_env("GOOGLE_CLOUD_LOCATION")}
+        - revision_id: ${sys.get_env("GOOGLE_CLOUD_WORKFLOW_REVISION_ID")}
+        - execution_id: ${sys.get_env("GOOGLE_CLOUD_WORKFLOW_EXECUTION_ID")}
         # authors that post interesting stuff
         - hn_tags_authors: "(author_borkdude,author_feross,author_fogus,author_jrockway,author_patio11)"
         - hn_numeric_filters: >
@@ -117,6 +121,12 @@ main:
           disable_web_page_preview: true
           disable_notification: true
       # result: send_hn_freelancing_res
+  
+  - return_value:
+      return:
+        error: null
+        value:
+          message: ${"Workflow " + workflow_id + ", execution " + execution_id + " completed successfully."}
 
 # Subworkflows #################################################################
 telegram_text:
