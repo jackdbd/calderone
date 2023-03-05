@@ -37,7 +37,6 @@
     "build:libs": "tsc --build --verbose",
     "build:libs:watch": "tsc --build --watch",
     "clean": "npm run clean --workspaces --if-present",
-    "demo:csp": "tsm packages/scripts/src/demo/content-security-policy.ts --policy custom",
     "dev:scripts": "run-p build:libs:watch build:scripts:watch",
     "format": "npm run format --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",

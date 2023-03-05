@@ -24,7 +24,7 @@ jobs:
         # https://nodejs.org/en/about/releases/
         # it seems Cloud Build complains with HTTP 429 if I trigger too many builds
         # Quota exceeded for quota metric 'Build and Operation Get requests'
-        node: ['16.17.0', 'current']
+        node: ['14.21', 'lts/hydrogen', 'current']
     steps:
       - name: 🛎️ Check out repo
         uses: actions/checkout@v3
@@ -58,9 +58,6 @@ jobs:
 
       - name: 🔍 Test @jackdbd/cloud-tasks-utils
         run: npm run test:ci -w packages/cloud-tasks-utils
-
-      - name: 🔍 Test @jackdbd/content-security-policy
-        run: npm run test:ci -w packages/content-security-policy
 
       - name: 🔍 Test @jackdbd/firestore-utils
         env:
