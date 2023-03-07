@@ -126,6 +126,7 @@ bindings:
   - group:developers@giacomodebidda.com
   - serviceAccount:firebase-adminsdk-gzpeu@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:sa-artifact-registry-writer@prj-kitchen-sink.iam.gserviceaccount.com
+  - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:service-1051247446620@gcp-sa-pubsub.iam.gserviceaccount.com
   role: roles/iam.serviceAccountTokenCreator
 - members:
@@ -199,5 +200,5 @@ bindings:
 - members:
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwXwkxZfQPY=
+etag: BwX2UqMX7ko=
 version: 1
