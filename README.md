@@ -34,6 +34,21 @@ npm install --include dev
 
 *Note:* `--include dev` is just to be sure that dev dependencies gets installed even if you have set the environment variable `NODE_ENV=production` on your machine.
 
+| package | vulnerabilities (Snyk) |
+| --- | --- |
+| checks | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fchecks) |
+| cloud-scheduler-utils | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fcloud-scheduler-utils) |
+| cloud-tasks-utils | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fcloud-tasks-utils) |
+| firestore-utils | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Ffirestore-utils) |
+| notifications | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fnotifications) |
+| plausible-client | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fplausible-client) |
+| schemas | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fschemas) |
+| secret-manager-utils | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fsecret-manager-utils) |
+| sqlite-utils | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fsqlite-utils) |
+| stripe-utils | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fstripe-utils) |
+| tags-logger | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Ftags-logger) |
+| telegram-text-messages | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Ftelegram-text-messages) |
+
 ## Build
 
 This monorepo uses [Typescript project references](https://www.typescriptlang.org/docs/handbook/project-references.html) to build all of its libraries.
