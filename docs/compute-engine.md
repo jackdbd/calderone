@@ -1,18 +1,23 @@
 # Compute Engine
 
-First of all, check that [gcloud is configured correctly](./gcloud-configuration.md).
+This GCP project includes a Compute Engine VM that I use for various development tasks. This VM is **not** directly exposed to the public internet.
 
-Useful links:
+## Preliminary operations
+
+1. Check that [gcloud is configured correctly](./gcloud-configuration.md).
+1. Create a Cloud Storage bucket for the Compute Engine VM startup/shutdown scripts.
+
+## Useful links:
 
 - [Debian images configuration](https://cloud.google.com/compute/docs/images/os-details#debian)
 - [Troubleshooting VM startup scripts](https://cloud.google.com/compute/docs/troubleshooting/vm-startup)
 
-## startup/shutdown scripts for Compute Engine VMs
+## 1. Upload startup/shutdown scripts to Cloud Storage
 
 List all Cloud Storage buckets for this GCP project:
 
 ```sh
-gsutil ls -p $GCP_PROJECT_ID
+gsutil ls
 ```
 
 If it's not already available, create a bucket and call it `bkt-scripts`:
@@ -25,18 +30,19 @@ gsutil mb \
   gs://bkt-scripts
 ```
 
-Copy the scripts to a Cloud Storage bucket:
+Copy the script [startup-vm.sh](../scripts/compute-engine/startup-vm.sh) to the Cloud Storage bucket `bkt-scripts` (run this command from the monorepo root):
 
 ```sh
-gsutil cp ./scripts/startup-vm.sh gs://bkt-scripts/startup-vm.sh
-gsutil cp ./scripts/setup-vm.sh gs://bkt-scripts/setup-vm.sh
-gsutil cp ./scripts/shutdown-vm.sh gs://bkt-scripts/shutdown-vm.sh
+gcloud storage cp ./scripts/compute-engine/startup-vm.sh gs://bkt-scripts
+
+# in alternative
+gsutil cp ./scripts/compute-engine/startup-vm.sh gs://bkt-scripts/startup-vm.sh
 ```
 
 List all files in the `bkt-scripts` bucket:
 
 ```sh
-gsutil ls -p $GCP_PROJECT_ID gs://bkt-scripts
+gsutil ls gs://bkt-scripts
 ```
 
 Print to stdout the content of `startup-vm.sh`:
@@ -45,197 +51,82 @@ Print to stdout the content of `startup-vm.sh`:
 gsutil cat -h gs://bkt-scripts/startup-vm.sh
 ```
 
-Connect to the VM via SSH and [view the output of a Linux startup script](https://cloud.google.com/compute/docs/instances/startup-scripts/linux#viewing-output):
+## 2. Provision the Compute Engine VM
+
+I think it's better to create the VM using the web UI. A few notes:
+
+- Copy-paste the startup script in the web UI. Pasting the Cloud Storage bucket URL seems not to work.
+- Assign `api.giacomodebidda.com` as the Hostname.
+- Use a `e2-micro` [machine type](https://cloud.google.com/compute/docs/machine-resource).
+- Use a [zonal balanced persistent disk](https://cloud.google.com/compute/docs/disks) of at least 20 GB as the boot disk. Data is encrypted automatically using a Google-managed encryption key (no configuration required).
+
+> :information_source: **Note:**
+>
+> A VM like this should cost less than 10 USD a month.
+> You can also check [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator#id=c7f84d96-9dbe-480f-84e0-a9104093e55e) to estimate monthly costs of a VM like this.
+
+This gcloud command should create a VM **similar** to the one I want. **Do NOT copy this!**
 
 ```sh
-sudo journalctl -u google-startup-scripts.service
-```
-
-Connect to the VM via SSH and rerun a startup script:
-
-```sh
-sudo google_metadata_script_runner startup
-```
-
-## instances
-
-Create a VM instance and run a startup script when it boots, and a shutdown script when it shuts down:
-
-```sh
-gcloud compute instances create example-instance \
-  --project $GCP_PROJECT_ID \
-  --zone $COMPUTE_ENGINE_ZONE \
-  --metadata-from-file startup-script=scripts/startup-vm.sh \
-  --metadata-from-file shutdown-script=scripts/shutdown-vm.sh
-```
-
-or, when the scripts are hosted on Cloud Storage:
-
-```sh
-gcloud compute instances create example-debian-instance \
-  --project $GCP_PROJECT_ID \
-  --zone $COMPUTE_ENGINE_ZONE \
-  --machine-type f1-micro \
-  --image-family debian-11 \
-  --image-project debian-cloud \
-  --boot-disk-size 30GB \
-  --service-account $SA_COMPUTE_ENGINE \
-  --scopes storage-ro \
-  --metadata startup-script-url=https://storage.cloud.google.com/bkt-scripts/startup-vm.sh \
+gcloud compute instances create vm-development \
+  --zone ${COMPUTE_ENGINE_ZONE} \
+  --machine-type e2-micro \
+  --network-interface network-tier=PREMIUM,stack-type=IPV4_ONLY,subnet=default \
+  --maintenance-policy MIGRATE \
+  --provisioning-model STANDARD \
+  --service-account "${GCP_PROJECT_NUM}-compute@developer.gserviceaccount.com" \
+  --scopes "https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append" \
+  --enable-display-device \
+  --create-disk "auto-delete=yes,boot=yes,device-name=vm-development,image=projects/debian-cloud/global/images/debian-11-bullseye-v20230509,mode=rw,size=20,type=projects/prj-kitchen-sink/zones/${COMPUTE_ENGINE_ZONE}/diskTypes/pd-balanced" \
+  --no-shielded-secure-boot \
+  --shielded-vtpm \
+  --shielded-integrity-monitoring \
+  --labels "customer=personal,ec-src=vm_add-gcloud" \
+  --reservation-affinity any
+  --metadata "startup-script-url=https://storage.cloud.google.com/bkt-scripts/startup-vm.sh" \
   --no-address
-```
-
-Connect to a VM instance using SSH:
-
-```sh
-gcloud compute ssh example-debian-instance \
-  --project $GCP_PROJECT_ID \
-  --zone $COMPUTE_ENGINE_ZONE \
-  --tunnel-through-iap
 ```
 
 Retrieve the list of disk:
 
 ```sh
-gcloud compute disks list --project $GCP_PROJECT_ID
+gcloud compute disks list
 ```
 
-Stop the VM instance:
+Connect to the VM using SSH:
 
 ```sh
-gcloud compute instances stop example-debian-instance \
-  --project $GCP_PROJECT_ID \
-  --zone $COMPUTE_ENGINE_ZONE
+gcloud compute ssh giacomo@vm-development
 ```
 
-Delete an instance:
+Check that the startup script ran correctly by [viewing its output](https://cloud.google.com/compute/docs/instances/startup-scripts/linux#viewing-output):
 
 ```sh
-gcloud compute instances delete example-debian-instance \
-  --project $GCP_PROJECT_ID \
-  --zone $COMPUTE_ENGINE_ZONE
+sudo journalctl -u google-startup-scripts.service
 ```
 
-## instance templates
-
-Retrieve the list of instance templates:
+In there were any issues, try re-running the startup script manually:
 
 ```sh
-gcloud compute instance-templates list \
-  --project $GCP_PROJECT_ID
+sudo google_metadata_script_runner startup
 ```
 
-You can also see the [list of instance templates in the Cloud Console](https://console.cloud.google.com/compute/instanceTemplates/list?project=prj-kitchen-sink).
+> :information_source: **Note:**
+>
+> The startup script might take a few minutes to complete. It depends on many packages you are installing/updating in your script. Give it some time.
 
-Create an instance template for a VM I use for development purposes:
+Check that the software you installed in the startup script is available. For example:
 
 ```sh
-gcloud compute instance-templates create tmpl-debian-11 \
-  --project $GCP_PROJECT_ID \
-  --service-account sa-compute-engine@prj-kitchen-sink.iam.gserviceaccount.com \
-  --machine-type e2-micro \
-  --image-family debian-11 \
-  --image-project debian-cloud \
-  --boot-disk-size 40GB \
-  --boot-disk-type pd-standard \
-  --boot-disk-auto-delete \
-  --metadata-from-file startup-script=scripts/startup-vm.sh,shutdown-script=scripts/shutdown-vm.sh \
-  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=instance-template
+neofetch
+
+bb --version
+
+pocketbase --version
 ```
 
-Check the [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator#id=c7f84d96-9dbe-480f-84e0-a9104093e55e) to estimate monthly costs.
-
-Delete the instance template:
-
-```sh
-gcloud compute instance-templates delete tmpl-debian-11 \
-  --project $GCP_PROJECT_ID
-```
-
-Create a VM from an instance template:
-
-```sh
-gcloud compute instances create vm-development \
-  --project $GCP_PROJECT_ID \
-  --source-instance-template tmpl-debian-11 \
-  --zone $COMPUTE_ENGINE_ZONE \
-  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=vm
-```
-
-Delete the VM:
-
-```sh
-gcloud compute instances delete vm-development \
-  --project $GCP_PROJECT_ID
-```
-
-## machine images
-
-Retrieve the list of machine images in this GCP project:
-
-```sh
-gcloud compute machine-images list \
-  --project $GCP_PROJECT_ID
-```
-
-You can also see the [list of machine images in the Cloud Console](https://console.cloud.google.com/compute/machineImages?project=prj-kitchen-sink).
-
-Create a machine image (*bake* an image) using a VM as a starting point:
-
-```sh
-gcloud compute machine-images create machine-img-development \
-  --project $GCP_PROJECT_ID \
-  --source-instance vm-development \
-  --source-instance-zone $COMPUTE_ENGINE_ZONE \
-  --description "baked image of a VM I use for various development tasks"
-```
-
-If you need to stop the VM, here is how to do it:
-
-```sh
-gcloud compute instances stop vm-development \
-  --project $GCP_PROJECT_ID \
-  --zone $COMPUTE_ENGINE_ZONE
-```
-
-Create a VM from a machine image:
-
-```sh
-gcloud beta compute instances create vm-development \
-  --project $GCP_PROJECT_ID \
-  --source-machine-image machine-img-development \
-  --zone $COMPUTE_ENGINE_ZONE \
-  --description "VM I use for various development tasks" \
-  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=vm
-```
-
-Add `--no-address` if you do not want the VM to have an external IP address.
-
-## connect to the VM
-
-Connect to the VM:
-
-```sh
-gcloud compute ssh vm-development \
-  --project $GCP_PROJECT_ID \
-  --zone $COMPUTE_ENGINE_ZONE \
-  --tunnel-through-iap
-```
-
-Download the script to setup the VM:
-
-```sh
-gsutil cp gs://bkt-scripts/setup-vm.sh ./scripts/setup-vm.sh
-```
-
-Assign the permissions to execute the script:
-
-```sh
-chmod 777 ./scripts/setup-vm.sh
-```
-
-Execute the script:
-
-```sh
-./scripts/setup-vm.sh
-```
+> :information_source: **Note:**
+>
+> You could also:
+> - [create an instance template from this VM](https://cloud.google.com/compute/docs/instance-templates/create-instance-templates#based-on-existing-instance).
+> - [create a machine image (*bake* an image)](https://cloud.google.com/compute/docs/machine-images/create-machine-images#create-image-from-instance) using this VM as a starting point.
