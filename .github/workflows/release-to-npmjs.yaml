@@ -61,5 +61,5 @@ jobs:
         run: >
           npx multi-semantic-release
           --ignore-private
-          --ignore-packages=packages/audit,packages/send-telegram-message,packages/telegram-bot,packages/wasm-news,packages/webhooks
+          --ignore-packages=packages/audit,packages/send-telegram-message,packages/telegram-bot,packages/wasm-news
 

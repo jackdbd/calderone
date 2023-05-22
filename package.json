@@ -46,7 +46,7 @@
     "precommit": "npm run precommit --workspaces --if-present",
     "prepare": "husky install",
     "publish:npmjs": "gcloud builds submit ./cloud-build --async --config cloud-build/publish-to-npmjs.yaml",
-    "release:dry": "multi-semantic-release --dry-run --debug --ignore-private --ignore-packages=packages/send-telegram-message,packages/telegram-bot,packages/wasm-news,packages/webhooks",
+    "release:dry": "multi-semantic-release --dry-run --debug --ignore-private --ignore-packages=packages/send-telegram-message,packages/telegram-bot,packages/wasm-news",
     "serve:docs": "npx http-server --port 8080 -c-1 -o docs",
     "size": "npm run size --workspaces --if-present",
     "stripe/check-customers": "tsm packages/scripts/src/stripe/check-customers.ts",
