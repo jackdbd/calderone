@@ -57,14 +57,13 @@
     "@jackdbd/telegram-text-messages": "^1.1.0",
     "@jackdbd/utils": "^1.1.3",
     "@octokit/rest": "18.12.0",
+    "@userscripters/stackexchange-api-types": "3.4.0",
     "debug": "4.3.4",
     "exiting": "6.1.0",
     "google-spreadsheet": "3.3.0",
     "hapi-dev-errors": "4.0.0",
     "joi": "17.6.0",
-    "snoowrap": "1.23.0",
-    "twitter-api-v2": "1.12.0",
-    "@userscripters/stackexchange-api-types": "3.4.0"
-  },
-  "devDependencies": {}
+    "snoowrap": "^1.15.2",
+    "twitter-api-v2": "1.12.0"
+  }
 }
