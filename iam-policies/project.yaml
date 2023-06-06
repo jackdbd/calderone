@@ -18,6 +18,7 @@ bindings:
   role: roles/bigquery.dataEditor
 - members:
   - serviceAccount:sa-telegram-bot@prj-kitchen-sink.iam.gserviceaccount.com
+  - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   - serviceAccount:vantage-6a919e899c93451913a9@vantage-production-308619.iam.gserviceaccount.com
   role: roles/bigquery.jobUser
 - members:
@@ -201,5 +202,5 @@ bindings:
 - members:
   - serviceAccount:sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   role: roles/workflows.viewer
-etag: BwX2acy2d4w=
+etag: BwX9fEbA0EA=
 version: 1
