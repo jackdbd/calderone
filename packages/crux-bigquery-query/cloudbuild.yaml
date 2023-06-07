@@ -26,6 +26,7 @@ steps:
           --service-account ${_SERVICE_ACCOUNT} \
           --set-env-vars NODE_ENV=production \
           --set-secrets TELEGRAM=${_TELEGRAM_SECRET_NAME}:${_TELEGRAM_SECRET_VERSION} \
+          --set-secrets WEBPAGETEST=${_WEBPAGETEST_SECRET_NAME}:${_WEBPAGETEST_SECRET_VERSION} \
           --timeout ${_REQUEST_TIMEOUT} \
           --trigger-http \
           --update-labels customer=${_CUSTOMER},resource=function \
@@ -45,6 +46,8 @@ substitutions:
   _SERVICE_ACCOUNT: sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com
   _TELEGRAM_SECRET_NAME: TELEGRAM
   _TELEGRAM_SECRET_VERSION: latest
+  _WEBPAGETEST_SECRET_NAME: WEBPAGETEST
+  _WEBPAGETEST_SECRET_VERSION: latest
 
 options:
     # https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values#dynamic_substitutions

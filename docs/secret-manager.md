@@ -83,6 +83,12 @@ gcloud secrets create WEBHOOKS_CONFIG_PRODUCTION \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
 ```
 
+```sh
+gcloud secrets create WEBPAGETEST \
+  --data-file './secrets/webpagetest.json' \
+  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=secret
+```
+
 ## Create a new version of a secret (i.e "update" a secret)
 
 ```sh

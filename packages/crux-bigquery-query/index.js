@@ -14,9 +14,14 @@ if (process.env.NODE_ENV !== 'production') {
 if (!process.env.TELEGRAM) {
   throw new Error('environment variable TELEGRAM not set')
 }
-
 // TELEGRAM is a secret stored in Secret Manager. It's a JSON, so we parse it.
 const { chat_id, token } = JSON.parse(process.env.TELEGRAM)
+
+if (!process.env.WEBPAGETEST) {
+  throw new Error('environment variable WEBPAGETEST not set')
+}
+// WEBPAGETEST is a secret stored in Secret Manager. It's a JSON, so we parse it.
+const { api_key: wpt_api_key } = JSON.parse(process.env.WEBPAGETEST)
 
 const log = makeLog({
   // Use structured logging (JSON) in production, and unstructured logging in
@@ -102,7 +107,9 @@ const CSS_RULESETS = [
 
 const STYLE = `<style>${CSS_RULESETS.join('')}</style>`
 
-const successIndexHtml = ({ sql, params }) => {
+const successIndexHtml = ({ options }) => {
+  const { query, params, ...rest } = options
+
   const title = `SQL query to run against CrUX`
 
   const head_fragments = [
@@ -121,15 +128,39 @@ const successIndexHtml = ({ sql, params }) => {
     </header>
     <main>
       <p>A POST request will run this parameterized query on BigQuery:</p>
-      <pre><code>${sql}</code></pre>
+      <pre><code>${query}</code></pre>
       <p>Here are the query parameters:</p>
       <pre><code>${JSON.stringify(params, null, 2)}</code></pre>
+      <p>Other options for the BigQuery client:</p>
+      <pre><code>${JSON.stringify(rest, null, 2)}</code></pre>
     </main>
     <footer>
       <p>CSS with <a href="https://andybrewer.github.io/mvp/" target="_blank">MVP.css</a></p>
     </footer>
   </body>
   </html>`
+}
+
+const row2str = (row) => {
+  const { origin, ...rest } = row
+
+  const pingback = `https://webhooks.giacomodebidda.com/webpagetest`
+  const wpt_url = `https://www.webpagetest.org/runtest.php?url=${origin}/&k=${wpt_api_key}&f=json&pingback=${pingback}`
+
+  let s = `<b>URL</b> <a href="${origin}">${origin}</a>`
+
+  s = s.concat('\n')
+  s = s.concat(`<pre><code>${JSON.stringify(rest, null, 2)}</code></pre>`)
+
+  s = s.concat('\n')
+  s = s.concat(
+    `<b>Audit</b> <a href="${wpt_url}">Click to test with WebPageTest</a>`
+  )
+  s = s.concat('\n')
+  s = s.concat(
+    `TODO: add several links to audit the URL on mobile, desktop, etc`
+  )
+  return s
 }
 
 const textFromRows = ({
@@ -152,7 +183,7 @@ const textFromRows = ({
   )
 
   text = text.concat('\n\n')
-  text = text.concat(`${JSON.stringify(rows, null, 2)}`)
+  text = text.concat(rows.map(row2str).join('\n\n'))
 
   text = text.concat('\n\n')
   text = text.concat(`<i>Sent by <code>${FUNCTION_NAME}</code></i>`)
@@ -277,6 +308,17 @@ http(FUNCTION_NAME, async (req, res) => {
   const sql = parameterizedQuery()
   const params = { country_code, limit: 15, slow_ttfb }
 
+  const options = {
+    // https://cloud.google.com/bigquery/docs/dry-run-queries#node.js
+    // dryRun: true,
+    query: sql,
+    // Location must match that of the dataset(s) referenced in the query.
+    // The CrUX BigQuery dataset is (only?) in the US.
+    location: 'US',
+    params,
+    useQueryCache: true
+  }
+
   // return res.send({
   //   message: `run parameterized query with these params (see payload)`,
   //   params
@@ -289,20 +331,10 @@ http(FUNCTION_NAME, async (req, res) => {
       return res
         .status(200)
         .header('Content-Type', 'text/html; charset=utf-8')
-        .send(successIndexHtml({ sql, params }))
+        .send(successIndexHtml({ options }))
     }
     case 'POST': {
       log({ message: `run CrUX query`, tags: ['debug', 'query', 'crux'] })
-
-      const options = {
-        // https://cloud.google.com/bigquery/docs/dry-run-queries#node.js
-        // dryRun: true,
-        query: sql,
-        // Location must match that of the dataset(s) referenced in the query.
-        // The CrUX BigQuery dataset is (only?) in the US.
-        location: 'US',
-        params
-      }
 
       const texts = await textsInBatches({ bq, options, batch_size: 3 })
       if (texts.length === 0) {

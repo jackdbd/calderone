@@ -56,7 +56,7 @@ curl "${CRUX_BIGQUERY_FUNCTION_URL}?country_code=DE&slow_ttfb=0.25" \
 ```sh
 gcloud functions call crux-bigquery-query \
   --gen2 \
-  --data '{"country_code": "UK", "slow_ttfb": 0.25}'
+  --data '{"country_code": "GB", "slow_ttfb": 0.25}'
 ```
 
 ## Test
