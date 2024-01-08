@@ -1,0 +1,44 @@
+name: 'Telegram notifications'
+
+on:
+  issues:
+    # https://docs.github.com/en/webhooks/webhook-events-and-payloads#issues
+    types:
+      # - assigned
+      - closed
+      # - deleted
+      # - demilestoned
+      # - edited
+      # - labeled
+      - locked
+      # - milestoned
+      - opened
+      # - pinned
+      - reopened
+      # - transferred
+      # - unassigned
+      # - unlabeled
+      - unlocked
+      # - unpinned
+  issue_comment:
+    # https://docs.github.com/en/webhooks/webhook-events-and-payloads#issue_comment
+    types: [created, deleted]
+  pull_request:
+    # https://docs.github.com/en/webhooks/webhook-events-and-payloads#pull_request
+    types: [closed, opened, reopened]
+
+jobs:
+  telegram-notifications:
+    name: 💬 Telegram notifications
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 💬 Send notification to Telegram chat
+        # https://github.com/EverythingSuckz/github-telegram-notify
+        uses: EverythingSuckz/github-telegram-notify@main
+        with:
+          bot_token: ${{ fromJSON(secrets.TELEGRAM).token }}
+          chat_id: ${{ fromJSON(secrets.TELEGRAM).chat_id }}
