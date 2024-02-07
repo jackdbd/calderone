@@ -7,7 +7,7 @@ const log = makeLog({
   namespace: process.env.K_SERVICE ? undefined : `${APP_ID}:workflows-utils`
 })
 
-interface CallWorkflowConfig {
+interface CreateExecution {
   client: ExecutionsClient
   location: string
   project: string
@@ -15,15 +15,15 @@ interface CallWorkflowConfig {
 }
 
 /**
- * Calls the Workflow API and waits for the execution result.
+ * Creates a Workflow execution, waits for the execution to complete, then
+ * returns the execution result.
  */
-export const callWorkflowsAPI = async ({
+export const createExecutionAndWaitForResult = async ({
   client,
   location,
   project,
   workflow
-}: CallWorkflowConfig) => {
-  // Execute workflow
+}: CreateExecution) => {
   try {
     const createExecutionRes = await client.createExecution({
       parent: client.workflowPath(project, location, workflow)
@@ -32,8 +32,8 @@ export const callWorkflowsAPI = async ({
     const executionName = createExecutionRes[0].name
 
     log({
-      message: `created execution ${executionName} of workflow ${workflow} in ${location}`,
-      tags: ['info', 'workflows', workflow, executionName]
+      message: `created execution ${executionName}`,
+      tags: ['info', 'workflows', workflow]
     })
 
     // Wait for execution to finish, then print results.
@@ -41,8 +41,8 @@ export const callWorkflowsAPI = async ({
     let backoffDelay = 1000 // Start wait with delay of 1,000 ms
 
     log({
-      message: `poll every 1s for result of execution ${executionName} of workflow ${workflow}...`,
-      tags: ['debug', 'workflows', workflow, executionName]
+      message: `poll every 1s for result of execution ${executionName}...`,
+      tags: ['debug', 'workflows', workflow]
     })
 
     while (!executionFinished) {
@@ -54,8 +54,8 @@ export const callWorkflowsAPI = async ({
       // If we haven't seen the result yet, wait a second.
       if (!executionFinished) {
         log({
-          message: `waiting for results of execution ${executionName} of workflow ${workflow}...`,
-          tags: ['debug', 'workflows', workflow, executionName]
+          message: `waiting for results of execution ${executionName}...`,
+          tags: ['debug', 'workflows', workflow]
         })
 
         await new Promise((resolve) => {
@@ -65,8 +65,8 @@ export const callWorkflowsAPI = async ({
         backoffDelay *= 2 // Double the delay to provide exponential backoff.
       } else {
         log({
-          message: `execution ${executionName} of workflow ${workflow} finished with state: ${execution.state}`,
-          tags: ['info', 'workflows', workflow, executionName],
+          message: `execution ${executionName} finished with state: ${execution.state}`,
+          tags: ['info', 'workflows', workflow],
           execution_result: execution.result
         })
         return {
@@ -82,6 +82,50 @@ export const callWorkflowsAPI = async ({
       message: `Error executing workflow: ${err.message}`,
       tags: ['error', 'workflows', workflow]
     })
+    return {
+      error: err as Error
+    }
+  }
+}
+
+export interface CancelExecution {
+  client: ExecutionsClient
+  location: string
+  project: string
+  workflow: string
+  execution: string
+}
+
+export const cancelExecution = async ({
+  client,
+  location,
+  project,
+  workflow,
+  execution
+}: CancelExecution) => {
+  const name = `projects/${project}/locations/${location}/workflows/${workflow}/executions/${execution}`
+
+  try {
+    const cancelExecutionRes = await client.cancelExecution({
+      name
+    })
+
+    const executionName = cancelExecutionRes[0].name
+
+    log({
+      message: `canceled execution ${execution} of workflow ${workflow} in ${location}`,
+      tags: ['info', 'workflows', workflow, executionName]
+    })
+
+    return {
+      value: { message: `execution ${executionName} canceled` }
+    }
+  } catch (err: any) {
+    log({
+      message: `Error when trying to cancel execution ${execution} of workflow ${workflow} ${err.message}`,
+      tags: ['error', 'workflows', workflow, execution]
+    })
+
     return {
       error: err as Error
     }

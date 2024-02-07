@@ -124,10 +124,6 @@ gcloud iam service-accounts create sa-telegram-bot \
   --description "SA for the @jackdbd/telegram-bot application"
 ```
 
-### sa-webhooks
-
-Create a service account for the [@jackdbd/webhooks](../packages/webhooks/README.md) application. That application will be deployed as a Cloud Run service, and will have attached this service account.
-
 ```sh
 gcloud iam service-accounts create sa-webhooks \
   --display-name "SA Webhooks" \

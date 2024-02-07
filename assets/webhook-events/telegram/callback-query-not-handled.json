@@ -1,0 +1,15 @@
+{
+  "update_id": 987,
+  "callback_query": {
+    "id": 654,
+    "data": "this-callback-data-is-not-handled-by-bot-actions",
+    "from": {},
+    "message": {
+      "message_id": 123,
+      "chat": {
+        "id": 521866002,
+        "type": "private"
+      }
+    }
+  }
+}

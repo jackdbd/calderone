@@ -1,0 +1,219 @@
+main:
+  steps:
+  - assign_date_and_time:
+      assign:
+        - unix_timestamp_utc: ${sys.now()}
+        - formatted_timestamp: ${time.format(sys.now(), "UTC")}
+        - tmp_time_splits: ${text.split(formatted_timestamp, "T")}
+        - date_splits: ${text.split(tmp_time_splits[0], "-")}
+        - time_splits: ${text.split(tmp_time_splits[1], ".")}
+        - year: "${date_splits[0]}"
+        - month: "${date_splits[1]}"
+        - day: "${date_splits[2]}"
+        - date_string: ${year + "_" + month + "_" + day}
+        - time_string: ${text.replace_all(time_splits[0], ":", "_")}
+
+  # - log_date_and_time:
+  #     call: sys.log
+  #     args:
+  #       data: {
+  #         "unix_timestamp_utc": "${unix_timestamp_utc}",
+  #         "formatted_timestamp": "${formatted_timestamp}",
+  #         "date_splits": "${date_splits}",
+  #         "time_splits": "${time_splits}",
+  #         "date_string": "${date_string}",
+  #         "time_string": "${time_string}"
+  #       }
+  #       severity: "INFO"
+
+  - assign_project_variables:
+      assign:
+        # https://cloud.google.com/workflows/docs/reference/stdlib/sys/get_env
+        - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+        - execution_id: ${sys.get_env("GOOGLE_CLOUD_WORKFLOW_EXECUTION_ID")}
+        # PhantomBuster requires the agent ID to be a string
+        - queue_name: my-queue
+        - queue_location: europe-west3
+        - queue_full_name: ${"projects/" + project_id + "/locations/" + queue_location + "/queues/" + queue_name}
+        # Must be in RFC3339 UTC "Zulu" format, examples:
+        # "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
+        - schedule_time: "2022-12-21T13:59:59Z"
+        - workflow_url: https://workflowexecutions.googleapis.com/v1/projects/prj-kitchen-sink/locations/europe-west8/workflows/phantombuster-fetch-result/executions
+        - task_id: ${"fetch_phantombuster_result_" + date_string + "_" + time_string}
+
+  # - retrieve_phantombuster_secret:
+  #     call: googleapis.secretmanager.v1.projects.secrets.versions.accessString
+  #     args:
+  #       project_id: ${project_id}
+  #       secret_id: PHANTOMBUSTER
+  #       version: "latest"
+  #     result: phantombuster_secret
+
+  # variable assignments #######################################################
+
+  # - assign_phantombuster_variables:
+  #     assign:
+  #       - phantombuster: "${json.decode(phantombuster_secret)}"
+  #       - phantombuster_api_key: "${phantombuster.api_key}"
+  #       - phantombuster_agent_id_linkedin_search: "${phantombuster.agent_id.linkedin_search_export}"
+
+  - phantombuster_agent_id_and_api_key:
+      call: retrieve_phantombuster_agent_id_and_api_key
+      args:
+        project_id: "${project_id}"
+        secret_id: PHANTOMBUSTER
+      result: phantombuster
+
+  - phantombuster_response:
+      call: launch_phantombuster_agent
+      args:
+        agent_id: "${phantombuster.agent_id}"
+        api_key: "${phantombuster.api_key}"
+      result: pb_res
+
+  - switch_on_phantombuster_response:
+      switch:
+        - condition: ${default(map.get(pb_res, "container_id"), null) != null}
+          next: prepare_task_body
+      # next: phantombuster_agent_failed
+      next: log_phantombuster_response
+
+  - log_phantombuster_response:
+      call: sys.log
+      args:
+        data:
+          "pb_res": "${pb_res}"
+        severity: "WARNING"
+
+  - phantombuster_agent_failed:
+      return:
+        aborted: true
+        completed: false
+        message: ${pb_res.message}
+
+  # since PhantomBuster takes some time to perform the LinkedIn search, schedule
+  # a task to fetch the results at a later time.
+  # https://cloud.google.com/workflows/docs/samples/workflows-connector-cloudtasks
+
+  - prepare_task_body:
+      assign:
+        - task_body:
+            # containerId: "811777507381323"
+            containerId: "${pb_res.container_id}"
+        - task_body_string: "${json.encode_to_string(task_body)}"
+        - task_body_base64: "${base64.encode(json.encode(task_body))}"
+
+  # - log_task_body:
+  #     call: sys.log
+  #     args:
+  #       data:
+  #         "pb_res": "${pb_res}"
+  #         "task_body": "${task_body}"
+  #         "task_body_string": "${task_body_string}"
+  #         "task_body_base64": "${task_body_base64}"
+  #       severity: "WARNING"
+
+  # TODO: fix OIDC auth
+
+  - create_task_to_fetch_phantombuster_result:
+      call: googleapis.cloudtasks.v2.projects.locations.queues.tasks.create
+      args:
+        parent: ${queue_full_name}
+        body:
+          task:
+            name: ${queue_full_name + "/tasks/" + task_id}
+            scheduleTime: ${schedule_time}
+            httpRequest:
+              url: ${workflow_url}
+              httpMethod: "POST"
+              oidcToken:
+                audience: ${workflow_url}
+                serviceAccountEmail: "sa-workflows-runner@prj-kitchen-sink.iam.gserviceaccount.com"
+              headers:
+                "x-enqueued-by": "phantombuster-linkedin-search"
+              # IMPORTANT: this MUST be a base64 string
+              body: ${task_body_base64}
+      result: task
+
+  - return_value:
+      return:
+        "cloud_tasks":
+          "queue_full_name": "${queue_full_name}"
+        "execution_id": "${execution_id}"
+        "phantombuster": "${pb_res}"
+
+# Subworkflows #################################################################
+retrieve_phantombuster_agent_id_and_api_key:
+  params: [project_id, secret_id]
+  steps:
+    - retrieve_phantombuster_secret:
+        call: googleapis.secretmanager.v1.projects.secrets.versions.accessString
+        args:
+          project_id: ${project_id}
+          secret_id: ${secret_id}
+          version: "latest"
+        result: json_secret
+
+    - return_value:
+        return:
+          agent_id: "${json.decode(json_secret).agent_id.linkedin_search_export}"
+          api_key: "${json.decode(json_secret).api_key}"
+
+### Try launching a PhantomBuster agent ###
+# Launching an agent can fail with a HTTP 402 (Payment Required) because I might
+# have exceeded the time slots for my PhantomBuster account.
+# https://cloud.google.com/workflows/docs/http-requests#http-errors
+launch_phantombuster_agent:
+  params: [agent_id, api_key]
+  steps:
+    - log_args:
+        call: sys.log
+        args:
+          data: {"agent_id": "${agent_id}"}
+          severity: "INFO"
+    
+    # - agents/launch:
+    #     call: http.post
+    #     args:
+    #       url: https://api.phantombuster.com/api/v2/agents/launch
+    #       timeout: 300.0
+    #       headers:
+    #         "X-Phantombuster-Key-1": "${api_key}"
+    #       body:
+    #         id: "${agent_id}"
+    #     result: phantombuster_agent_response
+
+    - try_launching_phantombuster_agent_or_return_error_message:
+        try:
+          call: http.post
+          args:
+            url: https://api.phantombuster.com/api/v2/agents/launch
+            timeout: 300.0
+            headers:
+              "X-Phantombuster-Key-1": "${api_key}"
+            body:
+              id: "${agent_id}"
+          result: res
+        except:
+          as: err
+          steps:
+            - log_err:
+                call: sys.log
+                args:
+                  data: {"err": "${err}"}
+                  severity: "ERROR"
+            - known_errors:
+                switch:
+                  - condition: ${err.code == 402}
+                    next: no_daily_execution_time_remaining
+            - unhandled_exception:
+                raise: ${err}
+
+    - return_value:
+        return:
+          message: "PhantomBuster agent launched and container created"
+          container_id: ${res.body.containerId}
+      
+    - no_daily_execution_time_remaining:
+        return:
+          "message": ${"cannot launch PhantomBuster agent " + agent_id + ". No daily execution time remaining."}

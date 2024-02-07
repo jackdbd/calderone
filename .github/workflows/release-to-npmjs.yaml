@@ -6,6 +6,16 @@ on:
       - canary
       - main
 
+# Permissions in a GitHub workflow
+# https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
+# This GitHub workflow runs semantic-release and semantic-release/github plugin.
+# The mininum set of permissions required by semantic-release/github is this:
+# https://github.com/semantic-release/github#configuration
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
 jobs:
   audit-build-release:
     name: Build & Test all packages on ${{ matrix.os }}, Node ${{ matrix.node }}
@@ -13,10 +23,9 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        # Use the Active LTS for this workflow
-        # https://nodejs.org/en/
-        # https://nodejs.org/en/about/releases/
-        node: ['16.17.0']
+        # Use the ACTIVE LTS for this workflow
+        # https://github.com/nodejs/Release/blob/main/CODENAMES.md
+        node: ['lts/hydrogen']
     steps:
       - name: 🛎️ Check out repo
         uses: actions/checkout@v3
@@ -52,5 +61,5 @@ jobs:
         run: >
           npx multi-semantic-release
           --ignore-private
-          --ignore-packages=packages/audit,packages/send-telegram-message,packages/telegram-bot,packages/wasm-news,packages/webhooks
+          --ignore-packages=packages/audit,packages/send-telegram-message,packages/telegram-bot,packages/wasm-news
 

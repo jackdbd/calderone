@@ -1,0 +1,13 @@
+{
+  "update_id": 123,
+  "message": {
+    "message_id": 456,
+    "text": "/hacker_news",
+    "entities": [{ "type": "bot_command", "offset": 0, "length": 12 }],
+    "date": 1671140951,
+    "chat": {
+      "id": 521866002,
+      "type": "private"
+    }
+  }
+}

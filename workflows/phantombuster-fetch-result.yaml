@@ -1,0 +1,107 @@
+main:
+  params: [args]
+  steps:
+  - assign_project_variables:
+      assign:
+        # https://cloud.google.com/workflows/docs/reference/stdlib/sys/get_env
+        - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+        - container_id: ${default(map.get(args, "containerId"), "12345")}
+
+  - switch_on_container_id:
+      switch:
+        - condition: ${container_id != null}
+          next: phantombuster_agent_id_and_api_key
+      next: abort_execution
+
+  - abort_execution:
+      return:
+        aborted: true
+        completed: false
+        message: "containerId must be passed as an argument"
+
+  - phantombuster_agent_id_and_api_key:
+      call: retrieve_phantombuster_agent_id_and_api_key
+      args:
+        project_id: "${project_id}"
+        secret_id: PHANTOMBUSTER
+      result: phantombuster
+
+  - phantombuster_response:
+      call: fetch_phantombuster_result
+      args:
+        container_id: "${container_id}"
+        api_key: "${phantombuster.api_key}"
+      result: pb_res
+
+  - log_phantombuster_response:
+      call: sys.log
+      args:
+        data:
+          "args": "${args}"
+          "container_id": "${container_id}"
+          "pb_res": "${pb_res}"
+        severity: "WARNING"
+
+  - return_value:
+      return: {
+        "args": "${args}",
+        "phantombuster": "${pb_res}",
+        "message": "todo"
+      }
+
+# Subworkflows #################################################################
+retrieve_phantombuster_agent_id_and_api_key:
+  params: [project_id, secret_id]
+  steps:
+    - retrieve_phantombuster_secret:
+        call: googleapis.secretmanager.v1.projects.secrets.versions.accessString
+        args:
+          project_id: ${project_id}
+          secret_id: ${secret_id}
+          version: "latest"
+        result: json_secret
+
+    - return_value:
+        return:
+          agent_id: "${json.decode(json_secret).agent_id.linkedin_search_export}"
+          api_key: "${json.decode(json_secret).api_key}"
+
+fetch_phantombuster_result:
+  params: [container_id, api_key]
+  steps:
+    - log_args:
+        call: sys.log
+        args:
+          data:
+            "container_id": "${container_id}"
+          severity: "WARNING"
+
+    - try_retrieving_phantombuster_result:
+        try:
+          call: http.get
+          args:
+            url: https://api.phantombuster.com/api/v2/containers/fetch-result-object
+            query:
+              id: "${container_id}"
+            timeout: 30.0
+            headers:
+              "X-Phantombuster-Key-1": "${api_key}"
+          result: res
+        except:
+          as: err
+          steps:
+            - known_errors:
+                switch:
+                  - condition: ${err.code == 404}
+                    next: no_container
+            - unhandled_exception:
+                raise: ${err}
+    
+    - return_value:
+        return:
+          message: "PhantomBuster fetched result object"
+          result_object: ${res.body.resultObject}
+
+    - no_container:
+        return:
+          "message": '${"cannot find PhantomBuster container " + container_id + "."}'

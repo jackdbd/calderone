@@ -1,0 +1,260 @@
+# This workflow gathers links from various websites (Hacker News, Reddit) and sends them to a Telegram chat.
+main:
+  steps:
+  - assign_project_variables:
+      assign:
+        # https://cloud.google.com/workflows/docs/reference/stdlib/sys/get_env
+        - project_id: ${sys.get_env("GOOGLE_CLOUD_PROJECT_ID")}
+        - function_telegram: https://send-telegram-message-45eyyotfta-ey.a.run.app
+
+  # retrieve secrets from Secret Manager #######################################
+
+  - retrieve_reddit_secret:
+      call: googleapis.secretmanager.v1.projects.secrets.versions.accessString
+      args:
+        project_id: ${project_id}
+        secret_id: REDDIT
+        version: "1"
+      result: reddit_secret
+  
+  - assign_reddit_vars:
+      assign:
+        - reddit_username: "${json.decode(reddit_secret).username}"
+        - reddit_password: "${json.decode(reddit_secret).password}"
+        - reddit_client_id: "${json.decode(reddit_secret).client_id}"
+        - reddit_client_secret: "${json.decode(reddit_secret).client_secret}"
+        - reddit_client_id_and_client_secret: ${reddit_client_id + ":" + reddit_client_secret}
+        - reddit_basic_auth: "${text.encode(reddit_client_id_and_client_secret)}"
+        - reddit_authorization_header: ${"Basic " + base64.encode(reddit_basic_auth)}
+
+  # - log_reddit_vars:
+  #     call: sys.log
+  #     args:
+  #       data: {
+  #         "Reddit OAuth client ID": "${reddit_client_id}",
+  #         "Reddit OAuth client secret": "${reddit_client_secret}",
+  #         "Reddit Authorization header": "${reddit_authorization_header}"
+  #       }
+  #       severity: "WARNING"
+
+  - obtain_reddit_access_token:
+      # https://github.com/reddit-archive/reddit/wiki/OAuth2-Quick-Start-Example#curl-example
+      call: http.post
+      args:
+        url: https://www.reddit.com/api/v1/access_token
+        headers: {
+          "Authorization": "${reddit_authorization_header}",
+          "Content-Type": "application/x-www-form-urlencoded",
+          "User-Agent": "${reddit_username",
+        }
+        body: {
+          "grant_type": "password",
+          "username": "${reddit_username}",
+          "password": "${reddit_password}",
+          "scope": "*"
+        }
+      result: reddit_access_token_response
+  
+  # variable assignments #######################################################
+
+  - assign_reddit_variables:
+      assign:
+        - reddit_access_token: "${reddit_access_token_response.body.access_token}"
+
+  # - log_reddit_access_token:
+  #     call: sys.log
+  #     args:
+  #       data: {
+  #         "Reddit OAuth2 access token": "${reddit_access_token}"
+  #       }
+  #       severity: "WARNING"
+
+  - assign_dates_and_timestamps:
+      assign:
+        # https://cloud.google.com/workflows/docs/reference/stdlib/sys/now
+        - ts_now_utc: ${sys.now()}
+        - seconds_in_30_days: 2592000
+        - ts_start_utc_string: "${string(ts_now_utc - seconds_in_30_days)}"
+        # - seconds_in_90_days: 7776000
+        # - ts_start_utc_string: "${string(ts_now_utc - seconds_in_90_days)}"
+        # - ts_start_utc_string: "${string(ts_now_utc)}"
+        # https://cloud.google.com/workflows/docs/reference/stdlib/text/split
+        - splits: ${text.split(ts_start_utc_string, ".")}
+        - ts_start_utc: "${splits[0]}"
+        # https://cloud.google.com/workflows/docs/reference/stdlib/time/format
+        - formatted_timestamp: ${time.format(sys.now(), "UTC")}
+        - date_splits: ${text.split(formatted_timestamp, "-")}
+        - year: "${date_splits[0]}"
+        # - month_digits: "${date_splits[1]}"
+
+  # Reddit #####################################################################
+  # search job posts in the following subreddits:
+  # https://www.reddit.com/r/forhire/
+  # https://www.reddit.com/r/freelance/
+  # https://www.reddit.com/r/jobbit/
+  # https://www.reddit.com/r/jobopenings/
+  # https://www.reddit.com/r/remotejs/
+  # https://www.reddit.com/r/slavelabour/
+  #
+  
+  - search_reddit_for_clojure_jobs:
+      call: search_reddit
+      args:
+        q: '(title:"[hiring]" OR flair:Hiring) AND (subreddit:forhire OR subreddit:freelance OR subreddit:jobbit OR subreddit:jobopenings OR subreddit:remotejs OR subreddit:slavelabour) AND (selftext:"remote") AND (selftext:"clojure")'
+        t: "month"
+        access_token: "${reddit_access_token}"
+      result: reddit_links_clojure
+
+  - create_message_about_clojure_jobs_found_on_reddit:
+      call: create_message_full_of_links
+      args:
+        links: ${reddit_links_clojure}
+        text_message: ${"<b>" + "Lead generation (Reddit - Clojure)" + "</b>" + "\n"}
+      result: text_message_reddit_clojure
+
+  - send_message_about_clojure_jobs_found_on_reddit:
+      call: http.post
+      args:
+        url: ${function_telegram}
+        auth:
+          type: OIDC
+        body:
+          text: ${text_message_reddit_clojure}
+      result: message_result_reddit_clojure
+
+  - search_reddit_for_react_jobs:
+      call: search_reddit
+      args:
+        q: '(title:"[hiring]" OR flair:Hiring) AND (subreddit:forhire OR subreddit:freelance OR subreddit:jobbit OR subreddit:jobopenings OR subreddit:remotejs OR subreddit:slavelabour) AND (selftext:"remote") AND (selftext:"react")'
+        # There are too many React jobs posted on Reddit in a month. I risk to
+        # hit a memory limit in the Reddit API.
+        t: "week"
+        access_token: "${reddit_access_token}"
+      result: reddit_links_react
+
+  - create_message_about_react_jobs_found_on_reddit:
+      call: create_message_full_of_links
+      args:
+        links: ${reddit_links_react}
+        text_message: ${"<b>" + "Lead generation (Reddit - React)" + "</b>" + "\n"}
+      result: text_message_reddit_react
+
+  - send_message_about_react_jobs_found_on_reddit:
+      call: http.post
+      args:
+        url: ${function_telegram}
+        auth:
+          type: OIDC
+        body:
+          text: ${text_message_reddit_react}
+      result: message_result_reddit_react
+
+  - return_value:
+      return: {
+        "telegram": {
+          "hacker_news_freelancing": "${message_result_hacker_news_freelancer.body}",
+          "hacker_news_who_is_hiring": "${message_result_hacker_news_who_is_hiring.body}",
+          "hacker_news_authors": "${message_result_hacker_news_authors.body}",
+          "reddit_clojure": "${message_result_reddit_clojure.body}",
+          "reddit_react": "${message_result_reddit_react.body}"
+        }
+      }
+
+# Subworkflows #################################################################
+
+### Utilities ##################################################################
+create_message_full_of_links:
+  params: [links, text_message]
+  steps:
+    # - log_args:
+    #     call: sys.log
+    #     args:
+    #       data: {"links": "${links}", "text_message": "${text_message}"}
+    #       severity: "WARNING"
+    - loop_links:
+        for:
+          value: link
+          in: ${links}
+          steps:
+            - append_link_to_text_message:
+                assign:
+                  - text_message: ${text_message + "\n" + link}
+    - return_text_message:
+        return: ${text_message}
+
+get_textual_month:
+  params: [month_digits]
+  steps:
+    # GCP Workflows allows a max of 10 switch conditions in a single step. So we
+    # need this simple workaround to assign the month.
+    - return_month_01-10:
+        switch:
+          - condition: ${month_digits == "01"}
+            return: "january"
+          - condition: ${month_digits == "02"}
+            return: "february"
+          - condition: ${month_digits == "03"}
+            return: "march"
+          - condition: ${month_digits == "04"}
+            return: "april"
+          - condition: ${month_digits == "05"}
+            return: "may"
+          - condition: ${month_digits == "06"}
+            return: "june"
+          - condition: ${month_digits == "07"}
+            return: "july"
+          - condition: ${month_digits == "08"}
+            return: "august"
+          - condition: ${month_digits == "09"}
+            return: "september"
+          - condition: ${month_digits == "10"}
+            return: "october"
+    - return_month_11-12:
+        switch:
+          - condition: ${month_digits == "11"}
+            return: "november"
+          - condition: ${month_digits == "12"}
+            return: "december"
+
+# Reddit #######################################################################
+search_reddit:
+  params: [q, t, access_token]
+  steps:
+    - search_in_reddit_forhire:
+        call: http.get
+        args:
+          url: https://oauth.reddit.com/search
+          timeout: 10.0
+          headers:
+            Authorization: ${"Bearer " + access_token}
+          query: {
+            limit: 20,
+            q: "${q}",
+            # restrict_sr: true,
+            sort: "new",
+            t: "${t}"
+          }
+        result: reddit_forhire_response
+
+    - assign_variables:
+        assign:
+        - anchor_tags: []
+        - children: ${reddit_forhire_response.body.data.children}
+
+    - loop_reddit_results:
+        for:
+          value: child
+          in: ${reddit_forhire_response.body.data.children}
+          steps:
+            - assign_datum:
+                assign:
+                  - author: ${child.data.author}
+                  - title: ${child.data.title}
+                  - href: ${child.data.url}
+                  - anchor_tag: ${"<a href=" + "'" + href + "'" + ">" + title + "</a>"}
+            - concat_anchor_tags:
+                assign:
+                - anchor_tags: ${list.concat(anchor_tags, anchor_tag)}
+
+    - return_anchor_tags:
+        return: ${anchor_tags}

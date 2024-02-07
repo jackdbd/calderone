@@ -13,8 +13,7 @@ const PACKAGES_EXCLUDED_FROM_INDEX = [
   'scripts',
   'send-telegram-message',
   'telegram-bot',
-  'wasm-news',
-  'webhooks'
+  'wasm-news'
 ]
 
 const script_name = path.basename(__filename)

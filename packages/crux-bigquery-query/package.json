@@ -1,0 +1,43 @@
+{
+  "name": "@jackdbd/crux-bigquery-query",
+  "version": "0.0.0",
+  "description": "",
+  "author": {
+    "name": "Giacomo Debidda",
+    "email": "giacomo@giacomodebidda.com",
+    "url": "https://giacomodebidda.com/"
+  },
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "function",
+    "crux",
+    "webperf"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackdbd/calderone"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "type": "module",
+  "module": "index.js",
+  "scripts": {
+    "predeploy": "run-s lint test",
+    "deploy": "gcloud beta builds submit ./ --config cloudbuild.yaml --async",
+    "dev": "ls *.js | GOOGLE_APPLICATION_CREDENTIALS=../../secrets/sa-workflows-runner.json NODE_ENV=production TELEGRAM=$(cat ../../secrets/telegram.json) WEBPAGETEST=$(cat ../../secrets/webpagetest.json) entr -r functions-framework --source index.js --target runQueryOnCrUX --port 8080",
+    "format": "../../scripts/format.mjs",
+    "lint": "eslint --config ../../config/eslint.cjs",
+    "nuke": "npm run clean && rimraf node_modules 'package-lock.json'",
+    "test": "NODE_ENV=production NODE_OPTIONS=--experimental-vm-modules TELEGRAM=$(cat ../../secrets/telegram.json) WEBPAGETEST=$(cat ../../secrets/webpagetest.json) npx jest --config jest.config.cjs --rootDir ./ --forceExit",
+    "test:open-handles": "NODE_ENV=production NODE_OPTIONS=--experimental-vm-modules TELEGRAM=$(cat ../../secrets/telegram.json) WEBPAGETEST=$(cat ../../secrets/webpagetest.json) npx jest --config jest.config.cjs --rootDir ./ --runInBand --detectOpenHandles",
+    "test:ci": "NODE_ENV=production NODE_OPTIONS=--experimental-vm-modules TELEGRAM=$(cat ../../secrets/telegram.json) WEBPAGETEST=$(cat ../../secrets/webpagetest.json) npx jest --config jest.config.cjs --rootDir ./ --ci --forceExit"
+  },
+  "dependencies": {
+    "@google-cloud/bigquery": "6.2.0",
+    "@google-cloud/functions-framework": "3.2.0",
+    "@jackdbd/notifications": "1.0.3",
+    "@jackdbd/tags-logger": "1.1.0"
+  }
+}

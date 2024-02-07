@@ -30,6 +30,7 @@ steps:
           --region ${_CLOUD_FUNCTIONS_REGION} \
           --service-account ${_SERVICE_ACCOUNT} \
           --set-env-vars ${_DEBUG} \
+          --set-env-vars FIRESTORE_COLLECTION=${_FIRESTORE_COLLECTION} \
           --set-env-vars NODE_ENV=production \
           --set-secrets TELEGRAM_BOT=${_TELEGRAM_BOT_SECRET_NAME}:latest \
           --timeout ${_REQUEST_TIMEOUT} \
@@ -44,6 +45,7 @@ substitutions:
   # log a few namespaces to understand how Telegraf works.
   # Since there is a comma in the string, I define ## as the custom delimiter
   _DEBUG: "^##^DEBUG=telegraf:main,telegraf:webhook"
+  _FIRESTORE_COLLECTION: workflows_callbacks
   _FUNCTION_ENTRY_POINT: telegramBot
   _FUNCTION_NAME: telegram-bot
   # M = megabyte, Mi = mebibyte, G = gigabyte, Gi = gibibyte

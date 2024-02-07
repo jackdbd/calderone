@@ -4,19 +4,29 @@ Useful links:
 
 - [Cloud Workflows predefined IAM roles](https://cloud.google.com/iam/docs/understanding-roles#workflows-roles)
 
+## Workflows
+
+- [Hacker News](./hacker-news/README.md)
+- [Human-in-the-loop](./human-in-the-loop/README.md)
+- [Random cocktail](./random-cocktail/README.md)
+- [Reddit](./reddit/README.md)
+- [Serverless data pipeline](./serverless-data-pipeline/README.md)
+
+If you don't want to specify `--location` in every command, ensure that you specify it in the `[workflows]` section of your gcloud config configuration. For example:
+
+```toml
+[core]
+account = giacomo@giacomodebidda.com
+project = prj-kitchen-sink
+verbosity = warning
+
+[workflows]
+location = europe-west4
+```
+
 ## Deploy a Workflow to GCP
 
 All of the following commands are meant to be executed from the monorepo root. The environment variable `WORKFLOW_LOCATION` is set to `europe-west4`. The environment variable `SA_WORKFLOWS_RUNNER` is the service account attached to each GCP Workflow.
-
-```sh
-gcloud workflows deploy random-cocktail \
-  --project $GCP_PROJECT_ID \
-  --location $WORKFLOW_LOCATION \
-  --description "Get a random cocktail from thecocktaildb.com" \
-  --source workflows/random-cocktail.yaml \
-  --service-account $SA_WORKFLOWS_RUNNER \
-  --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
-```
 
 ```sh
 gcloud workflows deploy create-stop-delete-vm \
@@ -28,26 +38,26 @@ gcloud workflows deploy create-stop-delete-vm \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
 
-### Lead generation
+### PhantomBuster LinkedIn search (launch agent)
 
 ```sh
-gcloud workflows deploy lead-generation \
+gcloud workflows deploy phantombuster-linkedin-search \
   --project $GCP_PROJECT_ID \
   --location $WORKFLOW_LOCATION \
-  --description "Lead generation to find clients, jobs, people on Hacker News, LinkedIn, Reddit" \
-  --source workflows/lead-generation.yaml \
+  --description "Perform a LinkedIn search with PhantomBuster" \
+  --source workflows/phantombuster-linkedin-search.yaml \
   --service-account $SA_WORKFLOWS_RUNNER \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
 
-### Serverless data pipeline
+### PhantomBuster results (fetch results from container)
 
 ```sh
-gcloud workflows deploy serverless-data-pipeline \
+gcloud workflows deploy phantombuster-fetch-result \
   --project $GCP_PROJECT_ID \
   --location $WORKFLOW_LOCATION \
-  --description "Serverless data pipeline (variation of the codelab 'Building a Serverless Data Pipeline: IoT to Analytics')" \
-  --source workflows/serverless-data-pipeline.yaml \
+  --description "Fetch results from PhantomBuster" \
+  --source workflows/phantombuster-fetch-result.yaml \
   --service-account $SA_WORKFLOWS_RUNNER \
   --labels customer=$CUSTOMER,environment=$ENVIRONMENT,resource=workflow
 ```
@@ -83,30 +93,14 @@ Deploy the workflow first, then create a [Cloud Scheduler job](../docs/cloud-sch
 ## List the workflows
 
 ```sh
-gcloud workflows list --location $WORKFLOW_LOCATION
-```
-
-## Delete a workflow
-
-```sh
-gcloud workflows delete random-cocktail --location $WORKFLOW_LOCATION
+gcloud workflows list --location "${WORKFLOW_LOCATION}"
 ```
 
 ## `execute` vs `run`
 
 Use `gcloud workflows execute` to execute a workflow without waiting for it to complete.
 
-```sh
-gcloud workflows execute random-cocktail --location $WORKFLOW_LOCATION
-```
-
 Use `gcloud workflows run` to execute a workflow and wait for it to complete.
-
-```sh
-gcloud workflows run random-cocktail \
-  --location $WORKFLOW_LOCATION \
-  --format='value(result)'
-```
 
 ```sh
 gcloud workflows run webperf-audit \
@@ -141,6 +135,17 @@ gcloud workflows run quickstart \
   --format 'value(result)'
 ```
 
+```sh
+gcloud workflows run phantombuster-linkedin-search \
+  --location $WORKFLOW_LOCATION \
+  --format 'value(result)' | jq
+```
+
+```sh
+gcloud workflows run human-in-the-loop \
+  --location $WORKFLOW_LOCATION
+```
+
 ### If the workflow requires input data
 
 A workflow requires input data if it has:
@@ -151,6 +156,16 @@ main:
 ```
 
 For example:
+
+```sh
+gcloud workflows run phantombuster-fetch-result \
+  --project $GCP_PROJECT_ID \
+  --location $WORKFLOW_LOCATION \
+  --data '{
+    "containerId": "811777507381323"
+  }' \
+  --format 'value(result)' | jq
+```
 
 ```sh
 gcloud workflows execute create-stop-delete-vm \

@@ -80,7 +80,6 @@ const projects = [
   project('checks'),
   project('cloud-scheduler-utils'),
   project('cloud-tasks-utils'),
-  project('content-security-policy'),
   project('fattureincloud-client'),
   project('firestore-utils'),
   project('keap-client'),
@@ -95,8 +94,7 @@ const projects = [
   project('telegram-bot'),
   project('telegram-text-messages'),
   project('utils'),
-  project('wasm-news'),
-  project('webhooks')
+  project('wasm-news')
 ]
 
 const config = {

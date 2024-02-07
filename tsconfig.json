@@ -10,9 +10,6 @@
       "path": "./packages/checks/tsconfig.json"
     },
     {
-      "path": "./packages/content-security-policy/tsconfig.json"
-    },
-    {
       "path": "./packages/utils/tsconfig.json"
     },
     {

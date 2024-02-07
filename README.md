@@ -34,6 +34,21 @@ npm install --include dev
 
 *Note:* `--include dev` is just to be sure that dev dependencies gets installed even if you have set the environment variable `NODE_ENV=production` on your machine.
 
+| package | vulnerabilities (Snyk) |
+| --- | --- |
+| checks | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fchecks) |
+| cloud-scheduler-utils | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fcloud-scheduler-utils) |
+| cloud-tasks-utils | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fcloud-tasks-utils) |
+| firestore-utils | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Ffirestore-utils) |
+| notifications | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fnotifications) |
+| plausible-client | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fplausible-client) |
+| schemas | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fschemas) |
+| secret-manager-utils | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fsecret-manager-utils) |
+| sqlite-utils | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fsqlite-utils) |
+| stripe-utils | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Fstripe-utils) |
+| tags-logger | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Ftags-logger) |
+| telegram-text-messages | ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/@jackdbd%2Ftelegram-text-messages) |
+
 ## Build
 
 This monorepo uses [Typescript project references](https://www.typescriptlang.org/docs/handbook/project-references.html) to build all of its libraries.
@@ -66,7 +81,6 @@ Build all applications:
 npm run build -w packages/send-telegram-message
 npm run build -w packages/telegram-bot
 npm run build -w packages/wasm-news
-npm run build -w packages/webhooks
 ```
 
 ## Test
@@ -141,4 +155,3 @@ See:
 - [@jackdbd/send-telegram-message](./packages/send-telegram-message/README.md): application that sends a message to a Telegram chat.
 - [@jackdbd/telegram-bot](./packages/telegram-bot/README.md): Telegram bot that I use for several things.
 - [@jackdbd/wasm-news](./packages/wasm-news/README.md): application that retrieves news about webassembly from several APIs (Reddit, Twitter, etc) and populates [this Google Sheets worksheet](https://docs.google.com/spreadsheets/d/1_px1dEv87iuDTTG6f6QfeSdNrGUhIsb941KDQwTOGLc).
-- [@jackdbd/webhooks](./packages/webhooks/README.md): application that receives webhook events from several third parties and handles them.
