@@ -131,7 +131,13 @@ git commit -m 'docs(checks): rebuild docs'
 
 ## Monorepo management
 
-See:
+Keep the npm packages up to date using [taze](https://github.com/antfu-collective/taze):
+
+```sh
+npx taze
+```
+
+See also:
 
 - [docs](./docs/README.md)
 - [scripts](./scripts/README.md)
