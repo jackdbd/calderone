@@ -4,7 +4,7 @@
 
 ## Customer.indirizzo\_cap property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 indirizzo_cap: string;

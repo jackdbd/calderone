@@ -4,17 +4,68 @@
 
 ## CustomerAPIResponseBodyCreate interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface APIResponseBodyCreate extends APIResponseBodyError 
 ```
-<b>Extends:</b> APIResponseBodyError
+**Extends:** APIResponseBodyError
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [id](./fattureincloud-client.customerapiresponsebodycreate.id.md) |  | string |  |
-|  [success](./fattureincloud-client.customerapiresponsebodycreate.success.md) |  | boolean |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[id](./fattureincloud-client.customerapiresponsebodycreate.id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[success](./fattureincloud-client.customerapiresponsebodycreate.success.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

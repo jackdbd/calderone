@@ -4,7 +4,7 @@
 
 ## ColumnInfo.notnull property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 notnull: 0 | 1;

@@ -4,7 +4,7 @@
 
 ## TelegramCredentials.chat\_id property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 chat_id: string;

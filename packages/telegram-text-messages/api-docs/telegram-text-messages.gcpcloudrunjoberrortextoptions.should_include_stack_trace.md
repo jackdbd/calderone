@@ -4,7 +4,7 @@
 
 ## GcpCloudRunJobErrorTextOptions.should\_include\_stack\_trace property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 should_include_stack_trace?: boolean;

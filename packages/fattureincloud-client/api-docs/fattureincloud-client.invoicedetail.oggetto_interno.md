@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.oggetto\_interno property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 oggetto_interno: string;

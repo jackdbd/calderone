@@ -4,7 +4,7 @@
 
 ## CreateHttpJobConfig.timezone property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 timezone: 'Europe/Rome';

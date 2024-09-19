@@ -2,12 +2,16 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [wait1000Ms](./utils.wait1000ms.md)
 
-## wait1000Ms variable
+## wait1000Ms() function
 
 Waits 1 second and does nothing.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 wait1000Ms: () => Promise<string>
 ```
+**Returns:**
+
+Promise&lt;string&gt;
+

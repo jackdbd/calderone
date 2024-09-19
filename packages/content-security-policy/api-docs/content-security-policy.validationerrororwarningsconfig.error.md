@@ -4,7 +4,7 @@
 
 ## ValidationErrorOrWarningsConfig.error property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 error: any;

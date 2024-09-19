@@ -4,7 +4,7 @@
 
 ## Product.um property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 um: string;

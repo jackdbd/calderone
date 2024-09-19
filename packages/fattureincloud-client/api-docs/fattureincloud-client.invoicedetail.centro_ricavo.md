@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.centro\_ricavo property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 centro_ricavo: string;

@@ -4,7 +4,7 @@
 
 ## CustomerListOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ListOptions 
@@ -12,10 +12,101 @@ export interface ListOptions
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [codice\_fiscale?](./fattureincloud-client.customerlistoptions.codice_fiscale.md) |  | string | <i>(Optional)</i> |
-|  [name?](./fattureincloud-client.customerlistoptions.name.md) |  | string | <i>(Optional)</i> |
-|  [page?](./fattureincloud-client.customerlistoptions.page.md) |  | number | <i>(Optional)</i> |
-|  [partita\_iva?](./fattureincloud-client.customerlistoptions.partita_iva.md) |  | string | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[codice\_fiscale?](./fattureincloud-client.customerlistoptions.codice_fiscale.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[name?](./fattureincloud-client.customerlistoptions.name.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[page?](./fattureincloud-client.customerlistoptions.page.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[partita\_iva?](./fattureincloud-client.customerlistoptions.partita_iva.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

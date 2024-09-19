@@ -4,7 +4,7 @@
 
 ## WarningConfig.warning\_title property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 warning_title: string;

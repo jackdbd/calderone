@@ -6,7 +6,7 @@
 
 Credentials of a FattureinCloud account.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Credentials 
@@ -14,8 +14,59 @@ export interface Credentials
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [api\_key](./fattureincloud-client.credentials.api_key.md) |  | string |  |
-|  [api\_uid](./fattureincloud-client.credentials.api_uid.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[api\_key](./fattureincloud-client.credentials.api_key.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[api\_uid](./fattureincloud-client.credentials.api_uid.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

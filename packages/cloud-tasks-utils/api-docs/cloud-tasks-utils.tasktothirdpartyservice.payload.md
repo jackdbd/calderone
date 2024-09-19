@@ -4,7 +4,7 @@
 
 ## TaskToThirdPartyService.payload property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 payload: any;

@@ -4,7 +4,7 @@
 
 ## UTCDateAsObject.second property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 second: string;

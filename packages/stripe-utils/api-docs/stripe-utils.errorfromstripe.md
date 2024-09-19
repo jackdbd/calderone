@@ -2,11 +2,11 @@
 
 [Home](./index.md) &gt; [@jackdbd/stripe-utils](./stripe-utils.md) &gt; [errorFromStripe](./stripe-utils.errorfromstripe.md)
 
-## errorFromStripe variable
+## errorFromStripe() function
 
 Converts an error coming from Stripe into an object with a consistent shape.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 errorFromStripe: (err: Stripe.errors.StripeError) => {
@@ -16,3 +16,41 @@ errorFromStripe: (err: Stripe.errors.StripeError) => {
     status_code: number;
 }
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+err
+
+
+</td><td>
+
+Stripe.errors.StripeError
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+{ code: string \| undefined; message: string; param: string \| undefined; status\_code: number; }
+

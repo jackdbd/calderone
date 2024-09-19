@@ -4,8 +4,8 @@
 
 ## telegram\_chat\_id variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-chat_id: Joi.AlternativesSchema
+chat_id: Joi.AlternativesSchema<any>
 ```

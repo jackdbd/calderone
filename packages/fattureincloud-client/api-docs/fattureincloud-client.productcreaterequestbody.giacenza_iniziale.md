@@ -4,7 +4,7 @@
 
 ## ProductCreateRequestBody.giacenza\_iniziale property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 giacenza_iniziale?: number;

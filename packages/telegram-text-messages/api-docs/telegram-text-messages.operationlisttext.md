@@ -2,10 +2,48 @@
 
 [Home](./index.md) &gt; [@jackdbd/telegram-text-messages](./telegram-text-messages.md) &gt; [operationListText](./telegram-text-messages.operationlisttext.md)
 
-## operationListText variable
+## operationListText() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 operationListText: (config: Config) => string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+config
+
+
+</td><td>
+
+[Config](./telegram-text-messages.operationlisttextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string
+

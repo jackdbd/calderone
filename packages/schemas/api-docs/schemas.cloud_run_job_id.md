@@ -4,8 +4,8 @@
 
 ## cloud\_run\_job\_id variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-job_id: Joi.StringSchema
+job_id: Joi.StringSchema<string>
 ```

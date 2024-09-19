@@ -4,7 +4,7 @@
 
 ## InvoiceSummary.importo\_totale property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 importo_totale: string;

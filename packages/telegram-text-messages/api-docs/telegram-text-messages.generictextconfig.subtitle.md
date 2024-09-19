@@ -4,7 +4,7 @@
 
 ## GenericTextConfig.subtitle property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 subtitle?: string;

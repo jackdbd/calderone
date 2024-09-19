@@ -6,7 +6,7 @@
 
 Whether to use an emoji for the severity level (unstructured logging). This option has no effect when using structured logging.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 should_use_emoji_for_severity?: boolean;

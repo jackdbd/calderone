@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.PA\_iban property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 PA_iban: string;

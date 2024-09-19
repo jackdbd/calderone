@@ -8,7 +8,7 @@ An array of tags this log statement is related to.
 
 The tags array should contain a \*\*single\*\* word describing the severity level (\*e.g.\* `'debug'`<!-- -->, `'info'`<!-- -->), and \*\*at least\*\* tag describing what the log statement is related to.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 tags: string[];

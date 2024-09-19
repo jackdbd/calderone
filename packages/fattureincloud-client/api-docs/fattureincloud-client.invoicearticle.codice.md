@@ -4,7 +4,7 @@
 
 ## InvoiceArticle.codice property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 codice?: string;

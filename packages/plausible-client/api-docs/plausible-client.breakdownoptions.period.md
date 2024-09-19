@@ -4,7 +4,7 @@
 
 ## BreakdownOptions.period property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 period?: string;

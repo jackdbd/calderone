@@ -4,7 +4,7 @@
 
 ## LogData interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface LogData 
@@ -12,7 +12,42 @@ export interface LogData
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [message](./utils.logdata.message.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[message](./utils.logdata.message.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

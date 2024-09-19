@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.lingua property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 lingua: string;

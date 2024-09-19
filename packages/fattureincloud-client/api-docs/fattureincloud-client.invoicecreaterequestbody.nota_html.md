@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.nota\_html property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 nota_html?: string;

@@ -2,17 +2,55 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isOnCloudRun](./checks.isoncloudrun.md)
 
-## isOnCloudRun variable
+## isOnCloudRun() function
 
 > Warning: This API is now obsolete.
 > 
-> Use [isCloudRunJob](./checks.iscloudrunjob.md) or [isCloudRunService](./checks.iscloudrunservice.md) instead.
+> Use [isCloudRunJob()](./checks.iscloudrunjob.md) or [isCloudRunService()](./checks.iscloudrunservice.md) instead.
 > 
 
 Checks whether a service is running on Cloud Run or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isOnCloudRun: (env: NodeJS.ProcessEnv) => boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+env
+
+
+</td><td>
+
+NodeJS.ProcessEnv
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+boolean
+

@@ -4,8 +4,8 @@
 
 ## firestore\_collection variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-collection: Joi.StringSchema
+collection: Joi.StringSchema<string>
 ```

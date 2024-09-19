@@ -4,7 +4,7 @@
 
 ## ValidationErrorOrWarningsConfig.allowDeprecatedDirectives property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 allowDeprecatedDirectives: boolean;

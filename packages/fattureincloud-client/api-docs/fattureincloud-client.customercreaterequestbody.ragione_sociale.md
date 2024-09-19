@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.ragione\_sociale property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ragione_sociale?: string;

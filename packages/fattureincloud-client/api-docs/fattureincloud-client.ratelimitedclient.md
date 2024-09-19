@@ -2,12 +2,66 @@
 
 [Home](./index.md) &gt; [@jackdbd/fattureincloud-client](./fattureincloud-client.md) &gt; [rateLimitedClient](./fattureincloud-client.ratelimitedclient.md)
 
-## rateLimitedClient variable
+## rateLimitedClient() function
 
 A rate-limited client for all endpoints of the FattureinCloud API.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 rateLimitedClient: (credentials: Credentials, options?: Bottleneck.ConstructorOptions) => Client
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+credentials
+
+
+</td><td>
+
+[Credentials](./fattureincloud-client.credentials.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+Bottleneck.ConstructorOptions
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+[Client](./fattureincloud-client.client.md)
+

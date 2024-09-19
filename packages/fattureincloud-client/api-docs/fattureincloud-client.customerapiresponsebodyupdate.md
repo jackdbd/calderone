@@ -4,16 +4,51 @@
 
 ## CustomerAPIResponseBodyUpdate interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface APIResponseBodyUpdate extends APIResponseBodyError 
 ```
-<b>Extends:</b> APIResponseBodyError
+**Extends:** APIResponseBodyError
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [success](./fattureincloud-client.customerapiresponsebodyupdate.success.md) |  | boolean |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[success](./fattureincloud-client.customerapiresponsebodyupdate.success.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

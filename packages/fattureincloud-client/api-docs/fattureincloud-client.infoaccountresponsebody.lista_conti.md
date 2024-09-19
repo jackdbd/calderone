@@ -4,7 +4,7 @@
 
 ## InfoAccountResponseBody.lista\_conti property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 lista_conti?: Conto[];

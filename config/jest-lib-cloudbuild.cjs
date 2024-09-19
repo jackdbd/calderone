@@ -1,5 +1,5 @@
 const config = {
-  bail: 3,
+  // bail: 3,
   ci: true,
   clearMocks: true,
   errorOnDeprecated: true,
@@ -10,7 +10,6 @@ const config = {
   testEnvironment: 'node',
   testMatch: [`<rootDir>/__tests__/**/*.test.{js,mjs}`],
   testRunner: 'jest-circus/runner',
-  testTimeout: 5000,
   transform: {},
   verbose: true
 }

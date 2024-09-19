@@ -4,7 +4,7 @@
 
 ## CreateHttpJobConfig.schedule property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 schedule: string;

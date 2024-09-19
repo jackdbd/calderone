@@ -4,7 +4,7 @@
 
 ## InvoiceSummary.link\_doc property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 link_doc: string;

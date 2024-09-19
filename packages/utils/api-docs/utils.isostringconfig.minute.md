@@ -4,7 +4,7 @@
 
 ## IsoStringConfig.minute property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 minute?: string | number;

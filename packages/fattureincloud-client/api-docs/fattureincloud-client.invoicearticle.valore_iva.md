@@ -4,7 +4,7 @@
 
 ## InvoiceArticle.valore\_iva property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 valore_iva?: string;

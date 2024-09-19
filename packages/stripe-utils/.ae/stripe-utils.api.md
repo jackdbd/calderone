@@ -130,7 +130,7 @@ export const stripeAccountMode: (api_key: string) => "live" | "test";
 // @public
 export enum StripeApiMode {
     // (undocumented)
-    Live = "LIVE",
+    Live = "LIVE",// production environment
     // (undocumented)
     Test = "TEST"
 }

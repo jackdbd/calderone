@@ -4,7 +4,7 @@
 
 ## ProductListResponseBody interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ListResponseBody 
@@ -12,9 +12,76 @@ export interface ListResponseBody
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [current\_page](./fattureincloud-client.productlistresponsebody.current_page.md) |  | number |  |
-|  [results](./fattureincloud-client.productlistresponsebody.results.md) |  | [Product](./fattureincloud-client.product.md)<!-- -->\[\] |  |
-|  [total\_pages](./fattureincloud-client.productlistresponsebody.total_pages.md) |  | number |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[current\_page](./fattureincloud-client.productlistresponsebody.current_page.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[results](./fattureincloud-client.productlistresponsebody.results.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Product](./fattureincloud-client.product.md)<!-- -->\[\]
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[total\_pages](./fattureincloud-client.productlistresponsebody.total_pages.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

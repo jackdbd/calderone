@@ -4,7 +4,7 @@
 
 ## HttpRequestToGCPServiceConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface HttpRequestToGCPServiceConfig 
@@ -12,10 +12,93 @@ export interface HttpRequestToGCPServiceConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [enqueued\_by](./cloud-tasks-utils.httprequesttogcpserviceconfig.enqueued_by.md) |  | string |  |
-|  [payload](./cloud-tasks-utils.httprequesttogcpserviceconfig.payload.md) |  | any |  |
-|  [service\_account](./cloud-tasks-utils.httprequesttogcpserviceconfig.service_account.md) |  | string |  |
-|  [url](./cloud-tasks-utils.httprequesttogcpserviceconfig.url.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[enqueued\_by](./cloud-tasks-utils.httprequesttogcpserviceconfig.enqueued_by.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[payload](./cloud-tasks-utils.httprequesttogcpserviceconfig.payload.md)
+
+
+</td><td>
+
+
+</td><td>
+
+any
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[service\_account](./cloud-tasks-utils.httprequesttogcpserviceconfig.service_account.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[url](./cloud-tasks-utils.httprequesttogcpserviceconfig.url.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

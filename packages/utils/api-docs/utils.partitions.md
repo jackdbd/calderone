@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [partitions](./utils.partitions.md)
 
-## partitions variable
+## partitions() function
 
 Partitions an array into chunks of equal size. If the last chunk is smaller than the other ones, it is returned only when `include_remainder` is true.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 partitions: <T = any>({ arr, size, include_remainder }: PartitionsConfig<T>) => T[][]
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ arr, size, include\_remainder }
+
+
+</td><td>
+
+[PartitionsConfig](./utils.partitionsconfig.md)<!-- -->&lt;T&gt;
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+T\[\]\[\]
+

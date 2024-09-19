@@ -6,7 +6,26 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [@jackdbd/content-security-policy](./content-security-policy.md) | Entry point for the documentation of content-security-policy. |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[@jackdbd/content-security-policy](./content-security-policy.md)
+
+
+</td><td>
+
+Entry point for the documentation of content-security-policy.
+
+
+</td></tr>
+</tbody></table>

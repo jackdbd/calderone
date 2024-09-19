@@ -4,7 +4,7 @@
 
 ## ColumnInfo.cid property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 cid: number;

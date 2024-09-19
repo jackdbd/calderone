@@ -4,7 +4,7 @@
 
 ## InvoiceArticle.quantita property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 quantita?: number;

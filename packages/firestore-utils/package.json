@@ -71,12 +71,12 @@
   },
   "dependencies": {
     "@jackdbd/utils": "1.4.0",
-    "debug": "^4.3.4"
+    "debug": "^4.3.7"
   },
   "peerDependencies": {
     "@google-cloud/firestore": ">=5.0.0"
   },
   "devDependencies": {
-    "@google-cloud/firestore": "^6.0.0"
+    "@google-cloud/firestore": "^7.10.0"
   }
 }

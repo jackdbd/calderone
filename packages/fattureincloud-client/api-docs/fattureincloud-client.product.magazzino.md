@@ -4,7 +4,7 @@
 
 ## Product.magazzino property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 magazzino: boolean;

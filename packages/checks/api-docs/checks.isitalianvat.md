@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isItalianVat](./checks.isitalianvat.md)
 
-## isItalianVat variable
+## isItalianVat() function
 
 Checks whether a string is a valid Italian VAT number or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isItalianVat: (s: string) => boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+s
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+boolean
+

@@ -5,16 +5,51 @@
 ## InfoClient interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Client extends BasicClient 
 ```
-<b>Extends:</b> BasicClient
+**Extends:** BasicClient
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [account](./fattureincloud-client.infoclient.account.md) |  | (options?: [AccountOptions](./fattureincloud-client.infoaccountoptions.md)<!-- -->) =&gt; Promise&lt;[AccountResponseBody](./fattureincloud-client.infoaccountresponsebody.md)<!-- -->&gt; |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[account](./fattureincloud-client.infoclient.account.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(options?: [AccountOptions](./fattureincloud-client.infoaccountoptions.md)<!-- -->) =&gt; Promise&lt;[AccountResponseBody](./fattureincloud-client.infoaccountresponsebody.md)<!-- -->&gt;
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

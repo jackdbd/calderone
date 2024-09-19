@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.indirizzo\_via property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 indirizzo_via: string;

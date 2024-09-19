@@ -4,7 +4,7 @@
 
 ## ProductAPIResponseBodyList.lista\_prodotti property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 lista_prodotti: Product[];

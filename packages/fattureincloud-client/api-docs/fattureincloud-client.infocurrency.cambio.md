@@ -4,7 +4,7 @@
 
 ## InfoCurrency.cambio property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 cambio: string;

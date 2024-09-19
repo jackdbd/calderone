@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/telegram-text-messages](./telegram-text-messages.md) &gt; [gcpCloudRunServiceText](./telegram-text-messages.gcpcloudrunservicetext.md)
 
-## gcpCloudRunServiceText variable
+## gcpCloudRunServiceText() function
 
 Convenience function for text messages generated from a Cloud Run service environment.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 gcpCloudRunServiceText: (config: Config) => string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+config
+
+
+</td><td>
+
+[Config](./telegram-text-messages.gcpcloudrunservicetextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string
+

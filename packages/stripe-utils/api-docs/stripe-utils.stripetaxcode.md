@@ -6,7 +6,7 @@
 
 Stripe tax codes.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare enum StripeTaxCode 
@@ -14,13 +14,118 @@ export declare enum StripeTaxCode
 
 ## Enumeration Members
 
-|  Member | Value | Description |
-|  --- | --- | --- |
-|  AudioBooks | <code>&quot;txcd_10301000&quot;</code> |  |
-|  Books | <code>&quot;txcd_35010000&quot;</code> |  |
-|  DigitalBooksDownloadedNonSubscriptionWithPermanentRights | <code>&quot;txcd_10302000&quot;</code> |  |
-|  ElectronicallySuppliedServices | <code>&quot;txcd_10000000&quot;</code> |  |
-|  Nontaxable | <code>&quot;txcd_00000000&quot;</code> |  |
-|  Services | <code>&quot;txcd_20030000&quot;</code> |  |
-|  TangibleGoods | <code>&quot;txcd_99999999&quot;</code> |  |
+<table><thead><tr><th>
 
+Member
+
+
+</th><th>
+
+Value
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+AudioBooks
+
+
+</td><td>
+
+`"txcd_10301000"`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+Books
+
+
+</td><td>
+
+`"txcd_35010000"`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+DigitalBooksDownloadedNonSubscriptionWithPermanentRights
+
+
+</td><td>
+
+`"txcd_10302000"`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+ElectronicallySuppliedServices
+
+
+</td><td>
+
+`"txcd_10000000"`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+Nontaxable
+
+
+</td><td>
+
+`"txcd_00000000"`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+Services
+
+
+</td><td>
+
+`"txcd_20030000"`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+TangibleGoods
+
+
+</td><td>
+
+`"txcd_99999999"`
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

@@ -6,7 +6,7 @@
 
 Joi schema to validate each log statement against.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 statement: Joi.ObjectSchema<Statement>

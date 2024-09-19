@@ -2,11 +2,49 @@
 
 [Home](./index.md) &gt; [@jackdbd/content-security-policy](./content-security-policy.md) &gt; [cspDirectives](./content-security-policy.cspdirectives.md)
 
-## cspDirectives variable
+## cspDirectives() function
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 cspDirectives: ({ directives, patterns }: Config) => Promise<string[]>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ directives, patterns }
+
+
+</td><td>
+
+[Config](./content-security-policy.config.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;string\[\]&gt;
+

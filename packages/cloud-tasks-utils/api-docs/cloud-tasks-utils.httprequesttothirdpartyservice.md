@@ -2,9 +2,9 @@
 
 [Home](./index.md) &gt; [@jackdbd/cloud-tasks-utils](./cloud-tasks-utils.md) &gt; [httpRequestToThirdPartyService](./cloud-tasks-utils.httprequesttothirdpartyservice.md)
 
-## httpRequestToThirdPartyService variable
+## httpRequestToThirdPartyService() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 httpRequestToThirdPartyService: (config: HttpRequestToThirdPartyServiceConfig) => {
@@ -18,3 +18,41 @@ httpRequestToThirdPartyService: (config: HttpRequestToThirdPartyServiceConfig) =
     url: string;
 }
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+config
+
+
+</td><td>
+
+[HttpRequestToThirdPartyServiceConfig](./cloud-tasks-utils.httprequesttothirdpartyserviceconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+{ body: string; headers: { Authorization: string; 'Content-Type': string; 'X-Task-Enqueued-By': string; }; httpMethod: "POST"; url: string; }
+

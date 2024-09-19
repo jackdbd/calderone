@@ -4,7 +4,7 @@
 
 ## InvoicePayment.importo property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 importo: number;

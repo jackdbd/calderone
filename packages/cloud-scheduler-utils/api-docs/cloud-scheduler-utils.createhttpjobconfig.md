@@ -4,7 +4,7 @@
 
 ## CreateHttpJobConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface CreateHttpJobConfig 
@@ -12,16 +12,199 @@ export interface CreateHttpJobConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [cloud\_scheduler](./cloud-scheduler-utils.createhttpjobconfig.cloud_scheduler.md) |  | CloudSchedulerClient |  |
-|  [description](./cloud-scheduler-utils.createhttpjobconfig.description.md) |  | string |  |
-|  [location\_id](./cloud-scheduler-utils.createhttpjobconfig.location_id.md) |  | string |  |
-|  [name](./cloud-scheduler-utils.createhttpjobconfig.name.md) |  | string |  |
-|  [project\_id](./cloud-scheduler-utils.createhttpjobconfig.project_id.md) |  | string |  |
-|  [req\_body?](./cloud-scheduler-utils.createhttpjobconfig.req_body.md) |  | { \[key: string\]: any; } | <i>(Optional)</i> |
-|  [schedule](./cloud-scheduler-utils.createhttpjobconfig.schedule.md) |  | string |  |
-|  [service\_account\_email?](./cloud-scheduler-utils.createhttpjobconfig.service_account_email.md) |  | string | <i>(Optional)</i> |
-|  [timezone](./cloud-scheduler-utils.createhttpjobconfig.timezone.md) |  | 'Europe/Rome' |  |
-|  [url\_to\_call](./cloud-scheduler-utils.createhttpjobconfig.url_to_call.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[cloud\_scheduler](./cloud-scheduler-utils.createhttpjobconfig.cloud_scheduler.md)
+
+
+</td><td>
+
+
+</td><td>
+
+CloudSchedulerClient
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[description](./cloud-scheduler-utils.createhttpjobconfig.description.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[location\_id](./cloud-scheduler-utils.createhttpjobconfig.location_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[name](./cloud-scheduler-utils.createhttpjobconfig.name.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[project\_id](./cloud-scheduler-utils.createhttpjobconfig.project_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[req\_body?](./cloud-scheduler-utils.createhttpjobconfig.req_body.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ \[key: string\]: any; }
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[schedule](./cloud-scheduler-utils.createhttpjobconfig.schedule.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[service\_account\_email?](./cloud-scheduler-utils.createhttpjobconfig.service_account_email.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[timezone](./cloud-scheduler-utils.createhttpjobconfig.timezone.md)
+
+
+</td><td>
+
+
+</td><td>
+
+'Europe/Rome'
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[url\_to\_call](./cloud-scheduler-utils.createhttpjobconfig.url_to_call.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

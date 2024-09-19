@@ -4,7 +4,7 @@
 
 ## Section interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Section 
@@ -12,9 +12,78 @@ export interface Section
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [body](./telegram-text-messages.section.body.md) |  | string |  |
-|  [links?](./telegram-text-messages.section.links.md) |  | [Link](./telegram-text-messages.link.md)<!-- -->\[\] | <i>(Optional)</i> |
-|  [title](./telegram-text-messages.section.title.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[body](./telegram-text-messages.section.body.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[links?](./telegram-text-messages.section.links.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Link](./telegram-text-messages.link.md)<!-- -->\[\]
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[title](./telegram-text-messages.section.title.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

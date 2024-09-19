@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/secret-manager-utils](./secret-manager-utils.md) &gt; [secretManagerStore](./secret-manager-utils.secretmanagerstore.md)
 
-## secretManagerStore variable
+## secretManagerStore() function
 
 Store that retrieves data from, and persists data to, Secret Manager.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 secretManagerStore: <T>({ secret_manager, secret_name, should_disable_older_enabled_versions }: Config) => Store<T>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ secret\_manager, secret\_name, should\_disable\_older\_enabled\_versions }
+
+
+</td><td>
+
+Config
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+[Store](./secret-manager-utils.store.md)<!-- -->&lt;T&gt;
+

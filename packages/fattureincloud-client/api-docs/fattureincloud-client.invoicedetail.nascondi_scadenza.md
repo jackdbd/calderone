@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.nascondi\_scadenza property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 nascondi_scadenza: boolean;

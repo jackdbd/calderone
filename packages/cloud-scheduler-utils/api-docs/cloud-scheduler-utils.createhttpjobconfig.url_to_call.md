@@ -4,7 +4,7 @@
 
 ## CreateHttpJobConfig.url\_to\_call property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 url_to_call: string;

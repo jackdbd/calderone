@@ -5,7 +5,7 @@
 ## ValidationErrorOrWarningsConfig interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -13,8 +13,59 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [allowDeprecatedDirectives](./content-security-policy.validationerrororwarningsconfig.allowdeprecateddirectives.md) |  | boolean |  |
-|  [error](./content-security-policy.validationerrororwarningsconfig.error.md) |  | any |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[allowDeprecatedDirectives](./content-security-policy.validationerrororwarningsconfig.allowdeprecateddirectives.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[error](./content-security-policy.validationerrororwarningsconfig.error.md)
+
+
+</td><td>
+
+
+</td><td>
+
+any
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

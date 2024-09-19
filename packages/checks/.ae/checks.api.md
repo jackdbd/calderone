@@ -4,8 +4,6 @@
 
 ```ts
 
-/// <reference types="node" />
-
 // @public
 export const isAustrianVat: (s: string) => boolean;
 
@@ -13,7 +11,7 @@ export const isAustrianVat: (s: string) => boolean;
 export const isBelgianVat: (s: string) => boolean;
 
 // @public
-export const isBoolean: (x: any) => boolean;
+export const isBoolean: (x: any) => x is boolean;
 
 // @public
 export const isBulgarianVat: (s: string) => boolean;

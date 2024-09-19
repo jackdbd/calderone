@@ -4,7 +4,7 @@
 
 ## PartitionsConfig.include\_remainder property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 include_remainder?: boolean;

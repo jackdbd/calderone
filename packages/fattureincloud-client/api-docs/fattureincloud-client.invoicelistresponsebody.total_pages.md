@@ -4,7 +4,7 @@
 
 ## InvoiceListResponseBody.total\_pages property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 total_pages: number;

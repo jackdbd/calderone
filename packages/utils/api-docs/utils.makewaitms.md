@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [makeWaitMs](./utils.makewaitms.md)
 
-## makeWaitMs variable
+## makeWaitMs() function
 
 Factory function that creates a promise-returning function that waits `ms` milliseconds and do nothing (useful for example for delaying an HTTP request to an API).
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 makeWaitMs: (ms: number) => () => Promise<string>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+ms
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+() =&gt; Promise&lt;string&gt;
+

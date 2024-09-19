@@ -4,7 +4,7 @@
 
 ## DisableSecretVersionsMatchingFilterConfig.secret\_name property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 secret_name: string;

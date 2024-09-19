@@ -104,8 +104,8 @@
   },
   "dependencies": {
     "bottleneck": "^2.19.5",
-    "debug": "^4.3.3",
-    "phin": "^3.6.1"
+    "debug": "^4.3.7",
+    "phin": "^3.7.1"
   },
   "peerDependencies": {},
   "devDependencies": {}

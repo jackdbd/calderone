@@ -4,7 +4,7 @@
 
 ## CustomerFromPaymentIntentIdConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -12,8 +12,59 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [pi\_id](./stripe-utils.customerfrompaymentintentidconfig.pi_id.md) |  | string |  |
-|  [stripe](./stripe-utils.customerfrompaymentintentidconfig.stripe.md) |  | Stripe |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[pi\_id](./stripe-utils.customerfrompaymentintentidconfig.pi_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[stripe](./stripe-utils.customerfrompaymentintentidconfig.stripe.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Stripe
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

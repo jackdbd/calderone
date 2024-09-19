@@ -4,7 +4,7 @@
 
 ## InfoAccountResponseBody interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface AccountResponseBody 
@@ -12,13 +12,156 @@ export interface AccountResponseBody
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [giorni\_rimanenti\_licenza?](./fattureincloud-client.infoaccountresponsebody.giorni_rimanenti_licenza.md) |  | number | <i>(Optional)</i> |
-|  [lista\_conti?](./fattureincloud-client.infoaccountresponsebody.lista_conti.md) |  | [Conto](./fattureincloud-client.infoaccount.md)<!-- -->\[\] | <i>(Optional)</i> |
-|  [lista\_iva?](./fattureincloud-client.infoaccountresponsebody.lista_iva.md) |  | [Iva](./fattureincloud-client.infovat.md)<!-- -->\[\] | <i>(Optional)</i> |
-|  [lista\_valute?](./fattureincloud-client.infoaccountresponsebody.lista_valute.md) |  | [Valuta](./fattureincloud-client.infocurrency.md)<!-- -->\[\] | <i>(Optional)</i> |
-|  [piano\_licenza?](./fattureincloud-client.infoaccountresponsebody.piano_licenza.md) |  | string | <i>(Optional)</i> |
-|  [ragione\_sociale?](./fattureincloud-client.infoaccountresponsebody.ragione_sociale.md) |  | string | <i>(Optional)</i> |
-|  [success](./fattureincloud-client.infoaccountresponsebody.success.md) |  | true |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[giorni\_rimanenti\_licenza?](./fattureincloud-client.infoaccountresponsebody.giorni_rimanenti_licenza.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[lista\_conti?](./fattureincloud-client.infoaccountresponsebody.lista_conti.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Conto](./fattureincloud-client.infoaccount.md)<!-- -->\[\]
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[lista\_iva?](./fattureincloud-client.infoaccountresponsebody.lista_iva.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Iva](./fattureincloud-client.infovat.md)<!-- -->\[\]
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[lista\_valute?](./fattureincloud-client.infoaccountresponsebody.lista_valute.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Valuta](./fattureincloud-client.infocurrency.md)<!-- -->\[\]
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[piano\_licenza?](./fattureincloud-client.infoaccountresponsebody.piano_licenza.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[ragione\_sociale?](./fattureincloud-client.infoaccountresponsebody.ragione_sociale.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[success](./fattureincloud-client.infoaccountresponsebody.success.md)
+
+
+</td><td>
+
+
+</td><td>
+
+true
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

@@ -4,7 +4,7 @@
 
 ## Customer.PA\_codice property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 PA_codice: string;

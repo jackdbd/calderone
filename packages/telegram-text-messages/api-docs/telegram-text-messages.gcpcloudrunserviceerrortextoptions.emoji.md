@@ -4,7 +4,7 @@
 
 ## GcpCloudRunServiceErrorTextOptions.emoji property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 emoji?: string;

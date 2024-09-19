@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isOnCloudFunctions](./checks.isoncloudfunctions.md)
 
-## isOnCloudFunctions variable
+## isOnCloudFunctions() function
 
 Checks whether a service is running on Cloud Functions or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isOnCloudFunctions: (env: NodeJS.ProcessEnv) => boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+env
+
+
+</td><td>
+
+NodeJS.ProcessEnv
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+boolean
+

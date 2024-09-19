@@ -4,7 +4,7 @@
 
 ## TaskToThirdPartyService.enqueued\_by property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 enqueued_by: string;

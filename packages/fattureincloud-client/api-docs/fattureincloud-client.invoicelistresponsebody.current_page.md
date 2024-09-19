@@ -4,7 +4,7 @@
 
 ## InvoiceListResponseBody.current\_page property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 current_page: number;

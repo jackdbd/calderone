@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isCloudRunJob](./checks.iscloudrunjob.md)
 
-## isCloudRunJob variable
+## isCloudRunJob() function
 
 Checks whether the code is being executed as a Cloud Run \*\*job\*\* or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isCloudRunJob: (env: NodeJS.ProcessEnv) => boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+env
+
+
+</td><td>
+
+NodeJS.ProcessEnv
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+boolean
+

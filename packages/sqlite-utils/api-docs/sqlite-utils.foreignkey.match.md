@@ -4,7 +4,7 @@
 
 ## ForeignKey.match property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 match: string;

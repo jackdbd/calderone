@@ -32,7 +32,8 @@ Install all dependencies from npm.js and setup git hooks with [husky](https://ty
 npm install --include dev
 ```
 
-*Note:* `--include dev` is just to be sure that dev dependencies gets installed even if you have set the environment variable `NODE_ENV=production` on your machine.
+> [!NOTE]
+> The flag `--include dev` is just to make sure dev dependencies get installed even if you have set the environment variable `NODE_ENV=production` on your machine.
 
 ## Build
 
@@ -63,7 +64,6 @@ npm dev:scripts
 Build all applications:
 
 ```sh
-npm run build -w packages/send-telegram-message
 npm run build -w packages/telegram-bot
 npm run build -w packages/wasm-news
 npm run build -w packages/webhooks

@@ -6,7 +6,24 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [@jackdbd/secret-manager-utils](./secret-manager-utils.md) |  |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[@jackdbd/secret-manager-utils](./secret-manager-utils.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

@@ -4,7 +4,7 @@
 
 ## IsoStringConfig.ms property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ms?: string | number;

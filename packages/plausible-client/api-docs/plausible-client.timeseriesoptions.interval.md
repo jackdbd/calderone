@@ -4,7 +4,7 @@
 
 ## TimeseriesOptions.interval property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 interval?: string;

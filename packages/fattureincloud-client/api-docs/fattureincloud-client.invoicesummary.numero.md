@@ -4,7 +4,7 @@
 
 ## InvoiceSummary.numero property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 numero: string;

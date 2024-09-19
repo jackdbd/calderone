@@ -4,7 +4,7 @@
 
 ## GenericTextOptions.is\_subtitle\_italic property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 is_subtitle_italic?: boolean;

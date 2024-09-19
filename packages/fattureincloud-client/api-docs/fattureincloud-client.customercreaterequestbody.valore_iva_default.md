@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.valore\_iva\_default property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 valore_iva_default?: string;

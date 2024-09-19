@@ -2,12 +2,66 @@
 
 [Home](./index.md) &gt; [@jackdbd/telegram-text-messages](./telegram-text-messages.md) &gt; [gcpCloudRunJobText](./telegram-text-messages.gcpcloudrunjobtext.md)
 
-## gcpCloudRunJobText variable
+## gcpCloudRunJobText() function
 
 Convenience function for text messages generated from a Cloud Run Job environment.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 gcpCloudRunJobText: (config: Config, options?: Options) => string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+config
+
+
+</td><td>
+
+[Config](./telegram-text-messages.gcpcloudrunjobtextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+[Options](./telegram-text-messages.gcpcloudrunjobtextoptions.md)
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string
+

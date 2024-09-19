@@ -5,7 +5,7 @@
 ## BulkDeleteConfig interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface BulkDeleteConfig 
@@ -13,7 +13,42 @@ export interface BulkDeleteConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [query](./firestore-utils.bulkdeleteconfig.query.md) |  | Query |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[query](./firestore-utils.bulkdeleteconfig.query.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Query
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

@@ -4,16 +4,51 @@
 
 ## CustomerAPIResponseBodyDelete interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface APIResponseBodyDelete extends APIResponseBodyError 
 ```
-<b>Extends:</b> APIResponseBodyError
+**Extends:** APIResponseBodyError
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [success](./fattureincloud-client.customerapiresponsebodydelete.success.md) |  | boolean |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[success](./fattureincloud-client.customerapiresponsebodydelete.success.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

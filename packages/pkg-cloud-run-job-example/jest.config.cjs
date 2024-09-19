@@ -17,7 +17,6 @@ const config = {
 
   // 5000ms is the default value for testTimeout.
   // https://jestjs.io/docs/configuration#testtimeout-number
-  testTimeout: 5000,
 
   transform: {}
 }

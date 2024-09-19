@@ -4,7 +4,7 @@
 
 ## BreakdownResult.bounce\_rate property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 bounce_rate: number;

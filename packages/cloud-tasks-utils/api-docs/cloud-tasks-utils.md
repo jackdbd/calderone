@@ -6,23 +6,128 @@
 
 Entry point for the documentation of cloud-tasks-utils.
 
+## Functions
+
+<table><thead><tr><th>
+
+Function
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[cloudTasks(options)](./cloud-tasks-utils.cloudtasks.md)
+
+
+</td><td>
+
+Initializes the Cloud Tasks client from the environment.
+
+
+</td></tr>
+<tr><td>
+
+[httpRequestToGCPService(config)](./cloud-tasks-utils.httprequesttogcpservice.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[httpRequestToThirdPartyService(config)](./cloud-tasks-utils.httprequesttothirdpartyservice.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[taskToGCPService(config)](./cloud-tasks-utils.tasktogcpservice.md)
+
+
+</td><td>
+
+Defines a task which makes a HTTP requests to a GCP service (using a service account).
+
+
+</td></tr>
+<tr><td>
+
+[taskToThirdPartyService(config)](./cloud-tasks-utils.tasktothirdpartyservice.md)
+
+
+</td><td>
+
+Defines a task which makes a HTTP requests to a third-party API (using an API key).
+
+
+</td></tr>
+</tbody></table>
+
 ## Interfaces
 
-|  Interface | Description |
-|  --- | --- |
-|  [ClientOptions](./cloud-tasks-utils.clientoptions.md) |  |
-|  [HttpRequestToGCPServiceConfig](./cloud-tasks-utils.httprequesttogcpserviceconfig.md) |  |
-|  [HttpRequestToThirdPartyServiceConfig](./cloud-tasks-utils.httprequesttothirdpartyserviceconfig.md) |  |
-|  [TaskToGCPServiceConfig](./cloud-tasks-utils.tasktogcpserviceconfig.md) |  |
-|  [TaskToThirdPartyService](./cloud-tasks-utils.tasktothirdpartyservice.md) |  |
+<table><thead><tr><th>
 
-## Variables
+Interface
 
-|  Variable | Description |
-|  --- | --- |
-|  [cloudTasks](./cloud-tasks-utils.cloudtasks.md) | Initializes the Cloud Tasks client from the environment. |
-|  [httpRequestToGCPService](./cloud-tasks-utils.httprequesttogcpservice.md) |  |
-|  [httpRequestToThirdPartyService](./cloud-tasks-utils.httprequesttothirdpartyservice.md) |  |
-|  [taskToGCPService](./cloud-tasks-utils.tasktogcpservice.md) | Defines a task which makes a HTTP requests to a GCP service (using a service account). |
-|  [taskToThirdPartyService](./cloud-tasks-utils.tasktothirdpartyservice.md) | Defines a task which makes a HTTP requests to a third-party API (using an API key). |
 
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[ClientOptions](./cloud-tasks-utils.clientoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[HttpRequestToGCPServiceConfig](./cloud-tasks-utils.httprequesttogcpserviceconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[HttpRequestToThirdPartyServiceConfig](./cloud-tasks-utils.httprequesttothirdpartyserviceconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[TaskToGCPServiceConfig](./cloud-tasks-utils.tasktogcpserviceconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[TaskToThirdPartyService](./cloud-tasks-utils.tasktothirdpartyservice.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

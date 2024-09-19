@@ -4,7 +4,7 @@
 
 ## Client.info property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 info: InfoClient;

@@ -4,7 +4,7 @@
 
 ## GenericTextConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -12,11 +12,116 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [description](./telegram-text-messages.generictextconfig.description.md) |  | string |  |
-|  [links?](./telegram-text-messages.generictextconfig.links.md) |  | [Link](./telegram-text-messages.link.md)<!-- -->\[\] | <i>(Optional)</i> |
-|  [sections?](./telegram-text-messages.generictextconfig.sections.md) |  | [Section](./telegram-text-messages.section.md)<!-- -->\[\] | <i>(Optional)</i> |
-|  [subtitle?](./telegram-text-messages.generictextconfig.subtitle.md) |  | string | <i>(Optional)</i> |
-|  [title](./telegram-text-messages.generictextconfig.title.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[description](./telegram-text-messages.generictextconfig.description.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[links?](./telegram-text-messages.generictextconfig.links.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Link](./telegram-text-messages.link.md)<!-- -->\[\]
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[sections?](./telegram-text-messages.generictextconfig.sections.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Section](./telegram-text-messages.section.md)<!-- -->\[\]
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[subtitle?](./telegram-text-messages.generictextconfig.subtitle.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[title](./telegram-text-messages.generictextconfig.title.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

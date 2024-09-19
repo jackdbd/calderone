@@ -4,8 +4,8 @@
 
 ## secret\_manager\_secret\_name variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-secret_name: Joi.StringSchema
+secret_name: Joi.StringSchema<string>
 ```

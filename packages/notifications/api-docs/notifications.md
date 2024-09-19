@@ -4,10 +4,43 @@
 
 ## notifications package
 
-## Variables
+## Functions
 
-|  Variable | Description |
-|  --- | --- |
-|  [sendEmailViaSendGrid](./notifications.sendemailviasendgrid.md) | <p>Send an email to one or more recipients, using the SendGrid API.</p><p>https://docs.sendgrid.com/api-reference/mail-send/mail-send\#body</p> |
-|  [sendTelegramMessage](./notifications.sendtelegrammessage.md) | <p>Send a text message to a Telegram chat, using the Telegram API.</p><p>https://core.telegram.org/bots/api\#sendmessage</p> |
+<table><thead><tr><th>
 
+Function
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[sendEmailViaSendGrid({ from, html, sendgrid\_api\_key, subject, to }, options)](./notifications.sendemailviasendgrid.md)
+
+
+</td><td>
+
+Send an email to one or more recipients, using the SendGrid API.
+
+https://docs.sendgrid.com/api-reference/mail-send/mail-send\#body
+
+
+</td></tr>
+<tr><td>
+
+[sendTelegramMessage({ chat\_id, text, token }, options)](./notifications.sendtelegrammessage.md)
+
+
+</td><td>
+
+Send a text message to a Telegram chat, using the Telegram API.
+
+https://core.telegram.org/bots/api\#sendmessage
+
+
+</td></tr>
+</tbody></table>

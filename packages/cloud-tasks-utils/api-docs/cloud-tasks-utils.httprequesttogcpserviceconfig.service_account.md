@@ -4,7 +4,7 @@
 
 ## HttpRequestToGCPServiceConfig.service\_account property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 service_account: string;

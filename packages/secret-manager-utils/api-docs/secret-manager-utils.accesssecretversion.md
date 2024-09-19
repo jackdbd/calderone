@@ -2,10 +2,48 @@
 
 [Home](./index.md) &gt; [@jackdbd/secret-manager-utils](./secret-manager-utils.md) &gt; [accessSecretVersion](./secret-manager-utils.accesssecretversion.md)
 
-## accessSecretVersion variable
+## accessSecretVersion() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 accessSecretVersion: ({ project_id, secret_name, secret_manager, version }: Config) => Promise<string>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ project\_id, secret\_name, secret\_manager, version }
+
+
+</td><td>
+
+[Config](./secret-manager-utils.accesssecretversionconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;string&gt;
+

@@ -4,7 +4,7 @@
 
 ## Client interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Client 
@@ -12,10 +12,93 @@ export interface Client
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [customers](./fattureincloud-client.client.customers.md) |  | [CustomersClient](./fattureincloud-client.customersclient.md) |  |
-|  [info](./fattureincloud-client.client.info.md) |  | [InfoClient](./fattureincloud-client.infoclient.md) |  |
-|  [invoices](./fattureincloud-client.client.invoices.md) |  | [InvoicesClient](./fattureincloud-client.invoicesclient.md) |  |
-|  [products](./fattureincloud-client.client.products.md) |  | [ProductsClient](./fattureincloud-client.productsclient.md) |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[customers](./fattureincloud-client.client.customers.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[CustomersClient](./fattureincloud-client.customersclient.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[info](./fattureincloud-client.client.info.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[InfoClient](./fattureincloud-client.infoclient.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[invoices](./fattureincloud-client.client.invoices.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[InvoicesClient](./fattureincloud-client.invoicesclient.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[products](./fattureincloud-client.client.products.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[ProductsClient](./fattureincloud-client.productsclient.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

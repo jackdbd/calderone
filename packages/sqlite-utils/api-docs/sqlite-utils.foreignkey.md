@@ -5,7 +5,7 @@
 ## ForeignKey interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ForeignKey 
@@ -13,14 +13,161 @@ export interface ForeignKey
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [from](./sqlite-utils.foreignkey.from.md) |  | string |  |
-|  [id](./sqlite-utils.foreignkey.id.md) |  | number |  |
-|  [match](./sqlite-utils.foreignkey.match.md) |  | string |  |
-|  [on\_delete](./sqlite-utils.foreignkey.on_delete.md) |  | string |  |
-|  [on\_update](./sqlite-utils.foreignkey.on_update.md) |  | string |  |
-|  [seq](./sqlite-utils.foreignkey.seq.md) |  | number |  |
-|  [table](./sqlite-utils.foreignkey.table.md) |  | string |  |
-|  [to](./sqlite-utils.foreignkey.to.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[from](./sqlite-utils.foreignkey.from.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[id](./sqlite-utils.foreignkey.id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[match](./sqlite-utils.foreignkey.match.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[on\_delete](./sqlite-utils.foreignkey.on_delete.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[on\_update](./sqlite-utils.foreignkey.on_update.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[seq](./sqlite-utils.foreignkey.seq.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[table](./sqlite-utils.foreignkey.table.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[to](./sqlite-utils.foreignkey.to.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

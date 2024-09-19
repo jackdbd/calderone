@@ -4,7 +4,7 @@
 
 ## dateFormatOptions variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 dateFormatOptions: {

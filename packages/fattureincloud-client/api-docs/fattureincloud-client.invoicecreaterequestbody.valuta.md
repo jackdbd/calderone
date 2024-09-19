@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.valuta property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 valuta?: string;

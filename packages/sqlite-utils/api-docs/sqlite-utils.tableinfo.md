@@ -2,12 +2,64 @@
 
 [Home](./index.md) &gt; [@jackdbd/sqlite-utils](./sqlite-utils.md) &gt; [tableInfo](./sqlite-utils.tableinfo.md)
 
-## tableInfo variable
+## tableInfo() function
 
 Returns an array where each item is a piece of information about a column of the requested table.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 tableInfo: (db: BetterSqlite3.Database, table_name: string) => ColumnInfo[]
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+db
+
+
+</td><td>
+
+BetterSqlite3.Database
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+table\_name
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+[ColumnInfo](./sqlite-utils.columninfo.md)<!-- -->\[\]
+

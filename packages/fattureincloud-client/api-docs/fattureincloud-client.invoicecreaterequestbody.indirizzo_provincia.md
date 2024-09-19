@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.indirizzo\_provincia property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 indirizzo_provincia?: string;

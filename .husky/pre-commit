@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Husky seems to run all hook scripts using sh, regardless of the shebang present
 # in the git hook.

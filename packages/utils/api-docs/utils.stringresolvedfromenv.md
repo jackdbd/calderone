@@ -2,10 +2,64 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [stringResolvedFromEnv](./utils.stringresolvedfromenv.md)
 
-## stringResolvedFromEnv variable
+## stringResolvedFromEnv() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-stringResolvedFromEnv: (s: string, options?: Options) => string | undefined
+stringResolvedFromEnv: (s: string, options?: Options) => string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+s
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+[Options](./utils.deployoptions.md)
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string
+

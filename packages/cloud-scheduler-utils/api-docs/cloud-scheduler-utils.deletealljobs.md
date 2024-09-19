@@ -2,10 +2,48 @@
 
 [Home](./index.md) &gt; [@jackdbd/cloud-scheduler-utils](./cloud-scheduler-utils.md) &gt; [deleteAllJobs](./cloud-scheduler-utils.deletealljobs.md)
 
-## deleteAllJobs variable
+## deleteAllJobs() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 deleteAllJobs: ({ cloud_scheduler, location_id, project_id }: DeleteAllJobsConfig) => Promise<void>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ cloud\_scheduler, location\_id, project\_id }
+
+
+</td><td>
+
+[DeleteAllJobsConfig](./cloud-scheduler-utils.deletealljobsconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;void&gt;
+

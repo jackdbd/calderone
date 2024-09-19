@@ -4,7 +4,7 @@
 
 ## BulkInsertConfig.insert\_query property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 insert_query: string;

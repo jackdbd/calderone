@@ -4,7 +4,7 @@
 
 ## CreateHttpJobConfig.service\_account\_email property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 service_account_email?: string;

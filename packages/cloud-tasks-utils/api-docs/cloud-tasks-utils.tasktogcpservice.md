@@ -2,11 +2,11 @@
 
 [Home](./index.md) &gt; [@jackdbd/cloud-tasks-utils](./cloud-tasks-utils.md) &gt; [taskToGCPService](./cloud-tasks-utils.tasktogcpservice.md)
 
-## taskToGCPService variable
+## taskToGCPService() function
 
 Defines a task which makes a HTTP requests to a GCP service (using a service account).
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 taskToGCPService: (config: TaskToGCPServiceConfig) => {
@@ -35,3 +35,41 @@ taskToGCPService: (config: TaskToGCPServiceConfig) => {
     };
 }
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+config
+
+
+</td><td>
+
+[TaskToGCPServiceConfig](./cloud-tasks-utils.tasktogcpserviceconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+{ parent: string; task: { name: string; httpRequest: { body: string; headers: { 'Content-Type': string; 'X-Task-Enqueued-By': string; }; httpMethod: "POST"; oidcToken: { audience: string; serviceAccountEmail: string; }; url: string; }; scheduleTime: { seconds: number; }; dispatchDeadline: { seconds: number; }; }; }
+

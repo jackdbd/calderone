@@ -4,7 +4,7 @@
 
 ## InvoiceAPIResponseBodyList.lista\_documenti property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 lista_documenti: RiassuntoFattura[];

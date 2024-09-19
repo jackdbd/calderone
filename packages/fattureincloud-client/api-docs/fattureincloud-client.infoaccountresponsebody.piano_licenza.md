@@ -4,7 +4,7 @@
 
 ## InfoAccountResponseBody.piano\_licenza property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 piano_licenza?: string;

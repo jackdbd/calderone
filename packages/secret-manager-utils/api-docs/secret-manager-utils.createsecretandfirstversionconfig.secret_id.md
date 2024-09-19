@@ -4,7 +4,7 @@
 
 ## CreateSecretAndFirstVersionConfig.secret\_id property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 secret_id: string;

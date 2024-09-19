@@ -6,7 +6,26 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [@jackdbd/firestore-utils](./firestore-utils.md) | Utility functions for \[Firestore\](https://cloud.google.com/firestore). |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[@jackdbd/firestore-utils](./firestore-utils.md)
+
+
+</td><td>
+
+Utility functions for \[Firestore\](https://cloud.google.com/firestore).
+
+
+</td></tr>
+</tbody></table>

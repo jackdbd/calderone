@@ -4,7 +4,7 @@
 
 ## InvoiceAPIResponseBodyCreate.new\_id property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 new_id: string;

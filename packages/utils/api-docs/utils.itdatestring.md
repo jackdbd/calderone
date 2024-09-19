@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [itDateString](./utils.itdatestring.md)
 
-## itDateString variable
+## itDateString() function
 
 Returns a date string in italian locale. The input `ts` is a timestamp in seconds since the Unix epoch.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 itDateString: (ts: number) => string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+ts
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string
+

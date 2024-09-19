@@ -4,7 +4,7 @@
 
 ## BreakdownResponse interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface BreakdownResponse 
@@ -12,7 +12,42 @@ export interface BreakdownResponse
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [results](./plausible-client.breakdownresponse.results.md) |  | [BreakdownResult](./plausible-client.breakdownresult.md)<!-- -->\[\] |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[results](./plausible-client.breakdownresponse.results.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[BreakdownResult](./plausible-client.breakdownresult.md)<!-- -->\[\]
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

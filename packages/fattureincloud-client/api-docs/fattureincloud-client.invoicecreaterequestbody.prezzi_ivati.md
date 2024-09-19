@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.prezzi\_ivati property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 prezzi_ivati?: boolean;

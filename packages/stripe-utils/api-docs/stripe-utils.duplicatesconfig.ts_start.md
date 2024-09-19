@@ -4,7 +4,7 @@
 
 ## DuplicatesConfig.ts\_start property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ts_start: number;

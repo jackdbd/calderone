@@ -4,7 +4,7 @@
 
 ## MoveDataConfig.ref property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ref: CollectionReference;

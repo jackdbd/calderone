@@ -70,9 +70,9 @@
     "test:watch": "run-p 'build:ts -- --watch' 'test -- --watch'"
   },
   "dependencies": {
-    "@11ty/eleventy-fetch": "^3.0.0",
-    "debug": "^4.3.4",
-    "joi": "^17.6.0"
+    "@11ty/eleventy-fetch": "^4.0.1",
+    "debug": "^4.3.7",
+    "joi": "^17.13.3"
   },
   "peerDependencies": {},
   "devDependencies": {}

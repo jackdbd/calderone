@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.email property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 email?: string;

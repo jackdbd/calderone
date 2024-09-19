@@ -4,21 +4,104 @@
 
 ## cloud-scheduler-utils package
 
+## Functions
+
+<table><thead><tr><th>
+
+Function
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[createHttpJob({ cloud\_scheduler, description, location\_id, name, project\_id, req\_body, schedule, service\_account\_email, timezone, url\_to\_call })](./cloud-scheduler-utils.createhttpjob.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[deleteAllJobs({ cloud\_scheduler, location\_id, project\_id })](./cloud-scheduler-utils.deletealljobs.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[deleteJob({ cloud\_scheduler, location\_id, name, project\_id })](./cloud-scheduler-utils.deletejob.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[randomSchedule(config)](./cloud-scheduler-utils.randomschedule.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+
 ## Interfaces
 
-|  Interface | Description |
-|  --- | --- |
-|  [CreateHttpJobConfig](./cloud-scheduler-utils.createhttpjobconfig.md) |  |
-|  [DeleteAllJobsConfig](./cloud-scheduler-utils.deletealljobsconfig.md) |  |
-|  [DeleteJobConfig](./cloud-scheduler-utils.deletejobconfig.md) |  |
-|  [RandomScheduleConfig](./cloud-scheduler-utils.randomscheduleconfig.md) |  |
+<table><thead><tr><th>
 
-## Variables
+Interface
 
-|  Variable | Description |
-|  --- | --- |
-|  [createHttpJob](./cloud-scheduler-utils.createhttpjob.md) |  |
-|  [deleteAllJobs](./cloud-scheduler-utils.deletealljobs.md) |  |
-|  [deleteJob](./cloud-scheduler-utils.deletejob.md) |  |
-|  [randomSchedule](./cloud-scheduler-utils.randomschedule.md) |  |
 
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[CreateHttpJobConfig](./cloud-scheduler-utils.createhttpjobconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[DeleteAllJobsConfig](./cloud-scheduler-utils.deletealljobsconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[DeleteJobConfig](./cloud-scheduler-utils.deletejobconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[RandomScheduleConfig](./cloud-scheduler-utils.randomscheduleconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

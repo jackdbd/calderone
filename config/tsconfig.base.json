@@ -16,10 +16,6 @@
     // https://www.typescriptlang.org/tsconfig#importHelpers
     "importHelpers": false,
 
-    // I wonder why this is not the default.
-    // https://www.typescriptlang.org/tsconfig#importsNotUsedAsValues
-    "importsNotUsedAsValues": "error",
-
     // This is not important for this project, but it speeds up compilation
     // times, so I want to remember it for larger projects.
     // https://www.typescriptlang.org/tsconfig#incremental

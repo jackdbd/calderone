@@ -4,7 +4,7 @@
 
 ## Credentials.api\_uid property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 api_uid: string;

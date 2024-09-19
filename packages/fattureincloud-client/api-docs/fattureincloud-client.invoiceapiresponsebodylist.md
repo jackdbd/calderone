@@ -4,21 +4,136 @@
 
 ## InvoiceAPIResponseBodyList interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface APIResponseBodyList extends APIResponseBodyError 
 ```
-<b>Extends:</b> APIResponseBodyError
+**Extends:** APIResponseBodyError
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [lista\_documenti](./fattureincloud-client.invoiceapiresponsebodylist.lista_documenti.md) |  | [RiassuntoFattura](./fattureincloud-client.invoicesummary.md)<!-- -->\[\] |  |
-|  [numero\_pagine](./fattureincloud-client.invoiceapiresponsebodylist.numero_pagine.md) |  | number |  |
-|  [numero\_risultati](./fattureincloud-client.invoiceapiresponsebodylist.numero_risultati.md) |  | number |  |
-|  [pagina\_corrente](./fattureincloud-client.invoiceapiresponsebodylist.pagina_corrente.md) |  | number |  |
-|  [risultati\_per\_pagina](./fattureincloud-client.invoiceapiresponsebodylist.risultati_per_pagina.md) |  | number |  |
-|  [success](./fattureincloud-client.invoiceapiresponsebodylist.success.md) |  | boolean |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[lista\_documenti](./fattureincloud-client.invoiceapiresponsebodylist.lista_documenti.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[RiassuntoFattura](./fattureincloud-client.invoicesummary.md)<!-- -->\[\]
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[numero\_pagine](./fattureincloud-client.invoiceapiresponsebodylist.numero_pagine.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[numero\_risultati](./fattureincloud-client.invoiceapiresponsebodylist.numero_risultati.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[pagina\_corrente](./fattureincloud-client.invoiceapiresponsebodylist.pagina_corrente.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[risultati\_per\_pagina](./fattureincloud-client.invoiceapiresponsebodylist.risultati_per_pagina.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[success](./fattureincloud-client.invoiceapiresponsebodylist.success.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

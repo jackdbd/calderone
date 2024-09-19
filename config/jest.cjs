@@ -20,9 +20,8 @@ const project = (package_name) => {
 
   // https://jestjs.io/docs/configuration
   return {
-    // I like to make Jest stop running tests after a few failures
     // https://jestjs.io/docs/configuration#bail-number--boolean
-    bail: 3,
+    // bail: 3,
 
     // https://jestjs.io/docs/configuration#clearmocks-boolean
     clearMocks: true,
@@ -67,7 +66,6 @@ const project = (package_name) => {
 
     // 5000ms is the default value for testTimeout.
     // https://jestjs.io/docs/configuration#testtimeout-number
-    testTimeout: 5000,
 
     // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
     // https://jestjs.io/docs/ecmascript-modules

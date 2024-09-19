@@ -2,12 +2,66 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [isoString](./utils.isostring.md)
 
-## isoString variable
+## isoString() function
 
 Given a JS object that represents a UTC date, and an `options` object that contains `year`<!-- -->, `month`<!-- -->, etc, this function generates a new ISO string for the new date.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isoString: (obj: UTCDateAsObject, options?: IsoStringConfig) => string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+obj
+
+
+</td><td>
+
+[UTCDateAsObject](./utils.utcdateasobject.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+[IsoStringConfig](./utils.isostringconfig.md)
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string
+

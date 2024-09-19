@@ -4,7 +4,7 @@
 
 ## TelegramCredentials interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Credentials 
@@ -12,8 +12,59 @@ export interface Credentials
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [chat\_id](./schemas.telegramcredentials.chat_id.md) |  | string |  |
-|  [token](./schemas.telegramcredentials.token.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[chat\_id](./schemas.telegramcredentials.chat_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[token](./schemas.telegramcredentials.token.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

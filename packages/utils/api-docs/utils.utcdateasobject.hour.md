@@ -4,7 +4,7 @@
 
 ## UTCDateAsObject.hour property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 hour: string;

@@ -2,10 +2,10 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [nowAndPastTimestampMs](./utils.nowandpasttimestampms.md)
 
-## nowAndPastTimestampMs variable
+## nowAndPastTimestampMs() function
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 nowAndPastTimestampMs: (n: number) => {
@@ -13,3 +13,41 @@ nowAndPastTimestampMs: (n: number) => {
     ts_now: number;
 }
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+n
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+{ ts\_past: number; ts\_now: number; }
+

@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.lista\_articoli property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 lista_articoli: Articolo[];

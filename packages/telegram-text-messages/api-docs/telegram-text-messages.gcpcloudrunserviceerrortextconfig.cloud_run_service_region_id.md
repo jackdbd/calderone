@@ -6,7 +6,7 @@
 
 GCP region where the Cloud Run service is being executed. Is this available from the environment?
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 cloud_run_service_region_id: string;

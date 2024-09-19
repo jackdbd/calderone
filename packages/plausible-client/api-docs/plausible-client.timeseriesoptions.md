@@ -4,7 +4,7 @@
 
 ## TimeseriesOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface TimeseriesOptions 
@@ -12,10 +12,101 @@ export interface TimeseriesOptions
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [filters?](./plausible-client.timeseriesoptions.filters.md) |  | string | <i>(Optional)</i> |
-|  [interval?](./plausible-client.timeseriesoptions.interval.md) |  | string | <i>(Optional)</i> |
-|  [metrics?](./plausible-client.timeseriesoptions.metrics.md) |  | string | <i>(Optional)</i> |
-|  [period?](./plausible-client.timeseriesoptions.period.md) |  | string | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[filters?](./plausible-client.timeseriesoptions.filters.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[interval?](./plausible-client.timeseriesoptions.interval.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[metrics?](./plausible-client.timeseriesoptions.metrics.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[period?](./plausible-client.timeseriesoptions.period.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

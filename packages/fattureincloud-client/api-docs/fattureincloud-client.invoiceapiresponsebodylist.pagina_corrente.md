@@ -4,7 +4,7 @@
 
 ## InvoiceAPIResponseBodyList.pagina\_corrente property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 pagina_corrente: number;

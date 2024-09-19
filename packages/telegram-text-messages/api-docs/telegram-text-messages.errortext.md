@@ -2,10 +2,48 @@
 
 [Home](./index.md) &gt; [@jackdbd/telegram-text-messages](./telegram-text-messages.md) &gt; [errorText](./telegram-text-messages.errortext.md)
 
-## errorText variable
+## errorText() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 errorText: (config: Config) => string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+config
+
+
+</td><td>
+
+[Config](./telegram-text-messages.errortextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string
+

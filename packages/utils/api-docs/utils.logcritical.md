@@ -2,11 +2,49 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [logCritical](./utils.logcritical.md)
 
-## logCritical variable
+## logCritical() function
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 logCritical: (data: LogData | string) => void
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+data
+
+
+</td><td>
+
+[LogData](./utils.logdata.md) \| string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+void
+

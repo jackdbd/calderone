@@ -5,7 +5,7 @@
 ## BulkCopyConfig interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface BulkCopyConfig 
@@ -13,9 +13,78 @@ export interface BulkCopyConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [copied\_by?](./firestore-utils.bulkcopyconfig.copied_by.md) |  | string | <i>(Optional)</i> |
-|  [dest\_collection](./firestore-utils.bulkcopyconfig.dest_collection.md) |  | string |  |
-|  [query](./firestore-utils.bulkcopyconfig.query.md) |  | Query |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[copied\_by?](./firestore-utils.bulkcopyconfig.copied_by.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[dest\_collection](./firestore-utils.bulkcopyconfig.dest_collection.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[query](./firestore-utils.bulkcopyconfig.query.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Query
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

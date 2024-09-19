@@ -4,7 +4,7 @@
 
 ## InvoiceSummary.PA\_tipo\_cliente property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 PA_tipo_cliente: 'B2B' | 'PA';

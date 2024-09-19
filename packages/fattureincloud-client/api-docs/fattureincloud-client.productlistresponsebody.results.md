@@ -4,7 +4,7 @@
 
 ## ProductListResponseBody.results property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 results: Product[];

@@ -4,7 +4,7 @@
 
 ## CustomersClient.update property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 update: (config: UpdateRequestBody) => Promise<{

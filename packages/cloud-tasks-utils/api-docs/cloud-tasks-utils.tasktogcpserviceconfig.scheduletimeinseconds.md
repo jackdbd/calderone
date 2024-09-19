@@ -4,7 +4,7 @@
 
 ## TaskToGCPServiceConfig.scheduleTimeInSeconds property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 scheduleTimeInSeconds: number;

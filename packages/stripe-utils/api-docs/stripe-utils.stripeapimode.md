@@ -6,7 +6,7 @@
 
 Stripe API mode.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare enum StripeApiMode 
@@ -14,8 +14,48 @@ export declare enum StripeApiMode
 
 ## Enumeration Members
 
-|  Member | Value | Description |
-|  --- | --- | --- |
-|  Live | <code>&quot;LIVE&quot;</code> |  |
-|  Test | <code>&quot;TEST&quot;</code> |  |
+<table><thead><tr><th>
 
+Member
+
+
+</th><th>
+
+Value
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+Live
+
+
+</td><td>
+
+`"LIVE"`
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+Test
+
+
+</td><td>
+
+`"TEST"`
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

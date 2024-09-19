@@ -4,7 +4,7 @@
 
 ## InvoiceArticle.sconto property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 sconto?: number;

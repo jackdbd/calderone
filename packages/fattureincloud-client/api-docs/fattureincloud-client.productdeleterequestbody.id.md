@@ -4,7 +4,7 @@
 
 ## ProductDeleteRequestBody.id property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 id: string;

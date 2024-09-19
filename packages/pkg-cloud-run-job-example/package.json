@@ -42,8 +42,8 @@
     "test:ci": "npx jest --config jest.config.cjs --rootDir ./ --runInBand --ci"
   },
   "dependencies": {
-    "debug": "^4.3.3",
-    "phin": "^3.6.1"
+    "debug": "^4.3.7",
+    "phin": "^3.7.1"
   },
   "devDependencies": {}
 }

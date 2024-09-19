@@ -4,7 +4,7 @@
 
 ## CustomerRetrieveConfig.partita\_iva property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 partita_iva?: string;

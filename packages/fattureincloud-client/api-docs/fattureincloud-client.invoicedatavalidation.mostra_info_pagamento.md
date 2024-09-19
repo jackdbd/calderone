@@ -4,7 +4,7 @@
 
 ## InvoiceDataValidation.mostra\_info\_pagamento property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 mostra_info_pagamento?: boolean;

@@ -4,7 +4,7 @@
 
 ## InfoClient.account property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 account: (options?: AccountOptions) => Promise<AccountResponseBody>;

@@ -5,7 +5,7 @@
 ## BulkMoveConfig interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface BulkMoveConfig 
@@ -13,9 +13,78 @@ export interface BulkMoveConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [dest\_collection](./firestore-utils.bulkmoveconfig.dest_collection.md) |  | string |  |
-|  [moved\_by?](./firestore-utils.bulkmoveconfig.moved_by.md) |  | string | <i>(Optional)</i> |
-|  [query](./firestore-utils.bulkmoveconfig.query.md) |  | Query |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[dest\_collection](./firestore-utils.bulkmoveconfig.dest_collection.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[moved\_by?](./firestore-utils.bulkmoveconfig.moved_by.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[query](./firestore-utils.bulkmoveconfig.query.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Query
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

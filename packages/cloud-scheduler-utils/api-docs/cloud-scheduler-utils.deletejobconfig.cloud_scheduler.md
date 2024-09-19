@@ -4,7 +4,7 @@
 
 ## DeleteJobConfig.cloud\_scheduler property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 cloud_scheduler: CloudSchedulerClient;

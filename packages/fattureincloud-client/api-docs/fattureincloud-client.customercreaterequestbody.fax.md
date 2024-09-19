@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.fax property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 fax?: string;

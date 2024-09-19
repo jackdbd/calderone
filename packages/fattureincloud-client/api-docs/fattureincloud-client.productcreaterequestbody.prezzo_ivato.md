@@ -4,7 +4,7 @@
 
 ## ProductCreateRequestBody.prezzo\_ivato property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 prezzo_ivato?: boolean;

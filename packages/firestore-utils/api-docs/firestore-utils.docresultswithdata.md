@@ -2,15 +2,52 @@
 
 [Home](./index.md) &gt; [@jackdbd/firestore-utils](./firestore-utils.md) &gt; [docResultsWithData](./firestore-utils.docresultswithdata.md)
 
-## docResultsWithData variable
+## docResultsWithData() function
 
 Retrieves all Firestore documents that match the given `query`<!-- -->. Return an array of results where each element contains the Firestore document id `doc_id` and the document data `data`<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 docResultsWithData: <D>({ limit, query }: DocResultsQueryConfig) => Promise<DocResultData<D>[]>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ limit, query }
+
+
+</td><td>
+
+[DocResultsQueryConfig](./firestore-utils.docresultsqueryconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;[DocResultData](./firestore-utils.docresultdata.md)<!-- -->&lt;D&gt;\[\]&gt;
 
 ## Remarks
 

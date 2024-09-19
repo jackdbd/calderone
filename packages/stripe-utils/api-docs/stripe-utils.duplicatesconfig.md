@@ -5,7 +5,7 @@
 ## DuplicatesConfig interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface DuplicatesConfig 
@@ -13,10 +13,95 @@ export interface DuplicatesConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [stripe](./stripe-utils.duplicatesconfig.stripe.md) |  | Stripe |  |
-|  [threshold?](./stripe-utils.duplicatesconfig.threshold.md) |  | number | <i>(Optional)</i> |
-|  [ts\_start](./stripe-utils.duplicatesconfig.ts_start.md) |  | number |  |
-|  [ts\_stop](./stripe-utils.duplicatesconfig.ts_stop.md) |  | number |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[stripe](./stripe-utils.duplicatesconfig.stripe.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Stripe
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[threshold?](./stripe-utils.duplicatesconfig.threshold.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[ts\_start](./stripe-utils.duplicatesconfig.ts_start.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ts\_stop](./stripe-utils.duplicatesconfig.ts_stop.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

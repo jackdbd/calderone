@@ -4,7 +4,7 @@
 
 ## telegram\_credentials variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 credentials: Joi.ObjectSchema<Credentials>

@@ -4,7 +4,7 @@
 
 ## CustomerAPIResponseBodyList.lista\_clienti property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 lista_clienti: Customer[];

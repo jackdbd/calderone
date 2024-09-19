@@ -2,7 +2,7 @@
 
 [Home](./index.md) &gt; [@jackdbd/tags-logger](./tags-logger.md) &gt; [makeLog](./tags-logger.makelog.md)
 
-## makeLog variable
+## makeLog() function
 
 Factory that returns a `log` function that will either print structured or unstructured log statements, with optional schema validation for each log statement in both cases.
 
@@ -10,8 +10,48 @@ Each log statement you pass to the `log` function returned to this logger should
 
 Unstructured logging is delegated to the \[debug\](https://github.com/debug-js/debug) library. For example, if you set the environment variable `DEBUG` to `DEBUG=app/*,-app/foo`<!-- -->, the log function will print everything matching `app/*`<!-- -->, except `app/foo`<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 makeLog: (options?: Options) => <T extends import("./schemas.js").Statement = import("./schemas.js").Statement>(stmt: T) => void
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+options
+
+
+</td><td>
+
+[Options](./tags-logger.options.md)
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+&lt;T extends import("./schemas.js").[Statement](./tags-logger.statement.md) = import("./schemas.js").[Statement](./tags-logger.statement.md)<!-- -->&gt;(stmt: T) =&gt; void
+

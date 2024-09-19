@@ -4,7 +4,7 @@
 
 ## InvoicePayment.data\_saldo property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 data_saldo?: string;

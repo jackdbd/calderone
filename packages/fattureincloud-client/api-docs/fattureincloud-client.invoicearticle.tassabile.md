@@ -4,7 +4,7 @@
 
 ## InvoiceArticle.tassabile property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 tassabile?: boolean;

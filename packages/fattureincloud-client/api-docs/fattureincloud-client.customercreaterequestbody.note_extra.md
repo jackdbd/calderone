@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.note\_extra property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 note_extra?: string;

@@ -4,7 +4,7 @@
 
 ## TestOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Options 
@@ -12,10 +12,101 @@ export interface Options
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [env?](./utils.testoptions.env.md) |  | NodeJS.ProcessEnv | <i>(Optional)</i> |
-|  [port?](./utils.testoptions.port.md) |  | number | <i>(Optional)</i> |
-|  [source?](./utils.testoptions.source.md) |  | string | <i>(Optional)</i> |
-|  [target?](./utils.testoptions.target.md) |  | string | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[env?](./utils.testoptions.env.md)
+
+
+</td><td>
+
+
+</td><td>
+
+NodeJS.ProcessEnv
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[port?](./utils.testoptions.port.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[source?](./utils.testoptions.source.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[target?](./utils.testoptions.target.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

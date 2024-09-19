@@ -4,10 +4,35 @@
 
 ## keap-client package
 
-## Variables
+## Functions
 
-|  Variable | Description |
-|  --- | --- |
-|  [basicKeapClient](./keap-client.basickeapclient.md) |  |
-|  [storeKeapClient](./keap-client.storekeapclient.md) |  |
+<table><thead><tr><th>
 
+Function
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[basicKeapClient({ access\_token, client\_id, client\_secret, refresh\_token })](./keap-client.basickeapclient.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[storeKeapClient({ access\_token, client\_id, client\_secret, refresh\_token, store })](./keap-client.storekeapclient.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

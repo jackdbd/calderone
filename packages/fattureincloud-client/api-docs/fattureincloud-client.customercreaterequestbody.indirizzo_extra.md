@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.indirizzo\_extra property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 indirizzo_extra?: string;

@@ -6,32 +6,272 @@
 
 Utility functions for \[Firestore\](https://cloud.google.com/firestore).
 
+## Functions
+
+<table><thead><tr><th>
+
+Function
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[bulkCopy({ copied\_by, dest\_collection, query })](./firestore-utils.bulkcopy.md)
+
+
+</td><td>
+
+Copies all Firestore documents matching the provided `query` to a Firestore collection `dest_collection`<!-- -->.
+
+This is a Firestore transaction. Either all documents are copied, or none is.
+
+
+</td></tr>
+<tr><td>
+
+[bulkDelete({ query })](./firestore-utils.bulkdelete.md)
+
+
+</td><td>
+
+Deletes all Firestore documents matching the provided `query`<!-- -->.
+
+This is a Firestore transaction. Either all documents are deleted, or none is.
+
+
+</td></tr>
+<tr><td>
+
+[bulkMove({ dest\_collection, moved\_by, query })](./firestore-utils.bulkmove.md)
+
+
+</td><td>
+
+Moves all Firestore documents matching the provided `query` to a Firestore collection `dest_collection`<!-- -->.
+
+This is a Firestore transaction. Either all documents are moved, or none is.
+
+
+</td></tr>
+<tr><td>
+
+[deleteAllDocsInCollection(ref)](./firestore-utils.deletealldocsincollection.md)
+
+
+</td><td>
+
+Deletes all documents in a Firestore collection.
+
+This function could be improved to delete batches of `batchSize`<!-- -->. See [Delete Collections](https://firebase.google.com/docs/firestore/manage-data/delete-data#node.js_2)<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[deleteDocsMatchingQuery(query)](./firestore-utils.deletedocsmatchingquery.md)
+
+
+</td><td>
+
+Deletes all documents matching a query.
+
+
+</td></tr>
+<tr><td>
+
+[docResultsWithData({ limit, query })](./firestore-utils.docresultswithdata.md)
+
+
+</td><td>
+
+Retrieves all Firestore documents that match the given `query`<!-- -->. Return an array of results where each element contains the Firestore document id `doc_id` and the document data `data`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[docResultsWithId({ limit, ref })](./firestore-utils.docresultswithid.md)
+
+
+</td><td>
+
+Retrieves all Firestore documents where the \*\*document data\*\* `id` is not null.
+
+Returns an array of results where each element contains the Firestore document id `doc_id` and the document data id `id`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[errorFromFirestore(err)](./firestore-utils.errorfromfirestore.md)
+
+
+</td><td>
+
+**_(ALPHA)_** Converts a Firestore error into an error with a `message` and a `status_code`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[firestore(options)](./firestore-utils.firestore.md)
+
+
+</td><td>
+
+Initializes the Firestore client from the environment.
+
+
+</td></tr>
+<tr><td>
+
+[moveData({ ref, document\_ids })](./firestore-utils.movedata.md)
+
+
+</td><td>
+
+Moves Firestore document \*\*data\*\* from the Firestore document id `from`<!-- -->, to the Firestore document id `to`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[queries({ ref, ids: all\_ids })](./firestore-utils.queries.md)
+
+
+</td><td>
+
+Splits an array of Firestore document IDs in chunks of 10, so to comply with Firestore `in`<!-- -->, `not-in`<!-- -->, and `array-contains-any` operators limitations, and returns a list of Firestore queries.
+
+
+</td></tr>
+<tr><td>
+
+[shuffleWithFisherYates(ref)](./firestore-utils.shufflewithfisheryates.md)
+
+
+</td><td>
+
+Shuffles documents in a Firestore collection using the Fisher-Yates algorithm.
+
+
+</td></tr>
+</tbody></table>
+
 ## Interfaces
 
-|  Interface | Description |
-|  --- | --- |
-|  [BulkCopyConfig](./firestore-utils.bulkcopyconfig.md) |  |
-|  [BulkDeleteConfig](./firestore-utils.bulkdeleteconfig.md) |  |
-|  [BulkMoveConfig](./firestore-utils.bulkmoveconfig.md) |  |
-|  [ClientOptions](./firestore-utils.clientoptions.md) |  |
-|  [DocResultData](./firestore-utils.docresultdata.md) |  |
-|  [DocResultId](./firestore-utils.docresultid.md) |  |
-|  [DocResultsQueryConfig](./firestore-utils.docresultsqueryconfig.md) |  |
-|  [DocResultsRefConfig](./firestore-utils.docresultsrefconfig.md) |  |
-|  [MoveDataConfig](./firestore-utils.movedataconfig.md) |  |
+<table><thead><tr><th>
 
-## Variables
+Interface
 
-|  Variable | Description |
-|  --- | --- |
-|  [bulkCopy](./firestore-utils.bulkcopy.md) | <p>Copies all Firestore documents matching the provided <code>query</code> to a Firestore collection <code>dest_collection</code>.</p><p>This is a Firestore transaction. Either all documents are copied, or none is.</p> |
-|  [bulkDelete](./firestore-utils.bulkdelete.md) | <p>Deletes all Firestore documents matching the provided <code>query</code>.</p><p>This is a Firestore transaction. Either all documents are deleted, or none is.</p> |
-|  [bulkMove](./firestore-utils.bulkmove.md) | <p>Moves all Firestore documents matching the provided <code>query</code> to a Firestore collection <code>dest_collection</code>.</p><p>This is a Firestore transaction. Either all documents are moved, or none is.</p> |
-|  [deleteAllDocsInCollection](./firestore-utils.deletealldocsincollection.md) | <p>Deletes all documents in a Firestore collection.</p><p>This function could be improved to delete batches of <code>batchSize</code>. See [Delete Collections](https://firebase.google.com/docs/firestore/manage-data/delete-data#node.js_2)<!-- -->.</p> |
-|  [deleteDocsMatchingQuery](./firestore-utils.deletedocsmatchingquery.md) | Deletes all documents matching a query. |
-|  [docResultsWithData](./firestore-utils.docresultswithdata.md) | Retrieves all Firestore documents that match the given <code>query</code>. Return an array of results where each element contains the Firestore document id <code>doc_id</code> and the document data <code>data</code>. |
-|  [docResultsWithId](./firestore-utils.docresultswithid.md) | <p>Retrieves all Firestore documents where the \*\*document data\*\* <code>id</code> is not null.</p><p>Returns an array of results where each element contains the Firestore document id <code>doc_id</code> and the document data id <code>id</code>.</p> |
-|  [firestore](./firestore-utils.firestore.md) | Initializes the Firestore client from the environment. |
-|  [moveData](./firestore-utils.movedata.md) | Moves Firestore document \*\*data\*\* from the Firestore document id <code>from</code>, to the Firestore document id <code>to</code>. |
-|  [shuffleWithFisherYates](./firestore-utils.shufflewithfisheryates.md) | Shuffles documents in a Firestore collection using the Fisher-Yates algorithm. |
 
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[BulkCopyConfig](./firestore-utils.bulkcopyconfig.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[BulkDeleteConfig](./firestore-utils.bulkdeleteconfig.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[BulkMoveConfig](./firestore-utils.bulkmoveconfig.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[ClientOptions](./firestore-utils.clientoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[DocResultData](./firestore-utils.docresultdata.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[DocResultId](./firestore-utils.docresultid.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[DocResultsQueryConfig](./firestore-utils.docresultsqueryconfig.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[DocResultsRefConfig](./firestore-utils.docresultsrefconfig.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[MoveDataConfig](./firestore-utils.movedataconfig.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[QueriesConfig](./firestore-utils.queriesconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

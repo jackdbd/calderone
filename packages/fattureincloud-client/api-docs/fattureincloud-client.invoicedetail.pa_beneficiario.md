@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.PA\_beneficiario property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 PA_beneficiario: string;

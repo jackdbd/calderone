@@ -4,7 +4,7 @@
 
 ## InvoiceArticle.cod\_iva property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 cod_iva: string;

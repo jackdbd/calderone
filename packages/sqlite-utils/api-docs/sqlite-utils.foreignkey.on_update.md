@@ -4,7 +4,7 @@
 
 ## ForeignKey.on\_update property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 on_update: string;

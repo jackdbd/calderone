@@ -4,8 +4,8 @@
 
 ## telegram\_text variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-text: Joi.StringSchema
+text: Joi.StringSchema<string>
 ```

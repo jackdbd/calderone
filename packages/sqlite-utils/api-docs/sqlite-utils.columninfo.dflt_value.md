@@ -4,7 +4,7 @@
 
 ## ColumnInfo.dflt\_value property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 dflt_value: any;

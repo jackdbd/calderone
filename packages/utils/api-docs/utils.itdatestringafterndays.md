@@ -2,11 +2,63 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [itDateStringAfterNDays](./utils.itdatestringafterndays.md)
 
-## itDateStringAfterNDays variable
+## itDateStringAfterNDays() function
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 itDateStringAfterNDays: (date_string: string, n_days: number) => string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+date\_string
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+n\_days
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string
+

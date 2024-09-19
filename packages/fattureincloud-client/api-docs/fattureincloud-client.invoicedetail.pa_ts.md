@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.PA\_ts property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 PA_ts: boolean;

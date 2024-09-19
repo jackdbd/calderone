@@ -4,7 +4,7 @@
 
 ## CreatePriceWithTaxBehaviorConfig.behavior property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 behavior: 'inclusive' | 'exclusive';

@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.codice\_fiscale property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 codice_fiscale?: string;

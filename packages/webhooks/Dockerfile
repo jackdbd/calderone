@@ -27,8 +27,6 @@ RUN npm install --location=global typescript
 
 RUN npm install --save-dev \
   @types/debug \
-  @types/google-spreadsheet \
-  @types/hapi__hapi \
   @types/hapi__inert \
   @types/hapi__vision \
   @types/node

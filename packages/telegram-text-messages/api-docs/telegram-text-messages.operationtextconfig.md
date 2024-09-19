@@ -4,7 +4,7 @@
 
 ## OperationTextConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -12,10 +12,93 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [failures](./telegram-text-messages.operationtextconfig.failures.md) |  | string\[\] |  |
-|  [successes](./telegram-text-messages.operationtextconfig.successes.md) |  | string\[\] |  |
-|  [title](./telegram-text-messages.operationtextconfig.title.md) |  | string |  |
-|  [warnings](./telegram-text-messages.operationtextconfig.warnings.md) |  | string\[\] |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[failures](./telegram-text-messages.operationtextconfig.failures.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string\[\]
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[successes](./telegram-text-messages.operationtextconfig.successes.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string\[\]
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[title](./telegram-text-messages.operationtextconfig.title.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[warnings](./telegram-text-messages.operationtextconfig.warnings.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string\[\]
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

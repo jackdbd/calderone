@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.tel property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 tel?: string;

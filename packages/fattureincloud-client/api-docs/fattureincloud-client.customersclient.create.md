@@ -4,7 +4,7 @@
 
 ## CustomersClient.create property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 create: (config: CreateRequestBody) => Promise<{

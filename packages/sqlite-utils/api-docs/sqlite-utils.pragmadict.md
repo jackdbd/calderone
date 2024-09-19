@@ -2,16 +2,54 @@
 
 [Home](./index.md) &gt; [@jackdbd/sqlite-utils](./sqlite-utils.md) &gt; [pragmaDict](./sqlite-utils.pragmadict.md)
 
-## pragmaDict variable
+## pragmaDict() function
 
 Returns a dictionary of the available PRAGMA statements in this SQLite database, where each key-value pair is a PRAGMA with its associated value.
 
 PRAGMA statements not available in the provided SQLite database will not show up in the dictionary.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 pragmaDict: (db: BetterSqlite3.Database) => {
     [pragma: string]: any;
 }
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+db
+
+
+</td><td>
+
+BetterSqlite3.Database
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+{ \[pragma: string\]: any; }
+

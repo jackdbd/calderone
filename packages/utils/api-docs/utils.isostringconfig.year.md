@@ -4,7 +4,7 @@
 
 ## IsoStringConfig.year property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 year?: string | number;

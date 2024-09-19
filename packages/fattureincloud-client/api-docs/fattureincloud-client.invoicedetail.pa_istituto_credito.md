@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.PA\_istituto\_credito property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 PA_istituto_credito: string;

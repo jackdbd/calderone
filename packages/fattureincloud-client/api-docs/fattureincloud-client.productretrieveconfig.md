@@ -4,7 +4,7 @@
 
 ## ProductRetrieveConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface RetrieveConfig 
@@ -12,10 +12,101 @@ export interface RetrieveConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [categoria?](./fattureincloud-client.productretrieveconfig.categoria.md) |  | string | <i>(Optional)</i> |
-|  [cod?](./fattureincloud-client.productretrieveconfig.cod.md) |  | string | <i>(Optional)</i> |
-|  [id?](./fattureincloud-client.productretrieveconfig.id.md) |  | string | <i>(Optional)</i> |
-|  [nome?](./fattureincloud-client.productretrieveconfig.nome.md) |  | string | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[categoria?](./fattureincloud-client.productretrieveconfig.categoria.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[cod?](./fattureincloud-client.productretrieveconfig.cod.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[id?](./fattureincloud-client.productretrieveconfig.id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[nome?](./fattureincloud-client.productretrieveconfig.nome.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

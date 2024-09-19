@@ -4,7 +4,7 @@
 
 ## ProductsClient.delete property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 delete: (config: DeleteRequestBody) => Promise<{

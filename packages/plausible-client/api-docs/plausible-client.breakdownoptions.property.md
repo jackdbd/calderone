@@ -4,7 +4,7 @@
 
 ## BreakdownOptions.property property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 property?: string;

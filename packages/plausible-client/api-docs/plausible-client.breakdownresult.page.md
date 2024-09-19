@@ -4,7 +4,7 @@
 
 ## BreakdownResult.page property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 page: string;

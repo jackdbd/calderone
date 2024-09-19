@@ -4,7 +4,7 @@
 
 ## TimeseriesResult interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface TimeseriesResult 
@@ -12,8 +12,59 @@ export interface TimeseriesResult
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [date](./plausible-client.timeseriesresult.date.md) |  | string |  |
-|  [visitors](./plausible-client.timeseriesresult.visitors.md) |  | number |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[date](./plausible-client.timeseriesresult.date.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[visitors](./plausible-client.timeseriesresult.visitors.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

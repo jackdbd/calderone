@@ -4,7 +4,7 @@
 
 ## DocResultData.doc\_id property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 doc_id: string;

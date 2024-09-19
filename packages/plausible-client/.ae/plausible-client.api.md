@@ -7,7 +7,7 @@
 import { FetchOptions } from '@11ty/eleventy-fetch';
 import { Options } from '@11ty/eleventy-fetch';
 
-// Warning: (ae-missing-release-tag) "AggregateOptions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AggregateOptions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface AggregateOptions {
@@ -21,7 +21,7 @@ export interface AggregateOptions {
     period?: string;
 }
 
-// Warning: (ae-missing-release-tag) "AggregateResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "AggregateResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface AggregateResponse {
@@ -42,7 +42,7 @@ export interface AggregateResponse {
     };
 }
 
-// Warning: (ae-missing-release-tag) "BreakdownOptions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "BreakdownOptions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface BreakdownOptions {
@@ -60,7 +60,7 @@ export interface BreakdownOptions {
     property?: string;
 }
 
-// Warning: (ae-missing-release-tag) "BreakdownResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "BreakdownResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface BreakdownResponse {
@@ -68,7 +68,7 @@ export interface BreakdownResponse {
     results: BreakdownResult[];
 }
 
-// Warning: (ae-missing-release-tag) "BreakdownResult" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "BreakdownResult" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface BreakdownResult {
@@ -82,7 +82,7 @@ export interface BreakdownResult {
     visitors: number;
 }
 
-// Warning: (ae-missing-release-tag) "Credentials" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Credentials" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface Credentials {
@@ -94,7 +94,7 @@ export interface Credentials {
 
 export { FetchOptions }
 
-// Warning: (ae-missing-release-tag) "makeClient" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "makeClient" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const makeClient: (credentials: Credentials, options?: Options) => {
@@ -120,7 +120,7 @@ export const makeClient: (credentials: Credentials, options?: Options) => {
 
 export { Options }
 
-// Warning: (ae-missing-release-tag) "TimeseriesOptions" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "TimeseriesOptions" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface TimeseriesOptions {
@@ -134,7 +134,7 @@ export interface TimeseriesOptions {
     period?: string;
 }
 
-// Warning: (ae-missing-release-tag) "TimeseriesResponse" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "TimeseriesResponse" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface TimeseriesResponse {
@@ -142,7 +142,7 @@ export interface TimeseriesResponse {
     results: TimeseriesResult[];
 }
 
-// Warning: (ae-missing-release-tag) "TimeseriesResult" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "TimeseriesResult" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface TimeseriesResult {

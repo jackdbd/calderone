@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.mostra\_bottone\_paypal property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 mostra_bottone_paypal: boolean;

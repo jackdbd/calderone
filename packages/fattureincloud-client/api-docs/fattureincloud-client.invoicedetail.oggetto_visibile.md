@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.oggetto\_visibile property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 oggetto_visibile: string;

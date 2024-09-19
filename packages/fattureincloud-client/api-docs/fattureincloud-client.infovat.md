@@ -4,7 +4,7 @@
 
 ## InfoVat interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Iva 
@@ -12,10 +12,93 @@ export interface Iva
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [cod\_iva](./fattureincloud-client.infovat.cod_iva.md) |  | string |  |
-|  [descrizione\_iva](./fattureincloud-client.infovat.descrizione_iva.md) |  | string |  |
-|  [id](./fattureincloud-client.infovat.id.md) |  | number |  |
-|  [valore\_iva](./fattureincloud-client.infovat.valore_iva.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[cod\_iva](./fattureincloud-client.infovat.cod_iva.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[descrizione\_iva](./fattureincloud-client.infovat.descrizione_iva.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[id](./fattureincloud-client.infovat.id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[valore\_iva](./fattureincloud-client.infovat.valore_iva.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

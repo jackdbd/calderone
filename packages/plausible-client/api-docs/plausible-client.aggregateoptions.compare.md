@@ -4,7 +4,7 @@
 
 ## AggregateOptions.compare property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 compare?: string;

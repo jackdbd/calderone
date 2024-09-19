@@ -4,7 +4,7 @@
 
 ## GenericTextOptions.is\_title\_bold property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 is_title_bold?: boolean;

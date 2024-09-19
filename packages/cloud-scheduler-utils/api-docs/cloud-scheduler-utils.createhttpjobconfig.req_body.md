@@ -4,7 +4,7 @@
 
 ## CreateHttpJobConfig.req\_body property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 req_body?: {

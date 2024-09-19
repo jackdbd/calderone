@@ -4,7 +4,7 @@
 
 ## Config.patterns property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 patterns: string[];

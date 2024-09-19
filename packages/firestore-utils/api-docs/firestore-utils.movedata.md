@@ -2,17 +2,54 @@
 
 [Home](./index.md) &gt; [@jackdbd/firestore-utils](./firestore-utils.md) &gt; [moveData](./firestore-utils.movedata.md)
 
-## moveData variable
+## moveData() function
 
 Moves Firestore document \*\*data\*\* from the Firestore document id `from`<!-- -->, to the Firestore document id `to`<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 moveData: <D extends {
     [x: string]: any;
 }>({ ref, document_ids }: MoveDataConfig) => Promise<void>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ ref, document\_ids }
+
+
+</td><td>
+
+[MoveDataConfig](./firestore-utils.movedataconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;void&gt;
 
 ## Remarks
 

@@ -4,7 +4,7 @@
 
 ## ForeignKey.seq property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 seq: number;

@@ -6,7 +6,7 @@
 
 This is the starter policy described here: https://content-security-policy.com/
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 starter_policy: {

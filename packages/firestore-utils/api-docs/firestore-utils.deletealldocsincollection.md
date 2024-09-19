@@ -2,19 +2,56 @@
 
 [Home](./index.md) &gt; [@jackdbd/firestore-utils](./firestore-utils.md) &gt; [deleteAllDocsInCollection](./firestore-utils.deletealldocsincollection.md)
 
-## deleteAllDocsInCollection variable
+## deleteAllDocsInCollection() function
 
 Deletes all documents in a Firestore collection.
 
 This function could be improved to delete batches of `batchSize`<!-- -->. See [Delete Collections](https://firebase.google.com/docs/firestore/manage-data/delete-data#node.js_2)<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 deleteAllDocsInCollection: (ref: CollectionReference) => Promise<string>
 ```
 
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+ref
+
+
+</td><td>
+
+CollectionReference
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;string&gt;
+
 ## Remarks
 
-Consider using the more flexible [bulkDelete](./firestore-utils.bulkdelete.md) instead.
+Consider using the more flexible [bulkDelete()](./firestore-utils.bulkdelete.md) instead.
 

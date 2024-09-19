@@ -4,7 +4,7 @@
 
 ## Customer.extra property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 extra: string;

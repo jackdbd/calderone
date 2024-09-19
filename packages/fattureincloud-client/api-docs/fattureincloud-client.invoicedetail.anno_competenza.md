@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.anno\_competenza property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 anno_competenza: string;

@@ -4,7 +4,7 @@
 
 ## Customer.PA property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 PA: boolean;

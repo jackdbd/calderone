@@ -42,12 +42,12 @@
     {
       "path": "./packages/firestore-utils/tsconfig.json"
     },
-    {
-      "path": "./packages/fattureincloud-client/tsconfig.json"
-    },
-    {
-      "path": "./packages/keap-client/tsconfig.json"
-    },
+    // {
+    //   "path": "./packages/fattureincloud-client/tsconfig.json"
+    // },
+    // {
+    //   "path": "./packages/keap-client/tsconfig.json"
+    // },
     {
       "path": "./packages/plausible-client/tsconfig.json"
     }

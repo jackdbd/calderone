@@ -4,7 +4,7 @@
 
 ## InvoicePayment.metodo property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 metodo: string;

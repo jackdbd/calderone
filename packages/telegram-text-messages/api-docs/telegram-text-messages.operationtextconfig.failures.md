@@ -4,7 +4,7 @@
 
 ## OperationTextConfig.failures property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 failures: string[];

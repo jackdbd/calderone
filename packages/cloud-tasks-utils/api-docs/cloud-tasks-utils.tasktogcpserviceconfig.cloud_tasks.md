@@ -4,7 +4,7 @@
 
 ## TaskToGCPServiceConfig.cloud\_tasks property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 cloud_tasks: CloudTasksClient;

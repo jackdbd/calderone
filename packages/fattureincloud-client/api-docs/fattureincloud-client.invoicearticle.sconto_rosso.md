@@ -4,7 +4,7 @@
 
 ## InvoiceArticle.sconto\_rosso property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 sconto_rosso?: boolean;

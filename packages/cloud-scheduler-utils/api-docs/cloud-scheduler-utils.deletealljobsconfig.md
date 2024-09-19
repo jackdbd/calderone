@@ -4,7 +4,7 @@
 
 ## DeleteAllJobsConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface DeleteAllJobsConfig 
@@ -12,9 +12,78 @@ export interface DeleteAllJobsConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [cloud\_scheduler](./cloud-scheduler-utils.deletealljobsconfig.cloud_scheduler.md) |  | CloudSchedulerClient |  |
-|  [location\_id](./cloud-scheduler-utils.deletealljobsconfig.location_id.md) |  | string |  |
-|  [project\_id?](./cloud-scheduler-utils.deletealljobsconfig.project_id.md) |  | string | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[cloud\_scheduler](./cloud-scheduler-utils.deletealljobsconfig.cloud_scheduler.md)
+
+
+</td><td>
+
+
+</td><td>
+
+CloudSchedulerClient
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[location\_id](./cloud-scheduler-utils.deletealljobsconfig.location_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[project\_id?](./cloud-scheduler-utils.deletealljobsconfig.project_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

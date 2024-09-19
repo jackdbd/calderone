@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/sqlite-utils](./sqlite-utils.md) &gt; [bulkInsert](./sqlite-utils.bulkinsert.md)
 
-## bulkInsert variable
+## bulkInsert() function
 
 Creates a SQLite transaction that will run a SQL statement on each record and either commit the results, or rollback to the original state of the database.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-bulkInsert: <BindParams>({ db, insert_query }: BulkInsertConfig) => BetterSqlite3.Transaction
+bulkInsert: <BindParams extends any[]>({ db, insert_query }: BulkInsertConfig) => BetterSqlite3.Transaction
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ db, insert\_query }
+
+
+</td><td>
+
+[BulkInsertConfig](./sqlite-utils.bulkinsertconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+BetterSqlite3.Transaction
+

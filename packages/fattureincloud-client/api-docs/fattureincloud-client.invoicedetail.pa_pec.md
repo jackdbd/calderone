@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.PA\_pec property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 PA_pec: string;

@@ -4,7 +4,7 @@
 
 ## ClientOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Options 
@@ -12,7 +12,44 @@ export interface Options
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [env\_key\_json\_string?](./cloud-tasks-utils.clientoptions.env_key_json_string.md) |  | string | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[env\_key\_json\_string?](./cloud-tasks-utils.clientoptions.env_key_json_string.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

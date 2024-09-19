@@ -4,7 +4,7 @@
 
 ## AggregateOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface AggregateOptions 
@@ -12,10 +12,101 @@ export interface AggregateOptions
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [compare?](./plausible-client.aggregateoptions.compare.md) |  | string | <i>(Optional)</i> |
-|  [filters?](./plausible-client.aggregateoptions.filters.md) |  | string | <i>(Optional)</i> |
-|  [metrics?](./plausible-client.aggregateoptions.metrics.md) |  | string | <i>(Optional)</i> |
-|  [period?](./plausible-client.aggregateoptions.period.md) |  | string | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[compare?](./plausible-client.aggregateoptions.compare.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[filters?](./plausible-client.aggregateoptions.filters.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[metrics?](./plausible-client.aggregateoptions.metrics.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[period?](./plausible-client.aggregateoptions.period.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

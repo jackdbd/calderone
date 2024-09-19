@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.PA\_esigibilita property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 PA_esigibilita: string;

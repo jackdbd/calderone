@@ -6,7 +6,7 @@
 
 GCP region where the Cloud Run Job is being executed. Is this available from the environment?
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 cloud_run_job_region_id: string;

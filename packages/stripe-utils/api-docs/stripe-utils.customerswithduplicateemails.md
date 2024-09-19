@@ -2,13 +2,13 @@
 
 [Home](./index.md) &gt; [@jackdbd/stripe-utils](./stripe-utils.md) &gt; [customersWithDuplicateEmails](./stripe-utils.customerswithduplicateemails.md)
 
-## customersWithDuplicateEmails variable
+## customersWithDuplicateEmails() function
 
 Finds all customers whose email appear more than once in the Stripe account.
 
 The search is restricted to the time interval `[ts_md_begin, ts_md_end]`<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 customersWithDuplicateEmails: ({ stripe, ts_ms_begin, ts_ms_end }: ConfigCustomersWithDuplicateEmails) => Promise<{
@@ -17,3 +17,41 @@ customersWithDuplicateEmails: ({ stripe, ts_ms_begin, ts_ms_end }: ConfigCustome
     n_total: number;
 }>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ stripe, ts\_ms\_begin, ts\_ms\_end }
+
+
+</td><td>
+
+[ConfigCustomersWithDuplicateEmails](./stripe-utils.configcustomerswithduplicateemails.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;{ customers\_by\_email: {}; query: string; n\_total: number; }&gt;
+

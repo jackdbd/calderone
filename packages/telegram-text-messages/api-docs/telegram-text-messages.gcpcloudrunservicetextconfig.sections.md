@@ -4,7 +4,7 @@
 
 ## GcpCloudRunServiceTextConfig.sections property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 sections?: Section[];

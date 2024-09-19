@@ -4,7 +4,7 @@
 
 ## RandomScheduleConfig.minute\_max property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 minute_max?: number;

@@ -6,7 +6,26 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [@jackdbd/cloud-tasks-utils](./cloud-tasks-utils.md) | Entry point for the documentation of cloud-tasks-utils. |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[@jackdbd/cloud-tasks-utils](./cloud-tasks-utils.md)
+
+
+</td><td>
+
+Entry point for the documentation of cloud-tasks-utils.
+
+
+</td></tr>
+</tbody></table>

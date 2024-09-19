@@ -4,8 +4,8 @@
 
 ## cloud\_run\_job\_task\_index variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-task_index: Joi.NumberSchema
+task_index: Joi.NumberSchema<number>
 ```

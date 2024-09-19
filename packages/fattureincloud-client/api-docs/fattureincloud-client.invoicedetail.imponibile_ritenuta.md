@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.imponibile\_ritenuta property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 imponibile_ritenuta: number;

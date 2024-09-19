@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.termini\_pagamento property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 termini_pagamento?: number;

@@ -4,7 +4,7 @@
 
 ## CustomerListResponseBody.results property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 results: Customer[];

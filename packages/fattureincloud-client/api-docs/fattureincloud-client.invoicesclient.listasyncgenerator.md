@@ -4,7 +4,7 @@
 
 ## InvoicesClient.listAsyncGenerator property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 listAsyncGenerator: (options?: ListOptions) => AsyncGenerator<ListResponseBody>;

@@ -4,7 +4,7 @@
 
 ## ConfigCustomersWithDuplicateEmails interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ConfigCustomersWithDuplicateEmails 
@@ -12,9 +12,80 @@ export interface ConfigCustomersWithDuplicateEmails
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [stripe](./stripe-utils.configcustomerswithduplicateemails.stripe.md) |  | Stripe |  |
-|  [ts\_ms\_begin](./stripe-utils.configcustomerswithduplicateemails.ts_ms_begin.md) |  | number | Timestamp for when to begin the search, in ms. https://www.unixtimestamp.com/ |
-|  [ts\_ms\_end](./stripe-utils.configcustomerswithduplicateemails.ts_ms_end.md) |  | number | Timestamp for when to end the search, in ms. |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[stripe](./stripe-utils.configcustomerswithduplicateemails.stripe.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Stripe
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ts\_ms\_begin](./stripe-utils.configcustomerswithduplicateemails.ts_ms_begin.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+Timestamp for when to begin the search, in ms. https://www.unixtimestamp.com/
+
+
+</td></tr>
+<tr><td>
+
+[ts\_ms\_end](./stripe-utils.configcustomerswithduplicateemails.ts_ms_end.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+Timestamp for when to end the search, in ms.
+
+
+</td></tr>
+</tbody></table>

@@ -6,7 +6,7 @@
 
 Timestamp for when to begin the search, in ms. https://www.unixtimestamp.com/
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ts_ms_begin: number;

@@ -4,7 +4,7 @@
 
 ## InvoiceAPIResponseBodyDetail.dettagli\_documento property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 dettagli_documento: DettaglioFattura;

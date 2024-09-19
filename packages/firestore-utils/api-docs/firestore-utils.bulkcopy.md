@@ -2,13 +2,13 @@
 
 [Home](./index.md) &gt; [@jackdbd/firestore-utils](./firestore-utils.md) &gt; [bulkCopy](./firestore-utils.bulkcopy.md)
 
-## bulkCopy variable
+## bulkCopy() function
 
 Copies all Firestore documents matching the provided `query` to a Firestore collection `dest_collection`<!-- -->.
 
 This is a Firestore transaction. Either all documents are copied, or none is.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 bulkCopy: ({ copied_by, dest_collection, query }: BulkCopyConfig) => Promise<{
@@ -19,3 +19,41 @@ bulkCopy: ({ copied_by, dest_collection, query }: BulkCopyConfig) => Promise<{
     message: string;
 }>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ copied\_by, dest\_collection, query }
+
+
+</td><td>
+
+[BulkCopyConfig](./firestore-utils.bulkcopyconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;{ doc\_ids: { copied: string\[\]; skipped: string\[\]; }; message: string; }&gt;
+

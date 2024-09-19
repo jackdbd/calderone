@@ -156,7 +156,7 @@ export const createPriceWithTaxBehavior = async ({
     metadata,
     nickname: nickname || `nickname of original price ${price.id}`,
     product: product_id,
-    recurring: price_recurring,
+    recurring: price_recurring as any,
     tax_behavior: behavior,
     unit_amount: price.unit_amount
   }

@@ -4,7 +4,7 @@
 
 ## AddSecretVersionConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -12,10 +12,95 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [payload](./secret-manager-utils.addsecretversionconfig.payload.md) |  | string |  |
-|  [project\_id?](./secret-manager-utils.addsecretversionconfig.project_id.md) |  | string | <i>(Optional)</i> |
-|  [secret\_manager](./secret-manager-utils.addsecretversionconfig.secret_manager.md) |  | SecretManagerServiceClient |  |
-|  [secret\_name](./secret-manager-utils.addsecretversionconfig.secret_name.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[payload](./secret-manager-utils.addsecretversionconfig.payload.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[project\_id?](./secret-manager-utils.addsecretversionconfig.project_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[secret\_manager](./secret-manager-utils.addsecretversionconfig.secret_manager.md)
+
+
+</td><td>
+
+
+</td><td>
+
+SecretManagerServiceClient
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[secret\_name](./secret-manager-utils.addsecretversionconfig.secret_name.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

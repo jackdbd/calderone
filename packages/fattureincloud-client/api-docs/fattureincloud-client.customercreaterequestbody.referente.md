@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.referente property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 referente?: string;

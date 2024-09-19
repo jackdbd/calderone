@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.is\_pubblica\_amministrazione property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 is_pubblica_amministrazione?: boolean;

@@ -4,7 +4,7 @@
 
 ## ProductCreateRequestBody.prezzo\_lordo property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 prezzo_lordo?: number;

@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.is\_split\_payment property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 is_split_payment?: boolean;

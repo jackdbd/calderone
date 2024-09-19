@@ -4,7 +4,7 @@
 
 ## InvoiceListOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ListOptions 
@@ -12,11 +12,120 @@ export interface ListOptions
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [date\_begin?](./fattureincloud-client.invoicelistoptions.date_begin.md) |  | string | <i>(Optional)</i> |
-|  [date\_end?](./fattureincloud-client.invoicelistoptions.date_end.md) |  | string | <i>(Optional)</i> |
-|  [page?](./fattureincloud-client.invoicelistoptions.page.md) |  | number | <i>(Optional)</i> |
-|  [substring\_ragione\_sociale?](./fattureincloud-client.invoicelistoptions.substring_ragione_sociale.md) |  | string | <i>(Optional)</i> |
-|  [year?](./fattureincloud-client.invoicelistoptions.year.md) |  | number | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[date\_begin?](./fattureincloud-client.invoicelistoptions.date_begin.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[date\_end?](./fattureincloud-client.invoicelistoptions.date_end.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[page?](./fattureincloud-client.invoicelistoptions.page.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[substring\_ragione\_sociale?](./fattureincloud-client.invoicelistoptions.substring_ragione_sociale.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[year?](./fattureincloud-client.invoicelistoptions.year.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

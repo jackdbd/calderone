@@ -2,9 +2,9 @@
 
 [Home](./index.md) &gt; [@jackdbd/keap-client](./keap-client.md) &gt; [storeKeapClient](./keap-client.storekeapclient.md)
 
-## storeKeapClient variable
+## storeKeapClient() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 storeKeapClient: ({ access_token, client_id, client_secret, refresh_token, store }: StoreKeapClientConfig) => {
@@ -26,3 +26,41 @@ storeKeapClient: ({ access_token, client_id, client_secret, refresh_token, store
     };
 }
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ access\_token, client\_id, client\_secret, refresh\_token, store }
+
+
+</td><td>
+
+StoreKeapClientConfig
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+{ contacts: { retrieve: (options: import("./contacts/api.js").RetrieveContactsOptions) =&gt; Promise&lt;{ data: import("./contacts/interfaces.js").Contact\[\]; count: number; next: string; previous: string; }&gt;; retrieveAsyncGenerator: (options: import("./contacts/api.js").RetrieveContactsOptions) =&gt; Promise&lt;AsyncGenerator&lt;import("./contacts/interfaces.js").PaginatedContactsClientResponse, void, unknown&gt;&gt;; retrieveById: (id: number, options: import("./contacts/api.js").RetrieveContactOptions) =&gt; Promise&lt;import("./contacts/interfaces.js").ResponseBody&gt;; retrieveByQueryString: (qs: string, options: import("./contacts/api.js").RetrieveContactsOptions) =&gt; Promise&lt;import("./contacts/interfaces.js").PaginatedContactsClientResponse&gt;; retrieveByEmail: (email: string, options: import("./contacts/api.js").RetrieveContactsOptions) =&gt; Promise&lt;import("./contacts/interfaces.js").PaginatedContactsClientResponse&gt;; }; tokens: { persistRefreshedTokens: (options?: import("./tokens/store-client.js").PersistRefreshedTokensOptions) =&gt; Promise&lt;void&gt;; tokens: () =&gt; Promise&lt;import("./tokens/interfaces.js").Tokens&gt;; }; }
+

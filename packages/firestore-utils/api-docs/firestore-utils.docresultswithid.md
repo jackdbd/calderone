@@ -2,14 +2,52 @@
 
 [Home](./index.md) &gt; [@jackdbd/firestore-utils](./firestore-utils.md) &gt; [docResultsWithId](./firestore-utils.docresultswithid.md)
 
-## docResultsWithId variable
+## docResultsWithId() function
 
 Retrieves all Firestore documents where the \*\*document data\*\* `id` is not null.
 
 Returns an array of results where each element contains the Firestore document id `doc_id` and the document data id `id`<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 docResultsWithId: ({ limit, ref }: DocResultsRefConfig) => Promise<DocResultId[]>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ limit, ref }
+
+
+</td><td>
+
+[DocResultsRefConfig](./firestore-utils.docresultsrefconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;[DocResultId](./firestore-utils.docresultid.md)<!-- -->\[\]&gt;
+

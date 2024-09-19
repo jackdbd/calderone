@@ -4,7 +4,7 @@
 
 ## TelegramCredentials.token property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 token: string;

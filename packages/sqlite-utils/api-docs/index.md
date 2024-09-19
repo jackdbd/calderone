@@ -6,7 +6,26 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [@jackdbd/sqlite-utils](./sqlite-utils.md) | A few functions useful when working with \[better-sqlite3\](https://github.com/WiseLibs/better-sqlite3). |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[@jackdbd/sqlite-utils](./sqlite-utils.md)
+
+
+</td><td>
+
+A few functions useful when working with \[better-sqlite3\](https://github.com/WiseLibs/better-sqlite3).
+
+
+</td></tr>
+</tbody></table>

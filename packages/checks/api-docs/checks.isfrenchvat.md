@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isFrenchVat](./checks.isfrenchvat.md)
 
-## isFrenchVat variable
+## isFrenchVat() function
 
 Checks whether a string is a valid French VAT number or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isFrenchVat: (s: string) => boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+s
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+boolean
+

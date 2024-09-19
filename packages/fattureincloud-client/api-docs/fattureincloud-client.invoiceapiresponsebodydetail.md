@@ -4,17 +4,68 @@
 
 ## InvoiceAPIResponseBodyDetail interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface APIResponseBodyDetail extends Partial<APIResponseBodyError> 
 ```
-<b>Extends:</b> Partial&lt;APIResponseBodyError&gt;
+**Extends:** Partial&lt;APIResponseBodyError&gt;
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [dettagli\_documento](./fattureincloud-client.invoiceapiresponsebodydetail.dettagli_documento.md) |  | [DettaglioFattura](./fattureincloud-client.invoicedetail.md) |  |
-|  [success](./fattureincloud-client.invoiceapiresponsebodydetail.success.md) |  | boolean |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[dettagli\_documento](./fattureincloud-client.invoiceapiresponsebodydetail.dettagli_documento.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[DettaglioFattura](./fattureincloud-client.invoicedetail.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[success](./fattureincloud-client.invoiceapiresponsebodydetail.success.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

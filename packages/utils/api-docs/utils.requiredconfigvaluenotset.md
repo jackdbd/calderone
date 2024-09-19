@@ -2,10 +2,48 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [requiredConfigValueNotSet](./utils.requiredconfigvaluenotset.md)
 
-## requiredConfigValueNotSet variable
+## requiredConfigValueNotSet() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 requiredConfigValueNotSet: (s: string) => string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+s
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string
+

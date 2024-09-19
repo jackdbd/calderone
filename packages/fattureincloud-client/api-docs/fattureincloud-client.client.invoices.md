@@ -4,7 +4,7 @@
 
 ## Client.invoices property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 invoices: InvoicesClient;

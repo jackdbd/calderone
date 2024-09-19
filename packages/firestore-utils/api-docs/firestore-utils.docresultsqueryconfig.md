@@ -5,7 +5,7 @@
 ## DocResultsQueryConfig interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface DocResultsQueryConfig 
@@ -13,8 +13,59 @@ export interface DocResultsQueryConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [limit](./firestore-utils.docresultsqueryconfig.limit.md) |  | number |  |
-|  [query](./firestore-utils.docresultsqueryconfig.query.md) |  | Query |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[limit](./firestore-utils.docresultsqueryconfig.limit.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[query](./firestore-utils.docresultsqueryconfig.query.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Query
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

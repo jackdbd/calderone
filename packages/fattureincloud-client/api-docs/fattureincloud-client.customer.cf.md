@@ -4,7 +4,7 @@
 
 ## Customer.cf property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 cf: string;

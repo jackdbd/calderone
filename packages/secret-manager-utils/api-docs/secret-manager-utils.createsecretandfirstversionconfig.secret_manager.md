@@ -4,7 +4,7 @@
 
 ## CreateSecretAndFirstVersionConfig.secret\_manager property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 secret_manager: SecretManagerServiceClient;

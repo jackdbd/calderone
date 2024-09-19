@@ -4,7 +4,7 @@
 
 ## InvoiceListOptions.substring\_ragione\_sociale property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 substring_ragione_sociale?: string;

@@ -2,10 +2,64 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [entriesResolvedFromEnv](./utils.entriesresolvedfromenv.md)
 
-## entriesResolvedFromEnv variable
+## entriesResolvedFromEnv() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 entriesResolvedFromEnv: (entries: any[], options?: Options) => string[]
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+entries
+
+
+</td><td>
+
+any\[\]
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+[Options](./utils.deployoptions.md)
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string\[\]
+

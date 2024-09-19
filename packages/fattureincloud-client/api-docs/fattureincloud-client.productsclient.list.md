@@ -4,7 +4,7 @@
 
 ## ProductsClient.list property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 list: (options?: ListOptions) => Promise<ListResponseBody>;

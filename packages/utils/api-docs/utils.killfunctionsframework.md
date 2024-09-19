@@ -2,10 +2,48 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [killFunctionsFramework](./utils.killfunctionsframework.md)
 
-## killFunctionsFramework variable
+## killFunctionsFramework() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 killFunctionsFramework: (child: ChildProcessWithoutNullStreams) => void
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+child
+
+
+</td><td>
+
+ChildProcessWithoutNullStreams
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+void
+

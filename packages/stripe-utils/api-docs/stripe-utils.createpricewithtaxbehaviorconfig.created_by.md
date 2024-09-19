@@ -4,7 +4,7 @@
 
 ## CreatePriceWithTaxBehaviorConfig.created\_by property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 created_by?: string;

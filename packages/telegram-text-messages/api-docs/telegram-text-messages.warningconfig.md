@@ -4,7 +4,7 @@
 
 ## WarningConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -12,11 +12,114 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [app\_name](./telegram-text-messages.warningconfig.app_name.md) |  | string |  |
-|  [app\_version?](./telegram-text-messages.warningconfig.app_version.md) |  | string | <i>(Optional)</i> |
-|  [links?](./telegram-text-messages.warningconfig.links.md) |  | [Link](./telegram-text-messages.link.md)<!-- -->\[\] | <i>(Optional)</i> |
-|  [warning\_message](./telegram-text-messages.warningconfig.warning_message.md) |  | string |  |
-|  [warning\_title](./telegram-text-messages.warningconfig.warning_title.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[app\_name](./telegram-text-messages.warningconfig.app_name.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[app\_version?](./telegram-text-messages.warningconfig.app_version.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[links?](./telegram-text-messages.warningconfig.links.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Link](./telegram-text-messages.link.md)<!-- -->\[\]
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[warning\_message](./telegram-text-messages.warningconfig.warning_message.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[warning\_title](./telegram-text-messages.warningconfig.warning_title.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

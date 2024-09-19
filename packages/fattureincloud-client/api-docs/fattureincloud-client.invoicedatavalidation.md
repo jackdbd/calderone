@@ -4,7 +4,7 @@
 
 ## InvoiceDataValidation interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface DataValidation 
@@ -12,15 +12,196 @@ export interface DataValidation
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [autocompila\_anagrafica\_cliente?](./fattureincloud-client.invoicedatavalidation.autocompila_anagrafica_cliente.md) |  | boolean | <i>(Optional)</i> |
-|  [codice\_fiscale?](./fattureincloud-client.invoicedatavalidation.codice_fiscale.md) |  | string | <i>(Optional)</i> |
-|  [email?](./fattureincloud-client.invoicedatavalidation.email.md) |  | string | <i>(Optional)</i> |
-|  [id\_cliente?](./fattureincloud-client.invoicedatavalidation.id_cliente.md) |  | string | <i>(Optional)</i> |
-|  [metodo\_pagamento?](./fattureincloud-client.invoicedatavalidation.metodo_pagamento.md) |  | string | <i>(Optional)</i> |
-|  [mostra\_info\_pagamento?](./fattureincloud-client.invoicedatavalidation.mostra_info_pagamento.md) |  | boolean | <i>(Optional)</i> |
-|  [partita\_iva?](./fattureincloud-client.invoicedatavalidation.partita_iva.md) |  | string | <i>(Optional)</i> |
-|  [salva\_anagrafica\_cliente?](./fattureincloud-client.invoicedatavalidation.salva_anagrafica_cliente.md) |  | boolean | <i>(Optional)</i> |
-|  [tel?](./fattureincloud-client.invoicedatavalidation.tel.md) |  | string | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[autocompila\_anagrafica\_cliente?](./fattureincloud-client.invoicedatavalidation.autocompila_anagrafica_cliente.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[codice\_fiscale?](./fattureincloud-client.invoicedatavalidation.codice_fiscale.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[email?](./fattureincloud-client.invoicedatavalidation.email.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[id\_cliente?](./fattureincloud-client.invoicedatavalidation.id_cliente.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[metodo\_pagamento?](./fattureincloud-client.invoicedatavalidation.metodo_pagamento.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[mostra\_info\_pagamento?](./fattureincloud-client.invoicedatavalidation.mostra_info_pagamento.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[partita\_iva?](./fattureincloud-client.invoicedatavalidation.partita_iva.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[salva\_anagrafica\_cliente?](./fattureincloud-client.invoicedatavalidation.salva_anagrafica_cliente.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[tel?](./fattureincloud-client.invoicedatavalidation.tel.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

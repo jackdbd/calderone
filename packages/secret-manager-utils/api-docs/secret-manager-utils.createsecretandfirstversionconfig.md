@@ -4,7 +4,7 @@
 
 ## CreateSecretAndFirstVersionConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -12,11 +12,114 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [labels?](./secret-manager-utils.createsecretandfirstversionconfig.labels.md) |  | { \[key: string\]: string; } | <i>(Optional)</i> |
-|  [project\_id?](./secret-manager-utils.createsecretandfirstversionconfig.project_id.md) |  | string | <i>(Optional)</i> |
-|  [secret\_data](./secret-manager-utils.createsecretandfirstversionconfig.secret_data.md) |  | string |  |
-|  [secret\_id](./secret-manager-utils.createsecretandfirstversionconfig.secret_id.md) |  | string |  |
-|  [secret\_manager](./secret-manager-utils.createsecretandfirstversionconfig.secret_manager.md) |  | SecretManagerServiceClient |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[labels?](./secret-manager-utils.createsecretandfirstversionconfig.labels.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ \[key: string\]: string; }
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[project\_id?](./secret-manager-utils.createsecretandfirstversionconfig.project_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[secret\_data](./secret-manager-utils.createsecretandfirstversionconfig.secret_data.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[secret\_id](./secret-manager-utils.createsecretandfirstversionconfig.secret_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[secret\_manager](./secret-manager-utils.createsecretandfirstversionconfig.secret_manager.md)
+
+
+</td><td>
+
+
+</td><td>
+
+SecretManagerServiceClient
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

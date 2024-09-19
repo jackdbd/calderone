@@ -4,7 +4,7 @@
 
 ## LOCALE\_STRING\_OPTIONS variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 LOCALE_STRING_OPTIONS: any

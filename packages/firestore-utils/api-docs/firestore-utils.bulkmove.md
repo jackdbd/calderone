@@ -2,13 +2,13 @@
 
 [Home](./index.md) &gt; [@jackdbd/firestore-utils](./firestore-utils.md) &gt; [bulkMove](./firestore-utils.bulkmove.md)
 
-## bulkMove variable
+## bulkMove() function
 
 Moves all Firestore documents matching the provided `query` to a Firestore collection `dest_collection`<!-- -->.
 
 This is a Firestore transaction. Either all documents are moved, or none is.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 bulkMove: ({ dest_collection, moved_by, query }: BulkMoveConfig) => Promise<{
@@ -22,3 +22,41 @@ bulkMove: ({ dest_collection, moved_by, query }: BulkMoveConfig) => Promise<{
     message: string;
 }>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ dest\_collection, moved\_by, query }
+
+
+</td><td>
+
+[BulkMoveConfig](./firestore-utils.bulkmoveconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;{ doc\_ids: { moved: { src: string; dest: string; }\[\]; skipped: string\[\]; }; message: string; }&gt;
+

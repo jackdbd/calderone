@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/secret-manager-utils](./secret-manager-utils.md) &gt; [addSecretVersion](./secret-manager-utils.addsecretversion.md)
 
-## addSecretVersion variable
+## addSecretVersion() function
 
 Add a new version of an existing secret.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 addSecretVersion: ({ payload, project_id, secret_manager, secret_name }: Config) => Promise<import("@google-cloud/secret-manager/build/protos/protos").google.cloud.secretmanager.v1.ISecretVersion>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ payload, project\_id, secret\_manager, secret\_name }
+
+
+</td><td>
+
+[Config](./secret-manager-utils.addsecretversionconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;import("@google-cloud/secret-manager/build/protos/protos").google.cloud.secretmanager.v1.ISecretVersion&gt;
+

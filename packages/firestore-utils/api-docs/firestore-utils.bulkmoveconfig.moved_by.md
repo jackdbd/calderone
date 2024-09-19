@@ -4,7 +4,7 @@
 
 ## BulkMoveConfig.moved\_by property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 moved_by?: string;

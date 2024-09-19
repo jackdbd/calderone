@@ -6,7 +6,7 @@
 
 Options for the logger.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Options 
@@ -14,9 +14,82 @@ export interface Options
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [namespace?](./tags-logger.options.namespace.md) |  | string | <i>(Optional)</i> The namespace for the debug logger (unstructured logging). This option has no effect when using structured logging. |
-|  [should\_use\_emoji\_for\_severity?](./tags-logger.options.should_use_emoji_for_severity.md) |  | boolean | <i>(Optional)</i> Whether to use an emoji for the severity level (unstructured logging). This option has no effect when using structured logging. |
-|  [should\_validate\_log\_statements?](./tags-logger.options.should_validate_log_statements.md) |  | boolean | <i>(Optional)</i> Whether each log statement should be validated against a Joi schema. |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[namespace?](./tags-logger.options.namespace.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_ The namespace for the debug logger (unstructured logging). This option has no effect when using structured logging.
+
+
+</td></tr>
+<tr><td>
+
+[should\_use\_emoji\_for\_severity?](./tags-logger.options.should_use_emoji_for_severity.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_ Whether to use an emoji for the severity level (unstructured logging). This option has no effect when using structured logging.
+
+
+</td></tr>
+<tr><td>
+
+[should\_validate\_log\_statements?](./tags-logger.options.should_validate_log_statements.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_ Whether each log statement should be validated against a Joi schema.
+
+
+</td></tr>
+</tbody></table>

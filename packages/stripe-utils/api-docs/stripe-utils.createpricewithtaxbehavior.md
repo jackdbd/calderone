@@ -2,14 +2,52 @@
 
 [Home](./index.md) &gt; [@jackdbd/stripe-utils](./stripe-utils.md) &gt; [createPriceWithTaxBehavior](./stripe-utils.createpricewithtaxbehavior.md)
 
-## createPriceWithTaxBehavior variable
+## createPriceWithTaxBehavior() function
 
 Create a new `Stripe.Price` with a defined `tax_behavior`<!-- -->.
 
 In Stripe we can update only `nickname` and `metadata` of a `Price`<!-- -->, so if we need to define `tax_behavior` we have to create a new `Price`<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 createPriceWithTaxBehavior: ({ behavior, price, stripe, created_at, created_by }: Config) => Promise<Stripe.Response<Stripe.Price>>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ behavior, price, stripe, created\_at, created\_by }
+
+
+</td><td>
+
+[Config](./stripe-utils.createpricewithtaxbehaviorconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;Stripe.Response&lt;Stripe.Price&gt;&gt;
+

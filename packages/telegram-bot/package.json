@@ -39,12 +39,14 @@
     "test:ci": "true"
   },
   "dependencies": {
+    "@google-cloud/firestore": "7.10.0",
     "@google-cloud/functions-framework": "3.1.2",
-    "@google-cloud/secret-manager": "4.1.4",
-    "@google-cloud/workflows": "2.2.0",
+    "@google-cloud/secret-manager": "^5.6.0",
+    "@google-cloud/workflows": "^3.4.0",
     "@jackdbd/tags-logger": "1.1.0",
     "@jackdbd/telegram-text-messages": "1.2.0",
+    "google-spreadsheet": "4.1.4",
+    "snoowrap": "1.15.2",
     "telegraf": "4.11.2"
-  },
-  "devDependencies": {}
+  }
 }

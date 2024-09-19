@@ -4,7 +4,7 @@
 
 ## UTCDateAsObject interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface UTCDateAsObject 
@@ -12,13 +12,144 @@ export interface UTCDateAsObject
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [day](./utils.utcdateasobject.day.md) |  | string |  |
-|  [hour](./utils.utcdateasobject.hour.md) |  | string |  |
-|  [minute](./utils.utcdateasobject.minute.md) |  | string |  |
-|  [month](./utils.utcdateasobject.month.md) |  | string |  |
-|  [ms](./utils.utcdateasobject.ms.md) |  | string |  |
-|  [second](./utils.utcdateasobject.second.md) |  | string |  |
-|  [year](./utils.utcdateasobject.year.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[day](./utils.utcdateasobject.day.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[hour](./utils.utcdateasobject.hour.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[minute](./utils.utcdateasobject.minute.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[month](./utils.utcdateasobject.month.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ms](./utils.utcdateasobject.ms.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[second](./utils.utcdateasobject.second.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[year](./utils.utcdateasobject.year.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

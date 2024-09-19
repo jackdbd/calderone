@@ -4,7 +4,7 @@
 
 ## Customer.pec property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 pec: string;

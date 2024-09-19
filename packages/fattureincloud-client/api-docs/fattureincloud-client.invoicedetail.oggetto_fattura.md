@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.oggetto\_fattura property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 oggetto_fattura: string;

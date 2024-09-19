@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.PA\_data property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 PA_data: string;

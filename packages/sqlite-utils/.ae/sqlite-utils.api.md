@@ -7,7 +7,7 @@
 import type BetterSqlite3 from 'better-sqlite3';
 
 // @public
-export const bulkInsert: <BindParams>({ db, insert_query }: BulkInsertConfig) => BetterSqlite3.Transaction;
+export const bulkInsert: <BindParams extends any[]>({ db, insert_query }: BulkInsertConfig) => BetterSqlite3.Transaction;
 
 // @public (undocumented)
 export interface BulkInsertConfig {

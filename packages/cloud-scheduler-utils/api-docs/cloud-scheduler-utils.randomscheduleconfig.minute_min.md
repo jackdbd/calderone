@@ -4,7 +4,7 @@
 
 ## RandomScheduleConfig.minute\_min property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 minute_min?: number;

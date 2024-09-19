@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.rivalsa property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 rivalsa: number;

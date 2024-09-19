@@ -6,7 +6,26 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [@jackdbd/stripe-utils](./stripe-utils.md) | Utility functions that might be useful when working with Stripe. |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[@jackdbd/stripe-utils](./stripe-utils.md)
+
+
+</td><td>
+
+Utility functions that might be useful when working with Stripe.
+
+
+</td></tr>
+</tbody></table>

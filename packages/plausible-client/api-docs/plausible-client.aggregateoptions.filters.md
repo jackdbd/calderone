@@ -4,7 +4,7 @@
 
 ## AggregateOptions.filters property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 filters?: string;

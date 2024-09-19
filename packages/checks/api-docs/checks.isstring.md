@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isString](./checks.isstring.md)
 
-## isString variable
+## isString() function
 
 Checks whether the argument passed to this function is a string or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isString: (x: any) => x is string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+x
+
+
+</td><td>
+
+any
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+x is string
+

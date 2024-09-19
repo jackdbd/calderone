@@ -2,11 +2,49 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [logNotice](./utils.lognotice.md)
 
-## logNotice variable
+## logNotice() function
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 logNotice: (data: LogData | string) => void
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+data
+
+
+</td><td>
+
+[LogData](./utils.logdata.md) \| string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+void
+

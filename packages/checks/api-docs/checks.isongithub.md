@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isOnGithub](./checks.isongithub.md)
 
-## isOnGithub variable
+## isOnGithub() function
 
 Checks whether the code is running on the GitHub CI or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isOnGithub: (env: NodeJS.ProcessEnv) => boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+env
+
+
+</td><td>
+
+NodeJS.ProcessEnv
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+boolean
+

@@ -4,7 +4,7 @@
 
 ## ProductCreateRequestBody.nome property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 nome: string;

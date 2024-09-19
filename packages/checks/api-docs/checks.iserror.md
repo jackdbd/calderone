@@ -2,11 +2,49 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isError](./checks.iserror.md)
 
-## isError variable
+## isError() function
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isError: (x: Error | any) => x is Error
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+x
+
+
+</td><td>
+
+Error \| any
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+x is Error
+

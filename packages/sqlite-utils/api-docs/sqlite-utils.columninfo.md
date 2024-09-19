@@ -5,7 +5,7 @@
 ## ColumnInfo interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ColumnInfo 
@@ -13,12 +13,127 @@ export interface ColumnInfo
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [cid](./sqlite-utils.columninfo.cid.md) |  | number |  |
-|  [dflt\_value](./sqlite-utils.columninfo.dflt_value.md) |  | any |  |
-|  [name](./sqlite-utils.columninfo.name.md) |  | string |  |
-|  [notnull](./sqlite-utils.columninfo.notnull.md) |  | 0 \| 1 |  |
-|  [pk](./sqlite-utils.columninfo.pk.md) |  | 0 \| 1 |  |
-|  [type](./sqlite-utils.columninfo.type.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[cid](./sqlite-utils.columninfo.cid.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[dflt\_value](./sqlite-utils.columninfo.dflt_value.md)
+
+
+</td><td>
+
+
+</td><td>
+
+any
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[name](./sqlite-utils.columninfo.name.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[notnull](./sqlite-utils.columninfo.notnull.md)
+
+
+</td><td>
+
+
+</td><td>
+
+0 \| 1
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[pk](./sqlite-utils.columninfo.pk.md)
+
+
+</td><td>
+
+
+</td><td>
+
+0 \| 1
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[type](./sqlite-utils.columninfo.type.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

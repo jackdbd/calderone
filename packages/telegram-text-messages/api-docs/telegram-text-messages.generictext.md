@@ -2,12 +2,66 @@
 
 [Home](./index.md) &gt; [@jackdbd/telegram-text-messages](./telegram-text-messages.md) &gt; [genericText](./telegram-text-messages.generictext.md)
 
-## genericText variable
+## genericText() function
 
 Generic text message.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 genericText: (config: Config, options?: Options) => string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+config
+
+
+</td><td>
+
+[Config](./telegram-text-messages.generictextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+[Options](./telegram-text-messages.generictextoptions.md)
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string
+

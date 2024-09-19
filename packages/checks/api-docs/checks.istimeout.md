@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isTimeout](./checks.istimeout.md)
 
-## isTimeout variable
+## isTimeout() function
 
 Checks whether the argument passed to this function is a Node.js timeout or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isTimeout: (x: any) => x is NodeJS.Timeout
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+x
+
+
+</td><td>
+
+any
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+x is NodeJS.Timeout
+

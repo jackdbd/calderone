@@ -4,7 +4,7 @@
 
 ## CreatePriceWithTaxBehaviorConfig.price property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 price: Stripe.Price;

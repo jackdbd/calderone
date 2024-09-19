@@ -4,7 +4,7 @@
 
 ## InvoiceSummary.ddt property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ddt: boolean;

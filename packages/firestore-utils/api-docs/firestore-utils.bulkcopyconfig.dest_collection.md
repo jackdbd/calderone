@@ -4,7 +4,7 @@
 
 ## BulkCopyConfig.dest\_collection property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 dest_collection: string;

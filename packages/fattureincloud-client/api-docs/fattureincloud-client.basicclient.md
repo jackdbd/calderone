@@ -2,15 +2,52 @@
 
 [Home](./index.md) &gt; [@jackdbd/fattureincloud-client](./fattureincloud-client.md) &gt; [basicClient](./fattureincloud-client.basicclient.md)
 
-## basicClient variable
+## basicClient() function
 
 A basic client for all endpoints of the FattureinCloud API.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 basicClient: (credentials: Credentials) => Client
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+credentials
+
+
+</td><td>
+
+[Credentials](./fattureincloud-client.credentials.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+[Client](./fattureincloud-client.client.md)
 
 ## Remarks
 

@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/stripe-utils](./stripe-utils.md) &gt; [duplicates](./stripe-utils.duplicates.md)
 
-## duplicates variable
+## duplicates() function
 
 Emails that appear more than `threshold` times in the given Stripe account. The search is restricted to the time range starting from `ts_start` to `ts_stop` (both excluded, and both expressed in Unix timestamps in seconds).
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 duplicates: ({ stripe, threshold, ts_start, ts_stop }: DuplicatesConfig) => Promise<EmailIds>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ stripe, threshold, ts\_start, ts\_stop }
+
+
+</td><td>
+
+[DuplicatesConfig](./stripe-utils.duplicatesconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;[EmailIds](./stripe-utils.emailids.md)<!-- -->&gt;
+

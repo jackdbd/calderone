@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/stripe-utils](./stripe-utils.md) &gt; [stripeAccountMode](./stripe-utils.stripeaccountmode.md)
 
-## stripeAccountMode variable
+## stripeAccountMode() function
 
 Given a Stripe API key, infers whether the Stripe client was initialized in `live` mode or `test` mode.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 stripeAccountMode: (api_key: string) => "live" | "test"
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+api\_key
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+"live" \| "test"
+

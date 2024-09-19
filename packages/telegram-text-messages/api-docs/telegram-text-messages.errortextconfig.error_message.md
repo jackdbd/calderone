@@ -4,7 +4,7 @@
 
 ## ErrorTextConfig.error\_message property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 error_message: string;

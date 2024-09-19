@@ -4,7 +4,7 @@
 
 ## TimeseriesResult.visitors property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 visitors: number;

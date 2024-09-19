@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isDanishVat](./checks.isdanishvat.md)
 
-## isDanishVat variable
+## isDanishVat() function
 
 Checks whether a string is a valid Danish VAT number or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isDanishVat: (s: string) => boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+s
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+boolean
+

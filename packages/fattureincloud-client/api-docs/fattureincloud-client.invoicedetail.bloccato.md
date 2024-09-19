@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.bloccato property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 bloccato: boolean;

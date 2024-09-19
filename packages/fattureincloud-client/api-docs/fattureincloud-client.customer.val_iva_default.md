@@ -4,7 +4,7 @@
 
 ## Customer.val\_iva\_default property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 val_iva_default: string;

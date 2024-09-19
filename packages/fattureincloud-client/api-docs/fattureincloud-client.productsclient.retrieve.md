@@ -4,7 +4,7 @@
 
 ## ProductsClient.retrieve property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 retrieve: (config: RetrieveConfig) => Promise<Product>;

@@ -4,7 +4,7 @@
 
 ## PartitionsConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface PartitionsConfig<T> 
@@ -12,9 +12,78 @@ export interface PartitionsConfig<T>
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [arr](./utils.partitionsconfig.arr.md) |  | T\[\] |  |
-|  [include\_remainder?](./utils.partitionsconfig.include_remainder.md) |  | boolean | <i>(Optional)</i> |
-|  [size](./utils.partitionsconfig.size.md) |  | number |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[arr](./utils.partitionsconfig.arr.md)
+
+
+</td><td>
+
+
+</td><td>
+
+T\[\]
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[include\_remainder?](./utils.partitionsconfig.include_remainder.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[size](./utils.partitionsconfig.size.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

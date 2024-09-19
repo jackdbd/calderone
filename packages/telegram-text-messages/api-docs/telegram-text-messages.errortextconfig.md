@@ -4,7 +4,7 @@
 
 ## ErrorTextConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -12,11 +12,114 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [app\_name](./telegram-text-messages.errortextconfig.app_name.md) |  | string |  |
-|  [app\_version?](./telegram-text-messages.errortextconfig.app_version.md) |  | string | <i>(Optional)</i> |
-|  [error\_message](./telegram-text-messages.errortextconfig.error_message.md) |  | string |  |
-|  [error\_title](./telegram-text-messages.errortextconfig.error_title.md) |  | string |  |
-|  [links?](./telegram-text-messages.errortextconfig.links.md) |  | [Link](./telegram-text-messages.link.md)<!-- -->\[\] | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[app\_name](./telegram-text-messages.errortextconfig.app_name.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[app\_version?](./telegram-text-messages.errortextconfig.app_version.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[error\_message](./telegram-text-messages.errortextconfig.error_message.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[error\_title](./telegram-text-messages.errortextconfig.error_title.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[links?](./telegram-text-messages.errortextconfig.links.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Link](./telegram-text-messages.link.md)<!-- -->\[\]
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

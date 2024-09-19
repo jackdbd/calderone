@@ -4,7 +4,7 @@
 
 ## TaskToGCPServiceConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface TaskToGCPServiceConfig 
@@ -12,17 +12,212 @@ export interface TaskToGCPServiceConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [cloud\_tasks](./cloud-tasks-utils.tasktogcpserviceconfig.cloud_tasks.md) |  | CloudTasksClient |  |
-|  [dispatchDeadlineInSeconds](./cloud-tasks-utils.tasktogcpserviceconfig.dispatchdeadlineinseconds.md) |  | number |  |
-|  [enqueued\_by](./cloud-tasks-utils.tasktogcpserviceconfig.enqueued_by.md) |  | string |  |
-|  [id](./cloud-tasks-utils.tasktogcpserviceconfig.id.md) |  | string |  |
-|  [payload](./cloud-tasks-utils.tasktogcpserviceconfig.payload.md) |  | any |  |
-|  [project\_id](./cloud-tasks-utils.tasktogcpserviceconfig.project_id.md) |  | string |  |
-|  [queue\_id](./cloud-tasks-utils.tasktogcpserviceconfig.queue_id.md) |  | string |  |
-|  [queue\_location\_id](./cloud-tasks-utils.tasktogcpserviceconfig.queue_location_id.md) |  | string |  |
-|  [scheduleTimeInSeconds](./cloud-tasks-utils.tasktogcpserviceconfig.scheduletimeinseconds.md) |  | number |  |
-|  [service\_account](./cloud-tasks-utils.tasktogcpserviceconfig.service_account.md) |  | string |  |
-|  [url](./cloud-tasks-utils.tasktogcpserviceconfig.url.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[cloud\_tasks](./cloud-tasks-utils.tasktogcpserviceconfig.cloud_tasks.md)
+
+
+</td><td>
+
+
+</td><td>
+
+CloudTasksClient
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[dispatchDeadlineInSeconds](./cloud-tasks-utils.tasktogcpserviceconfig.dispatchdeadlineinseconds.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[enqueued\_by](./cloud-tasks-utils.tasktogcpserviceconfig.enqueued_by.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[id](./cloud-tasks-utils.tasktogcpserviceconfig.id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[payload](./cloud-tasks-utils.tasktogcpserviceconfig.payload.md)
+
+
+</td><td>
+
+
+</td><td>
+
+any
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[project\_id](./cloud-tasks-utils.tasktogcpserviceconfig.project_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[queue\_id](./cloud-tasks-utils.tasktogcpserviceconfig.queue_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[queue\_location\_id](./cloud-tasks-utils.tasktogcpserviceconfig.queue_location_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[scheduleTimeInSeconds](./cloud-tasks-utils.tasktogcpserviceconfig.scheduletimeinseconds.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[service\_account](./cloud-tasks-utils.tasktogcpserviceconfig.service_account.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[url](./cloud-tasks-utils.tasktogcpserviceconfig.url.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

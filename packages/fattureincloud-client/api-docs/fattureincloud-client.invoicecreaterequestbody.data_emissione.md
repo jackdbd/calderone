@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.data\_emissione property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 data_emissione?: string;

@@ -4,7 +4,7 @@
 
 ## InfoVat.descrizione\_iva property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 descrizione_iva: string;

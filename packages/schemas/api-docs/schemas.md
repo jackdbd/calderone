@@ -6,37 +6,264 @@
 
 ## Interfaces
 
-|  Interface | Description |
-|  --- | --- |
-|  [TelegramCredentials](./schemas.telegramcredentials.md) |  |
+<table><thead><tr><th>
+
+Interface
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[TelegramCredentials](./schemas.telegramcredentials.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
 
 ## Variables
 
-|  Variable | Description |
-|  --- | --- |
-|  [cloud\_run\_job\_id](./schemas.cloud_run_job_id.md) |  |
-|  [cloud\_run\_job\_region\_id](./schemas.cloud_run_job_region_id.md) |  |
-|  [cloud\_run\_job\_task\_index](./schemas.cloud_run_job_task_index.md) |  |
-|  [cloud\_tasks\_client](./schemas.cloud_tasks_client.md) |  |
-|  [cloud\_tasks\_queue\_id](./schemas.cloud_tasks_queue_id.md) |  |
-|  [cloud\_tasks\_queue\_location\_id](./schemas.cloud_tasks_queue_location_id.md) |  |
-|  [country\_code\_2\_chars](./schemas.country_code_2_chars.md) |  |
-|  [country\_code\_3\_chars](./schemas.country_code_3_chars.md) |  |
-|  [country\_code](./schemas.country_code.md) |  |
-|  [error\_reporting\_client](./schemas.error_reporting_client.md) |  |
-|  [firestore\_client](./schemas.firestore_client.md) |  |
-|  [firestore\_collection](./schemas.firestore_collection.md) |  |
-|  [firestore\_doc\_id](./schemas.firestore_doc_id.md) |  |
-|  [firestore\_doc\_result](./schemas.firestore_doc_result.md) |  |
-|  [firestore\_ref](./schemas.firestore_ref.md) |  |
-|  [node\_env\_allowed\_value](./schemas.node_env_allowed_value.md) |  |
-|  [node\_env\_allowed\_values](./schemas.node_env_allowed_values.md) |  |
-|  [process\_env\_key](./schemas.process_env_key.md) |  |
-|  [secret\_manager\_client](./schemas.secret_manager_client.md) |  |
-|  [secret\_manager\_secret\_name](./schemas.secret_manager_secret_name.md) |  |
-|  [secret\_manager\_secret\_version](./schemas.secret_manager_secret_version.md) |  |
-|  [telegram\_chat\_id](./schemas.telegram_chat_id.md) |  |
-|  [telegram\_credentials](./schemas.telegram_credentials.md) |  |
-|  [telegram\_text](./schemas.telegram_text.md) |  |
-|  [telegram\_token](./schemas.telegram_token.md) |  |
+<table><thead><tr><th>
 
+Variable
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[cloud\_run\_job\_id](./schemas.cloud_run_job_id.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[cloud\_run\_job\_region\_id](./schemas.cloud_run_job_region_id.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[cloud\_run\_job\_task\_index](./schemas.cloud_run_job_task_index.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[cloud\_tasks\_client](./schemas.cloud_tasks_client.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[cloud\_tasks\_queue\_id](./schemas.cloud_tasks_queue_id.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[cloud\_tasks\_queue\_location\_id](./schemas.cloud_tasks_queue_location_id.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[country\_code\_2\_chars](./schemas.country_code_2_chars.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[country\_code\_3\_chars](./schemas.country_code_3_chars.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[country\_code](./schemas.country_code.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[error\_reporting\_client](./schemas.error_reporting_client.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[firestore\_client](./schemas.firestore_client.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[firestore\_collection](./schemas.firestore_collection.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[firestore\_doc\_id](./schemas.firestore_doc_id.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[firestore\_doc\_result](./schemas.firestore_doc_result.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[firestore\_ref](./schemas.firestore_ref.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[node\_env\_allowed\_value](./schemas.node_env_allowed_value.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[node\_env\_allowed\_values](./schemas.node_env_allowed_values.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[process\_env\_key](./schemas.process_env_key.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[secret\_manager\_client](./schemas.secret_manager_client.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[secret\_manager\_secret\_name](./schemas.secret_manager_secret_name.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[secret\_manager\_secret\_version](./schemas.secret_manager_secret_version.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[telegram\_chat\_id](./schemas.telegram_chat_id.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[telegram\_credentials](./schemas.telegram_credentials.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[telegram\_text](./schemas.telegram_text.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[telegram\_token](./schemas.telegram_token.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

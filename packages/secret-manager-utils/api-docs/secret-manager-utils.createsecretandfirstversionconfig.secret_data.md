@@ -4,7 +4,7 @@
 
 ## CreateSecretAndFirstVersionConfig.secret\_data property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 secret_data: string;

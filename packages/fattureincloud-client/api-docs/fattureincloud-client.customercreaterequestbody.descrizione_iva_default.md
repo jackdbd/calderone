@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.descrizione\_iva\_default property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 descrizione_iva_default?: string;

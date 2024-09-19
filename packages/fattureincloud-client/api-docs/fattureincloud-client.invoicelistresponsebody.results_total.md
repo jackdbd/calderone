@@ -4,7 +4,7 @@
 
 ## InvoiceListResponseBody.results\_total property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 results_total: number;

@@ -6,7 +6,26 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [@jackdbd/utils](./utils.md) | Miscellaneous utility functions. |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[@jackdbd/utils](./utils.md)
+
+
+</td><td>
+
+Miscellaneous utility functions.
+
+
+</td></tr>
+</tbody></table>

@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.piva property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 piva: string;

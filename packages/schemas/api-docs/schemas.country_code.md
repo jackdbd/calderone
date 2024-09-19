@@ -4,8 +4,8 @@
 
 ## country\_code variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-country_code: Joi.AlternativesSchema
+country_code: Joi.AlternativesSchema<any>
 ```

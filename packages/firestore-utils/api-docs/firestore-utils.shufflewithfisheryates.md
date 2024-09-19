@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/firestore-utils](./firestore-utils.md) &gt; [shuffleWithFisherYates](./firestore-utils.shufflewithfisheryates.md)
 
-## shuffleWithFisherYates variable
+## shuffleWithFisherYates() function
 
 Shuffles documents in a Firestore collection using the Fisher-Yates algorithm.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 shuffleWithFisherYates: (ref: CollectionReference) => Promise<void>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+ref
+
+
+</td><td>
+
+CollectionReference
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;void&gt;
+

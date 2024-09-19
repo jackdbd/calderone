@@ -6,7 +6,7 @@
 
 GCP project ID. Is this available from the environment?
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 gcp_project_id: string;

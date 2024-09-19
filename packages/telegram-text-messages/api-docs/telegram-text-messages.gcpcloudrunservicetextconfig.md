@@ -4,7 +4,7 @@
 
 ## GcpCloudRunServiceTextConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -12,11 +12,116 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [cloud\_run\_service\_region\_id](./telegram-text-messages.gcpcloudrunservicetextconfig.cloud_run_service_region_id.md) |  | string | GCP region where the Cloud Run service is being executed. Is this available from the environment? |
-|  [description](./telegram-text-messages.gcpcloudrunservicetextconfig.description.md) |  | string |  |
-|  [gcp\_project\_id](./telegram-text-messages.gcpcloudrunservicetextconfig.gcp_project_id.md) |  | string | GCP project ID. Is this available from the environment? |
-|  [sections?](./telegram-text-messages.gcpcloudrunservicetextconfig.sections.md) |  | [Section](./telegram-text-messages.section.md)<!-- -->\[\] | <i>(Optional)</i> |
-|  [title](./telegram-text-messages.gcpcloudrunservicetextconfig.title.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[cloud\_run\_service\_region\_id](./telegram-text-messages.gcpcloudrunservicetextconfig.cloud_run_service_region_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+GCP region where the Cloud Run service is being executed. Is this available from the environment?
+
+
+</td></tr>
+<tr><td>
+
+[description](./telegram-text-messages.gcpcloudrunservicetextconfig.description.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[gcp\_project\_id](./telegram-text-messages.gcpcloudrunservicetextconfig.gcp_project_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+GCP project ID. Is this available from the environment?
+
+
+</td></tr>
+<tr><td>
+
+[sections?](./telegram-text-messages.gcpcloudrunservicetextconfig.sections.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Section](./telegram-text-messages.section.md)<!-- -->\[\]
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[title](./telegram-text-messages.gcpcloudrunservicetextconfig.title.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

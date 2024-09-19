@@ -2,14 +2,68 @@
 
 [Home](./index.md) &gt; [@jackdbd/notifications](./notifications.md) &gt; [sendEmailViaSendGrid](./notifications.sendemailviasendgrid.md)
 
-## sendEmailViaSendGrid variable
+## sendEmailViaSendGrid() function
 
 Send an email to one or more recipients, using the SendGrid API.
 
 https://docs.sendgrid.com/api-reference/mail-send/mail-send\#body
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 send: ({ from, html, sendgrid_api_key, subject, to }: Config, options?: Options) => Promise<SuccessResponse>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ from, html, sendgrid\_api\_key, subject, to }
+
+
+</td><td>
+
+Config
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+Options
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;SuccessResponse&gt;
+

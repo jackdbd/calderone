@@ -4,7 +4,7 @@
 
 ## ForeignKey.on\_delete property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 on_delete: string;

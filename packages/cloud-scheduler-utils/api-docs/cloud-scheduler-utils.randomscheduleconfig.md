@@ -4,7 +4,7 @@
 
 ## RandomScheduleConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -12,10 +12,101 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [hour\_max?](./cloud-scheduler-utils.randomscheduleconfig.hour_max.md) |  | number | <i>(Optional)</i> |
-|  [hour\_min?](./cloud-scheduler-utils.randomscheduleconfig.hour_min.md) |  | number | <i>(Optional)</i> |
-|  [minute\_max?](./cloud-scheduler-utils.randomscheduleconfig.minute_max.md) |  | number | <i>(Optional)</i> |
-|  [minute\_min?](./cloud-scheduler-utils.randomscheduleconfig.minute_min.md) |  | number | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[hour\_max?](./cloud-scheduler-utils.randomscheduleconfig.hour_max.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[hour\_min?](./cloud-scheduler-utils.randomscheduleconfig.hour_min.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[minute\_max?](./cloud-scheduler-utils.randomscheduleconfig.minute_max.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[minute\_min?](./cloud-scheduler-utils.randomscheduleconfig.minute_min.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

@@ -4,7 +4,7 @@
 
 ## BulkMoveConfig.query property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 query: Query;

@@ -4,7 +4,7 @@
 
 ## DuplicatesConfig.ts\_stop property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ts_stop: number;

@@ -4,7 +4,7 @@
 
 ## InvoiceRetrieveConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface RetrieveConfig 
@@ -12,7 +12,44 @@ export interface RetrieveConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [id?](./fattureincloud-client.invoiceretrieveconfig.id.md) |  | string | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[id?](./fattureincloud-client.invoiceretrieveconfig.id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

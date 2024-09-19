@@ -5,7 +5,7 @@
 ## InvoiceListResponseBody interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ListResponseBody 
@@ -13,11 +13,110 @@ export interface ListResponseBody
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [current\_page](./fattureincloud-client.invoicelistresponsebody.current_page.md) |  | number |  |
-|  [results\_per\_page](./fattureincloud-client.invoicelistresponsebody.results_per_page.md) |  | number |  |
-|  [results\_total](./fattureincloud-client.invoicelistresponsebody.results_total.md) |  | number |  |
-|  [results](./fattureincloud-client.invoicelistresponsebody.results.md) |  | [RiassuntoFattura](./fattureincloud-client.invoicesummary.md)<!-- -->\[\] |  |
-|  [total\_pages](./fattureincloud-client.invoicelistresponsebody.total_pages.md) |  | number |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[current\_page](./fattureincloud-client.invoicelistresponsebody.current_page.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[results\_per\_page](./fattureincloud-client.invoicelistresponsebody.results_per_page.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[results\_total](./fattureincloud-client.invoicelistresponsebody.results_total.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[results](./fattureincloud-client.invoicelistresponsebody.results.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[RiassuntoFattura](./fattureincloud-client.invoicesummary.md)<!-- -->\[\]
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[total\_pages](./fattureincloud-client.invoicelistresponsebody.total_pages.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

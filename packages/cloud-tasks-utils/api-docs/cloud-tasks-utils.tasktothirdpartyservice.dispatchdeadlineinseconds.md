@@ -4,7 +4,7 @@
 
 ## TaskToThirdPartyService.dispatchDeadlineInSeconds property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 dispatchDeadlineInSeconds: number;

@@ -4,8 +4,8 @@
 
 ## firestore\_doc\_id variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-doc_id: Joi.StringSchema
+doc_id: Joi.StringSchema<string>
 ```

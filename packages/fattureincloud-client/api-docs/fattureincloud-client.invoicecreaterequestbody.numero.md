@@ -6,7 +6,7 @@
 
 Numero e serie della fattura. Ad esempio 1234FE, 9999TEST ATTENZIONE: questo numero deve rispettare la numerazione progressiva adottata dall'azienda che emette la fattura. Se mancante viene utilizzato il successivo proposto per la serie principale; se viene specificata solo la serie (stringa che inizia con un carattere non numerico) viene utilizzato il successivo per quella serie. Conviene specificare solo la serie, cosi' alla numerazione progressiva ci pensa la API di FattureInCloud.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 numero?: string;

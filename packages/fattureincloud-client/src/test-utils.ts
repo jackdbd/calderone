@@ -1,9 +1,8 @@
 import { env } from 'node:process'
 import { Polly, PollyConfig, RecordingEventListener } from '@pollyjs/core'
 
-const POLLY_MODE = env.POLLY_RECORD ? 'record' : 'replay'
-
-console.log(`POLLY_MODE set to ${POLLY_MODE}`)
+const mode = env.POLLY_MODE === 'record' ? 'record' : 'replay'
+console.log(`POLLY_MODE set to ${mode}`)
 
 /**
  * Strip from the HTTP response api_key and api_uid, so the HAR file can be
@@ -26,7 +25,7 @@ const onBeforePersist: RecordingEventListener = (_req, recording) => {
 const config: PollyConfig = {
   adapters: ['node-http'],
   expiresIn: '30d5h10m', // expires in 30 days, 5 hours, and 10 minutes
-  mode: POLLY_MODE,
+  mode,
   persister: 'fs',
   persisterOptions: {
     fs: {

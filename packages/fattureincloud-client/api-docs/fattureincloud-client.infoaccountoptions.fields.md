@@ -4,7 +4,7 @@
 
 ## InfoAccountOptions.fields property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 fields?: string[];

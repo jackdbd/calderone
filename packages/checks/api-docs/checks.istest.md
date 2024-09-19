@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isTest](./checks.istest.md)
 
-## isTest variable
+## isTest() function
 
 Checks whether the environment variable `NODE_ENV` is set to `test` or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isTest: (env: NodeJS.ProcessEnv) => boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+env
+
+
+</td><td>
+
+NodeJS.ProcessEnv
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+boolean
+

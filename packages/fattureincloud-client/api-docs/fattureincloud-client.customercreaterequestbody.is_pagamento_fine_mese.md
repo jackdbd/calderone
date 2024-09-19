@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.is\_pagamento\_fine\_mese property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 is_pagamento_fine_mese?: boolean;

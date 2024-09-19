@@ -6,7 +6,26 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [@jackdbd/checks](./checks.md) | This package contains various functions to check inputs (i.e. predicates). |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[@jackdbd/checks](./checks.md)
+
+
+</td><td>
+
+This package contains various functions to check inputs (i.e. predicates).
+
+
+</td></tr>
+</tbody></table>

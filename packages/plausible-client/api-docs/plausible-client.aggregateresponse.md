@@ -4,7 +4,7 @@
 
 ## AggregateResponse interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface AggregateResponse 
@@ -12,7 +12,42 @@ export interface AggregateResponse
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [results](./plausible-client.aggregateresponse.results.md) |  | { bounce\_rate: { value: number; }; pageviews: { value: number; }; visit\_duration: { value: number; }; visitors: { value: number; }; } |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[results](./plausible-client.aggregateresponse.results.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ bounce\_rate: { value: number; }; pageviews: { value: number; }; visit\_duration: { value: number; }; visitors: { value: number; }; }
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

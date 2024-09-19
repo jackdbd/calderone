@@ -4,7 +4,7 @@
 
 ## InvoiceArticle.descrizione property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 descrizione?: string;

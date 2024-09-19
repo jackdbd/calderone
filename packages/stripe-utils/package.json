@@ -73,6 +73,6 @@
     "stripe": ">=9.1.0"
   },
   "devDependencies": {
-    "stripe": "^10.8.0"
+    "stripe": "^16.12.0"
   }
 }

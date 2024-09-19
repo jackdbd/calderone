@@ -4,8 +4,8 @@
 
 ## cloud\_tasks\_queue\_id variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-queue_id: Joi.StringSchema
+queue_id: Joi.StringSchema<string>
 ```

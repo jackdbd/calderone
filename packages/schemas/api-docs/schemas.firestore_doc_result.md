@@ -4,7 +4,7 @@
 
 ## firestore\_doc\_result variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 doc_result: Joi.ObjectSchema<any>

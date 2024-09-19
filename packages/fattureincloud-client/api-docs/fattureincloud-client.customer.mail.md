@@ -4,7 +4,7 @@
 
 ## Customer.mail property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 mail: string;

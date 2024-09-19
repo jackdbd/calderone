@@ -2,10 +2,48 @@
 
 [Home](./index.md) &gt; [@jackdbd/cloud-scheduler-utils](./cloud-scheduler-utils.md) &gt; [createHttpJob](./cloud-scheduler-utils.createhttpjob.md)
 
-## createHttpJob variable
+## createHttpJob() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 createHttpJob: ({ cloud_scheduler, description, location_id, name, project_id, req_body, schedule, service_account_email, timezone, url_to_call }: CreateHttpJobConfig) => Promise<protos.google.cloud.scheduler.v1.IJob>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ cloud\_scheduler, description, location\_id, name, project\_id, req\_body, schedule, service\_account\_email, timezone, url\_to\_call }
+
+
+</td><td>
+
+[CreateHttpJobConfig](./cloud-scheduler-utils.createhttpjobconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;protos.google.cloud.scheduler.v1.IJob&gt;
+

@@ -4,7 +4,7 @@
 
 ## OperationListTextConfig.operations property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 operations: OperationConfig[];

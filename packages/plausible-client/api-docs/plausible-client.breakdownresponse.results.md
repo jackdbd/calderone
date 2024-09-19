@@ -4,7 +4,7 @@
 
 ## BreakdownResponse.results property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 results: BreakdownResult[];

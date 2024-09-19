@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.PA\_modalita\_pagamento property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 PA_modalita_pagamento: string;

@@ -4,7 +4,7 @@
 
 ## firestore\_ref variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ref: Joi.AnySchema<any>

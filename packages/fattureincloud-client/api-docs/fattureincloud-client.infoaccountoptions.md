@@ -4,7 +4,7 @@
 
 ## InfoAccountOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface AccountOptions 
@@ -12,7 +12,44 @@ export interface AccountOptions
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [fields?](./fattureincloud-client.infoaccountoptions.fields.md) |  | string\[\] | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[fields?](./fattureincloud-client.infoaccountoptions.fields.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string\[\]
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

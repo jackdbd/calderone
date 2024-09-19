@@ -2,10 +2,10 @@
 
 [Home](./index.md) &gt; [@jackdbd/content-security-policy](./content-security-policy.md) &gt; [validationErrorOrWarnings](./content-security-policy.validationerrororwarnings.md)
 
-## validationErrorOrWarnings variable
+## validationErrorOrWarnings() function
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 validationErrorOrWarnings: ({ allowDeprecatedDirectives, error }: Config) => {
@@ -16,3 +16,41 @@ validationErrorOrWarnings: ({ allowDeprecatedDirectives, error }: Config) => {
     warnings: string[];
 }
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ allowDeprecatedDirectives, error }
+
+
+</td><td>
+
+[Config](./content-security-policy.validationerrororwarningsconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+{ warnings: string\[\]; error?: undefined; } \| { error: Error; warnings: string\[\]; }
+

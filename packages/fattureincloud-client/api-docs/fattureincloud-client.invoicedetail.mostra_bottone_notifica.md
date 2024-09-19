@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.mostra\_bottone\_notifica property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 mostra_bottone_notifica: boolean;

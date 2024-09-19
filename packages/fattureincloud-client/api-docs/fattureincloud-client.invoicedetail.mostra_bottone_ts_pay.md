@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.mostra\_bottone\_ts\_pay property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 mostra_bottone_ts_pay: boolean;

@@ -4,7 +4,7 @@
 
 ## Client.customers property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 customers: CustomersClient;

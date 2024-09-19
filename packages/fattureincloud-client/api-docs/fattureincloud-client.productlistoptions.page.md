@@ -4,7 +4,7 @@
 
 ## ProductListOptions.page property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 page?: number;

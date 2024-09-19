@@ -4,7 +4,7 @@
 
 ## Store interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Store<T> 
@@ -12,8 +12,59 @@ export interface Store<T>
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [persist](./secret-manager-utils.store.persist.md) |  | (data: T) =&gt; Promise&lt;void&gt; |  |
-|  [retrieve](./secret-manager-utils.store.retrieve.md) |  | () =&gt; Promise&lt;T&gt; |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[persist](./secret-manager-utils.store.persist.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(data: T) =&gt; Promise&lt;void&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[retrieve](./secret-manager-utils.store.retrieve.md)
+
+
+</td><td>
+
+
+</td><td>
+
+() =&gt; Promise&lt;T&gt;
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

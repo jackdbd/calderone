@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [fisherYatesShuffle](./utils.fisheryatesshuffle.md)
 
-## fisherYatesShuffle variable
+## fisherYatesShuffle() function
 
 Shuffles an `array` in place.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 fisherYatesShuffle: <T>(array: T[]) => void
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+array
+
+
+</td><td>
+
+T\[\]
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+void
+

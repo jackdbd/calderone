@@ -4,7 +4,7 @@
 
 ## AccessSecretVersionConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -12,10 +12,97 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [project\_id?](./secret-manager-utils.accesssecretversionconfig.project_id.md) |  | string | <i>(Optional)</i> |
-|  [secret\_manager](./secret-manager-utils.accesssecretversionconfig.secret_manager.md) |  | SecretManagerServiceClient |  |
-|  [secret\_name](./secret-manager-utils.accesssecretversionconfig.secret_name.md) |  | string |  |
-|  [version?](./secret-manager-utils.accesssecretversionconfig.version.md) |  | string | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[project\_id?](./secret-manager-utils.accesssecretversionconfig.project_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[secret\_manager](./secret-manager-utils.accesssecretversionconfig.secret_manager.md)
+
+
+</td><td>
+
+
+</td><td>
+
+SecretManagerServiceClient
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[secret\_name](./secret-manager-utils.accesssecretversionconfig.secret_name.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[version?](./secret-manager-utils.accesssecretversionconfig.version.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

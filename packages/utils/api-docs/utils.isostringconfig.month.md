@@ -4,7 +4,7 @@
 
 ## IsoStringConfig.month property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 month?: string | number;

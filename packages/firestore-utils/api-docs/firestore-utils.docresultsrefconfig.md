@@ -5,7 +5,7 @@
 ## DocResultsRefConfig interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface DocResultsRefConfig 
@@ -13,8 +13,59 @@ export interface DocResultsRefConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [limit](./firestore-utils.docresultsrefconfig.limit.md) |  | number |  |
-|  [ref](./firestore-utils.docresultsrefconfig.ref.md) |  | CollectionReference |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[limit](./firestore-utils.docresultsrefconfig.limit.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ref](./firestore-utils.docresultsrefconfig.ref.md)
+
+
+</td><td>
+
+
+</td><td>
+
+CollectionReference
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

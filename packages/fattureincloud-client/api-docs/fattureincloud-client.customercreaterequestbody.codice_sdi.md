@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.codice\_sdi property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 codice_sdi?: string;

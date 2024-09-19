@@ -71,7 +71,7 @@ export const foreignKeys = (db: BetterSqlite3.Database, table_name: string) => {
   }
 
   const arr: ForeignKey[] = []
-  const fk_list = db.pragma(`foreign_key_list(${table_name})`)
+  const fk_list = db.pragma(`foreign_key_list(${table_name})`) as any[]
   for (const fk of fk_list) {
     arr.push(fk)
   }
@@ -93,7 +93,7 @@ export const foreignKeys = (db: BetterSqlite3.Database, table_name: string) => {
 export const pragmaDict = (db: BetterSqlite3.Database) => {
   const d: { [pragma: string]: any } = {}
   for (const pragma of PRAGMAS) {
-    const values = db.pragma(pragma)
+    const values = db.pragma(pragma) as any[]
 
     if (values.length === 0) {
       debug(`PRAGMA ${pragma} not available in this database`)

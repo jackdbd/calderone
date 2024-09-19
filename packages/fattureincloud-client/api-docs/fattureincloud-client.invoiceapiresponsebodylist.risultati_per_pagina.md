@@ -4,7 +4,7 @@
 
 ## InvoiceAPIResponseBodyList.risultati\_per\_pagina property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 risultati_per_pagina: number;

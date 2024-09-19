@@ -4,7 +4,7 @@
 
 ## InvoiceSummary.valuta\_cambio property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 valuta_cambio: string;

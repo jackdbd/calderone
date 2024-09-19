@@ -4,7 +4,7 @@
 
 ## firestore\_client variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 client: Joi.AnySchema<any>

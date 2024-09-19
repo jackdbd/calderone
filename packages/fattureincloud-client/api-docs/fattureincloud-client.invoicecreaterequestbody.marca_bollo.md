@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.marca\_bollo property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 marca_bollo?: number;

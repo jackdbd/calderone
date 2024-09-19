@@ -4,8 +4,8 @@
 
 ## node\_env\_allowed\_value variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-node_env_allowed_value: Joi.StringSchema
+node_env_allowed_value: Joi.StringSchema<string>
 ```

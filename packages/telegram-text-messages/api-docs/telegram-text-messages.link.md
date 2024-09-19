@@ -6,7 +6,7 @@
 
 A hyperlink in a text message.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Link 
@@ -14,8 +14,59 @@ export interface Link
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [href](./telegram-text-messages.link.href.md) |  | string |  |
-|  [text](./telegram-text-messages.link.text.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[href](./telegram-text-messages.link.href.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[text](./telegram-text-messages.link.text.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

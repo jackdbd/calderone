@@ -2,12 +2,86 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [range](./utils.range.md)
 
-## range variable
+## range() function
 
 Array of numbers starting from `start` and progressing up to, but not including, `stop`<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 range: (start: number, stop: number, step?: number) => number[]
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+start
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+The lower boundary of the array (included)
+
+
+</td></tr>
+<tr><td>
+
+stop
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+The upper boundary of the array (excluded)
+
+
+</td></tr>
+<tr><td>
+
+step
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+number\[\]
+
+An array starting from `start`<!-- -->, incrementing with a `step`<!-- -->, and going to a maximum of `stop-1`
+

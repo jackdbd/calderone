@@ -4,8 +4,8 @@
 
 ## country\_code\_3\_chars variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-country_code_3_chars: Joi.StringSchema
+country_code_3_chars: Joi.StringSchema<string>
 ```

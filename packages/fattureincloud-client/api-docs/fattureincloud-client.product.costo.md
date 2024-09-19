@@ -4,7 +4,7 @@
 
 ## Product.costo property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 costo: string;

@@ -6,7 +6,26 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [@jackdbd/tags-logger](./tags-logger.md) | A logger inspired by how logging is implemented in Hapi.js. |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[@jackdbd/tags-logger](./tags-logger.md)
+
+
+</td><td>
+
+A logger inspired by how logging is implemented in Hapi.js.
+
+
+</td></tr>
+</tbody></table>

@@ -6,22 +6,145 @@
 
 A few functions useful when working with \[better-sqlite3\](https://github.com/WiseLibs/better-sqlite3).
 
+## Functions
+
+<table><thead><tr><th>
+
+Function
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[bulkInsert({ db, insert\_query })](./sqlite-utils.bulkinsert.md)
+
+
+</td><td>
+
+Creates a SQLite transaction that will run a SQL statement on each record and either commit the results, or rollback to the original state of the database.
+
+
+</td></tr>
+<tr><td>
+
+[foreignKeys(db, table\_name)](./sqlite-utils.foreignkeys.md)
+
+
+</td><td>
+
+Returns an array of all the foreign key constraints of the requested table.
+
+
+</td></tr>
+<tr><td>
+
+[pragmaDict(db)](./sqlite-utils.pragmadict.md)
+
+
+</td><td>
+
+Returns a dictionary of the available PRAGMA statements in this SQLite database, where each key-value pair is a PRAGMA with its associated value.
+
+PRAGMA statements not available in the provided SQLite database will not show up in the dictionary.
+
+
+</td></tr>
+<tr><td>
+
+[tableInfo(db, table\_name)](./sqlite-utils.tableinfo.md)
+
+
+</td><td>
+
+Returns an array where each item is a piece of information about a column of the requested table.
+
+
+</td></tr>
+</tbody></table>
+
 ## Interfaces
 
-|  Interface | Description |
-|  --- | --- |
-|  [BulkInsertConfig](./sqlite-utils.bulkinsertconfig.md) |  |
-|  [ColumnInfo](./sqlite-utils.columninfo.md) |  |
-|  [ForeignKey](./sqlite-utils.foreignkey.md) |  |
+<table><thead><tr><th>
+
+Interface
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[BulkInsertConfig](./sqlite-utils.bulkinsertconfig.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[ColumnInfo](./sqlite-utils.columninfo.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[ForeignKey](./sqlite-utils.foreignkey.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+</tbody></table>
 
 ## Variables
 
-|  Variable | Description |
-|  --- | --- |
-|  [bulkInsert](./sqlite-utils.bulkinsert.md) | Creates a SQLite transaction that will run a SQL statement on each record and either commit the results, or rollback to the original state of the database. |
-|  [DEPRECATED\_PRAGMAS](./sqlite-utils.deprecated_pragmas.md) | Complete list of \*\*deprecated\*\* SQLite PRAGMA statements. |
-|  [foreignKeys](./sqlite-utils.foreignkeys.md) | Returns an array of all the foreign key constraints of the requested table. |
-|  [pragmaDict](./sqlite-utils.pragmadict.md) | <p>Returns a dictionary of the available PRAGMA statements in this SQLite database, where each key-value pair is a PRAGMA with its associated value.</p><p>PRAGMA statements not available in the provided SQLite database will not show up in the dictionary.</p> |
-|  [PRAGMAS](./sqlite-utils.pragmas.md) | Complete list of \*\*non-deprecated\*\* SQLite PRAGMA statements. |
-|  [tableInfo](./sqlite-utils.tableinfo.md) | Returns an array where each item is a piece of information about a column of the requested table. |
+<table><thead><tr><th>
 
+Variable
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[DEPRECATED\_PRAGMAS](./sqlite-utils.deprecated_pragmas.md)
+
+
+</td><td>
+
+Complete list of \*\*deprecated\*\* SQLite PRAGMA statements.
+
+
+</td></tr>
+<tr><td>
+
+[PRAGMAS](./sqlite-utils.pragmas.md)
+
+
+</td><td>
+
+Complete list of \*\*non-deprecated\*\* SQLite PRAGMA statements.
+
+
+</td></tr>
+</tbody></table>

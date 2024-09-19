@@ -4,7 +4,7 @@
 
 ## TaskToThirdPartyService.queue\_location\_id property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 queue_location_id: string;

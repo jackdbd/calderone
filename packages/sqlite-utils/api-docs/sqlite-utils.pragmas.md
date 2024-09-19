@@ -6,7 +6,7 @@
 
 Complete list of \*\*non-deprecated\*\* SQLite PRAGMA statements.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 PRAGMAS: string[]

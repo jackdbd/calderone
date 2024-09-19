@@ -4,7 +4,7 @@
 
 ## RandomScheduleConfig.hour\_min property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 hour_min?: number;

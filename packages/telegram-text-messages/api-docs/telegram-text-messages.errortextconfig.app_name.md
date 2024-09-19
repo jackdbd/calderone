@@ -4,7 +4,7 @@
 
 ## ErrorTextConfig.app\_name property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 app_name: string;

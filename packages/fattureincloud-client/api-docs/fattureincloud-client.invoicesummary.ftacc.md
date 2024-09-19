@@ -4,7 +4,7 @@
 
 ## InvoiceSummary.ftacc property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ftacc: boolean;

@@ -4,7 +4,7 @@
 
 ## BulkInsertConfig.db property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 db: BetterSqlite3.Database;

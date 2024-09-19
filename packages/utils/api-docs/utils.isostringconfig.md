@@ -4,7 +4,7 @@
 
 ## IsoStringConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface IsoStringConfig 
@@ -12,13 +12,158 @@ export interface IsoStringConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [day?](./utils.isostringconfig.day.md) |  | string \| number | <i>(Optional)</i> |
-|  [hour?](./utils.isostringconfig.hour.md) |  | string \| number | <i>(Optional)</i> |
-|  [minute?](./utils.isostringconfig.minute.md) |  | string \| number | <i>(Optional)</i> |
-|  [month?](./utils.isostringconfig.month.md) |  | string \| number | <i>(Optional)</i> |
-|  [ms?](./utils.isostringconfig.ms.md) |  | string \| number | <i>(Optional)</i> |
-|  [second?](./utils.isostringconfig.second.md) |  | string \| number | <i>(Optional)</i> |
-|  [year?](./utils.isostringconfig.year.md) |  | string \| number | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[day?](./utils.isostringconfig.day.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string \| number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[hour?](./utils.isostringconfig.hour.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string \| number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[minute?](./utils.isostringconfig.minute.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string \| number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[month?](./utils.isostringconfig.month.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string \| number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[ms?](./utils.isostringconfig.ms.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string \| number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[second?](./utils.isostringconfig.second.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string \| number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[year?](./utils.isostringconfig.year.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string \| number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

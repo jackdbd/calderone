@@ -4,7 +4,7 @@
 
 ## WarningConfig.warning\_message property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 warning_message: string;

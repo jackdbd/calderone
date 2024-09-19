@@ -2,12 +2,52 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [spawnFunctionsFramework](./utils.spawnfunctionsframework.md)
 
-## spawnFunctionsFramework variable
+## spawnFunctionsFramework() function
 
 Spawns a child process that will launch the Functions Framework (basically a HTTP server) on the specified port.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 spawnFunctionsFramework: (options?: Options) => Promise<ChildProcessWithoutNullStreams>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+options
+
+
+</td><td>
+
+[Options](./utils.testoptions.md)
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;ChildProcessWithoutNullStreams&gt;
+

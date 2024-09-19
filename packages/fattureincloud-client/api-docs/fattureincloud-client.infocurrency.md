@@ -4,7 +4,7 @@
 
 ## InfoCurrency interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Valuta 
@@ -12,9 +12,76 @@ export interface Valuta
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [cambio](./fattureincloud-client.infocurrency.cambio.md) |  | string |  |
-|  [codice](./fattureincloud-client.infocurrency.codice.md) |  | string |  |
-|  [simbolo](./fattureincloud-client.infocurrency.simbolo.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[cambio](./fattureincloud-client.infocurrency.cambio.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[codice](./fattureincloud-client.infocurrency.codice.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[simbolo](./fattureincloud-client.infocurrency.simbolo.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

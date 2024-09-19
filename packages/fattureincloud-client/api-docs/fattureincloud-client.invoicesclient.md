@@ -5,20 +5,119 @@
 ## InvoicesClient interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Client extends BasicClient 
 ```
-<b>Extends:</b> BasicClient
+**Extends:** BasicClient
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [create](./fattureincloud-client.invoicesclient.create.md) |  | (config: [CreateRequestBody](./fattureincloud-client.invoicecreaterequestbody.md)<!-- -->) =&gt; Promise&lt;{ id: string; token: string; }&gt; |  |
-|  [delete](./fattureincloud-client.invoicesclient.delete.md) |  | (config: [DeleteRequestBody](./fattureincloud-client.invoicedeleterequestbody.md)<!-- -->) =&gt; Promise&lt;{ id: string; }&gt; |  |
-|  [list](./fattureincloud-client.invoicesclient.list.md) |  | (options?: [ListOptions](./fattureincloud-client.invoicelistoptions.md)<!-- -->) =&gt; Promise&lt;[ListResponseBody](./fattureincloud-client.invoicelistresponsebody.md)<!-- -->&gt; |  |
-|  [listAsyncGenerator](./fattureincloud-client.invoicesclient.listasyncgenerator.md) |  | (options?: [ListOptions](./fattureincloud-client.invoicelistoptions.md)<!-- -->) =&gt; AsyncGenerator&lt;[ListResponseBody](./fattureincloud-client.invoicelistresponsebody.md)<!-- -->&gt; |  |
-|  [retrieve](./fattureincloud-client.invoicesclient.retrieve.md) |  | (config: [RetrieveConfig](./fattureincloud-client.invoiceretrieveconfig.md)<!-- -->) =&gt; Promise&lt;[DettaglioFattura](./fattureincloud-client.invoicedetail.md)<!-- -->&gt; |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[create](./fattureincloud-client.invoicesclient.create.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(config: [CreateRequestBody](./fattureincloud-client.invoicecreaterequestbody.md)<!-- -->) =&gt; Promise&lt;{ id: string; token: string; }&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[delete](./fattureincloud-client.invoicesclient.delete.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(config: [DeleteRequestBody](./fattureincloud-client.invoicedeleterequestbody.md)<!-- -->) =&gt; Promise&lt;{ id: string; }&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[list](./fattureincloud-client.invoicesclient.list.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(options?: [ListOptions](./fattureincloud-client.invoicelistoptions.md)<!-- -->) =&gt; Promise&lt;[ListResponseBody](./fattureincloud-client.invoicelistresponsebody.md)<!-- -->&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[listAsyncGenerator](./fattureincloud-client.invoicesclient.listasyncgenerator.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(options?: [ListOptions](./fattureincloud-client.invoicelistoptions.md)<!-- -->) =&gt; AsyncGenerator&lt;[ListResponseBody](./fattureincloud-client.invoicelistresponsebody.md)<!-- -->&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[retrieve](./fattureincloud-client.invoicesclient.retrieve.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(config: [RetrieveConfig](./fattureincloud-client.invoiceretrieveconfig.md)<!-- -->) =&gt; Promise&lt;[DettaglioFattura](./fattureincloud-client.invoicedetail.md)<!-- -->&gt;
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

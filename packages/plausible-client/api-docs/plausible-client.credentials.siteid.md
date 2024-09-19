@@ -4,7 +4,7 @@
 
 ## Credentials.siteId property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 siteId: string;

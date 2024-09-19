@@ -4,7 +4,7 @@
 
 ## GcpCloudRunServiceErrorTextOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Options 
@@ -12,8 +12,63 @@ export interface Options
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [emoji?](./telegram-text-messages.gcpcloudrunserviceerrortextoptions.emoji.md) |  | string | <i>(Optional)</i> |
-|  [should\_include\_stack\_trace?](./telegram-text-messages.gcpcloudrunserviceerrortextoptions.should_include_stack_trace.md) |  | boolean | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[emoji?](./telegram-text-messages.gcpcloudrunserviceerrortextoptions.emoji.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[should\_include\_stack\_trace?](./telegram-text-messages.gcpcloudrunserviceerrortextoptions.should_include_stack_trace.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

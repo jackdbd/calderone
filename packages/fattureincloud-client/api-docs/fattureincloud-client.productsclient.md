@@ -5,20 +5,119 @@
 ## ProductsClient interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Client extends BasicClient 
 ```
-<b>Extends:</b> BasicClient
+**Extends:** BasicClient
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [create](./fattureincloud-client.productsclient.create.md) |  | (config: [CreateRequestBody](./fattureincloud-client.productcreaterequestbody.md)<!-- -->) =&gt; Promise&lt;{ id: string; }&gt; |  |
-|  [delete](./fattureincloud-client.productsclient.delete.md) |  | (config: [DeleteRequestBody](./fattureincloud-client.productdeleterequestbody.md)<!-- -->) =&gt; Promise&lt;{ id: string; }&gt; |  |
-|  [list](./fattureincloud-client.productsclient.list.md) |  | (options?: [ListOptions](./fattureincloud-client.productlistoptions.md)<!-- -->) =&gt; Promise&lt;[ListResponseBody](./fattureincloud-client.productlistresponsebody.md)<!-- -->&gt; |  |
-|  [listAsyncGenerator](./fattureincloud-client.productsclient.listasyncgenerator.md) |  | (options?: [ListOptions](./fattureincloud-client.productlistoptions.md)<!-- -->) =&gt; AsyncGenerator&lt;[ListResponseBody](./fattureincloud-client.productlistresponsebody.md)<!-- -->&gt; |  |
-|  [retrieve](./fattureincloud-client.productsclient.retrieve.md) |  | (config: [RetrieveConfig](./fattureincloud-client.productretrieveconfig.md)<!-- -->) =&gt; Promise&lt;[Product](./fattureincloud-client.product.md)<!-- -->&gt; |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[create](./fattureincloud-client.productsclient.create.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(config: [CreateRequestBody](./fattureincloud-client.productcreaterequestbody.md)<!-- -->) =&gt; Promise&lt;{ id: string; }&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[delete](./fattureincloud-client.productsclient.delete.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(config: [DeleteRequestBody](./fattureincloud-client.productdeleterequestbody.md)<!-- -->) =&gt; Promise&lt;{ id: string; }&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[list](./fattureincloud-client.productsclient.list.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(options?: [ListOptions](./fattureincloud-client.productlistoptions.md)<!-- -->) =&gt; Promise&lt;[ListResponseBody](./fattureincloud-client.productlistresponsebody.md)<!-- -->&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[listAsyncGenerator](./fattureincloud-client.productsclient.listasyncgenerator.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(options?: [ListOptions](./fattureincloud-client.productlistoptions.md)<!-- -->) =&gt; AsyncGenerator&lt;[ListResponseBody](./fattureincloud-client.productlistresponsebody.md)<!-- -->&gt;
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[retrieve](./fattureincloud-client.productsclient.retrieve.md)
+
+
+</td><td>
+
+
+</td><td>
+
+(config: [RetrieveConfig](./fattureincloud-client.productretrieveconfig.md)<!-- -->) =&gt; Promise&lt;[Product](./fattureincloud-client.product.md)<!-- -->&gt;
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

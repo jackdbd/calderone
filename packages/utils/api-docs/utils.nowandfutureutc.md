@@ -2,10 +2,10 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [nowAndFutureUTC](./utils.nowandfutureutc.md)
 
-## nowAndFutureUTC variable
+## nowAndFutureUTC() function
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 nowAndFutureUTC: (n: number) => {
@@ -13,3 +13,41 @@ nowAndFutureUTC: (n: number) => {
     now: string;
 }
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+n
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+{ future: string; now: string; }
+

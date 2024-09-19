@@ -4,7 +4,7 @@
 
 ## walk() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare function walk(dir: string): AsyncGenerator<string>;
@@ -12,11 +12,38 @@ export declare function walk(dir: string): AsyncGenerator<string>;
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  dir | string |  |
+<table><thead><tr><th>
 
-<b>Returns:</b>
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+dir
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
 
 AsyncGenerator&lt;string&gt;
 

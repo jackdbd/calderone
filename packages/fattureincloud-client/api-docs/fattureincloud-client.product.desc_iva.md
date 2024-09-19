@@ -4,7 +4,7 @@
 
 ## Product.desc\_iva property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 desc_iva: string;

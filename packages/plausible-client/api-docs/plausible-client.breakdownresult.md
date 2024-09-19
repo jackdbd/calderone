@@ -4,7 +4,7 @@
 
 ## BreakdownResult interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface BreakdownResult 
@@ -12,10 +12,93 @@ export interface BreakdownResult
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [bounce\_rate](./plausible-client.breakdownresult.bounce_rate.md) |  | number |  |
-|  [page](./plausible-client.breakdownresult.page.md) |  | string |  |
-|  [source](./plausible-client.breakdownresult.source.md) |  | string |  |
-|  [visitors](./plausible-client.breakdownresult.visitors.md) |  | number |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[bounce\_rate](./plausible-client.breakdownresult.bounce_rate.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[page](./plausible-client.breakdownresult.page.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[source](./plausible-client.breakdownresult.source.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[visitors](./plausible-client.breakdownresult.visitors.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

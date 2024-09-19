@@ -4,7 +4,7 @@
 
 ## BreakdownOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface BreakdownOptions 
@@ -12,12 +12,139 @@ export interface BreakdownOptions
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [filters?](./plausible-client.breakdownoptions.filters.md) |  | string | <i>(Optional)</i> |
-|  [limit?](./plausible-client.breakdownoptions.limit.md) |  | number | <i>(Optional)</i> |
-|  [metrics?](./plausible-client.breakdownoptions.metrics.md) |  | string | <i>(Optional)</i> |
-|  [page?](./plausible-client.breakdownoptions.page.md) |  | number | <i>(Optional)</i> |
-|  [period?](./plausible-client.breakdownoptions.period.md) |  | string | <i>(Optional)</i> |
-|  [property?](./plausible-client.breakdownoptions.property.md) |  | string | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[filters?](./plausible-client.breakdownoptions.filters.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[limit?](./plausible-client.breakdownoptions.limit.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[metrics?](./plausible-client.breakdownoptions.metrics.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[page?](./plausible-client.breakdownoptions.page.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[period?](./plausible-client.breakdownoptions.period.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[property?](./plausible-client.breakdownoptions.property.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

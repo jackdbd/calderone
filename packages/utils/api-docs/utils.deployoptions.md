@@ -4,7 +4,7 @@
 
 ## DeployOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Options 
@@ -12,7 +12,44 @@ export interface Options
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [env?](./utils.deployoptions.env.md) |  | NodeJS.ProcessEnv | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[env?](./utils.deployoptions.env.md)
+
+
+</td><td>
+
+
+</td><td>
+
+NodeJS.ProcessEnv
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

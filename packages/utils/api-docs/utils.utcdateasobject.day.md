@@ -4,7 +4,7 @@
 
 ## UTCDateAsObject.day property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 day: string;

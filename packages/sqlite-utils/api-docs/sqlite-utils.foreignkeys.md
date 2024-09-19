@@ -2,12 +2,64 @@
 
 [Home](./index.md) &gt; [@jackdbd/sqlite-utils](./sqlite-utils.md) &gt; [foreignKeys](./sqlite-utils.foreignkeys.md)
 
-## foreignKeys variable
+## foreignKeys() function
 
 Returns an array of all the foreign key constraints of the requested table.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 foreignKeys: (db: BetterSqlite3.Database, table_name: string) => ForeignKey[]
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+db
+
+
+</td><td>
+
+BetterSqlite3.Database
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+table\_name
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+[ForeignKey](./sqlite-utils.foreignkey.md)<!-- -->\[\]
+

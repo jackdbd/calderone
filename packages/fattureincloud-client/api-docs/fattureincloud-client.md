@@ -6,61 +6,476 @@
 
 Entry point for the documentation of fattureincloud-client.
 
+## Functions
+
+<table><thead><tr><th>
+
+Function
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[basicClient(credentials)](./fattureincloud-client.basicclient.md)
+
+
+</td><td>
+
+A basic client for all endpoints of the FattureinCloud API.
+
+
+</td></tr>
+<tr><td>
+
+[rateLimitedClient(credentials, options)](./fattureincloud-client.ratelimitedclient.md)
+
+
+</td><td>
+
+A rate-limited client for all endpoints of the FattureinCloud API.
+
+
+</td></tr>
+</tbody></table>
+
 ## Interfaces
 
-|  Interface | Description |
-|  --- | --- |
-|  [Client](./fattureincloud-client.client.md) |  |
-|  [Credentials](./fattureincloud-client.credentials.md) | Credentials of a FattureinCloud account. |
-|  [Customer](./fattureincloud-client.customer.md) |  |
-|  [CustomerAPIResponseBodyCreate](./fattureincloud-client.customerapiresponsebodycreate.md) |  |
-|  [CustomerAPIResponseBodyDelete](./fattureincloud-client.customerapiresponsebodydelete.md) |  |
-|  [CustomerAPIResponseBodyList](./fattureincloud-client.customerapiresponsebodylist.md) |  |
-|  [CustomerAPIResponseBodyUpdate](./fattureincloud-client.customerapiresponsebodyupdate.md) |  |
-|  [CustomerCreateRequestBody](./fattureincloud-client.customercreaterequestbody.md) |  |
-|  [CustomerDeleteRequestBody](./fattureincloud-client.customerdeleterequestbody.md) |  |
-|  [CustomerListOptions](./fattureincloud-client.customerlistoptions.md) |  |
-|  [CustomerListResponseBody](./fattureincloud-client.customerlistresponsebody.md) |  |
-|  [CustomerRetrieveConfig](./fattureincloud-client.customerretrieveconfig.md) |  |
-|  [CustomersClient](./fattureincloud-client.customersclient.md) |  |
-|  [CustomerUpdateRequestBody](./fattureincloud-client.customerupdaterequestbody.md) |  |
-|  [InfoAccount](./fattureincloud-client.infoaccount.md) |  |
-|  [InfoAccountOptions](./fattureincloud-client.infoaccountoptions.md) |  |
-|  [InfoAccountResponseBody](./fattureincloud-client.infoaccountresponsebody.md) |  |
-|  [InfoClient](./fattureincloud-client.infoclient.md) |  |
-|  [InfoCurrency](./fattureincloud-client.infocurrency.md) |  |
-|  [InfoVat](./fattureincloud-client.infovat.md) |  |
-|  [InvoiceAPIResponseBodyCreate](./fattureincloud-client.invoiceapiresponsebodycreate.md) |  |
-|  [InvoiceAPIResponseBodyDelete](./fattureincloud-client.invoiceapiresponsebodydelete.md) |  |
-|  [InvoiceAPIResponseBodyDetail](./fattureincloud-client.invoiceapiresponsebodydetail.md) |  |
-|  [InvoiceAPIResponseBodyList](./fattureincloud-client.invoiceapiresponsebodylist.md) |  |
-|  [InvoiceArticle](./fattureincloud-client.invoicearticle.md) |  |
-|  [InvoiceCreateRequestBody](./fattureincloud-client.invoicecreaterequestbody.md) |  |
-|  [InvoiceDataValidation](./fattureincloud-client.invoicedatavalidation.md) |  |
-|  [InvoiceDeleteRequestBody](./fattureincloud-client.invoicedeleterequestbody.md) |  |
-|  [InvoiceDetail](./fattureincloud-client.invoicedetail.md) |  |
-|  [InvoiceListOptions](./fattureincloud-client.invoicelistoptions.md) |  |
-|  [InvoiceListResponseBody](./fattureincloud-client.invoicelistresponsebody.md) |  |
-|  [InvoicePayment](./fattureincloud-client.invoicepayment.md) |  |
-|  [InvoiceRetrieveConfig](./fattureincloud-client.invoiceretrieveconfig.md) |  |
-|  [InvoicesClient](./fattureincloud-client.invoicesclient.md) |  |
-|  [InvoiceSummary](./fattureincloud-client.invoicesummary.md) |  |
-|  [Product](./fattureincloud-client.product.md) |  |
-|  [ProductAPIResponseBodyCreate](./fattureincloud-client.productapiresponsebodycreate.md) |  |
-|  [ProductAPIResponseBodyDelete](./fattureincloud-client.productapiresponsebodydelete.md) |  |
-|  [ProductAPIResponseBodyList](./fattureincloud-client.productapiresponsebodylist.md) |  |
-|  [ProductAPIResponseBodyUpdate](./fattureincloud-client.productapiresponsebodyupdate.md) |  |
-|  [ProductCreateRequestBody](./fattureincloud-client.productcreaterequestbody.md) |  |
-|  [ProductDeleteRequestBody](./fattureincloud-client.productdeleterequestbody.md) |  |
-|  [ProductListOptions](./fattureincloud-client.productlistoptions.md) |  |
-|  [ProductListResponseBody](./fattureincloud-client.productlistresponsebody.md) |  |
-|  [ProductRetrieveConfig](./fattureincloud-client.productretrieveconfig.md) |  |
-|  [ProductsClient](./fattureincloud-client.productsclient.md) |  |
+<table><thead><tr><th>
 
-## Variables
+Interface
 
-|  Variable | Description |
-|  --- | --- |
-|  [basicClient](./fattureincloud-client.basicclient.md) | A basic client for all endpoints of the FattureinCloud API. |
-|  [rateLimitedClient](./fattureincloud-client.ratelimitedclient.md) | A rate-limited client for all endpoints of the FattureinCloud API. |
 
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[Client](./fattureincloud-client.client.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[Credentials](./fattureincloud-client.credentials.md)
+
+
+</td><td>
+
+Credentials of a FattureinCloud account.
+
+
+</td></tr>
+<tr><td>
+
+[Customer](./fattureincloud-client.customer.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[CustomerAPIResponseBodyCreate](./fattureincloud-client.customerapiresponsebodycreate.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[CustomerAPIResponseBodyDelete](./fattureincloud-client.customerapiresponsebodydelete.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[CustomerAPIResponseBodyList](./fattureincloud-client.customerapiresponsebodylist.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[CustomerAPIResponseBodyUpdate](./fattureincloud-client.customerapiresponsebodyupdate.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[CustomerCreateRequestBody](./fattureincloud-client.customercreaterequestbody.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[CustomerDeleteRequestBody](./fattureincloud-client.customerdeleterequestbody.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[CustomerListOptions](./fattureincloud-client.customerlistoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[CustomerListResponseBody](./fattureincloud-client.customerlistresponsebody.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[CustomerRetrieveConfig](./fattureincloud-client.customerretrieveconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[CustomersClient](./fattureincloud-client.customersclient.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[CustomerUpdateRequestBody](./fattureincloud-client.customerupdaterequestbody.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InfoAccount](./fattureincloud-client.infoaccount.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InfoAccountOptions](./fattureincloud-client.infoaccountoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InfoAccountResponseBody](./fattureincloud-client.infoaccountresponsebody.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InfoClient](./fattureincloud-client.infoclient.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[InfoCurrency](./fattureincloud-client.infocurrency.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InfoVat](./fattureincloud-client.infovat.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceAPIResponseBodyCreate](./fattureincloud-client.invoiceapiresponsebodycreate.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceAPIResponseBodyDelete](./fattureincloud-client.invoiceapiresponsebodydelete.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceAPIResponseBodyDetail](./fattureincloud-client.invoiceapiresponsebodydetail.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceAPIResponseBodyList](./fattureincloud-client.invoiceapiresponsebodylist.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceArticle](./fattureincloud-client.invoicearticle.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceCreateRequestBody](./fattureincloud-client.invoicecreaterequestbody.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceDataValidation](./fattureincloud-client.invoicedatavalidation.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceDeleteRequestBody](./fattureincloud-client.invoicedeleterequestbody.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceDetail](./fattureincloud-client.invoicedetail.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceListOptions](./fattureincloud-client.invoicelistoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceListResponseBody](./fattureincloud-client.invoicelistresponsebody.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[InvoicePayment](./fattureincloud-client.invoicepayment.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceRetrieveConfig](./fattureincloud-client.invoiceretrieveconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[InvoicesClient](./fattureincloud-client.invoicesclient.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[InvoiceSummary](./fattureincloud-client.invoicesummary.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[Product](./fattureincloud-client.product.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ProductAPIResponseBodyCreate](./fattureincloud-client.productapiresponsebodycreate.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ProductAPIResponseBodyDelete](./fattureincloud-client.productapiresponsebodydelete.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ProductAPIResponseBodyList](./fattureincloud-client.productapiresponsebodylist.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ProductAPIResponseBodyUpdate](./fattureincloud-client.productapiresponsebodyupdate.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ProductCreateRequestBody](./fattureincloud-client.productcreaterequestbody.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ProductDeleteRequestBody](./fattureincloud-client.productdeleterequestbody.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ProductListOptions](./fattureincloud-client.productlistoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ProductListResponseBody](./fattureincloud-client.productlistresponsebody.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ProductRetrieveConfig](./fattureincloud-client.productretrieveconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ProductsClient](./fattureincloud-client.productsclient.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+</tbody></table>

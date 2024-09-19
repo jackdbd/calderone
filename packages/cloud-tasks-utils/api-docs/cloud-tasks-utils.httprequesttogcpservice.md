@@ -2,9 +2,9 @@
 
 [Home](./index.md) &gt; [@jackdbd/cloud-tasks-utils](./cloud-tasks-utils.md) &gt; [httpRequestToGCPService](./cloud-tasks-utils.httprequesttogcpservice.md)
 
-## httpRequestToGCPService variable
+## httpRequestToGCPService() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 httpRequestToGCPService: (config: HttpRequestToGCPServiceConfig) => {
@@ -21,3 +21,41 @@ httpRequestToGCPService: (config: HttpRequestToGCPServiceConfig) => {
     url: string;
 }
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+config
+
+
+</td><td>
+
+[HttpRequestToGCPServiceConfig](./cloud-tasks-utils.httprequesttogcpserviceconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+{ body: string; headers: { 'Content-Type': string; 'X-Task-Enqueued-By': string; }; httpMethod: "POST"; oidcToken: { audience: string; serviceAccountEmail: string; }; url: string; }
+

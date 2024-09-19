@@ -4,7 +4,7 @@
 
 ## InvoiceAPIResponseBodyList.numero\_risultati property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 numero_risultati: number;

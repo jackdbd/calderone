@@ -4,7 +4,7 @@
 
 ## Product.prezzo\_netto property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 prezzo_netto: string;

@@ -4,7 +4,7 @@
 
 ## OperationTextConfig.successes property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 successes: string[];

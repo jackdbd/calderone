@@ -4,7 +4,7 @@
 
 ## CustomerFromPaymentIntentIdConfig.pi\_id property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 pi_id: string;

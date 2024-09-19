@@ -4,7 +4,7 @@
 
 ## PartitionsConfig.size property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 size: number;

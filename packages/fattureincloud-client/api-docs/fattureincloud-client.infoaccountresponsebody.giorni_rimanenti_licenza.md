@@ -4,7 +4,7 @@
 
 ## InfoAccountResponseBody.giorni\_rimanenti\_licenza property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 giorni_rimanenti_licenza?: number;

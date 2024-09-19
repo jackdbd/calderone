@@ -4,7 +4,7 @@
 
 ## InvoiceSummary.prossima\_scadenza property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 prossima_scadenza: string;

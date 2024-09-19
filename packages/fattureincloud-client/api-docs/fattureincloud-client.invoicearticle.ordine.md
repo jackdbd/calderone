@@ -4,7 +4,7 @@
 
 ## InvoiceArticle.ordine property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ordine?: string;

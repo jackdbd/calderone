@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isCloudRunService](./checks.iscloudrunservice.md)
 
-## isCloudRunService variable
+## isCloudRunService() function
 
 Checks whether the code is being executed as a Cloud Run \*\*service\*\* or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isCloudRunService: (env: NodeJS.ProcessEnv) => boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+env
+
+
+</td><td>
+
+NodeJS.ProcessEnv
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+boolean
+

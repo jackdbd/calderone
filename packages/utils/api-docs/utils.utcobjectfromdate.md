@@ -2,12 +2,52 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [utcObjectFromDate](./utils.utcobjectfromdate.md)
 
-## utcObjectFromDate variable
+## utcObjectFromDate() function
 
 Converts a `Date` object into a simple JavaScript object where each field is a left-padded string.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 utcObjectFromDate: (date: Date) => UTCDateAsObject
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+date
+
+
+</td><td>
+
+Date
+
+
+</td><td>
+
+The input date
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+[UTCDateAsObject](./utils.utcdateasobject.md)
+

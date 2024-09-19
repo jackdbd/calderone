@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isBoolean](./checks.isboolean.md)
 
-## isBoolean variable
+## isBoolean() function
 
 Checks whether the argument passed to this function is a boolean or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-isBoolean: (x: any) => boolean
+isBoolean: (x: any) => x is boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+x
+
+
+</td><td>
+
+any
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+x is boolean
+

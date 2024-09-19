@@ -4,8 +4,8 @@
 
 ## telegram\_token variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-token: Joi.StringSchema
+token: Joi.StringSchema<string>
 ```

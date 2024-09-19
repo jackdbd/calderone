@@ -4,7 +4,7 @@
 
 ## AddSecretVersionConfig.payload property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 payload: string;

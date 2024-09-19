@@ -5,7 +5,7 @@
 ## Config interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -13,8 +13,59 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [directives](./content-security-policy.config.directives.md) |  | [Directives](./content-security-policy.directives.md) |  |
-|  [patterns](./content-security-policy.config.patterns.md) |  | string\[\] |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[directives](./content-security-policy.config.directives.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Directives](./content-security-policy.directives.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[patterns](./content-security-policy.config.patterns.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string\[\]
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

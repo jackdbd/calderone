@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.cassa property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 cassa: number;

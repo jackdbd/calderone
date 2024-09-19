@@ -4,7 +4,7 @@
 
 ## BulkCopyConfig.copied\_by property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 copied_by?: string;

@@ -4,7 +4,7 @@
 
 ## InfoAccountResponseBody.lista\_valute property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 lista_valute?: Valuta[];

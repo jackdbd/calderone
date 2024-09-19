@@ -2,10 +2,10 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [nowAndPastUTC](./utils.nowandpastutc.md)
 
-## nowAndPastUTC variable
+## nowAndPastUTC() function
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 nowAndPastUTC: (n: number) => {
@@ -13,3 +13,41 @@ nowAndPastUTC: (n: number) => {
     now: string;
 }
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+n
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+{ past: string; now: string; }
+

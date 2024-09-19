@@ -2,10 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/cloud-scheduler-utils](./cloud-scheduler-utils.md) &gt; [randomSchedule](./cloud-scheduler-utils.randomschedule.md)
 
-## randomSchedule variable
+## randomSchedule() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 randomSchedule: (config?: Config) => string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+config
+
+
+</td><td>
+
+[Config](./cloud-scheduler-utils.randomscheduleconfig.md)
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string
+

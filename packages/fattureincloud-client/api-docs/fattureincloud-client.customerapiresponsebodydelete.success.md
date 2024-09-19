@@ -4,7 +4,7 @@
 
 ## CustomerAPIResponseBodyDelete.success property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 success: boolean;

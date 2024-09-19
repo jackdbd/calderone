@@ -2,11 +2,11 @@
 
 [Home](./index.md) &gt; [@jackdbd/stripe-utils](./stripe-utils.md) &gt; [customerFromPaymentIntentId](./stripe-utils.customerfrompaymentintentid.md)
 
-## customerFromPaymentIntentId variable
+## customerFromPaymentIntentId() function
 
 Extracts the Stripe Customer from a Payment Intent Id.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 customerFromPaymentIntentId: ({ stripe, pi_id }: Config) => Promise<{
@@ -17,3 +17,41 @@ customerFromPaymentIntentId: ({ stripe, pi_id }: Config) => Promise<{
     error?: undefined;
 }>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ stripe, pi\_id }
+
+
+</td><td>
+
+[Config](./stripe-utils.customerfrompaymentintentidconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;{ error: Error; value?: undefined; } \| { value: Stripe.Customer; error?: undefined; }&gt;
+

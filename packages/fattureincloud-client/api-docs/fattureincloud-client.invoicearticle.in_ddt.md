@@ -4,7 +4,7 @@
 
 ## InvoiceArticle.in\_ddt property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 in_ddt?: boolean;

@@ -4,8 +4,8 @@
 
 ## process\_env\_key variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-key: Joi.StringSchema
+key: Joi.StringSchema<string>
 ```

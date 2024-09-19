@@ -6,7 +6,7 @@
 
 Whether each log statement should be validated against a Joi schema.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 should_validate_log_statements?: boolean;

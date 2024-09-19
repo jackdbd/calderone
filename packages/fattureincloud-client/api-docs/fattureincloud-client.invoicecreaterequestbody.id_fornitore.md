@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.id\_fornitore property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 id_fornitore?: string;

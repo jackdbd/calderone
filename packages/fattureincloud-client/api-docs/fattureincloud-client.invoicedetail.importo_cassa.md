@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.importo\_cassa property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 importo_cassa: string;

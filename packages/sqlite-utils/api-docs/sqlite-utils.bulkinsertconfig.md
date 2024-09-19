@@ -5,7 +5,7 @@
 ## BulkInsertConfig interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface BulkInsertConfig 
@@ -13,8 +13,59 @@ export interface BulkInsertConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [db](./sqlite-utils.bulkinsertconfig.db.md) |  | BetterSqlite3.Database |  |
-|  [insert\_query](./sqlite-utils.bulkinsertconfig.insert_query.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[db](./sqlite-utils.bulkinsertconfig.db.md)
+
+
+</td><td>
+
+
+</td><td>
+
+BetterSqlite3.Database
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[insert\_query](./sqlite-utils.bulkinsertconfig.insert_query.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

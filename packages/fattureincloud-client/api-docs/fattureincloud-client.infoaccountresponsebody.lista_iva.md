@@ -4,7 +4,7 @@
 
 ## InfoAccountResponseBody.lista\_iva property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 lista_iva?: Iva[];

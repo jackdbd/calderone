@@ -4,7 +4,7 @@
 
 ## TimeseriesOptions.metrics property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 metrics?: string;

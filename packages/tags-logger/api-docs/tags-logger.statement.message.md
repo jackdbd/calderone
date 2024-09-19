@@ -6,7 +6,7 @@
 
 One or more sentences that we are interesting in logging.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 message: string;

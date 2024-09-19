@@ -4,7 +4,7 @@
 
 ## Store.persist property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 persist: (data: T) => Promise<void>;

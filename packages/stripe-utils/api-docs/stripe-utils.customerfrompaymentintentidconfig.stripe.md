@@ -4,7 +4,7 @@
 
 ## CustomerFromPaymentIntentIdConfig.stripe property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 stripe: Stripe;

@@ -5,7 +5,7 @@
 ## CreatePriceWithTaxBehaviorConfig interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -13,11 +13,114 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [behavior](./stripe-utils.createpricewithtaxbehaviorconfig.behavior.md) |  | 'inclusive' \| 'exclusive' |  |
-|  [created\_at?](./stripe-utils.createpricewithtaxbehaviorconfig.created_at.md) |  | string | <i>(Optional)</i> |
-|  [created\_by?](./stripe-utils.createpricewithtaxbehaviorconfig.created_by.md) |  | string | <i>(Optional)</i> |
-|  [price](./stripe-utils.createpricewithtaxbehaviorconfig.price.md) |  | Stripe.Price |  |
-|  [stripe](./stripe-utils.createpricewithtaxbehaviorconfig.stripe.md) |  | Stripe |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[behavior](./stripe-utils.createpricewithtaxbehaviorconfig.behavior.md)
+
+
+</td><td>
+
+
+</td><td>
+
+'inclusive' \| 'exclusive'
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[created\_at?](./stripe-utils.createpricewithtaxbehaviorconfig.created_at.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[created\_by?](./stripe-utils.createpricewithtaxbehaviorconfig.created_by.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[price](./stripe-utils.createpricewithtaxbehaviorconfig.price.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Stripe.Price
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[stripe](./stripe-utils.createpricewithtaxbehaviorconfig.stripe.md)
+
+
+</td><td>
+
+
+</td><td>
+
+Stripe
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

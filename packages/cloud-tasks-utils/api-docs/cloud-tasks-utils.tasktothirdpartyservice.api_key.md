@@ -4,7 +4,7 @@
 
 ## TaskToThirdPartyService.api\_key property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 api_key: string;

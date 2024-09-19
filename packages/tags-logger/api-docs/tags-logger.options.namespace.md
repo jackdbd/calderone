@@ -6,7 +6,7 @@
 
 The namespace for the debug logger (unstructured logging). This option has no effect when using structured logging.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 namespace?: string;

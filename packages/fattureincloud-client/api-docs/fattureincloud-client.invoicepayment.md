@@ -4,7 +4,7 @@
 
 ## InvoicePayment interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Pagamento 
@@ -12,10 +12,95 @@ export interface Pagamento
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [data\_saldo?](./fattureincloud-client.invoicepayment.data_saldo.md) |  | string | <i>(Optional)</i> |
-|  [data\_scadenza](./fattureincloud-client.invoicepayment.data_scadenza.md) |  | string |  |
-|  [importo](./fattureincloud-client.invoicepayment.importo.md) |  | number |  |
-|  [metodo](./fattureincloud-client.invoicepayment.metodo.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[data\_saldo?](./fattureincloud-client.invoicepayment.data_saldo.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[data\_scadenza](./fattureincloud-client.invoicepayment.data_scadenza.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[importo](./fattureincloud-client.invoicepayment.importo.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[metodo](./fattureincloud-client.invoicepayment.metodo.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

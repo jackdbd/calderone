@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.id\_template property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 id_template: string;

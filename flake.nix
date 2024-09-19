@@ -40,10 +40,7 @@
           # want Python 3.11 in this project.
           # https://stackoverflow.com/questions/77251296/distutils-not-found-when-running-npm-install
           python311Full
-          # python311Packages.distlib
-          # nodePackages.pnpm
           python311Packages.setuptools
-          # sqlite
           yarn
         ];
         shellHook = ''
@@ -56,6 +53,8 @@
           # export FOO=bar;
         '';
         DEBUG = "scripts/*,utils/*";
+        POLLY_MODE = "record";
+        # POLLY_MODE = "replay";
       };
     });
   };

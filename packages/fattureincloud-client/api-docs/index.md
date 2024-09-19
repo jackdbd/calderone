@@ -6,7 +6,26 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [@jackdbd/fattureincloud-client](./fattureincloud-client.md) | Entry point for the documentation of fattureincloud-client. |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[@jackdbd/fattureincloud-client](./fattureincloud-client.md)
+
+
+</td><td>
+
+Entry point for the documentation of fattureincloud-client.
+
+
+</td></tr>
+</tbody></table>

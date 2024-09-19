@@ -4,7 +4,7 @@
 
 ## GcpCloudRunJobErrorTextConfig.title property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 title?: string;

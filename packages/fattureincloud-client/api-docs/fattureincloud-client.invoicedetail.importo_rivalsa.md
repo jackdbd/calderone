@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.importo\_rivalsa property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 importo_rivalsa: string;

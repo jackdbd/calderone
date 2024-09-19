@@ -4,7 +4,7 @@
 
 ## Customer.desc\_iva\_default property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 desc_iva_default: string;

@@ -4,7 +4,7 @@
 
 ## Store.retrieve property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 retrieve: () => Promise<T>;

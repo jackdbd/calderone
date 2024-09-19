@@ -2,15 +2,52 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isUkVat](./checks.isukvat.md)
 
-## isUkVat variable
+## isUkVat() function
 
 Checks whether a string is a valid UK VAT number or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isUkVat: (s: string) => boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+s
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+boolean
 
 ## Remarks
 

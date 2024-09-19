@@ -4,38 +4,271 @@
 
 ## telegram-text-messages package
 
+## Functions
+
+<table><thead><tr><th>
+
+Function
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[anchor(link)](./telegram-text-messages.anchor.md)
+
+
+</td><td>
+
+Converts a link into an anchor tag.
+
+
+</td></tr>
+<tr><td>
+
+[errorText(config)](./telegram-text-messages.errortext.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[gcpCloudRunJobErrorText(config, options)](./telegram-text-messages.gcpcloudrunjoberrortext.md)
+
+
+</td><td>
+
+Convenience function for a text message that represents an error occurred in a Cloud Run Jobs environment.
+
+
+</td></tr>
+<tr><td>
+
+[gcpCloudRunJobText(config, options)](./telegram-text-messages.gcpcloudrunjobtext.md)
+
+
+</td><td>
+
+Convenience function for text messages generated from a Cloud Run Job environment.
+
+
+</td></tr>
+<tr><td>
+
+[gcpCloudRunServiceErrorText(config, options)](./telegram-text-messages.gcpcloudrunserviceerrortext.md)
+
+
+</td><td>
+
+Convenience function for a text message that represents an error occurred in a Cloud Run service environment.
+
+
+</td></tr>
+<tr><td>
+
+[gcpCloudRunServiceText(config)](./telegram-text-messages.gcpcloudrunservicetext.md)
+
+
+</td><td>
+
+Convenience function for text messages generated from a Cloud Run service environment.
+
+
+</td></tr>
+<tr><td>
+
+[genericText(config, options)](./telegram-text-messages.generictext.md)
+
+
+</td><td>
+
+Generic text message.
+
+
+</td></tr>
+<tr><td>
+
+[operationListText(config)](./telegram-text-messages.operationlisttext.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[operationText({ title, successes, failures, warnings })](./telegram-text-messages.operationtext.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[warningText(config)](./telegram-text-messages.warningtext.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+
 ## Interfaces
 
-|  Interface | Description |
-|  --- | --- |
-|  [ErrorTextConfig](./telegram-text-messages.errortextconfig.md) |  |
-|  [GcpCloudRunJobErrorTextConfig](./telegram-text-messages.gcpcloudrunjoberrortextconfig.md) |  |
-|  [GcpCloudRunJobErrorTextOptions](./telegram-text-messages.gcpcloudrunjoberrortextoptions.md) |  |
-|  [GcpCloudRunJobTextConfig](./telegram-text-messages.gcpcloudrunjobtextconfig.md) |  |
-|  [GcpCloudRunJobTextOptions](./telegram-text-messages.gcpcloudrunjobtextoptions.md) |  |
-|  [GcpCloudRunServiceErrorTextConfig](./telegram-text-messages.gcpcloudrunserviceerrortextconfig.md) |  |
-|  [GcpCloudRunServiceErrorTextOptions](./telegram-text-messages.gcpcloudrunserviceerrortextoptions.md) |  |
-|  [GcpCloudRunServiceTextConfig](./telegram-text-messages.gcpcloudrunservicetextconfig.md) |  |
-|  [GenericTextConfig](./telegram-text-messages.generictextconfig.md) |  |
-|  [GenericTextOptions](./telegram-text-messages.generictextoptions.md) |  |
-|  [Link](./telegram-text-messages.link.md) | A hyperlink in a text message. |
-|  [OperationListTextConfig](./telegram-text-messages.operationlisttextconfig.md) |  |
-|  [OperationTextConfig](./telegram-text-messages.operationtextconfig.md) |  |
-|  [Section](./telegram-text-messages.section.md) |  |
-|  [WarningConfig](./telegram-text-messages.warningconfig.md) |  |
+<table><thead><tr><th>
 
-## Variables
+Interface
 
-|  Variable | Description |
-|  --- | --- |
-|  [anchor](./telegram-text-messages.anchor.md) | Converts a link into an anchor tag. |
-|  [errorText](./telegram-text-messages.errortext.md) |  |
-|  [gcpCloudRunJobErrorText](./telegram-text-messages.gcpcloudrunjoberrortext.md) | Convenience function for a text message that represents an error occurred in a Cloud Run Jobs environment. |
-|  [gcpCloudRunJobText](./telegram-text-messages.gcpcloudrunjobtext.md) | Convenience function for text messages generated from a Cloud Run Job environment. |
-|  [gcpCloudRunServiceErrorText](./telegram-text-messages.gcpcloudrunserviceerrortext.md) | Convenience function for a text message that represents an error occurred in a Cloud Run service environment. |
-|  [gcpCloudRunServiceText](./telegram-text-messages.gcpcloudrunservicetext.md) | Convenience function for text messages generated from a Cloud Run service environment. |
-|  [genericText](./telegram-text-messages.generictext.md) | Generic text message. |
-|  [operationListText](./telegram-text-messages.operationlisttext.md) |  |
-|  [operationText](./telegram-text-messages.operationtext.md) |  |
-|  [warningText](./telegram-text-messages.warningtext.md) |  |
 
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[ErrorTextConfig](./telegram-text-messages.errortextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[GcpCloudRunJobErrorTextConfig](./telegram-text-messages.gcpcloudrunjoberrortextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[GcpCloudRunJobErrorTextOptions](./telegram-text-messages.gcpcloudrunjoberrortextoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[GcpCloudRunJobTextConfig](./telegram-text-messages.gcpcloudrunjobtextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[GcpCloudRunJobTextOptions](./telegram-text-messages.gcpcloudrunjobtextoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[GcpCloudRunServiceErrorTextConfig](./telegram-text-messages.gcpcloudrunserviceerrortextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[GcpCloudRunServiceErrorTextOptions](./telegram-text-messages.gcpcloudrunserviceerrortextoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[GcpCloudRunServiceTextConfig](./telegram-text-messages.gcpcloudrunservicetextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[GenericTextConfig](./telegram-text-messages.generictextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[GenericTextOptions](./telegram-text-messages.generictextoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[Link](./telegram-text-messages.link.md)
+
+
+</td><td>
+
+A hyperlink in a text message.
+
+
+</td></tr>
+<tr><td>
+
+[OperationListTextConfig](./telegram-text-messages.operationlisttextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[OperationTextConfig](./telegram-text-messages.operationtextconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[Section](./telegram-text-messages.section.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[WarningConfig](./telegram-text-messages.warningconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

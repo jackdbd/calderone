@@ -4,7 +4,7 @@
 
 ## InvoiceArticle.applica\_ra\_contributi property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 applica_ra_contributi?: boolean;

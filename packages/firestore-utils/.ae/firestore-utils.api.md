@@ -4,7 +4,7 @@
 
 ```ts
 
-import type { CollectionReference } from '@google-cloud/firestore';
+import { CollectionReference } from '@google-cloud/firestore';
 import { Firestore } from '@google-cloud/firestore';
 import type { Query } from '@google-cloud/firestore';
 
@@ -139,6 +139,21 @@ export interface MoveDataConfig {
         from: string;
         to: string;
     }[];
+    // (undocumented)
+    ref: CollectionReference;
+}
+
+// Warning: (ae-missing-release-tag) "queries" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const queries: ({ ref, ids: all_ids }: QueriesConfig) => FirebaseFirestore.Query<FirebaseFirestore.DocumentData, FirebaseFirestore.DocumentData>[];
+
+// Warning: (ae-missing-release-tag) "QueriesConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface QueriesConfig {
+    // (undocumented)
+    ids: string[];
     // (undocumented)
     ref: CollectionReference;
 }

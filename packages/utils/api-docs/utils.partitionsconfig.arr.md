@@ -4,7 +4,7 @@
 
 ## PartitionsConfig.arr property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 arr: T[];

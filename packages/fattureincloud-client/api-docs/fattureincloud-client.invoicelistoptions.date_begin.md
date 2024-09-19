@@ -4,7 +4,7 @@
 
 ## InvoiceListOptions.date\_begin property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 date_begin?: string;

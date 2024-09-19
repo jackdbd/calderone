@@ -4,7 +4,7 @@
 
 ## HttpRequestToThirdPartyServiceConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface HttpRequestToThirdPartyServiceConfig 
@@ -12,10 +12,93 @@ export interface HttpRequestToThirdPartyServiceConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [api\_key](./cloud-tasks-utils.httprequesttothirdpartyserviceconfig.api_key.md) |  | string |  |
-|  [enqueued\_by](./cloud-tasks-utils.httprequesttothirdpartyserviceconfig.enqueued_by.md) |  | string |  |
-|  [payload](./cloud-tasks-utils.httprequesttothirdpartyserviceconfig.payload.md) |  | any |  |
-|  [url](./cloud-tasks-utils.httprequesttothirdpartyserviceconfig.url.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[api\_key](./cloud-tasks-utils.httprequesttothirdpartyserviceconfig.api_key.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[enqueued\_by](./cloud-tasks-utils.httprequesttothirdpartyserviceconfig.enqueued_by.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[payload](./cloud-tasks-utils.httprequesttothirdpartyserviceconfig.payload.md)
+
+
+</td><td>
+
+
+</td><td>
+
+any
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[url](./cloud-tasks-utils.httprequesttothirdpartyserviceconfig.url.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

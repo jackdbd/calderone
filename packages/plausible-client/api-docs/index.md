@@ -6,7 +6,26 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [@jackdbd/plausible-client](./plausible-client.md) | Entry point for the documentation of plausible-client. |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[@jackdbd/plausible-client](./plausible-client.md)
+
+
+</td><td>
+
+Entry point for the documentation of plausible-client.
+
+
+</td></tr>
+</tbody></table>

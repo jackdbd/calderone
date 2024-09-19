@@ -4,7 +4,7 @@
 
 ## DuplicatesConfig.threshold property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 threshold?: number;

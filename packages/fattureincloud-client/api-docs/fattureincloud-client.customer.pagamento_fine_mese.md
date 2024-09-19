@@ -4,7 +4,7 @@
 
 ## Customer.pagamento\_fine\_mese property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 pagamento_fine_mese: boolean;

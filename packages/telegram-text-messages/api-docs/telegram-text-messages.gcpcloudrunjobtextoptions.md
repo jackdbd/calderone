@@ -4,7 +4,7 @@
 
 ## GcpCloudRunJobTextOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Options 
@@ -12,7 +12,44 @@ export interface Options
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [should\_include\_task\_section?](./telegram-text-messages.gcpcloudrunjobtextoptions.should_include_task_section.md) |  | boolean | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[should\_include\_task\_section?](./telegram-text-messages.gcpcloudrunjobtextoptions.should_include_task_section.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

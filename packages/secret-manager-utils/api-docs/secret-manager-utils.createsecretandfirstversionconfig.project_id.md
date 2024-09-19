@@ -4,7 +4,7 @@
 
 ## CreateSecretAndFirstVersionConfig.project\_id property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 project_id?: string;

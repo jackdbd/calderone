@@ -4,7 +4,7 @@
 
 ## ProductAPIResponseBodyList.numero\_pagine property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 numero_pagine: number;

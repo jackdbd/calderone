@@ -5,7 +5,7 @@
 ## DocResultId interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface DocResultId 
@@ -13,8 +13,59 @@ export interface DocResultId
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [doc\_id](./firestore-utils.docresultid.doc_id.md) |  | string |  |
-|  [id](./firestore-utils.docresultid.id.md) |  | string |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[doc\_id](./firestore-utils.docresultid.doc_id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[id](./firestore-utils.docresultid.id.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

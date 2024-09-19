@@ -4,7 +4,7 @@
 
 ## InfoAccount.nome\_conto property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 nome_conto: string;

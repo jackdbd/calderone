@@ -4,8 +4,6 @@
 
 ```ts
 
-/// <reference types="node" />
-
 import { ChildProcessWithoutNullStreams } from 'node:child_process';
 
 // @public
@@ -196,7 +194,7 @@ export const spawnFunctionsFramework: (options?: TestOptions) => Promise<ChildPr
 // Warning: (ae-missing-release-tag) "stringResolvedFromEnv" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
-export const stringResolvedFromEnv: (s: string, options?: DeployOptions) => string | undefined;
+export const stringResolvedFromEnv: (s: string, options?: DeployOptions) => string;
 
 // Warning: (ae-missing-release-tag) "Options" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //

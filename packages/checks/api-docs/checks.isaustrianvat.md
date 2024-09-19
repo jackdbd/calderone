@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/checks](./checks.md) &gt; [isAustrianVat](./checks.isaustrianvat.md)
 
-## isAustrianVat variable
+## isAustrianVat() function
 
 Checks whether a string is a valid Austrian VAT number or not.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isAustrianVat: (s: string) => boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+s
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+boolean
+

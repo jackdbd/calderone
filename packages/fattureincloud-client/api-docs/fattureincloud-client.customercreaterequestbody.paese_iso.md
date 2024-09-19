@@ -4,7 +4,7 @@
 
 ## CustomerCreateRequestBody.paese\_iso property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 paese_iso?: string;

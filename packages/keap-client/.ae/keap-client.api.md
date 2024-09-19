@@ -5,7 +5,7 @@
 ```ts
 
 // Warning: (ae-forgotten-export) The symbol "BasicKeapClientConfig" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "basicKeapClient" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "basicKeapClient" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const basicKeapClient: ({ access_token, client_id, client_secret, refresh_token }: BasicKeapClientConfig) => {
@@ -33,7 +33,7 @@ export const basicKeapClient: ({ access_token, client_id, client_secret, refresh
 };
 
 // Warning: (ae-forgotten-export) The symbol "StoreKeapClientConfig" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "storeKeapClient" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "storeKeapClient" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const storeKeapClient: ({ access_token, client_id, client_secret, refresh_token, store }: StoreKeapClientConfig) => {

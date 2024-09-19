@@ -8,56 +8,437 @@ Miscellaneous utility functions.
 
 ## Functions
 
-|  Function | Description |
-|  --- | --- |
-|  [walk(dir)](./utils.walk.md) |  |
+<table><thead><tr><th>
+
+Function
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[addDays(date, n)](./utils.adddays.md)
+
+
+</td><td>
+
+Add `n` days to an input `date`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[entriesResolvedFromEnv(entries, options)](./utils.entriesresolvedfromenv.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[envVarNotFoundInEnv(s)](./utils.envvarnotfoundinenv.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[fisherYatesShuffle(array)](./utils.fisheryatesshuffle.md)
+
+
+</td><td>
+
+Shuffles an `array` in place.
+
+
+</td></tr>
+<tr><td>
+
+[gcloudArgs(config, options)](./utils.gcloudargs.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[isoString(obj, options)](./utils.isostring.md)
+
+
+</td><td>
+
+Given a JS object that represents a UTC date, and an `options` object that contains `year`<!-- -->, `month`<!-- -->, etc, this function generates a new ISO string for the new date.
+
+
+</td></tr>
+<tr><td>
+
+[itDateString(ts)](./utils.itdatestring.md)
+
+
+</td><td>
+
+Returns a date string in italian locale. The input `ts` is a timestamp in seconds since the Unix epoch.
+
+
+</td></tr>
+<tr><td>
+
+[itDateStringAfterNDays(date\_string, n\_days)](./utils.itdatestringafterndays.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[killFunctionsFramework(child)](./utils.killfunctionsframework.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[logAlert(data)](./utils.logalert.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[logCritical(data)](./utils.logcritical.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[logDebug(data)](./utils.logdebug.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[logEmergency(data)](./utils.logemergency.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[logError(data)](./utils.logerror.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[logInfo(data)](./utils.loginfo.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[logNotice(data)](./utils.lognotice.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[logWarning(data)](./utils.logwarning.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[makeWaitMs(ms)](./utils.makewaitms.md)
+
+
+</td><td>
+
+Factory function that creates a promise-returning function that waits `ms` milliseconds and do nothing (useful for example for delaying an HTTP request to an API).
+
+
+</td></tr>
+<tr><td>
+
+[nowAndFutureUTC(n)](./utils.nowandfutureutc.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[nowAndPastTimestampMs(n)](./utils.nowandpasttimestampms.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[nowAndPastUTC(n)](./utils.nowandpastutc.md)
+
+
+</td><td>
+
+
+
+</td></tr>
+<tr><td>
+
+[partitions({ arr, size, include\_remainder })](./utils.partitions.md)
+
+
+</td><td>
+
+Partitions an array into chunks of equal size. If the last chunk is smaller than the other ones, it is returned only when `include_remainder` is true.
+
+
+</td></tr>
+<tr><td>
+
+[range(start, stop, step)](./utils.range.md)
+
+
+</td><td>
+
+Array of numbers starting from `start` and progressing up to, but not including, `stop`<!-- -->.
+
+
+</td></tr>
+<tr><td>
+
+[regexFactory(tag)](./utils.regexfactory.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[renameJsFilesToMjs(dir)](./utils.renamejsfilestomjs.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[requiredConfigValueNotSet(s)](./utils.requiredconfigvaluenotset.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[spawnFunctionsFramework(options)](./utils.spawnfunctionsframework.md)
+
+
+</td><td>
+
+Spawns a child process that will launch the Functions Framework (basically a HTTP server) on the specified port.
+
+
+</td></tr>
+<tr><td>
+
+[stringResolvedFromEnv(s, options)](./utils.stringresolvedfromenv.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[utcObjectFromDate(date)](./utils.utcobjectfromdate.md)
+
+
+</td><td>
+
+Converts a `Date` object into a simple JavaScript object where each field is a left-padded string.
+
+
+</td></tr>
+<tr><td>
+
+[wait1000Ms()](./utils.wait1000ms.md)
+
+
+</td><td>
+
+Waits 1 second and does nothing.
+
+
+</td></tr>
+<tr><td>
+
+[walk(dir)](./utils.walk.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
 
 ## Interfaces
 
-|  Interface | Description |
-|  --- | --- |
-|  [DeployOptions](./utils.deployoptions.md) |  |
-|  [Dictionary](./utils.dictionary.md) |  |
-|  [IsoStringConfig](./utils.isostringconfig.md) |  |
-|  [LogData](./utils.logdata.md) |  |
-|  [PartitionsConfig](./utils.partitionsconfig.md) |  |
-|  [TestOptions](./utils.testoptions.md) |  |
-|  [UTCDateAsObject](./utils.utcdateasobject.md) |  |
+<table><thead><tr><th>
+
+Interface
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[DeployOptions](./utils.deployoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[Dictionary](./utils.dictionary.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[IsoStringConfig](./utils.isostringconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[LogData](./utils.logdata.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[PartitionsConfig](./utils.partitionsconfig.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[TestOptions](./utils.testoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[UTCDateAsObject](./utils.utcdateasobject.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
 
 ## Variables
 
-|  Variable | Description |
-|  --- | --- |
-|  [addDays](./utils.adddays.md) | Add <code>n</code> days to an input <code>date</code>. |
-|  [dateFormatOptions](./utils.dateformatoptions.md) |  |
-|  [entriesResolvedFromEnv](./utils.entriesresolvedfromenv.md) |  |
-|  [envVarNotFoundInEnv](./utils.envvarnotfoundinenv.md) |  |
-|  [fisherYatesShuffle](./utils.fisheryatesshuffle.md) | Shuffles an <code>array</code> in place. |
-|  [gcloudArgs](./utils.gcloudargs.md) |  |
-|  [isoString](./utils.isostring.md) | Given a JS object that represents a UTC date, and an <code>options</code> object that contains <code>year</code>, <code>month</code>, etc, this function generates a new ISO string for the new date. |
-|  [itDateString](./utils.itdatestring.md) | Returns a date string in italian locale. The input <code>ts</code> is a timestamp in seconds since the Unix epoch. |
-|  [itDateStringAfterNDays](./utils.itdatestringafterndays.md) |  |
-|  [killFunctionsFramework](./utils.killfunctionsframework.md) |  |
-|  [LOCALE\_STRING\_OPTIONS](./utils.locale_string_options.md) |  |
-|  [logAlert](./utils.logalert.md) |  |
-|  [logCritical](./utils.logcritical.md) |  |
-|  [logDebug](./utils.logdebug.md) |  |
-|  [logEmergency](./utils.logemergency.md) |  |
-|  [logError](./utils.logerror.md) |  |
-|  [logInfo](./utils.loginfo.md) |  |
-|  [logNotice](./utils.lognotice.md) |  |
-|  [logWarning](./utils.logwarning.md) |  |
-|  [makeWaitMs](./utils.makewaitms.md) | Factory function that creates a promise-returning function that waits <code>ms</code> milliseconds and do nothing (useful for example for delaying an HTTP request to an API). |
-|  [nowAndFutureUTC](./utils.nowandfutureutc.md) |  |
-|  [nowAndPastTimestampMs](./utils.nowandpasttimestampms.md) |  |
-|  [nowAndPastUTC](./utils.nowandpastutc.md) |  |
-|  [partitions](./utils.partitions.md) | Partitions an array into chunks of equal size. If the last chunk is smaller than the other ones, it is returned only when <code>include_remainder</code> is true. |
-|  [range](./utils.range.md) | Array of numbers starting from <code>start</code> and progressing up to, but not including, <code>stop</code>. |
-|  [regexFactory](./utils.regexfactory.md) |  |
-|  [renameJsFilesToMjs](./utils.renamejsfilestomjs.md) |  |
-|  [requiredConfigValueNotSet](./utils.requiredconfigvaluenotset.md) |  |
-|  [spawnFunctionsFramework](./utils.spawnfunctionsframework.md) | Spawns a child process that will launch the Functions Framework (basically a HTTP server) on the specified port. |
-|  [stringResolvedFromEnv](./utils.stringresolvedfromenv.md) |  |
-|  [utcObjectFromDate](./utils.utcobjectfromdate.md) | Converts a <code>Date</code> object into a simple JavaScript object where each field is a left-padded string. |
-|  [wait1000Ms](./utils.wait1000ms.md) | Waits 1 second and does nothing. |
+<table><thead><tr><th>
 
+Variable
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[dateFormatOptions](./utils.dateformatoptions.md)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[LOCALE\_STRING\_OPTIONS](./utils.locale_string_options.md)
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

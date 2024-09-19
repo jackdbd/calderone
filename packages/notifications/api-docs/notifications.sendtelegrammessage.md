@@ -2,13 +2,13 @@
 
 [Home](./index.md) &gt; [@jackdbd/notifications](./notifications.md) &gt; [sendTelegramMessage](./notifications.sendtelegrammessage.md)
 
-## sendTelegramMessage variable
+## sendTelegramMessage() function
 
 Send a text message to a Telegram chat, using the Telegram API.
 
 https://core.telegram.org/bots/api\#sendmessage
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 send: ({ chat_id, text, token }: Config, options?: Options) => Promise<{
@@ -21,3 +21,57 @@ send: ({ chat_id, text, token }: Config, options?: Options) => Promise<{
     message: string;
 }>
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+{ chat\_id, text, token }
+
+
+</td><td>
+
+Config
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+options
+
+
+</td><td>
+
+Options
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+Promise&lt;{ delivered: boolean; message: string; delivered\_at?: undefined; } \| { delivered: boolean; delivered\_at: string; message: string; }&gt;
+

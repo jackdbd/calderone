@@ -4,7 +4,7 @@
 
 ## OperationListTextConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Config 
@@ -12,11 +12,112 @@ export interface Config
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [app\_name](./telegram-text-messages.operationlisttextconfig.app_name.md) |  | string |  |
-|  [app\_version](./telegram-text-messages.operationlisttextconfig.app_version.md) |  | string |  |
-|  [description](./telegram-text-messages.operationlisttextconfig.description.md) |  | string |  |
-|  [links?](./telegram-text-messages.operationlisttextconfig.links.md) |  | [Link](./telegram-text-messages.link.md)<!-- -->\[\] | <i>(Optional)</i> |
-|  [operations](./telegram-text-messages.operationlisttextconfig.operations.md) |  | [OperationConfig](./telegram-text-messages.operationtextconfig.md)<!-- -->\[\] |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[app\_name](./telegram-text-messages.operationlisttextconfig.app_name.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[app\_version](./telegram-text-messages.operationlisttextconfig.app_version.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[description](./telegram-text-messages.operationlisttextconfig.description.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[links?](./telegram-text-messages.operationlisttextconfig.links.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Link](./telegram-text-messages.link.md)<!-- -->\[\]
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[operations](./telegram-text-messages.operationlisttextconfig.operations.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[OperationConfig](./telegram-text-messages.operationtextconfig.md)<!-- -->\[\]
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

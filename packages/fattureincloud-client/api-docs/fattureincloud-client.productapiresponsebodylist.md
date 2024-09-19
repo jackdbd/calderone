@@ -4,19 +4,102 @@
 
 ## ProductAPIResponseBodyList interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface APIResponseBodyList extends APIResponseBodyError 
 ```
-<b>Extends:</b> APIResponseBodyError
+**Extends:** APIResponseBodyError
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [lista\_prodotti](./fattureincloud-client.productapiresponsebodylist.lista_prodotti.md) |  | [Product](./fattureincloud-client.product.md)<!-- -->\[\] |  |
-|  [numero\_pagine](./fattureincloud-client.productapiresponsebodylist.numero_pagine.md) |  | number |  |
-|  [pagina\_corrente](./fattureincloud-client.productapiresponsebodylist.pagina_corrente.md) |  | number |  |
-|  [success](./fattureincloud-client.productapiresponsebodylist.success.md) |  | boolean |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[lista\_prodotti](./fattureincloud-client.productapiresponsebodylist.lista_prodotti.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Product](./fattureincloud-client.product.md)<!-- -->\[\]
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[numero\_pagine](./fattureincloud-client.productapiresponsebodylist.numero_pagine.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[pagina\_corrente](./fattureincloud-client.productapiresponsebodylist.pagina_corrente.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[success](./fattureincloud-client.productapiresponsebodylist.success.md)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

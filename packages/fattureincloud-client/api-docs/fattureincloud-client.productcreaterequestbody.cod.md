@@ -4,7 +4,7 @@
 
 ## ProductCreateRequestBody.cod property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 cod?: string;

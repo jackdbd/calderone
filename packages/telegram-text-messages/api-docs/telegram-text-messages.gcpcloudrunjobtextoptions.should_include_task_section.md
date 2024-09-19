@@ -4,7 +4,7 @@
 
 ## GcpCloudRunJobTextOptions.should\_include\_task\_section property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 should_include_task_section?: boolean;

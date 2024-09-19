@@ -2,12 +2,52 @@
 
 [Home](./index.md) &gt; [@jackdbd/cloud-tasks-utils](./cloud-tasks-utils.md) &gt; [cloudTasks](./cloud-tasks-utils.cloudtasks.md)
 
-## cloudTasks variable
+## cloudTasks() function
 
 Initializes the Cloud Tasks client from the environment.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-cloudTasks: (options?: Options) => import("@google-cloud/tasks/build/src/v2").CloudTasksClient
+cloudTasks: (options?: Options) => import("@google-cloud/tasks/build/cjs/src/v2").CloudTasksClient
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+options
+
+
+</td><td>
+
+[Options](./cloud-tasks-utils.clientoptions.md)
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+import("@google-cloud/tasks/build/cjs/src/v2").CloudTasksClient
+

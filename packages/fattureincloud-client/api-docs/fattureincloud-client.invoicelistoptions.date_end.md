@@ -4,7 +4,7 @@
 
 ## InvoiceListOptions.date\_end property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 date_end?: string;

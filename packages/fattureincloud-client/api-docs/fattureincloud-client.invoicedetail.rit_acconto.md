@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.rit\_acconto property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 rit_acconto: number;

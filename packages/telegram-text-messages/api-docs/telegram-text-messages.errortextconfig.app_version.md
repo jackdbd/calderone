@@ -4,7 +4,7 @@
 
 ## ErrorTextConfig.app\_version property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 app_version?: string;

@@ -4,7 +4,7 @@
 
 ## ErrorTextConfig.error\_title property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 error_title: string;

@@ -4,7 +4,7 @@
 
 ## InfoCurrency.simbolo property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 simbolo: string;

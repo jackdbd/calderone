@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.salva\_anagrafica\_cliente property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 salva_anagrafica_cliente?: boolean;

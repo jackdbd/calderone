@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.lista\_pagamenti property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 lista_pagamenti?: Pagamento[];

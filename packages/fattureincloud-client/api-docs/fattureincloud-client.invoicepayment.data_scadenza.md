@@ -4,7 +4,7 @@
 
 ## InvoicePayment.data\_scadenza property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 data_scadenza: string;

@@ -2,10 +2,48 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [envVarNotFoundInEnv](./utils.envvarnotfoundinenv.md)
 
-## envVarNotFoundInEnv variable
+## envVarNotFoundInEnv() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 envVarNotFoundInEnv: (s: string) => string
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+s
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+string
+

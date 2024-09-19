@@ -4,7 +4,7 @@
 
 ## ColumnInfo.pk property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 pk: 0 | 1;

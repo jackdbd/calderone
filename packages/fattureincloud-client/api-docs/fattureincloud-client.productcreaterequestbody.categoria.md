@@ -4,7 +4,7 @@
 
 ## ProductCreateRequestBody.categoria property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 categoria?: string;

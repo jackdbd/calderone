@@ -4,7 +4,7 @@
 
 ## CreateHttpJobConfig.location\_id property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 location_id: string;

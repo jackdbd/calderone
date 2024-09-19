@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.paese property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 paese?: string;

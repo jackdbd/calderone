@@ -4,7 +4,7 @@
 
 ## RandomScheduleConfig.hour\_max property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 hour_max?: number;

@@ -4,7 +4,7 @@
 
 ## OperationTextConfig.warnings property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 warnings: string[];

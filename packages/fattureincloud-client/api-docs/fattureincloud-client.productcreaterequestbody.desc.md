@@ -4,7 +4,7 @@
 
 ## ProductCreateRequestBody.desc property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 desc?: string;

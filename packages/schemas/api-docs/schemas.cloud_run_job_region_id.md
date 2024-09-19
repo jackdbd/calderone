@@ -4,8 +4,8 @@
 
 ## cloud\_run\_job\_region\_id variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
-region_id: Joi.StringSchema
+region_id: Joi.StringSchema<string>
 ```

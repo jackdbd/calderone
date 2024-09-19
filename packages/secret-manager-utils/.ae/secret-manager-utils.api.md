@@ -6,13 +6,14 @@
 
 import { google } from '@google-cloud/secret-manager/build/protos/protos';
 import type { SecretManagerServiceClient } from '@google-cloud/secret-manager';
+import { SecretManagerServiceClient as SecretManagerServiceClient_2 } from '@google-cloud/secret-manager/build/src/v1';
 
-// Warning: (ae-missing-release-tag) "accessSecretVersion" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "accessSecretVersion" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const accessSecretVersion: ({ project_id, secret_name, secret_manager, version }: AccessSecretVersionConfig) => Promise<string>;
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface AccessSecretVersionConfig {
@@ -26,12 +27,12 @@ export interface AccessSecretVersionConfig {
     version?: string;
 }
 
-// Warning: (ae-missing-release-tag) "addSecretVersion" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "addSecretVersion" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const addSecretVersion: ({ payload, project_id, secret_manager, secret_name }: AddSecretVersionConfig) => Promise<google.cloud.secretmanager.v1.ISecretVersion>;
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface AddSecretVersionConfig {
@@ -45,7 +46,15 @@ export interface AddSecretVersionConfig {
     secret_name: string;
 }
 
-// Warning: (ae-missing-release-tag) "createSecretAndFirstVersion" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Options" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public (undocumented)
+export interface ClientOptions {
+    // (undocumented)
+    env_key_json_string?: string;
+}
+
+// Warning: (ae-missing-release-tag) "createSecretAndFirstVersion" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const createSecretAndFirstVersion: ({ labels, project_id, secret_manager, secret_data, secret_id }: CreateSecretAndFirstVersionConfig) => Promise<{
@@ -53,7 +62,7 @@ export const createSecretAndFirstVersion: ({ labels, project_id, secret_manager,
     version: google.cloud.secretmanager.v1.ISecretVersion;
 }>;
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface CreateSecretAndFirstVersionConfig {
@@ -71,18 +80,18 @@ export interface CreateSecretAndFirstVersionConfig {
     secret_manager: SecretManagerServiceClient;
 }
 
-// Warning: (ae-missing-release-tag) "destroySecretVersionsMatchingFilter" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "destroySecretVersionsMatchingFilter" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const destroySecretVersionsMatchingFilter: ({ filter, project_id, secret_manager, secret_name }: DestroySecretVersionsMatchingFilterConfig) => Promise<{
     message: string;
     destroyed: {
-        name?: string | undefined;
-        etag?: string | undefined;
+        name?: string;
+        etag?: string;
     }[];
 }>;
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface DestroySecretVersionsMatchingFilterConfig {
@@ -96,18 +105,18 @@ export interface DestroySecretVersionsMatchingFilterConfig {
     secret_name: string;
 }
 
-// Warning: (ae-missing-release-tag) "disableSecretVersionsMatchingFilter" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "disableSecretVersionsMatchingFilter" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const disableSecretVersionsMatchingFilter: ({ filter, project_id, secret_manager, secret_name }: DisableSecretVersionsMatchingFilterConfig) => Promise<{
     message: string;
     disabled: {
-        name?: string | undefined;
-        etag?: string | undefined;
+        name?: string;
+        etag?: string;
     }[];
 }>;
 
-// Warning: (ae-missing-release-tag) "Config" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Config" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface DisableSecretVersionsMatchingFilterConfig {
@@ -121,13 +130,18 @@ export interface DisableSecretVersionsMatchingFilterConfig {
     secret_name: string;
 }
 
+// Warning: (ae-missing-release-tag) "secretManager" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+//
+// @public
+export const secretManager: (options?: ClientOptions) => SecretManagerServiceClient_2;
+
 // Warning: (ae-forgotten-export) The symbol "Config" needs to be exported by the entry point index.d.ts
-// Warning: (ae-missing-release-tag) "secretManagerStore" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "secretManagerStore" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const secretManagerStore: <T>({ secret_manager, secret_name, should_disable_older_enabled_versions }: Config) => Store<T>;
 
-// Warning: (ae-missing-release-tag) "Store" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Store" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface Store<T> {

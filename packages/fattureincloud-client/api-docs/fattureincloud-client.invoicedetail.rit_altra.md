@@ -4,7 +4,7 @@
 
 ## InvoiceDetail.rit\_altra property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 rit_altra: number;

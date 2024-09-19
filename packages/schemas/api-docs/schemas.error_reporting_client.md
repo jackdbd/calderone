@@ -4,7 +4,7 @@
 
 ## error\_reporting\_client variable
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 client: Joi.AnySchema<any>

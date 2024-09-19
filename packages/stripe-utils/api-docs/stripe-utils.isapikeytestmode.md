@@ -2,12 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/stripe-utils](./stripe-utils.md) &gt; [isApiKeyTestMode](./stripe-utils.isapikeytestmode.md)
 
-## isApiKeyTestMode variable
+## isApiKeyTestMode() function
 
 Checks whether the given string is an API key for a Stripe account in `test` mode.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 isApiKeyTestMode: (s: string) => boolean
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+s
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+boolean
+

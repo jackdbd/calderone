@@ -4,7 +4,7 @@
 
 ## ClientOptions.env\_key\_json\_string property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 env_key_json_string?: string;

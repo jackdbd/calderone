@@ -4,7 +4,7 @@
 
 ## InvoiceSummary.tipo property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 tipo: string;

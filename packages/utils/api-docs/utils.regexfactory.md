@@ -2,10 +2,50 @@
 
 [Home](./index.md) &gt; [@jackdbd/utils](./utils.md) &gt; [regexFactory](./utils.regexfactory.md)
 
-## regexFactory variable
+## regexFactory() function
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 regexFactory: (tag?: string) => RegExp
 ```
+
+## Parameters
+
+<table><thead><tr><th>
+
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+tag
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>
+**Returns:**
+
+RegExp
+

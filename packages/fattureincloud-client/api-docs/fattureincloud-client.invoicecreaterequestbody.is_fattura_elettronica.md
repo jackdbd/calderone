@@ -4,7 +4,7 @@
 
 ## InvoiceCreateRequestBody.is\_fattura\_elettronica property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 is_fattura_elettronica?: boolean;

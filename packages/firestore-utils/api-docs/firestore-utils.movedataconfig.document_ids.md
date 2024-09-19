@@ -4,7 +4,7 @@
 
 ## MoveDataConfig.document\_ids property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 document_ids: {

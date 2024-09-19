@@ -4,10 +4,10 @@
 
 ```ts
 
-import { CloudTasksClient } from '@google-cloud/tasks/build/src/v2';
+import { CloudTasksClient } from '@google-cloud/tasks/build/cjs/src/v2';
 import type { CloudTasksClient as CloudTasksClient_2 } from '@google-cloud/tasks';
 
-// Warning: (ae-missing-release-tag) "Options" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "Options" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface ClientOptions {
@@ -15,12 +15,12 @@ export interface ClientOptions {
     env_key_json_string?: string;
 }
 
-// Warning: (ae-missing-release-tag) "cloudTasks" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "cloudTasks" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const cloudTasks: (options?: ClientOptions) => CloudTasksClient;
 
-// Warning: (ae-missing-release-tag) "httpRequestToGCPService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "httpRequestToGCPService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const httpRequestToGCPService: (config: HttpRequestToGCPServiceConfig) => {
@@ -37,7 +37,7 @@ export const httpRequestToGCPService: (config: HttpRequestToGCPServiceConfig) =>
     url: string;
 };
 
-// Warning: (ae-missing-release-tag) "HttpRequestToGCPServiceConfig" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "HttpRequestToGCPServiceConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface HttpRequestToGCPServiceConfig {
@@ -51,7 +51,7 @@ export interface HttpRequestToGCPServiceConfig {
     url: string;
 }
 
-// Warning: (ae-missing-release-tag) "httpRequestToThirdPartyService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "httpRequestToThirdPartyService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export const httpRequestToThirdPartyService: (config: HttpRequestToThirdPartyServiceConfig) => {
@@ -65,7 +65,7 @@ export const httpRequestToThirdPartyService: (config: HttpRequestToThirdPartySer
     url: string;
 };
 
-// Warning: (ae-missing-release-tag) "HttpRequestToThirdPartyServiceConfig" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "HttpRequestToThirdPartyServiceConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface HttpRequestToThirdPartyServiceConfig {
@@ -79,7 +79,7 @@ export interface HttpRequestToThirdPartyServiceConfig {
     url: string;
 }
 
-// Warning: (ae-missing-release-tag) "taskToGCPService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "taskToGCPService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const taskToGCPService: (config: TaskToGCPServiceConfig) => {
@@ -108,7 +108,7 @@ export const taskToGCPService: (config: TaskToGCPServiceConfig) => {
     };
 };
 
-// Warning: (ae-missing-release-tag) "TaskToGCPServiceConfig" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "TaskToGCPServiceConfig" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface TaskToGCPServiceConfig {
@@ -136,7 +136,7 @@ export interface TaskToGCPServiceConfig {
     url: string;
 }
 
-// Warning: (ae-missing-release-tag) "TaskToThirdPartyService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "TaskToThirdPartyService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public (undocumented)
 export interface TaskToThirdPartyService {
@@ -164,7 +164,7 @@ export interface TaskToThirdPartyService {
     url: string;
 }
 
-// Warning: (ae-missing-release-tag) "taskToThirdPartyService" is exported by the package, but it is missing a release tag (@alpha, @beta, @public, or @internal)
+// Warning: (ae-missing-release-tag) "taskToThirdPartyService" is part of the package's API, but it is missing a release tag (@alpha, @beta, @public, or @internal)
 //
 // @public
 export const taskToThirdPartyService: (config: TaskToThirdPartyService) => {

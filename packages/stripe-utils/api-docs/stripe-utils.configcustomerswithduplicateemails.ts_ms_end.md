@@ -6,7 +6,7 @@
 
 Timestamp for when to end the search, in ms.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ts_ms_end: number;

@@ -4,7 +4,7 @@
 
 ## InvoiceDataValidation.autocompila\_anagrafica\_cliente property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 autocompila_anagrafica_cliente?: boolean;

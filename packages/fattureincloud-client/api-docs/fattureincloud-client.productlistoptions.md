@@ -4,7 +4,7 @@
 
 ## ProductListOptions interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ListOptions 
@@ -12,10 +12,101 @@ export interface ListOptions
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [categoria?](./fattureincloud-client.productlistoptions.categoria.md) |  | string | <i>(Optional)</i> |
-|  [cod?](./fattureincloud-client.productlistoptions.cod.md) |  | string | <i>(Optional)</i> |
-|  [nome?](./fattureincloud-client.productlistoptions.nome.md) |  | string | <i>(Optional)</i> |
-|  [page?](./fattureincloud-client.productlistoptions.page.md) |  | number | <i>(Optional)</i> |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[categoria?](./fattureincloud-client.productlistoptions.categoria.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[cod?](./fattureincloud-client.productlistoptions.cod.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[nome?](./fattureincloud-client.productlistoptions.nome.md)
+
+
+</td><td>
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[page?](./fattureincloud-client.productlistoptions.page.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

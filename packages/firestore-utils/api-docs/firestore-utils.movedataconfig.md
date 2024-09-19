@@ -5,7 +5,7 @@
 ## MoveDataConfig interface
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface MoveDataConfig 
@@ -13,8 +13,59 @@ export interface MoveDataConfig
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [document\_ids](./firestore-utils.movedataconfig.document_ids.md) |  | { from: string; to: string; }\[\] |  |
-|  [ref](./firestore-utils.movedataconfig.ref.md) |  | CollectionReference |  |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[document\_ids](./firestore-utils.movedataconfig.document_ids.md)
+
+
+</td><td>
+
+
+</td><td>
+
+{ from: string; to: string; }\[\]
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[ref](./firestore-utils.movedataconfig.ref.md)
+
+
+</td><td>
+
+
+</td><td>
+
+CollectionReference
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>
