@@ -16,21 +16,20 @@ jobs:
       max-parallel: 1
       matrix:
         os: [ubuntu-latest]
-        # Try testing all packages with:
-        # 1. Maintenance LTS
-        # 2. Active LTS
-        # 3. Current (i.e. the latest Node.js version available)
-        # https://nodejs.org/en/
+        # Test all packages using the following Node.js versions:
+        # 1. Active LTS
+        # 2. Current (i.e. the latest Node.js version available)
         # https://nodejs.org/en/about/releases/
-        # it seems Cloud Build complains with HTTP 429 if I trigger too many builds
+        # https://github.com/actions/setup-node?tab=readme-ov-file#supported-version-syntax
+        node: ['lts/iron', 'current']
+        # It seems Cloud Build complains with HTTP 429 if I trigger too many builds
         # Quota exceeded for quota metric 'Build and Operation Get requests'
-        node: ['16.17.0', 'current']
     steps:
       - name: 🛎️ Check out repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: ⚙️ Set up Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
