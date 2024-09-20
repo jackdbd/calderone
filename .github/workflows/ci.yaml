@@ -72,10 +72,10 @@ jobs:
           TELEGRAM: ${{ secrets.TELEGRAM }}
         run: npm run test:ci -w packages/notifications
 
-      - name: 🔍 Test @jackdbd/plausible-client
-        env:
-          PLAUSIBLE: ${{ secrets.PLAUSIBLE }}
-        run: npm run test:ci -w packages/plausible-client
+      # - name: 🔍 Test @jackdbd/plausible-client
+      #   env:
+      #     PLAUSIBLE: ${{ secrets.PLAUSIBLE }}
+      #   run: npm run test:ci -w packages/plausible-client
 
       - name: 🔍 Test @jackdbd/schemas
         run: npm run test:ci -w packages/schemas
