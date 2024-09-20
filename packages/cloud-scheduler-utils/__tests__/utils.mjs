@@ -1,19 +1,7 @@
-import fs from 'node:fs'
-import path from 'node:path'
 import { CloudSchedulerClient } from '@google-cloud/scheduler'
-import { isOnGithub } from '@jackdbd/checks/environment'
-import { monorepoRoot } from '../../utils/lib/path.js'
 
 export const secret = (env) => {
-  let json
-  if (isOnGithub(env)) {
-    // console.log('=== CODE IS RUNNING ON GITHUB ===')
-    json = env.SA_NOTIFIER
-  } else {
-    // console.log('=== CODE IS RUNNING ON MY LAPTOP ===')
-    const json_path = path.join(monorepoRoot(), 'secrets', 'sa-notifier.json')
-    json = fs.readFileSync(json_path).toString()
-  }
+  const json = env.SA_NOTIFIER
   return JSON.parse(json)
 }
 

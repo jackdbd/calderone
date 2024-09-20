@@ -50,7 +50,7 @@
           echo "- node-gyp $(node-gyp --version)"
           echo "- $(python --version)"
 
-          # export FOO=bar;
+          export SA_NOTIFIER=$(cat /run/secrets/prj-kitchen-sink/sa-notifier);
         '';
         DEBUG = "scripts/*,utils/*";
         POLLY_MODE = "record";
