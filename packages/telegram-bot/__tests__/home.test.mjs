@@ -1,21 +1,11 @@
-import fs from 'node:fs'
-import path from 'node:path'
 import { env } from 'node:process'
-import { isOnGithub } from '../../checks/lib/environment.js'
-import { monorepoRoot } from '../../utils/lib/path.js'
 import { testServer } from '../dist/main-test.js'
 
 describe('route /', () => {
   let server
   const timeout_ms = 10000
 
-  let json
-  if (isOnGithub(env)) {
-    json = env.TELEGRAM
-  } else {
-    const json_path = path.join(monorepoRoot(), 'secrets', 'telegram.json')
-    json = fs.readFileSync(json_path).toString()
-  }
+  const json = env.TELEGRAM
   const secret = JSON.parse(json)
   const { chat_id } = secret
   const message = { message_id: 123, text: '/dice', chat: chat_id }

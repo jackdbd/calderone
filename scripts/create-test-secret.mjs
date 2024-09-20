@@ -2,16 +2,15 @@
 
 import 'zx/globals'
 import { SecretManagerServiceClient } from '@google-cloud/secret-manager'
-import { jsonSecret, throwIfInvokedFromMonorepoRoot } from './utils.mjs'
+import { throwIfInvokedFromMonorepoRoot } from './utils.mjs'
 
 // Usage (from a package root):
 // ../../scripts/create-test-secret.mjs
 
 throwIfInvokedFromMonorepoRoot(process.env.PWD)
 
-const { client_email, private_key, project_id } = jsonSecret(
-  'sa-secret-manager-admin-test'
-)
+const json = process.env.SA_SECRET_MANAGER_ADMIN_TEST
+const { client_email, private_key, project_id } = JSON.parse(json)
 
 const secret_manager = new SecretManagerServiceClient({
   credentials: { client_email, private_key },

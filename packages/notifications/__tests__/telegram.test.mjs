@@ -1,8 +1,4 @@
-import fs from 'node:fs'
-import path from 'node:path'
 import { env } from 'node:process'
-import { isOnGithub } from '../../checks/lib/environment.js'
-import { monorepoRoot } from '../../utils/lib/path.js'
 import { send } from '../lib/telegram.js'
 
 describe('send', () => {
@@ -26,13 +22,7 @@ describe('send', () => {
   })
 
   it('delivers the message to the expected Telegram chat, when `chat_id` and `token` are valid Telegram Bot credentials', async () => {
-    let json
-    if (isOnGithub(env)) {
-      json = env.TELEGRAM
-    } else {
-      const json_path = path.join(monorepoRoot(), 'secrets', 'telegram.json')
-      json = fs.readFileSync(json_path).toString()
-    }
+    const json = env.TELEGRAM
     const secret = JSON.parse(json)
     const { chat_id, token } = secret
     const text = `Jest test launched at ${new Date().toISOString()} UTC`

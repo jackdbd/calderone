@@ -3,27 +3,13 @@ import { getTestServer } from '@google-cloud/functions-framework/testing'
 // https://github.com/GoogleCloudPlatform/functions-framework-nodejs/blob/master/src/testing.ts
 // we need to import the function, so functions-framework/testing can register it
 import * as _ from '../index.js'
-import { jsonStringSecret } from './utils.mjs'
 
 const FUNCTION_NAME = 'send-telegram-message'
 
 describe(`integration tests for ${FUNCTION_NAME}`, () => {
-  const TELEGRAM_original = process.env.TELEGRAM
-
   let server
   beforeAll(() => {
     server = getTestServer(FUNCTION_NAME)
-  })
-
-  beforeEach(() => {
-    process.env.TELEGRAM = jsonStringSecret({
-      environment_variable_name: 'TELEGRAM',
-      secret_filename: 'telegram.json'
-    })
-  })
-
-  afterEach(() => {
-    process.env.TELEGRAM = TELEGRAM_original
   })
 
   it('returns a HTTP 400 when request body has no `text`', async () => {

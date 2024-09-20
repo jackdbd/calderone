@@ -50,7 +50,11 @@
           echo "- node-gyp $(node-gyp --version)"
           echo "- $(python --version)"
 
+          export SA_FIRESTORE_USER_TEST=$(cat /run/secrets/prj-kitchen-sink/sa-firestore-user-test);
+          export SA_FIRESTORE_VIEWER_TEST=$(cat /run/secrets/prj-kitchen-sink/sa-firestore-viewer-test);
           export SA_NOTIFIER=$(cat /run/secrets/prj-kitchen-sink/sa-notifier);
+          export SA_SECRET_MANAGER_ADMIN_TEST=$(cat /run/secrets/prj-kitchen-sink/sa-secret-manager-admin-test);
+          export TELEGRAM=$(cat /run/secrets/telegram/personal_bot);
         '';
         DEBUG = "scripts/*,utils/*";
         POLLY_MODE = "record";
